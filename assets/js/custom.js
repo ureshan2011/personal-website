@@ -264,31 +264,57 @@ $(document).ready(function() {
 		},
 	});
 
-	//Contact form
-	$(function () {
-		var v = $("#contactform").validate({
-			submitHandler: function (form) {
-				$(form).ajaxSubmit({
-					target: "#result",
-					clearForm: true
-				});
-			}
-		});
-	});
+        //Contact form
+        $(function () {
+                $("#contactform").validate({
+                        submitHandler: function (form) {
+                                var $form = $(form);
+                                var formData = new FormData(form);
+                                fetch($form.attr('action'), {
+                                        method: 'POST',
+                                        body: formData,
+                                        headers: { 'Accept': 'application/json' }
+                                }).then(function (response) {
+                                        if (response.ok) {
+                                                $('#result').html('<p class="text-success">Thank you for reaching out! I will get back to you soon.</p>');
+                                                form.reset();
+                                        } else {
+                                                $('#result').html('<p class="text-danger">There was an error sending your message. Please try again later.</p>');
+                                        }
+                                }).catch(function () {
+                                        $('#result').html('<p class="text-danger">There was an error sending your message. Please try again later.</p>');
+                                });
+                                return false;
+                        }
+                });
+        });
 	//To clear message field on page refresh (you may clear other fields too, just give the 'id to input field' in html and mention it here, as below)
 	$('#contactform #message').val('');
 	
-	//Quote form
-	$(function () {
-		var v = $("#quoteform").validate({
-			submitHandler: function (form) {
-				$(form).ajaxSubmit({
-					target: "#quote-result",
-					clearForm: true
-				});
-			}
-		});
-	});
+        //Quote form
+        $(function () {
+                $("#quoteform").validate({
+                        submitHandler: function (form) {
+                                var $form = $(form);
+                                var formData = new FormData(form);
+                                fetch($form.attr('action'), {
+                                        method: 'POST',
+                                        body: formData,
+                                        headers: { 'Accept': 'application/json' }
+                                }).then(function (response) {
+                                        if (response.ok) {
+                                                $('#quote-result').html('<p class="text-success">Thank you for your submission! We will contact you shortly.</p>');
+                                                form.reset();
+                                        } else {
+                                                $('#quote-result').html('<p class="text-danger">There was an error sending your request. Please try again later.</p>');
+                                        }
+                                }).catch(function () {
+                                        $('#quote-result').html('<p class="text-danger">There was an error sending your request. Please try again later.</p>');
+                                });
+                                return false;
+                        }
+                });
+        });
 	//To clear message field on page refresh (you may clear other fields too, just give the 'id to input field' in html and mention it here, as below)
 	$('#quoteform #message').val('');
 	
