@@ -169,30 +169,32 @@ $(document).ready(function() {
 	$('.popup-image').magnificPopup({ type: 'image' });
 	$('.popup-gallery').magnificPopup({ type: 'image', mainClass: 'mfp-fade', removalDelay: 150, gallery: { enabled: true } });
 
-	// Unified Contact + Quote Form Submission (resolved conflict)
-	["contactform", "quoteform"].forEach(function(formId) {
-		$("#" + formId).validate({
-			submitHandler: function (form) {
-				var $form = $(form);
-				var formData = new FormData(form);
-				fetch($form.attr('action'), {
-					method: 'POST',
-					body: formData,
-					headers: { 'Accept': 'application/json' }
-				}).then(function (response) {
-					if (response.ok) {
-						$('#' + formId + '-result').html('<p class="text-success">Thank you! Your message has been sent.</p>');
-						form.reset();
-					} else {
-						$('#' + formId + '-result').html('<p class="text-danger">There was an error. Please try again later.</p>');
-					}
-				}).catch(function () {
-					$('#' + formId + '-result').html('<p class="text-danger">There was an error. Please try again later.</p>');
-				});
-				return false;
-			}
-		});
-	});
+        // Unified Contact + Quote Form Submission (simplified)
+        ["contactform", "quoteform"].forEach(function(formId) {
+                var $form = $("#" + formId);
+                if (!$form.length) return;
+
+                $form.on('submit', function(event) {
+                        event.preventDefault();
+
+                        var formData = new FormData(this);
+
+                        fetch($form.attr('action'), {
+                                method: 'POST',
+                                body: formData,
+                                headers: { 'Accept': 'application/json' }
+                        }).then(function(response) {
+                                if (response.ok) {
+                                        $('#' + formId + '-result').html('<p class="text-success">Thank you! Your message has been sent.</p>');
+                                        event.target.reset();
+                                } else {
+                                        $('#' + formId + '-result').html('<p class="text-danger">There was an error. Please try again later.</p>');
+                                }
+                        }).catch(function() {
+                                $('#' + formId + '-result').html('<p class="text-danger">There was an error. Please try again later.</p>');
+                        });
+                });
+        });
 
 	$('#contactform #message, #quoteform #message').val('');
 
