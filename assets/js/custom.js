@@ -266,28 +266,40 @@ $(document).ready(function() {
 
 	//Contact form
 	$(function () {
-		var v = $("#contactform").validate({
-			submitHandler: function (form) {
-				$(form).ajaxSubmit({
-					target: "#result",
-					clearForm: true
-				});
-			}
-		});
+                var v = $("#contactform").validate({
+                        submitHandler: function (form) {
+                                $(form).ajaxSubmit({
+                                        target: "#result",
+                                        clearForm: true,
+                                        success: function () {
+                                                $('#result').html('<p class="text-success">Thank you for reaching out! I will get back to you soon.</p>');
+                                        },
+                                        error: function () {
+                                                $('#result').html('<p class="text-danger">There was an error sending your message. Please try again later.</p>');
+                                        }
+                                });
+                        }
+                });
 	});
 	//To clear message field on page refresh (you may clear other fields too, just give the 'id to input field' in html and mention it here, as below)
 	$('#contactform #message').val('');
 	
 	//Quote form
 	$(function () {
-		var v = $("#quoteform").validate({
-			submitHandler: function (form) {
-				$(form).ajaxSubmit({
-					target: "#quote-result",
-					clearForm: true
-				});
-			}
-		});
+                var v = $("#quoteform").validate({
+                        submitHandler: function (form) {
+                                $(form).ajaxSubmit({
+                                        target: "#quote-result",
+                                        clearForm: true,
+                                        success: function () {
+                                                $('#quote-result').html('<p class="text-success">Thank you for your submission! We will contact you shortly.</p>');
+                                        },
+                                        error: function () {
+                                                $('#quote-result').html('<p class="text-danger">There was an error sending your request. Please try again later.</p>');
+                                        }
+                                });
+                        }
+                });
 	});
 	//To clear message field on page refresh (you may clear other fields too, just give the 'id to input field' in html and mention it here, as below)
 	$('#quoteform #message').val('');
