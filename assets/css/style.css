@@ -248,9 +248,9 @@ strong { font-size: 1.000em; line-height: 25px; font-weight: 600; }
 .dtr-border-right { border-right: 1px solid #ccc; }
 .dtr-border-bottom { border-bottom: 1px solid #ccc; }
 .dtr-border-left { border-left: 1px solid #ccc; }
-.dtr-border-top-2px { border-left: 2px solid #ccc; }
-.dtr-border-right-2px { border-left: 2px solid #ccc; }
-.dtr-border-bottom-2px { border-left: 2px solid #ccc; }
+.dtr-border-top-2px { border-top: 2px solid #ccc; }
+.dtr-border-right-2px { border-right: 2px solid #ccc; }
+.dtr-border-bottom-2px { border-bottom: 2px solid #ccc; }
 .dtr-border-left-2px { border-left: 2px solid #ccc; }
 .dtr-border-2px { border: 2px solid #ccc; }
 .dtr-border-top-none { border-top-width: 0; }

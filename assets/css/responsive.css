@@ -1,14 +1,17 @@
 @media (max-width: 1220px) {
+.dtr-hero-section-top-padding { padding-top: 160px; }
 }
 
 @media (max-width: 1024px) {
+.dtr-hero-section-top-padding { padding-top: 130px; }
+.dtr-testimonial-content { padding: 0 40px; }
 }
 
 @media (max-width: 992px) {
 .container { width: 100%; max-width: 100%; }
 #dtr-header-global, #dtr-header-global.header-fixed { display: none !important; }
 .dtr-responsive-header, .slicknav_menu, #dtr-menu-button { display: block !important; }
-/* layout */		
+/* layout */
 .dtr-sidebar { width: 100%; max-width: 100%; min-width: 100%; }
 .dtr-has-right-sidebar, .dtr-has-left-sidebar { width: 100%; display: flex; flex-direction: column; }
 .dtr-has-right-sidebar .dtr-main { padding-right: 0; }
@@ -17,9 +20,14 @@
 .dtr-social-list .dtr-social-title::after { display: none; }
 .dtr-social-list .dtr-social-button span { display: none; }
 .dtr-testimonial-image:before { display: none; }
+/* hero section: reduce the 200px top padding on tablet/mobile */
+.dtr-hero-section-top-padding { padding-top: 100px; }
 }
 
 @media (max-width: 767px) {
+/* responsive font sizes */
+.text-size-xxl { font-size: 42px; line-height: 48px; }
+.text-size-xl { font-size: 32px; line-height: 38px; }
 .dtr-social-list .dtr-social-title { display: block; padding-bottom: 10px; }
 .dtr-social-list .dtr-social-title::after { display: none; }
 .dtr-social-list .dtr-social-button span { display: none; }
@@ -39,6 +47,11 @@
 }
 
 @media (max-width:576px) {
+/* hero section */
+.dtr-hero-section-top-padding { padding-top: 80px; }
+/* responsive font sizes */
+.text-size-xxl { font-size: 32px; line-height: 38px; }
+.text-size-xl { font-size: 26px; line-height: 32px; }
 /* portfolio */
 .dtr-portfolio-grid-2col, .dtr-portfolio-grid-3col, .dtr-portfolio-grid-4col { margin: 0; }
 .dtr-portfolio-grid-2col .dtr-portfolio-item, .dtr-portfolio-grid-3col .dtr-portfolio-item, .dtr-portfolio-grid-4col .dtr-portfolio-item { width: 100%; padding: 0; }
@@ -58,12 +71,12 @@
 .dtr-sm-mr-5, .dtr-sm-mx-5 { margin-right: 5px !important }
 .dtr-sm-mb-5, .dtr-sm-my-5 { margin-bottom: 5px !important }
 .dtr-sm-ml-5, .dtr-sm-mx-5 { margin-left: 5px !important }
-.dtr-sm-m-10 { margin: 10px }
+.dtr-sm-m-10 { margin: 10px !important }
 .dtr-sm-mt-10, .dtr-sm-my-10 { margin-top: 10px !important }
 .dtr-sm-mr-10, .dtr-sm-mx-10 { margin-right: 10px !important }
 .dtr-sm-mb-10, .dtr-sm-my-10 { margin-bottom: 10px !important }
 .dtr-sm-ml-10, .dtr-sm-mx-10 { margin-left: 10px !important }
-.dtr-sm-m-15 { margin: 15px }
+.dtr-sm-m-15 { margin: 15px !important }
 .dtr-sm-mt-15, .dtr-sm-my-15 { margin-top: 15px !important }
 .dtr-sm-mr-15, .dtr-sm-mx-15 { margin-right: 15px !important }
 .dtr-sm-mb-15, .dtr-sm-my-15 { margin-bottom: 15px !important }
