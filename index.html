@@ -1,1128 +1,1385 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <title>Yasas Sri Wickramasinghe</title>
-    <meta name="author" content="yasas sri wickramasinghe">
-    <meta name="description" content="Yasas Sri Wickramasinghe's Personal Website">
-    <meta name="keywords" content="software engineer, personal, senior lecturer, portfolio, yasas sri">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- FAVICON FILES -->
-    <link href="assets/images/icons/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="144x144">
-    <link href="assets/images/icons/apple-touch-icon-120-precomposed.png" rel="apple-touch-icon" sizes="120x120">
-    <link href="assets/images/icons/apple-touch-icon-76-precomposed.png" rel="apple-touch-icon" sizes="76x76">
-    <link href="assets/images/icons/favicon.png" rel="shortcut icon">
+  <!-- ============================================================
+       SEO & IDENTITY
+       TODO: Update og:url, og:image, twitter:site with real values
+       ============================================================ -->
+  <title>Yasas Sri Wickramasinghe, PhD — XR Researcher &amp; Educator, New Zealand</title>
+  <meta name="description" content="Postdoctoral Research Fellow at HIT Lab NZ, University of Canterbury. Senior Lecturer, Masters in Business Informatics, Yoobee Colleges. Niantic Developer Fund 2025. Christchurch, New Zealand.">
+  <meta name="author" content="Yasas Sri Wickramasinghe">
 
-    <!-- CSS FILES -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/iconfonts.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/color.css">
+  <meta property="og:title" content="Yasas Sri Wickramasinghe, PhD">
+  <meta property="og:description" content="Postdoctoral researcher at HIT Lab NZ collaborating with Sony Interactive Entertainment. Niantic Developer Fund 2025. Senior Lecturer at Yoobee Colleges. Christchurch, NZ.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yasas.nz"><!-- TODO: real domain -->
+  <meta property="og:image" content="https://yasas.nz/og.jpg"><!-- TODO: 1200×630px OG image -->
+  <meta property="og:locale" content="en_NZ">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yasas Sri Wickramasinghe, PhD">
+  <meta name="twitter:description" content="XR researcher and educator. HIT Lab NZ postdoc. Niantic Developer Fund 2025.">
+  <meta name="twitter:site" content="@yasasw"><!-- TODO: real handle -->
+  <meta name="twitter:image" content="https://yasas.nz/og.jpg">
 
-        function gtag() {
-            dataLayer.push(arguments);
+  <!-- Favicons (kept from existing site) -->
+  <link rel="shortcut icon" href="assets/images/icons/favicon.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/icons/apple-touch-icon-144-precomposed.png">
+
+  <!-- ============================================================
+       JSON-LD PERSON SCHEMA
+       TODO: Replace sameAs URLs with real LinkedIn, Scholar, ORCID
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yasas Sri Wickramasinghe",
+    "honorificPrefix": "Dr.",
+    "url": "https://yasas.nz",
+    "image": "https://yasas.nz/assets/images/personal_img.png",
+    "jobTitle": "Postdoctoral Research Fellow",
+    "affiliation": [
+      {
+        "@type": "Organization",
+        "name": "HIT Lab NZ",
+        "url": "https://www.hitlabnz.org",
+        "parentOrganization": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Canterbury"
         }
+      },
+      {
+        "@type": "Organization",
+        "name": "Yoobee Colleges",
+        "url": "https://www.yoobee.ac.nz"
+      }
+    ],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Canterbury"
+    },
+    "knowsAbout": [
+      "Augmented Reality", "Virtual Reality", "Extended Reality",
+      "Human-Computer Interaction", "AI in Education",
+      "Immersive Learning", "Location-based AR", "Cybersickness"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Christchurch",
+      "addressCountry": "NZ"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/yasas-wickramasinghe",
+      "https://scholar.google.com/citations?user=PLACEHOLDER",
+      "https://orcid.org/0000-0000-0000-0000",
+      "https://github.com/ureshan2011"
+    ]
+  }
+  </script>
 
-        gtag('js', new Date());
+  <!-- ============================================================
+       FONTS
+       IBM Plex Mono for monospace accents only; body uses the
+       system sans-serif stack (zero extra weight on iOS/macOS).
+       Remove this link to save ~22 KB — fallbacks are fine.
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-        gtag('config', 'G-N2BH0F6SNE');
-    </script>
-    
-    <!-- Pinterest Integration -->
-    <meta name="p:domain_verify" content="d090da00df33cae44689ce85c50ea6e0"/>
+  <!-- ============================================================
+       ANALYTICS PLACEHOLDER
+       TODO: Swap the comment tags around your preferred snippet.
+       Plausible: <script defer data-domain="yasas.nz" src="https://plausible.io/js/plausible.js"></script>
+       Umami:     <script async src="..." data-website-id="..."></script>
+       ============================================================ -->
+  <!-- analytics goes here -->
 
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — edit here to retheme the whole site
+       ============================================================ */
+    :root {
+      /* Palette — light */
+      --bg:       #fafaf8;
+      --raised:   #f2f2ef;
+      --text:     #181816;
+      --muted:    #6b6b65;
+      --subtle:   #9e9e96;
+      --accent:   #1d52d8;
+      --accent-h: #1640b4;
+      --border:   #e4e4df;
+
+      /* Type */
+      --sans: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, 'Courier New', monospace;
+
+      /* Layout */
+      --w:  680px;      /* max content column width */
+      --px: 1.5rem;     /* page horizontal padding */
+      --t:  180ms ease; /* default transition */
+    }
+
+    [data-theme="dark"] {
+      --bg:       #111110;
+      --raised:   #1d1d1b;
+      --text:     #eaeae4;
+      --muted:    #8a8a82;
+      --subtle:   #575750;
+      --accent:   #6ba5ff;
+      --accent-h: #89baff;
+      --border:   #2c2c28;
+    }
+
+    /* ============================================================
+       RESET
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background var(--t), color var(--t);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color var(--t);
+    }
+    a:hover { color: var(--accent-h); }
+
+    /* Visible focus ring for keyboard navigation */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* Sole animation: fade up on first paint */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade { animation: fadeUp 0.55s ease both; }
+
+    strong { font-weight: 600; }
+
+    /* ============================================================
+       PAGE SHELL
+       ============================================================ */
+    .wrap {
+      max-width: var(--w);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    section { padding: 4.5rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    /* ============================================================
+       SHARED TYPOGRAPHY
+       ============================================================ */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--subtle);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.13;
+      letter-spacing: -0.025em;
+      color: var(--text);
+    }
+
+    /* Section heading — used with .eyebrow above it */
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 650;
+      letter-spacing: -0.018em;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+    }
+
+    h3 { font-size: 1rem; font-weight: 600; color: var(--text); }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    #nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      /* Frosted glass; falls back gracefully where unsupported */
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: background var(--t), border-color var(--t);
+    }
+
+    .nav-row {
+      max-width: var(--w);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .nav-id {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--t);
+      flex-shrink: 0;
+    }
+    .nav-id:hover { color: var(--text); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.83rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.35rem 0.55rem;
+      border-radius: 4px;
+      transition: color var(--t), background var(--t);
+    }
+    .nav-links a:hover { color: var(--text); background: var(--raised); }
+
+    /* Theme toggle */
+    .toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      transition: color var(--t), background var(--t);
+    }
+    .toggle:hover { color: var(--text); background: var(--raised); }
+    .toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.75; }
+
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="dark"]  .icon-sun  { display: none; }
+
+    /* Collapse text links on narrow screens; keep toggle visible */
+    @media (max-width: 480px) {
+      .nav-links li:not(.nav-toggle-li) { display: none; }
+    }
+
+    /* ============================================================
+       HERO — #hero
+       ============================================================ */
+    #hero { padding: 5rem 0 4.5rem; }
+
+    #hero h1 { margin: 1.25rem 0 1.1rem; }
+
+    .hero-sub {
+      font-size: 1.075rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.68;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-loc {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--subtle);
+      margin-bottom: 2.1rem;
+    }
+
+    .ctas { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.58rem 1.2rem;
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: background var(--t), color var(--t), border-color var(--t);
+    }
+
+    .btn-dark {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+    .btn-dark:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--muted); }
+
+    /* ============================================================
+       NOW — #now
+       ============================================================ */
+    .now-list { list-style: none; display: flex; flex-direction: column; }
+
+    .now-item {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 1.25rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .now-item:first-child { border-top: 1px solid var(--border); }
+
+    .now-yr {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--subtle);
+      padding-top: 0.15em;
+    }
+
+    .now-text { font-size: 0.95rem; color: var(--text); line-height: 1.62; }
+    .now-text a { color: inherit; font-weight: 500; }
+    .now-text a:hover { color: var(--accent); }
+
+    /* ============================================================
+       WHAT I DO — #do
+       ============================================================ */
+    .offerings { display: flex; flex-direction: column; }
+
+    .offering {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .offering:first-child { border-top: 1px solid var(--border); }
+
+    .offering-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.875rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .offering p {
+      font-size: 0.925rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.67;
+    }
+
+    .offering-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .offering-link:hover { text-decoration: underline; }
+
+    /* ============================================================
+       SELECTED WORK — #work
+       ============================================================ */
+    .work-list { list-style: none; display: flex; flex-direction: column; }
+
+    .work-card {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      align-items: start;
+    }
+    .work-card:first-child { border-top: 1px solid var(--border); }
+    .work-card:hover .work-title { color: var(--accent); }
+
+    .work-thumb {
+      width: 72px;
+      height: 48px;
+      background: var(--raised);
+      border-radius: 4px;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtle);
+    }
+    .work-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .work-thumb svg { width: 22px; height: 22px; opacity: 0.38; }
+
+    .work-sup {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.28rem;
+      flex-wrap: wrap;
+    }
+
+    .work-yr {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--subtle);
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      color: var(--muted);
+      background: var(--raised);
+      padding: 0.1em 0.45em;
+      border-radius: 3px;
+    }
+
+    .work-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.22rem;
+      transition: color var(--t);
+    }
+    .work-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+    /* ============================================================
+       WRITING — #writing
+       ============================================================ */
+    .writing-list { list-style: none; display: flex; flex-direction: column; }
+
+    .writing-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 1.5rem;
+      row-gap: 0.18rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+    }
+    .writing-item:first-child { border-top: 1px solid var(--border); }
+    .writing-item:hover .wt { color: var(--accent); }
+
+    .wt {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color var(--t);
+    }
+
+    .wd {
+      grid-column: 1;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .wdate {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--subtle);
+      white-space: nowrap;
+      padding-top: 0.18em;
+    }
+
+    .sec-footer { margin-top: 1.5rem; }
+    .sec-footer a { font-size: 0.875rem; font-weight: 500; }
+
+    /* ============================================================
+       PUBLICATIONS — #research
+       ============================================================ */
+    .pub-count {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--subtle);
+      margin-bottom: 1.75rem;
+    }
+
+    .pub-list { list-style: none; display: flex; flex-direction: column; }
+
+    .pub {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub:first-child { border-top: 1px solid var(--border); }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 0.3rem;
+    }
+
+    .pub-authors { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.45rem; }
+
+    .pub-links { display: flex; gap: 0.75rem; }
+
+    .pub-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .pub-link:hover { text-decoration: underline; }
+
+    /* ============================================================
+       SPEAKING & MEDIA — #speaking
+       ============================================================ */
+    .placeholder-block {
+      border: 1px dashed var(--border);
+      border-radius: 5px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .placeholder-block p {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--subtle);
+    }
+
+    /* ============================================================
+       ABOUT — #about
+       ============================================================ */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 520px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .about-photo-col { order: -1; }
+    }
+
+    .about-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 5px;
+      overflow: hidden;
+      background: var(--raised);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Shown only when no real photo is wired up */
+    .photo-ph {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--subtle);
+    }
+
+    .about-body p { font-size: 0.95rem; color: var(--muted); line-height: 1.72; }
+    .about-body p + p { margin-top: 0.875rem; }
+
+    .affs { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+
+    .aff { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.875rem; }
+    .aff-role { font-family: var(--mono); font-size: 0.7rem; color: var(--subtle); white-space: nowrap; }
+    .aff-org  { color: var(--muted); }
+
+    /* ============================================================
+       CONTACT — #contact
+       ============================================================ */
+    .contact-lead {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.68;
+      margin-bottom: 2rem;
+    }
+
+    .inq-list { list-style: none; display: flex; flex-direction: column; margin-bottom: 2.5rem; }
+
+    .inq {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .inq:first-child { border-top: 1px solid var(--border); }
+
+    .inq-type { font-size: 0.925rem; font-weight: 500; }
+    .inq-action { font-family: var(--mono); font-size: 0.75rem; white-space: nowrap; }
+
+    /* Newsletter embed box */
+    .newsletter {
+      background: var(--raised);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.75rem;
+    }
+    .newsletter h3 { margin-bottom: 0.4rem; }
+    .newsletter p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.58;
+      margin-bottom: 1.1rem;
+    }
+
+    /* TODO: Replace .nl-form with real Substack/Buttondown embed */
+    .nl-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .nl-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.55rem 0.875rem;
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      transition: border-color var(--t);
+    }
+    .nl-input:focus { outline: none; border-color: var(--accent); }
+    .nl-input::placeholder { color: var(--subtle); }
+
+    .nl-btn {
+      padding: 0.55rem 1.1rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 5px;
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background var(--t);
+    }
+    .nl-btn:hover { background: var(--accent); }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+
+    .footer-row {
+      max-width: var(--w);
+      margin: 0 auto;
+      padding: 0 var(--px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--subtle);
+      line-height: 1.7;
+    }
+
+    .socials { display: flex; gap: 1rem; list-style: none; flex-wrap: wrap; }
+    .socials a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--t);
+    }
+    .socials a:hover { color: var(--text); }
+
+    /* Screen-reader-only utility */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
+
 <body>
-<div id="dtr-wrapper" class="clearfix">
 
-    <!-- preloader starts -->
-    <div class="dtr-preloader">
-        <div class="dtr-preloader-inner">
-            <div class="dtr-preloader-img"></div>
-        </div>
+<!-- ============================================================
+     NAVIGATION
+     yasas.nz identifier left; anchors + toggle right.
+     On screens ≤480px, text links collapse but toggle stays.
+     ============================================================ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-row">
+    <a href="#hero" class="nav-id">yasas.nz</a>
+    <ul class="nav-links">
+      <li><a href="#now">Now</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="nav-toggle-li">
+        <button class="toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <!-- Sun — shown in dark mode -->
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2"     x2="12" y2="4"/>
+            <line x1="12" y1="20"    x2="12" y2="22"/>
+            <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="2"  y1="12" x2="4"  y2="12"/>
+            <line x1="20" y1="12" x2="22" y2="12"/>
+            <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
+            <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon — shown in light mode -->
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     Positioning leads with proof (Sony, Niantic), not category.
+     ============================================================ -->
+<section id="hero">
+  <div class="wrap fade">
+    <p class="eyebrow">Researcher · Educator · Builder</p>
+    <h1>Yasas Sri<br>Wickramasinghe</h1>
+    <p class="hero-sub">
+      Postdoc at <strong>HIT Lab NZ</strong>, running immersion research with
+      <strong>Sony Interactive Entertainment</strong>. Senior Lecturer,
+      Masters in Business Informatics, <strong>Yoobee Colleges</strong>.
+      <span style="white-space:nowrap"><strong>Niantic Developer Fund</strong> recipient, 2025.</span>
+    </p>
+    <p class="hero-loc">— Christchurch, New Zealand · 9 peer-reviewed publications</p>
+    <div class="ctas">
+      <a href="#contact" class="btn btn-dark">Subscribe to newsletter</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
     </div>
-    <!-- preloader ends -->
+  </div>
+</section>
 
-    <!-- Small Devices Header 
-============================================= -->
-    <div class="dtr-responsive-header fixed-top">
-        <div class="container">
 
-            <!-- small devices logo -->
-            <a href="index.html"><img src="assets/images/logo-dark.png" alt="logo"></a>
-            <!-- small devices logo ends -->
+<!-- ============================================================
+     NOW
+     Keep this section current — it signals an active presence.
+     Edit the .now-text spans; update .now-yr to match reality.
+     ============================================================ -->
+<section id="now">
+  <div class="wrap">
+    <p class="eyebrow">Now</p>
+    <h2>What I'm working on</h2>
+    <ul class="now-list">
 
-            <!-- menu button -->
-            <button id="dtr-menu-button" class="dtr-hamburger" type="button"><span
-                    class="dtr-hamburger-lines-wrapper"><span class="dtr-hamburger-lines"></span></span></button>
+      <li class="now-item">
+        <span class="now-yr">2025</span>
+        <span class="now-text">
+          Building <strong>YooBees</strong> — student management, live attendance, and a
+          Socratic AI tutor. Live with my Masters cohort at Yoobee Colleges.
+          I'm the founder and sole engineer.
+        </span>
+      </li>
+
+      <li class="now-item">
+        <span class="now-yr">2025</span>
+        <span class="now-text">
+          Running a presence and cybersickness study in collaboration with
+          <strong>Sony Interactive Entertainment</strong> — four display conditions,
+          measuring immersion and discomfort at HIT Lab NZ.
+        </span>
+      </li>
+
+      <li class="now-item">
+        <span class="now-yr">2025</span>
+        <span class="now-text">
+          <strong>Niantic Developer Fund</strong> recipient. Designing and prototyping
+          location-based multiplayer AR experiences; early playtesting underway.
+        </span>
+      </li>
+
+      <li class="now-item">
+        <span class="now-yr">2025</span>
+        <span class="now-text">
+          Writing about Socratic AI tutors and what genuine AI-enhanced pedagogy
+          looks like in practice — beyond chatbots bolted onto an LMS.
+        </span>
+      </li>
+
+      <li class="now-item">
+        <span class="now-yr">Open</span>
+        <span class="now-text">
+          Open to <strong>speaking</strong>, select <strong>consulting</strong>, and
+          <strong>advisory</strong> engagements.
+          <a href="#contact">→ reach out</a>
+        </span>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHAT I DO
+     Framed as how I work with people, not a services menu.
+     TODO: Add real venue names to Speaking once available.
+     ============================================================ -->
+<section id="do">
+  <div class="wrap">
+    <p class="eyebrow">What I do</p>
+    <h2>How I work with people</h2>
+    <div class="offerings">
+
+      <div class="offering">
+        <div class="offering-head">
+          <span class="tag">Speaking</span>
+          <h3>Keynotes &amp; talks</h3>
         </div>
-        <div class="dtr-responsive-header-menu"></div>
-    </div>
-    <!-- Small Devices Header ends 
-============================================= -->
+        <p>
+          I speak on AI in higher education, XR research, and the practical realities of
+          shipping education technology inside real institutions. I bring peer-reviewed
+          research and working code to the same stage. Available internationally.
+        </p>
+        <!-- TODO: Add a short venue list once you have 2–3 real engagements -->
+        <a href="mailto:hello@yasas.nz?subject=Speaking%20invitation" class="offering-link">Invite me to speak →</a>
+      </div>
 
-    <!-- Header 
-============================================= -->
-    <header id="dtr-header-global" class="fixed-top">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
-
-                <!-- header left starts -->
-                <div class="dtr-header-left">
-
-                    <!-- logo -->
-                    <a class="logo-default dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png"
-                                                                              alt="logo" width="200"></a>
-
-                    <!-- logo on scroll -->
-                    <a class="logo-alt dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png" alt="logo"
-                                                                          width="108"></a>
-                    <!-- logo on scroll ends -->
-
-                </div>
-                <!-- header left ends -->
-
-                <!-- menu starts-->
-                <div class="dtr-header-right">
-                    <div class="main-navigation dtr-menu-dark">
-                        <ul class="sf-menu dtr-scrollspy dtr-nav dark-nav-on-load dark-nav-on-scroll">
-                            <li><a class="nav-link" href="#home">Home</a></li>
-                            <li><a class="nav-link" href="#about">About</a></li>
-                            <li><a class="nav-link" href="#services">Services</a></li>
-                            <li><a class="nav-link" href="#portfolio">Works</a></li>
-                            <li><a class="nav-link" href="#blog">Blog</a></li>
-                            <li><a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- menu ends -->
-
-            </div>
+      <div class="offering">
+        <div class="offering-head">
+          <span class="tag">Workshops</span>
+          <h3>Workshops &amp; consulting</h3>
         </div>
-    </header>
-    <!-- header ends
-================================================== -->
-
-    <!-- == main content area starts == -->
-    <div id="dtr-main-content">
-
-        <!-- hero section starts
-================================================== -->
-        <section id="home" class="dtr-section dtr-hero-section-top-padding dtr-pb-100">
-            <div class="container">
-
-                <!--===== row 1 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-6">
-                        <!-- intro text -->
-                        <p class="text-size-xxl font-weight-300 color-dark">Hello,</p>
-                        <p class="text-size-xxl font-weight-300 color-dark">I am <span class="font-weight-500">Yasas Sri Wickramasinghe</span>
-                        </p>
-                        <div class="spacer-20"></div>
-                        <!-- animated text starts -->
-                        <h3><span class="dtr-animated-headline push"> <span class="dtr-words-wrapper"> 
-                            
-                            <!-- first visible word --> 
-                            <b class="is-visible"><span class="color-blue">Senior Lecturer at University of Moratuwa</span></b>
-                            <!-- first visible word ends -->
-
-                            <!-- second word --> 
-                            <b class="is-hidden"><span class="color-blue">Former Associate Technical Lead</span></b>
-                            <!-- second word ends -->
-
-                            <!-- third word -->
-                            <b class="is-hidden"><span class="color-blue">PhD in Augmented Reality</span></b>
-                            <!-- second word ends -->
-                            
-                            </span> </span></h3>
-                        <!-- animated text ends -->
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-2 dtr-rounded-img"><img src="assets/images/photography_img1.jpg"
-                                                                      alt="yasas sri wickramasinghe photo"></div>
-                    <!-- column 2 ends -->
-                    
-
-                    <!-- column 3 starts -->
-                    <div class="col-12 col-md-4 small-device-space">
-
-                        <!--=== img slider - 3col starts ===-->
-                        <div class="dtr-slick-slider dtr-img-slider-1col dtr-rounded-img">
-                            <!-- img 1 -->
-                            <div><img src="assets/images/photography_img4.jpg" alt="image"></div>
-                            <!-- img 2 -->
-                            <div><img src="assets/images/photography_img7.jpg" alt="image"></div>
-                            <!-- img 3 -->
-                            <div><img src="assets/images/photography_img6.jpg" alt="image"></div>
-                            <!-- img 4 -->
-                            <div><img src="assets/images/photography_img9.jpg" alt="image"></div>
-                            <!-- img 5 -->
-                            <div><img src="assets/images/photography_img8.jpg" alt="image"></div>
-                        </div>
-                        <!--=== img slider - 3col ends ===-->
-
-                    </div>
-                    <!-- column 3 ends -->
-
-                </div>
-                <!--===== row 1 ends =====-->
-                <!--===== row 2 starts =====-->
-                <div class="row dtr-mt-30">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-10">
-
-                        <!-- text -->
-                        <p class="text-size-md">I'm Passionate about <span class="font-weight-500 color-dark">new technologies</span>,
-                            Inspiring people and Motivating teams as a leader to achieve goals. I believe that, If we
-                            can <span class="font-weight-500 color-dark">change the way we see the world</span>, we can
-                            <span class="font-weight-500 color-dark">change the world we see</span>.</p>
-
-                        <!-- social starts -->
-                        <ul class="dtr-social dtr-social-list dtr-styled-social text-left dtr-mt-30">
-                            <li class="dtr-social-title font-weight-500 color-dark">Follow Me on</li> 
-                            <li><a href="https://www.instagram.com/yasassri.me" class="dtr-social-button dtr-instagram"
-                                   target="_blank" title="instagram"><span>Follow on Instagram</span></a></li>
-                            <li><a href="https://www.facebook.com/yasas.s.wickramasinghe"
-                                   class="dtr-social-button dtr-facebook" target="_blank" title="facebook"><span>Add On Facebook</span></a>
-                            </li>
-                            <li><a href="https://www.linkedin.com/in/yasassri" class="dtr-social-button dtr-linkedin"
-                                   target="_blank" title="linkedin"><span>View My Profile</span></a></li>
-                        </ul>
-                        <!-- social ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-2 dtr-rounded-img small-device-space"><img
-                            src="assets/images/experience-img.jpg" alt="image"></div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
-            </div>
-        </section>
-        <!-- hero section ends
-================================================== -->
-
-        <!-- about section starts
-================================================== -->
-        <section id="about" class="dtr-section dtr-pt-100 dtr-pb-80 bg-light-blue">
-            <div class="container">
-
-                <!--===== row 1 starts =====-->
-                <div class="row d-flex align-items-center">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-6 small-device-space">
-                        <div class="dtr-pr-30"><img src="assets/images/personal_img.png" alt="image"></div>
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-6">
-
-                        <!-- heading starts -->
-                        <div class="dtr-styled-heading">
-                            <h1>About Yasas Sri</h1>
-                            <p>Associate Technical Lead | PhD in Augmented Reality | Senior Lecturer</p>
-                        </div>
-                        <!-- heading ends -->
-
-                        <!-- text -->
-                        <p class="font-weight-500 color-dark">My Vision</p>
-                        <p class="dtr-mt-20">I want to inspire student communities as much as possible with all my skills and capabilities. I dream of seeing a purpose-driven student community globally instead of everyone going with the flow. Because I believe that, If we can change the way we see the world, we can change the world we see.</p>
-                        <div class="row dtr-mt-20">
-                            <div class="col-12 col-md-6">
-                                <table class="table dtr-border-table">
-                                    <tbody>
-                                    <tr>
-                                        <th>Name :</th>
-                                        <td>Yasas Sri</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Instagram :</th>
-                                        <td>@yasassri.me</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email :</th>
-                                        <td>yasassriofficial@gmail.com</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <table class="table dtr-border-table">
-                                    <tbody>
-                                    <tr>
-                                        <th>Age :</th>
-                                        <td>33 Years</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Twitter :</th>
-                                        <td>@sri_yasas</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Location :</th>
-                                        <td>Sri Lanka</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- link starts -->
-                        <a href="https://www.linkedin.com/in/yasassri" class="dtr-btn btn-blue dtr-mt-30"
-                           target="_blank">View LinkedIn <i class="icon-chevron-compact-right"></i></a>
-                        <a href="assets/files/cv_yasas.pdf" class="dtr-btn btn-blue dtr-mt-30"
-                           target="_blank">View Resume<i class="icon-chevron-compact-right"></i></a>
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 1 ends =====-->
-
-                <!-- heading starts -->
-
-                <div class="dtr-styled-heading heading-left dtr-mt-100">
-                    <h2>My Skills</h2>
-                    <p>Industry Experience as a Full Stack Developer, Specialized in Java</p>
-                </div>
-
-                <!-- heading ends -->
-
-                <!--===== row 2 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-javascript"></i>JavaScript</span><span
-                                class="dtr-progress-value">90%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 90%;"
-                                 aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-angular"></i>Angular</span><span class="dtr-progress-value">93%</span>
-                        </p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 93%;"
-                                 aria-valuenow="93" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
-                <!--===== row 2 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span
-                                class="dtr-progress-title">Leadership</span><span class="dtr-progress-value">90%</span>
-                        </p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 90%;"
-                                 aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title">Analytics</span><span
-                                class="dtr-progress-value">96%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 96%;"
-                                 aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
-                <!--===== row 2 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-html5"></i>Web Services</span><span
-                                class="dtr-progress-value">95%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 95%;"
-                                 aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-react"></i>React</span><span class="dtr-progress-value">82%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 82%;"
-                                 aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
-            </div>
-        </section>
-        <!-- about section ends
-================================================== -->
-
-        <!-- services section starts
-================================================== -->
-        <section id="services" class="dtr-section dtr-py-100">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-center">
-                    <h2>What I Offer</h2>
-                    <p>What I think I'm good at...</p>
-                </div>
-                <!-- heading ends -->
-
-                <div class="row">
-
-                    <!-- box 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">01</p>
-                            <img src="assets/images/icon-1.png" alt="image">
-                            <h4 class="dtr-service-heading">Lectures</h4>
-                            <p>Lecturing on Programming, Database Management Systems, Computer Architecture, Enterprise
-                                Application Development & more.</p>
-                        </div>
-                    </div>
-                    <!-- box 1 ends -->
-
-                    <!-- box 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">02</p>
-                            <img src="assets/images/icon-2.png" alt="image">
-                            <h4 class="dtr-service-heading">Tech Talks</h4>
-                            <p>Specialized in Virtual Reality & Augmented Reality from University of London. Contact for
-                                a Tech Talks or hands-on sessions related to AR, VR or MR fields. </p>
-                        </div>
-                    </div>
-                    <!-- box 2 ends -->
-
-                    <!-- box 3 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">03</p>
-                            <img src="assets/images/icon-1.png" alt="image">
-                            <h4 class="dtr-service-heading">Project Mentoring</h4>
-                            <p>Project mentoring with 5+ years of industry experiences and as an Associate Technical
-                                Lead working at a reputed company in Sri Lanka.</p>
-                        </div>
-                    </div>
-                    <!-- box 3 ends -->
-
-                    <!-- box 4 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">04</p>
-                            <img src="assets/images/icon-5.png" alt="image">
-                            <h4 class="dtr-service-heading">Academic Counseling</h4>
-                            <p>Need a help on planning your career goals, achieving your academic goals or get more
-                                insights about IT industry?</p>
-                        </div>
-                    </div>
-                    <!-- box 4 ends -->
-
-                    <!-- box 5 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">05</p>
-                            <img src="assets/images/icon-4.png" alt="image">
-                            <h4 class="dtr-service-heading">Technical Analysis</h4>
-                            <p>I can support you on picking the best tech stack for your startup product or for your
-                                next business idea.</p>
-                        </div>
-                    </div>
-                    <!-- box 5 ends -->
-
-                    <!-- box 6 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">06</p>
-                            <img src="assets/images/icon-6.png" alt="image">
-                            <h4 class="dtr-service-heading">Networ-KING</h4>
-                            <p>Need to connect with an Industry Expert? Technical Guru or a Academic Super Star? I can
-                                help you to connect with them.</p>
-                        </div>
-                    </div>
-                    <!-- box 6 ends -->
-
-                </div>
-            </div>
-        </section>
-
-        <!-- services section ends
-================================================== -->
-
-        <!-- testimonial section starts
-================================================== -->
-        <!--        <section class="dtr-section overflow-hidden dtr-py-100 bg-light-blue">-->
-        <!--            <div class="container"> -->
-        <!--                -->
-        <!--                &lt;!&ndash; heading starts &ndash;&gt;-->
-        <!--                <div class="dtr-styled-heading heading-center">-->
-        <!--                    <h2>Testimonial</h2>-->
-        <!--                    <p>Subheading or information goes here</p>-->
-        <!--                </div>-->
-        <!--                &lt;!&ndash; heading ends &ndash;&gt; -->
-        <!--                -->
-        <!--                &lt;!&ndash;===== row 1 starts =====&ndash;&gt;-->
-        <!--                <div class="row">-->
-        <!--                    <div class="col-12"> -->
-        <!--                        -->
-        <!--                        &lt;!&ndash;===== testimonial slider starts =====&ndash;&gt;-->
-        <!--                        <div class="dtr-slick-slider dtr-slider-side-arrows dtr-testimonial-style-left"> -->
-        <!--                            -->
-        <!--                            &lt;!&ndash;== slide 1 starts ==&ndash;&gt;-->
-        <!--                            <div class="dtr-testimonial clearfix">-->
-        <!--                                <div class="dtr-testimonial-image color-blue"> <img src="assets/images/testimonial-user1.jpg" alt="image"> </div>-->
-        <!--                                <div class="dtr-testimonial-content-wrapper">-->
-        <!--                                    <div class="dtr-testimonial-content">“Extremely professional, unique and enjoyable. The effort taken to ensure sed quia non numquam eius modi tempora incidunt ut labore voluptat relevance to our requirements ensured the optimum outcome.” </div>-->
-        <!--                                    <div class="dtr-client-info">-->
-        <!--                                        <h5 class="dtr-client-name">Hans Witherspoon</h5>-->
-        <!--                                        <span class="dtr-client-job">ACME Inc.</span></div>-->
-        <!--                                    <div class="dtr-testimonial-stars dtr-stars-5 color-blue"></div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            &lt;!&ndash;== slide 1 ends ==&ndash;&gt; -->
-        <!--                            -->
-        <!--                            &lt;!&ndash;== slide 2 starts ==&ndash;&gt;-->
-        <!--                            <div class="dtr-testimonial clearfix">-->
-        <!--                                <div class="dtr-testimonial-image color-blue"> <img src="assets/images/testimonial-user2.jpg" alt="image"> </div>-->
-        <!--                                <div class="dtr-testimonial-content-wrapper">-->
-        <!--                                    <div class="dtr-testimonial-content">“An absolutely phenomenal work and highly recommended services sed quia non numquam eius modi tempora incidunt ut labore voluptat if you want to make some lasting impression!” </div>-->
-        <!--                                    <div class="dtr-client-info">-->
-        <!--                                        <h5 class="dtr-client-name">Martha Weiner</h5>-->
-        <!--                                        <span class="dtr-client-job">Moonblush Studio</span></div>-->
-        <!--                                    <div class="dtr-testimonial-stars dtr-stars-5 color-blue"></div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            &lt;!&ndash;== slide 2 ends ==&ndash;&gt; -->
-        <!--                            -->
-        <!--                            &lt;!&ndash;== slide 3 starts ==&ndash;&gt;-->
-        <!--                            <div class="dtr-testimonial clearfix">-->
-        <!--                                <div class="dtr-testimonial-image color-blue"> <img src="assets/images/testimonial-user3.jpg" alt="image"> </div>-->
-        <!--                                <div class="dtr-testimonial-content-wrapper">-->
-        <!--                                    <div class="dtr-testimonial-content">“Helped us enormously in enabling to analyze and take a step forward and sed quia non numquam eius modi tempora incidunt ut labore voluptat explore different avenues.” </div>-->
-        <!--                                    <div class="dtr-client-info">-->
-        <!--                                        <h5 class="dtr-client-name">Jouri Wende</h5>-->
-        <!--                                        <span class="dtr-client-job">Miami, Florida</span></div>-->
-        <!--                                    <div class="dtr-testimonial-stars dtr-stars-5 color-blue"></div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            &lt;!&ndash;== slide 3 ends ==&ndash;&gt; -->
-        <!--                            -->
-        <!--                        </div>-->
-        <!--                        &lt;!&ndash;===== testimonial slider ends =====&ndash;&gt; -->
-        <!--                        -->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                &lt;!&ndash;===== row 1 ends =====&ndash;&gt; -->
-        <!--                -->
-        <!--            </div>-->
-        <!--        </section>-->
-        <!-- testimonial section ends
-================================================== -->
-
-        <!-- portfolio section starts
-================================================== -->
-        <section id="portfolio" class="dtr-section dtr-py-100">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-center">
-                    <h2>Highlights</h2>
-                    <p>It's all about Following My Passion</p>
-                </div>
-                <!-- heading ends -->
-
-                <!-- portfolio filter starts -->
-                <ul class="dtr-filter-nav clearfix">
-                    <li><a class="dtr-filter-all active" data-filter="*" href="#">All Work</a></li>
-                    <li><a data-filter=".filter-tech" href="#">Tech Events</a></li>
-                    <li><a data-filter=".filter-lecturing" href="#">Lecturing</a></li>
-                    <li><a data-filter=".filter-travel" href="#">Travel</a></li>
-                </ul>
-                <!-- portfolio filter ends -->
-
-                <!-- portfolio grid starts -->
-                <div class="dtr-portfolio-grid dtr-portfolio-grid-3col dtr-portfolio-style-1 dtr-rounded-img clearfix">
-
-                    <!-- portfolio item 1 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-lecturing all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img7.jpg"
-                                                                alt="yasas sri wickramasinghe conducting a lecture">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-tech-talks.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Inspiring</h4>
-                                    <p>Human Computer Interaction Lecture</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 1 ends -->
-
-                    <!-- portfolio item 2 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-tech all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img13.jpg"
-                                                                alt="yasas sri wickramasinghe demoing a virtual reality application">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-sankalpa.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Research</h4>
-                                    <p>Mixed Reality Application Demo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 2 ends-->
-
-                    <!-- portfolio item 3 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-design filter-travel all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img9.jpg"
-                                                                alt="yasas sri wickramasinghe traveling at norway">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="assets/images/photography_img9.jpg"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Travel</h4>
-                                    <p>Norway Visit</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 3 ends -->
-
-                    <!-- portfolio item 4 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-product filter-travel all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img6.jpg"
-                                                                alt="yasas sri wickramasinghe associate technical lead">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="assets/images/photography_img6.jpg"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Portrait</h4>
-                                    <p>Norway</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 4 ends -->
-
-                    <!-- portfolio item 5 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-lecturing all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img10.jpg"
-                                                                alt="yasas sri wickramasinghe showing ar vr application">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-tech-talks.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Workshop</h4>
-                                    <p>Virtual Reality Application Development</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 5 ends -->
-
-                    <!-- portfolio item 6 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-tech all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img8.jpg"
-                                                                alt="yasas sri wickramasinghe showing mixed reality application">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-tech-talks.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Immersion with Virtual Reality</h4>
-                                    <p>Project Showcase at a Public Conference</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 6 ends -->
-
-                </div>
-                <!-- portfolio grid ends -->
-
-            </div>
-        </section>
-        <!-- portfolio section ends
-================================================== -->
-
-        <!-- timeline section starts
-================================================== -->
-        <section id="timeline" class="dtr-section dtr-py-100 bg-light-blue">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-left">
-                    <h2>My Experience</h2>
-                    <p>Industry Experience</p>
-                </div>
-                <!-- heading ends -->
-
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-lg-6">
-                        <div class="dtr-pr-15">
-
-                            <!-- timeline item present starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2021 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Senior Lecturer</h5>
-                                    <p>Senior Lecturer at Department on Information Technology, Faculty of Information Technology, University of Moratuwa, Sri Lanka</p>
-                                </div>
-                            </div>
-                            <!-- timeline item present ends -->
-
-                            <!-- timeline item 1 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2015 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Co-Founder of Navitaz VR Labs</h5>
-                                    <p>NavitaZ VR Labs is a startup founded under the MIT GSL Program.
-                                        Developing Augmented Reality based Mobile applications and Virtual Reality based
-                                        Web Applications</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 1 ends -->
-
-                            <!-- timeline item 2 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2015 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Public Speaker at Tech Events</h5>
-                                    <p>Delivering Tech Sessions related to Human Computer Interaction at Public Tech
-                                        Events</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 2 ends -->
-
-                            <!-- timeline item 3 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2017 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Researcher</h5>
-                                    <p>Virtual Reality (VR), Augmented Reality (AR) and Mixed Reality (MR) focused Researcher</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 3 ends -->
-
-                        </div>
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-lg-6">
-                        <div class="dtr-pl-15">
-
-                            <!-- timeline item 1 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2017 - 2021</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Associate Technical Lead</h5>
-                                    <p>Full Stack Developer at 99x specialized in developing web applications for supply
-                                        chain management in scandinavian region</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 1 ends -->
-
-                            <!-- timeline item 2 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2018 - 2021</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Visiting Lecturer</h5>
-                                    <p>Visiting Lecturer at University of Moratuwa, Institute of Technology, Sri Lanka
-                                        Institute of Information Technology and National School of Business
-                                        Management</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 2 ends -->
-
-                            <!-- timeline item 3 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2014 - 2019</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Program Manager and Volunteer</h5>
-                                    <p>Involved with SL2College to organize and conduct school seminars around Sri Lanka
-                                        covering 32 schools as a community project</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 3 ends -->
-
-                        </div>
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-            </div>
-        </section>
-        <!-- timeline section ends
-================================================== -->
-
-        <!-- cta section starts
-================================================== -->
-        <section class="dtr-section parallax dtr-py-100"
-                 style="background-image: url(assets/images/background-cta.jpg);">
-            <div class="container">
-
-                <!--== row starts ==-->
-                <div class="row text-center">
-                    <div class="col-12">
-                        <h3 class="font-family-alt font-weight-700 color-dark">Want to work together!</h3>
-                        <p class="color-dark text-size-md">I’m available for Freelance Work.</p>
-                        <!-- link starts -->
-                        <a href="https://www.fiverr.com/yasas_sri?public_mode=true" class="dtr-btn btn-white dtr-mt-30"
-                           target="_blank">Contact Me Via Fiverr <i class="icon-chevron-compact-right"></i></a>
-                        <!-- link ends -->
-                    </div>
-                </div>
-                <!--== row ends ==-->
-
-            </div>
-        </section>
-        <!-- cta section ends
-================================================== -->
-
-        <!-- blog section starts
-================================================== -->
-        <section id="blog" class="dtr-section dtr-py-100">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-center">
-                    <h2>From The Blog</h2>
-                    <p>Tech and General Knowledge</p>
-                </div>
-                <!-- heading ends -->
-
-                <!--== row starts ==-->
-                <div class="row dtr-mt-50">
-
-                    <!-- column starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blog-design-system.jpg" alt="image"></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>June 23, 2021</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Building a Custom Design System For Enterprise Applications using Material UI Library</h5>
-                                <a href="https://levelup.gitconnected.com/creating-a-design-system-using-react-material-ui-498e2e9d3480" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 1 ends -->
-
-                    </div>
-                    <!-- column ends -->
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 1 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blog-vr-warehouse.jpg" alt="image"><span
-                                    class="dtr-category bg-blue color-white">Virtual Reality in Warehouses</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>May 03, 2021</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Apply Virtual Reality to Enhance Efficiency of a Warehouse</h5>
-                                <a href="https://yasassri.medium.com/virtual-reality-a-secret-weapon-to-boost-efficiency-of-a-warehouse-3aa065eddea1" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 1 ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 2 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img0.jpg" alt="image"><span
-                                    class="dtr-category bg-blue color-white">Clean Code</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>April 14, 2021</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Get Started with Clean Coding Practices - Zero to Hero Guide with Code Examples</h5>
-                                <a href="https://readclub.me/how-to-write-javascript-clean-code-and-clean-coding-practices/" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 2 ends -->
-
-                    </div>
-                    <!-- column 2 ends -->
-
-                    <!-- column 3 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 3 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img1.jpg" alt="image"><span
-                                    class="dtr-category bg-blue color-white">Virtual Reality</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>September 7, 2020</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Container Ships and Virtual Reality</h5>
-                                <a href="https://medium.com/@ureshan2011/%E0%B6%94%E0%B6%BA%E0%B7%8F%E0%B6%9C%E0%B7%9A-%E0%B6%B1%E0%B7%90%E0%B7%80%E0%B6%AD%E0%B7%8A-mt-new-diamond-%E0%B7%80%E0%B6%9C%E0%B7%9A-%E0%B6%9C%E0%B7%92%E0%B6%B1%E0%B7%92%E0%B6%9C%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B6%9A%E0%B6%BD%E0%B7%92%E0%B6%B1%E0%B7%8A-%E0%B6%9A%E0%B7%92%E0%B6%BA%E0%B7%80%E0%B6%B1%E0%B7%8A%E0%B6%B1-5f1fc1e06c6d" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 3 ends -->
-
-                    </div>
-                    <!-- column 3 ends -->
-
-                    <!-- column 4 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 4 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img2.jpg" alt="image"> <span
-                                    class="dtr-category bg-blue color-white">Mixed Reality - Use Case Study</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>November 10, 2018</li>
-                                    <li>by Yasas</li>
-                                </ul>
-                                <h5>Hearing Impaired Students & Mixed Reality</h5>
-                                <a href="https://www.linkedin.com/pulse/use-case-study-using-mixed-reality-iot-enhancing-wickramasinghe" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 4 ends -->
-
-                    </div>
-                    <!-- column 4 ends -->
-
-                    <!-- column 5 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 5 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img3.jpg" alt="image"> <span
-                                    class="dtr-category bg-blue color-white">Inspiring Young Minds</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>July 19, 2015</li>
-                                    <li>by Yasas</li>
-                                </ul>
-                                <h5>Virtual Reality Motivational Session</h5>
-                                <a href="https://www.linkedin.com/pulse/virtual-reality-mobile-game-demonstration-during-my-wickramasinghe-1" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 5 ends -->
-
-                    </div>
-                    <!-- column 5 ends -->
-
-                </div>
-                <!--== row starts ==-->
-
-            </div>
-            <br/>
-            <br/>
-            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                <div class="elfsight-app-1950d45b-6aea-47fd-bd20-4454423f445c"></div>
-        </section>
-        <!-- blog section ends
-================================================== -->
-
-        <!-- contact section starts
-================================================== -->
-        <section id="contact" class="dtr-section dtr-py-100 bg-light-blue">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading">
-                    <h2>Say Hello</h2>
-                    <p>Contact me to request any service I offer...</p>
-                </div>
-                <!-- heading ends -->
-
-                <!--== row starts ==-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-6">
-
-                        <!-- form starts -->
-                        <div class="dtr-form">
-                            <form id="contactform" method="post" action="https://formspree.io/f/xleookvv" method="post">
-                                <fieldset>
-                                    <div class="dtr-form-row dtr-form-row-2col">
-                                        <p class="dtr-form-column">
-                                            <input name="name" type="text" placeholder="Name">
-                                        </p>
-                                        <p class="dtr-form-column">
-                                            <input name="email" class="required email" type="text" placeholder="Email">
-                                        </p>
-                                    </div>
-                                    <p>
-                                        <input name="subject" type="text" placeholder="Subject">
-                                    </p>
-                                    <p class="antispam">Leave this empty: <br/>
-                                        <input name="url"/>
-                                    </p>
-                                    <p>
-                                        <textarea rows="6" name="message" id="message" class="required"
-                                                  placeholder="Message"></textarea>
-                                    </p>
-                                    <p class="text-center">
-                                        <button class="dtr-btn btn-blue dtr-mt-minus30" type="submit">Send Now<i
-                                                class="icon-cursor dtr-ml-15"></i></button>
-                                    </p>
-                                    <div id="contactform-result"></div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        <!-- form ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-6">
-                        <div class="dtr-pl-30">
-                            <p class="d-flex align-items-center"><i
-                                    class="icon-geo-alt dtr-mr-10 text-size-md color-blue"></i><span
-                                    class="font-weight-500 color-dark">My Location</span></p>
-                            <p>From: Colombo, Sri Lanka</p>
-                            <p>Currently: Christchurch, New Zealand</p>
-                            <div class="spacer-20"></div>
-                            <p class="d-flex align-items-center"><i
-                                    class="icon-clock-fill dtr-mr-10 text-size-md color-blue"></i><span
-                                    class="font-weight-500 color-dark">Work Timings</span></p>
-                            <p>Mon : Sat - 10:00 am to 05:00 pm<br>
-                                Sunday : Holiday</p>
-
-                            <!-- social starts -->
-                            <ul class="dtr-social dtr-social-list dtr-styled-social text-left dtr-mt-30">
-                                <li><a href="https://twitter.com/sri_yasas" class="dtr-social-button dtr-twitter"
-                                       target="_blank" title="dribbble"><span>Follow me</span></a></li>
-                                <li><a href="https://www.instagram.com/yasassri.me" class="dtr-social-button dtr-instagram" target="_blank"
-                                       title="instagram"><span>Message me</span></a></li>
-                            </ul>
-                            <!-- social ends -->
-
-                        </div>
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--== row ends ==-->
-
-            </div>
-        </section>
-        <!-- contact section ends
-================================================== -->
-
-        <!-- footer section starts
-================================================== -->
-        <footer id="dtr-footer">
-
-            <!--== copyright starts ==-->
-            <div class="dtr-copyright">
-                <div class="container">
-
-                    <!--== row starts ==-->
-                    <div class="row">
-
-                        <!-- column 1 starts -->
-                        <div class="col-12 col-md-6">
-                            <p> Copyright © Yasas 2026. All rights reserved.</p>
-                        </div>
-                        <!-- column 1 ends -->
-
-                        <!-- column 2 starts -->
-                        <div class="col-12 col-md-6 text-right">
-                            <ul class="dtr-pipe-list">
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms of Use</a></li>
-                            </ul>
-                        </div>
-                        <!-- column 2 ends -->
-
-                    </div>
-                    <!--== row ends ==-->
-
-                </div>
-            </div>
-            <!--== copyright ends ==-->
-
-        </footer>
-        <!-- footer section ends
-================================================== -->
+        <p>
+          Half- and multi-day workshops for universities, corporates, and EdTech teams on
+          designing AI-enhanced curriculum, deploying classroom AI responsibly, and building
+          immersive learning experiences. I've run these inside my own institutions —
+          I know where the theory breaks down.
+        </p>
+        <a href="mailto:hello@yasas.nz?subject=Workshop%20%2F%20consulting%20inquiry" class="offering-link">Discuss a workshop →</a>
+      </div>
+
+      <div class="offering">
+        <div class="offering-head">
+          <span class="tag">Advisory</span>
+          <h3>Fractional advisory</h3>
+        </div>
+        <p>
+          I work with a small number of EdTech startups and XR product teams as a fractional
+          advisor. Whether your AI tutor concept has research backing, whether your XR
+          experience will cause cybersickness, whether your engineering assumptions will hold
+          in a real classroom — I can tell you.
+        </p>
+        <a href="mailto:hello@yasas.nz?subject=Advisory%20inquiry" class="offering-link">Let's talk →</a>
+      </div>
 
     </div>
-    <!-- == main content area ends == -->
+  </div>
+</section>
 
-</div>
-<!-- #dtr-wrapper ends -->
 
-<!-- JS FILES -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/custom.js"></script>
+<!-- ============================================================
+     SELECTED WORK
+     Keep to 4–6 items. fuelpass.lk is explicitly framed as
+     "proof I ship consumer products" — not on par with Sony/Niantic
+     but earns its place with that reframe.
+     TODO: Replace SVG placeholders with real thumbnails (.webp).
+     ============================================================ -->
+<section id="work">
+  <div class="wrap">
+    <p class="eyebrow">Selected work</p>
+    <h2>Things I've built and run</h2>
+    <ul class="work-list">
+
+      <!-- YooBees ============================================== -->
+      <li>
+        <a href="#" class="work-card" aria-label="YooBees — read more">
+          <!-- TODO: <img src="assets/images/yoobees.webp" alt="" loading="lazy" width="72" height="48"> -->
+          <div class="work-thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="work-sup">
+              <span class="work-yr">2024–</span>
+              <span class="chip">Platform</span>
+              <span class="chip">AI</span>
+            </div>
+            <div class="work-title">YooBees</div>
+            <div class="work-desc">
+              Student management, live attendance, and Socratic AI tutor.
+              Built for and deployed in my own Masters cohorts at Yoobee Colleges.
+              Founder and sole engineer.
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <!-- Sony ================================================= -->
+      <li>
+        <a href="#research" class="work-card" aria-label="Sony Interactive Entertainment immersion study — read more">
+          <!-- TODO: <img src="assets/images/sony-study.webp" alt="" loading="lazy" width="72" height="48"> -->
+          <div class="work-thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="work-sup">
+              <span class="work-yr">2025–</span>
+              <span class="chip">Research</span>
+              <span class="chip">XR</span>
+            </div>
+            <div class="work-title">Sony Interactive Entertainment — immersion study</div>
+            <div class="work-desc">
+              Measuring cybersickness, presence, and immersion across four display conditions.
+              Postdoctoral research at HIT Lab NZ, University of Canterbury.
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <!-- Niantic ============================================== -->
+      <li>
+        <a href="#" class="work-card" aria-label="Niantic Developer Fund — read more">
+          <!-- TODO: <img src="assets/images/niantic.webp" alt="" loading="lazy" width="72" height="48"> -->
+          <div class="work-thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+            </svg>
+          </div>
+          <div>
+            <div class="work-sup">
+              <span class="work-yr">2025–</span>
+              <span class="chip">AR</span>
+              <span class="chip">Funded</span>
+            </div>
+            <div class="work-title">Niantic Developer Fund — location-based multiplayer AR</div>
+            <div class="work-desc">
+              Designing and prototyping location-based multiplayer AR experiences.
+              One of a small cohort of 2025 Niantic Developer Fund recipients.
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <!-- fuelpass.lk — explicitly framed as shipping proof ==== -->
+      <li>
+        <a href="https://fuelpass.lk" target="_blank" rel="noopener" class="work-card" aria-label="fuelpass.lk — open in new tab">
+          <!-- TODO: <img src="assets/images/fuelpass.webp" alt="" loading="lazy" width="72" height="48"> -->
+          <div class="work-thumb" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.4 5h11.8"/>
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            </svg>
+          </div>
+          <div>
+            <div class="work-sup">
+              <span class="work-yr">2022–</span>
+              <span class="chip">Product</span>
+              <span class="chip">Live</span>
+            </div>
+            <div class="work-title">fuelpass.lk</div>
+            <div class="work-desc">
+              Fuel information and savings platform for Sri Lanka. Live consumer product.
+              I built it, I operate it. Proof that I ship outside the lab.
+            </div>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WRITING
+     TODO: Replace placeholder items with real Substack/Medium links.
+     Go live with this section only once you have 3 real posts.
+     Each .writing-item: .wt = title, .wd = description, .wdate = date
+     ============================================================ -->
+<section id="writing">
+  <div class="wrap">
+    <p class="eyebrow">Writing</p>
+    <h2>What I've been thinking about</h2>
+    <ul class="writing-list">
+
+      <li>
+        <!-- TODO: Replace href with real post URL -->
+        <a href="#" class="writing-item">
+          <span class="wt">The Socratic AI tutor: why most implementations get it wrong</span>
+          <span class="wdate">TODO: date</span>
+          <span class="wd">Why asking questions is harder than answering them — and what the research says about AI-driven inquiry in postgraduate education.</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="writing-item">
+          <span class="wt">Cybersickness is a design problem, not a user problem</span>
+          <span class="wdate">TODO: date</span>
+          <span class="wd">What four display conditions taught me about presence, discomfort, and the assumptions XR designers routinely make.</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="writing-item">
+          <span class="wt">Building a learning platform when you're the only engineer</span>
+          <span class="wdate">TODO: date</span>
+          <span class="wd">The tradeoffs I made building YooBees alone — and what I'd change if starting today.</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="writing-item">
+          <span class="wt">What location-based AR can learn from game design</span>
+          <span class="wdate">TODO: date</span>
+          <span class="wd">Early lessons from the Niantic project on why physical space is a different design medium than a screen.</span>
+        </a>
+      </li>
+
+    </ul>
+    <div class="sec-footer">
+      <!-- TODO: Replace with your Substack archive URL -->
+      <a href="#">All writing →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RESEARCH & PUBLICATIONS — #research
+     TODO: Replace [Paper title — TODO] entries with real titles,
+     real author lists, and real DOI / PDF links.
+     Sort by recency; keep selected (not exhaustive).
+     ============================================================ -->
+<section id="research">
+  <div class="wrap">
+    <p class="eyebrow">Research</p>
+    <h2>Publications</h2>
+    <!-- TODO: Update Scholar and ORCID URLs -->
+    <p class="pub-count">
+      9 peer-reviewed publications —
+      <a href="#">Google Scholar</a> ·
+      <a href="#">ORCID</a>
+    </p>
+    <ul class="pub-list">
+
+      <li class="pub">
+        <div class="pub-venue">IEEE VR 2024</div>
+        <!-- TODO: Insert real paper title -->
+        <div class="pub-title">[Paper title — TODO]</div>
+        <div class="pub-authors">Wickramasinghe, Y. et al.<!-- TODO: full author list --></div>
+        <div class="pub-links">
+          <a href="#" class="pub-link">DOI →</a>
+          <a href="#" class="pub-link">PDF →</a>
+        </div>
+      </li>
+
+      <li class="pub">
+        <div class="pub-venue">ACM SUI 2023</div>
+        <!-- TODO: Insert real paper title -->
+        <div class="pub-title">[Paper title — TODO]</div>
+        <div class="pub-authors">Wickramasinghe, Y. et al.</div>
+        <div class="pub-links">
+          <a href="#" class="pub-link">DOI →</a>
+          <a href="#" class="pub-link">PDF →</a>
+        </div>
+      </li>
+
+      <!-- TODO: Add remaining 7 publications using the same .pub structure -->
+      <!-- Example:
+      <li class="pub">
+        <div class="pub-venue">VENUE YEAR</div>
+        <div class="pub-title">Full paper title here</div>
+        <div class="pub-authors">Wickramasinghe, Y., Author B, Author C</div>
+        <div class="pub-links">
+          <a href="https://doi.org/..." class="pub-link">DOI →</a>
+          <a href="assets/files/paper.pdf" class="pub-link">PDF →</a>
+        </div>
+      </li>
+      -->
+
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SPEAKING & MEDIA — #speaking
+     Remove .placeholder-block once you have at least one real item.
+     Reuse the .work-card layout (with .chip for talk type) or the
+     .pub layout (with .pub-venue = event, .pub-title = talk title).
+     ============================================================ -->
+<section id="speaking">
+  <div class="wrap">
+    <p class="eyebrow">Speaking &amp; media</p>
+    <h2>Talks &amp; press</h2>
+    <!-- TODO: Replace with real engagements as they accumulate -->
+    <div class="placeholder-block">
+      <p>Populating — reach out if you'd like me to speak.</p>
+    </div>
+    <div class="sec-footer" style="margin-top:1rem;">
+      <a href="mailto:hello@yasas.nz?subject=Speaking%20invitation" class="btn btn-ghost" style="font-size:0.875rem; display:inline-flex;">Invite me to speak →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT — #about
+     TODO: Replace .photo-ph div with:
+     <img src="assets/images/personal_img.png"
+          alt="Yasas Sri Wickramasinghe"
+          width="180" height="180" loading="lazy">
+     ============================================================ -->
+<section id="about">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <div class="about-layout">
+
+      <div class="about-body">
+        <p>
+          I'm a researcher and educator working on how AI and immersive technologies change
+          higher education. My PhD examined augmented reality in HCI; my postdoctoral work at
+          <strong>HIT Lab NZ</strong> runs immersion and presence studies in collaboration
+          with <strong>Sony Interactive Entertainment</strong>. I teach Masters-level business
+          informatics at <strong>Yoobee Colleges</strong>, where I've built my own learning
+          platform to experiment with AI-augmented teaching at scale.
+        </p>
+        <p>
+          Before academia, I led engineering teams at 99X Technology in Sri Lanka and
+          co-founded Navitaz VR Labs. I write about teaching with AI, building education
+          products, and the practical realities of doing research and shipping software at
+          the same time. I'm based in Christchurch, New Zealand, and maintain strong ties
+          to Sri Lanka.
+        </p>
+        <ul class="affs" aria-label="Current affiliations">
+          <li class="aff">
+            <span class="aff-role">Postdoc</span>
+            <span class="aff-org">HIT Lab NZ, University of Canterbury</span>
+          </li>
+          <li class="aff">
+            <span class="aff-role">Snr Lecturer</span>
+            <span class="aff-org">Masters in Business Informatics, Yoobee Colleges</span>
+          </li>
+          <li class="aff">
+            <span class="aff-role">PhD</span>
+            <span class="aff-org">Augmented Reality / HCI, University of Canterbury</span>
+          </li>
+          <li class="aff">
+            <span class="aff-role">Co-founder</span>
+            <span class="aff-org">Navitaz VR Labs</span>
+          </li>
+          <li class="aff">
+            <span class="aff-role">Builder</span>
+            <span class="aff-org">fuelpass.lk · YooBees · Sri Lanka's first large-scale MOOC</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="about-photo-col">
+        <!-- TODO: swap .photo-ph for a real <img> tag (see comment above section) -->
+        <div class="about-photo">
+          <div class="photo-ph" aria-hidden="true">photo</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT — #contact
+     mailto: links pre-fill subject lines for easy email filtering.
+     TODO: Replace hello@yasas.nz with your real address throughout.
+     ============================================================ -->
+<section id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="contact-lead">
+      I reply to every message that's specific about what we'd be working on together.
+      Use the subject-line links below; they route to the right folder.
+    </p>
+    <ul class="inq-list">
+      <li class="inq">
+        <span class="inq-type">Speaking invitation</span>
+        <!-- TODO: Replace hello@yasas.nz with real address -->
+        <a href="mailto:hello@yasas.nz?subject=Speaking%20invitation" class="inq-action">hello@yasas.nz →</a>
+      </li>
+      <li class="inq">
+        <span class="inq-type">Workshop or consulting</span>
+        <a href="mailto:hello@yasas.nz?subject=Workshop%20%2F%20consulting%20inquiry" class="inq-action">hello@yasas.nz →</a>
+      </li>
+      <li class="inq">
+        <span class="inq-type">Advisory work</span>
+        <a href="mailto:hello@yasas.nz?subject=Advisory%20inquiry" class="inq-action">hello@yasas.nz →</a>
+      </li>
+      <li class="inq">
+        <span class="inq-type">Media &amp; press</span>
+        <a href="mailto:hello@yasas.nz?subject=Media%20inquiry" class="inq-action">hello@yasas.nz →</a>
+      </li>
+      <li class="inq">
+        <span class="inq-type">Research collaboration</span>
+        <a href="mailto:hello@yasas.nz?subject=Research%20collaboration" class="inq-action">hello@yasas.nz →</a>
+      </li>
+    </ul>
+
+    <!-- ============================================================
+         NEWSLETTER EMBED
+         TODO: Replace this placeholder <form> with your actual
+         Substack embed  → Settings › Email capture widget › copy code
+         or Buttondown   → Dashboard › Share › Embed form
+         ============================================================ -->
+    <div class="newsletter">
+      <h3>Monthly newsletter</h3>
+      <p>
+        One email per month. Research findings, honest notes on building education software,
+        and what I'm reading. No pitch, no fluff.
+      </p>
+      <form class="nl-form" action="#" method="post" aria-label="Newsletter signup">
+        <label for="nl-email" class="sr-only">Email address</label>
+        <input
+          type="email"
+          id="nl-email"
+          name="email"
+          class="nl-input"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        >
+        <button type="submit" class="nl-btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     TODO: Replace # hrefs with real social profile URLs.
+     TODO: Update "Last updated" date or automate it.
+     ============================================================ -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-meta">
+      © 2025 Yasas Sri Wickramasinghe<br>
+      Last updated: May 2025<!-- TODO: automate via CI or update manually -->
+    </div>
+    <ul class="socials">
+      <!-- TODO: Replace # with real URLs -->
+      <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="#" target="_blank" rel="noopener">Scholar</a></li>
+      <li><a href="#" target="_blank" rel="noopener">ORCID</a></li>
+      <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="#" target="_blank" rel="noopener">Substack</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT — dark mode only. Intentionally minimal.
+
+     The IIFE runs synchronously before first paint to prevent
+     a flash of the wrong theme. The toggle wires up after DOMContentLoaded.
+     localStorage key: 'theme' — values: 'light' | 'dark'
+     ============================================================ -->
+<script>
+  (function () {
+    // Resolve theme: stored preference > system preference > light
+    var stored = localStorage.getItem('theme');
+    var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme',
+      stored || (sysDark ? 'dark' : 'light'));
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) return;
+
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark'
+          ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+
+      // Stay in sync if the user changes their OS setting while the tab is open,
+      // but only if they haven't manually overridden it.
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    });
+  }());
+</script>
+
 </body>
 </html>
