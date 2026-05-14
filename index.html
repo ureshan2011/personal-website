@@ -23,313 +23,6 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/color.css">
 
-    <!-- HERO FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-    <style>
-      /* ====== HERO SECTION ====== */
-      :root {
-        --hero-bg: #ff5a17;
-        --hero-bg-deep: #e64a0d;
-        --hero-shadow-tint: rgba(120, 30, 0, 0.35);
-      }
-
-      .dtr-hero-new {
-        position: relative;
-        min-height: 100vh;
-        width: 100%;
-        overflow: hidden;
-        padding: 28px 40px 0;
-        display: flex;
-        flex-direction: column;
-        background: var(--hero-bg);
-        color: #fff;
-        font-family: "JetBrains Mono", ui-monospace, monospace;
-      }
-
-      /* Ghost background name */
-      .hero-ghost-name {
-        position: absolute;
-        left: -2vw;
-        top: 38%;
-        transform: translateY(-50%);
-        font-family: "Anton", sans-serif;
-        font-weight: 400;
-        font-size: clamp(300px, 50vw, 860px);
-        line-height: 0.85;
-        letter-spacing: -0.04em;
-        color: transparent;
-        -webkit-text-stroke: 2px rgba(255,255,255,0.14);
-        white-space: nowrap;
-        pointer-events: none;
-        z-index: 1;
-        user-select: none;
-      }
-
-      /* Hero Nav */
-      .hero-nav {
-        position: relative;
-        z-index: 6;
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 32px;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 13px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #fff;
-      }
-      .hero-brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-weight: 500;
-        font-size: 13px;
-        letter-spacing: 0.1em;
-      }
-      .hero-brand::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #fff;
-        display: inline-block;
-        flex-shrink: 0;
-      }
-      .hero-nav-links {
-        display: flex;
-        align-items: center;
-        gap: 48px;
-        list-style: none;
-        justify-self: center;
-        margin: 0;
-        padding: 0;
-      }
-      .hero-nav-links a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: 500;
-        transition: opacity 0.2s ease;
-      }
-      .hero-nav-links a:hover { opacity: 0.65; }
-      .hero-contact-link {
-        justify-self: end;
-        display: inline-flex;
-        align-items: center;
-        gap: 14px;
-        font-weight: 500;
-        cursor: pointer;
-        color: #fff;
-        text-decoration: none;
-        font-size: 13px;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
-      .hero-contact-link:visited,
-      .hero-contact-link:hover,
-      .hero-contact-link:active { color: #fff; text-decoration: none; }
-      .hero-contact-pill {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        border: 1.5px solid #fff;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease, background 0.3s ease;
-        flex-shrink: 0;
-      }
-      .hero-contact-pill svg {
-        width: 12px; height: 12px;
-        transition: transform 0.3s ease;
-      }
-      .hero-contact-link:hover .hero-contact-pill {
-        background: #fff;
-        color: var(--hero-bg);
-      }
-      .hero-contact-link:hover .hero-contact-pill svg { transform: rotate(45deg); }
-
-      /* Hero Title */
-      .hero-title {
-        position: relative;
-        z-index: 5;
-        margin-top: 18px;
-        font-family: "Archivo", sans-serif;
-        font-weight: 900;
-        font-size: clamp(60px, 10vw, 200px);
-        line-height: 0.86;
-        letter-spacing: -0.03em;
-        color: #fff;
-        text-align: center;
-        text-transform: uppercase;
-        text-shadow: 0 6px 22px var(--hero-shadow-tint);
-        white-space: nowrap;
-      }
-
-      /* Portrait */
-      .hero-portrait-wrap {
-        position: absolute;
-        left: 50%;
-        bottom: 96px;
-        transform: translateX(-50%);
-        width: min(520px, 42vw);
-        aspect-ratio: 3 / 4;
-        z-index: 3;
-        pointer-events: none;
-      }
-      .hero-portrait {
-        position: absolute;
-        inset: 0;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-      .hero-portrait img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-      }
-      .hero-portrait::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(120% 80% at 50% 55%, transparent 38%, var(--hero-bg) 92%),
-          linear-gradient(180deg, transparent 55%, var(--hero-bg) 100%);
-        pointer-events: none;
-      }
-
-      /* Tagline (right) */
-      .hero-tagline {
-        position: absolute;
-        right: 56px;
-        top: 46%;
-        transform: translateY(-50%);
-        z-index: 4;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 13px;
-        line-height: 1.65;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        color: #fff;
-        max-width: 260px;
-      }
-      .hero-tagline .lead {
-        display: block;
-        color: rgba(255,255,255,0.75);
-        margin-bottom: 4px;
-      }
-      .hero-tagline .strong {
-        padding-left: 26px;
-        font-weight: 500;
-        display: block;
-      }
-
-      /* Bio (left) */
-      .hero-bio {
-        position: absolute;
-        left: 56px;
-        bottom: 118px;
-        z-index: 4;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 12px;
-        line-height: 1.7;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        max-width: 300px;
-        color: rgba(255,255,255,0.85);
-      }
-      .hero-bio .body {
-        display: block;
-        padding-left: 22px;
-        margin-top: 4px;
-        color: rgba(255,255,255,0.7);
-      }
-
-      /* Affiliation strip */
-      .hero-strip {
-        position: relative;
-        z-index: 5;
-        margin-top: auto;
-        padding: 28px 0 24px;
-        border-top: 1px solid rgba(255,255,255,0.12);
-      }
-      .hero-strip-row {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        align-items: center;
-        justify-items: center;
-        gap: 20px;
-        color: #fff;
-      }
-      .hero-mark {
-        font-family: "Archivo", sans-serif;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        font-size: clamp(16px, 1.8vw, 26px);
-        opacity: 0.9;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-        white-space: nowrap;
-      }
-      .hero-mark:hover { transform: translateY(-2px); opacity: 1; }
-      .hero-mark.serif {
-        font-family: "Anton", serif;
-        font-weight: 400;
-        letter-spacing: 0.2em;
-      }
-      .hero-mark.thin {
-        font-weight: 500;
-        letter-spacing: 0.28em;
-        font-size: clamp(13px, 1.4vw, 20px);
-      }
-
-      /* Vignette */
-      .hero-vignette {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(180,40,0,0.15) 100%);
-        z-index: 2;
-      }
-
-      /* Scroll-reveal sticky header */
-      #dtr-header-global {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s ease, background 0.3s ease;
-      }
-      #dtr-header-global.hero-past {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .dtr-responsive-header {
-        display: none !important;
-      }
-
-      /* ====== HERO RESPONSIVE ====== */
-      @media (max-width: 1100px) {
-        .hero-nav-links { gap: 28px; }
-        .hero-tagline { right: 28px; }
-        .hero-bio { left: 28px; }
-      }
-      @media (max-width: 820px) {
-        .dtr-hero-new { padding: 20px 20px 0; }
-        .hero-nav { grid-template-columns: 1fr auto; }
-        .hero-nav-links { display: none; }
-        .hero-title { font-size: clamp(48px, 13vw, 110px); margin-top: 20px; white-space: normal; text-align: center; }
-        .hero-portrait-wrap { width: 68vw; bottom: 220px; }
-        .hero-tagline { position: static; transform: none; max-width: 100%; margin-top: 16px; text-align: right; }
-        .hero-bio { position: static; max-width: 100%; margin-top: 20px; }
-        .hero-strip-row { grid-template-columns: repeat(3, 1fr); gap: 14px 20px; }
-        .hero-ghost-name { font-size: 68vw; top: 42%; }
-      }
-    </style>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
     <script>
@@ -359,17 +52,49 @@
     </div>
     <!-- preloader ends -->
 
-    <!-- Scroll-reveal sticky header -->
+    <!-- Small Devices Header 
+============================================= -->
+    <div class="dtr-responsive-header fixed-top">
+        <div class="container">
+
+            <!-- small devices logo -->
+            <a href="index.html"><img src="assets/images/logo-dark.png" alt="logo"></a>
+            <!-- small devices logo ends -->
+
+            <!-- menu button -->
+            <button id="dtr-menu-button" class="dtr-hamburger" type="button"><span
+                    class="dtr-hamburger-lines-wrapper"><span class="dtr-hamburger-lines"></span></span></button>
+        </div>
+        <div class="dtr-responsive-header-menu"></div>
+    </div>
+    <!-- Small Devices Header ends 
+============================================= -->
+
+    <!-- Header 
+============================================= -->
     <header id="dtr-header-global" class="fixed-top">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
+
+                <!-- header left starts -->
                 <div class="dtr-header-left">
-                    <a class="logo-default dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png" alt="logo" width="180"></a>
-                    <a class="logo-alt dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png" alt="logo" width="108"></a>
+
+                    <!-- logo -->
+                    <a class="logo-default dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png"
+                                                                              alt="logo" width="200"></a>
+
+                    <!-- logo on scroll -->
+                    <a class="logo-alt dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png" alt="logo"
+                                                                          width="108"></a>
+                    <!-- logo on scroll ends -->
+
                 </div>
+                <!-- header left ends -->
+
+                <!-- menu starts-->
                 <div class="dtr-header-right">
                     <div class="main-navigation dtr-menu-dark">
-                        <ul class="sf-menu dtr-scrollspy dtr-nav dark-nav-on-scroll">
+                        <ul class="sf-menu dtr-scrollspy dtr-nav dark-nav-on-load dark-nav-on-scroll">
                             <li><a class="nav-link" href="#home">Home</a></li>
                             <li><a class="nav-link" href="#about">About</a></li>
                             <li><a class="nav-link" href="#services">Services</a></li>
@@ -379,74 +104,118 @@
                         </ul>
                     </div>
                 </div>
+                <!-- menu ends -->
+
             </div>
         </div>
     </header>
+    <!-- header ends
+================================================== -->
 
     <!-- == main content area starts == -->
     <div id="dtr-main-content">
 
         <!-- hero section starts
 ================================================== -->
-        <section id="home" class="dtr-hero-new" data-screen-label="01 Hero">
+        <section id="home" class="dtr-section dtr-hero-section-top-padding dtr-pb-100">
+            <div class="container">
 
-            <!-- Background outline text -->
-            <div class="hero-ghost-name" aria-hidden="true">YASAS</div>
+                <!--===== row 1 starts =====-->
+                <div class="row">
 
-            <!-- HERO NAV -->
-            <nav class="hero-nav" aria-label="Primary">
-                <span class="hero-brand">YASAS SRI</span>
-                <ul class="hero-nav-links">
-                    <li><a href="#portfolio">Works</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#timeline">Resume</a></li>
-                </ul>
-                <a class="hero-contact-link" href="#contact" aria-label="Contact me">
-                    <span>// CONTACT ME</span>
-                    <span class="hero-contact-pill" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="9 7 17 7 17 15"></polyline>
-                        </svg>
-                    </span>
-                </a>
-            </nav>
+                    <!-- column 1 starts -->
+                    <div class="col-12 col-md-6">
+                        <!-- intro text -->
+                        <p class="text-size-xxl font-weight-300 color-dark">Hello,</p>
+                        <p class="text-size-xxl font-weight-300 color-dark">I am <span class="font-weight-500">Yasas Sri Wickramasinghe</span>
+                        </p>
+                        <div class="spacer-20"></div>
+                        <!-- animated text starts -->
+                        <h3><span class="dtr-animated-headline push"> <span class="dtr-words-wrapper"> 
+                            
+                            <!-- first visible word --> 
+                            <b class="is-visible"><span class="color-blue">Senior Lecturer at University of Moratuwa</span></b>
+                            <!-- first visible word ends -->
 
-            <!-- TITLE -->
-            <h1 class="hero-title">NEW TECH FRONTIERS</h1>
+                            <!-- second word --> 
+                            <b class="is-hidden"><span class="color-blue">Former Associate Technical Lead</span></b>
+                            <!-- second word ends -->
 
-            <!-- PORTRAIT -->
-            <div class="hero-portrait-wrap" aria-hidden="true">
-                <div class="hero-portrait">
-                    <img src="assets/images/hero_portrait.jpeg" alt="Yasas Sri Wickramasinghe wearing VR goggles">
+                            <!-- third word -->
+                            <b class="is-hidden"><span class="color-blue">PhD in Augmented Reality</span></b>
+                            <!-- second word ends -->
+                            
+                            </span> </span></h3>
+                        <!-- animated text ends -->
+                    </div>
+                    <!-- column 1 ends -->
+
+                    <!-- column 2 starts -->
+                    <div class="col-12 col-md-2 dtr-rounded-img"><img src="assets/images/photography_img1.jpg"
+                                                                      alt="yasas sri wickramasinghe photo"></div>
+                    <!-- column 2 ends -->
+                    
+
+                    <!-- column 3 starts -->
+                    <div class="col-12 col-md-4 small-device-space">
+
+                        <!--=== img slider - 3col starts ===-->
+                        <div class="dtr-slick-slider dtr-img-slider-1col dtr-rounded-img">
+                            <!-- img 1 -->
+                            <div><img src="assets/images/photography_img4.jpg" alt="image"></div>
+                            <!-- img 2 -->
+                            <div><img src="assets/images/photography_img7.jpg" alt="image"></div>
+                            <!-- img 3 -->
+                            <div><img src="assets/images/photography_img6.jpg" alt="image"></div>
+                            <!-- img 4 -->
+                            <div><img src="assets/images/photography_img9.jpg" alt="image"></div>
+                            <!-- img 5 -->
+                            <div><img src="assets/images/photography_img8.jpg" alt="image"></div>
+                        </div>
+                        <!--=== img slider - 3col ends ===-->
+
+                    </div>
+                    <!-- column 3 ends -->
+
                 </div>
-            </div>
+                <!--===== row 1 ends =====-->
+                <!--===== row 2 starts =====-->
+                <div class="row dtr-mt-30">
 
-            <!-- RIGHT TAGLINE -->
-            <aside class="hero-tagline">
-                <span class="lead">// RESEARCH THAT</span>
-                <span class="strong">CHANGES THE WORLD</span>
-            </aside>
+                    <!-- column 1 starts -->
+                    <div class="col-12 col-md-10">
 
-            <!-- LEFT BIO -->
-            <aside class="hero-bio">
-                // I'M YASAS — SENIOR LECTURER AT UOM
-                <span class="body">RESEARCHER IN AR, VR &amp; MIXED REALITY.<br/>INSPIRING THE NEXT GENERATION OF TECH.</span>
-            </aside>
+                        <!-- text -->
+                        <p class="text-size-md">I'm Passionate about <span class="font-weight-500 color-dark">new technologies</span>,
+                            Inspiring people and Motivating teams as a leader to achieve goals. I believe that, If we
+                            can <span class="font-weight-500 color-dark">change the way we see the world</span>, we can
+                            <span class="font-weight-500 color-dark">change the world we see</span>.</p>
 
-            <!-- AFFILIATION STRIP -->
-            <div class="hero-strip" aria-label="Affiliations">
-                <div class="hero-strip-row">
-                    <span class="hero-mark serif">UOM</span>
-                    <span class="hero-mark">AR / VR</span>
-                    <span class="hero-mark thin">NAVITAZ</span>
-                    <span class="hero-mark serif">PhD</span>
-                    <span class="hero-mark">99X</span>
+                        <!-- social starts -->
+                        <ul class="dtr-social dtr-social-list dtr-styled-social text-left dtr-mt-30">
+                            <li class="dtr-social-title font-weight-500 color-dark">Follow Me on</li> 
+                            <li><a href="https://www.instagram.com/yasassri.me" class="dtr-social-button dtr-instagram"
+                                   target="_blank" title="instagram"><span>Follow on Instagram</span></a></li>
+                            <li><a href="https://www.facebook.com/yasas.s.wickramasinghe"
+                                   class="dtr-social-button dtr-facebook" target="_blank" title="facebook"><span>Add On Facebook</span></a>
+                            </li>
+                            <li><a href="https://www.linkedin.com/in/yasassri" class="dtr-social-button dtr-linkedin"
+                                   target="_blank" title="linkedin"><span>View My Profile</span></a></li>
+                        </ul>
+                        <!-- social ends -->
+
+                    </div>
+                    <!-- column 1 ends -->
+
+                    <!-- column 2 starts -->
+                    <div class="col-12 col-md-2 dtr-rounded-img small-device-space"><img
+                            src="assets/images/experience-img.jpg" alt="image"></div>
+                    <!-- column 2 ends -->
+
                 </div>
-            </div>
+                <!--===== row 2 ends =====-->
 
-            <div class="hero-vignette" aria-hidden="true"></div>
+            </div>
         </section>
         <!-- hero section ends
 ================================================== -->
@@ -1355,36 +1124,5 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/custom.js"></script>
-
-<script>
-  // Show sticky header after scrolling past hero
-  (function () {
-    var header = document.getElementById('dtr-header-global');
-    var hero = document.getElementById('home');
-    function onScroll() {
-      if (!hero) return;
-      if (window.scrollY > hero.offsetHeight - 80) {
-        header.classList.add('hero-past');
-      } else {
-        header.classList.remove('hero-past');
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-
-  // Parallax for ghost text and portrait
-  (function () {
-    var ghost = document.querySelector('.hero-ghost-name');
-    var portrait = document.querySelector('.hero-portrait-wrap');
-    if (!ghost || !portrait) return;
-    document.addEventListener('mousemove', function (e) {
-      var x = (e.clientX / window.innerWidth - 0.5);
-      var y = (e.clientY / window.innerHeight - 0.5);
-      ghost.style.transform = 'translate(' + (x * -18) + 'px, calc(-50% + ' + (y * -10) + 'px))';
-      portrait.style.transform = 'translate(calc(-50% + ' + (x * 10) + 'px), ' + (y * 6) + 'px)';
-    });
-  })();
-</script>
 </body>
 </html>
