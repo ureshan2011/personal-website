@@ -117,86 +117,81 @@
 
         <!-- hero section starts
 ================================================== -->
-        <section id="home" class="dtr-hv3">
+        <section id="home" class="dtr-ch">
 
-            <!-- ambient purple glows -->
-            <div class="dtr-hv3-glow dtr-hv3-glow-1"></div>
-            <div class="dtr-hv3-glow dtr-hv3-glow-2"></div>
+            <!-- particle canvas -->
+            <canvas class="dtr-ch-canvas" id="dtrChCanvas"></canvas>
 
-            <!-- full-width display type — sits behind the photo -->
-            <div class="dtr-hv3-display" aria-hidden="true">
-                <span class="dtr-hv3-row1">YASAS SRI</span>
-                <span class="dtr-hv3-row2">WICKRAMASINGHE</span>
+            <!-- atmospheric layers -->
+            <div class="dtr-ch-atm" aria-hidden="true">
+                <div class="dtr-ch-orb dtr-ch-orb-1"></div>
+                <div class="dtr-ch-orb dtr-ch-orb-2"></div>
+                <div class="dtr-ch-orb dtr-ch-orb-3"></div>
+                <div class="dtr-ch-vignette"></div>
             </div>
 
-            <!-- centred portrait photo — floats in front of type -->
-            <div class="dtr-hv3-portrait">
-                <img src="assets/images/phd-graduation.jpg"
-                     alt="Dr Yasas Sri Wickramasinghe – PhD in Human Interface Technology"
-                     onerror="this.onerror=null;this.src='assets/images/personal_img.png'">
+            <!-- background display name — behind portrait (z-index: 2) -->
+            <div class="dtr-ch-bgname" aria-hidden="true">
+                <span class="dtr-ch-bgname-first">YASAS</span>
+                <span class="dtr-ch-bgname-last">WICKRAMASINGHE</span>
             </div>
 
-            <!-- bottom-left info panel -->
-            <div class="dtr-hv3-info">
-                <div class="dtr-hv3-status">
-                    <span class="dtr-hv3-dot"></span>
+            <!-- portrait — in front of name (z-index: 3) -->
+            <div class="dtr-ch-portrait-wrap" id="dtrChPortrait">
+                <div class="dtr-ch-portrait-glow"></div>
+                <div class="dtr-ch-portrait-img">
+                    <img src="assets/images/phd-graduation.jpg"
+                         alt="Dr Yasas Sri Wickramasinghe – PhD in Human Interface Technology"
+                         onerror="this.onerror=null;this.src='assets/images/personal_img.png'">
+                </div>
+                <div class="dtr-ch-portrait-edge"></div>
+                <!-- floating research tags -->
+                <div class="dtr-ch-tag dtr-ch-tag-1"><span class="dtr-ch-tag-dot"></span>XR Research</div>
+                <div class="dtr-ch-tag dtr-ch-tag-2"><span class="dtr-ch-tag-dot"></span>HCI</div>
+                <div class="dtr-ch-tag dtr-ch-tag-3"><span class="dtr-ch-tag-dot"></span>AI Systems</div>
+                <div class="dtr-ch-tag dtr-ch-tag-4"><span class="dtr-ch-tag-dot"></span>Immersive Learning</div>
+                <div class="dtr-ch-tag dtr-ch-tag-5"><span class="dtr-ch-tag-dot"></span>Publications</div>
+                <div class="dtr-ch-tag dtr-ch-tag-6"><span class="dtr-ch-tag-dot"></span>Innovation</div>
+            </div>
+
+            <!-- left content panel (z-index: 4) -->
+            <div class="dtr-ch-panel">
+                <div class="dtr-ch-status">
+                    <span class="dtr-ch-status-dot"></span>
                     Open for Research Collaboration
                 </div>
-                <p class="dtr-hv3-bio">
-                    Hey! I'm a PhD Researcher &amp; Senior Lecturer<br>
-                    specialising in Human Interface Technology &amp; XR.
-                </p>
-                <div class="dtr-hv3-actions">
-                    <a href="#contact" class="dtr-hv3-btn">
-                        Schedule a Call
-                        <svg viewBox="0 0 20 20" fill="none" class="dtr-hv3-arrow"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <p class="dtr-ch-role">PhD Researcher &bull; Senior Lecturer &bull; XR &amp; HIT Specialist</p>
+                <p class="dtr-ch-tagline">Designing immersive intelligent systems that<br>shape the future of human interaction.</p>
+                <div class="dtr-ch-ctas">
+                    <a href="#services" class="dtr-ch-btn dtr-ch-btn-solid">
+                        <span>Explore Research</span>
+                        <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                    <div class="dtr-hv3-socials">
-                        <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="dtr-hv3-social" title="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/yasassri.me" target="_blank" class="dtr-hv3-social" title="Instagram">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-                        </a>
-                        <a href="https://www.facebook.com/yasas.s.wickramasinghe" target="_blank" class="dtr-hv3-social" title="Facebook">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-                        </a>
-                    </div>
+                    <a href="#contact" class="dtr-ch-btn dtr-ch-btn-glass">
+                        <span>Book Collaboration</span>
+                        <svg viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 110 16A8 8 0 0110 2zm0 4v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="dtr-ch-socials">
+                    <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="dtr-ch-soc">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                        <span class="dtr-ch-soc-tip">LinkedIn</span>
+                    </a>
+                    <a href="https://www.instagram.com/yasassri.me" target="_blank" class="dtr-ch-soc">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+                        <span class="dtr-ch-soc-tip">Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/yasas.s.wickramasinghe" target="_blank" class="dtr-ch-soc">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        <span class="dtr-ch-soc-tip">Facebook</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- scrolling affiliation logo strip -->
-            <div class="dtr-hv3-strip">
-                <div class="dtr-hv3-strip-track">
-                    <!-- set 1 -->
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-yoobee.png" alt="Yoobee Colleges"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-niantic-spatial.png" alt="Niantic Spatial"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-hitlabnz.png" alt="HITLabNZ"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <!-- set 2 (duplicate for seamless loop) -->
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-yoobee.png" alt="Yoobee Colleges"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-niantic-spatial.png" alt="Niantic Spatial"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-hitlabnz.png" alt="HITLabNZ"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <!-- set 3 -->
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-yoobee.png" alt="Yoobee Colleges"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-niantic-spatial.png" alt="Niantic Spatial"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-hitlabnz.png" alt="HITLabNZ"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <!-- set 4 (completes second half for seamless 50% loop) -->
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-yoobee.png" alt="Yoobee Colleges"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-niantic-spatial.png" alt="Niantic Spatial"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                    <span class="dtr-hv3-strip-logo"><img src="assets/images/logo-hitlabnz.png" alt="HITLabNZ"></span>
-                    <span class="dtr-hv3-strip-dot"></span>
-                </div>
+            <!-- scroll indicator -->
+            <div class="dtr-ch-scroll-hint" aria-hidden="true">
+                <div class="dtr-ch-scroll-bar"></div>
+                <span>Scroll</span>
             </div>
 
         </section>
@@ -1199,6 +1194,85 @@
     new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) run();
     }, { threshold: 0.3 }).observe(section);
+}());
+</script>
+
+<!-- Cinematic Hero – particles, parallax, entry animations -->
+<script>
+(function () {
+    'use strict';
+
+    /* ---- 1. Particle canvas ---- */
+    var canvas = document.getElementById('dtrChCanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W, H, particles = [];
+
+    function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    var NUM = Math.min(90, Math.floor((W * H) / 14000));
+    for (var i = 0; i < NUM; i++) {
+        particles.push({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: Math.random() * 1.4 + 0.3,
+            dx: (Math.random() - 0.5) * 0.18,
+            dy: (Math.random() - 0.5) * 0.18,
+            a: Math.random() * 0.55 + 0.10
+        });
+    }
+
+    function drawParticles() {
+        ctx.clearRect(0, 0, W, H);
+        for (var j = 0; j < particles.length; j++) {
+            var p = particles[j];
+            p.x += p.dx; p.y += p.dy;
+            if (p.x < 0) p.x = W;
+            if (p.x > W) p.x = 0;
+            if (p.y < 0) p.y = H;
+            if (p.y > H) p.y = 0;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(180,160,255,' + p.a + ')';
+            ctx.fill();
+        }
+        requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    /* ---- 2. Mouse parallax on portrait + tags ---- */
+    var portrait = document.getElementById('dtrChPortrait');
+    if (portrait) {
+        var mx = 0, my = 0, tx = 0, ty = 0;
+        document.addEventListener('mousemove', function (e) {
+            var cx = window.innerWidth / 2;
+            var cy = window.innerHeight / 2;
+            mx = (e.clientX - cx) / cx;
+            my = (e.clientY - cy) / cy;
+        });
+        (function lerpParallax() {
+            tx += (mx - tx) * 0.06;
+            ty += (my - ty) * 0.06;
+            portrait.style.transform = 'translate(' + (tx * -8) + 'px,' + (ty * -6) + 'px)';
+            var tags = portrait.querySelectorAll('.dtr-ch-tag');
+            for (var k = 0; k < tags.length; k++) {
+                var d = (k % 2 === 0) ? 1 : -1;
+                tags[k].style.transform = 'translate(' + (tx * 10 * d) + 'px,' + (ty * 8 * d) + 'px)';
+            }
+            requestAnimationFrame(lerpParallax);
+        }());
+    }
+
+    /* ---- 3. Staggered entry animation ---- */
+    var hero = document.querySelector('.dtr-ch');
+    if (hero) {
+        setTimeout(function () { hero.classList.add('dtr-ch-ready'); }, 80);
+    }
 }());
 </script>
 </body>
