@@ -23,6 +23,165 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/color.css">
 
+    <!-- Experience Timeline Styles -->
+    <style>
+        /* ── Experience Timeline ───────────────────────── */
+        .exp-timeline {
+            position: relative;
+            padding-left: 32px;
+        }
+        .exp-timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #0066cc 0%, #e0e7ef 100%);
+        }
+        .exp-group-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #0066cc;
+            margin-bottom: 18px;
+            margin-top: 10px;
+            padding-left: 4px;
+        }
+        .exp-group-label + .exp-card { margin-top: 0; }
+
+        .exp-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            margin-bottom: 18px;
+            position: relative;
+        }
+        .exp-card-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            flex-shrink: 0;
+            position: absolute;
+            left: -27px;
+            top: 18px;
+            box-shadow: 0 0 0 2px currentColor;
+        }
+        .exp-dot-research    { background: #0066cc; color: #0066cc; }
+        .exp-dot-teaching    { background: #00b09b; color: #00b09b; }
+        .exp-dot-industry    { background: #6c5ce7; color: #6c5ce7; }
+        .exp-dot-speaking    { background: #e17055; color: #e17055; }
+        .exp-dot-writing     { background: #f39c12; color: #f39c12; }
+        .exp-dot-entrepreneurship { background: #00cec9; color: #00cec9; }
+        .exp-dot-community   { background: #a29bfe; color: #a29bfe; }
+
+        .exp-card-body {
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px 22px;
+            width: 100%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid transparent;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .exp-card:hover .exp-card-body {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.11);
+            transform: translateY(-2px);
+        }
+
+        .exp-dot-research    ~ .exp-card-body { border-left-color: #0066cc; }
+        .exp-dot-teaching    ~ .exp-card-body { border-left-color: #00b09b; }
+        .exp-dot-industry    ~ .exp-card-body { border-left-color: #6c5ce7; }
+        .exp-dot-speaking    ~ .exp-card-body { border-left-color: #e17055; }
+        .exp-dot-writing     ~ .exp-card-body { border-left-color: #f39c12; }
+        .exp-dot-entrepreneurship ~ .exp-card-body { border-left-color: #00cec9; }
+        .exp-dot-community   ~ .exp-card-body { border-left-color: #a29bfe; }
+
+        .exp-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .exp-role {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0 0 3px 0;
+        }
+        .exp-org {
+            font-size: 0.88rem;
+            color: #555;
+            margin: 0;
+            font-weight: 500;
+        }
+        .exp-meta {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .exp-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+        .exp-badge-current {
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+        }
+        .exp-tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.04em;
+        }
+        .exp-tag-research        { background: #e3f0ff; color: #0056b3; }
+        .exp-tag-teaching        { background: #e0f7f5; color: #007a6e; }
+        .exp-tag-industry        { background: #ede9ff; color: #4a3dbf; }
+        .exp-tag-speaking        { background: #fde9e5; color: #c0392b; }
+        .exp-tag-writing         { background: #fef5e7; color: #9b6d00; }
+        .exp-tag-entrepreneurship{ background: #e0fafa; color: #008080; }
+        .exp-tag-community       { background: #f0eeff; color: #5e35b1; }
+
+        .exp-card-footer {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .exp-date, .exp-loc {
+            font-size: 0.78rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .exp-date i, .exp-loc i { font-size: 0.8rem; }
+
+        .exp-desc {
+            font-size: 0.84rem;
+            color: #666;
+            margin: 10px 0 0 0;
+            line-height: 1.55;
+        }
+
+        @media (max-width: 576px) {
+            .exp-meta { justify-content: flex-start; }
+            .exp-card-header { flex-direction: column; }
+        }
+    </style>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
     <script>
@@ -680,106 +839,232 @@
                 <!-- heading starts -->
                 <div class="dtr-styled-heading heading-left">
                     <h2>My Experience</h2>
-                    <p>Industry Experience</p>
+                    <p>A Journey Through Research, Academia &amp; Industry</p>
                 </div>
                 <!-- heading ends -->
 
-                <div class="row">
+                <div class="exp-timeline">
 
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-lg-6">
-                        <div class="dtr-pr-15">
+                    <!-- ── Current Roles ──────────────────────── -->
+                    <div class="exp-group-label">Current Roles</div>
 
-                            <!-- timeline item present starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2021 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Senior Lecturer</h5>
-                                    <p>Senior Lecturer at Department on Information Technology, Faculty of Information Technology, University of Moratuwa, Sri Lanka</p>
+                    <!-- Postdoctoral Researcher -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-research"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Postdoctoral Researcher</h5>
+                                    <p class="exp-org">University of Canterbury</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-badge exp-badge-current">Current</span>
+                                    <span class="exp-tag exp-tag-research">Research</span>
                                 </div>
                             </div>
-                            <!-- timeline item present ends -->
-
-                            <!-- timeline item 1 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2015 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Co-Founder of Navitaz VR Labs</h5>
-                                    <p>NavitaZ VR Labs is a startup founded under the MIT GSL Program.
-                                        Developing Augmented Reality based Mobile applications and Virtual Reality based
-                                        Web Applications</p>
-                                </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> June 2025 – Present</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Christchurch, New Zealand</span>
                             </div>
-                            <!-- timeline item 1 ends -->
-
-                            <!-- timeline item 2 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2015 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Public Speaker at Tech Events</h5>
-                                    <p>Delivering Tech Sessions related to Human Computer Interaction at Public Tech
-                                        Events</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 2 ends -->
-
-                            <!-- timeline item 3 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2017 - Present</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Researcher</h5>
-                                    <p>Virtual Reality (VR), Augmented Reality (AR) and Mixed Reality (MR) focused Researcher</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 3 ends -->
-
+                            <p class="exp-desc">Leading research in location-based augmented reality games, leveraging Unity and Niantic Lightship to advance human-interface technology.</p>
                         </div>
                     </div>
-                    <!-- column 1 ends -->
 
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-lg-6">
-                        <div class="dtr-pl-15">
-
-                            <!-- timeline item 1 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2017 - 2021</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Associate Technical Lead</h5>
-                                    <p>Full Stack Developer at 99x specialized in developing web applications for supply
-                                        chain management in scandinavian region</p>
+                    <!-- Senior Lecturer – Yoobee -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-teaching"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Senior Lecturer</h5>
+                                    <p class="exp-org">Yoobee College of Creative Innovation</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-badge exp-badge-current">Current</span>
+                                    <span class="exp-tag exp-tag-teaching">Teaching</span>
                                 </div>
                             </div>
-                            <!-- timeline item 1 ends -->
-
-                            <!-- timeline item 2 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2018 - 2021</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Visiting Lecturer</h5>
-                                    <p>Visiting Lecturer at University of Moratuwa, Institute of Technology, Sri Lanka
-                                        Institute of Information Technology and National School of Business
-                                        Management</p>
-                                </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> December 2024 – Present</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Christchurch, New Zealand</span>
                             </div>
-                            <!-- timeline item 2 ends -->
-
-                            <!-- timeline item 3 starts -->
-                            <div class="dtr-timeline-item">
-                                <p class="dtr-timeline-title">2014 - 2019</p>
-                                <div class="dtr-timeline-text">
-                                    <h5>Program Manager and Volunteer</h5>
-                                    <p>Involved with SL2College to organize and conduct school seminars around Sri Lanka
-                                        covering 32 schools as a community project</p>
-                                </div>
-                            </div>
-                            <!-- timeline item 3 ends -->
-
+                            <p class="exp-desc">Previously served as Curriculum Developer and Tutor (March 2023 – December 2024), shaping creative technology programs.</p>
                         </div>
                     </div>
-                    <!-- column 2 ends -->
+
+                    <!-- Tech Speaker -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-speaking"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Tech Speaker – AR, VR &amp; Mixed Reality</h5>
+                                    <p class="exp-org">Conferences &amp; Events Ltd</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-badge exp-badge-current">Current</span>
+                                    <span class="exp-tag exp-tag-speaking">Speaking</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> May 2017 – Present &middot; 9+ years</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> New Zealand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Writer – Enlear -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-writing"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Technical Writer</h5>
+                                    <p class="exp-org">Enlear</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-badge exp-badge-current">Current</span>
+                                    <span class="exp-tag exp-tag-writing">Writing</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> May 2022 – Present &middot; 4+ years</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Colombo, Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── Past Experience ────────────────────── -->
+                    <div class="exp-group-label" style="margin-top:36px;">Past Experience</div>
+
+                    <!-- PhD Candidate -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-research"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Doctoral Candidate (PhD) – Augmented Reality</h5>
+                                    <p class="exp-org">University of Canterbury</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-tag exp-tag-research">Research</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> May 2022 – August 2025 &middot; 3 yrs 4 mos</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Christchurch, New Zealand</span>
+                            </div>
+                            <p class="exp-desc">PhD in Human-Interface Technology focused on location-based augmented reality games.</p>
+                        </div>
+                    </div>
+
+                    <!-- University Lecturer – Moratuwa -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-teaching"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">University Lecturer</h5>
+                                    <p class="exp-org">University of Moratuwa</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-tag exp-tag-teaching">Teaching</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> April 2021 – May 2022</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Sri Lanka</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Associate Technical Lead – 99X -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-industry"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Associate Technical Lead</h5>
+                                    <p class="exp-org">99X</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-tag exp-tag-industry">Industry</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> July 2020 – April 2021</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Colombo, Sri Lanka</span>
+                            </div>
+                            <p class="exp-desc">Led full-stack development teams delivering supply-chain web applications for the Scandinavian market. Progressed through Software Engineer and Senior Software Engineer roles (2017 – 2020).</p>
+                        </div>
+                    </div>
+
+                    <!-- Visiting Lecturer – Moratuwa / SLIIT -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-teaching"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Visiting Lecturer</h5>
+                                    <p class="exp-org">University of Moratuwa &amp; SLIIT</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-tag exp-tag-teaching">Teaching</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> 2018 – 2021</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Sri Lanka</span>
+                            </div>
+                            <p class="exp-desc">Delivered modules in Computer Architecture, Enterprise Software Development, Database Management Systems, Project Management, and Human–Computer Interaction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Co-Founder – NavitaZ VR Labs -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-entrepreneurship"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Co-Founder</h5>
+                                    <p class="exp-org">NavitaZ VR Labs</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-tag exp-tag-entrepreneurship">Startup</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> June 2015 – August 2019 &middot; 4 yrs</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> MIT GSL 2015 – Sri Lanka</span>
+                            </div>
+                            <p class="exp-desc">Founded an AR/VR startup under the MIT Global Startup Labs program, building augmented reality mobile apps and virtual reality web applications.</p>
+                        </div>
+                    </div>
+
+                    <!-- SL2College -->
+                    <div class="exp-card">
+                        <div class="exp-card-dot exp-dot-community"></div>
+                        <div class="exp-card-body">
+                            <div class="exp-card-header">
+                                <div>
+                                    <h5 class="exp-role">Motivational Speaker &amp; Seminar Coordinator</h5>
+                                    <p class="exp-org">SL2College</p>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-tag exp-tag-community">Community</span>
+                                </div>
+                            </div>
+                            <div class="exp-card-footer">
+                                <span class="exp-date"><i class="icon-calendar"></i> June 2014 – December 2019 &middot; 5 yrs</span>
+                                <span class="exp-loc"><i class="icon-geo-alt"></i> Sri Lanka</span>
+                            </div>
+                            <p class="exp-desc">Inspired young students nationwide through the SL Inspire seminar series in collaboration with the Ministry of Education, reaching 32+ schools.</p>
+                        </div>
+                    </div>
 
                 </div>
+                <!-- experience timeline ends -->
+
             </div>
         </section>
         <!-- timeline section ends
