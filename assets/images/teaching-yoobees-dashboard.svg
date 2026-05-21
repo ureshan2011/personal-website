@@ -1,0 +1,171 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="640" height="400" fill="#f4f3f1"/>
+
+  <!-- Subtle grid -->
+  <line x1="0" y1="80" x2="640" y2="80" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="0" y1="160" x2="640" y2="160" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="0" y1="240" x2="640" y2="240" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="0" y1="320" x2="640" y2="320" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="128" y1="0" x2="128" y2="400" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="256" y1="0" x2="256" y2="400" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="384" y1="0" x2="384" y2="400" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+  <line x1="512" y1="0" x2="512" y2="400" stroke="#c4c6cc" stroke-width="0.5" opacity="0.6"/>
+
+  <!-- App shell / window chrome -->
+  <rect x="24" y="16" width="592" height="360" rx="4" fill="white" stroke="#c4c6cc" stroke-width="1"/>
+
+  <!-- Window title bar -->
+  <rect x="24" y="16" width="592" height="32" rx="4" fill="#051625"/>
+  <rect x="24" y="32" width="592" height="16" fill="#051625"/>
+  <!-- Traffic lights -->
+  <circle cx="44" cy="32" r="5" fill="#e05252" opacity="0.8"/>
+  <circle cx="60" cy="32" r="5" fill="#e0a252" opacity="0.8"/>
+  <circle cx="76" cy="32" r="5" fill="#52b052" opacity="0.8"/>
+  <!-- App name in title bar -->
+  <text x="320" y="37" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="0.12em" font-weight="600">YOOBEES · LECTURER DASHBOARD</text>
+
+  <!-- Left sidebar -->
+  <rect x="24" y="48" width="120" height="328" fill="#051625" opacity="0.04"/>
+  <rect x="24" y="48" width="120" height="328" stroke="#c4c6cc" stroke-width="0.5"/>
+
+  <!-- Sidebar nav items -->
+  <rect x="28" y="64" width="112" height="28" rx="2" fill="#051625" opacity="0.08"/>
+  <text x="68" y="82" font-family="Inter, sans-serif" font-size="9" fill="#051625" text-anchor="middle" letter-spacing="0.05em" font-weight="600">DASHBOARD</text>
+
+  <rect x="28" y="98" width="112" height="24" rx="2" fill="transparent"/>
+  <text x="68" y="114" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.05em">Attendance</text>
+
+  <rect x="28" y="128" width="112" height="24" rx="2" fill="transparent"/>
+  <text x="68" y="144" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.05em">Live Playground</text>
+
+  <rect x="28" y="158" width="112" height="24" rx="2" fill="transparent"/>
+  <text x="68" y="174" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.05em">SQL Race</text>
+
+  <rect x="28" y="188" width="112" height="24" rx="2" fill="transparent"/>
+  <text x="68" y="204" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.05em">Quizzes</text>
+
+  <rect x="28" y="218" width="112" height="24" rx="2" fill="transparent"/>
+  <text x="68" y="234" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.05em">Analytics</text>
+
+  <!-- Divider -->
+  <line x1="28" y1="256" x2="132" y2="256" stroke="#c4c6cc" stroke-width="0.5"/>
+
+  <!-- Sidebar bottom: user avatar -->
+  <circle cx="52" cy="340" r="16" fill="#051625" opacity="0.15" stroke="#051625" stroke-width="1" stroke-dasharray="3 2"/>
+  <circle cx="52" cy="337" r="7" fill="#051625" opacity="0.5"/>
+  <path d="M38 352 Q52 360 66 352" stroke="#051625" stroke-width="1.2" fill="none" opacity="0.5" stroke-linecap="round"/>
+  <text x="82" y="336" font-family="Inter, sans-serif" font-size="8" fill="#051625" font-weight="600">Dr. Yasas S.W.</text>
+  <text x="82" y="348" font-family="Inter, sans-serif" font-size="7" fill="#43474c">Lecturer · MBI</text>
+
+  <!-- Main content area -->
+  <!-- Stat cards row -->
+  <rect x="148" y="60" width="112" height="60" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="160" y="80" font-family="Inter, sans-serif" font-size="20" fill="#051625" font-weight="700">228</text>
+  <text x="160" y="94" font-family="Inter, sans-serif" font-size="8" fill="#43474c" letter-spacing="0.05em">ENROLLED STUDENTS</text>
+  <rect x="152" y="104" width="32" height="3" rx="1" fill="#051625" opacity="0.3"/>
+
+  <rect x="270" y="60" width="112" height="60" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="282" y="80" font-family="Inter, sans-serif" font-size="20" fill="#775a19" font-weight="700">24</text>
+  <text x="282" y="94" font-family="Inter, sans-serif" font-size="8" fill="#43474c" letter-spacing="0.05em">COUNTRIES</text>
+  <rect x="274" y="104" width="48" height="3" rx="1" fill="#775a19" opacity="0.4"/>
+
+  <rect x="392" y="60" width="112" height="60" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="404" y="80" font-family="Inter, sans-serif" font-size="20" fill="#051625" font-weight="700">2,500+</text>
+  <text x="404" y="94" font-family="Inter, sans-serif" font-size="8" fill="#43474c" letter-spacing="0.05em">SESSIONS LOGGED</text>
+  <rect x="396" y="104" width="56" height="3" rx="1" fill="#051625" opacity="0.2"/>
+
+  <rect x="514" y="60" width="96" height="60" rx="2" fill="#051625"/>
+  <text x="562" y="82" font-family="Inter, sans-serif" font-size="20" fill="white" font-weight="700" text-anchor="middle">3</text>
+  <text x="562" y="96" font-family="Inter, sans-serif" font-size="8" fill="#b8c8dc" letter-spacing="0.05em" text-anchor="middle">MBI COURSES</text>
+  <text x="562" y="110" font-family="Inter, sans-serif" font-size="7" fill="#8292a5" text-anchor="middle">ACTIVE</text>
+
+  <!-- Attendance chart mockup -->
+  <rect x="148" y="134" width="230" height="140" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="163" y="154" font-family="Inter, sans-serif" font-size="9" fill="#051625" font-weight="600" letter-spacing="0.05em">ATTENDANCE · WEEK VIEW</text>
+  <!-- Chart bars -->
+  <rect x="168" y="210" width="18" height="44" rx="1" fill="#051625" opacity="0.7"/>
+  <rect x="194" y="190" width="18" height="64" rx="1" fill="#051625" opacity="0.7"/>
+  <rect x="220" y="198" width="18" height="56" rx="1" fill="#051625" opacity="0.7"/>
+  <rect x="246" y="175" width="18" height="79" rx="1" fill="#775a19" opacity="0.8"/>
+  <rect x="272" y="205" width="18" height="49" rx="1" fill="#051625" opacity="0.5"/>
+  <rect x="298" y="185" width="18" height="69" rx="1" fill="#051625" opacity="0.6"/>
+  <rect x="324" y="192" width="18" height="62" rx="1" fill="#051625" opacity="0.55"/>
+  <!-- Chart base line -->
+  <line x1="160" y1="254" x2="355" y2="254" stroke="#c4c6cc" stroke-width="0.8"/>
+  <!-- Day labels -->
+  <text x="177" y="264" font-family="Inter, sans-serif" font-size="7" fill="#74777c" text-anchor="middle">M</text>
+  <text x="203" y="264" font-family="Inter, sans-serif" font-size="7" fill="#74777c" text-anchor="middle">T</text>
+  <text x="229" y="264" font-family="Inter, sans-serif" font-size="7" fill="#74777c" text-anchor="middle">W</text>
+  <text x="255" y="264" font-family="Inter, sans-serif" font-size="7" fill="#775a19" text-anchor="middle" font-weight="600">T</text>
+  <text x="281" y="264" font-family="Inter, sans-serif" font-size="7" fill="#74777c" text-anchor="middle">F</text>
+  <text x="307" y="264" font-family="Inter, sans-serif" font-size="7" fill="#74777c" text-anchor="middle">S</text>
+  <text x="333" y="264" font-family="Inter, sans-serif" font-size="7" fill="#74777c" text-anchor="middle">S</text>
+
+  <!-- Fraud detection badge on chart -->
+  <rect x="278" y="168" width="88" height="16" rx="2" fill="#ffdad6" opacity="0.8"/>
+  <text x="322" y="179" font-family="Inter, sans-serif" font-size="7" fill="#93000a" text-anchor="middle" letter-spacing="0.04em">⚠ FRAUD ALERT SYSTEM ACTIVE</text>
+
+  <!-- Live Playground panel -->
+  <rect x="390" y="134" width="220" height="140" rx="2" fill="#051625"/>
+  <text x="406" y="154" font-family="Inter, sans-serif" font-size="9" fill="#b8c8dc" font-weight="600" letter-spacing="0.05em">LIVE PLAYGROUND</text>
+  <!-- Code lines -->
+  <rect x="406" y="164" width="140" height="6" rx="1" fill="#384858"/>
+  <rect x="406" y="176" width="100" height="6" rx="1" fill="#384858"/>
+  <rect x="406" y="188" width="120" height="6" rx="1" fill="#384858"/>
+  <rect x="406" y="200" width="80" height="6" rx="1" fill="#384858"/>
+  <!-- Colored syntax highlights -->
+  <rect x="406" y="164" width="30" height="6" rx="1" fill="#775a19" opacity="0.7"/>
+  <rect x="440" y="164" width="50" height="6" rx="1" fill="#8292a5"/>
+  <rect x="406" y="176" width="24" height="6" rx="1" fill="#775a19" opacity="0.7"/>
+  <rect x="406" y="188" width="18" height="6" rx="1" fill="#775a19" opacity="0.7"/>
+  <!-- Run button -->
+  <rect x="406" y="218" width="56" height="20" rx="2" fill="#775a19"/>
+  <text x="434" y="231" font-family="Inter, sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="600">▶ RUN</text>
+  <!-- Output -->
+  <rect x="468" y="218" width="130" height="20" rx="2" fill="#0c180e" opacity="0.8"/>
+  <text x="475" y="231" font-family="Inter, sans-serif" font-size="7" fill="#869586">OUTPUT → 12 rows returned</text>
+  <!-- Live dot -->
+  <circle cx="588" cy="148" r="4" fill="#52b052" opacity="0.9"/>
+  <text x="581" y="152" font-family="Inter, sans-serif" font-size="7" fill="#52b052" text-anchor="end">LIVE</text>
+
+  <!-- Bottom row: Quiz + SQL Race previews -->
+  <rect x="148" y="286" width="140" height="90" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="163" y="304" font-family="Inter, sans-serif" font-size="9" fill="#051625" font-weight="600" letter-spacing="0.04em">QUIZ BADGES</text>
+  <!-- Badge circles -->
+  <circle cx="172" cy="330" r="14" fill="#051625" opacity="0.08" stroke="#051625" stroke-width="0.8"/>
+  <text x="172" y="334" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">🏅</text>
+  <circle cx="204" cy="330" r="14" fill="#775a19" opacity="0.08" stroke="#775a19" stroke-width="0.8"/>
+  <text x="204" y="334" font-family="Inter, sans-serif" font-size="10" text-anchor="middle">⭐</text>
+  <circle cx="236" cy="330" r="14" fill="#051625" opacity="0.06" stroke="#c4c6cc" stroke-width="0.8"/>
+  <text x="236" y="334" font-family="Inter, sans-serif" font-size="10" text-anchor="middle" opacity="0.4">🏆</text>
+  <text x="163" y="364" font-family="Inter, sans-serif" font-size="7" fill="#43474c">100+ MCQs across 3 courses</text>
+
+  <rect x="300" y="286" width="140" height="90" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="315" y="304" font-family="Inter, sans-serif" font-size="9" fill="#775a19" font-weight="600" letter-spacing="0.04em">SQL RACE</text>
+  <!-- Mini race track oval -->
+  <ellipse cx="370" cy="335" rx="44" ry="22" stroke="#051625" stroke-width="1.5" fill="none" opacity="0.15"/>
+  <!-- Racer tokens -->
+  <circle cx="334" cy="335" r="5" fill="#051625"/>
+  <circle cx="355" cy="318" r="5" fill="#775a19"/>
+  <circle cx="390" cy="322" r="5" fill="#051625" opacity="0.5"/>
+  <!-- Finish line -->
+  <line x1="414" y1="325" x2="414" y2="345" stroke="#051625" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <text x="315" y="364" font-family="Inter, sans-serif" font-size="7" fill="#43474c">Competitive SQL learning game</text>
+
+  <rect x="452" y="286" width="158" height="90" rx="2" fill="white" stroke="#e3e2e0" stroke-width="1"/>
+  <text x="467" y="304" font-family="Inter, sans-serif" font-size="9" fill="#051625" font-weight="600" letter-spacing="0.04em">COHORT ANALYTICS</text>
+  <!-- Pie / donut chart mockup -->
+  <circle cx="490" cy="338" r="22" fill="none" stroke="#e3e2e0" stroke-width="8"/>
+  <circle cx="490" cy="338" r="22" fill="none" stroke="#051625" stroke-width="8" stroke-dasharray="69 69" stroke-dashoffset="0" opacity="0.7"/>
+  <circle cx="490" cy="338" r="22" fill="none" stroke="#775a19" stroke-width="8" stroke-dasharray="28 110" stroke-dashoffset="-69" opacity="0.7"/>
+  <text x="490" y="342" font-family="Inter, sans-serif" font-size="8" fill="#051625" text-anchor="middle" font-weight="600">87%</text>
+  <text x="524" y="324" font-family="Inter, sans-serif" font-size="7" fill="#43474c">Completion</text>
+  <text x="524" y="336" font-family="Inter, sans-serif" font-size="7" fill="#43474c">By country</text>
+  <text x="524" y="348" font-family="Inter, sans-serif" font-size="7" fill="#43474c">By cohort</text>
+  <text x="467" y="364" font-family="Inter, sans-serif" font-size="7" fill="#43474c">Real-time learning insights</text>
+
+  <!-- Bottom label bar -->
+  <rect x="0" y="370" width="640" height="30" fill="#051625" opacity="0.05"/>
+  <text x="320" y="389" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.08em">YOOBEES LEARNING PLATFORM · MASTERS OF BUSINESS INFORMATICS · YOOBEE COLLEGES NZ</text>
+</svg>
