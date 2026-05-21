@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Teaching | Dr. Yasas Sri Wickramasinghe</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;500;600&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
   tailwind.config = {
@@ -112,9 +112,34 @@
   .content-card {
     background-color: #ffffff;
     border: 1px solid #e3e2e0;
-    transition: border-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
   .content-card:hover { border-color: #051625; }
+  .feature-card {
+    background-color: #ffffff;
+    border: 1px solid #e3e2e0;
+    transition: transform 0.2s ease-out, border-color 0.2s ease-in-out;
+  }
+  .feature-card:hover { transform: translateY(-2px); border-color: #051625; }
+  .course-card {
+    background-color: #ffffff;
+    border: 1px solid #e3e2e0;
+    border-top: 3px solid #051625;
+    transition: border-color 0.2s ease-in-out;
+  }
+  .course-card.gold { border-top-color: #775a19; }
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    background-color: #efeeeb;
+    border: 1px solid #c4c6cc;
+    font-size: 11px;
+    font-family: Inter, sans-serif;
+    color: #43474c;
+    letter-spacing: 0.04em;
+  }
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
@@ -125,7 +150,7 @@
   gtag('config', 'G-N2BH0F6SNE');
 </script>
 </head>
-<body class="font-body-md text-body-md">
+<body class="font-body-md text-body-md bg-background">
 
 <!-- TopNavBar -->
 <nav class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
@@ -136,7 +161,7 @@
       <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="research.html">Research</a>
       <a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="teaching.html">Teaching</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="contact.html">Contact</a>
-      <a href="assets/files/cv_yasas.pdf" target="_blank" class="bg-primary text-on-primary px-6 py-2 rounded-sm font-label-md text-label-md hover:opacity-80 transition-opacity">Curriculum Vitae</a>
+      <a href="assets/files/cv_yasas.pdf" target="_blank" class="bg-primary text-on-primary px-6 py-2 font-label-md text-label-md hover:opacity-80 transition-opacity">Curriculum Vitae</a>
     </div>
     <button class="md:hidden text-primary" onclick="document.getElementById('mobile-menu-t').classList.toggle('hidden')">
       <span class="material-symbols-outlined">menu</span>
@@ -155,150 +180,447 @@
 
   <!-- Header Section -->
   <header class="mb-stack-lg max-w-3xl">
-    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm">Teaching &amp; Mentorship</h1>
-    <p class="font-body-lg text-body-lg text-on-surface-variant">Committed to fostering critical thinking, technical creativity, and purposeful ambition — empowering students to shape the future of technology rather than merely adapt to it.</p>
+    <p class="font-label-md text-label-md text-secondary mb-stack-sm tracking-widest">TEACHING &amp; EDTECH</p>
+    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-sm">Building the Future<br/>of Learning</h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">I design experiential, technology-forward classrooms — and build the platforms that power them. My teaching practice at Yoobee Colleges is inseparable from YooBees, a real-time learning platform I created to bring attendance, live coding, competitive SQL, and AI-assisted reasoning into every session.</p>
   </header>
 
-  <!-- Bento Grid: Teaching Philosophy & Office Hours -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
-
-    <!-- Teaching Philosophy -->
-    <section class="md:col-span-2 content-card p-stack-md rounded-sm">
-      <div class="flex items-center gap-2 mb-stack-sm">
-        <span class="material-symbols-outlined text-secondary">history_edu</span>
-        <h2 class="font-headline-sm text-headline-sm text-primary">Philosophy</h2>
-      </div>
-      <div class="space-y-4 text-on-surface-variant leading-relaxed">
-        <p>My approach to education is grounded in experiential and constructivist learning — I believe students learn best by building, failing, iterating, and reflecting. Whether teaching game development or human-computer interaction, I design environments where hands-on projects and real-world challenges take centre stage.</p>
-        <p>I prioritise purpose-driven education: helping students not just acquire technical skills, but develop the vision and initiative to use them meaningfully. If we can change the way students see the world, they will change the world they see.</p>
-      </div>
-    </section>
-
-    <!-- Office Hours & Advising -->
-    <section class="content-card p-stack-md rounded-sm bg-surface-container-low border-none">
-      <div class="flex items-center gap-2 mb-stack-sm">
-        <span class="material-symbols-outlined text-secondary">event_available</span>
-        <h2 class="font-headline-sm text-headline-sm text-primary">Availability</h2>
-      </div>
-      <div class="space-y-stack-sm">
-        <div>
-          <p class="font-label-md text-label-md text-primary">MON – FRI</p>
-          <p class="text-on-surface-variant">10:00 — 17:00 (In-person / Virtual)</p>
-        </div>
-        <div>
-          <p class="font-label-md text-label-md text-primary">LOCATION</p>
-          <p class="text-on-surface-variant">Yoobee Colleges, Christchurch, NZ</p>
-        </div>
-        <div class="pt-stack-sm border-t border-outline-variant">
-          <p class="font-label-md text-label-md text-primary">CONTACT</p>
-          <p class="text-on-surface-variant mb-stack-sm">For mentoring, project supervision, or academic inquiries, please reach out via the contact page.</p>
-          <a href="contact.html" class="block w-full py-2 text-center border border-primary text-primary font-label-md text-label-md hover:bg-primary hover:text-white transition-all">Get in Touch</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Course Lists -->
+  <!-- =========================================================
+       YOOBEES PLATFORM SECTION
+  ========================================================= -->
   <section class="mb-stack-lg">
-    <div class="flex items-center justify-between mb-stack-md border-b border-outline-variant pb-2">
-      <h2 class="font-headline-md text-headline-md text-primary">Course Catalog</h2>
-      <span class="text-caption font-caption text-on-surface-variant italic">Yoobee College, 2024/25</span>
+    <div class="flex items-center gap-2 mb-stack-md border-b border-outline-variant pb-2">
+      <span class="material-symbols-outlined text-secondary">deployed_code</span>
+      <h2 class="font-headline-md text-headline-md text-primary">YooBees — The Platform I Built</h2>
     </div>
 
-    <!-- Current Courses Table -->
-    <div class="mb-stack-lg overflow-x-auto">
-      <h3 class="font-label-md text-label-md text-secondary mb-4 uppercase tracking-widest">Active Curriculum — Yoobee Colleges</h3>
-      <table class="w-full text-left border-collapse">
-        <thead>
-          <tr class="border-b border-primary">
-            <th class="py-4 font-label-md text-label-md text-primary w-28">CODE</th>
-            <th class="py-4 font-label-md text-label-md text-primary">COURSE TITLE</th>
-            <th class="py-4 font-label-md text-label-md text-primary">LEVEL</th>
-            <th class="py-4 font-label-md text-label-md text-primary text-right">INSTITUTION</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-outline-variant">
-          <tr class="group hover:bg-surface-container-lowest transition-colors">
-            <td class="py-4 font-label-md text-label-md">GD501</td>
-            <td class="py-4 font-body-md text-primary font-medium">Game Development &amp; XR Systems</td>
-            <td class="py-4"><span class="px-2 py-0.5 bg-tertiary-fixed text-primary text-caption rounded-sm">Graduate</span></td>
-            <td class="py-4 text-right text-on-surface-variant">Yoobee Colleges</td>
-          </tr>
-          <tr class="group hover:bg-surface-container-lowest transition-colors">
-            <td class="py-4 font-label-md text-label-md">WD201</td>
-            <td class="py-4 font-body-md text-primary font-medium">Web Development Fundamentals</td>
-            <td class="py-4"><span class="px-2 py-0.5 bg-primary-fixed text-primary text-caption rounded-sm">Undergraduate</span></td>
-            <td class="py-4 text-right text-on-surface-variant">Yoobee Colleges</td>
-          </tr>
-          <tr class="group hover:bg-surface-container-lowest transition-colors">
-            <td class="py-4 font-label-md text-label-md">DES301</td>
-            <td class="py-4 font-body-md text-primary font-medium">Creative Technology &amp; Digital Design</td>
-            <td class="py-4"><span class="px-2 py-0.5 bg-tertiary-fixed text-primary text-caption rounded-sm">Advanced</span></td>
-            <td class="py-4 text-right text-on-surface-variant">Yoobee Colleges</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Platform overview: image + description -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-stack-md">
+
+      <!-- Dashboard graphic -->
+      <div class="lg:col-span-7 content-card overflow-hidden">
+        <img src="assets/images/teaching-yoobees-dashboard.svg" alt="YooBees Lecturer Dashboard" class="w-full h-auto"/>
+      </div>
+
+      <!-- Description + tech stack -->
+      <div class="lg:col-span-5 flex flex-col gap-stack-md">
+        <div class="content-card p-stack-md flex-1">
+          <h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">A Real-Time Learning Platform</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-stack-sm">
+            YooBees is a full-stack web application I designed and built from scratch to serve the Masters of Business Informatics (MBI) programme at Yoobee Colleges. It replaces static slide decks and paper registers with a live, interactive, data-driven classroom experience.
+          </p>
+          <p class="text-on-surface-variant leading-relaxed">
+            Every feature was shaped by a real classroom problem — from fraudulent attendance submissions caught by three detection algorithms, to students competing on SQL queries in real time.
+          </p>
+        </div>
+
+        <!-- Tech stack card -->
+        <div class="bg-primary p-stack-md">
+          <p class="font-label-md text-label-md text-primary-fixed-dim mb-stack-sm tracking-widest">TECH STACK</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#b8c8dc;">React 18</span>
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#b8c8dc;">TypeScript 5</span>
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#b8c8dc;">Vite 5</span>
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#b8c8dc;">Tailwind CSS 3</span>
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#e9c176;">Firebase Auth</span>
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#e9c176;">Firestore</span>
+            <span class="tech-badge" style="background:#1b2b3a;border-color:#384858;color:#e9c176;">Firebase Storage</span>
+          </div>
+          <p class="font-caption text-caption mt-stack-sm" style="color:#8292a5;">Open-source · github.com/ureshan2011/YooBees</p>
+        </div>
+      </div>
     </div>
 
-    <!-- Past Courses -->
-    <div>
-      <h3 class="font-label-md text-label-md text-secondary mb-6 uppercase tracking-widest">Previous Institutions</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+    <!-- Platform stats row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-stack-md">
+      <div class="content-card p-stack-md text-center">
+        <p class="font-display-lg text-headline-md md:text-display-lg-mobile text-primary font-bold">228</p>
+        <p class="font-label-md text-label-md text-on-surface-variant mt-1 tracking-widest">STUDENTS</p>
+        <p class="font-caption text-caption text-on-surface-variant">enrolled across 3 courses</p>
+      </div>
+      <div class="content-card p-stack-md text-center" style="border-top:3px solid #775a19;">
+        <p class="font-display-lg text-headline-md md:text-display-lg-mobile text-secondary font-bold">24</p>
+        <p class="font-label-md text-label-md text-on-surface-variant mt-1 tracking-widest">COUNTRIES</p>
+        <p class="font-caption text-caption text-on-surface-variant">represented in cohorts</p>
+      </div>
+      <div class="content-card p-stack-md text-center">
+        <p class="font-display-lg text-headline-md md:text-display-lg-mobile text-primary font-bold">2,500+</p>
+        <p class="font-label-md text-label-md text-on-surface-variant mt-1 tracking-widest">SESSIONS</p>
+        <p class="font-caption text-caption text-on-surface-variant">attendance records logged</p>
+      </div>
+      <div class="content-card p-stack-md text-center">
+        <p class="font-display-lg text-headline-md md:text-display-lg-mobile text-primary font-bold">100+</p>
+        <p class="font-label-md text-label-md text-on-surface-variant mt-1 tracking-widest">QUIZ MCQs</p>
+        <p class="font-caption text-caption text-on-surface-variant">+ 16 lecture videos</p>
+      </div>
+    </div>
 
-        <div class="content-card p-stack-sm flex items-start gap-4">
-          <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
-            <span class="material-symbols-outlined text-outline">computer</span>
+    <!-- Feature cards bento grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+
+      <!-- One-tap Attendance + Fraud Detection -->
+      <div class="feature-card p-stack-md">
+        <div class="flex items-start gap-3 mb-stack-sm">
+          <div class="w-10 h-10 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">fingerprint</span>
           </div>
           <div>
-            <p class="font-label-md text-label-md text-outline-variant">2021 – 2022</p>
-            <h4 class="font-body-lg text-primary font-bold">Computer Architecture &amp; Enterprise Software</h4>
-            <p class="text-caption font-caption text-on-surface-variant">University of Moratuwa, Sri Lanka</p>
+            <h3 class="font-headline-sm text-[18px] text-primary font-bold leading-tight">One-tap Attendance</h3>
+            <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-0.5">+ FRAUD DETECTION</p>
           </div>
         </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm mb-stack-sm">Students check in with a single tap. Three detection algorithms run in real time to flag dishonest submissions:</p>
+        <ul class="space-y-1.5">
+          <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+            <span class="text-error font-bold mt-0.5">⚑</span>
+            <span><strong class="text-primary">Shared-IP clustering</strong> — detects multiple students submitting from one device</span>
+          </li>
+          <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+            <span class="text-error font-bold mt-0.5">⚑</span>
+            <span><strong class="text-primary">GPS outlier detection</strong> — flags GPS coordinates &gt;500 m from campus</span>
+          </li>
+          <li class="flex items-start gap-2 text-sm text-on-surface-variant">
+            <span class="text-error font-bold mt-0.5">⚑</span>
+            <span><strong class="text-primary">Rapid-submission window</strong> — catches submissions within 30 s of session open</span>
+          </li>
+        </ul>
+      </div>
 
-        <div class="content-card p-stack-sm flex items-start gap-4">
-          <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
-            <span class="material-symbols-outlined text-outline">storage</span>
+      <!-- Live Playground -->
+      <div class="feature-card p-stack-md bg-primary" style="border-color:#384858;">
+        <div class="flex items-start gap-3 mb-stack-sm">
+          <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center" style="background:#1b2b3a;">
+            <span class="material-symbols-outlined" style="color:#b8c8dc;">terminal</span>
           </div>
           <div>
-            <p class="font-label-md text-label-md text-outline-variant">2018 – 2021</p>
-            <h4 class="font-body-lg text-primary font-bold">Database Management Systems</h4>
-            <p class="text-caption font-caption text-on-surface-variant">SLIIT &amp; University of Moratuwa, Sri Lanka</p>
+            <h3 class="font-headline-sm text-[18px] font-bold leading-tight" style="color:#d3e4f8;">Live Playground</h3>
+            <p class="font-caption text-caption font-semibold tracking-wider mt-0.5" style="color:#775a19;">IN-CLASS CODING</p>
           </div>
         </div>
+        <p class="leading-relaxed text-sm mb-stack-sm" style="color:#8292a5;">An in-browser code execution environment embedded directly in lectures. Students write and run SQL, Python snippets, and pseudocode without leaving the platform — and I can see their output live.</p>
+        <div class="p-3 font-mono text-xs" style="background:#0c180e;color:#869586;border-radius:2px;">
+          <span style="color:#775a19;">SELECT</span> dept, <span style="color:#b8c8dc;">AVG</span>(salary)<br/>
+          <span style="color:#775a19;">FROM</span> employees<br/>
+          <span style="color:#775a19;">GROUP BY</span> dept<br/>
+          <span style="color:#869586;opacity:0.6;">→ 12 rows returned ✓</span>
+        </div>
+      </div>
 
-        <div class="content-card p-stack-sm flex items-start gap-4">
-          <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
-            <span class="material-symbols-outlined text-outline">touch_app</span>
+      <!-- SQL Race -->
+      <div class="feature-card p-stack-md" style="border-top:3px solid #775a19;">
+        <div class="flex items-start gap-3 mb-stack-sm">
+          <div class="w-10 h-10 flex-shrink-0 bg-secondary-fixed flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary">sprint</span>
           </div>
           <div>
-            <p class="font-label-md text-label-md text-outline-variant">2018 – 2022</p>
-            <h4 class="font-body-lg text-primary font-bold">Human-Computer Interaction</h4>
-            <p class="text-caption font-caption text-on-surface-variant">University of Moratuwa &amp; SLIIT, Sri Lanka</p>
+            <h3 class="font-headline-sm text-[18px] text-primary font-bold leading-tight">SQL Race</h3>
+            <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-0.5">COMPETITIVE LEARNING</p>
           </div>
         </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm">Students race around a virtual track by solving SQL challenges in sequence — SELECT → WHERE → JOIN → GROUP BY → ORDER BY → HAVING. A live leaderboard drives friendly competition and keeps engagement high across 228 students.</p>
+      </div>
 
-        <div class="content-card p-stack-sm flex items-start gap-4">
-          <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
-            <span class="material-symbols-outlined text-outline">work_history</span>
+      <!-- Quiz Badges -->
+      <div class="feature-card p-stack-md">
+        <div class="flex items-start gap-3 mb-stack-sm">
+          <div class="w-10 h-10 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary">military_tech</span>
           </div>
           <div>
-            <p class="font-label-md text-label-md text-outline-variant">2018 – 2022</p>
-            <h4 class="font-body-lg text-primary font-bold">Project Management &amp; Enterprise App Dev</h4>
-            <p class="text-caption font-caption text-on-surface-variant">SLIIT, Sri Lanka</p>
+            <h3 class="font-headline-sm text-[18px] text-primary font-bold leading-tight">Quiz Badges</h3>
+            <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-0.5">GAMIFIED ASSESSMENT</p>
           </div>
         </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm mb-stack-sm">Over 100 MCQ questions across all three MBI courses. Students earn badge tiers as they progress, with instant feedback and explanations. Results feed directly into the lecturer analytics dashboard.</p>
+        <div class="flex gap-2 mt-2">
+          <span class="text-2xl" title="Bronze">🏅</span>
+          <span class="text-2xl" title="Silver">⭐</span>
+          <span class="text-2xl opacity-40" title="Gold — locked">🏆</span>
+        </div>
+      </div>
 
+      <!-- Daily Match -->
+      <div class="feature-card p-stack-md">
+        <div class="flex items-start gap-3 mb-stack-sm">
+          <div class="w-10 h-10 flex-shrink-0 bg-tertiary-fixed flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">groups</span>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-[18px] text-primary font-bold leading-tight">Daily Match</h3>
+            <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-0.5">PEER COLLABORATION</p>
+          </div>
+        </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm">A daily collaborative challenge pairs students across cohorts to solve a shared problem together. Designed to build cross-cultural communication skills in an international classroom spanning 24 countries.</p>
+      </div>
+
+      <!-- Cohort Analytics -->
+      <div class="feature-card p-stack-md">
+        <div class="flex items-start gap-3 mb-stack-sm">
+          <div class="w-10 h-10 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary">analytics</span>
+          </div>
+          <div>
+            <h3 class="font-headline-sm text-[18px] text-primary font-bold leading-tight">Cohort Analytics</h3>
+            <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-0.5">REAL-TIME INSIGHTS</p>
+          </div>
+        </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm">A lecturer-only dashboard surfaces attendance trends, quiz completion rates, country-level engagement, and fraud alert history — giving me a full picture of each cohort without manual data wrangling.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SQL RACE SPOTLIGHT
+  ========================================================= -->
+  <section class="mb-stack-lg">
+    <div class="flex items-center gap-2 mb-stack-md border-b border-outline-variant pb-2">
+      <span class="material-symbols-outlined text-secondary">sprint</span>
+      <h2 class="font-headline-md text-headline-md text-primary">SQL Race — Feature Spotlight</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+      <div class="lg:col-span-7 content-card overflow-hidden">
+        <img src="assets/images/teaching-sql-race.svg" alt="SQL Race game track visualization" class="w-full h-auto"/>
+      </div>
+      <div class="lg:col-span-5 space-y-stack-md">
+        <div class="content-card p-stack-md">
+          <h3 class="font-headline-sm text-headline-sm text-primary mb-stack-sm">Why a Race?</h3>
+          <p class="text-on-surface-variant leading-relaxed text-sm mb-3">SQL Race transforms database exercises into a live, multiplayer competition. Each checkpoint on the track corresponds to a core SQL clause. Students only advance by writing a correct query — keeping the learning rigorous while the format keeps energy high.</p>
+          <p class="text-on-surface-variant leading-relaxed text-sm">It was born out of a simple observation: students who were bored by textbook drills became intensely focused the moment there was a leaderboard.</p>
+        </div>
+        <div class="content-card p-stack-md">
+          <p class="font-label-md text-label-md text-secondary mb-stack-sm tracking-widest">CHECKPOINTS</p>
+          <div class="space-y-2">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 bg-primary flex items-center justify-center text-xs text-white font-bold flex-shrink-0">1</span>
+              <span class="text-sm text-on-surface"><code class="bg-surface-container px-1 py-0.5 text-primary font-mono text-xs">SELECT</code> — basic column retrieval</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 bg-secondary flex items-center justify-center text-xs text-white font-bold flex-shrink-0">2</span>
+              <span class="text-sm text-on-surface"><code class="bg-surface-container px-1 py-0.5 text-primary font-mono text-xs">WHERE</code> — row-level filtering</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 bg-primary flex items-center justify-center text-xs text-white font-bold flex-shrink-0">3</span>
+              <span class="text-sm text-on-surface"><code class="bg-surface-container px-1 py-0.5 text-primary font-mono text-xs">JOIN</code> — multi-table relationships</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 bg-primary flex items-center justify-center text-xs text-white font-bold flex-shrink-0">4</span>
+              <span class="text-sm text-on-surface"><code class="bg-surface-container px-1 py-0.5 text-primary font-mono text-xs">GROUP BY</code> — aggregation logic</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 bg-secondary flex items-center justify-center text-xs text-white font-bold flex-shrink-0">5</span>
+              <span class="text-sm text-on-surface"><code class="bg-surface-container px-1 py-0.5 text-primary font-mono text-xs">ORDER BY</code> — result sorting</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 bg-primary flex items-center justify-center text-xs text-white font-bold flex-shrink-0">6</span>
+              <span class="text-sm text-on-surface"><code class="bg-surface-container px-1 py-0.5 text-primary font-mono text-xs">HAVING</code> — post-aggregation filter</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Mentorship Impact Image -->
+  <!-- =========================================================
+       MBI COURSE CATALOG
+  ========================================================= -->
   <section class="mb-stack-lg">
-    <div class="relative w-full aspect-[21/9] overflow-hidden rounded-sm">
-      <img alt="Dr. Yasas Sri Wickramasinghe conducting a lecture" class="w-full h-full object-cover grayscale opacity-90" src="assets/images/photography_img7.jpg"/>
-      <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-stack-md">
-        <p class="text-white font-display-lg text-headline-sm italic">"If we can change the way we see the world, we can change the world we see."</p>
+    <div class="flex items-center justify-between mb-stack-md border-b border-outline-variant pb-2">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary">menu_book</span>
+        <h2 class="font-headline-md text-headline-md text-primary">MBI Course Catalog</h2>
+      </div>
+      <span class="font-caption text-caption text-on-surface-variant italic">Masters of Business Informatics · Yoobee Colleges NZ</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+
+      <!-- MBI800 -->
+      <div class="course-card p-stack-md flex flex-col">
+        <div class="mb-stack-sm">
+          <span class="font-label-md text-label-md text-on-surface-variant tracking-widest">MBI800</span>
+          <h3 class="font-headline-sm text-headline-sm text-primary mt-1 leading-tight">Business Information Systems</h3>
+          <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-1">STRATEGY &amp; SYSTEMS PLANNING</p>
+        </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm flex-1 mb-stack-sm">Covers the strategic role of information systems in organisations — from IS alignment and SISP (Strategic Information Systems Planning) to digital transformation frameworks and Porter's competitive models.</p>
+        <div class="border-t border-outline-variant pt-stack-sm">
+          <p class="font-label-md text-label-md text-on-surface-variant mb-2 tracking-widest">KEY TOPICS</p>
+          <div class="flex flex-wrap gap-1.5 mb-stack-sm">
+            <span class="tech-badge">IS Strategy</span>
+            <span class="tech-badge">SISP</span>
+            <span class="tech-badge">Porter's Models</span>
+            <span class="tech-badge">Digital Transformation</span>
+            <span class="tech-badge">Value Chain Analysis</span>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-3 border border-outline-variant">
+          <p class="font-label-md text-label-md text-secondary mb-1 tracking-wider">✦ PLATFORM FEATURE</p>
+          <p class="text-sm text-on-surface-variant"><strong class="text-primary">SISP Prompt Lab</strong> — an AI-assisted tool embedded in YooBees that walks students through strategic IS planning exercises using guided prompts and real case data.</p>
+        </div>
+      </div>
+
+      <!-- MBI802 -->
+      <div class="course-card gold p-stack-md flex flex-col">
+        <div class="mb-stack-sm">
+          <span class="font-label-md text-label-md text-on-surface-variant tracking-widest">MBI802</span>
+          <h3 class="font-headline-sm text-headline-sm text-primary mt-1 leading-tight">Database Management Systems</h3>
+          <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-1">SQL · ER MODELLING · NOSQL</p>
+        </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm flex-1 mb-stack-sm">A hands-on deep-dive into relational database design, SQL from basics to advanced joins and stored procedures, ER diagram methodology, normalisation theory, and an introduction to NoSQL paradigms.</p>
+        <div class="border-t border-outline-variant pt-stack-sm">
+          <p class="font-label-md text-label-md text-on-surface-variant mb-2 tracking-widest">KEY TOPICS</p>
+          <div class="flex flex-wrap gap-1.5 mb-stack-sm">
+            <span class="tech-badge">ER Diagrams</span>
+            <span class="tech-badge">SQL Joins</span>
+            <span class="tech-badge">Normalisation</span>
+            <span class="tech-badge">Stored Procedures</span>
+            <span class="tech-badge">NoSQL</span>
+            <span class="tech-badge">Transactions</span>
+          </div>
+        </div>
+        <div class="bg-secondary-fixed p-3 border border-secondary-fixed-dim">
+          <p class="font-label-md text-label-md text-secondary mb-1 tracking-wider">✦ PLATFORM FEATURES</p>
+          <p class="text-sm text-on-surface-variant"><strong class="text-primary">SQL Race</strong> — competitive live query challenges. <strong class="text-primary">Live Playground</strong> — in-browser SQL execution environment for practice and demonstrations.</p>
+        </div>
+      </div>
+
+      <!-- MBI804 -->
+      <div class="course-card p-stack-md flex flex-col">
+        <div class="mb-stack-sm">
+          <span class="font-label-md text-label-md text-on-surface-variant tracking-widest">MBI804</span>
+          <h3 class="font-headline-sm text-headline-sm text-primary mt-1 leading-tight">IT Project Management</h3>
+          <p class="font-caption text-caption text-secondary font-semibold tracking-wider mt-1">AGILE · SCRUM · RISK MANAGEMENT</p>
+        </div>
+        <p class="text-on-surface-variant leading-relaxed text-sm flex-1 mb-stack-sm">Covers the full project lifecycle — initiation, planning, execution, monitoring, and closure — with a strong practical emphasis on Agile methodologies, Scrum ceremonies, stakeholder management, and risk frameworks.</p>
+        <div class="border-t border-outline-variant pt-stack-sm">
+          <p class="font-label-md text-label-md text-on-surface-variant mb-2 tracking-widest">KEY TOPICS</p>
+          <div class="flex flex-wrap gap-1.5 mb-stack-sm">
+            <span class="tech-badge">Agile &amp; Scrum</span>
+            <span class="tech-badge">Project Charter</span>
+            <span class="tech-badge">Risk Management</span>
+            <span class="tech-badge">Stakeholder Comms</span>
+            <span class="tech-badge">Gantt &amp; WBS</span>
+          </div>
+        </div>
+        <div class="bg-surface-container-low p-3 border border-outline-variant">
+          <p class="font-label-md text-label-md text-secondary mb-1 tracking-wider">✦ PLATFORM FEATURE</p>
+          <p class="text-sm text-on-surface-variant"><strong class="text-primary">Case Study Labs</strong> — students manage a simulated IT project via YooBees, tracking sprints, updating risk registers, and submitting deliverables with structured peer review.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PHILOSOPHY + AVAILABILITY
+  ========================================================= -->
+  <section class="mb-stack-lg">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+      <!-- Teaching Philosophy -->
+      <div class="md:col-span-2 content-card p-stack-md">
+        <div class="flex items-center gap-2 mb-stack-sm">
+          <span class="material-symbols-outlined text-secondary">history_edu</span>
+          <h2 class="font-headline-sm text-headline-sm text-primary">Philosophy</h2>
+        </div>
+        <div class="space-y-4 text-on-surface-variant leading-relaxed">
+          <p>My approach to education is grounded in experiential and constructivist learning — I believe students learn best by building, failing, iterating, and reflecting. Every feature in YooBees was designed around this principle: the Live Playground lowers the barrier to trying, SQL Race makes failure feel like just one more lap, and badge tiers reward persistence over perfection.</p>
+          <p>I prioritise purpose-driven education: helping students not just acquire technical skills, but develop the vision and initiative to use them meaningfully. In a classroom spanning 24 countries, that also means building cultural fluency and collaborative communication into every assignment — not just technical competence.</p>
+          <p class="italic text-on-surface border-l-2 border-secondary pl-4">"If we can change the way we see the world, we can change the world we see."</p>
+        </div>
+      </div>
+
+      <!-- Availability -->
+      <div class="content-card p-stack-md bg-surface-container-low border-none">
+        <div class="flex items-center gap-2 mb-stack-sm">
+          <span class="material-symbols-outlined text-secondary">event_available</span>
+          <h2 class="font-headline-sm text-headline-sm text-primary">Availability</h2>
+        </div>
+        <div class="space-y-stack-sm">
+          <div>
+            <p class="font-label-md text-label-md text-primary">MON – SAT</p>
+            <p class="text-on-surface-variant">10:00 — 17:00 (In-person / Virtual)</p>
+          </div>
+          <div>
+            <p class="font-label-md text-label-md text-primary">LOCATION</p>
+            <p class="text-on-surface-variant">Yoobee Colleges, Christchurch, NZ</p>
+          </div>
+          <div class="pt-stack-sm border-t border-outline-variant">
+            <p class="font-label-md text-label-md text-primary mb-2">CONTACT</p>
+            <p class="text-on-surface-variant text-sm mb-stack-sm">For mentoring, project supervision, industry talks, or academic inquiries.</p>
+            <a href="contact.html" class="block w-full py-2 text-center border border-primary text-primary font-label-md text-label-md hover:bg-primary hover:text-white transition-all">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PREVIOUS TEACHING EXPERIENCE
+  ========================================================= -->
+  <section class="mb-stack-lg">
+    <div class="flex items-center gap-2 mb-stack-md border-b border-outline-variant pb-2">
+      <span class="material-symbols-outlined text-secondary">school</span>
+      <h2 class="font-headline-md text-headline-md text-primary">Previous Teaching</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+      <div class="content-card p-stack-sm flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+          <span class="material-symbols-outlined text-outline">computer</span>
+        </div>
+        <div>
+          <p class="font-label-md text-label-md text-outline-variant">2021 – 2022</p>
+          <h4 class="font-body-lg text-primary font-bold">Computer Architecture &amp; Enterprise Software</h4>
+          <p class="text-caption font-caption text-on-surface-variant">University of Moratuwa, Sri Lanka</p>
+        </div>
+      </div>
+
+      <div class="content-card p-stack-sm flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+          <span class="material-symbols-outlined text-outline">storage</span>
+        </div>
+        <div>
+          <p class="font-label-md text-label-md text-outline-variant">2018 – 2021</p>
+          <h4 class="font-body-lg text-primary font-bold">Database Management Systems</h4>
+          <p class="text-caption font-caption text-on-surface-variant">SLIIT &amp; University of Moratuwa, Sri Lanka</p>
+        </div>
+      </div>
+
+      <div class="content-card p-stack-sm flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+          <span class="material-symbols-outlined text-outline">touch_app</span>
+        </div>
+        <div>
+          <p class="font-label-md text-label-md text-outline-variant">2018 – 2022</p>
+          <h4 class="font-body-lg text-primary font-bold">Human-Computer Interaction</h4>
+          <p class="text-caption font-caption text-on-surface-variant">University of Moratuwa &amp; SLIIT, Sri Lanka</p>
+        </div>
+      </div>
+
+      <div class="content-card p-stack-sm flex items-start gap-4">
+        <div class="w-12 h-12 flex-shrink-0 bg-surface-container-highest flex items-center justify-center">
+          <span class="material-symbols-outlined text-outline">work_history</span>
+        </div>
+        <div>
+          <p class="font-label-md text-label-md text-outline-variant">2018 – 2022</p>
+          <h4 class="font-body-lg text-primary font-bold">Project Management &amp; Enterprise App Dev</h4>
+          <p class="text-caption font-caption text-on-surface-variant">SLIIT, Sri Lanka</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Quote Banner -->
+  <section class="mb-stack-lg">
+    <div class="relative w-full aspect-[21/9] overflow-hidden">
+      <img alt="Dr. Yasas Sri Wickramasinghe teaching" class="w-full h-full object-cover grayscale opacity-80" src="assets/images/photography_img7.jpg"/>
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent flex items-end p-stack-md">
+        <div>
+          <p class="text-white font-display-lg text-headline-sm md:text-headline-md italic max-w-2xl">"The classroom is not a place where knowledge is delivered — it's a space where thinking is provoked."</p>
+          <p class="font-caption text-caption mt-2" style="color:#b8c8dc;">Dr. Yasas Sri Wickramasinghe · Lecturer, MBI · Yoobee Colleges NZ</p>
+        </div>
       </div>
     </div>
   </section>
@@ -321,16 +643,5 @@
   </div>
 </footer>
 
-<script>
-  document.querySelectorAll('tr').forEach(row => {
-    row.addEventListener('mouseenter', () => {
-      row.style.transform = 'translateX(4px)';
-      row.style.transition = 'transform 0.2s ease-out';
-    });
-    row.addEventListener('mouseleave', () => {
-      row.style.transform = 'translateX(0)';
-    });
-  });
-</script>
 </body>
 </html>
