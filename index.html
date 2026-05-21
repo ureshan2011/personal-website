@@ -1,1395 +1,384 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="light" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <title>Yasas Sri Wickramasinghe</title>
-    <meta name="author" content="yasas sri wickramasinghe">
-    <meta name="description" content="Yasas Sri Wickramasinghe's Personal Website">
-    <meta name="keywords" content="software engineer, personal, senior lecturer, portfolio, yasas sri">
-
-    <!-- FAVICON FILES -->
-    <link href="assets/images/icons/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="144x144">
-    <link href="assets/images/icons/apple-touch-icon-120-precomposed.png" rel="apple-touch-icon" sizes="120x120">
-    <link href="assets/images/icons/apple-touch-icon-76-precomposed.png" rel="apple-touch-icon" sizes="76x76">
-    <link href="assets/images/icons/favicon.png" rel="shortcut icon">
-
-    <!-- CSS FILES -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/iconfonts.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/color.css">
-
-    <!-- Experience Timeline Styles -->
-    <style>
-        /* ── Experience Timeline ───────────────────────── */
-        .exp-timeline {
-            position: relative;
-            padding-left: 32px;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Yasas Sri Wickramasinghe | Academic Portfolio</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Yasas Sri Wickramasinghe - Postdoctoral Researcher and Senior Lecturer specialising in Augmented Reality and Spatial Computing."/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed-dim": "#b8c8dc",
+          "inverse-on-surface": "#f2f1ee",
+          "on-primary-fixed": "#0c1d2b",
+          "on-secondary-fixed": "#261900",
+          "error": "#ba1a1a",
+          "inverse-primary": "#b8c8dc",
+          "primary": "#051625",
+          "error-container": "#ffdad6",
+          "outline-variant": "#c4c6cc",
+          "background": "#faf9f6",
+          "on-background": "#1a1c1a",
+          "surface-variant": "#e3e2e0",
+          "secondary-container": "#fed488",
+          "on-tertiary-fixed": "#121e14",
+          "on-secondary-fixed-variant": "#5d4201",
+          "on-secondary": "#ffffff",
+          "on-primary": "#ffffff",
+          "surface-container": "#efeeeb",
+          "surface": "#faf9f6",
+          "on-surface-variant": "#43474c",
+          "surface-container-lowest": "#ffffff",
+          "on-surface": "#1a1c1a",
+          "surface-container-high": "#e9e8e5",
+          "on-tertiary-fixed-variant": "#3c4a3d",
+          "secondary-fixed-dim": "#e9c176",
+          "on-secondary-container": "#785a1a",
+          "secondary": "#775a19",
+          "surface-dim": "#dbdad7",
+          "tertiary": "#0c180e",
+          "tertiary-fixed-dim": "#bbcbba",
+          "surface-container-low": "#f4f3f1",
+          "on-error": "#ffffff",
+          "inverse-surface": "#2f312f",
+          "on-tertiary": "#ffffff",
+          "surface-container-highest": "#e3e2e0",
+          "on-error-container": "#93000a",
+          "primary-fixed": "#d3e4f8",
+          "secondary-fixed": "#ffdea5",
+          "primary-container": "#1b2b3a",
+          "tertiary-fixed": "#d7e7d5",
+          "tertiary-container": "#202d22",
+          "surface-tint": "#506071",
+          "on-tertiary-container": "#869586",
+          "on-primary-fixed-variant": "#384858",
+          "on-primary-container": "#8292a5",
+          "surface-bright": "#faf9f6",
+          "outline": "#74777c"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "stack-sm": "12px",
+          "margin-desktop": "64px",
+          "stack-md": "24px",
+          "gutter": "24px",
+          "margin-mobile": "16px",
+          "container-max": "1140px",
+          "unit": "8px",
+          "stack-lg": "48px"
+        },
+        "fontFamily": {
+          "display-lg": ["Newsreader"],
+          "label-md": ["Inter"],
+          "headline-md": ["Newsreader"],
+          "display-lg-mobile": ["Newsreader"],
+          "headline-sm": ["Newsreader"],
+          "body-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "caption": ["Inter"]
+        },
+        "fontSize": {
+          "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+          "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+          "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "600"}],
+          "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+          "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+          "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
         }
-        .exp-timeline::before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #0066cc 0%, #e0e7ef 100%);
-        }
-        .exp-group-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #0066cc;
-            margin-bottom: 18px;
-            margin-top: 10px;
-            padding-left: 4px;
-        }
-        .exp-group-label + .exp-card { margin-top: 0; }
-
-        .exp-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 0;
-            margin-bottom: 18px;
-            position: relative;
-        }
-        .exp-card-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            flex-shrink: 0;
-            position: absolute;
-            left: -27px;
-            top: 18px;
-            box-shadow: 0 0 0 2px currentColor;
-        }
-        .exp-dot-research    { background: #0066cc; color: #0066cc; }
-        .exp-dot-teaching    { background: #00b09b; color: #00b09b; }
-        .exp-dot-industry    { background: #6c5ce7; color: #6c5ce7; }
-        .exp-dot-speaking    { background: #e17055; color: #e17055; }
-        .exp-dot-writing     { background: #f39c12; color: #f39c12; }
-        .exp-dot-entrepreneurship { background: #00cec9; color: #00cec9; }
-        .exp-dot-community   { background: #a29bfe; color: #a29bfe; }
-
-        .exp-card-body {
-            background: #fff;
-            border-radius: 10px;
-            padding: 18px 22px;
-            width: 100%;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border-left: 4px solid transparent;
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-        .exp-card:hover .exp-card-body {
-            box-shadow: 0 6px 24px rgba(0,0,0,0.11);
-            transform: translateY(-2px);
-        }
-
-        .exp-dot-research    ~ .exp-card-body { border-left-color: #0066cc; }
-        .exp-dot-teaching    ~ .exp-card-body { border-left-color: #00b09b; }
-        .exp-dot-industry    ~ .exp-card-body { border-left-color: #6c5ce7; }
-        .exp-dot-speaking    ~ .exp-card-body { border-left-color: #e17055; }
-        .exp-dot-writing     ~ .exp-card-body { border-left-color: #f39c12; }
-        .exp-dot-entrepreneurship ~ .exp-card-body { border-left-color: #00cec9; }
-        .exp-dot-community   ~ .exp-card-body { border-left-color: #a29bfe; }
-
-        .exp-card-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .exp-role {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin: 0 0 3px 0;
-        }
-        .exp-org {
-            font-size: 0.88rem;
-            color: #555;
-            margin: 0;
-            font-weight: 500;
-        }
-        .exp-meta {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            flex-shrink: 0;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-        .exp-badge {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
-        .exp-badge-current {
-            background: #e8f5e9;
-            color: #2e7d32;
-            border: 1px solid #a5d6a7;
-        }
-        .exp-tag {
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 20px;
-            letter-spacing: 0.04em;
-        }
-        .exp-tag-research        { background: #e3f0ff; color: #0056b3; }
-        .exp-tag-teaching        { background: #e0f7f5; color: #007a6e; }
-        .exp-tag-industry        { background: #ede9ff; color: #4a3dbf; }
-        .exp-tag-speaking        { background: #fde9e5; color: #c0392b; }
-        .exp-tag-writing         { background: #fef5e7; color: #9b6d00; }
-        .exp-tag-entrepreneurship{ background: #e0fafa; color: #008080; }
-        .exp-tag-community       { background: #f0eeff; color: #5e35b1; }
-
-        .exp-card-footer {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-        .exp-date, .exp-loc {
-            font-size: 0.78rem;
-            color: #888;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .exp-date i, .exp-loc i { font-size: 0.8rem; }
-
-        .exp-desc {
-            font-size: 0.84rem;
-            color: #666;
-            margin: 10px 0 0 0;
-            line-height: 1.55;
-        }
-
-        @media (max-width: 576px) {
-            .exp-meta { justify-content: flex-start; }
-            .exp-card-header { flex-direction: column; }
-        }
-    </style>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'G-N2BH0F6SNE');
-    </script>
-    
-    <!-- Pinterest Integration -->
-    <meta name="p:domain_verify" content="d090da00df33cae44689ce85c50ea6e0"/>
-
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
 </head>
-<body>
-<div id="dtr-wrapper" class="clearfix">
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
 
-    <!-- preloader starts -->
-    <div class="dtr-preloader">
-        <div class="dtr-preloader-inner">
-            <div class="dtr-preloader-img"></div>
-        </div>
+<!-- Top Navigation Bar -->
+<nav class="w-full top-0 sticky bg-surface border-b border-outline-variant z-50">
+  <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-sm">
+    <a class="font-display-lg text-headline-sm text-primary tracking-tight" href="index.html">
+      Dr. Yasas Sri Wickramasinghe
+    </a>
+    <div class="hidden md:flex items-center gap-gutter">
+      <a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="index.html">Home</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="research.html">Research</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="teaching.html">Teaching</a>
+      <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+      <a href="assets/files/cv_yasas.pdf" target="_blank" class="ml-4 px-6 py-2 bg-primary text-on-primary font-label-md text-label-md rounded hover:opacity-90 transition-opacity">
+        Curriculum Vitae
+      </a>
     </div>
-    <!-- preloader ends -->
+    <!-- Mobile Toggle -->
+    <button class="md:hidden text-primary" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="hidden md:hidden bg-surface border-t border-outline-variant px-margin-mobile py-stack-md flex flex-col gap-stack-sm" id="mobile-menu">
+    <a class="font-body-md text-primary font-bold" href="index.html">Home</a>
+    <a class="font-body-md text-on-surface-variant" href="research.html">Research</a>
+    <a class="font-body-md text-on-surface-variant" href="teaching.html">Teaching</a>
+    <a class="font-body-md text-on-surface-variant" href="contact.html">Contact</a>
+    <a href="assets/files/cv_yasas.pdf" target="_blank" class="bg-primary text-on-primary px-6 py-2 w-fit font-label-md text-label-md">Curriculum Vitae</a>
+  </div>
+</nav>
 
-    <!-- Small Devices Header 
-============================================= -->
-    <div class="dtr-responsive-header fixed-top">
-        <div class="container">
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 
-            <!-- small devices logo -->
-            <a href="index.html"><img src="assets/images/logo-dark.png" alt="logo"></a>
-            <!-- small devices logo ends -->
-
-            <!-- menu button -->
-            <button id="dtr-menu-button" class="dtr-hamburger" type="button"><span
-                    class="dtr-hamburger-lines-wrapper"><span class="dtr-hamburger-lines"></span></span></button>
-        </div>
-        <div class="dtr-responsive-header-menu"></div>
+  <!-- Hero Section -->
+  <section class="py-stack-lg md:py-24 grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+    <div class="md:col-span-7 space-y-stack-md">
+      <span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Postdoctoral Researcher &amp; Senior Lecturer</span>
+      <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-2xl">
+        Designing immersive systems at the frontier of augmented reality and human interaction.
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        Dedicated to advancing location-based AR and understanding how spatial computing reshapes human cognition and behaviour. Currently Postdoctoral Researcher at HIT Lab NZ, University of Canterbury, and Senior Lecturer at Yoobee Colleges.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-stack-sm">
+        <a class="px-8 py-3 bg-primary text-on-primary font-label-md text-label-md rounded hover:opacity-90 transition-opacity inline-flex items-center gap-2" href="research.html">
+          View Research
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <a class="px-8 py-3 border border-primary text-primary font-label-md text-label-md rounded hover:bg-surface-container-low transition-colors" href="#about">
+          About Me
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-4 pt-2">
+        <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="flex items-center gap-2 font-caption text-caption text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">work</span> LinkedIn
+        </a>
+        <a href="https://www.instagram.com/yasassri.me" target="_blank" class="flex items-center gap-2 font-caption text-caption text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">photo_camera</span> @yasassri.me
+        </a>
+        <span class="flex items-center gap-2 font-caption text-caption text-secondary">
+          <span class="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          Open for Collaboration
+        </span>
+      </div>
     </div>
-    <!-- Small Devices Header ends 
-============================================= -->
 
-    <!-- Header 
-============================================= -->
-    <header id="dtr-header-global" class="fixed-top">
-        <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
+    <div class="md:col-span-5 relative mt-stack-lg md:mt-0">
+      <div class="aspect-[4/5] bg-surface-container-high rounded overflow-hidden shadow-sm border border-outline-variant">
+        <img alt="Dr. Yasas Sri Wickramasinghe" class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700" src="assets/images/personal_img.png" onerror="this.src='assets/images/phd-graduation.jpg'"/>
+      </div>
+      <div class="absolute -bottom-4 -left-4 w-24 h-24 border-l-2 border-b-2 border-secondary opacity-30"></div>
+    </div>
+  </section>
 
-                <!-- header left starts -->
-                <div class="dtr-header-left">
-
-                    <!-- logo -->
-                    <a class="logo-default dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png"
-                                                                              alt="logo" width="200"></a>
-
-                    <!-- logo on scroll -->
-                    <a class="logo-alt dtr-scroll-link" href="#home"><img src="assets/images/logo-dark.png" alt="logo"
-                                                                          width="108"></a>
-                    <!-- logo on scroll ends -->
-
-                </div>
-                <!-- header left ends -->
-
-                <!-- menu starts-->
-                <div class="dtr-header-right">
-                    <div class="main-navigation dtr-menu-dark">
-                        <ul class="sf-menu dtr-scrollspy dtr-nav dark-nav-on-load dark-nav-on-scroll">
-                            <li><a class="nav-link" href="#home">Home</a></li>
-                            <li><a class="nav-link" href="#about">About</a></li>
-                            <li><a class="nav-link" href="#services">Services</a></li>
-                            <li><a class="nav-link" href="#portfolio">Works</a></li>
-                            <li><a class="nav-link" href="#blog">Blog</a></li>
-                            <li><a class="nav-link" href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- menu ends -->
-
-            </div>
+  <!-- About Section -->
+  <section class="py-stack-lg border-t border-outline-variant" id="about">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+      <div class="md:col-span-4">
+        <h2 class="font-headline-md text-headline-md text-primary sticky top-24">Biography &amp;<br/>Interests</h2>
+      </div>
+      <div class="md:col-span-8 space-y-stack-md">
+        <p class="font-body-lg text-body-lg text-on-surface">
+          Dr. Yasas Sri Wickramasinghe is a transdisciplinary researcher whose work centres on location-based augmented reality games and spatial computing systems. He earned his PhD in Human Interface Technology from the University of Canterbury, New Zealand, where his doctoral research explored the design and evaluation of AR games in real-world environments.
+        </p>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          His research bridges human-computer interaction, game design, and immersive technology. As a Co-Founder of NavitaZ VR Labs (MIT Global Startup Labs, 2015), he built AR/VR products long before these technologies entered the mainstream. Today, as a Postdoctoral Researcher at HIT Lab NZ and Senior Lecturer at Yoobee College of Creative Innovation, he combines cutting-edge research with a passion for inspiring the next generation of technology creators.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md pt-stack-sm">
+          <div class="p-stack-md bg-white border border-outline-variant rounded shadow-sm">
+            <h3 class="font-label-md text-label-md text-secondary uppercase mb-2">Research Focus</h3>
+            <ul class="space-y-2 font-body-md text-body-md text-on-surface">
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+                Location-Based Augmented Reality
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+                XR &amp; Spatial Computing
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">check_circle</span>
+                Human Interface Technology
+              </li>
+            </ul>
+          </div>
+          <div class="p-stack-md bg-white border border-outline-variant rounded shadow-sm">
+            <h3 class="font-label-md text-label-md text-secondary uppercase mb-2">Academic Background</h3>
+            <ul class="space-y-2 font-body-md text-body-md text-on-surface">
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">school</span>
+                PhD, Human Interface Technology, Canterbury
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">school</span>
+                BSc in Computer Science
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-tertiary text-lg">school</span>
+                Senior Lecturer, Yoobee Colleges
+              </li>
+            </ul>
+          </div>
         </div>
-    </header>
-    <!-- header ends
-================================================== -->
+      </div>
+    </div>
+  </section>
 
-    <!-- == main content area starts == -->
-    <div id="dtr-main-content">
+  <!-- Featured Publications / Articles Section -->
+  <section class="py-stack-lg border-t border-outline-variant" id="publications">
+    <div class="flex justify-between items-end mb-stack-lg">
+      <div>
+        <span class="font-label-md text-label-md text-secondary uppercase tracking-widest">Scholarly Output</span>
+        <h2 class="font-headline-md text-headline-md text-primary">Featured Work</h2>
+      </div>
+      <a class="hidden md:flex font-label-md text-label-md text-primary items-center gap-1 group" href="research.html">
+        Full Publication List
+        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+      </a>
+    </div>
+    <div class="space-y-gutter">
 
-        <!-- hero section starts
-================================================== -->
-        <section id="home" class="dtr-hmin">
-
-            <!-- subtle gradient background -->
-            <div class="dtr-hmin-bg" aria-hidden="true"></div>
-
-            <!-- full-bleed layout wrapper -->
-            <div class="dtr-hmin-wrap">
-
-                <!-- left: text content -->
-                <div class="dtr-hmin-content">
-
-                    <p class="dtr-hmin-eyebrow">
-                        <span class="dtr-hmin-dot"></span>
-                        PhD &nbsp;&middot;&nbsp; Human Interface Technology &nbsp;&middot;&nbsp; University of Canterbury
-                    </p>
-
-                    <h1 class="dtr-hmin-name">
-                        <span class="dtr-hmin-fn">Yasas Sri</span>
-                        <span class="dtr-hmin-ln">Wickramasinghe</span>
-                    </h1>
-
-                    <hr class="dtr-hmin-rule" aria-hidden="true">
-
-                    <p class="dtr-hmin-role">Senior Lecturer &nbsp;&middot;&nbsp; XR &amp; Spatial Computing Researcher &nbsp;&middot;&nbsp; Yoobee Colleges, NZ</p>
-
-                    <p class="dtr-hmin-tagline">Designing immersive intelligent systems<br>that shape the future of human interaction.</p>
-
-                    <div class="dtr-hmin-actions">
-                        <a href="#services" class="dtr-hmin-btn-solid">
-                            Explore Research
-                            <svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </a>
-                        <a href="#contact" class="dtr-hmin-btn-ghost">Get in Touch</a>
-                    </div>
-
-                    <div class="dtr-hmin-footer">
-                        <div class="dtr-hmin-socials">
-                            <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="dtr-hmin-soc" aria-label="LinkedIn">
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                            </a>
-                            <a href="https://www.instagram.com/yasassri.me" target="_blank" class="dtr-hmin-soc" aria-label="Instagram">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-                            </a>
-                            <a href="https://www.facebook.com/yasas.s.wickramasinghe" target="_blank" class="dtr-hmin-soc" aria-label="Facebook">
-                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-                            </a>
-                        </div>
-                        <div class="dtr-hmin-status">
-                            <span class="dtr-hmin-status-dot"></span>
-                            Open for Research Collaboration
-                        </div>
-                    </div>
-
-                </div>
-                <!-- left content ends -->
-
-                <!-- right: portrait photo -->
-                <div class="dtr-hmin-photo" aria-hidden="true">
-                    <img src="assets/images/phd-graduation.jpg"
-                         alt="Dr Yasas Sri Wickramasinghe – PhD graduation"
-                         onerror="this.onerror=null;this.src='assets/images/personal_img.png'">
-                </div>
-                <!-- photo ends -->
-
+      <!-- Publication 1 -->
+      <div class="group p-stack-md border border-outline-variant bg-white hover:border-primary transition-all duration-300">
+        <div class="flex flex-col md:flex-row justify-between gap-stack-sm">
+          <div class="space-y-2">
+            <span class="font-caption text-caption text-secondary font-medium">ISAGA Conference Proceedings (2023)</span>
+            <h3 class="font-headline-sm text-headline-sm text-primary">Location-Based AR Games: Design Principles for Human Interface Technology</h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase rounded-sm">AR / XR</span>
+              <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase rounded-sm">Game Design</span>
             </div>
-            <!-- layout wrapper ends -->
+          </div>
+          <div class="flex items-center">
+            <a href="ISAGA2023Proceedings.pdf" target="_blank" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">description</span>
+              PDF
+            </a>
+            <span class="mx-4 h-4 w-px bg-outline-variant"></span>
+            <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">cc_attribution</span>
+              Profile
+            </a>
+          </div>
+        </div>
+      </div>
 
-            <!-- scroll indicator -->
-            <div class="dtr-hmin-scroll" aria-hidden="true">
-                <div class="dtr-hmin-scrollbar"></div>
-                <span>Scroll</span>
+      <!-- Publication 2 -->
+      <div class="group p-stack-md border border-outline-variant bg-white hover:border-primary transition-all duration-300">
+        <div class="flex flex-col md:flex-row justify-between gap-stack-sm">
+          <div class="space-y-2">
+            <span class="font-caption text-caption text-secondary font-medium">Level Up Coding / GitConnected (2021)</span>
+            <h3 class="font-headline-sm text-headline-sm text-primary">Building a Custom Design System for Enterprise Applications using Material UI</h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase rounded-sm">Engineering</span>
+              <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase rounded-sm">Design Systems</span>
             </div>
+          </div>
+          <div class="flex items-center">
+            <a href="https://levelup.gitconnected.com/creating-a-design-system-using-react-material-ui-498e2e9d3480" target="_blank" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">open_in_new</span>
+              Read
+            </a>
+            <span class="mx-4 h-4 w-px bg-outline-variant"></span>
+            <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">cc_attribution</span>
+              Profile
+            </a>
+          </div>
+        </div>
+      </div>
 
-        </section>
-        <!-- hero section ends
-================================================== -->
-
-        <!-- about section starts
-================================================== -->
-        <section id="about" class="dtr-section dtr-pt-100 dtr-pb-80 bg-light-blue">
-            <div class="container">
-
-                <!--===== row 1 starts =====-->
-                <div class="row d-flex align-items-center">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-6 small-device-space">
-                        <div class="dtr-pr-30"><img src="assets/images/personal_img.png" alt="image"></div>
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-6">
-
-                        <!-- heading starts -->
-                        <div class="dtr-styled-heading">
-                            <h1>About Yasas Sri</h1>
-                            <p>Associate Technical Lead | PhD in Augmented Reality | Senior Lecturer</p>
-                        </div>
-                        <!-- heading ends -->
-
-                        <!-- text -->
-                        <p class="font-weight-500 color-dark">My Vision</p>
-                        <p class="dtr-mt-20">I want to inspire student communities as much as possible with all my skills and capabilities. I dream of seeing a purpose-driven student community globally instead of everyone going with the flow. Because I believe that, If we can change the way we see the world, we can change the world we see.</p>
-                        <div class="row dtr-mt-20">
-                            <div class="col-12 col-md-6">
-                                <table class="table dtr-border-table">
-                                    <tbody>
-                                    <tr>
-                                        <th>Name :</th>
-                                        <td>Yasas Sri</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Instagram :</th>
-                                        <td>@yasassri.me</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Email :</th>
-                                        <td>yasassriofficial@gmail.com</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <table class="table dtr-border-table">
-                                    <tbody>
-                                    <tr>
-                                        <th>Age :</th>
-                                        <td>33 Years</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Twitter :</th>
-                                        <td>@sri_yasas</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Location :</th>
-                                        <td>Sri Lanka</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- link starts -->
-                        <a href="https://www.linkedin.com/in/yasassri" class="dtr-btn btn-blue dtr-mt-30"
-                           target="_blank">View LinkedIn <i class="icon-chevron-compact-right"></i></a>
-                        <a href="assets/files/cv_yasas.pdf" class="dtr-btn btn-blue dtr-mt-30"
-                           target="_blank">View Resume<i class="icon-chevron-compact-right"></i></a>
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 1 ends =====-->
-
-                <!-- heading starts -->
-
-                <div class="dtr-styled-heading heading-left dtr-mt-100">
-                    <h2>My Skills</h2>
-                    <p>Industry Experience as a Full Stack Developer, Specialized in Java</p>
-                </div>
-
-                <!-- heading ends -->
-
-                <!--===== row 2 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-javascript"></i>JavaScript</span><span
-                                class="dtr-progress-value">90%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 90%;"
-                                 aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-angular"></i>Angular</span><span class="dtr-progress-value">93%</span>
-                        </p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 93%;"
-                                 aria-valuenow="93" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
-                <!--===== row 2 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span
-                                class="dtr-progress-title">Leadership</span><span class="dtr-progress-value">90%</span>
-                        </p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 90%;"
-                                 aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title">Analytics</span><span
-                                class="dtr-progress-value">96%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 96%;"
-                                 aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
-                <!--===== row 2 starts =====-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-html5"></i>Web Services</span><span
-                                class="dtr-progress-value">95%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 95%;"
-                                 aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4 offset-lg-2">
-                        <!-- 1st progress bar starts -->
-                        <p class="d-flex justify-content-between"><span class="dtr-progress-title"><i
-                                class="icon-bxl-react"></i>React</span><span class="dtr-progress-value">82%</span></p>
-                        <div class="dtr-progress progress">
-                            <div class="progress-bar bg-dark wow fadeInLeft" role="progressbar" style="width: 82%;"
-                                 aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                        <!-- 1st progress bar ends -->
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--===== row 2 ends =====-->
-
+      <!-- Publication 3 -->
+      <div class="group p-stack-md border border-outline-variant bg-white hover:border-primary transition-all duration-300">
+        <div class="flex flex-col md:flex-row justify-between gap-stack-sm">
+          <div class="space-y-2">
+            <span class="font-caption text-caption text-secondary font-medium">LinkedIn Pulse (2018)</span>
+            <h3 class="font-headline-sm text-headline-sm text-primary">Use Case Study: Mixed Reality &amp; IoT for Hearing Impaired Students</h3>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase rounded-sm">Mixed Reality</span>
+              <span class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase rounded-sm">Accessibility</span>
             </div>
-        </section>
-        <!-- about section ends
-================================================== -->
-
-        <!-- services section starts
-================================================== -->
-        <section id="services" class="dtr-section dtr-py-100">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-center">
-                    <h2>What I Offer</h2>
-                    <p>What I think I'm good at...</p>
-                </div>
-                <!-- heading ends -->
-
-                <div class="row">
-
-                    <!-- box 1 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">01</p>
-                            <img src="assets/images/icon-1.png" alt="image">
-                            <h4 class="dtr-service-heading">Lectures</h4>
-                            <p>Lecturing on Programming, Database Management Systems, Computer Architecture, Enterprise
-                                Application Development & more.</p>
-                        </div>
-                    </div>
-                    <!-- box 1 ends -->
-
-                    <!-- box 2 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">02</p>
-                            <img src="assets/images/icon-2.png" alt="image">
-                            <h4 class="dtr-service-heading">Tech Talks</h4>
-                            <p>Specialized in Virtual Reality & Augmented Reality from University of London. Contact for
-                                a Tech Talks or hands-on sessions related to AR, VR or MR fields. </p>
-                        </div>
-                    </div>
-                    <!-- box 2 ends -->
-
-                    <!-- box 3 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">03</p>
-                            <img src="assets/images/icon-1.png" alt="image">
-                            <h4 class="dtr-service-heading">Project Mentoring</h4>
-                            <p>Project mentoring with 5+ years of industry experiences and as an Associate Technical
-                                Lead working at a reputed company in Sri Lanka.</p>
-                        </div>
-                    </div>
-                    <!-- box 3 ends -->
-
-                    <!-- box 4 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">04</p>
-                            <img src="assets/images/icon-5.png" alt="image">
-                            <h4 class="dtr-service-heading">Academic Counseling</h4>
-                            <p>Need a help on planning your career goals, achieving your academic goals or get more
-                                insights about IT industry?</p>
-                        </div>
-                    </div>
-                    <!-- box 4 ends -->
-
-                    <!-- box 5 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">05</p>
-                            <img src="assets/images/icon-4.png" alt="image">
-                            <h4 class="dtr-service-heading">Technical Analysis</h4>
-                            <p>I can support you on picking the best tech stack for your startup product or for your
-                                next business idea.</p>
-                        </div>
-                    </div>
-                    <!-- box 5 ends -->
-
-                    <!-- box 6 starts -->
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="dtr-service-box bg-white">
-                            <p class="dtr-service-number color-blue">06</p>
-                            <img src="assets/images/icon-6.png" alt="image">
-                            <h4 class="dtr-service-heading">Networ-KING</h4>
-                            <p>Need to connect with an Industry Expert? Technical Guru or a Academic Super Star? I can
-                                help you to connect with them.</p>
-                        </div>
-                    </div>
-                    <!-- box 6 ends -->
-
-                </div>
-            </div>
-        </section>
-
-        <!-- services section ends
-================================================== -->
-
-        <!-- testimonial section starts
-================================================== -->
-        <!--        <section class="dtr-section overflow-hidden dtr-py-100 bg-light-blue">-->
-        <!--            <div class="container"> -->
-        <!--                -->
-        <!--                &lt;!&ndash; heading starts &ndash;&gt;-->
-        <!--                <div class="dtr-styled-heading heading-center">-->
-        <!--                    <h2>Testimonial</h2>-->
-        <!--                    <p>Subheading or information goes here</p>-->
-        <!--                </div>-->
-        <!--                &lt;!&ndash; heading ends &ndash;&gt; -->
-        <!--                -->
-        <!--                &lt;!&ndash;===== row 1 starts =====&ndash;&gt;-->
-        <!--                <div class="row">-->
-        <!--                    <div class="col-12"> -->
-        <!--                        -->
-        <!--                        &lt;!&ndash;===== testimonial slider starts =====&ndash;&gt;-->
-        <!--                        <div class="dtr-slick-slider dtr-slider-side-arrows dtr-testimonial-style-left"> -->
-        <!--                            -->
-        <!--                            &lt;!&ndash;== slide 1 starts ==&ndash;&gt;-->
-        <!--                            <div class="dtr-testimonial clearfix">-->
-        <!--                                <div class="dtr-testimonial-image color-blue"> <img src="assets/images/testimonial-user1.jpg" alt="image"> </div>-->
-        <!--                                <div class="dtr-testimonial-content-wrapper">-->
-        <!--                                    <div class="dtr-testimonial-content">“Extremely professional, unique and enjoyable. The effort taken to ensure sed quia non numquam eius modi tempora incidunt ut labore voluptat relevance to our requirements ensured the optimum outcome.” </div>-->
-        <!--                                    <div class="dtr-client-info">-->
-        <!--                                        <h5 class="dtr-client-name">Hans Witherspoon</h5>-->
-        <!--                                        <span class="dtr-client-job">ACME Inc.</span></div>-->
-        <!--                                    <div class="dtr-testimonial-stars dtr-stars-5 color-blue"></div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            &lt;!&ndash;== slide 1 ends ==&ndash;&gt; -->
-        <!--                            -->
-        <!--                            &lt;!&ndash;== slide 2 starts ==&ndash;&gt;-->
-        <!--                            <div class="dtr-testimonial clearfix">-->
-        <!--                                <div class="dtr-testimonial-image color-blue"> <img src="assets/images/testimonial-user2.jpg" alt="image"> </div>-->
-        <!--                                <div class="dtr-testimonial-content-wrapper">-->
-        <!--                                    <div class="dtr-testimonial-content">“An absolutely phenomenal work and highly recommended services sed quia non numquam eius modi tempora incidunt ut labore voluptat if you want to make some lasting impression!” </div>-->
-        <!--                                    <div class="dtr-client-info">-->
-        <!--                                        <h5 class="dtr-client-name">Martha Weiner</h5>-->
-        <!--                                        <span class="dtr-client-job">Moonblush Studio</span></div>-->
-        <!--                                    <div class="dtr-testimonial-stars dtr-stars-5 color-blue"></div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            &lt;!&ndash;== slide 2 ends ==&ndash;&gt; -->
-        <!--                            -->
-        <!--                            &lt;!&ndash;== slide 3 starts ==&ndash;&gt;-->
-        <!--                            <div class="dtr-testimonial clearfix">-->
-        <!--                                <div class="dtr-testimonial-image color-blue"> <img src="assets/images/testimonial-user3.jpg" alt="image"> </div>-->
-        <!--                                <div class="dtr-testimonial-content-wrapper">-->
-        <!--                                    <div class="dtr-testimonial-content">“Helped us enormously in enabling to analyze and take a step forward and sed quia non numquam eius modi tempora incidunt ut labore voluptat explore different avenues.” </div>-->
-        <!--                                    <div class="dtr-client-info">-->
-        <!--                                        <h5 class="dtr-client-name">Jouri Wende</h5>-->
-        <!--                                        <span class="dtr-client-job">Miami, Florida</span></div>-->
-        <!--                                    <div class="dtr-testimonial-stars dtr-stars-5 color-blue"></div>-->
-        <!--                                </div>-->
-        <!--                            </div>-->
-        <!--                            &lt;!&ndash;== slide 3 ends ==&ndash;&gt; -->
-        <!--                            -->
-        <!--                        </div>-->
-        <!--                        &lt;!&ndash;===== testimonial slider ends =====&ndash;&gt; -->
-        <!--                        -->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                &lt;!&ndash;===== row 1 ends =====&ndash;&gt; -->
-        <!--                -->
-        <!--            </div>-->
-        <!--        </section>-->
-        <!-- testimonial section ends
-================================================== -->
-
-        <!-- portfolio section starts
-================================================== -->
-        <section id="portfolio" class="dtr-section dtr-py-100">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-center">
-                    <h2>Highlights</h2>
-                    <p>It's all about Following My Passion</p>
-                </div>
-                <!-- heading ends -->
-
-                <!-- portfolio filter starts -->
-                <ul class="dtr-filter-nav clearfix">
-                    <li><a class="dtr-filter-all active" data-filter="*" href="#">All Work</a></li>
-                    <li><a data-filter=".filter-tech" href="#">Tech Events</a></li>
-                    <li><a data-filter=".filter-lecturing" href="#">Lecturing</a></li>
-                    <li><a data-filter=".filter-travel" href="#">Travel</a></li>
-                </ul>
-                <!-- portfolio filter ends -->
-
-                <!-- portfolio grid starts -->
-                <div class="dtr-portfolio-grid dtr-portfolio-grid-3col dtr-portfolio-style-1 dtr-rounded-img clearfix">
-
-                    <!-- portfolio item 1 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-lecturing all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img7.jpg"
-                                                                alt="yasas sri wickramasinghe conducting a lecture">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-tech-talks.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Inspiring</h4>
-                                    <p>Human Computer Interaction Lecture</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 1 ends -->
-
-                    <!-- portfolio item 2 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-tech all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img13.jpg"
-                                                                alt="yasas sri wickramasinghe demoing a virtual reality application">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-sankalpa.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Research</h4>
-                                    <p>Mixed Reality Application Demo</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 2 ends-->
-
-                    <!-- portfolio item 3 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-design filter-travel all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img9.jpg"
-                                                                alt="yasas sri wickramasinghe traveling at norway">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="assets/images/photography_img9.jpg"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Travel</h4>
-                                    <p>Norway Visit</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 3 ends -->
-
-                    <!-- portfolio item 4 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-product filter-travel all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img6.jpg"
-                                                                alt="yasas sri wickramasinghe associate technical lead">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="assets/images/photography_img6.jpg"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Portrait</h4>
-                                    <p>Norway</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 4 ends -->
-
-                    <!-- portfolio item 5 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-lecturing all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img10.jpg"
-                                                                alt="yasas sri wickramasinghe showing ar vr application">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-tech-talks.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Workshop</h4>
-                                    <p>Virtual Reality Application Development</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 5 ends -->
-
-                    <!-- portfolio item 6 starts -->
-                    <div class="dtr-portfolio-item isotope-item filter-tech all">
-                        <div class="dtr-portfolio-content"><img src="assets/images/photography_img8.jpg"
-                                                                alt="yasas sri wickramasinghe showing mixed reality application">
-                            <div class="dtr-portfolio-overlay"><a class="media-zoom popup-gallery"
-                                                                  href="https://www.yasassri.tech/project-page-tech-talks.html" target="_blank"></a>
-                                <div class="dtr-portfolio-hover-content">
-                                    <h4 class="dtr-portfolio-heading">Immersion with Virtual Reality</h4>
-                                    <p>Project Showcase at a Public Conference</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- portfolio item 6 ends -->
-
-                </div>
-                <!-- portfolio grid ends -->
-
-            </div>
-        </section>
-        <!-- portfolio section ends
-================================================== -->
-
-        <!-- timeline section starts
-================================================== -->
-        <section id="timeline" class="dtr-section dtr-py-100 bg-light-blue">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-left">
-                    <h2>My Experience</h2>
-                    <p>A Journey Through Research, Academia &amp; Industry</p>
-                </div>
-                <!-- heading ends -->
-
-                <div class="exp-timeline">
-
-                    <!-- ── Current Roles ──────────────────────── -->
-                    <div class="exp-group-label">Current Roles</div>
-
-                    <!-- Postdoctoral Researcher -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-research"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Postdoctoral Researcher</h5>
-                                    <p class="exp-org">University of Canterbury</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-badge exp-badge-current">Current</span>
-                                    <span class="exp-tag exp-tag-research">Research</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> June 2025 – Present</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Christchurch, New Zealand</span>
-                            </div>
-                            <p class="exp-desc">Leading research in location-based augmented reality games, leveraging Unity and Niantic Lightship to advance human-interface technology.</p>
-                        </div>
-                    </div>
-
-                    <!-- Senior Lecturer – Yoobee -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-teaching"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Senior Lecturer</h5>
-                                    <p class="exp-org">Yoobee College of Creative Innovation</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-badge exp-badge-current">Current</span>
-                                    <span class="exp-tag exp-tag-teaching">Teaching</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> December 2024 – Present</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Christchurch, New Zealand</span>
-                            </div>
-                            <p class="exp-desc">Previously served as Curriculum Developer and Tutor (March 2023 – December 2024), shaping creative technology programs.</p>
-                        </div>
-                    </div>
-
-                    <!-- Tech Speaker -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-speaking"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Tech Speaker – AR, VR &amp; Mixed Reality</h5>
-                                    <p class="exp-org">Conferences &amp; Events Ltd</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-badge exp-badge-current">Current</span>
-                                    <span class="exp-tag exp-tag-speaking">Speaking</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> May 2017 – Present &middot; 9+ years</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> New Zealand</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Technical Writer – Enlear -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-writing"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Technical Writer</h5>
-                                    <p class="exp-org">Enlear</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-badge exp-badge-current">Current</span>
-                                    <span class="exp-tag exp-tag-writing">Writing</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> May 2022 – Present &middot; 4+ years</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Colombo, Sri Lanka</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ── Past Experience ────────────────────── -->
-                    <div class="exp-group-label" style="margin-top:36px;">Past Experience</div>
-
-                    <!-- PhD Candidate -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-research"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Doctoral Candidate (PhD) – Augmented Reality</h5>
-                                    <p class="exp-org">University of Canterbury</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-tag exp-tag-research">Research</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> May 2022 – August 2025 &middot; 3 yrs 4 mos</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Christchurch, New Zealand</span>
-                            </div>
-                            <p class="exp-desc">PhD in Human-Interface Technology focused on location-based augmented reality games.</p>
-                        </div>
-                    </div>
-
-                    <!-- University Lecturer – Moratuwa -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-teaching"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">University Lecturer</h5>
-                                    <p class="exp-org">University of Moratuwa</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-tag exp-tag-teaching">Teaching</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> April 2021 – May 2022</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Sri Lanka</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Associate Technical Lead – 99X -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-industry"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Associate Technical Lead</h5>
-                                    <p class="exp-org">99X</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-tag exp-tag-industry">Industry</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> July 2020 – April 2021</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Colombo, Sri Lanka</span>
-                            </div>
-                            <p class="exp-desc">Led full-stack development teams delivering supply-chain web applications for the Scandinavian market. Progressed through Software Engineer and Senior Software Engineer roles (2017 – 2020).</p>
-                        </div>
-                    </div>
-
-                    <!-- Visiting Lecturer – Moratuwa / SLIIT -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-teaching"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Visiting Lecturer</h5>
-                                    <p class="exp-org">University of Moratuwa &amp; SLIIT</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-tag exp-tag-teaching">Teaching</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> 2018 – 2021</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Sri Lanka</span>
-                            </div>
-                            <p class="exp-desc">Delivered modules in Computer Architecture, Enterprise Software Development, Database Management Systems, Project Management, and Human–Computer Interaction.</p>
-                        </div>
-                    </div>
-
-                    <!-- Co-Founder – NavitaZ VR Labs -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-entrepreneurship"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Co-Founder</h5>
-                                    <p class="exp-org">NavitaZ VR Labs</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-tag exp-tag-entrepreneurship">Startup</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> June 2015 – August 2019 &middot; 4 yrs</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> MIT GSL 2015 – Sri Lanka</span>
-                            </div>
-                            <p class="exp-desc">Founded an AR/VR startup under the MIT Global Startup Labs program, building augmented reality mobile apps and virtual reality web applications.</p>
-                        </div>
-                    </div>
-
-                    <!-- SL2College -->
-                    <div class="exp-card">
-                        <div class="exp-card-dot exp-dot-community"></div>
-                        <div class="exp-card-body">
-                            <div class="exp-card-header">
-                                <div>
-                                    <h5 class="exp-role">Motivational Speaker &amp; Seminar Coordinator</h5>
-                                    <p class="exp-org">SL2College</p>
-                                </div>
-                                <div class="exp-meta">
-                                    <span class="exp-tag exp-tag-community">Community</span>
-                                </div>
-                            </div>
-                            <div class="exp-card-footer">
-                                <span class="exp-date"><i class="icon-calendar"></i> June 2014 – December 2019 &middot; 5 yrs</span>
-                                <span class="exp-loc"><i class="icon-geo-alt"></i> Sri Lanka</span>
-                            </div>
-                            <p class="exp-desc">Inspired young students nationwide through the SL Inspire seminar series in collaboration with the Ministry of Education, reaching 32+ schools.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- experience timeline ends -->
-
-            </div>
-        </section>
-        <!-- timeline section ends
-================================================== -->
-
-        <!-- cta section starts
-================================================== -->
-        <section class="dtr-section parallax dtr-py-100"
-                 style="background-image: url(assets/images/background-cta.jpg);">
-            <div class="container">
-
-                <!--== row starts ==-->
-                <div class="row text-center">
-                    <div class="col-12">
-                        <h3 class="font-family-alt font-weight-700 color-dark">Want to work together!</h3>
-                        <p class="color-dark text-size-md">I’m available for Freelance Work.</p>
-                        <!-- link starts -->
-                        <a href="https://www.fiverr.com/yasas_sri?public_mode=true" class="dtr-btn btn-white dtr-mt-30"
-                           target="_blank">Contact Me Via Fiverr <i class="icon-chevron-compact-right"></i></a>
-                        <!-- link ends -->
-                    </div>
-                </div>
-                <!--== row ends ==-->
-
-            </div>
-        </section>
-        <!-- cta section ends
-================================================== -->
-
-        <!-- blog section starts
-================================================== -->
-        <section id="blog" class="dtr-section dtr-py-100">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading heading-center">
-                    <h2>From The Blog</h2>
-                    <p>Tech and General Knowledge</p>
-                </div>
-                <!-- heading ends -->
-
-                <!--== row starts ==-->
-                <div class="row dtr-mt-50">
-
-                    <!-- column starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blog-design-system.jpg" alt="image"></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>June 23, 2021</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Building a Custom Design System For Enterprise Applications using Material UI Library</h5>
-                                <a href="https://levelup.gitconnected.com/creating-a-design-system-using-react-material-ui-498e2e9d3480" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 1 ends -->
-
-                    </div>
-                    <!-- column ends -->
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 1 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blog-vr-warehouse.jpg" alt="image"><span
-                                    class="dtr-category bg-blue color-white">Virtual Reality in Warehouses</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>May 03, 2021</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Apply Virtual Reality to Enhance Efficiency of a Warehouse</h5>
-                                <a href="https://yasassri.medium.com/virtual-reality-a-secret-weapon-to-boost-efficiency-of-a-warehouse-3aa065eddea1" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 1 ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 2 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img0.jpg" alt="image"><span
-                                    class="dtr-category bg-blue color-white">Clean Code</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>April 14, 2021</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Get Started with Clean Coding Practices - Zero to Hero Guide with Code Examples</h5>
-                                <a href="https://readclub.me/how-to-write-javascript-clean-code-and-clean-coding-practices/" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 2 ends -->
-
-                    </div>
-                    <!-- column 2 ends -->
-
-                    <!-- column 3 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 3 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img1.jpg" alt="image"><span
-                                    class="dtr-category bg-blue color-white">Virtual Reality</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>September 7, 2020</li>
-                                    <li>by Yasas Sri</li>
-                                </ul>
-                                <h5>Container Ships and Virtual Reality</h5>
-                                <a href="https://medium.com/@ureshan2011/%E0%B6%94%E0%B6%BA%E0%B7%8F%E0%B6%9C%E0%B7%9A-%E0%B6%B1%E0%B7%90%E0%B7%80%E0%B6%AD%E0%B7%8A-mt-new-diamond-%E0%B7%80%E0%B6%9C%E0%B7%9A-%E0%B6%9C%E0%B7%92%E0%B6%B1%E0%B7%92%E0%B6%9C%E0%B6%B1%E0%B7%8A%E0%B6%B1-%E0%B6%9A%E0%B6%BD%E0%B7%92%E0%B6%B1%E0%B7%8A-%E0%B6%9A%E0%B7%92%E0%B6%BA%E0%B7%80%E0%B6%B1%E0%B7%8A%E0%B6%B1-5f1fc1e06c6d" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 3 ends -->
-
-                    </div>
-                    <!-- column 3 ends -->
-
-                    <!-- column 4 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 4 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img2.jpg" alt="image"> <span
-                                    class="dtr-category bg-blue color-white">Mixed Reality - Use Case Study</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>November 10, 2018</li>
-                                    <li>by Yasas</li>
-                                </ul>
-                                <h5>Hearing Impaired Students & Mixed Reality</h5>
-                                <a href="https://www.linkedin.com/pulse/use-case-study-using-mixed-reality-iot-enhancing-wickramasinghe" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 4 ends -->
-
-                    </div>
-                    <!-- column 4 ends -->
-
-                    <!-- column 5 starts -->
-                    <div class="col-12 col-md-4">
-
-                        <!-- blog item 5 starts -->
-                        <div class="dtr-blog-item">
-                            <!-- image -->
-                            <div class="dtr-post-img"><img src="assets/images/blogpost-img3.jpg" alt="image"> <span
-                                    class="dtr-category bg-blue color-white">Inspiring Young Minds</span></div>
-                            <div class="dtr-post-content">
-                                <ul class="dtr-blog-meta color-grey">
-                                    <li>July 19, 2015</li>
-                                    <li>by Yasas</li>
-                                </ul>
-                                <h5>Virtual Reality Motivational Session</h5>
-                                <a href="https://www.linkedin.com/pulse/virtual-reality-mobile-game-demonstration-during-my-wickramasinghe-1" class="dtr-read-more" target="_blank">Continue Reading</a></div>
-                        </div>
-                        <!-- blog item 5 ends -->
-
-                    </div>
-                    <!-- column 5 ends -->
-
-                </div>
-                <!--== row starts ==-->
-
-            </div>
-            <br/>
-            <br/>
-            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                <div class="elfsight-app-1950d45b-6aea-47fd-bd20-4454423f445c"></div>
-        </section>
-        <!-- blog section ends
-================================================== -->
-
-        <!-- contact section starts
-================================================== -->
-        <section id="contact" class="dtr-section dtr-py-100 bg-light-blue">
-            <div class="container">
-
-                <!-- heading starts -->
-                <div class="dtr-styled-heading">
-                    <h2>Say Hello</h2>
-                    <p>Contact me to request any service I offer...</p>
-                </div>
-                <!-- heading ends -->
-
-                <!--== row starts ==-->
-                <div class="row">
-
-                    <!-- column 1 starts -->
-                    <div class="col-12 col-md-6">
-
-                        <!-- form starts -->
-                        <div class="dtr-form">
-                            <form id="contactform" method="post" action="https://formspree.io/f/xleookvv" method="post">
-                                <fieldset>
-                                    <div class="dtr-form-row dtr-form-row-2col">
-                                        <p class="dtr-form-column">
-                                            <input name="name" type="text" placeholder="Name">
-                                        </p>
-                                        <p class="dtr-form-column">
-                                            <input name="email" class="required email" type="text" placeholder="Email">
-                                        </p>
-                                    </div>
-                                    <p>
-                                        <input name="subject" type="text" placeholder="Subject">
-                                    </p>
-                                    <p class="antispam">Leave this empty: <br/>
-                                        <input name="url"/>
-                                    </p>
-                                    <p>
-                                        <textarea rows="6" name="message" id="message" class="required"
-                                                  placeholder="Message"></textarea>
-                                    </p>
-                                    <p class="text-center">
-                                        <button class="dtr-btn btn-blue dtr-mt-minus30" type="submit">Send Now<i
-                                                class="icon-cursor dtr-ml-15"></i></button>
-                                    </p>
-                                    <div id="contactform-result"></div>
-                                </fieldset>
-                            </form>
-                        </div>
-                        <!-- form ends -->
-
-                    </div>
-                    <!-- column 1 ends -->
-
-                    <!-- column 2 starts -->
-                    <div class="col-12 col-md-6">
-                        <div class="dtr-pl-30">
-                            <p class="d-flex align-items-center"><i
-                                    class="icon-geo-alt dtr-mr-10 text-size-md color-blue"></i><span
-                                    class="font-weight-500 color-dark">My Location</span></p>
-                            <p>From: Colombo, Sri Lanka</p>
-                            <p>Currently: Christchurch, New Zealand</p>
-                            <div class="spacer-20"></div>
-                            <p class="d-flex align-items-center"><i
-                                    class="icon-clock-fill dtr-mr-10 text-size-md color-blue"></i><span
-                                    class="font-weight-500 color-dark">Work Timings</span></p>
-                            <p>Mon : Sat - 10:00 am to 05:00 pm<br>
-                                Sunday : Holiday</p>
-
-                            <!-- social starts -->
-                            <ul class="dtr-social dtr-social-list dtr-styled-social text-left dtr-mt-30">
-                                <li><a href="https://twitter.com/sri_yasas" class="dtr-social-button dtr-twitter"
-                                       target="_blank" title="dribbble"><span>Follow me</span></a></li>
-                                <li><a href="https://www.instagram.com/yasassri.me" class="dtr-social-button dtr-instagram" target="_blank"
-                                       title="instagram"><span>Message me</span></a></li>
-                            </ul>
-                            <!-- social ends -->
-
-                        </div>
-                    </div>
-                    <!-- column 2 ends -->
-
-                </div>
-                <!--== row ends ==-->
-
-            </div>
-        </section>
-        <!-- contact section ends
-================================================== -->
-
-        <!-- footer section starts
-================================================== -->
-        <footer id="dtr-footer">
-
-            <!--== copyright starts ==-->
-            <div class="dtr-copyright">
-                <div class="container">
-
-                    <!--== row starts ==-->
-                    <div class="row">
-
-                        <!-- column 1 starts -->
-                        <div class="col-12 col-md-6">
-                            <p> Copyright © Yasas 2026. All rights reserved.</p>
-                        </div>
-                        <!-- column 1 ends -->
-
-                        <!-- column 2 starts -->
-                        <div class="col-12 col-md-6 text-right">
-                            <ul class="dtr-pipe-list">
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms of Use</a></li>
-                            </ul>
-                        </div>
-                        <!-- column 2 ends -->
-
-                    </div>
-                    <!--== row ends ==-->
-
-                </div>
-            </div>
-            <!--== copyright ends ==-->
-
-        </footer>
-        <!-- footer section ends
-================================================== -->
+          </div>
+          <div class="flex items-center">
+            <a href="https://www.linkedin.com/pulse/use-case-study-using-mixed-reality-iot-enhancing-wickramasinghe" target="_blank" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">open_in_new</span>
+              Read
+            </a>
+            <span class="mx-4 h-4 w-px bg-outline-variant"></span>
+            <a href="https://www.linkedin.com/in/yasassri" target="_blank" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">
+              <span class="material-symbols-outlined">cc_attribution</span>
+              Profile
+            </a>
+          </div>
+        </div>
+      </div>
 
     </div>
-    <!-- == main content area ends == -->
+    <div class="mt-stack-md md:hidden">
+      <a class="w-full justify-center py-3 border border-primary flex font-label-md text-label-md text-primary items-center gap-2" href="research.html">
+        Full Publication List
+        <span class="material-symbols-outlined">arrow_right_alt</span>
+      </a>
+    </div>
+  </section>
 
-</div>
-<!-- #dtr-wrapper ends -->
+</main>
 
-<!-- JS FILES -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/custom.js"></script>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-low border-t border-outline-variant">
+  <div class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-md">
+    <div class="mb-4 md:mb-0">
+      <span class="font-headline-sm text-headline-sm text-primary">Dr. Yasas Sri Wickramasinghe</span>
+      <p class="font-caption text-caption text-on-surface-variant mt-1 opacity-90">© 2026 Yasas Sri Wickramasinghe. All rights reserved.</p>
+    </div>
+    <div class="flex gap-gutter">
+      <a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="https://www.linkedin.com/in/yasassri" target="_blank">LinkedIn</a>
+      <a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="https://www.instagram.com/yasassri.me" target="_blank">Instagram</a>
+      <a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="https://twitter.com/sri_yasas" target="_blank">Twitter/X</a>
+      <a class="font-caption text-caption text-on-surface-variant hover:text-primary transition-colors" href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-(function () {
-    var hero = document.querySelector('.dtr-hmin');
-    if (!hero) return;
-    setTimeout(function () { hero.classList.add('dtr-hmin-ready'); }, 80);
-}());
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .group').forEach(el => {
+      el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+      observer.observe(el);
+    });
+  });
 </script>
 </body>
 </html>
