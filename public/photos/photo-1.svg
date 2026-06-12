@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1514"/>
+      <stop offset="0.55" stop-color="#11221f"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#34e3c4" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#34e3c4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.06"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g filter="url(#grain)">
+    <rect width="900" height="1200" fill="url(#sky)"/>
+    <rect width="900" height="1200" fill="url(#glow)"/>
+    <circle cx="450" cy="430" r="86" fill="#34e3c4" fill-opacity="0.12"/>
+    <circle cx="450" cy="430" r="58" fill="#a7f3e6" fill-opacity="0.16"/>
+    <path d="M0 760 L180 520 L300 660 L450 400 L600 640 L740 540 L900 720 L900 1200 L0 1200 Z" fill="#15201e"/>
+    <path d="M0 880 L140 700 L320 820 L520 620 L700 800 L900 700 L900 1200 L0 1200 Z" fill="#101716"/>
+    <path d="M0 1010 L220 860 L420 960 L640 830 L900 950 L900 1200 L0 1200 Z" fill="#0b0e0d"/>
+    <path d="M430 430 L450 390 L475 440" stroke="#9af0de" stroke-opacity="0.5" stroke-width="3" fill="none"/>
+  </g>
+</svg>

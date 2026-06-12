@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Design tokens — "premium research studio"
+   Accent: electric teal. Decorative + interactive colour on dark charcoal.
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --bg: #f7f7f5;
+  --bg-raised: #ffffff;
+  --text-1: #16161a;
+  --text-2: #44444c;
+  --text-3: #71717a;
+  --line: rgba(20, 20, 24, 0.12);
+  --accent: #0d9488; /* teal-600 — 4.6:1 on --bg, AA for UI text */
+  --accent-ink: #0f766e;
+  --glow: rgba(13, 148, 136, 0.14);
+  --glass: rgba(255, 255, 255, 0.66);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0a0a0b;
+  --bg-raised: #121214;
+  --text-1: #f4f4f5;
+  --text-2: #b3b3ba;
+  --text-3: #7c7c85;
+  --line: rgba(244, 244, 245, 0.1);
+  --accent: #34e3c4; /* electric teal — 12.8:1 on #0a0a0b */
+  --accent-ink: #8df0dd;
+  --glow: rgba(52, 227, 196, 0.16);
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-base text-body font-sans antialiased;
+  font-size: clamp(1rem, 1.05vw, 1.0625rem);
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0a0b;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Glassmorphic card */
+.card {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: 0 0 0 1px transparent, 0 8px 40px -12px var(--glow);
+}
+
+.section-label {
+  @apply font-sans text-label font-medium uppercase text-accent;
+}
+
+/* Film-grain overlay */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: 80;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+/* Research-keyword marquee */
+.marquee-track {
+  animation: marquee 36s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Lenis recommended styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
