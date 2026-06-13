@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg23" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#ef6f3c"/><stop offset="1" stop-color="#f5a623"/>
+</linearGradient>
+<radialGradient id="glow23" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign23" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots23" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg23)"/>
+<rect width="640" height="400" fill="url(#dots23)"/>
+<rect width="640" height="400" fill="url(#glow23)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<rect x="214" y="186" width="116" height="98" rx="10" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.8"/><rect x="206" y="162" width="132" height="30" rx="7" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2.2"/><line x1="272" y1="162" x2="272" y2="284" stroke="#ffffff" stroke-opacity="0.8" stroke-width="3"/><path d="M272 162 q-26 -30 -42 -10 q-10 16 42 10Z" fill="#ffffff" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.7" stroke-width="1.8"/><path d="M272 162 q26 -30 42 -10 q10 16 -42 10Z" fill="#ffffff" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.7" stroke-width="1.8"/><g transform="rotate(-16 392 178)"><path d="M356 158 h60 q8 0 8 8 v28 q0 8 -8 8 h-60 l-18 -22Z" fill="#0a0f1f" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2"/><circle cx="350" cy="180" r="4" fill="#ffffff" fill-opacity="0.85" stroke="none"/><text x="392" y="187" font-family="Inter, sans-serif" font-size="15" font-weight="800" fill="#ffe6c2" text-anchor="middle" letter-spacing="0.12em" stroke="none">SALE</text></g><path d="M196 185 L199.52 192.48 L207 196 L199.52 199.52 L196 207 L192.48 199.52 L185 196 L192.48 192.48Z" fill="#ffffff" fill-opacity="0.95" stroke="none"/><path d="M360 260 L362.56 265.44 L368 268 L362.56 270.56 L360 276 L357.44 270.56 L352 268 L357.44 265.44Z" fill="#ffffff" fill-opacity="0.8" stroke="none"/><path d="M430 234 L431.92 238.08 L436 240 L431.92 241.92 L430 246 L428.08 241.92 L424 240 L428.08 238.08Z" fill="#ffffff" fill-opacity="0.6" stroke="none"/>
+</g>
+<rect width="640" height="400" fill="url(#vign23)"/>
+</svg>

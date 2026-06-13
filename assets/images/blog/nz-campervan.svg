@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg21" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#1f9d76"/><stop offset="1" stop-color="#0f6b8f"/>
+</linearGradient>
+<radialGradient id="glow21" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign21" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots21" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg21)"/>
+<rect width="640" height="400" fill="url(#dots21)"/>
+<rect width="640" height="400" fill="url(#glow21)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="430" cy="138" r="30" fill="#c4f5e4" fill-opacity="0.35" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.6"/><path d="M150 224 L228 132 L286 196 L330 150 L410 224Z" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2.2"/><path d="M210 224 L300 142 L388 224Z" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2.2"/><path d="M228 132 l16 22 l-30 6Z" fill="#ffffff" fill-opacity="0.6" stroke="none"/><path d="M300 142 l14 22 l-28 4Z" fill="#ffffff" fill-opacity="0.6" stroke="none"/><path d="M250 320 q70 -60 150 -96" stroke="#ffffff" stroke-opacity="0.5" stroke-width="3"/><path d="M330 322 q40 -54 96 -88" stroke="#ffffff" stroke-opacity="0.5" stroke-width="3"/><path d="M296 316 q30 -36 78 -64" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6 8"/><path d="M166 276 h70 l16 18 h26 q10 0 10 10 v18 h-148 v-36 q0 -10 10 -10Z" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.6"/><rect x="176" y="284" width="30" height="22" rx="3" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.6"/><path d="M240 282 h12 l10 12 h-22Z" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.6"/><rect x="166" y="266" width="58" height="10" rx="3" fill="#c4f5e4" fill-opacity="0.5" stroke="none"/><circle cx="192" cy="322" r="13" fill="#0a0f1f" fill-opacity="0.25" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.6"/><circle cx="192" cy="322" r="4" fill="#ffffff" fill-opacity="0.8" stroke="none"/><circle cx="258" cy="322" r="13" fill="#0a0f1f" fill-opacity="0.25" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.6"/><circle cx="258" cy="322" r="4" fill="#ffffff" fill-opacity="0.8" stroke="none"/>
+</g>
+<rect width="640" height="400" fill="url(#vign21)"/>
+</svg>
