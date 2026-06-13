@@ -82,4 +82,52 @@
   document.querySelectorAll(".year").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  // ---- Smooth scrolling (Lenis) + parallax ----
+  var lenis = null;
+  if (!reduced && window.Lenis) {
+    lenis = new Lenis({
+      duration: 1.1,
+      smoothWheel: true,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+    });
+    var rafLenis = function (time) { lenis.raf(time); requestAnimationFrame(rafLenis); };
+    requestAnimationFrame(rafLenis);
+
+    // Smooth in-page anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var id = a.getAttribute("href");
+        if (id && id.length > 1) {
+          var target = document.querySelector(id);
+          if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -72 }); }
+        }
+      });
+    });
+  }
+
+  // ---- Parallax (hero + any [data-parallax]) ----
+  var pxEls = Array.prototype.slice.call(document.querySelectorAll("[data-parallax]"));
+  if (!reduced && pxEls.length && "requestAnimationFrame" in window) {
+    var items = pxEls.map(function (el) {
+      return { el: el, speed: parseFloat(el.getAttribute("data-speed")) || 0.1 };
+    });
+    var mobileCleared = false;
+    var tick = function () {
+      var sy = window.scrollY;
+      if (window.innerWidth <= 940) {
+        if (!mobileCleared) { items.forEach(function (it) { it.el.style.transform = ""; }); mobileCleared = true; }
+      } else {
+        mobileCleared = false;
+        // Offset is relative to scroll distance, so the resting (scroll=0) state
+        // matches the CSS layout exactly. Only meaningful while the hero is on screen.
+        var amt = Math.min(sy, window.innerHeight);
+        for (var i = 0; i < items.length; i++) {
+          items[i].el.style.transform = "translate3d(0," + (amt * items[i].speed).toFixed(1) + "px,0)";
+        }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
 })();
