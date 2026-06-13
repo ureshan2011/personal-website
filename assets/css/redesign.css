@@ -335,6 +335,7 @@ h3 { font-size: 20px; letter-spacing: -0.01em; }
 .trust-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .trust-logos { display: flex; align-items: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
 .trust-logos img { height: 26px; width: auto; object-fit: contain; opacity: .72; filter: grayscale(1); transition: opacity .3s, filter .3s; }
+.trust-logos img.logo-sony { height: 40px; }
 .trust-logos img:hover { opacity: 1; filter: none; }
 
 /* ---------- Responsive ---------- */
