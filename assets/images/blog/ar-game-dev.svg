@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg3" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7c3aed"/><stop offset="1" stop-color="#a23fe0"/>
+</linearGradient>
+<radialGradient id="glow3" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign3" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots3" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg3)"/>
+<rect width="640" height="400" fill="url(#dots3)"/>
+<rect width="640" height="400" fill="url(#glow3)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M372 86 L418 109.0 L372 132 L326 109.0Z" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.75" stroke-width="2.4"/><path d="M326 109.0 L372 132 L372 178 L326 155.0Z" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2.4"/><path d="M418 109.0 L372 132 L372 178 L418 155.0Z" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2.4"/><path d="M300 89 L302.24 93.76 L307 96 L302.24 98.24 L300 103 L297.76 98.24 L293 96 L297.76 93.76Z" fill="#ffffff" fill-opacity="0.85" stroke="none"/><path d="M440 170 L441.92 174.08 L446 176 L441.92 177.92 L440 182 L438.08 177.92 L434 176 L438.08 174.08Z" fill="#ffffff" fill-opacity="0.7" stroke="none"/><path d="M300 150 l8 4 l-8 4Z" fill="#ffffff" fill-opacity="0.6" stroke="none"/><line x1="300" y1="246" x2="350" y2="170" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 6"/><line x1="360" y1="246" x2="392" y2="170" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 6"/><path d="M236 250 q-30 0 -34 34 q-4 32 14 40 q16 6 26 -10 l12 -18 h132 l12 18 q10 16 26 10 q18 -8 14 -40 q-4 -34 -34 -34 q-22 0 -34 14 h-58 q-12 -14 -34 -14Z" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.6"/><path d="M258 286 h10 v-10 h10 v10 h10 v10 h-10 v10 h-10 v-10 h-10Z" fill="#ffffff" fill-opacity="0.5" stroke="none"/><circle cx="392" cy="284" r="5.5" fill="#eedcff" stroke="none"/><circle cx="408" cy="296" r="5.5" fill="#ffffff" fill-opacity="0.55" stroke="none"/><circle cx="376" cy="296" r="5.5" fill="#ffffff" fill-opacity="0.55" stroke="none"/><circle cx="392" cy="308" r="5.5" fill="#ffffff" fill-opacity="0.55" stroke="none"/><circle cx="300" cy="312" r="9" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2.4"/>
+</g>
+<rect width="640" height="400" fill="url(#vign3)"/>
+</svg>

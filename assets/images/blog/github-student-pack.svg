@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg20" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7c5cff"/><stop offset="1" stop-color="#4b6bff"/>
+</linearGradient>
+<radialGradient id="glow20" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign20" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots20" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg20)"/>
+<rect width="640" height="400" fill="url(#dots20)"/>
+<rect width="640" height="400" fill="url(#glow20)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M320 120 l78 30 l-78 30 l-78 -30Z" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.6"/><path d="M286 164 v28 q34 22 68 0 v-28" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.6"/><line x1="398" y1="150" x2="398" y2="186" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2.2"/><circle cx="398" cy="190" r="5" fill="#dde3ff" stroke="none"/><line x1="196" y1="210" x2="196" y2="296" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2.4"/><path d="M196 240 q0 24 30 24" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2.4"/><circle cx="196" cy="210" r="8" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.4"/><circle cx="196" cy="244" r="8" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.4"/><circle cx="196" cy="280" r="8" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.4"/><circle cx="230" cy="264" r="8" fill="#dde3ff" fill-opacity="0.6" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2"/><rect x="384" y="244" width="72" height="56" rx="8" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.4"/><line x1="420" y1="244" x2="420" y2="300" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2.4"/><line x1="384" y1="262" x2="456" y2="262" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2.4"/><path d="M420 244 q-18 -22 -30 -6 q-6 12 30 6Z" fill="#dde3ff" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.6"/><path d="M420 244 q18 -22 30 -6 q6 12 -30 6Z" fill="#dde3ff" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.6"/><path d="M300 215 L302.88 221.12 L309 224 L302.88 226.88 L300 233 L297.12 226.88 L291 224 L297.12 221.12Z" fill="#ffffff" fill-opacity="0.9" stroke="none"/><path d="M348 245 L349.6 248.4 L353 250 L349.6 251.6 L348 255 L346.4 251.6 L343 250 L346.4 248.4Z" fill="#ffffff" fill-opacity="0.6" stroke="none"/>
+</g>
+<rect width="640" height="400" fill="url(#vign20)"/>
+</svg>

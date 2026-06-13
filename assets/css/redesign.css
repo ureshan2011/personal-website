@@ -523,6 +523,13 @@ footer { background: var(--bg-soft); border-top: 1px solid var(--line); }
 .article-cover.cov-slate { background: linear-gradient(135deg, #334155, #475569); }
 .article-cover.cov-ember { background: linear-gradient(135deg, #ef6f3c, #f5a623); }
 
+/* Blog cover thumbnails (generated SVG art layered over gradient fallback) */
+.article-cover { overflow: hidden; }
+.article-cover .cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 0; transition: transform .6s var(--ease); }
+.article-cover .cat { position: relative; z-index: 2; }
+.article-cover::after { z-index: 2; }
+.article-card:hover .cover-img { transform: scale(1.045); }
+
 /* Counter suffix */
 .suffix { color: var(--accent); font-weight: 800; font-size: inherit; }
 

@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg19" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#15a3b8"/><stop offset="1" stop-color="#2f6bff"/>
+</linearGradient>
+<radialGradient id="glow19" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign19" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots19" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg19)"/>
+<rect width="640" height="400" fill="url(#dots19)"/>
+<rect width="640" height="400" fill="url(#glow19)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="196" cy="196" r="11" fill="#ffffff" fill-opacity="0.7" stroke="none"/><path d="M180 236 q0 -26 16 -26 q16 0 16 26Z" fill="#ffffff" fill-opacity="0.7" stroke="none"/><circle cx="242" cy="196" r="11" fill="#ffffff" fill-opacity="0.57" stroke="none"/><path d="M226 236 q0 -26 16 -26 q16 0 16 26Z" fill="#ffffff" fill-opacity="0.57" stroke="none"/><circle cx="288" cy="196" r="11" fill="#ffffff" fill-opacity="0.43999999999999995" stroke="none"/><path d="M272 236 q0 -26 16 -26 q16 0 16 26Z" fill="#ffffff" fill-opacity="0.43999999999999995" stroke="none"/><circle cx="334" cy="196" r="11" fill="#ffffff" fill-opacity="0.30999999999999994" stroke="none"/><path d="M318 236 q0 -26 16 -26 q16 0 16 26Z" fill="#ffffff" fill-opacity="0.30999999999999994" stroke="none"/><path d="M372 196 h36 m0 0 l-10 -8 m10 8 l-10 8" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2.4"/><rect x="180" y="118" width="118" height="50" rx="10" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2"/><text x="194" y="138" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#ffffff" fill-opacity="0.7" letter-spacing="0.08em" stroke="none">NOW SERVING</text><text x="194" y="160" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#ccf4ff" stroke="none">A‑042</text><rect x="416" y="150" width="74" height="132" rx="12" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.6"/><rect x="428" y="166" width="50" height="68" rx="4" fill="#ffffff" fill-opacity="0.08" stroke="none"/><rect x="434" y="172" width="10" height="10" fill="#ffffff" fill-opacity="0.6" stroke="none"/><rect x="462" y="172" width="10" height="10" fill="#ffffff" fill-opacity="0.6" stroke="none"/><rect x="448" y="186" width="10" height="10" fill="#ffffff" fill-opacity="0.6" stroke="none"/><rect x="434" y="200" width="10" height="10" fill="#ffffff" fill-opacity="0.6" stroke="none"/><rect x="462" y="200" width="10" height="10" fill="#ffffff" fill-opacity="0.6" stroke="none"/><rect x="428" y="244" width="50" height="18" rx="5" fill="#ccf4ff" fill-opacity="0.5" stroke="none"/>
+</g>
+<rect width="640" height="400" fill="url(#vign19)"/>
+</svg>
