@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg13" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7c5cff"/><stop offset="1" stop-color="#4b6bff"/>
+</linearGradient>
+<radialGradient id="glow13" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign13" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots13" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg13)"/>
+<rect width="640" height="400" fill="url(#dots13)"/>
+<rect width="640" height="400" fill="url(#glow13)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<ellipse cx="250" cy="150" rx="34" ry="13.600000000000001" stroke-opacity="0.8" stroke-width="2.2"/><ellipse cx="250" cy="150" rx="34" ry="13.600000000000001" stroke-opacity="0.8" stroke-width="2.2" transform="rotate(60 250 150)"/><ellipse cx="250" cy="150" rx="34" ry="13.600000000000001" stroke-opacity="0.8" stroke-width="2.2" transform="rotate(120 250 150)"/><circle cx="250" cy="150" r="5" fill="#dde3ff" stroke="none"/><rect x="320" y="116" width="88" height="34" rx="9" fill="#ffffff" fill-opacity="0.20" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2"/><text x="364" y="138" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ffffff" fill-opacity="0.85" text-anchor="middle" stroke="none">Button</text><rect x="420" y="116" width="74" height="34" rx="8" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><line x1="432" y1="133" x2="470" y2="133" stroke="#ffffff" stroke-opacity="0.5" stroke-width="2"/><rect x="320" y="166" width="58" height="30" rx="15" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><circle cx="364" cy="181" r="10" fill="#dde3ff" stroke="none"/><rect x="392" y="166" width="102" height="62" rx="9" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><rect x="402" y="176" width="82" height="22" rx="4" fill="#ffffff" fill-opacity="0.14" stroke="none"/><line x1="402" y1="210" x2="470" y2="210" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2.4"/><line x1="402" y1="220" x2="450" y2="220" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2.4"/><text x="200" y="250" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#ffffff" fill-opacity="0.7" letter-spacing="0.1em" stroke="none">TOKENS</text><rect x="200" y="262" width="22" height="22" rx="6" fill="#dde3ff" fill-opacity="0.85" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1"/><rect x="230" y="262" width="22" height="22" rx="6" fill="#ffffff" fill-opacity="0.74" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1"/><rect x="260" y="262" width="22" height="22" rx="6" fill="#ffffff" fill-opacity="0.63" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1"/><rect x="290" y="262" width="22" height="22" rx="6" fill="#ffffff" fill-opacity="0.52" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1"/><rect x="320" y="262" width="22" height="22" rx="6" fill="#ffffff" fill-opacity="0.41" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1"/><rect x="350" y="262" width="22" height="22" rx="6" fill="#ffffff" fill-opacity="0.29999999999999993" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1"/><line x1="284" y1="150" x2="320" y2="133" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.6" stroke-dasharray="3 5"/><line x1="270" y1="172" x2="320" y2="181" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.6" stroke-dasharray="3 5"/>
+</g>
+<rect width="640" height="400" fill="url(#vign13)"/>
+</svg>
