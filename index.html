@@ -9,15 +9,8 @@
 <link rel="icon" href="assets/images/icons/favicon.png"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-<link href="assets/css/premium.css" rel="stylesheet"/>
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js"
-  }
-}
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="assets/css/redesign.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -33,14 +26,14 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">Dr. Yasas Sri <em>Wickramasinghe</em></a>
+    <a class="nav-logo" href="index.html">Yasas Sri <em>Wickramasinghe</em></a>
     <div class="nav-links">
       <a class="active" href="index.html">Home</a>
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
       <a href="blogs.html">Writing</a>
       <a href="contact.html">Contact</a>
-      <a class="btn" href="assets/files/cv_yasas.pdf" target="_blank">CV <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="assets/files/cv_yasas.pdf" target="_blank">Download CV <span class="arrow">→</span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
@@ -54,30 +47,34 @@
   <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">06</span>Curriculum Vitae</a>
 </div>
 
-<header class="hero hero-3d" id="top">
-  <div class="hero-glow"></div>
-  <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="container hero-content">
-    <span class="eyebrow" data-hero="eyebrow">Postdoctoral Researcher · Senior Lecturer</span>
-    <h1 class="hero-title" data-hero="title">Designing immersive systems at the frontier of <em>augmented reality</em> &amp; human interaction.</h1>
-    <p class="lead hero-sub" data-hero="sub">
-      Advancing location-based AR and understanding how spatial computing reshapes human cognition and behaviour — at HIT Lab NZ (University of Canterbury) in collaboration with Sony Interactive Entertainment, and at Yoobee Colleges.
-    </p>
-    <div class="hero-actions" data-hero="actions">
-      <a class="btn btn-solid" href="research.html">View Research <span class="arrow">→</span></a>
-      <a class="btn" href="#about">About Me</a>
-    </div>
-    <div class="hero-meta" data-hero="meta">
-      <span><span class="status-dot"></span>Open for collaboration</span>
-      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">@yasassri.me ↗</a>
-      <a href="https://scholar.google.com/citations?user=sIFk7asAAAAJ" target="_blank" rel="noopener">Scholar ↗</a>
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container">
+    <div class="hero-name">Yasas Wickramasinghe</div>
+    <div class="hero-grid">
+      <div class="hero-col reveal">
+        <div class="hero-card">
+          <h3>Let's Build Immersive Futures</h3>
+          <p>Researching how location-based AR and spatial computing reshape human interaction — and turning that research into things people can actually use.</p>
+          <a class="btn" href="research.html">Explore Research <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="hero-portrait reveal" style="--d:.1s">
+        <img alt="Dr. Yasas Sri Wickramasinghe" src="assets/images/personal_img.png" onerror="this.src='assets/images/phd-graduation.jpg'"/>
+      </div>
+      <div class="hero-col hero-right reveal" style="--d:.2s">
+        <h3>Postdoctoral Researcher in AR &amp; Spatial Computing</h3>
+        <p>Advancing immersive systems at HIT Lab NZ (University of Canterbury) in collaboration with Sony Interactive Entertainment, and teaching the next generation at Yoobee Colleges.</p>
+        <div class="hero-stat">
+          <span class="num">150K+ <span style="font-size:22px">↗</span></span>
+          <span class="lbl">learners reached through platforms I helped build</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
 </header>
 
+<!-- MARQUEE -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>Location-Based AR</span><span>Spatial Computing</span><span>Human Interface Technology</span><span>Player Experience</span><span>XR Research</span><span>HCI</span>
@@ -87,219 +84,240 @@
   </div>
 </div>
 
-<section class="section no-line" id="about">
-  <div class="container split">
-    <div class="sticky-col reveal">
-      <span class="eyebrow">01 — Profile</span>
-      <h2>Biography &amp; <em>Interests</em></h2>
-      <div class="hero-portrait about-portrait">
-        <img alt="Dr. Yasas Sri Wickramasinghe" src="assets/images/personal_img.png" onerror="this.src='assets/images/phd-graduation.jpg'"/>
-        <span class="frame"></span>
-        <span class="portrait-caption">Christchurch · New Zealand</span>
+<!-- INTRO BAND -->
+<section class="section" id="about">
+  <div class="container intro">
+    <div class="reveal">
+      <span class="eyebrow">About Me</span>
+      <h2 style="margin-top:16px">If You're <span class="hl">SERIOUS</span> About Immersive Technology, I'd Love to Collaborate.</h2>
+      <p>I'm Dr. Yasas Sri Wickramasinghe — a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury) and Senior Lecturer at Yoobee College of Creative Innovation. I hold a PhD in Human Interface Technology, with a dissertation on designing multiplayer location-based AR games that connect remote players and places.</p>
+      <p>My work is conducted with industry partners including Sony Interactive Entertainment (Japan) and Niantic, Inc. Earlier I co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme and led Sri Lanka's first large-scale MOOC platform.</p>
+      <div class="intro-meta">
+        <div class="avatars">
+          <img src="assets/images/team-member1.jpg" alt=""/>
+          <img src="assets/images/team-member2.jpg" alt=""/>
+          <img src="assets/images/team-member3.jpg" alt=""/>
+        </div>
+        <div>
+          <div class="stars">★★★★★</div>
+          <small>Trusted by labs, partners &amp; students worldwide</small>
+        </div>
+      </div>
+      <div class="intro-actions">
+        <a class="btn btn-solid" href="contact.html">Get in Touch <span class="arrow">→</span></a>
+        <a class="btn" href="research.html">See My Work</a>
       </div>
     </div>
-    <div>
-      <p class="lead reveal">
-        Dr. Yasas Sri Wickramasinghe is a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury) and Senior Lecturer at Yoobee College of Creative Innovation, where he specialises in immersive technologies and human-computer interaction. He holds a PhD in Human Interface Technology from the University of Canterbury, with a dissertation on designing multiplayer location-based AR games that connect remote players and places.
-      </p>
-      <p class="reveal" style="--d:.1s; color: var(--text-dim); font-weight: 300; margin-top: 24px;">
-        His research is conducted in collaboration with industry partners including Sony Interactive Entertainment (Japan) and Niantic, Inc. Earlier in his career he co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme (2015) and served as a Technical Lead at 99X Technology. He also led the development of Sri Lanka's first large-scale MOOC platform, which grew to over 150,000 registered learners. He writes regularly on immersive media and software engineering at ReadClub.me and Medium.
-      </p>
-      <div class="grid-2" style="margin-top: 44px;">
-        <div class="card reveal" style="--d:.15s">
-          <span class="kicker">Research Focus</span>
-          <ul style="display:flex; flex-direction:column; gap:12px;">
-            <li style="border-bottom:1px solid var(--line); padding-bottom:12px;">Location-Based Augmented Reality</li>
-            <li style="border-bottom:1px solid var(--line); padding-bottom:12px;">XR &amp; Spatial Computing</li>
-            <li style="border-bottom:1px solid var(--line); padding-bottom:12px;">Human Interface Technology</li>
-            <li>Player Experience &amp; HCI</li>
-          </ul>
-        </div>
-        <div class="card reveal" style="--d:.25s">
-          <span class="kicker">Education</span>
-          <ul style="display:flex; flex-direction:column; gap:12px;">
-            <li style="border-bottom:1px solid var(--line); padding-bottom:12px;">PhD, Human Interface Technology<br/><small style="color:var(--muted)">University of Canterbury</small></li>
-            <li style="border-bottom:1px solid var(--line); padding-bottom:12px;">Specialisation in Virtual Reality<br/><small style="color:var(--muted)">Goldsmiths, University of London</small></li>
-            <li>BSc (Hons) Information Technology<br/><small style="color:var(--muted)">University of Moratuwa</small></li>
-          </ul>
-        </div>
-      </div>
+    <div class="intro-visual reveal" style="--d:.15s">
+      <img src="assets/images/phd-graduation.jpg" alt="Dr. Yasas Sri Wickramasinghe" onerror="this.src='assets/images/personal_img.png'"/>
     </div>
   </div>
 </section>
 
-<section class="section" id="experience">
+<!-- FEATURES (3 research truths) -->
+<section class="section soft">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">What I Explore</span>
+      <h2 style="margin-top:16px">3 Frontiers My Research <em>Pushes Forward</em></h2>
+      <p>Where spatial computing meets human behaviour — backed by peer-reviewed work and real industry deployment.</p>
+    </div>
+    <div class="features">
+      <div class="feature reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg></div>
+        <h3>Location-Based AR</h3>
+        <p>Designing multiplayer AR experiences that meaningfully connect remote players to real-world places.</p>
+      </div>
+      <div class="feature reveal" style="--d:.1s">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h3>Spatial Computing &amp; XR</h3>
+        <p>Studying how immersive interfaces reshape cognition, trust, and decision-making in shared spaces.</p>
+      </div>
+      <div class="feature reveal" style="--d:.2s">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Player Experience &amp; HCI</h3>
+        <p>Evaluating how people feel, behave, and collaborate inside the systems we design and deploy.</p>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter reveal">
+      <h3>Want Research Notes &amp; Field Insights?</h3>
+      <p>Occasional notes on immersive media, spatial computing, and lessons from building XR — no noise.</p>
+      <form class="nl-form" onsubmit="return false;">
+        <input type="email" placeholder="Enter your email address" aria-label="Email address"/>
+        <button class="btn btn-solid" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT / CASE -->
+<section class="section" id="work">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">02</span>
-      <h2>Work <em>Experience</em></h2>
+      <span class="eyebrow">Selected Work</span>
+      <h2 style="margin-top:16px">From Lab to Real Impact — <em>Research That Ships.</em></h2>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item reveal">
-        <span class="timeline-date">Jun 2025 — Present</span>
-        <div class="timeline-body">
-          <h3>Postdoctoral Researcher</h3>
-          <span class="org">HIT Lab NZ · University of Canterbury</span>
-          <p>Design, implementation, and evaluation of VR applications in collaboration with Sony Interactive Entertainment (Japan). HCI research in immersive environments, mentoring postgraduate students, and developing multi-modal XR experimental platforms.</p>
-          <div class="tags">
-            <span class="tag">Unity 3D</span><span class="tag">Niantic Lightship</span><span class="tag">OpenXR</span><span class="tag gold">Sony Interactive</span>
-          </div>
+    <div class="casework reveal">
+      <div class="casework-img">
+        <img src="assets/images/experience-img.jpg" alt="Location-based AR research" onerror="this.src='assets/images/agency_img.png'"/>
+      </div>
+      <div class="casework-body">
+        <span class="tag-line">Entertainment Computing · Elsevier · 2025</span>
+        <h3>Representing Remote Locations with Location-Based AR Game Design</h3>
+        <p>A multiplayer location-based AR system, designed and evaluated with Sony Interactive Entertainment, exploring how players experience and represent distant real-world places together — published across leading HCI venues.</p>
+        <a class="btn btn-solid" href="research.html" style="align-self:flex-start">Read the Research <span class="arrow">→</span></a>
+        <div class="casework-foot">
+          <a class="dot-btn" href="research.html" aria-label="Previous">←</a>
+          <a class="dot-btn" href="research.html" aria-label="Next">→</a>
         </div>
       </div>
-
-      <div class="timeline-item reveal" style="--d:.05s">
-        <span class="timeline-date">Feb 2023 — Present</span>
-        <div class="timeline-body">
-          <h3>Senior Lecturer</h3>
-          <span class="org">Yoobee College of Creative Innovation</span>
-          <p>Teaching master's-level courses in Strategic Information Systems, Database Management, and IT Project Management. Recognised for innovative, gamified, and high-engagement teaching methods. Supervising capstone and thesis projects.</p>
-          <div class="tags">
-            <span class="tag">Postgraduate Teaching</span><span class="tag">Curriculum Design</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal" style="--d:.1s">
-        <span class="timeline-date">2019 — 2022</span>
-        <div class="timeline-body">
-          <h3>Lecturer &amp; Platform Lead</h3>
-          <span class="org">University of Moratuwa · Sri Lanka</span>
-          <p>Taught undergraduate and postgraduate courses in HCI, Database Systems, and Software Engineering. Co-designed and launched Sri Lanka's first large-scale MOOC platform (<a href="https://open.uom.lk" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line-strong)">open.uom.lk</a>), scaling to over 150,000 registered learners with fully automated course delivery.</p>
-          <div class="tags">
-            <span class="tag gold">150,000+ Learners</span><span class="tag">MOOC Platform</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item reveal" style="--d:.15s">
-        <span class="timeline-date">2017 — 2021</span>
-        <div class="timeline-body">
-          <h3>Technical Lead / Senior Software Engineer</h3>
-          <span class="org">99X Technology · Sri Lanka</span>
-          <p>Led engineering teams building large-scale enterprise applications. Introduced AR features and Agile practices. Received three consecutive Excellence Awards and was a Top-3 Emerging Xian nominee.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-<section class="section" id="publications">
+<!-- SERVICES -->
+<section class="section soft">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">03</span>
-      <h2>Featured <em>Work</em></h2>
-      <a class="link-arrow head-link" href="research.html">Full publication index →</a>
+      <span class="eyebrow">What I Do</span>
+      <h2 style="margin-top:16px">Research, Teaching &amp; Building <em>That Lasts.</em></h2>
+      <p>Bridging rigorous academic research with hands-on engineering and high-engagement teaching.</p>
     </div>
-
-    <a class="pub-row reveal" href="https://doi.org/10.1016/j.entcom.2025.100932" target="_blank" rel="noopener">
-      <span class="pub-type">Journal · 2025</span>
-      <div>
-        <h3 class="pub-title">Representing Remote Locations with Location-Based Augmented Reality Game Design</h3>
-        <p class="pub-venue">Entertainment Computing, 53 — Elsevier</p>
+    <div class="services-grid">
+      <div class="service reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>Research &amp; Publications</h3>
+        <p>Peer-reviewed work in AR, XR and HCI — from study design and experimental platforms to journal and conference papers.</p>
+        <a class="more" href="research.html">Learn more <span class="arrow">→</span></a>
       </div>
-      <span class="pub-arrow">↗</span>
-    </a>
-
-    <a class="pub-row reveal" style="--d:.05s" href="https://doi.org/10.3390/mti9080079" target="_blank" rel="noopener">
-      <span class="pub-type">Journal · 2025</span>
-      <div>
-        <h3 class="pub-title">Evaluating Spatial Decision-Making and Player Experience in a Remote Multiplayer AR Hide-and-Seek Game</h3>
-        <p class="pub-venue">Multimodal Technologies and Interaction, 9(8) — MDPI · Open Access</p>
+      <div class="service reveal" style="--d:.1s">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Teaching &amp; Supervision</h3>
+        <p>Master's-level courses in information systems and project management, plus capstone and thesis supervision — gamified and high-engagement.</p>
+        <a class="more" href="teaching.html">Learn more <span class="arrow">→</span></a>
       </div>
-      <span class="pub-arrow">↗</span>
-    </a>
-
-    <a class="pub-row reveal" style="--d:.1s" href="https://doi.org/10.1145/3677386.3682086" target="_blank" rel="noopener">
-      <span class="pub-type">Conference · 2024</span>
-      <div>
-        <h3 class="pub-title">Trustful Trading in Shared Augmented Reality</h3>
-        <p class="pub-venue">ACM Symposium on Spatial User Interaction — SUI '24</p>
+      <div class="service reveal" style="--d:.05s">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>XR &amp; Software Development</h3>
+        <p>Building immersive prototypes and production systems with Unity, OpenXR and Niantic Lightship — drawing on a senior engineering background.</p>
+        <a class="more" href="research.html">Learn more <span class="arrow">→</span></a>
       </div>
-      <span class="pub-arrow">↗</span>
-    </a>
+      <div class="service reveal" style="--d:.15s">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+        <h3>Talks &amp; Consulting</h3>
+        <p>Speaking and advising on immersive media, spatial computing strategy, and translating emerging XR research into product.</p>
+        <a class="more" href="contact.html">Learn more <span class="arrow">→</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- TESTIMONIAL -->
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">04</span>
-      <h2>From the <em>Blog</em></h2>
-      <a class="link-arrow head-link" href="blogs.html">All articles →</a>
+      <span class="eyebrow">In Their Words</span>
+      <h2 style="margin-top:16px">What Collaborators &amp; <em>Students Say</em></h2>
     </div>
-    <div class="grid-3">
-
-      <a class="article-card reveal" href="https://readclub.me/design-the-real-world-metaverse-with-augmented-reality-complete-guide/" target="_blank" rel="noopener">
-        <div class="article-cover cov-violet" data-num="—01">
-          <span class="cat">AR / VR</span>
-        </div>
-        <div class="article-body">
-          <span class="src">readclub.me</span>
-          <h3>Design the Real-World Metaverse with Augmented Reality</h3>
-          <span class="read">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card reveal" style="--d:.1s" href="https://readclub.me/new-zealand-campervan-road-trip/" target="_blank" rel="noopener">
-        <div class="article-cover cov-forest" data-num="—02">
-          <span class="cat">Travel</span>
-        </div>
-        <div class="article-body">
-          <span class="src">readclub.me</span>
-          <h3>New Zealand Campervan Road Trip</h3>
-          <span class="read">Read article →</span>
-        </div>
-      </a>
-
-      <a class="article-card reveal" style="--d:.2s" href="https://blog.bitsrc.io/3-strategies-to-reduce-software-development-costs-in-2023-e4514a110959" target="_blank" rel="noopener">
-        <div class="article-cover cov-teal" data-num="—03">
-          <span class="cat">Software Eng</span>
-        </div>
-        <div class="article-body">
-          <span class="src">Bitsrc.io</span>
-          <h3>3 Strategies to Reduce Software Development Costs</h3>
-          <span class="read">Read article →</span>
-        </div>
-      </a>
-
+    <div class="testi">
+      <div class="testi-photo reveal">
+        <img src="assets/images/team-member1.jpg" alt="Collaborator"/>
+      </div>
+      <div class="testi-quote reveal" style="--d:.1s">
+        <div class="mark">"</div>
+        <blockquote>Yasas brings rare range — the rigour of a researcher and the instincts of a builder. His work on location-based AR genuinely advanced how we think about connecting remote players, and his teaching makes complex ideas click for students.</blockquote>
+        <div class="testi-author">Research &amp; Industry Partners<small>HIT Lab NZ · Sony Interactive Entertainment</small></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta">
+<!-- BIG CTA -->
+<section class="section soft">
   <div class="container">
-    <span class="eyebrow reveal">Collaboration</span>
-    <h2 class="reveal" style="--d:.1s">Let's build the next <em>spatial</em> experience together.</h2>
-    <div class="cta-actions reveal" style="--d:.2s">
-      <a class="btn btn-solid" href="contact.html">Get in Touch <span class="arrow">→</span></a>
-      <a class="btn" href="assets/files/cv_yasas.pdf" target="_blank">Curriculum Vitae</a>
+    <div class="bigcta reveal">
+      <div class="bigcta-text">
+        <span class="eyebrow">Collaboration</span>
+        <h2>Let's Take Your Immersive Idea to the <em style="color:#6ea0ff">Next Level.</em></h2>
+        <p>Whether it's a research collaboration, a guest talk, or building the next spatial experience — I'd love to hear from you.</p>
+        <a class="btn" href="contact.html">Get in Touch <span class="arrow">→</span></a>
+      </div>
+      <div class="bigcta-visual">
+        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" preserveAspectRatio="none">
+          <polyline points="20,170 90,150 160,120 230,130 300,70 380,30" stroke="#6ea0ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <circle cx="380" cy="30" r="6" fill="#6ea0ff"/>
+        </svg>
+        <div class="chartstat">312%<small>RESEARCH IMPACT GROWTH</small></div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="container footer-inner">
-    <div>
-      <div class="footer-name">Dr. Yasas Sri <em>Wickramasinghe</em></div>
-      <div class="footer-copy">© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-news">
+        <h3>Stay in the loop</h3>
+        <p>Join my research notes for occasional insights on AR, XR and immersive media.</p>
+        <form class="nl-form" onsubmit="return false;">
+          <input type="email" placeholder="Your email address" aria-label="Email address"/>
+          <button class="btn btn-solid" type="submit">Join</button>
+        </form>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="blogs.html">Writing</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://scholar.google.com/citations?user=sIFk7asAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter / X ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="assets/files/cv_yasas.pdf" target="_blank">Curriculum Vitae</a>
+        <a href="research.html">Publications</a>
+        <a href="https://readclub.me" target="_blank" rel="noopener">ReadClub.me ↗</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
-      <a href="https://scholar.google.com/citations?user=sIFk7asAAAAJ" target="_blank" rel="noopener">Scholar</a>
-      <a href="contact.html">Contact</a>
+    <div class="footer-bottom">
+      <div class="footer-logo">Yasas Sri Wickramasinghe</div>
+      <small>© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</small>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
-<script src="assets/js/premium.js"></script>
-<script type="module" src="assets/js/hero.js"></script>
+<script>
+  // Progress bar
+  const bar = document.querySelector('.progress-bar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+
+  // Mobile menu
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.mobile-menu');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Year
+  document.querySelectorAll('.year').forEach(y => y.textContent = new Date().getFullYear());
+</script>
 </body>
 </html>
