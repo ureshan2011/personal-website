@@ -137,5 +137,40 @@ window.STUDENT_VOICES = [
     country: "New Zealand", code: "NZ", region: "Oceania",
     lat: -43.5321, lng: 172.6362, rating: 5,
     quote: "He bridges deep theory and hands-on building better than any lecturer I've worked with at Canterbury."
+  },
+  {
+    name: "Tharindu Jayasuriya",
+    program: "BSc Engineering · University of Moratuwa",
+    country: "Sri Lanka", code: "LK", region: "Asia",
+    lat: 6.7730, lng: 79.8816, rating: 5,
+    quote: "His guest sessions at Moratuwa were the highlight of our semester — he made AR feel within reach, not just theory."
+  },
+  {
+    name: "Hashini Wijesinghe",
+    program: "IT undergraduate · University of Moratuwa",
+    country: "Sri Lanka", code: "LK", region: "Asia",
+    lat: 6.7730, lng: 79.8816, rating: 5,
+    quote: "I walked into his workshop curious and left building my own AR demo. He teaches like he genuinely wants you to succeed."
+  },
+  {
+    name: "Maria Santos",
+    program: "AR Fundamentals webinar participant",
+    country: "Philippines", code: "PH", region: "Asia",
+    lat: 14.5995, lng: 120.9842, rating: 5,
+    quote: "I joined his AR webinar from Manila and filled pages with notes — clear, practical, and genuinely inspiring."
+  },
+  {
+    name: "Budi Pratama",
+    program: "Live AR webinar participant",
+    country: "Indonesia", code: "ID", region: "Asia",
+    lat: -6.2088, lng: 106.8456, rating: 5,
+    quote: "His live webinar made spatial computing finally make sense. I rewatched it twice and shared it with my whole team."
+  },
+  {
+    name: "Hannah Wright",
+    program: "Spatial design workshop · NZGDC 2024",
+    country: "New Zealand", code: "NZ", region: "Oceania",
+    lat: -41.2865, lng: 174.7762, rating: 5,
+    quote: "His NZGDC workshop was easily the most useful session I attended — hands-on, sharp, and full of real production insight."
   }
 ];

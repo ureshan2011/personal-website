@@ -1,15 +1,13 @@
 /* ==========================================================================
    Student Voices Globe  —  Anthropic-inspired editorial globe
    A geographically accurate, dependency-light globe on <canvas>:
-   - Real continents drawn as a dotted land grid (orthographic projection)
-   - Faint graticule + country borders, like the "81k interviews" feature
+   - Real continents: a soft land fill, faint graticule + country borders,
+     in the spirit of the "81k interviews" feature (no land-texture dots)
+   - One blue marker per country, sized by number of students from there
    - The active student's country is filled in coral and ringed
-   - Markers per country, sized by number of respondents, coloured by sentiment
-       sage  #788c5d  = "Loved it"  (avg rating >= 4.75)
-       sky   #6a9bcc  = "Positive"  (avg rating <  4.75)
    - Slowly auto-rotates, seeks the active country to face front
    - Drag to spin, hover markers for a tooltip, click a marker to select
-   - Region filter pills + prev/next, animated quote card, live stats
+   - Prev/next, animated quote card, live stats
    - Respects prefers-reduced-motion (static render, no auto motion)
 
    Geography: world-atlas countries (110m) loaded at runtime, projected and
@@ -33,20 +31,16 @@
   var nameEl    = document.getElementById("vqName");
   var roleEl    = document.getElementById("vqRole");
   var countryEl = document.getElementById("vqCountry");
-  var labelEl   = document.getElementById("vqStars");   // repurposed: sentiment label
-  var dotEl     = document.getElementById("vqAvatar");  // repurposed: sentiment dot
-  var filtersEl = document.getElementById("voicesFilters");
+  var dotEl     = document.getElementById("vqAvatar");  // small blue accent dot
   var tooltipEl = document.getElementById("voicesTooltip");
   var srListEl  = document.getElementById("voicesSrList");
   var prevBtn   = document.getElementById("vPrev");
   var nextBtn   = document.getElementById("vNext");
 
   // ---- palette (Anthropic) ----
-  var INK = "20,20,19";        // ink — land dots / borders on ivory
-  var SENT_POS = "#788c5d";    // sage  — loved it
-  var SENT_NEU = "#6a9bcc";    // sky   — positive
-  var CORAL = "#d97757";       // active highlight
-  function sentiment(r) { return r >= 5 ? { label: "Loved it", color: SENT_POS } : { label: "Positive", color: SENT_NEU }; }
+  var INK = "20,20,19";        // ink — land fill / borders on ivory
+  var MARKER = "#6a9bcc";      // sky — every student marker is the same blue
+  var CORAL = "#d97757";       // active student's country highlight
 
   // ---- view state (degrees: lambda = longitude spin, phi = tilt) ----
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -61,8 +55,7 @@
   // ---- geography (filled in once world-atlas loads) ----
   var ready = false, geoFailed = false;
   var projection = null, path = null;
-  var graticule = null, borders = null, sphere = { type: "Sphere" };
-  var landDots = [];                 // [lng, lat] points that fall on land
+  var graticule = null, borders = null, land = null;
   var featureByName = {};            // country name -> GeoJSON feature
   var activeFeature = null;
 
@@ -75,23 +68,12 @@
   });
   countries.forEach(function (c) {
     c.count = c.indices.length;
-    c.avg = c.sum / c.count;
-    c.color = c.avg >= 4.75 ? SENT_POS : SENT_NEU;
+    c.color = MARKER;
   });
 
-  // ---- regions + pool ----
-  var regions = [];
-  DATA.forEach(function (d) { if (regions.indexOf(d.region) === -1) regions.push(d.region); });
-  var activeFilter = "all";
+  // ---- playback pool (every voice, cycled in order) ----
   var pool = DATA.map(function (_, i) { return i; });
   var activeIndex = 0;
-
-  function rebuildPool() {
-    pool = DATA.map(function (_, i) { return i; }).filter(function (i) {
-      return activeFilter === "all" || DATA[i].region === activeFilter;
-    });
-    if (pool.indexOf(activeIndex) === -1 && pool.length) activate(pool[0]);
-  }
 
   // ---- small helpers ----
   function hexA(hex, a) {
@@ -156,18 +138,6 @@
     return featureByName[NAME_ALIAS[key] || key] || null;
   }
 
-  function buildLandDots(land, d3) {
-    var pts = [];
-    for (var lat = -83; lat <= 83; lat += 2.6) {
-      var rad = Math.cos(lat * Math.PI / 180);
-      var step = 2.6 / Math.max(0.18, rad);   // keep dot density roughly even
-      for (var lng = -180; lng < 180; lng += step) {
-        if (d3.geoContains(land, [lng, lat])) pts.push([lng, lat]);
-      }
-    }
-    return pts;
-  }
-
   function setupGeo(world) {
     var d3 = window.d3, topojson = window.topojson;
     var obj = world.objects.countries;
@@ -176,14 +146,13 @@
       var nm = f.properties && f.properties.name;
       if (nm) featureByName[nm.toLowerCase()] = f;
     });
-    borders = topojson.mesh(world, obj);                                   // coastlines + borders
-    var land = topojson.merge(world, obj.geometries);                      // for containment test
+    borders = topojson.mesh(world, obj);                  // coastlines + borders
+    land = topojson.merge(world, obj.geometries);         // soft continent fill
     graticule = d3.geoGraticule10();
 
     projection = d3.geoOrthographic().rotate([lambda, phi]).scale(R || 200).translate([cx || 0, cy || 0]).precision(0.4);
     path = d3.geoPath(projection, ctx);
 
-    landDots = buildLandDots(land, d3);
     activeFeature = featureFor(DATA[activeIndex].country);
     ready = true;
   }
@@ -234,27 +203,19 @@
     ctx.save();
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.2832); ctx.clip();
 
+    // soft continent fill so land reads against the ocean
+    if (land) {
+      ctx.beginPath(); path(land);
+      ctx.fillStyle = hexA(INK, 0.055); ctx.fill();
+    }
+
     // graticule
     ctx.beginPath(); path(graticule);
     ctx.strokeStyle = hexA(INK, 0.06); ctx.lineWidth = 0.6; ctx.stroke();
 
-    // dotted land
-    ctx.fillStyle = "rgb(" + INK + ")";
-    for (var i = 0; i < landDots.length; i++) {
-      var p = landDots[i];
-      var dist = geoDist(p[0], p[1], clng, clat);
-      if (dist > HALF_PI - 0.015) continue;
-      var xy = projection(p); if (!xy) continue;
-      var cosD = Math.cos(dist);            // 1 at centre → 0 at horizon
-      ctx.globalAlpha = 0.1 + cosD * 0.45;
-      var s = 0.55 + cosD * 1.25;
-      ctx.fillRect(xy[0] - s / 2, xy[1] - s / 2, s, s);
-    }
-    ctx.globalAlpha = 1;
-
-    // country borders
+    // country borders / coastlines
     ctx.beginPath(); path(borders);
-    ctx.strokeStyle = hexA(INK, 0.14); ctx.lineWidth = 0.6; ctx.stroke();
+    ctx.strokeStyle = hexA(INK, 0.2); ctx.lineWidth = 0.6; ctx.stroke();
 
     // active country fill + outline (coral)
     if (activeFeature) {
@@ -267,40 +228,37 @@
     ctx.restore();
   }
 
-  // wireframe fallback if libraries/data are unavailable
-  var fbDots = null;
-  function buildFallbackDots() {
-    var N = 1400, golden = Math.PI * (3 - Math.sqrt(5));
-    fbDots = new Float32Array(N * 2);
-    for (var i = 0; i < N; i++) {
-      var y = 1 - (i / (N - 1)) * 2, r = Math.sqrt(Math.max(0, 1 - y * y)), th = i * golden;
-      fbDots[i * 2] = Math.atan2(Math.sin(th) * r, Math.cos(th) * r) * 180 / Math.PI;  // lng
-      fbDots[i * 2 + 1] = Math.asin(y) * 180 / Math.PI;                                 // lat
-    }
-  }
+  // wireframe fallback (lat/long grid only — no dots) if libraries/data fail
   function projFallback(lng, lat, clng, clat) {
-    // simple orthographic projection (no library)
     var a = lat * Math.PI / 180, b = clat * Math.PI / 180, dl = (lng - clng) * Math.PI / 180;
     var x = Math.cos(a) * Math.sin(dl);
     var y = Math.cos(b) * Math.sin(a) - Math.sin(b) * Math.cos(a) * Math.cos(dl);
     return [cx + x * R, cy - y * R];
   }
+  function strokeGridLine(coords, clng, clat) {
+    ctx.beginPath();
+    var pen = false;
+    for (var i = 0; i < coords.length; i++) {
+      var lng = coords[i][0], lat = coords[i][1];
+      if (geoDist(lng, lat, clng, clat) > HALF_PI - 0.01) { pen = false; continue; }
+      var xy = projFallback(lng, lat, clng, clat);
+      if (!pen) { ctx.moveTo(xy[0], xy[1]); pen = true; } else { ctx.lineTo(xy[0], xy[1]); }
+    }
+    ctx.stroke();
+  }
   function drawFallback(now) {
-    if (!fbDots) buildFallbackDots();
-    var clng = -lambda, clat = -phi;
+    var clng = -lambda, clat = -phi, lng, lat, line;
     ctx.save();
     ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.2832); ctx.clip();
-    ctx.fillStyle = "rgb(" + INK + ")";
-    for (var i = 0; i < fbDots.length; i += 2) {
-      var dist = geoDist(fbDots[i], fbDots[i + 1], clng, clat);
-      if (dist > HALF_PI - 0.01) continue;
-      var xy = projFallback(fbDots[i], fbDots[i + 1], clng, clat);
-      var cosD = Math.cos(dist);
-      ctx.globalAlpha = 0.05 + cosD * cosD * 0.28;
-      var s = 0.5 + cosD * 1.3;
-      ctx.fillRect(xy[0] - s / 2, xy[1] - s / 2, s, s);
+    ctx.strokeStyle = hexA(INK, 0.12); ctx.lineWidth = 0.6;
+    for (lng = -180; lng < 180; lng += 30) {        // meridians
+      line = []; for (lat = -80; lat <= 80; lat += 4) line.push([lng, lat]);
+      strokeGridLine(line, clng, clat);
     }
-    ctx.globalAlpha = 1;
+    for (lat = -60; lat <= 60; lat += 30) {         // parallels
+      line = []; for (lng = -180; lng <= 180; lng += 4) line.push([lng, lat]);
+      strokeGridLine(line, clng, clat);
+    }
     drawMarkersFallback(now, clng, clat);
     ctx.restore();
   }
@@ -388,15 +346,11 @@
   //  Quote card + selection
   // ====================================================================
   function paint() {
-    var d = DATA[activeIndex], s = sentiment(d.rating);
+    var d = DATA[activeIndex];
     textEl.textContent = "“" + d.quote + "”";
     nameEl.textContent = d.name;
     roleEl.textContent = d.program;
     countryEl.textContent = d.country;
-    labelEl.textContent = s.label;
-    labelEl.style.color = s.color;
-    dotEl.style.background = s.color;
-    dotEl.style.boxShadow = "0 0 0 4px " + hexA(s.color, 0.16);
     canvas.setAttribute("aria-label", "Globe of " + countries.length + " countries. Now showing " + d.name + " from " + d.country + ".");
   }
 
@@ -416,25 +370,8 @@
   function prev() { var p = pool.indexOf(activeIndex); activate(pool[(p - 1 + pool.length) % pool.length]); }
 
   // ====================================================================
-  //  Filters + a11y list
+  //  Screen-reader list
   // ====================================================================
-  function buildFilters() {
-    if (!filtersEl) return;
-    var mk = function (label, value) {
-      var b = document.createElement("button");
-      b.className = "vfilter" + (value === activeFilter ? " active" : "");
-      b.type = "button"; b.textContent = label; b.setAttribute("data-filter", value);
-      b.addEventListener("click", function () {
-        activeFilter = value;
-        filtersEl.querySelectorAll(".vfilter").forEach(function (el) { el.classList.toggle("active", el.getAttribute("data-filter") === value); });
-        lastInteract = performance.now(); rebuildPool();
-      });
-      return b;
-    };
-    filtersEl.appendChild(mk("All", "all"));
-    regions.forEach(function (r) { filtersEl.appendChild(mk(r, r)); });
-  }
-
   function buildSrList() {
     if (!srListEl) return;
     DATA.forEach(function (d) {
@@ -494,7 +431,8 @@
   // ====================================================================
   //  Init
   // ====================================================================
-  buildFilters(); buildSrList(); activate(0); paint(); resize();
+  if (dotEl) { dotEl.style.background = MARKER; dotEl.style.boxShadow = "0 0 0 4px " + hexA(MARKER, 0.16); }
+  buildSrList(); activate(0); paint(); resize();
   loadGeo();
 
   if (prevBtn) prevBtn.addEventListener("click", function () { lastInteract = performance.now(); prev(); });
