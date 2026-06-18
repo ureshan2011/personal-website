@@ -136,10 +136,13 @@
   }
 
   function ensureLibs() {
-    var jobs = [];
-    if (!(window.d3 && window.d3.geoOrthographic)) jobs.push(loadScript("https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"));
-    if (!window.topojson) jobs.push(loadScript("https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"));
-    return Promise.all(jobs);
+    var topo = window.topojson ? Promise.resolve() : loadScript("https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js");
+    var d3geo = (window.d3 && window.d3.geoOrthographic)
+      ? Promise.resolve()
+      // d3-geo depends on d3-array's Adder, so it must load first
+      : (window.d3 && window.d3.Adder ? Promise.resolve() : loadScript("https://cdn.jsdelivr.net/npm/d3-array@3/dist/d3-array.min.js"))
+          .then(function () { return loadScript("https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"); });
+    return Promise.all([topo, d3geo]);
   }
 
   // map our testimonial country names onto world-atlas feature names
