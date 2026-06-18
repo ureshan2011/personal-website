@@ -103,7 +103,7 @@
 </script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
 <link href="assets/css/redesign.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
@@ -181,6 +181,61 @@
     <span>Location-Based AR</span><span>Spatial Computing</span><span>Human Interface Technology</span><span>Player Experience</span><span>XR Research</span><span>HCI</span>
   </div>
 </div>
+
+<!-- STUDENT VOICES — interactive globe (Anthropic-inspired editorial section) -->
+<section class="avoices" id="voices" aria-label="What students say around the world">
+  <div class="container av-inner">
+    <div class="av-head reveal">
+      <span class="av-eyebrow">Voices from my classroom</span>
+      <h2 class="av-title">What my students say,<br/>all around the world</h2>
+      <p class="av-sub">Tens of thousands of learners across universities, MOOCs and workshops — from Colombo to Christchurch. Spin the globe, or pick a region, to hear them in their own words.</p>
+    </div>
+
+    <div class="av-grid">
+      <div class="av-stage reveal">
+        <canvas id="voicesGlobe" class="voices-globe" role="img" aria-label="Rotating globe showing the countries students wrote from"></canvas>
+        <div class="voices-tooltip" id="voicesTooltip" aria-hidden="true"></div>
+      </div>
+
+      <div class="av-panel reveal" style="--d:.1s">
+        <figure class="av-quote" id="voicesQuote">
+          <blockquote id="vqText">&hellip;</blockquote>
+          <figcaption class="av-cite">
+            <span class="av-dot" id="vqAvatar" aria-hidden="true"></span>
+            <span class="av-who">
+              <strong id="vqName">&hellip;</strong>
+              <span id="vqRole">&hellip;</span>
+            </span>
+            <span class="av-loc">
+              <span class="av-country" id="vqCountry"></span>
+              <span class="av-sentiment" id="vqStars"></span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="av-controls">
+          <div class="av-filters" id="voicesFilters" role="group" aria-label="Filter by region"></div>
+          <div class="av-nav">
+            <button class="av-navbtn" id="vPrev" type="button" aria-label="Previous voice">←</button>
+            <button class="av-navbtn" id="vNext" type="button" aria-label="Next voice">→</button>
+          </div>
+        </div>
+
+        <div class="av-foot">
+          <div class="av-legend" aria-hidden="true">
+            <span><i class="av-li av-li-pos"></i> Loved it</span>
+            <span><i class="av-li av-li-neu"></i> Positive</span>
+          </div>
+          <div class="av-stats">
+            <span><b class="count" data-target="14">0</b> countries</span>
+            <span><b class="count" data-target="18">0</b> voices</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="voices-srlist" id="voicesSrList"></ul>
+</section>
 
 <!-- INTRO BAND -->
 <section class="section" id="about">
