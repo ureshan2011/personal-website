@@ -1,8 +1,74 @@
-# https://www.yasassri.me robots.txt
+# https://www.yasassri.me — robots.txt
+# Maintained by Dr. Yasas Sri Wickramasinghe
+
+# ---------------------------------------------------------------------------
+# Search engines — full access
+# ---------------------------------------------------------------------------
 User-agent: *
 Allow: /
 
-# Orphaned template demos are excluded from indexing via on-page
-# <meta name="robots" content="noindex"> so crawlers can still read the tag.
+# Note: orphaned template demos (about.html, home-agency.html,
+# single-portfolio.html, "index original.html") carry an on-page
+# <meta name="robots" content="noindex, nofollow"> so they are read but
+# never indexed.
 
+# ---------------------------------------------------------------------------
+# AI / LLM crawlers — explicitly welcome.
+# This site WANTS to be read, learned from, and cited by AI assistants
+# (ChatGPT, Claude, Perplexity, Gemini, Copilot, etc.). See /llms.txt.
+# ---------------------------------------------------------------------------
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Google (AI Overviews / Gemini training opt-in)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft / Bing AI
+User-agent: bingbot
+Allow: /
+
+# Other AI / research crawlers
+User-agent: Amazonbot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Diffbot
+Allow: /
+User-agent: Bytespider
+Allow: /
+
+# ---------------------------------------------------------------------------
 Sitemap: https://www.yasassri.me/sitemap.xml
