@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Web Products — Yasas Sri Wickramasinghe | HouseScout, Faro &amp; Yoobees</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="A portfolio of web products designed and built by Dr. Yasas Sri Wickramasinghe — including HouseScout (property intelligence), Faro (flight-fare timing with ML), and Yoobees (an EdTech platform for Yoobee College)."/>
+<link rel="icon" href="assets/images/icons/favicon.png"/>
+<meta name="keywords" content="Yasas Sri Wickramasinghe, web products, HouseScout, Faro, Yoobees, full-stack developer, machine learning, property dashboard, flight fare prediction, EdTech, Christchurch"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/products.html"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Web Products — HouseScout, Faro &amp; Yoobees"/>
+<meta property="og:description" content="Research-grade thinking turned into real web products people use — property intelligence, ML-driven flight-fare timing, and EdTech."/>
+<meta property="og:url" content="https://www.yasassri.me/products.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:creator" content="@sri_yasas"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
+<link href="assets/css/redesign.css" rel="stylesheet"/>
+
+<!-- Page-scoped styles for the product showcase -->
+<style>
+  .prod-list { display: flex; flex-direction: column; gap: clamp(28px, 5vw, 48px); }
+  .prod {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow-sm); transition: box-shadow .4s var(--ease), transform .4s var(--ease);
+  }
+  .prod:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+  .prod-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
+  .prod-body { padding: clamp(28px, 4vw, 52px); }
+  .prod:nth-child(even) .prod-media { order: -1; }
+  .prod-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .badge-live { background: #e7f7ef; color: #15875a; }
+  .badge-live .dot { background: #18a563; box-shadow: 0 0 0 0 rgba(24,165,99,.6); animation: pulse 2s infinite; }
+  .badge-dev { background: var(--accent-soft); color: var(--accent); }
+  .badge-dev .dot { background: var(--accent); }
+  .badge-kind { background: var(--bg-panel); color: var(--ink-soft); border: 1px solid var(--line); }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(24,165,99,.55); } 70% { box-shadow: 0 0 0 7px rgba(24,165,99,0); } 100% { box-shadow: 0 0 0 0 rgba(24,165,99,0); } }
+  .prod-title { font-size: clamp(24px, 3vw, 34px); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 14px; }
+  .prod-summary { color: var(--ink-soft); font-size: 15.5px; margin-bottom: 24px; max-width: 56ch; }
+  .prod-sub { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+  .feat { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; margin: 0 0 26px; }
+  .feat li { position: relative; padding-left: 28px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .feat li::before {
+    content: ""; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--accent-soft); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232f6bff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center;
+  }
+  .value {
+    display: flex; gap: 14px; align-items: flex-start; background: var(--bg-soft); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 18px; margin-bottom: 24px;
+  }
+  .value .vic { flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+  .value p { font-size: 14px; color: var(--ink); margin: 0; }
+  .value strong { color: var(--accent); }
+  .prod-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .prod-note { font-size: 12.5px; color: var(--muted); margin-top: 16px; }
+
+  /* Browser-style mockup frame */
+  .prod-media { padding: clamp(20px, 3vw, 40px); display: flex; align-items: center; justify-content: center; min-height: 320px;
+    background: radial-gradient(120% 120% at 30% 10%, #eaf0fb 0%, #f4f6f9 60%); }
+  .prod:nth-child(even) .prod-media { background: radial-gradient(120% 120% at 70% 10%, #eef2f7 0%, #f4f6f9 60%); }
+  .browser { width: 100%; max-width: 440px; border-radius: 14px; overflow: hidden; background: #fff;
+    border: 1px solid var(--line-strong); box-shadow: 0 26px 50px -24px rgba(19,26,38,.4); }
+  .browser-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #f1f4f8; border-bottom: 1px solid var(--line); }
+  .browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: #d3d9e3; }
+  .browser-bar i:nth-child(1) { background: #ff5f57; } .browser-bar i:nth-child(2) { background: #febc2e; } .browser-bar i:nth-child(3) { background: #28c840; }
+  .browser-url { margin-left: 10px; font-size: 11px; color: var(--muted); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .browser svg { width: 100%; height: auto; display: block; }
+
+  /* Capability cards */
+  .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cap { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 24px; transition: .35s var(--ease); }
+  .cap:hover { background: #fff; box-shadow: var(--shadow-sm); transform: translateY(-4px); }
+  .cap .ic { width: 44px; height: 44px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
+  .cap h3 { font-size: 16px; margin-bottom: 8px; }
+  .cap p { font-size: 13.5px; color: var(--ink-soft); }
+
+  @media (max-width: 940px) {
+    .prod-grid { grid-template-columns: 1fr; }
+    .prod:nth-child(even) .prod-media { order: 0; }
+    .prod-media { order: -1; min-height: 0; }
+    .feat { grid-template-columns: 1fr; }
+    .cap-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) { .cap-grid { grid-template-columns: 1fr; } }
+</style>
+
+<!-- Structured data: portfolio of software applications -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Web Products by Yasas Sri Wickramasinghe",
+  "url": "https://www.yasassri.me/products.html",
+  "hasPart": [
+    { "@type": "WebApplication", "name": "HouseScout", "applicationCategory": "BusinessApplication", "url": "https://ureshan2011.github.io/HouseScout/", "description": "A property-buying intelligence dashboard for Christchurch home buyers, with listings tracking, indicative valuations, market insights and a local AI assistant." },
+    { "@type": "WebApplication", "name": "Faro", "applicationCategory": "TravelApplication", "url": "https://ureshan2011.github.io/flightwatch/", "description": "A flight-fare timing assistant that uses machine learning to recommend whether to book now or wait for a lower price." },
+    { "@type": "WebApplication", "name": "Yoobees", "applicationCategory": "EducationalApplication", "description": "An EdTech web platform built with TypeScript for the Yoobee College community." }
+  ]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a class="active" href="products.html">Products</a>
+      <a href="news.html">News</a>
+      <a href="blogs.html">Writing</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-solid" href="assets/files/cv_yasas.pdf" target="_blank">Download CV <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span class="idx">01</span>Home</a>
+  <a href="research.html"><span class="idx">02</span>Research</a>
+  <a href="teaching.html"><span class="idx">03</span>Teaching</a>
+  <a class="active" href="products.html"><span class="idx">04</span>Products</a>
+  <a href="news.html"><span class="idx">05</span>News</a>
+  <a href="blogs.html"><span class="idx">06</span>Writing</a>
+  <a href="contact.html"><span class="idx">07</span>Contact</a>
+  <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">08</span>Curriculum Vitae</a>
+</div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Web Products</span>
+    <h1 class="reveal" style="--d:.1s">Research-grade thinking, <em>shipped as software</em>.</h1>
+    <p class="lead reveal" style="--d:.2s">
+      Beyond the lab, I design and build full-stack web products that put data, machine learning and clean UX in front of real users. Here are three I've shipped recently — a property-intelligence dashboard, an ML-driven flight-fare advisor, and an EdTech platform — each solving a concrete, everyday problem.
+    </p>
+    <div class="hero-actions reveal" style="--d:.3s">
+      <a class="btn btn-solid" href="https://ureshan2011.github.io/HouseScout/" target="_blank" rel="noopener">Open HouseScout <span class="arrow">↗</span></a>
+      <a class="btn" href="https://ureshan2011.github.io/flightwatch/" target="_blank" rel="noopener">Open Faro <span class="arrow">↗</span></a>
+      <a class="btn" href="https://github.com/ureshan2011" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Snapshot stats -->
+<section class="section" style="padding-bottom:0;">
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat"><span class="stat-value">3</span><span class="stat-label">Products in portfolio</span></div>
+      <div class="stat"><span class="stat-value">2</span><span class="stat-label">Live &amp; publicly usable</span></div>
+      <div class="stat"><span class="stat-value">AI&nbsp;+&nbsp;ML</span><span class="stat-label">Local LLM &amp; predictive models</span></div>
+      <div class="stat"><span class="stat-value">Full-stack</span><span class="stat-label">Python &amp; TypeScript</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">01 — Portfolio</span>
+      <h2>Products I've <em>designed &amp; built</em></h2>
+    </div>
+
+    <div class="prod-list">
+
+      <!-- ===================== HouseScout ===================== -->
+      <article class="prod reveal">
+        <div class="prod-grid">
+          <div class="prod-body">
+            <div class="prod-eyebrow">
+              <span class="badge badge-live"><span class="dot"></span>Live</span>
+              <span class="badge badge-kind">Property Intelligence</span>
+              <span class="badge badge-kind">Python · Local AI</span>
+            </div>
+            <h2 class="prod-title">HouseScout</h2>
+            <p class="prod-summary">
+              A property-buying dashboard that helps Christchurch home buyers find affordable homes that match very specific criteria — and stay on top of the market without endlessly refreshing listing sites. Built for investment-minded buyers who want to "live in &amp; rent rooms to pay it off fast."
+            </p>
+
+            <p class="prod-sub">Key features</p>
+            <ul class="feat">
+              <li>Listings tracker monitoring user-defined criteria</li>
+              <li>Central dashboard with key metrics at a glance</li>
+              <li>Searchable, filterable listings browser</li>
+              <li>Indicative property valuations &amp; estimates</li>
+              <li>Market insights &amp; analytics on matches</li>
+              <li>Buying-journey planner</li>
+              <li>Private local AI chat (powered by Gemma)</li>
+              <li>Personalised settings &amp; saved preferences</li>
+            </ul>
+
+            <div class="value">
+              <span class="vic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></span>
+              <p><strong>The value:</strong> turns a scattered, stressful search into a focused, data-driven workflow — surfacing sub-$500k homes with the right features (garage, backyard) so first-home buyers and investors can move fast and buy with confidence. <em style="color:var(--muted);font-style:italic;">Estimates are indicative, not registered valuations — and not financial advice.</em></p>
+            </div>
+
+            <div class="prod-actions">
+              <a class="btn btn-solid" href="https://ureshan2011.github.io/HouseScout/" target="_blank" rel="noopener">Open Live App <span class="arrow">↗</span></a>
+              <a class="btn" href="https://github.com/ureshan2011/HouseScout" target="_blank" rel="noopener">Source on GitHub <span class="arrow">↗</span></a>
+            </div>
+          </div>
+
+          <div class="prod-media">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">ureshan2011.github.io/HouseScout</span></div>
+              <svg viewBox="0 0 440 300" role="img" aria-label="HouseScout dashboard mockup with property cards and metrics">
+                <rect width="440" height="300" fill="#f7f9fc"/>
+                <!-- sidebar -->
+                <rect x="0" y="0" width="92" height="300" fill="#131a26"/>
+                <rect x="18" y="22" width="56" height="9" rx="4" fill="#2f6bff"/>
+                <rect x="18" y="60" width="56" height="7" rx="3.5" fill="#3a4660"/>
+                <rect x="18" y="80" width="48" height="7" rx="3.5" fill="#3a4660"/>
+                <rect x="18" y="100" width="52" height="7" rx="3.5" fill="#2f6bff" opacity="0.9"/>
+                <rect x="18" y="120" width="44" height="7" rx="3.5" fill="#3a4660"/>
+                <rect x="18" y="140" width="50" height="7" rx="3.5" fill="#3a4660"/>
+                <!-- metric cards -->
+                <rect x="108" y="20" width="98" height="58" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                <rect x="120" y="34" width="40" height="6" rx="3" fill="#8a93a3"/>
+                <rect x="120" y="50" width="58" height="13" rx="4" fill="#131a26"/>
+                <rect x="216" y="20" width="98" height="58" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                <rect x="228" y="34" width="40" height="6" rx="3" fill="#8a93a3"/>
+                <rect x="228" y="50" width="50" height="13" rx="4" fill="#18a563"/>
+                <rect x="324" y="20" width="98" height="58" rx="10" fill="#2f6bff"/>
+                <rect x="336" y="34" width="40" height="6" rx="3" fill="#bcd0ff"/>
+                <rect x="336" y="50" width="54" height="13" rx="4" fill="#fff"/>
+                <!-- listing cards -->
+                <g>
+                  <rect x="108" y="96" width="150" height="86" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                  <rect x="108" y="96" width="150" height="44" rx="10" fill="#dbe6fb"/>
+                  <rect x="120" y="150" width="70" height="8" rx="4" fill="#131a26"/>
+                  <rect x="120" y="166" width="100" height="6" rx="3" fill="#b9c0cc"/>
+                  <rect x="200" y="148" width="46" height="16" rx="8" fill="#e7f7ef"/>
+                  <rect x="208" y="153" width="30" height="6" rx="3" fill="#15875a"/>
+                </g>
+                <g>
+                  <rect x="272" y="96" width="150" height="86" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                  <rect x="272" y="96" width="150" height="44" rx="10" fill="#cfe0d8"/>
+                  <rect x="284" y="150" width="70" height="8" rx="4" fill="#131a26"/>
+                  <rect x="284" y="166" width="100" height="6" rx="3" fill="#b9c0cc"/>
+                  <rect x="364" y="148" width="46" height="16" rx="8" fill="#e9f0ff"/>
+                  <rect x="372" y="153" width="30" height="6" rx="3" fill="#2f6bff"/>
+                </g>
+                <!-- insights bar chart -->
+                <rect x="108" y="198" width="314" height="84" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                <rect x="122" y="212" width="60" height="6" rx="3" fill="#8a93a3"/>
+                <rect x="122" y="240" width="22" height="26" rx="2" fill="#2f6bff"/>
+                <rect x="152" y="232" width="22" height="34" rx="2" fill="#5b84f5"/>
+                <rect x="182" y="248" width="22" height="18" rx="2" fill="#2f6bff"/>
+                <rect x="212" y="226" width="22" height="40" rx="2" fill="#5b84f5"/>
+                <rect x="242" y="244" width="22" height="22" rx="2" fill="#2f6bff"/>
+                <rect x="272" y="234" width="22" height="32" rx="2" fill="#5b84f5"/>
+                <rect x="302" y="222" width="22" height="44" rx="2" fill="#2f6bff"/>
+                <rect x="332" y="240" width="22" height="26" rx="2" fill="#5b84f5"/>
+                <rect x="362" y="230" width="22" height="36" rx="2" fill="#2f6bff"/>
+                <rect x="392" y="248" width="22" height="18" rx="2" fill="#5b84f5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================== Faro ===================== -->
+      <article class="prod reveal">
+        <div class="prod-grid">
+          <div class="prod-body">
+            <div class="prod-eyebrow">
+              <span class="badge badge-live"><span class="dot"></span>Live</span>
+              <span class="badge badge-kind">Travel</span>
+              <span class="badge badge-kind">Python · Machine Learning</span>
+            </div>
+            <h2 class="prod-title">Faro</h2>
+            <p class="prod-summary">
+              A flight-fare timing assistant that answers the one question every traveller has: <em>book now, or wait?</em> Faro tracks prices across airlines and uses a model trained on route-specific history to give a clear, daily Book&nbsp;/&nbsp;Wait call — removing the guesswork (and regret) from buying tickets.
+            </p>
+
+            <p class="prod-sub">Key features</p>
+            <ul class="feat">
+              <li>Daily fare monitoring across airlines</li>
+              <li>Clear "Book now" vs "Wait" recommendation</li>
+              <li>ML trained on route-specific price history</li>
+              <li>Full flight details — airline, stops, times</li>
+              <li>Refreshes several times a day, auto-reloads</li>
+              <li>Aggregates fares from Google Flights</li>
+              <li>Live weather &amp; currency context built in</li>
+              <li>Open, publicly accessible underlying data</li>
+            </ul>
+
+            <div class="value">
+              <span class="vic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+              <p><strong>The value:</strong> flexible travellers save money by booking in the optimal window — guided by predictive modelling instead of gut feel — while a single dashboard replaces hours of manually re-checking fares.</p>
+            </div>
+
+            <div class="prod-actions">
+              <a class="btn btn-solid" href="https://ureshan2011.github.io/flightwatch/" target="_blank" rel="noopener">Open Live App <span class="arrow">↗</span></a>
+              <a class="btn" href="https://github.com/ureshan2011/flightwatch" target="_blank" rel="noopener">Source on GitHub <span class="arrow">↗</span></a>
+            </div>
+          </div>
+
+          <div class="prod-media">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">ureshan2011.github.io/flightwatch</span></div>
+              <svg viewBox="0 0 440 300" role="img" aria-label="Faro fare-trend chart with a Book Now recommendation">
+                <rect width="440" height="300" fill="#f7f9fc"/>
+                <!-- header -->
+                <rect x="20" y="18" width="120" height="10" rx="5" fill="#131a26"/>
+                <rect x="20" y="36" width="80" height="7" rx="3.5" fill="#8a93a3"/>
+                <!-- recommendation pill -->
+                <rect x="300" y="16" width="120" height="34" rx="17" fill="#e7f7ef"/>
+                <circle cx="320" cy="33" r="6" fill="#18a563"/>
+                <rect x="334" y="29" width="72" height="9" rx="4.5" fill="#15875a"/>
+                <!-- chart card -->
+                <rect x="20" y="66" width="400" height="150" rx="12" fill="#fff" stroke="#e4e8ef"/>
+                <!-- gridlines -->
+                <line x1="40" y1="96" x2="400" y2="96" stroke="#eef2f7"/>
+                <line x1="40" y1="132" x2="400" y2="132" stroke="#eef2f7"/>
+                <line x1="40" y1="168" x2="400" y2="168" stroke="#eef2f7"/>
+                <!-- area + trend line (declining = good time to buy) -->
+                <path d="M44 110 L96 102 L148 128 L200 118 L252 150 L304 146 L356 176 L400 170 L400 200 L44 200 Z" fill="#2f6bff" opacity="0.10"/>
+                <path d="M44 110 L96 102 L148 128 L200 118 L252 150 L304 146 L356 176 L400 170" fill="none" stroke="#2f6bff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="356" cy="176" r="6" fill="#18a563" stroke="#fff" stroke-width="2.5"/>
+                <circle cx="96" cy="102" r="3.5" fill="#2f6bff"/>
+                <circle cx="200" cy="118" r="3.5" fill="#2f6bff"/>
+                <circle cx="304" cy="146" r="3.5" fill="#2f6bff"/>
+                <!-- flight option rows -->
+                <rect x="20" y="232" width="195" height="50" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                <circle cx="44" cy="257" r="11" fill="#e9f0ff"/>
+                <rect x="64" y="245" width="60" height="8" rx="4" fill="#131a26"/>
+                <rect x="64" y="261" width="86" height="6" rx="3" fill="#b9c0cc"/>
+                <rect x="170" y="249" width="34" height="16" rx="5" fill="#131a26"/>
+                <rect x="225" y="232" width="195" height="50" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                <circle cx="249" cy="257" r="11" fill="#e7f7ef"/>
+                <rect x="269" y="245" width="60" height="8" rx="4" fill="#131a26"/>
+                <rect x="269" y="261" width="86" height="6" rx="3" fill="#b9c0cc"/>
+                <rect x="375" y="249" width="34" height="16" rx="5" fill="#18a563"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===================== Yoobees ===================== -->
+      <article class="prod reveal">
+        <div class="prod-grid">
+          <div class="prod-body">
+            <div class="prod-eyebrow">
+              <span class="badge badge-dev"><span class="dot"></span>In Development</span>
+              <span class="badge badge-kind">EdTech</span>
+              <span class="badge badge-kind">TypeScript</span>
+            </div>
+            <h2 class="prod-title">Yoobees</h2>
+            <p class="prod-summary">
+              An EdTech web platform for the Yoobee College community, built with a modern TypeScript stack. Yoobees brings students, courses, projects and resources into one connected, fast and type-safe hub — designed from a lecturer's first-hand understanding of what students actually need day to day.
+            </p>
+
+            <p class="prod-sub">Highlights</p>
+            <ul class="feat">
+              <li>One connected hub for students &amp; courses</li>
+              <li>Community &amp; collaboration spaces</li>
+              <li>Resource and project organisation</li>
+              <li>Modern, type-safe TypeScript codebase</li>
+              <li>Responsive, fast web experience</li>
+              <li>Shaped by classroom-tested insight</li>
+            </ul>
+
+            <div class="value">
+              <span class="vic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+              <p><strong>The value:</strong> less time lost navigating disconnected tools, more time spent learning and building — a single, student-centred space that reflects how a creative-technology college actually works.</p>
+            </div>
+
+            <div class="prod-actions">
+              <a class="btn" href="https://www.yoobee.ac.nz/" target="_blank" rel="noopener">Yoobee College <span class="arrow">↗</span></a>
+            </div>
+            <p class="prod-note">Currently in active development as a private project — a public demo will be linked here once it ships.</p>
+          </div>
+
+          <div class="prod-media">
+            <div class="browser">
+              <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">yoobees.app</span></div>
+              <svg viewBox="0 0 440 300" role="img" aria-label="Yoobees student platform mockup with a grid of course cards">
+                <rect width="440" height="300" fill="#f7f9fc"/>
+                <!-- top bar -->
+                <rect x="0" y="0" width="440" height="46" fill="#fff"/>
+                <line x1="0" y1="46" x2="440" y2="46" stroke="#e4e8ef"/>
+                <circle cx="28" cy="23" r="9" fill="#2f6bff"/>
+                <rect x="44" y="19" width="54" height="8" rx="4" fill="#131a26"/>
+                <rect x="300" y="16" width="80" height="14" rx="7" fill="#eef2f7"/>
+                <circle cx="404" cy="23" r="11" fill="#dbe6fb"/>
+                <!-- greeting -->
+                <rect x="20" y="62" width="150" height="11" rx="5" fill="#131a26"/>
+                <rect x="20" y="80" width="100" height="7" rx="3.5" fill="#8a93a3"/>
+                <!-- course cards grid -->
+                <g>
+                  <rect x="20" y="104" width="128" height="84" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                  <rect x="20" y="104" width="128" height="34" rx="10" fill="#2f6bff"/>
+                  <rect x="32" y="148" width="74" height="8" rx="4" fill="#131a26"/>
+                  <rect x="32" y="164" width="96" height="6" rx="3" fill="#b9c0cc"/>
+                  <rect x="32" y="176" width="60" height="6" rx="3" fill="#dbe6fb"/>
+                </g>
+                <g>
+                  <rect x="156" y="104" width="128" height="84" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                  <rect x="156" y="104" width="128" height="34" rx="10" fill="#7c5cff"/>
+                  <rect x="168" y="148" width="74" height="8" rx="4" fill="#131a26"/>
+                  <rect x="168" y="164" width="96" height="6" rx="3" fill="#b9c0cc"/>
+                  <rect x="168" y="176" width="48" height="6" rx="3" fill="#e7e0ff"/>
+                </g>
+                <g>
+                  <rect x="292" y="104" width="128" height="84" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                  <rect x="292" y="104" width="128" height="34" rx="10" fill="#18a3b8"/>
+                  <rect x="304" y="148" width="74" height="8" rx="4" fill="#131a26"/>
+                  <rect x="304" y="164" width="96" height="6" rx="3" fill="#b9c0cc"/>
+                  <rect x="304" y="176" width="56" height="6" rx="3" fill="#d4eef2"/>
+                </g>
+                <!-- activity / community row -->
+                <rect x="20" y="204" width="264" height="78" rx="10" fill="#fff" stroke="#e4e8ef"/>
+                <rect x="34" y="218" width="80" height="7" rx="3.5" fill="#8a93a3"/>
+                <circle cx="44" cy="248" r="10" fill="#dbe6fb"/>
+                <rect x="60" y="244" width="120" height="7" rx="3.5" fill="#131a26"/>
+                <rect x="60" y="258" width="160" height="6" rx="3" fill="#cdd4df"/>
+                <rect x="292" y="204" width="128" height="78" rx="10" fill="#131a26"/>
+                <rect x="306" y="220" width="64" height="7" rx="3.5" fill="#5b84f5"/>
+                <rect x="306" y="238" width="90" height="10" rx="5" fill="#fff"/>
+                <rect x="306" y="256" width="70" height="6" rx="3" fill="#3a4660"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW THESE ARE BUILT -->
+<section class="section soft">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">02 — Approach</span>
+      <h2>How I take an idea <em>to a shipped product</em></h2>
+      <p>The same rigour I bring to research — clear problem framing, evidence, and evaluation — applied to building software people genuinely use.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Full-stack web</h3>
+        <p>End-to-end builds in Python and TypeScript — from data layer to a clean, responsive interface.</p>
+      </div>
+      <div class="cap reveal" style="--d:.05s">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
+        <h3>AI &amp; machine learning</h3>
+        <p>Predictive models and local LLMs wired into products — practical AI that earns its place in the UI.</p>
+      </div>
+      <div class="cap reveal" style="--d:.1s">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Data pipelines</h3>
+        <p>Aggregating and cleaning real-world data — listings, fares, weather, currency — into something dependable.</p>
+      </div>
+      <div class="cap reveal" style="--d:.15s">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Product UX</h3>
+        <p>Designing focused interfaces that make a complex decision feel simple and trustworthy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <span class="eyebrow reveal">Let's build</span>
+    <h2 class="reveal" style="--d:.1s">Have a product idea that needs <em>data, AI or great UX</em>?</h2>
+    <div class="cta-actions reveal" style="--d:.2s">
+      <a class="btn btn-solid" href="contact.html">Get in Touch <span class="arrow">→</span></a>
+      <a class="btn" href="https://github.com/ureshan2011" target="_blank" rel="noopener">See more on GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/ureshan2011" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
+<script src="assets/js/premium.js"></script>
+</body>
+</html>
