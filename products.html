@@ -8,7 +8,7 @@
 <meta name="description" content="A portfolio of web products designed and built by Dr. Yasas Sri Wickramasinghe — including HouseScout (property intelligence), Faro (flight-fare timing with ML), and Yoobees (an EdTech platform for Yoobee College)."/>
 <link rel="icon" href="assets/images/icons/favicon.png"/>
 <meta name="keywords" content="Yasas Sri Wickramasinghe, web products, HouseScout, Faro, Yoobees, full-stack developer, machine learning, property dashboard, flight fare prediction, EdTech, Christchurch"/>
-<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
 <meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/products.html"/>
 <!-- Open Graph -->
@@ -88,6 +88,16 @@
   .cap h3 { font-size: 16px; margin-bottom: 8px; }
   .cap p { font-size: 13.5px; color: var(--ink-soft); }
 
+  /* FAQ */
+  .faq { max-width: 840px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .faq-item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0 22px; box-shadow: var(--shadow-sm); transition: border-color .3s var(--ease); }
+  .faq-item[open] { border-color: var(--accent); }
+  .faq-item summary { list-style: none; cursor: pointer; font-weight: 600; font-size: 16px; color: var(--ink); padding: 18px 0; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; font-size: 22px; font-weight: 400; color: var(--accent); transition: transform .3s var(--ease); flex-shrink: 0; }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { color: var(--ink-soft); font-size: 14.5px; line-height: 1.65; padding: 0 0 20px; margin: 0; max-width: 72ch; }
+
   @media (max-width: 940px) {
     .prod-grid { grid-template-columns: 1fr; }
     .prod:nth-child(even) .prod-media { order: 0; }
@@ -98,17 +108,104 @@
   @media (max-width: 560px) { .cap-grid { grid-template-columns: 1fr; } }
 </style>
 
+<!-- Structured data: breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yasassri.me/" },
+    { "@type": "ListItem", "position": 2, "name": "Web Products", "item": "https://www.yasassri.me/products.html" }
+  ]
+}
+</script>
 <!-- Structured data: portfolio of software applications -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Web Products by Yasas Sri Wickramasinghe",
+  "name": "Web Products by Dr. Yasas Sri Wickramasinghe",
   "url": "https://www.yasassri.me/products.html",
-  "hasPart": [
-    { "@type": "WebApplication", "name": "HouseScout", "applicationCategory": "BusinessApplication", "url": "https://ureshan2011.github.io/HouseScout/", "description": "A property-buying intelligence dashboard for Christchurch home buyers, with listings tracking, indicative valuations, market insights and a local AI assistant." },
-    { "@type": "WebApplication", "name": "Faro", "applicationCategory": "TravelApplication", "url": "https://ureshan2011.github.io/flightwatch/", "description": "A flight-fare timing assistant that uses machine learning to recommend whether to book now or wait for a lower price." },
-    { "@type": "WebApplication", "name": "Yoobees", "applicationCategory": "EducationalApplication", "operatingSystem": "Web", "description": "A web-based attendance management and learning-support platform for postgraduate teaching, built with React, TypeScript and Firebase. Used to run the Master of Business Informatics (MBI) programme at Yoobee Colleges across Auckland and Christchurch." }
+  "description": "A portfolio of web products — HouseScout, Faro and Yoobees — designed and built by Dr. Yasas Sri Wickramasinghe.",
+  "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": "https://www.yasassri.me/" },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem", "position": 1,
+        "item": {
+          "@type": "WebApplication", "name": "HouseScout",
+          "applicationCategory": "BusinessApplication", "operatingSystem": "Web",
+          "url": "https://ureshan2011.github.io/HouseScout/",
+          "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": "https://www.yasassri.me/" },
+          "description": "A property-buying intelligence dashboard for Christchurch home buyers, with listings tracking against user-defined criteria, indicative valuations, market insights, a buying-journey planner and a private local AI assistant (Gemma).",
+          "featureList": "Listings tracker; dashboard metrics; filterable listings browser; indicative property valuations; market insights; buying-journey planner; private local AI chat (Gemma)",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NZD" }
+        }
+      },
+      {
+        "@type": "ListItem", "position": 2,
+        "item": {
+          "@type": "WebApplication", "name": "Faro",
+          "applicationCategory": "TravelApplication", "operatingSystem": "Web",
+          "url": "https://ureshan2011.github.io/flightwatch/",
+          "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": "https://www.yasassri.me/" },
+          "description": "A flight-fare timing assistant that uses machine learning trained on route-specific price history to recommend whether to book now or wait. Monitors fares daily across airlines with live weather and currency context.",
+          "featureList": "Daily fare monitoring; Book-now vs Wait recommendation; ML on route-specific history; full flight details; aggregates Google Flights; live weather and currency context",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "NZD" }
+        }
+      },
+      {
+        "@type": "ListItem", "position": 3,
+        "item": {
+          "@type": "WebApplication", "name": "Yoobees",
+          "applicationCategory": "EducationalApplication", "operatingSystem": "Web",
+          "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": "https://www.yasassri.me/" },
+          "description": "A web-based attendance management and learning-support platform for postgraduate teaching, built with React, TypeScript and Firebase. Used to run the Master of Business Informatics (MBI) programme at Yoobee Colleges across Auckland and Christchurch.",
+          "featureList": "QR + timed-code attendance with checkpoints; automated proxy/suspicious check-in detection; Live Lesson Playground (presence, canvas, polls, checklists); quizzes with distinction badges; SQL practice lab and learning resources; Daily Match; campus-targeted notice board; lecturer analytics with CSV export; role-based access"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- Structured data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who built HouseScout, Faro and Yoobees?",
+      "acceptedAnswer": { "@type": "Answer", "text": "All three products were designed and built by Dr. Yasas Sri Wickramasinghe, a researcher, university lecturer and software developer based in Christchurch, New Zealand." }
+    },
+    {
+      "@type": "Question",
+      "name": "Are HouseScout and Faro free to use?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. HouseScout and Faro are both live and free to use directly in a web browser. Yoobees is a private, login-gated platform used in teaching at Yoobee Colleges and is not publicly available." }
+    },
+    {
+      "@type": "Question",
+      "name": "What technologies are these products built with?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HouseScout and Faro are built with Python, with Faro also using a machine-learning model for price prediction. Yoobees is a React 18 and TypeScript single-page application backed by Firebase (Authentication, Cloud Firestore and Storage)." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does HouseScout do?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HouseScout is a property-buying dashboard for Christchurch home buyers. It tracks listings against user-defined criteria, surfaces indicative valuations and market insights, includes a buying-journey planner, and offers a private local AI assistant powered by the Gemma model. Estimates are indicative, not registered valuations, and not financial advice." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Faro decide whether to book a flight or wait?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Faro uses a machine-learning model trained on route-specific historical fares to predict how a price is likely to move, then gives a clear ‘Book now’ or ‘Wait’ recommendation. It monitors fares across airlines and refreshes several times a day." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Yoobees publicly available?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Yoobees is a private, login-gated platform currently used to run the Master of Business Informatics (MBI) programme at Yoobee Colleges in Auckland and Christchurch, with role-based access for students, lecturers and teaching assistants." }
+    }
   ]
 }
 </script>
@@ -502,6 +599,42 @@
         <h3>Product UX</h3>
         <p>Designing focused interfaces that make a complex decision feel simple and trustworthy.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal" style="margin-inline:auto;">
+      <span class="eyebrow" style="justify-content:center;">FAQ</span>
+      <h2 style="margin-top:16px;">Questions about <em>these products</em></h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item reveal">
+        <summary>Who built HouseScout, Faro and Yoobees?</summary>
+        <p>All three products were designed and built by Dr. Yasas Sri Wickramasinghe — a researcher, university lecturer and software developer based in Christchurch, New Zealand.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Are HouseScout and Faro free to use?</summary>
+        <p>Yes. HouseScout and Faro are both live and free to use directly in your browser. Yoobees is a private, login-gated platform used in teaching at Yoobee Colleges and is not publicly available.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What technologies are these products built with?</summary>
+        <p>HouseScout and Faro are built with Python, with Faro also using a machine-learning model for price prediction. Yoobees is a React 18 and TypeScript single-page application backed by Firebase (Authentication, Cloud Firestore and Storage).</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What does HouseScout do?</summary>
+        <p>HouseScout is a property-buying dashboard for Christchurch home buyers. It tracks listings against your criteria, surfaces indicative valuations and market insights, includes a buying-journey planner, and offers a private local AI assistant powered by the Gemma model. Estimates are indicative, not registered valuations — and not financial advice.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How does Faro decide whether to book or wait?</summary>
+        <p>Faro uses a machine-learning model trained on route-specific historical fares to predict how a price is likely to move, then gives a clear “Book now” or “Wait” recommendation. It monitors fares across airlines and refreshes several times a day.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Is Yoobees publicly available?</summary>
+        <p>No. Yoobees is a private, login-gated platform currently used to run the Master of Business Informatics (MBI) programme at Yoobee Colleges in Auckland and Christchurch, with role-based access for students, lecturers and teaching assistants.</p>
+      </details>
     </div>
   </div>
 </section>
