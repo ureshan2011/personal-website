@@ -122,6 +122,15 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
 <link href="assets/css/redesign.css" rel="stylesheet"/>
+<style>
+  /* Click-to-play YouTube facade — avoids the black iframe poster */
+  .yt-facade{position:relative; cursor:pointer; overflow:hidden;}
+  .yt-facade img{width:100%; height:100%; object-fit:cover; display:block;}
+  .yt-facade .yt-play-btn{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:74px; height:52px; background:rgba(0,0,0,.55); border-radius:14px; transition:background .2s ease;}
+  .yt-facade .yt-play-btn::after{content:""; position:absolute; top:50%; left:50%; transform:translate(-38%,-50%); border-style:solid; border-width:11px 0 11px 19px; border-color:transparent transparent transparent #fff;}
+  .yt-facade:hover .yt-play-btn,.yt-facade:focus-visible .yt-play-btn{background:#f00;}
+  .yt-facade iframe{width:100%; height:100%; border:0; display:block;}
+</style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -212,10 +221,25 @@
       <span class="idx">02</span>
       <h2>Talks &amp; <em>Media</em></h2>
     </div>
+
+    <!-- Featured: Falling Walls Lab 2024 cohort -->
+    <div class="feature-row reveal" style="border-bottom:none; padding-bottom:24px;">
+      <div class="feature-media">
+        <img src="assets/images/news/falling-walls-cohort-2024.jpg" alt="Official Falling Walls Lab Aotearoa New Zealand 2024 cohort collage of all nineteen participants, with Dr. Yasas Sri Wickramasinghe pictured at the bottom right"/>
+      </div>
+      <div>
+        <span class="eyebrow">11 September 2024 · Aotearoa New Zealand</span>
+        <h3 style="font-family:var(--serif); font-size:clamp(24px,3vw,34px); font-weight:400; line-height:1.25; margin-top:18px;">Selected for Falling Walls Lab Aotearoa New Zealand 2024</h3>
+        <p style="color:var(--text-dim); font-weight:300; margin-top:16px;">I was one of nineteen researchers and innovators chosen from across Aotearoa New Zealand and the Pacific to pitch a breakthrough idea in just three minutes at Falling Walls Lab Aotearoa New Zealand 2024, organised by Royal Society Te Apārangi. My pitch — <em>“Breaking the Wall of Loneliness through Play”</em> — explored how location-based augmented reality games can bring people together and ease loneliness through shared experiences.</p>
+        <div class="tags"><span class="tag gold">Finalist</span><span class="tag">Royal Society Te Apārangi</span><span class="tag">3-Minute Pitch</span></div>
+        <a class="link-arrow" style="margin-top:22px;" href="https://www.instagram.com/p/DXYHzQtAYlb/" target="_blank" rel="noopener">See the post on Instagram ↗</a>
+      </div>
+    </div>
+
     <div class="grid-3">
 
       <a class="article-card reveal" href="https://www.royalsociety.org.nz/what-we-do/funds-and-opportunities/falling-walls-lab/alumni-falling-walls-lab-new-zealand/2024-falling-walls-lab-aotearoa-new-zealand-alumni/yasas-sri-wickramasinghe-breaking-the-wall-of-loneliness-through-play" target="_blank" rel="noopener">
-        <div class="article-cover" data-num="—01"><img class="cover-img" src="assets/images/news/falling-walls-talk.jpg" alt="Yasas Sri Wickramasinghe presenting Breaking the Wall of Loneliness through Play at Falling Walls Lab New Zealand 2024" loading="lazy"><span class="cat">Falling Walls Lab</span></div>
+        <div class="article-cover" data-num="—01"><img class="cover-img" src="assets/images/news/falling-walls-cohort-2024.jpg" alt="Official Falling Walls Lab Aotearoa New Zealand 2024 cohort collage of all nineteen participants, including Dr. Yasas Sri Wickramasinghe" loading="lazy"><span class="cat">Falling Walls Lab</span></div>
         <div class="article-body">
           <span class="src">Royal Society Te Apārangi · 2024</span>
           <h3>Breaking the Wall of Loneliness Through Play</h3>
@@ -245,8 +269,9 @@
 
     <!-- Embedded featured video -->
     <div class="feature-row reveal" style="border-bottom:none; margin-top:18px;">
-      <div class="feature-media" style="aspect-ratio:16/9;">
-        <iframe style="width:100%; height:100%; border:0; display:block;" src="https://www.youtube.com/embed/Sj7ZjsN-ue4" title="NZGDC 2023 — AR Game Dev Rant Panel featuring Yasas Sri Wickramasinghe" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <div class="feature-media yt-facade" style="aspect-ratio:16/9;" data-yt="Sj7ZjsN-ue4" role="button" tabindex="0" aria-label="Play video: Talking AR Game Design on the National Stage — NZGDC 2023 AR Game Dev Rant panel">
+        <img src="assets/images/news/nzgdc-ar-panel.jpg" alt="NZGDC 2023 AR Game Dev Rant panel title slide — ‘A World of Chaos: Assorted Rants from AR Game Devs’" loading="lazy"/>
+        <span class="yt-play-btn" aria-hidden="true"></span>
       </div>
       <div>
         <span class="eyebrow">New Zealand Game Developers Conference · 2023</span>
@@ -339,6 +364,26 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
 <script src="assets/js/premium.js"></script>
+<script>
+  // Click-to-play YouTube facades: swap the poster for the real player on demand.
+  document.querySelectorAll('.yt-facade').forEach(function (el) {
+    function play() {
+      var id = el.getAttribute('data-yt');
+      var frame = document.createElement('iframe');
+      frame.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+      frame.title = el.getAttribute('aria-label') || 'YouTube video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.setAttribute('allowfullscreen', '');
+      el.innerHTML = '';
+      el.appendChild(frame);
+      el.style.cursor = 'default';
+    }
+    el.addEventListener('click', play);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+  });
+</script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
