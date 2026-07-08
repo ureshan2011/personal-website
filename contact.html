@@ -223,5 +223,17 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
 <script src="assets/js/premium.js"></script>
+<script>
+  // Pre-select the Subject dropdown when linked with e.g. contact.html?subject=speaking
+  (function () {
+    var subject = new URLSearchParams(window.location.search).get('subject');
+    var select = document.getElementById('subject');
+    if (!subject || !select) return;
+    var validValues = Array.prototype.map.call(select.options, function (o) { return o.value; });
+    if (validValues.indexOf(subject) !== -1) {
+      select.value = subject;
+    }
+  })();
+</script>
 </body>
 </html>
