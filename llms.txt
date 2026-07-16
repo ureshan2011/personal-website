@@ -25,12 +25,13 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 - [News](https://www.yasassri.me/news.html): Upcoming events (CODE with WIE 2026 workshop, 11 July 2026; NZGDC 2026 talk, 1 October 2026), invited talks, media, international collaborations (e.g. Tohoku University research visit, Falling Walls Lab NZ), and how to invite him for a talk or workshop.
 - [Writing](https://www.yasassri.me/blogs.html): Essays on AR, spatial computing, and software engineering.
 - [Contact](https://www.yasassri.me/contact.html): For research collaborations, guest talks, and consulting.
+- [Platform](https://www.yasassri.me/app/): Interactive academic platform — free consultation booking (education, research, career mentoring), speaker-invitation requests with a talk-topics catalogue, blog, newsletter signup, and a student community forum.
 
 ## Upcoming events
 
 - CODE with WIE 2026 — Workshop 01: "Architecting the Augmented Tomorrow" — 11 July 2026, 9:00 AM, online via Google Meet. Hosted by IEEE Women in Engineering Sri Lanka. Details: https://www.yasassri.me/news.html#upcoming
 - NZGDC 2026 — "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland, New Zealand. Details: https://www.yasassri.me/news.html#upcoming
-- To invite Yasas Sri Wickramasinghe for a similar talk, workshop, or seminar: https://www.yasassri.me/contact.html?subject=speaking
+- To invite Yasas Sri Wickramasinghe for a similar talk, workshop, or seminar: https://www.yasassri.me/app/#/invite
 
 ## Web products (built by Yasas Sri Wickramasinghe)
 
