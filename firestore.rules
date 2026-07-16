@@ -59,6 +59,22 @@ service cloud.firestore {
       allow read, update, delete: if isAdmin();
     }
 
+    // ---- Contact messages (public form on contact.html) --------------------
+    // Written via the Firestore REST API from the static contact page, so
+    // creates are anonymous; reading and managing them is admin-only.
+    match /messages/{id} {
+      allow create: if noHoneypot()
+        && request.resource.data.status == 'new'
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.matches('.+@.+\\..+') && request.resource.data.email.size() <= 200
+        && request.resource.data.subject is string && request.resource.data.subject.size() <= 160
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0 && request.resource.data.message.size() <= 5000;
+      allow read, update, delete: if isAdmin();
+    }
+
     // ---- Newsletter subscribers (doc id = lowercased email) ----------------
     match /subscribers/{email} {
       allow create: if noHoneypot()

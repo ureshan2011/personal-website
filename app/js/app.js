@@ -331,6 +331,8 @@ function viewHub() {
     <h1 style="margin-top:14px">Learn, collaborate &amp; <em>stay connected.</em></h1>
     <p>Free consultations on education, research and technology · invitations for talks and workshops ·
     research writing · and a community for students and collaborators.</p>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:10px">No account needed to read, subscribe to the newsletter,
+    or send an invitation — you'll only be asked to sign in for booking consultations and posting in the forum.</p>
   </div>
 
   <div class="hub-grid">
@@ -1206,7 +1208,8 @@ function viewAccount() {
   <div class="auth-box">
     <div class="app-head" style="margin-bottom:22px;text-align:center;max-width:none">
       <h1 style="font-size:clamp(26px,3.5vw,34px)">Welcome</h1>
-      <p>One free account for consultations and the community forum.</p>
+      <p>One free account for the high-value things — booking consultations and posting in the forum.
+      Everything else (reading, newsletter, speaking invitations, contact) works without one.</p>
     </div>
     <div class="panel">
       <div class="auth-tabs">
@@ -1294,6 +1297,7 @@ async function viewAdmin() {
   <div class="tabs" id="adminTabs">
     <button data-t="consult" class="active">Consultations</button>
     <button data-t="invites">Invitations</button>
+    <button data-t="messages">Messages</button>
     <button data-t="blog">Blog</button>
     <button data-t="subs">Subscribers</button>
     <button data-t="mod">Moderation</button>
@@ -1304,16 +1308,17 @@ async function viewAdmin() {
   const tabs = document.getElementById("adminTabs").querySelectorAll("button");
   const setTab = t => {
     tabs.forEach(b => b.classList.toggle("active", b.dataset.t === t));
-    ({ consult: adminConsults, invites: adminInvites, blog: adminBlog, subs: adminSubs, mod: adminMod })[t](body);
+    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, blog: adminBlog, subs: adminSubs, mod: adminMod })[t](body);
   };
   tabs.forEach(b => b.onclick = () => setTab(b.dataset.t));
 
   // Stats
   (async () => {
     try {
-      const [c, i, s, r] = await Promise.all([
+      const [c, i, m, s, r] = await Promise.all([
         getDocs(collection(db, "consultations")),
         getDocs(collection(db, "invitations")),
+        getDocs(collection(db, "messages")),
         getDocs(collection(db, "subscribers")),
         getDocs(query(collection(db, "threads"), where("reported", "==", true)))
       ]);
@@ -1321,12 +1326,76 @@ async function viewAdmin() {
       document.getElementById("adminStats").innerHTML = `
         <div class="stat"><b>${pend(c)}</b><span>pending consultations</span></div>
         <div class="stat"><b>${pend(i)}</b><span>pending invitations</span></div>
+        <div class="stat"><b>${m.docs.filter(d => d.data().status === "new").length}</b><span>new messages</span></div>
         <div class="stat"><b>${s.docs.filter(d => d.data().status === "subscribed").length}</b><span>newsletter subscribers</span></div>
         <div class="stat"><b>${r.size}</b><span>reported threads</span></div>`;
     } catch (e) { console.error(e); }
   })();
 
   setTab("consult");
+}
+
+/* Contact-page messages (written by assets/js/contact-form.js via the
+   Firestore REST API; the sender also gets a copy emailed via Formspree). */
+async function adminMessages(body) {
+  body.innerHTML = `<div class="loading"><div class="spinner"></div></div>`;
+  const snap = await getDocs(collection(db, "messages"));
+  const rank = s => (s === "new" ? 0 : s === "read" ? 1 : 2);
+  const items = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .sort((a, b) => rank(a.status) - rank(b.status) ||
+                    ((tsDate(b.createdAt) || 0) - (tsDate(a.createdAt) || 0)));
+  if (!items.length) {
+    body.innerHTML = `<div class="empty">No contact messages yet. Submissions from the
+      <a href="../contact.html" style="color:var(--accent);font-weight:600">contact page</a> appear here
+      (you also receive each one by email).</div>`;
+    return;
+  }
+
+  body.innerHTML = `
+  <p class="sub" style="margin-bottom:16px">Messages from the site's contact form. Each one was also emailed to you —
+  this list is the working queue.</p>
+  <div class="list">${items.map(r => `
+    <div class="list-item" style="flex-direction:column;align-items:stretch">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div class="li-main">
+          <h3>${esc(r.subject || "General Inquiry")} — ${esc(r.name)}</h3>
+          <div class="meta">${esc(r.email)} · ${fmtDate(r.createdAt, true)}</div>
+        </div>
+        <div class="li-side" style="flex-direction:row;align-items:center">
+          ${badge(r.status === "new" ? "pending" : r.status).replace(">pending<", ">new<")}
+          <button class="btn small" data-open="${r.id}">Details</button>
+        </div>
+      </div>
+      <div id="mdetail-${r.id}" style="display:none;border-top:1px solid var(--line);margin-top:14px;padding-top:14px">
+        <p style="white-space:pre-wrap;color:var(--ink-soft);font-size:14.5px;margin-bottom:16px">${esc(r.message)}</p>
+        <div class="form-actions">
+          <a class="btn btn-solid small" href="mailto:${esc(r.email)}?subject=${encodeURIComponent("Re: " + (r.subject || "your message"))}">Reply by email ↗</a>
+          ${r.status === "new" ? `<button class="btn small" data-mset="read:${r.id}">Mark read</button>` : ""}
+          ${r.status !== "archived" ? `<button class="btn small" data-mset="archived:${r.id}">Archive</button>` : `<button class="btn small" data-mset="read:${r.id}">Unarchive</button>`}
+          <button class="btn small danger" data-mdelete="${r.id}">Delete</button>
+        </div>
+      </div>
+    </div>`).join("")}</div>`;
+
+  body.querySelectorAll("[data-open]").forEach(b => b.onclick = () => {
+    const d = document.getElementById("mdetail-" + b.dataset.open);
+    d.style.display = d.style.display === "none" ? "" : "none";
+    // Opening an unread message marks it read automatically.
+    const item = items.find(x => x.id === b.dataset.open);
+    if (item && item.status === "new" && d.style.display !== "none") {
+      updateDoc(doc(db, "messages", item.id), { status: "read" }).then(() => { item.status = "read"; }).catch(() => {});
+    }
+  });
+  body.querySelectorAll("[data-mset]").forEach(b => b.onclick = async () => {
+    const [status, id] = b.dataset.mset.split(":");
+    try { await updateDoc(doc(db, "messages", id), { status }); adminMessages(body); }
+    catch (e) { toast(fbError(e)); }
+  });
+  body.querySelectorAll("[data-mdelete]").forEach(b => b.onclick = async () => {
+    if (!confirm("Permanently delete this message?")) return;
+    try { await deleteDoc(doc(db, "messages", b.dataset.mdelete)); adminMessages(body); }
+    catch (e) { toast(fbError(e)); }
+  });
 }
 
 const detailRow = (k, v) => v ? `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>` : "";
