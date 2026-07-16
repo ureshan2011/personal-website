@@ -71,6 +71,14 @@
     c.color = MARKER;
   });
 
+  // Keep the "countries / voices" stats in sync with the data — the markup
+  // holds a static fallback, this corrects it before the counters animate.
+  document.querySelectorAll("[data-voices-stat]").forEach(function (el) {
+    var v = el.getAttribute("data-voices-stat") === "countries" ? countries.length : DATA.length;
+    el.setAttribute("data-target", v);
+    el.textContent = v;
+  });
+
   // ---- playback pool (every voice, cycled in order) ----
   var pool = DATA.map(function (_, i) { return i; });
   var activeIndex = 0;
