@@ -19,9 +19,11 @@
   var toggle = document.querySelector(".nav-toggle");
   var menu = document.querySelector(".mobile-menu");
   if (toggle && menu) {
+    toggle.setAttribute("aria-expanded", "false");
     toggle.addEventListener("click", function () {
       var open = menu.classList.toggle("open");
       toggle.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
       document.body.style.overflow = open ? "hidden" : "";
     });
     menu.querySelectorAll("a").forEach(function (a) {
@@ -50,7 +52,9 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
-  // Animated counters: <span class="count" data-target="228">0</span>
+  // Animated counters: <span class="count" data-target="228">228</span>
+  // Markup carries the final value so the number is always correct even if the
+  // animation never runs; the count-up from 0 is purely an enhancement.
   var counters = document.querySelectorAll(".count");
   if (counters.length) {
     var animate = function (el) {
@@ -65,17 +69,24 @@
         if (p < 1) requestAnimationFrame(step);
       }
       if (reduced) { el.textContent = target.toLocaleString(); return; }
+      el.textContent = "0";
       requestAnimationFrame(step);
     };
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animate(entry.target);
-          cio.unobserve(entry.target);
-        }
+    if (!("IntersectionObserver" in window)) {
+      counters.forEach(function (el) {
+        el.textContent = parseFloat(el.getAttribute("data-target") || "0").toLocaleString();
       });
-    }, { threshold: 0.4 });
-    counters.forEach(function (el) { cio.observe(el); });
+    } else {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            cio.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      counters.forEach(function (el) { cio.observe(el); });
+    }
   }
 
   // Footer year
