@@ -383,7 +383,8 @@ function viewHub() {
    VIEW: Consultations
    ========================================================================== */
 
-async function viewConsult() {
+async function viewConsult(params) {
+  const requestedType = params.get("type");
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "Pacific/Auckland";
   const canSubmit = CONFIGURED && currentUser && currentUser.emailVerified;
 
@@ -473,8 +474,8 @@ async function viewConsult() {
 
   bindResendVerify();
 
-  // Type selection
-  let selectedType = CONSULT_TYPES[0].id;
+  // Type selection (deep-linkable via #/consult?type=research etc.)
+  let selectedType = CONSULT_TYPES.some(t => t.id === requestedType) ? requestedType : CONSULT_TYPES[0].id;
   const cards = view.querySelectorAll(".type-card");
   const select = id => {
     selectedType = id;
