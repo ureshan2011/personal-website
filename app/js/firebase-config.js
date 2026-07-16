@@ -11,12 +11,12 @@
    ========================================================================== */
 
 window.FIREBASE_CONFIG = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT.appspot.com",
-  messagingSenderId: "PASTE_SENDER_ID",
-  appId: "PASTE_APP_ID"
+  apiKey: "AIzaSyC8LHrgUThse-coX0nS3oEWKIZ8lPZXWdg",
+  authDomain: "angular5-firebase-project.firebaseapp.com",
+  projectId: "angular5-firebase-project",
+  storageBucket: "angular5-firebase-project.firebasestorage.app",
+  messagingSenderId: "257908872185",
+  appId: "1:257908872185:web:8a2e5cd8216a6e5df3e328"
 };
 
 /* Admin accounts — must match the emails listed in firestore.rules.
