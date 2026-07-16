@@ -174,3 +174,49 @@ window.STUDENT_VOICES = [
     quote: "His NZGDC workshop was easily the most useful session I attended — hands-on, sharp, and full of real production insight."
   }
 ];
+
+/* ==========================================================================
+   Student perspectives grid — builds the collapsed "view more" grid from the
+   voices data above (the three featured quotes are static in the markup).
+   ========================================================================== */
+(function () {
+  "use strict";
+  var featured = document.getElementById("tgridFeatured");
+  var more = document.getElementById("tgridMore");
+  var toggle = document.getElementById("tgridToggle");
+  if (!featured || !more || !toggle) return;
+
+  var shown = [];
+  featured.querySelectorAll("figcaption strong").forEach(function (el) {
+    shown.push(el.textContent.trim());
+  });
+  var rest = (window.STUDENT_VOICES || []).filter(function (d) {
+    return shown.indexOf(d.name) === -1;
+  });
+  if (!rest.length) { toggle.parentElement.hidden = true; return; }
+
+  rest.forEach(function (d) {
+    var fig = document.createElement("figure");
+    fig.className = "tcard";
+    var bq = document.createElement("blockquote");
+    bq.textContent = "“" + d.quote + "”";
+    var cap = document.createElement("figcaption");
+    var nm = document.createElement("strong"); nm.textContent = d.name;
+    var pr = document.createElement("span"); pr.textContent = d.program;
+    var lc = document.createElement("span"); lc.className = "tloc"; lc.textContent = d.country;
+    cap.appendChild(nm); cap.appendChild(pr); cap.appendChild(lc);
+    fig.appendChild(bq); fig.appendChild(cap);
+    more.appendChild(fig);
+  });
+
+  var openLabel = "View more student perspectives (+" + rest.length + ")";
+  var closeLabel = "Show fewer perspectives";
+  toggle.textContent = openLabel;
+  toggle.addEventListener("click", function () {
+    var open = more.classList.toggle("open");
+    more.hidden = !open;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.textContent = open ? closeLabel : openLabel;
+    if (!open) featured.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
