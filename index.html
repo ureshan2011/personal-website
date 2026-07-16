@@ -161,6 +161,7 @@
       <a href="products.html">Products</a>
       <a href="news.html">News</a>
       <a href="blogs.html">Writing</a>
+      <a href="app/#/">Platform</a>
       <a href="contact.html">Contact</a>
       <a class="btn btn-solid" href="assets/files/cv_yasas.pdf" target="_blank">Download CV <span class="arrow">→</span></a>
     </div>
@@ -174,8 +175,9 @@
   <a href="products.html"><span class="idx">04</span>Products</a>
   <a href="news.html"><span class="idx">05</span>News</a>
   <a href="blogs.html"><span class="idx">06</span>Writing</a>
-  <a href="contact.html"><span class="idx">07</span>Contact</a>
-  <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">08</span>Curriculum Vitae</a>
+  <a href="app/#/"><span class="idx">07</span>Platform</a>
+  <a href="contact.html"><span class="idx">08</span>Contact</a>
+  <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">09</span>Curriculum Vitae</a>
 </div>
 
 <!-- HERO -->
@@ -325,7 +327,7 @@
     <div class="newsletter reveal">
       <h3>Want Research Notes &amp; Field Insights?</h3>
       <p>Occasional notes on immersive media, spatial computing, and lessons from building XR — no noise.</p>
-      <form class="nl-form" onsubmit="return false;">
+      <form class="nl-form" onsubmit="location.href='app/#/newsletter?email='+encodeURIComponent(this.querySelector('input').value);return false;">
         <input type="email" placeholder="Enter your email address" aria-label="Email address"/>
         <button class="btn btn-solid" type="submit">Subscribe</button>
       </form>
@@ -388,7 +390,7 @@
 
     </div>
     <div class="reveal" style="text-align:center; margin-top:36px;">
-      <a class="btn btn-solid" href="contact.html?subject=speaking">Invite Me to Speak <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="app/#/invite">Invite Me to Speak <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -554,7 +556,7 @@
       <div class="footer-news">
         <h3>Stay in the loop</h3>
         <p>Join my research notes for occasional insights on AR, XR and immersive media.</p>
-        <form class="nl-form" onsubmit="return false;">
+        <form class="nl-form" onsubmit="location.href='app/#/newsletter?email='+encodeURIComponent(this.querySelector('input').value);return false;">
           <input type="email" placeholder="Your email address" aria-label="Email address"/>
           <button class="btn btn-solid" type="submit">Join</button>
         </form>
