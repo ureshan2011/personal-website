@@ -37,10 +37,11 @@
   var prevBtn   = document.getElementById("vPrev");
   var nextBtn   = document.getElementById("vNext");
 
-  // ---- palette (Anthropic) ----
-  var INK = "20,20,19";        // ink — land fill / borders on ivory
-  var MARKER = "#6a9bcc";      // sky — every student marker is the same blue
-  var CORAL = "#d97757";       // active student's country highlight
+  // ---- palette (overridable via --globe-* CSS custom properties on the canvas) ----
+  var cssPalette = getComputedStyle(canvas);
+  var INK = cssPalette.getPropertyValue("--globe-ink").trim() || "20,20,19";          // rgb triplet — land fill / borders on ivory
+  var MARKER = cssPalette.getPropertyValue("--globe-marker").trim() || "#6a9bcc";     // every student marker is the same blue
+  var CORAL = cssPalette.getPropertyValue("--globe-active").trim() || "#d97757";      // active student's country highlight
 
   // ---- view state (degrees: lambda = longitude spin, phi = tilt) ----
   var dpr = Math.min(window.devicePixelRatio || 1, 2);

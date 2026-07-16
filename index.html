@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/images/icons/favicon.png"/>
 <meta name="keywords" content="Yasas Sri Wickramasinghe, augmented reality researcher, AR researcher, augmented reality lecturer, AR lecturer, spatial computing, extended reality, XR researcher, human-computer interaction, HCI, location-based AR, immersive technology, virtual reality, mixed reality, HIT Lab NZ, Yoobee College, University of Canterbury"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="theme-color" content="#4b6bff"/>
+<meta name="theme-color" content="#faf7f1"/>
 <link rel="canonical" href="https://www.yasassri.me/"/>
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
@@ -134,10 +134,20 @@
   ]
 }
 </script>
+<script>
+  // Apply saved/system theme before first paint to avoid a flash.
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
-<link href="assets/css/redesign.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="assets/css/editorial.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -163,8 +173,12 @@
       <a href="blogs.html">Writing</a>
       <a href="contact.html">Contact</a>
       <a class="btn btn-solid" href="assets/files/cv_yasas.pdf" target="_blank">Download CV <span class="arrow">→</span></a>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobile-menu">
@@ -182,84 +196,206 @@
 <header class="hero" id="top">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
-    <span class="hero-eyebrow">Postdoctoral Researcher · Senior Lecturer</span>
-    <div class="hero-stage">
-      <h1 class="hero-name" aria-label="Yasas Sri Wickramasinghe">
-        <span class="l1" data-parallax data-speed="0.16">Yasas</span>
-        <span class="l2" data-parallax data-speed="0.10">Wickramasinghe</span>
-      </h1>
-      <img class="hero-cutout" src="assets/images/hero-cutout.png" alt="Dr. Yasas Sri Wickramasinghe, augmented reality researcher and lecturer" data-parallax data-speed="-0.05"/>
-      <div class="hero-float hero-float-l" data-parallax data-speed="-0.10">
-        <div class="hero-card">
-          <h3>Let's Build Immersive Futures</h3>
-          <p>Location-based AR &amp; spatial computing research — turned into things people can actually use.</p>
-          <a class="btn" href="research.html">Explore Research <span class="arrow">→</span></a>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow mono-label">Postdoctoral Researcher, HIT Lab NZ · Senior Lecturer, Yoobee</span>
+        <h1 class="display" data-parallax data-speed="0.05">Designing augmented realities that connect <em>people&nbsp;&amp;&nbsp;places</em> across distance.</h1>
+        <p class="hero-lede">I research, build, and teach location-based AR and spatial computing — multiplayer experiences studied with Sony Interactive Entertainment and Niantic, then shipped as things people actually use.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="research.html">Explore the Research <span class="arrow">→</span></a>
+          <a class="btn" href="contact.html">Get in Touch</a>
         </div>
       </div>
-      <div class="hero-float hero-float-r" data-parallax data-speed="-0.10">
-        <div class="hero-stat-card">
-          <span class="num">150K+ <span class="up">↗</span></span>
-          <span class="lbl">learners reached through platforms I helped build</span>
-          <hr/>
-          <p class="role">AR · XR · HCI research at HIT Lab NZ in collaboration with Sony Interactive Entertainment.</p>
+      <figure class="hero-figure" data-parallax data-speed="-0.03">
+        <div class="hero-plate">
+          <img src="assets/images/hero-cutout.png" alt="Dr. Yasas Sri Wickramasinghe, augmented reality researcher and lecturer" width="640" height="520"/>
+        </div>
+        <figcaption class="hero-caption">
+          <span class="mono-label">Fig. 01 — Dr. Yasas Sri Wickramasinghe</span>
+          <span class="mono-label">Ōtautahi Christchurch</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Route strip: the thesis, as a map instrument -->
+  <div class="route" aria-label="From Colombo to Christchurch — connected by research">
+    <div class="container route-inner">
+      <div class="route-node">
+        <span class="mono-label"><span class="tick">●</span> Origin — 6.93°N 79.86°E</span>
+        <span class="city">Colombo, Sri Lanka</span>
+      </div>
+      <div class="route-line" aria-hidden="true">
+        <svg viewBox="0 0 600 34" preserveAspectRatio="none">
+          <path class="dash" d="M6 28 Q 300 -14 594 28"/>
+          <circle class="dot" cx="6" cy="28" r="3.5"/>
+          <circle class="dot" cx="594" cy="28" r="3.5"/>
+        </svg>
+        <span class="route-note mono-label">11,300 km — connected by design</span>
+      </div>
+      <div class="route-node" style="text-align:right">
+        <span class="mono-label">Base — 43.53°S 172.64°E <span class="tick">●</span></span>
+        <span class="city">Christchurch, New Zealand</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats band -->
+  <div class="stats" aria-label="Key numbers">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat reveal">
+          <span class="num"><span class="count" data-target="150">0</span><span class="suffix">K+</span></span>
+          <span class="lbl mono-label">Learners reached through platforms I helped build</span>
+        </div>
+        <div class="stat reveal" style="--d:.06s">
+          <span class="num"><span class="count" data-target="5">0</span></span>
+          <span class="lbl mono-label">Peer-reviewed articles in leading HCI venues</span>
+        </div>
+        <div class="stat reveal" style="--d:.12s">
+          <span class="num"><span class="count" data-target="128">0</span></span>
+          <span class="lbl mono-label">Participants across three empirical user studies</span>
+        </div>
+        <div class="stat reveal" style="--d:.18s">
+          <span class="num"><span class="count" data-target="16">0</span></span>
+          <span class="lbl mono-label">Countries represented in my classrooms</span>
         </div>
       </div>
     </div>
   </div>
-  <a class="scroll-hint" href="#about">Scroll <span></span></a>
 </header>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Location-Based AR</span><span>Spatial Computing</span><span>Human Interface Technology</span><span>Player Experience</span><span>XR Research</span><span>HCI</span>
-  </div>
-  <div class="marquee-track">
-    <span>Location-Based AR</span><span>Spatial Computing</span><span>Human Interface Technology</span><span>Player Experience</span><span>XR Research</span><span>HCI</span>
-  </div>
-</div>
-
-<!-- STUDENT VOICES — interactive globe (Anthropic-inspired editorial section) -->
-<section class="avoices" id="voices" aria-label="What students say around the world">
-  <div class="container av-inner">
-    <div class="av-head reveal">
-      <span class="av-eyebrow">Voices from my classroom</span>
-      <h2 class="av-title">What my students say,<br/>all around the world</h2>
-      <p class="av-sub">Thousands of learners across universities, MOOCs and workshops — from Colombo to Christchurch.</p>
-    </div>
-
-    <div class="av-grid">
-      <div class="av-stage reveal">
-        <canvas id="voicesGlobe" class="voices-globe" role="img" aria-label="Rotating globe showing the countries students wrote from"></canvas>
-        <div class="voices-tooltip" id="voicesTooltip" aria-hidden="true"></div>
-      </div>
-
-      <div class="av-panel reveal" style="--d:.1s">
-        <figure class="av-quote" id="voicesQuote">
-          <blockquote id="vqText">&hellip;</blockquote>
-          <figcaption class="av-cite">
-            <span class="av-dot" id="vqAvatar" aria-hidden="true"></span>
-            <span class="av-who">
-              <strong id="vqName">&hellip;</strong>
-              <span id="vqRole">&hellip;</span>
-            </span>
-            <span class="av-loc">
-              <span class="av-country" id="vqCountry"></span>
-            </span>
-          </figcaption>
-        </figure>
-
-        <div class="av-controls">
-          <div class="av-nav">
-            <button class="av-navbtn" id="vPrev" type="button" aria-label="Previous voice">←</button>
-            <button class="av-navbtn" id="vNext" type="button" aria-label="Next voice">→</button>
+<!-- 01 — ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <span class="mono-label"><span class="tick">01</span> / About</span>
+        <p>I'm Dr. Yasas Sri Wickramasinghe — a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury) and Senior Lecturer at Yoobee College of Creative Innovation.</p>
+        <p>I hold a PhD in Human Interface Technology, with a dissertation on designing <strong>multiplayer location-based AR games that connect remote players and places</strong>. My work is conducted with industry partners including Sony Interactive Entertainment (Japan) and Niantic, Inc.</p>
+        <p>Earlier I co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme and led Sri Lanka's first large-scale MOOC platform.</p>
+        <div class="trust">
+          <span class="mono-label">Research conducted with</span>
+          <div class="trust-logos">
+            <img src="assets/images/logo-hitlabnz.png" alt="HIT Lab NZ, University of Canterbury — augmented reality research lab logo"/>
+            <img class="logo-sony" src="assets/images/logo-sony.svg" alt="Sony Interactive Entertainment logo"/>
+            <img src="assets/images/logo-niantic-spatial.png" alt="Niantic Spatial logo"/>
           </div>
         </div>
+        <div class="about-actions">
+          <a class="btn btn-solid" href="contact.html">Get in Touch <span class="arrow">→</span></a>
+          <a class="btn" href="research.html">See My Work</a>
+        </div>
+      </div>
+      <figure class="figure reveal" style="--d:.12s">
+        <div class="frame">
+          <img src="assets/images/phd-graduation.jpg" alt="Dr. Yasas Sri Wickramasinghe at his PhD graduation, University of Canterbury"/>
+        </div>
+        <figcaption>
+          <span class="mono-label">Fig. 02 — PhD in Human Interface Technology</span>
+          <span class="mono-label">Univ. of Canterbury</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
-        <div class="av-foot">
-          <div class="av-stats">
-            <span><b class="count" data-target="16">0</b> countries</span>
-            <span><b class="count" data-target="23">0</b> voices</span>
+<!-- 02 — RESEARCH FRONTIERS -->
+<section class="section tint" id="research">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="mono-label"><span class="tick">02</span> / What I explore</span>
+      <h2 class="section-title">Three frontiers my research <em>pushes forward.</em></h2>
+      <p class="section-sub">Where spatial computing meets human behaviour — backed by peer-reviewed work and real industry deployment.</p>
+    </div>
+    <div class="frontiers">
+      <a class="frontier reveal" href="research.html">
+        <span class="no">F.01</span>
+        <h3>Location-Based AR</h3>
+        <p>Designing multiplayer AR experiences that meaningfully connect remote players to real-world places.</p>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="frontier reveal" style="--d:.06s" href="research.html">
+        <span class="no">F.02</span>
+        <h3>Spatial Computing &amp; XR</h3>
+        <p>Studying how immersive interfaces reshape cognition, trust, and decision-making in shared spaces.</p>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="frontier reveal" style="--d:.12s" href="research.html">
+        <span class="no">F.03</span>
+        <h3>Player Experience &amp; HCI</h3>
+        <p>Evaluating how people feel, behave, and collaborate inside the systems we design and deploy.</p>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — SELECTED WORK -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="mono-label"><span class="tick">03</span> / Selected work</span>
+      <h2 class="section-title">From lab to real impact — <em>research that ships.</em></h2>
+    </div>
+    <div class="casework reveal">
+      <div class="casework-img">
+        <img src="assets/images/case-immersive.jpg" alt="A player wearing a headset to experience a location-based augmented reality game"/>
+        <span class="fig-tag mono-label">Fig. 03 — Field study</span>
+      </div>
+      <div class="casework-body">
+        <span class="mono-label"><span class="tick">●</span> Entertainment Computing · Elsevier · 2025</span>
+        <h3>Representing Remote Locations with Location-Based AR Game Design</h3>
+        <p>A multiplayer location-based AR system, designed and evaluated with Sony Interactive Entertainment, exploring how players experience and represent distant real-world places together — published across leading HCI venues.</p>
+        <a class="btn btn-solid" href="research.html">Read the Research <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — STUDENT VOICES — interactive globe -->
+<section class="avoices section tint" id="voices" aria-label="What students say around the world">
+  <div class="container">
+    <div class="av-plate reveal">
+      <div class="av-head">
+        <span class="mono-label"><span class="tick">04</span> / Voices from my classroom</span>
+        <h2 class="av-title">What my students say, <em>all around the world.</em></h2>
+        <p class="av-sub">Thousands of learners across universities, MOOCs and workshops — from Colombo to Christchurch.</p>
+      </div>
+
+      <div class="av-grid">
+        <div class="av-stage">
+          <canvas id="voicesGlobe" class="voices-globe" role="img" aria-label="Rotating globe showing the countries students wrote from"></canvas>
+          <div class="voices-tooltip" id="voicesTooltip" aria-hidden="true"></div>
+        </div>
+
+        <div class="av-panel">
+          <figure class="av-quote" id="voicesQuote">
+            <blockquote id="vqText">&hellip;</blockquote>
+            <figcaption class="av-cite">
+              <span class="av-dot" id="vqAvatar" aria-hidden="true"></span>
+              <span class="av-who">
+                <strong id="vqName">&hellip;</strong>
+                <span id="vqRole">&hellip;</span>
+              </span>
+              <span class="av-loc">
+                <span class="av-country" id="vqCountry"></span>
+              </span>
+            </figcaption>
+          </figure>
+
+          <div class="av-controls">
+            <div class="av-nav">
+              <button class="av-navbtn" id="vPrev" type="button" aria-label="Previous voice">←</button>
+              <button class="av-navbtn" id="vNext" type="button" aria-label="Next voice">→</button>
+            </div>
+          </div>
+
+          <div class="av-foot">
+            <div class="av-stats">
+              <span><b class="count" data-target="16">0</b> countries</span>
+              <span><b class="count" data-target="23">0</b> voices</span>
+            </div>
           </div>
         </div>
       </div>
@@ -268,108 +404,18 @@
   <ul class="voices-srlist" id="voicesSrList"></ul>
 </section>
 
-<!-- INTRO BAND -->
-<section class="section" id="about">
-  <div class="container intro">
-    <div class="reveal">
-      <span class="eyebrow">About Me</span>
-      <h2 style="margin-top:16px">If You're <span class="hl">SERIOUS</span> About Immersive Technology, I'd Love to Collaborate.</h2>
-      <p>I'm Dr. Yasas Sri Wickramasinghe — a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury) and Senior Lecturer at Yoobee College of Creative Innovation. I hold a PhD in Human Interface Technology, with a dissertation on designing multiplayer location-based AR games that connect remote players and places.</p>
-      <p>My work is conducted with industry partners including Sony Interactive Entertainment (Japan) and Niantic, Inc. Earlier I co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme and led Sri Lanka's first large-scale MOOC platform.</p>
-      <div class="intro-meta">
-        <span class="trust-label">Trusted by</span>
-        <div class="trust-logos">
-          <img src="assets/images/logo-hitlabnz.png" alt="HIT Lab NZ, University of Canterbury — augmented reality research lab logo"/>
-          <img class="logo-sony" src="assets/images/logo-sony.svg" alt="Sony Interactive Entertainment logo"/>
-          <img src="assets/images/logo-niantic-spatial.png" alt="Niantic Spatial logo"/>
-        </div>
-      </div>
-      <div class="intro-actions">
-        <a class="btn btn-solid" href="contact.html">Get in Touch <span class="arrow">→</span></a>
-        <a class="btn" href="research.html">See My Work</a>
-      </div>
-    </div>
-    <div class="intro-visual reveal" style="--d:.15s">
-      <img src="assets/images/phd-graduation.jpg" alt="Dr. Yasas Sri Wickramasinghe at his PhD graduation, University of Canterbury"/>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES (3 research truths) -->
-<section class="section soft">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow">What I Explore</span>
-      <h2 style="margin-top:16px">3 Frontiers My Research <em>Pushes Forward</em></h2>
-      <p>Where spatial computing meets human behaviour — backed by peer-reviewed work and real industry deployment.</p>
-    </div>
-    <div class="features">
-      <div class="feature reveal">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 7v10l9 5 9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg></div>
-        <h3>Location-Based AR</h3>
-        <p>Designing multiplayer AR experiences that meaningfully connect remote players to real-world places.</p>
-      </div>
-      <div class="feature reveal" style="--d:.1s">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></div>
-        <h3>Spatial Computing &amp; XR</h3>
-        <p>Studying how immersive interfaces reshape cognition, trust, and decision-making in shared spaces.</p>
-      </div>
-      <div class="feature reveal" style="--d:.2s">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Player Experience &amp; HCI</h3>
-        <p>Evaluating how people feel, behave, and collaborate inside the systems we design and deploy.</p>
-      </div>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="newsletter reveal">
-      <h3>Want Research Notes &amp; Field Insights?</h3>
-      <p>Occasional notes on immersive media, spatial computing, and lessons from building XR — no noise.</p>
-      <form class="nl-form" onsubmit="return false;">
-        <input type="email" placeholder="Enter your email address" aria-label="Email address"/>
-        <button class="btn btn-solid" type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURED PROJECT / CASE -->
-<section class="section" id="work">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Selected Work</span>
-      <h2 style="margin-top:16px">From Lab to Real Impact — <em>Research That Ships.</em></h2>
-    </div>
-    <div class="casework reveal">
-      <div class="casework-img">
-        <img src="assets/images/case-immersive.jpg" alt="A player wearing a headset to experience a location-based augmented reality game"/>
-      </div>
-      <div class="casework-body">
-        <span class="tag-line">Entertainment Computing · Elsevier · 2025</span>
-        <h3>Representing Remote Locations with Location-Based AR Game Design</h3>
-        <p>A multiplayer location-based AR system, designed and evaluated with Sony Interactive Entertainment, exploring how players experience and represent distant real-world places together — published across leading HCI venues.</p>
-        <a class="btn btn-solid" href="research.html" style="align-self:flex-start">Read the Research <span class="arrow">→</span></a>
-        <div class="casework-foot">
-          <a class="dot-btn" href="research.html" aria-label="Previous">←</a>
-          <a class="dot-btn" href="research.html" aria-label="Next">→</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UPCOMING EVENTS -->
+<!-- 05 — UPCOMING EVENTS -->
 <section class="section" id="upcoming-events">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Upcoming</span>
-      <h2 style="margin-top:16px">Catch Me at an <em>Upcoming Event.</em></h2>
-      <p>Two talks and workshops coming up — follow along or invite me for something similar.</p>
+      <span class="mono-label"><span class="tick">05</span> / Upcoming</span>
+      <h2 class="section-title">Catch me at an <em>upcoming event.</em></h2>
+      <p class="section-sub">Two talks and workshops coming up — follow along or invite me for something similar.</p>
     </div>
     <div class="grid-2">
 
       <a class="article-card reveal" href="news.html#upcoming">
-        <div class="article-cover" data-num="—01"><img class="cover-img" src="assets/images/events/code-with-wie-2026-workshop-01-architecting-augmented-tomorrow.jpg" alt="CODE with WIE 2026 Workshop 01 flyer — Architecting the Augmented Tomorrow, with speaker Dr. Yasas Sri Wickramasinghe" loading="lazy"><span class="cat">Workshop</span></div>
+        <div class="article-cover" data-num="—01"><img class="cover-img" src="assets/images/events/code-with-wie-2026-workshop-01-architecting-augmented-tomorrow.jpg" alt="CODE with WIE 2026 Workshop 01 flyer — Architecting the Augmented Tomorrow, with speaker Dr. Yasas Sri Wickramasinghe" loading="lazy"/><span class="cat">Workshop</span></div>
         <div class="article-body">
           <span class="src">IEEE WIE Sri Lanka · 11 July 2026</span>
           <h3>CODE with WIE 2026 — Architecting the Augmented Tomorrow</h3>
@@ -377,8 +423,8 @@
         </div>
       </a>
 
-      <a class="article-card reveal" style="--d:.05s" href="news.html#upcoming">
-        <div class="article-cover" data-num="—02"><img class="cover-img" src="assets/images/events/nzgdc-2026-designing-shared-worlds-across-distance.png" alt="NZGDC 2026 speaker flyer — Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" loading="lazy"><span class="cat">Conference Talk</span></div>
+      <a class="article-card reveal" style="--d:.06s" href="news.html#upcoming">
+        <div class="article-cover" data-num="—02"><img class="cover-img" src="assets/images/events/nzgdc-2026-designing-shared-worlds-across-distance.png" alt="NZGDC 2026 speaker flyer — Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" loading="lazy"/><span class="cat">Conference Talk</span></div>
         <div class="article-body">
           <span class="src">NZGDC · 1 October 2026</span>
           <h3>Designing Shared Worlds Across Distance</h3>
@@ -387,24 +433,24 @@
       </a>
 
     </div>
-    <div class="reveal" style="text-align:center; margin-top:36px;">
-      <a class="btn btn-solid" href="contact.html?subject=speaking">Invite Me to Speak <span class="arrow">→</span></a>
+    <div class="section-cta reveal">
+      <a class="btn" href="contact.html?subject=speaking">Invite Me to Speak <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- IN THE NEWS -->
-<section class="section soft" id="news">
+<!-- 06 — IN THE NEWS -->
+<section class="section tint" id="news">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">In the News</span>
-      <h2 style="margin-top:16px">On Stage, in the Field &amp; <em>in the News.</em></h2>
-      <p>Invited talks, international collaborations and outreach — moments where the research reaches real people and places.</p>
+      <span class="mono-label"><span class="tick">06</span> / In the news</span>
+      <h2 class="section-title">On stage, in the field &amp; <em>in the news.</em></h2>
+      <p class="section-sub">Invited talks, international collaborations and outreach — moments where the research reaches real people and places.</p>
     </div>
     <div class="grid-3">
 
       <a class="article-card reveal" href="news.html">
-        <div class="article-cover" data-num="—01"><img class="cover-img" src="assets/images/news/tohoku-visit-2.jpg" alt="Dr. Yasas Sri Wickramasinghe presenting at the Interactive Content Design Lab, Tohoku University, Japan" loading="lazy"><span class="cat">Collaboration</span></div>
+        <div class="article-cover" data-num="—01"><img class="cover-img" src="assets/images/news/tohoku-visit-2.jpg" alt="Dr. Yasas Sri Wickramasinghe presenting at the Interactive Content Design Lab, Tohoku University, Japan" loading="lazy"/><span class="cat">Collaboration</span></div>
         <div class="article-body">
           <span class="src">Tohoku University · Dec 2025</span>
           <h3>Research Visit to Tohoku University — An NZ–Japan AR Collaboration</h3>
@@ -412,8 +458,8 @@
         </div>
       </a>
 
-      <a class="article-card reveal" style="--d:.05s" href="news.html">
-        <div class="article-cover" data-num="—02"><img class="cover-img" src="assets/images/news/falling-walls-cohort-2024.jpg" alt="Official Falling Walls Lab Aotearoa New Zealand 2024 cohort collage of all nineteen participants, including Dr. Yasas Sri Wickramasinghe" loading="lazy"><span class="cat">Falling Walls Lab</span></div>
+      <a class="article-card reveal" style="--d:.06s" href="news.html">
+        <div class="article-cover" data-num="—02"><img class="cover-img" src="assets/images/news/falling-walls-cohort-2024.jpg" alt="Official Falling Walls Lab Aotearoa New Zealand 2024 cohort collage of all nineteen participants, including Dr. Yasas Sri Wickramasinghe" loading="lazy"/><span class="cat">Falling Walls Lab</span></div>
         <div class="article-body">
           <span class="src">Royal Society Te Apārangi · 2024</span>
           <h3>Breaking the Wall of Loneliness Through Play</h3>
@@ -421,8 +467,8 @@
         </div>
       </a>
 
-      <a class="article-card reveal" style="--d:.1s" href="news.html">
-        <div class="article-cover" data-num="—03"><img class="cover-img" src="assets/images/news/nzgdc-ar-panel.jpg" alt="Yasas Sri Wickramasinghe on the AR game development panel at the New Zealand Game Developers Conference 2023" loading="lazy"><span class="cat">NZGDC 2023</span></div>
+      <a class="article-card reveal" style="--d:.12s" href="news.html">
+        <div class="article-cover" data-num="—03"><img class="cover-img" src="assets/images/news/nzgdc-ar-panel.jpg" alt="Yasas Sri Wickramasinghe on the AR game development panel at the New Zealand Game Developers Conference 2023" loading="lazy"/><span class="cat">NZGDC 2023</span></div>
         <div class="article-body">
           <span class="src">YouTube · Panel</span>
           <h3>Talking AR Game Design on the National Stage</h3>
@@ -431,96 +477,55 @@
       </a>
 
     </div>
-    <div class="reveal" style="text-align:center; margin-top:36px;">
-      <a class="btn btn-solid" href="news.html">See All News &amp; Highlights <span class="arrow">→</span></a>
+    <div class="section-cta reveal">
+      <a class="btn" href="news.html">See All News &amp; Highlights <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section soft">
+<!-- 07 — WORK WITH ME -->
+<section class="section" id="engage">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">What I Do</span>
-      <h2 style="margin-top:16px">Research, Teaching &amp; Building <em>That Lasts.</em></h2>
-      <p>Bridging rigorous academic research with hands-on engineering and high-engagement teaching.</p>
+      <span class="mono-label"><span class="tick">07</span> / Work with me</span>
+      <h2 class="section-title">Research, teaching &amp; building <em>that lasts.</em></h2>
+      <p class="section-sub">Bridging rigorous academic research with hands-on engineering and high-engagement teaching.</p>
     </div>
-    <div class="services-grid">
-      <div class="service reveal">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+    <div class="engage">
+      <a class="engage-row reveal" href="research.html">
+        <span class="no">W.01</span>
         <h3>Research &amp; Publications</h3>
         <p>Peer-reviewed work in AR, XR and HCI — from study design and experimental platforms to journal and conference papers.</p>
-        <a class="more" href="research.html">Learn more <span class="arrow">→</span></a>
-      </div>
-      <div class="service reveal" style="--d:.1s">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="engage-row reveal" style="--d:.05s" href="teaching.html">
+        <span class="no">W.02</span>
         <h3>Teaching &amp; Supervision</h3>
-        <p>Master's-level courses in information systems and project management, plus capstone and thesis supervision — gamified and high-engagement.</p>
-        <a class="more" href="teaching.html">Learn more <span class="arrow">→</span></a>
-      </div>
-      <div class="service reveal" style="--d:.05s">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <p>Master's-level courses in information systems and project management, plus capstone and thesis supervision.</p>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="engage-row reveal" style="--d:.1s" href="research.html">
+        <span class="no">W.03</span>
         <h3>XR &amp; Software Development</h3>
-        <p>Building immersive prototypes and production systems with Unity, OpenXR and Niantic Lightship — drawing on a senior engineering background.</p>
-        <a class="more" href="research.html">Learn more <span class="arrow">→</span></a>
-      </div>
-      <div class="service reveal" style="--d:.15s">
-        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+        <p>Building immersive prototypes and production systems with Unity, OpenXR and Niantic Lightship.</p>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
+      <a class="engage-row reveal" style="--d:.15s" href="contact.html">
+        <span class="no">W.04</span>
         <h3>Talks &amp; Consulting</h3>
-        <p>Speaking and advising on immersive media, spatial computing strategy, and translating emerging XR research into product.</p>
-        <a class="more" href="contact.html">Learn more <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">In Their Words</span>
-      <h2 style="margin-top:16px">What Collaborators &amp; <em>Students Say</em></h2>
-    </div>
-    <div class="testi">
-      <div class="testi-photo reveal">
-        <img src="assets/images/collab.jpg" alt="Dr. Yasas Sri Wickramasinghe collaborating with HIT Lab NZ and Sony Interactive Entertainment research partners"/>
-      </div>
-      <div class="testi-quote reveal" style="--d:.1s">
-        <div class="mark">"</div>
-        <blockquote>Yasas brings rare range — the rigour of a researcher and the instincts of a builder. His work on location-based AR genuinely advanced how we think about connecting remote players, and his teaching makes complex ideas click for students.</blockquote>
-        <div class="testi-author">Research &amp; Industry Partners<small>HIT Lab NZ · Sony Interactive Entertainment</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BIG CTA -->
-<section class="section soft">
-  <div class="container">
-    <div class="bigcta reveal">
-      <div class="bigcta-text">
-        <span class="eyebrow">Collaboration</span>
-        <h2>Let's Take Your Immersive Idea to the <em style="color:#6ea0ff">Next Level.</em></h2>
-        <p>Whether it's a research collaboration, a guest talk, or building the next spatial experience — I'd love to hear from you.</p>
-        <a class="btn" href="contact.html">Get in Touch <span class="arrow">→</span></a>
-      </div>
-      <div class="bigcta-visual">
-        <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" preserveAspectRatio="none">
-          <polyline points="20,170 90,150 160,120 230,130 300,70 380,30" stroke="#6ea0ff" stroke-width="3" fill="none" stroke-linecap="round"/>
-          <circle cx="380" cy="30" r="6" fill="#6ea0ff"/>
-        </svg>
-        <div class="chartstat">312%<small>RESEARCH IMPACT GROWTH</small></div>
-      </div>
+        <p>Speaking and advising on immersive media, spatial computing strategy, and translating XR research into product.</p>
+        <span class="go" aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq">
+<section class="section tint" id="faq">
   <div class="container">
-    <div class="section-head center reveal" style="margin-inline:auto;">
-      <span class="eyebrow" style="justify-content:center;">FAQ</span>
-      <h2 style="margin-top:16px">Frequently asked <em>questions</em></h2>
+    <div class="section-head center reveal">
+      <span class="mono-label"><span class="tick">§</span> FAQ</span>
+      <h2 class="section-title">Frequently asked <em>questions.</em></h2>
     </div>
     <div class="faq">
       <details class="faq-item reveal">
@@ -537,12 +542,24 @@
       </details>
       <details class="faq-item reveal">
         <summary>What web products has he built?</summary>
-        <p>He has designed and built <a href="products.html" style="color:var(--accent);font-weight:600;">HouseScout</a> (a property-intelligence dashboard for Christchurch home buyers), Faro (a machine-learning flight-fare timing assistant) and Yoobees (an EdTech attendance and learning-support platform). See the <a href="products.html" style="color:var(--accent);font-weight:600;">Products</a> page.</p>
+        <p>He has designed and built <a href="products.html">HouseScout</a> (a property-intelligence dashboard for Christchurch home buyers), Faro (a machine-learning flight-fare timing assistant) and Yoobees (an EdTech attendance and learning-support platform). See the <a href="products.html">Products</a> page.</p>
       </details>
       <details class="faq-item reveal">
         <summary>How can I get in touch?</summary>
-        <p>You can reach out via the <a href="contact.html" style="color:var(--accent);font-weight:600;">contact page</a> for research collaborations, guest talks, consulting and academic mentorship.</p>
+        <p>You can reach out via the <a href="contact.html">contact page</a> for research collaborations, guest talks, consulting and academic mentorship.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- BIG CTA -->
+<section class="section">
+  <div class="container">
+    <div class="bigcta reveal">
+      <span class="mono-label">Collaboration — open</span>
+      <h2>Let's build the next <em>shared world</em> together.</h2>
+      <p>Whether it's a research collaboration, a guest talk, or the next spatial experience — I'd love to hear from you.</p>
+      <a class="btn btn-paper" href="contact.html">Get in Touch <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -552,10 +569,10 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-news">
-        <h3>Stay in the loop</h3>
-        <p>Join my research notes for occasional insights on AR, XR and immersive media.</p>
-        <form class="nl-form" onsubmit="return false;">
-          <input type="email" placeholder="Your email address" aria-label="Email address"/>
+        <h3>Research notes &amp; field insights</h3>
+        <p>Occasional notes on immersive media, spatial computing, and lessons from building XR — no noise.</p>
+        <form class="nl-form" id="nlForm">
+          <input type="email" placeholder="Your email address" aria-label="Email address" required/>
           <button class="btn btn-solid" type="submit">Join</button>
         </form>
       </div>
@@ -583,7 +600,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-logo">Yasas Sri Wickramasinghe</div>
+      <div class="footer-logo">Yasas Sri <em style="font-style:italic;color:var(--accent)">Wickramasinghe</em></div>
+      <span class="footer-coords">43.53°S 172.64°E — ŌTAUTAHI CHRISTCHURCH</span>
       <small>© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</small>
     </div>
   </div>
@@ -596,5 +614,29 @@
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="assets/js/testimonials.js"></script>
 <script src="assets/js/globe-voices.js"></script>
+<script>
+  // Theme toggle
+  (function () {
+    var btn = document.querySelector(".theme-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  })();
+  // Newsletter — opens a pre-filled email (no backend on this static site)
+  (function () {
+    var form = document.getElementById("nlForm");
+    if (!form) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = form.querySelector("input[type=email]").value;
+      location.href = "mailto:yasassriofficial@gmail.com?subject=" +
+        encodeURIComponent("Subscribe me to your research notes") +
+        "&body=" + encodeURIComponent("Please add " + email + " to your research notes list.");
+    });
+  })();
+</script>
 </body>
 </html>
