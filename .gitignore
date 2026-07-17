@@ -3,3 +3,8 @@
 assets/files/The-Collaboration-Reflex-Book.pdf
 
 .DS_Store
+
+# Local-only tooling for scripts/upload-book.js (firebase-tools, firebase-admin)
+node_modules/
+package.json
+package-lock.json
