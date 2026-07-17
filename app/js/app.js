@@ -13,23 +13,21 @@ let CONFIGURED = !!(CFG.apiKey && !String(CFG.apiKey).startsWith("PASTE"));
 let LOAD_ERROR = false;
 const ADMIN_EMAILS = (window.PLATFORM_ADMINS || []).map(e => e.toLowerCase());
 
-let auth = null, db = null, storage = null;
+let auth = null, db = null;
 let onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
     createUserWithEmailAndPassword, signInWithEmailAndPassword,
     sendEmailVerification, sendPasswordResetEmail, signOut, updateProfile,
     collection, doc, addDoc, setDoc, getDoc, getDocs,
     updateDoc, deleteDoc, query, where, orderBy, limit,
-    serverTimestamp, increment,
-    storageRef, getBytes;
+    serverTimestamp, increment;
 
 if (CONFIGURED) {
   try {
     const V = "10.14.1";
-    const [appM, authM, fsM, storageM] = await Promise.all([
+    const [appM, authM, fsM] = await Promise.all([
       import(`https://www.gstatic.com/firebasejs/${V}/firebase-app.js`),
       import(`https://www.gstatic.com/firebasejs/${V}/firebase-auth.js`),
-      import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`),
-      import(`https://www.gstatic.com/firebasejs/${V}/firebase-storage.js`)
+      import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`)
     ]);
     ({ onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
        createUserWithEmailAndPassword, signInWithEmailAndPassword,
@@ -37,11 +35,9 @@ if (CONFIGURED) {
     ({ collection, doc, addDoc, setDoc, getDoc, getDocs,
        updateDoc, deleteDoc, query, where, orderBy, limit,
        serverTimestamp, increment } = fsM);
-    ({ ref: storageRef, getBytes } = storageM);
     const fbApp = appM.initializeApp(CFG);
     auth = authM.getAuth(fbApp);
     db = fsM.getFirestore(fbApp);
-    storage = storageM.getStorage(fbApp);
   } catch (e) {
     console.error("Failed to load Firebase SDK:", e);
     CONFIGURED = false;
@@ -146,10 +142,11 @@ const BOOK = {
   subtitle: "Why the “right” answer to conflict is usually wrong",
   tagline: "Forty-five true stories from real workplaces",
   cover: "../assets/files/bookimg.png",
-  // Gated in Firebase Storage (not a public file in this repo) — see storage.rules.
-  // Fetched with getBytes() so security rules are enforced on every download,
-  // not just a one-time link that could be copied and reshared.
-  storagePath: "book/The-Collaboration-Reflex-Book.pdf",
+  // Gated content lives in Firestore, not as a public file in this repo —
+  // chunked base64 documents under bookFile/meta/chunks/*, uploaded once via
+  // scripts/upload-book.js. Reads are enforced by firestore.rules on every
+  // fetch, exactly like every other collection in this app.
+  fileDocPath: "bookFile/meta",
   fileName: "The-Collaboration-Reflex-Yasas-Sri-Wickramasinghe.pdf",
   pullQuote: "An answer that fits every question has stopped being an answer.",
   pitch: "Most conflict advice collapses into a single instruction: collaborate, find the win-win. This book takes that instinct apart using forty-five real, anonymised workplace conflicts — a CEO calling an internal auditor's findings “false allegations” to his face, two salespeople quietly losing one shared client, a delay blamed on the coordinator who’d flagged it in writing two days earlier — and shows why reaching for collaboration is right far less often than people assume. It restores the full range of responses to conflict, including the unfashionable ones, and gives a concrete way to tell which one a situation actually calls for.",
@@ -971,13 +968,27 @@ async function viewBook() {
 
   const panel = document.getElementById("bookDownloadPanel");
 
-  // Fetches the PDF bytes through Storage's security rules (isVerified()
-  // is re-checked by Google's servers on this exact call — this is not a
-  // shareable link, it fails fresh for anyone who isn't signed in and
-  // verified) and saves it via a short-lived local object URL.
+  // Fetches the PDF (stored as base64 chunks, since Firebase Storage now
+  // requires the paid Blaze plan even for free-tier usage) through
+  // firestore.rules — isVerified() is re-checked by Google's servers on
+  // every one of these reads, so this is not a shareable link, it fails
+  // fresh for anyone who isn't signed in and verified — then reassembles
+  // and saves it via a short-lived local object URL.
   async function fetchAndTriggerDownload() {
-    const bytes = await getBytes(storageRef(storage, BOOK.storagePath));
-    const blobUrl = URL.createObjectURL(new Blob([bytes], { type: "application/pdf" }));
+    const metaSnap = await getDoc(doc(db, BOOK.fileDocPath));
+    if (!metaSnap.exists()) throw { code: "book/not-found" };
+    const meta = metaSnap.data();
+
+    const chunkSnaps = await Promise.all(
+      Array.from({ length: meta.chunkCount }, (_, i) =>
+        getDoc(doc(db, BOOK.fileDocPath, "chunks", String(i))))
+    );
+    const base64 = chunkSnaps.map(s => s.data().data).join("");
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+
+    const blobUrl = URL.createObjectURL(new Blob([bytes], { type: meta.mimeType || "application/pdf" }));
     const a = document.createElement("a");
     a.href = blobUrl;
     a.download = BOOK.fileName;
@@ -1030,9 +1041,9 @@ async function viewBook() {
         renderDownloadCta(fresh.data());
       } catch (e) {
         msg.className = "form-msg err";
-        msg.textContent = String(e && e.code).includes("storage/object-not-found")
-          ? "The book file isn't uploaded yet — the site owner needs to add it to Firebase Storage."
-          : String(e && e.code).includes("storage/unauthorized")
+        msg.textContent = String(e && e.code) === "book/not-found"
+          ? "The book file isn't uploaded yet — the site owner needs to run scripts/upload-book.js."
+          : String(e && e.code).includes("permission-denied")
           ? "Your account isn't authorised to download this yet — try signing out and back in."
           : fbError(e);
       } finally { btn.disabled = false; }
