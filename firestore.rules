@@ -105,6 +105,23 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    // ---- Book file (chunked PDF bytes, base64) ------------------------------
+    // Firebase Storage requires the paid Blaze plan even for free-tier usage,
+    // so the gated PDF lives in Firestore instead — free on Spark, and reads
+    // are enforced by the same isVerified() gate as everything else here.
+    // There is no client write path: the file is placed via
+    // scripts/upload-book.js using the Admin SDK, which bypasses rules by
+    // design (the same way the Firebase console does).
+    match /bookFile/{docId} {
+      allow read: if isVerified();
+      allow write: if false;
+
+      match /chunks/{chunkId} {
+        allow read: if isVerified();
+        allow write: if false;
+      }
+    }
+
     // ---- Blog posts ---------------------------------------------------------
     match /posts/{id} {
       allow read: if resource.data.status == 'published' || isAdmin();
