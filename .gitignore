@@ -8,3 +8,5 @@ assets/files/The-Collaboration-Reflex-Book.pdf
 node_modules/
 package.json
 package-lock.json
+firebase-debug.log
+.firebase/
