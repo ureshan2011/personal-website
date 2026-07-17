@@ -18,8 +18,9 @@ renders, but forms, sign-in and the forum are disabled with a visible notice.
 | Blog (Markdown articles, categories, tags, reading time, "discuss in forum") | `app/#/blog` | `posts` |
 | Newsletter signup (segments, CSV export for any email tool) | `app/#/newsletter` | `subscribers` |
 | Community forum (8 seeded categories, threads/replies, reports, pin/lock/hide) | `app/#/forum` | `threads` + `replies` |
+| Book — gated download via Firebase Storage, logged per reader | `app/#/book` | `bookDownloads` + Storage |
 | Sign in (Google or email+password with email verification) | `app/#/account` | `profiles` |
-| Admin dashboard (queues, blog editor, subscribers, moderation) | `app/#/admin` | all of the above |
+| Admin dashboard (queues, blog editor, subscribers, moderation, book downloads) | `app/#/admin` | all of the above |
 
 ## One-time setup (~15 minutes)
 
@@ -58,7 +59,34 @@ Firebase console → **Build → Authentication → Get started**:
 > (`window.PLATFORM_ADMINS`). Both are currently set to
 > `yasassriofficial@gmail.com`.
 
-### 5. Sign in as admin
+### 5. Enable Storage + deploy its rules, then upload the book
+
+The book (`app/#/book`) is gated behind a verified account using **Firebase
+Storage** (free on the Spark plan — 5GB storage / 1GB downloaded per day).
+The PDF is deliberately **not** in this repository — a file sitting in
+`assets/files/` would be publicly fetchable on GitHub Pages regardless of
+any app-level gate, which would defeat the whole point. Storage Security
+Rules are enforced by Google's servers on every download request, so
+there's no shareable link to leak — only a signed-in, verified account can
+fetch the bytes, checked fresh each time.
+
+1. Firebase console → **Build → Storage → Get started** (accept the default
+   location; production mode).
+2. Open the **Rules** tab, paste the entire contents of
+   [`storage.rules`](storage.rules) from this repository, and **Publish**.
+3. Upload the PDF to the exact path the rules expect —
+   `book/The-Collaboration-Reflex-Book.pdf` — one of two ways:
+   - **Console (simplest, no credentials needed):** Storage → Files → create
+     folder `book` → upload `The-Collaboration-Reflex-Book.pdf` into it.
+   - **Script:** `node scripts/upload-book.js /path/to/service-account.json`
+     — see the comment at the top of [`scripts/upload-book.js`](scripts/upload-book.js)
+     for how to get a service account key. Delete the key file afterwards.
+
+Prefer the CLI for both rule files at once? `firebase deploy --only firestore:rules,storage`
+(`firebase.json` and `.firebaserc` in this repo are already set up for it —
+just `firebase login` first).
+
+### 6. Sign in as admin
 
 Visit `https://www.yasassri.me/app/#/account`, sign in **with Google** using the
 admin email (Google accounts are auto-verified). The nav now shows **Admin ⚙**

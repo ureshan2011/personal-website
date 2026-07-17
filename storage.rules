@@ -1,0 +1,29 @@
+rules_version = '2';
+
+// ============================================================================
+// Firebase Storage security rules — Academic Platform (yasassri.me/app)
+// Deploy: Firebase console → Storage → Rules → paste & publish,
+// or `firebase deploy --only storage`. See PLATFORM_SETUP.md.
+//
+// Gates the book PDF behind a verified account. Every read is checked by
+// Google's servers against these rules on every request — this is not a
+// one-time link that can be copied and reshared, unlike a public download
+// URL. There is no client-side upload path; the file is placed at
+// book/The-Collaboration-Reflex-Book.pdf once via the Firebase console or
+// the Admin SDK, never through the app.
+// ============================================================================
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    match /book/{fileName} {
+      allow read: if request.auth != null && request.auth.token.email_verified == true;
+      allow write: if false;
+    }
+
+    // Deny everything else by default.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}
