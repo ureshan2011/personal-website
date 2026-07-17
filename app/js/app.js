@@ -137,6 +137,36 @@ const FORUM_CATEGORIES = [
   { id: "feedback", icon: "💡", name: "Feedback & Ideas", desc: "Suggestions for this platform and the community." }
 ];
 
+const BOOK = {
+  title: "The Collaboration Reflex",
+  subtitle: "Why the “right” answer to conflict is usually wrong",
+  tagline: "Forty-five true stories from real workplaces",
+  cover: "../assets/files/bookimg.png",
+  // Gated content lives in Firestore, not as a public file in this repo —
+  // chunked base64 documents under bookFile/meta/chunks/*, uploaded once via
+  // scripts/upload-book.js. Reads are enforced by firestore.rules on every
+  // fetch, exactly like every other collection in this app.
+  fileDocPath: "bookFile/meta",
+  fileName: "The-Collaboration-Reflex-Yasas-Sri-Wickramasinghe.pdf",
+  pullQuote: "An answer that fits every question has stopped being an answer.",
+  pitch: "Most conflict advice collapses into a single instruction: collaborate, find the win-win. This book takes that instinct apart using forty-five real, anonymised workplace conflicts — a CEO calling an internal auditor's findings “false allegations” to his face, two salespeople quietly losing one shared client, a delay blamed on the coordinator who’d flagged it in writing two days earlier — and shows why reaching for collaboration is right far less often than people assume. It restores the full range of responses to conflict, including the unfashionable ones, and gives a concrete way to tell which one a situation actually calls for.",
+  why: "Almost every conflict framework ends at the same instruction: collaborate, find the win-win. This book argues that reflex is usually wrong. Read across forty-five real, anonymised workplace conflicts — and reviewed independently, story by story — the same instinct kept surfacing: recommend collaboration almost regardless of the situation, even where the evidence in the story showed forcing or walking away would have served people better. That finding is the spine of the book: a practical case for reclaiming the full menu of responses to conflict, and the judgement to know which one a moment actually calls for.",
+  modes: ["Competing", "Collaborating", "Compromising", "Avoiding", "Accommodating"],
+  chapters: [
+    "Why Good Projects Breed Conflict",
+    "The Five Moves Everyone Makes",
+    "Polite but Dead: The High Cost of Avoiding",
+    "Winning Battles, Losing People",
+    "The Collaboration Reflex",
+    "Resolved Is Not Repaired",
+    "The Argument Under the Argument",
+    "The Quiet Power of Receipts",
+    "Communication Is a System, Not a Talent",
+    "The Playbook: Eight Habits That Prevent Most Conflicts"
+  ],
+  about: "Yasas Sri Wickramasinghe, PhD, is a researcher in human-computer interaction and a project-management educator. This is his first book for a general audience — grounded in real workplace experience rather than theory alone. Every conflict in it is real; the names are not."
+};
+
 /* ---------- Tiny helpers -------------------------------------------------- */
 
 const view = document.getElementById("view");
@@ -254,6 +284,7 @@ const routes = [
   [/^blog$/, viewBlogList],
   [/^blog\/([\w-]+)$/, viewBlogPost],
   [/^newsletter$/, viewNewsletter],
+  [/^book$/, viewBook],
   [/^forum$/, viewForum],
   [/^forum\/new$/, viewForumNew],
   [/^forum\/c\/([\w-]+)$/, viewForumCategory],
@@ -336,6 +367,12 @@ function viewHub() {
   </div>
 
   <div class="hub-grid">
+    <a class="hub-card" href="#/book" style="border-color:var(--accent)">
+      <div class="ic">📘</div>
+      <h3>The Collaboration Reflex</h3>
+      <p>My new book on why the instinct to “collaborate” is usually the wrong answer to conflict — free to download.</p>
+      <span class="go">Get the book →</span>
+    </a>
     <a class="hub-card" href="#/consult">
       <div class="ic">🗓</div>
       <h3>Free Consultations</h3>
@@ -884,6 +921,154 @@ function viewNewsletter(params) {
 }
 
 /* ==========================================================================
+   VIEW: The Book
+   ========================================================================== */
+
+async function viewBook() {
+  const canDownload = CONFIGURED && currentUser && currentUser.emailVerified;
+
+  view.innerHTML = `
+  ${setupNotice()}
+  <div class="app-crumb"><a href="#/">Platform</a> / The Book</div>
+  <div class="two-col">
+    <div>
+      <img src="${BOOK.cover}" alt="Book cover: ${esc(BOOK.title)} — ${esc(BOOK.subtitle)}, by Yasas Sri Wickramasinghe, PhD" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);"/>
+      <div id="bookDownloadPanel" style="margin-top:20px"></div>
+    </div>
+    <div>
+      <span class="eyebrow">New Book</span>
+      <h1 style="margin-top:14px;font-size:clamp(28px,4vw,42px)">${esc(BOOK.title)}</h1>
+      <p style="font-style:italic;color:var(--ink-soft);margin-top:8px;font-size:17px">${esc(BOOK.subtitle)}</p>
+      <p style="margin-top:18px">${esc(BOOK.pitch)}</p>
+      <blockquote style="margin:22px 0;border-left:3px solid var(--accent);padding-left:18px;color:var(--ink-soft);font-style:italic;font-size:15.5px">${esc(BOOK.pullQuote)}</blockquote>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0">
+        <div class="stat" style="text-align:center"><b>45</b><span>real stories</span></div>
+        <div class="stat" style="text-align:center"><b>5</b><span>conflict modes</span></div>
+        <div class="stat" style="text-align:center"><b>10</b><span>chapters</span></div>
+      </div>
+
+      <h3 style="margin-top:8px">Why it matters</h3>
+      <p style="margin-top:8px">${esc(BOOK.why)}</p>
+
+      <h3 style="margin-top:24px">The five modes</h3>
+      <div class="tmeta" style="margin-top:10px">${BOOK.modes.map(m => `<span class="chip">${esc(m)}</span>`).join("")}</div>
+
+      <h3 style="margin-top:24px">Inside the book</h3>
+      <ol style="margin-top:10px;display:grid;gap:8px;padding-left:0;list-style:none">
+        ${BOOK.chapters.map((c, i) => `<li style="font-size:14.5px;color:var(--ink-soft)"><b style="color:var(--ink)">${i + 1}.</b> ${esc(c)}</li>`).join("")}
+      </ol>
+
+      <div class="panel" style="margin-top:28px;background:var(--bg-soft)">
+        <h3>About the author</h3>
+        <p class="sub" style="margin-top:6px;margin-bottom:0">${esc(BOOK.about)}</p>
+      </div>
+    </div>
+  </div>`;
+
+  const panel = document.getElementById("bookDownloadPanel");
+
+  // Fetches the PDF (stored as base64 chunks, since Firebase Storage now
+  // requires the paid Blaze plan even for free-tier usage) through
+  // firestore.rules — isVerified() is re-checked by Google's servers on
+  // every one of these reads, so this is not a shareable link, it fails
+  // fresh for anyone who isn't signed in and verified — then reassembles
+  // and saves it via a short-lived local object URL.
+  async function fetchAndTriggerDownload() {
+    const metaSnap = await getDoc(doc(db, BOOK.fileDocPath));
+    if (!metaSnap.exists()) throw { code: "book/not-found" };
+    const meta = metaSnap.data();
+
+    const chunkSnaps = await Promise.all(
+      Array.from({ length: meta.chunkCount }, (_, i) =>
+        getDoc(doc(db, BOOK.fileDocPath, "chunks", String(i))))
+    );
+    const base64 = chunkSnaps.map(s => s.data().data).join("");
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+
+    const blobUrl = URL.createObjectURL(new Blob([bytes], { type: meta.mimeType || "application/pdf" }));
+    const a = document.createElement("a");
+    a.href = blobUrl;
+    a.download = BOOK.fileName;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+  }
+
+  function renderDownloadCta(record) {
+    const already = record && record.downloadCount > 0;
+    panel.innerHTML = `
+    <div class="panel">
+      <h3>Download your copy</h3>
+      <p class="sub" style="margin-bottom:16px">Free, full PDF. ${already ? `You first downloaded this on ${fmtDate(record.firstDownloadAt)} — ${record.downloadCount} download${record.downloadCount === 1 ? "" : "s"} so far.` : "I keep a simple record of who's downloaded it — no spam, ever — just so I know the book is reaching people."}</p>
+      <button class="btn btn-solid" type="button" id="bookDownloadBtn" style="width:100%;justify-content:center">${already ? "Download Again" : "Download the Book"} <span class="arrow">→</span></button>
+      <span class="form-msg" id="bookDownloadMsg" style="display:block;margin-top:10px"></span>
+    </div>`;
+    const btn = document.getElementById("bookDownloadBtn");
+    const msg = document.getElementById("bookDownloadMsg");
+    btn.onclick = async () => {
+      btn.disabled = true; msg.className = "form-msg"; msg.textContent = "";
+      try {
+        // Fetch first — only log a download once Storage's rules have
+        // actually granted the file, so the record can't be gamed by a
+        // request that was rejected.
+        await fetchAndTriggerDownload();
+
+        const ref = doc(db, "bookDownloads", currentUser.uid);
+        const existing = await getDoc(ref);
+        if (existing.exists()) {
+          await updateDoc(ref, {
+            downloadCount: increment(1),
+            lastDownloadAt: serverTimestamp(),
+            name: currentUser.displayName || existing.data().name || "",
+            email: currentUser.email
+          });
+        } else {
+          await setDoc(ref, {
+            uid: currentUser.uid,
+            name: currentUser.displayName || "",
+            email: currentUser.email,
+            downloadCount: 1,
+            firstDownloadAt: serverTimestamp(),
+            lastDownloadAt: serverTimestamp()
+          });
+        }
+        toast("Downloading — enjoy the book!");
+        const fresh = await getDoc(ref);
+        renderDownloadCta(fresh.data());
+      } catch (e) {
+        msg.className = "form-msg err";
+        msg.textContent = String(e && e.code) === "book/not-found"
+          ? "The book file isn't uploaded yet — the site owner needs to run scripts/upload-book.js."
+          : String(e && e.code).includes("permission-denied")
+          ? "Your account isn't authorised to download this yet — try signing out and back in."
+          : fbError(e);
+      } finally { btn.disabled = false; }
+    };
+  }
+
+  if (!CONFIGURED) {
+    panel.innerHTML = "";
+  } else if (!currentUser) {
+    panel.innerHTML = authPrompt("Create a free account to download the book — it takes under a minute.");
+  } else if (!currentUser.emailVerified) {
+    panel.innerHTML = verifyPrompt();
+    bindResendVerify();
+  } else {
+    try {
+      const ref = doc(db, "bookDownloads", currentUser.uid);
+      const existing = await getDoc(ref);
+      renderDownloadCta(existing.exists() ? existing.data() : null);
+    } catch (e) {
+      renderDownloadCta(null);
+    }
+  }
+}
+
+/* ==========================================================================
    VIEW: Forum
    ========================================================================== */
 
@@ -1298,6 +1483,7 @@ async function viewAdmin() {
     <button data-t="consult" class="active">Consultations</button>
     <button data-t="invites">Invitations</button>
     <button data-t="messages">Messages</button>
+    <button data-t="book">Book Downloads</button>
     <button data-t="blog">Blog</button>
     <button data-t="subs">Subscribers</button>
     <button data-t="mod">Moderation</button>
@@ -1308,17 +1494,18 @@ async function viewAdmin() {
   const tabs = document.getElementById("adminTabs").querySelectorAll("button");
   const setTab = t => {
     tabs.forEach(b => b.classList.toggle("active", b.dataset.t === t));
-    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, blog: adminBlog, subs: adminSubs, mod: adminMod })[t](body);
+    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, book: adminBookDownloads, blog: adminBlog, subs: adminSubs, mod: adminMod })[t](body);
   };
   tabs.forEach(b => b.onclick = () => setTab(b.dataset.t));
 
   // Stats
   (async () => {
     try {
-      const [c, i, m, s, r] = await Promise.all([
+      const [c, i, m, bk, s, r] = await Promise.all([
         getDocs(collection(db, "consultations")),
         getDocs(collection(db, "invitations")),
         getDocs(collection(db, "messages")),
+        getDocs(collection(db, "bookDownloads")),
         getDocs(collection(db, "subscribers")),
         getDocs(query(collection(db, "threads"), where("reported", "==", true)))
       ]);
@@ -1327,6 +1514,7 @@ async function viewAdmin() {
         <div class="stat"><b>${pend(c)}</b><span>pending consultations</span></div>
         <div class="stat"><b>${pend(i)}</b><span>pending invitations</span></div>
         <div class="stat"><b>${m.docs.filter(d => d.data().status === "new").length}</b><span>new messages</span></div>
+        <div class="stat"><b>${bk.size}</b><span>readers who've downloaded the book</span></div>
         <div class="stat"><b>${s.docs.filter(d => d.data().status === "subscribed").length}</b><span>newsletter subscribers</span></div>
         <div class="stat"><b>${r.size}</b><span>reported threads</span></div>`;
     } catch (e) { console.error(e); }
@@ -1617,6 +1805,38 @@ async function adminBlog(body, editId) {
     try { await deleteDoc(doc(db, "posts", b.dataset.pdel)); adminBlog(body); }
     catch (e) { toast(fbError(e)); }
   });
+}
+
+async function adminBookDownloads(body) {
+  body.innerHTML = `<div class="loading"><div class="spinner"></div></div>`;
+  const snap = await getDocs(collection(db, "bookDownloads"));
+  const rows = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .sort((a, b) => (tsDate(b.lastDownloadAt) || 0) - (tsDate(a.lastDownloadAt) || 0));
+
+  body.innerHTML = `
+  <div class="form-actions" style="margin-bottom:18px">
+    <button class="btn small btn-solid" id="bookCsvBtn" ${rows.length ? "" : "disabled"}>Export CSV (${rows.length})</button>
+    <span class="form-msg">Everyone who has downloaded <i>${esc(BOOK.title)}</i> through the platform.</span>
+  </div>
+  <div class="list">${rows.map(r => `
+    <div class="list-item">
+      <div class="li-main"><h3 style="font-size:14.5px">${esc(r.name || "(no name set)")}</h3>
+        <div class="meta">${esc(r.email)} · first downloaded ${fmtDate(r.firstDownloadAt)} · last ${fmtDate(r.lastDownloadAt)}</div></div>
+      <div class="li-side" style="flex-direction:row;align-items:center">
+        <span class="badge">${r.downloadCount || 1} download${(r.downloadCount || 1) === 1 ? "" : "s"}</span>
+      </div>
+    </div>`).join("") || `<div class="empty">No downloads yet — readers who sign in and download the book will appear here.</div>`}</div>`;
+
+  const csvBtn = document.getElementById("bookCsvBtn");
+  if (csvBtn) csvBtn.onclick = () => {
+    const table = [["name", "email", "downloadCount", "firstDownloadAt", "lastDownloadAt"]]
+      .concat(rows.map(r => [r.name || "", r.email || "", r.downloadCount || 1, fmtDate(r.firstDownloadAt), fmtDate(r.lastDownloadAt)]));
+    const csv = table.map(row => row.map(c => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+    a.download = "book-downloads.csv";
+    a.click();
+  };
 }
 
 async function adminSubs(body) {

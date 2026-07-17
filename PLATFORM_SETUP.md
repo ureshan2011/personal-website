@@ -18,8 +18,9 @@ renders, but forms, sign-in and the forum are disabled with a visible notice.
 | Blog (Markdown articles, categories, tags, reading time, "discuss in forum") | `app/#/blog` | `posts` |
 | Newsletter signup (segments, CSV export for any email tool) | `app/#/newsletter` | `subscribers` |
 | Community forum (8 seeded categories, threads/replies, reports, pin/lock/hide) | `app/#/forum` | `threads` + `replies` |
+| Book — gated download (Firestore-chunked PDF), logged per reader | `app/#/book` | `bookDownloads` + `bookFile` |
 | Sign in (Google or email+password with email verification) | `app/#/account` | `profiles` |
-| Admin dashboard (queues, blog editor, subscribers, moderation) | `app/#/admin` | all of the above |
+| Admin dashboard (queues, blog editor, subscribers, moderation, book downloads) | `app/#/admin` | all of the above |
 
 ## One-time setup (~15 minutes)
 
@@ -58,7 +59,42 @@ Firebase console → **Build → Authentication → Get started**:
 > (`window.PLATFORM_ADMINS`). Both are currently set to
 > `yasassriofficial@gmail.com`.
 
-### 5. Sign in as admin
+### 5. The book (`app/#/book`) — already live, no action needed
+
+The book PDF is gated behind a verified account and stored as base64 chunks
+in Firestore (`bookFile/meta` + `bookFile/meta/chunks/*`) rather than
+Firebase Storage. Reason: Cloud Storage for Firebase now requires the paid
+**Blaze** plan to provision a bucket at all — even for usage that stays
+entirely inside the free tier — so it doesn't fit a Spark-only setup.
+Firestore has no such requirement and is already deployed for this project.
+
+The PDF is deliberately **not** in this repository as a plain file — that
+would be publicly fetchable on GitHub Pages regardless of any app-level
+gate, defeating the whole point. `firestore.rules` gates every chunk read
+behind `isVerified()`, checked by Google's servers on each request, exactly
+like every other collection in this app — there's no shareable link to leak.
+
+This has already been deployed and the book uploaded (`firestore.rules`,
+`firestore.indexes.json` — the latter exempts the large base64 chunks from
+Firestore's automatic per-field indexing — and the data itself). Nothing
+further to do unless the book gets a revised edition:
+
+```
+npm install firebase-admin --no-save
+node scripts/upload-book.js /path/to/service-account.json
+```
+
+See the comment at the top of [`scripts/upload-book.js`](scripts/upload-book.js)
+for how to get a service account key (Project settings → Service accounts
+→ Generate new private key). Delete the key file afterwards — it's a
+credential, treat it like a password. Re-running the script overwrites the
+existing chunks with the new file.
+
+Prefer the CLI for rules + indexes together? `firebase deploy --only firestore:rules,firestore:indexes`
+(`firebase.json` and `.firebaserc` in this repo are already set up for it —
+just `firebase login` first).
+
+### 6. Sign in as admin
 
 Visit `https://www.yasassri.me/app/#/account`, sign in **with Google** using the
 admin email (Google accounts are auto-verified). The nav now shows **Admin ⚙**
@@ -102,7 +138,7 @@ trigger. Recommended free/cheap upgrades when you want them:
 | Email notifications on new requests | Firebase **Trigger Email** extension, or a Zapier/Make watch on Firestore |
 | Calendar invites (ICS) + reminders | Create the Google Calendar event when approving (its invite email covers both) |
 | Newsletter sending + double opt-in | Import CSV into Buttondown/Mailchimp — keep the platform as the signup source of truth |
-| File attachments on requests | Firebase Storage (add rules first) |
+| File attachments on requests | Firebase Storage, if the Blaze plan is acceptable — or the same chunked-Firestore pattern used for the book, for small files |
 | Verified-student flag / student-only categories enforced server-side | Firebase custom claims via a small Cloud Function |
 
 The data model already matches the full specification, so none of these
