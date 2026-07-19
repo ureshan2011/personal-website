@@ -6,7 +6,12 @@ assets/files/The-Collaboration-Reflex-Book.pdf
 
 # Local-only tooling for scripts/upload-book.js (firebase-tools, firebase-admin)
 node_modules/
-package.json
-package-lock.json
+/package.json
+/package-lock.json
 firebase-debug.log
 .firebase/
+
+# app/lessons-src/ IS a real, committed source project (package.json et al
+# tracked on purpose — see PLATFORM_SETUP.md step 6) but its install/build
+# output is not: only the copied app/lessons/lessons.js + .css are deployed.
+app/lessons-src/dist/
