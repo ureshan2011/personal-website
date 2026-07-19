@@ -229,50 +229,152 @@ function fbError(e) {
 
 function mdToHtml(src) {
   src = String(src || "").replace(/\r\n?/g, "\n");
+  const NUL_MARK = String.fromCharCode(0);
+
+  // Callouts (::: type [title] ... :::) extracted -- and recursively
+  // rendered -- before code-block extraction/escaping, so each callout body
+  // gets fully independent markdown handling (including its own code
+  // fences, lists, etc).
+  const callouts = [];
+  src = src.replace(/^:::[ \t]*([\w-]+)[ \t]*(.*)\n([\s\S]*?)\n:::[ \t]*$/gm, (_, type, title, body) => {
+    const titleHtml = title.trim() ? ("<div class=\"callout-title\">" + esc(title.trim()) + "</div>") : "";
+    callouts.push("<div class=\"callout callout-" + esc(type.trim().toLowerCase()) + "\">" + titleHtml + mdToHtml(body) + "</div>");
+    return NUL_MARK + "CALLOUT" + (callouts.length - 1) + NUL_MARK;
+  });
+
   const codeBlocks = [];
   src = src.replace(/```([\w-]*)\n([\s\S]*?)```/g, (_, lang, code) => {
-    codeBlocks.push(`<pre><code${lang ? ` class="lang-${esc(lang)}"` : ""}>${esc(code.replace(/\n$/, ""))}</code></pre>`);
-    return "\u0000CODE" + (codeBlocks.length - 1) + "\u0000";
+    codeBlocks.push("<pre><code" + (lang ? (" class=\"lang-" + esc(lang) + "\"") : "") + ">" + esc(code.replace(/\n$/, "")) + "</code></pre>");
+    return NUL_MARK + "CODE" + (codeBlocks.length - 1) + NUL_MARK;
   });
   src = esc(src);
 
   const inline = t => t
-    .replace(/!\[([^\]]*)\]\((https?:[^)\s]+)\)/g, '<img src="$2" alt="$1" loading="lazy"/>')
+    .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img src="$2" alt="$1" loading="lazy"/>')
     .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
     .replace(/`([^`]+)`/g, "<code>$1</code>")
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/(^|\W)\*([^*\n]+)\*(?=\W|$)/g, "$1<em>$2</em>");
 
+  const splitRow = l => {
+    let s = l.trim();
+    if (s.startsWith("|")) s = s.slice(1);
+    if (s.endsWith("|")) s = s.slice(0, -1);
+    return s.split("|").map(c => c.trim());
+  };
+  const isSeparatorRow = l => {
+    const cells = splitRow(l);
+    return cells.length > 0 && cells.every(c => /^:?-+:?$/.test(c));
+  };
+  const isTableRow = l => l.includes("|") && l.trim().length > 0;
+
   const lines = src.split("\n");
   const out = [];
   let para = [], listType = null;
 
-  const flushPara = () => { if (para.length) { out.push(`<p>${inline(para.join(" "))}</p>`); para = []; } };
-  const closeList = () => { if (listType) { out.push(`</${listType}>`); listType = null; } };
+  const flushPara = () => { if (para.length) { out.push("<p>" + inline(para.join(" ")) + "</p>"); para = []; } };
+  const closeList = () => { if (listType) { out.push("</" + listType + ">"); listType = null; } };
 
-  for (const raw of lines) {
-    const line = raw.trimEnd();
-    const code = line.match(/^\u0000CODE(\d+)\u0000$/);
-    if (code) { flushPara(); closeList(); out.push(codeBlocks[+code[1]]); continue; }
-    if (!line.trim()) { flushPara(); closeList(); continue; }
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i].trimEnd();
+
+    const code = line.startsWith(NUL_MARK + "CODE") && line.endsWith(NUL_MARK) ? line.slice((NUL_MARK + "CODE").length, -NUL_MARK.length) : null;
+    if (code !== null) { flushPara(); closeList(); out.push(codeBlocks[+code]); i++; continue; }
+
+    const callout = line.startsWith(NUL_MARK + "CALLOUT") && line.endsWith(NUL_MARK) ? line.slice((NUL_MARK + "CALLOUT").length, -NUL_MARK.length) : null;
+    if (callout !== null) { flushPara(); closeList(); out.push(callouts[+callout]); i++; continue; }
+
+    if (!line.trim()) { flushPara(); closeList(); i++; continue; }
+
+    if (isTableRow(line) && i + 1 < lines.length && isSeparatorRow(lines[i + 1])) {
+      flushPara(); closeList();
+      const header = splitRow(line);
+      i += 2;
+      const rows = [];
+      while (i < lines.length && isTableRow(lines[i]) && lines[i].trim()) { rows.push(splitRow(lines[i])); i++; }
+      out.push("<table><thead><tr>" + header.map(c => "<th>" + inline(c) + "</th>").join("") + "</tr></thead><tbody>" +
+        rows.map(r => "<tr>" + r.map(c => "<td>" + inline(c) + "</td>").join("") + "</tr>").join("") +
+      "</tbody></table>");
+      continue;
+    }
+
     const h = line.match(/^(#{1,4})\s+(.+)$/);
-    if (h) { flushPara(); closeList(); const n = Math.min(h[1].length + 1, 4); out.push(`<h${n}>${inline(h[2])}</h${n}>`); continue; }
-    if (/^(---|\*\*\*)\s*$/.test(line)) { flushPara(); closeList(); out.push("<hr/>"); continue; }
+    if (h) { flushPara(); closeList(); const n = Math.min(h[1].length + 1, 4); out.push("<h" + n + ">" + inline(h[2]) + "</h" + n + ">"); i++; continue; }
+    if (/^(---|\*\*\*)\s*$/.test(line)) { flushPara(); closeList(); out.push("<hr/>"); i++; continue; }
     const bq = line.match(/^&gt;\s?(.*)$/);
-    if (bq) { flushPara(); closeList(); out.push(`<blockquote><p>${inline(bq[1])}</p></blockquote>`); continue; }
+    if (bq) { flushPara(); closeList(); out.push("<blockquote><p>" + inline(bq[1]) + "</p></blockquote>"); i++; continue; }
     const ul = line.match(/^[-*]\s+(.+)$/);
     const ol = line.match(/^\d+\.\s+(.+)$/);
     if (ul || ol) {
       flushPara();
       const want = ul ? "ul" : "ol";
-      if (listType !== want) { closeList(); out.push(`<${want}>`); listType = want; }
-      out.push(`<li>${inline((ul || ol)[1])}</li>`);
-      continue;
+      if (listType !== want) { closeList(); out.push("<" + want + ">"); listType = want; }
+      out.push("<li>" + inline((ul || ol)[1]) + "</li>");
+      i++; continue;
     }
     para.push(line.trim());
+    i++;
   }
   flushPara(); closeList();
   return out.join("\n");
+}
+
+/* ---------- Lesson decks (ported, interactive React content) --------------
+   Rendered by a separately-built bundle (app/lessons-src/ -> app/lessons/),
+   lazy-loaded only when a deck route is actually visited. See viewLessonDeck. */
+
+const LESSON_DECKS = [
+  { slug: "database-concepts", title: "Advanced Database Concepts", subtitle: "Table design, backup & restore, and a plain-English look at SQL injection.", accent: "#2563eb" },
+  { slug: "er-diagrams", title: "ER Diagrams", subtitle: "Entities, attributes and relationships in Chen's notation.", accent: "#0d7a72" },
+  { slug: "sql-programming", title: "SQL Programming", subtitle: "CREATE, INSERT, SELECT — one interactive slide at a time.", accent: "#2563eb" },
+  { slug: "er-activities", title: "ER Diagrams in Practice", subtitle: "Model five real systems and check your diagram against a worked answer.", accent: "#1d4ed8" },
+  { slug: "er-advanced", title: "Advanced ER Concepts", subtitle: "Weak entities, identifying relationships, multivalued & derived attributes.", accent: "#3b82f6" },
+  { slug: "er-attributes", title: "Attributes & Participation", subtitle: "Composite/derived attributes and participation constraints, guided.", accent: "#0f766e" },
+  { slug: "apa-referencing", title: "APA 7 Citations", subtitle: "A 14-slide interactive crash course with a practice quiz.", accent: "#4338ca" },
+  { slug: "jira-certifications", title: "Free Jira & Agile Certifications", subtitle: "Three hand-picked, genuinely free credentials worth putting on LinkedIn.", accent: "#0052CC" },
+  { slug: "sql-certifications", title: "Free SQL Certifications", subtitle: "Nine genuinely free credentials, from vendor badges to project-based certs.", accent: "#7c3aed" },
+  { slug: "vibe-to-production", title: "From Vibe to Production", subtitle: "Idea to live website in one sitting: Google Stitch, Claude Code, GitHub Pages.", accent: "#7c3aed" }
+];
+
+let lessonBundleLoaded = false;
+function loadLessonBundle() {
+  if (window.mountLesson) { lessonBundleLoaded = true; }
+  if (lessonBundleLoaded) return Promise.resolve();
+  return new Promise((resolve, reject) => {
+    if (!document.querySelector("link[data-lessons-css]")) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "lessons/lessons.css";
+      link.dataset.lessonsCss = "1";
+      document.head.appendChild(link);
+    }
+    const script = document.createElement("script");
+    script.src = "lessons/lessons.js";
+    script.onload = () => { lessonBundleLoaded = true; resolve(); };
+    script.onerror = () => reject(new Error("Couldn't load the lesson bundle."));
+    document.body.appendChild(script);
+  });
+}
+
+let lessonUnmount = null;
+
+async function viewLessonDeck(_, slug) {
+  const deck = LESSON_DECKS.find(d => d.slug === slug);
+  if (!deck) {
+    view.innerHTML = `<div class="empty">Lesson not found. <a href="#/lessons" style="color:var(--accent);font-weight:600">Back to all lessons →</a></div>`;
+    return;
+  }
+  document.title = `${deck.title} — Yasas Sri Wickramasinghe`;
+  try {
+    await loadLessonBundle();
+  } catch (e) {
+    view.innerHTML = `<div class="empty">Couldn't load this lesson — please try again.</div>`;
+    return;
+  }
+  view.classList.add("lesson-full-bleed");
+  view.innerHTML = `<div id="lessonMount"></div>`;
+  lessonUnmount = window.mountLesson(document.getElementById("lessonMount"), slug);
 }
 
 /* ---------- Router --------------------------------------------------------- */
@@ -283,6 +385,9 @@ const routes = [
   [/^invite$/, viewInvite],
   [/^blog$/, viewBlogList],
   [/^blog\/([\w-]+)$/, viewBlogPost],
+  [/^lessons$/, viewLessonsIndex],
+  [/^lessons\/deck\/([\w-]+)$/, viewLessonDeck],
+  [/^lessons\/article\/([\w-]+)$/, viewLessonArticle],
   [/^newsletter$/, viewNewsletter],
   [/^book$/, viewBook],
   [/^forum$/, viewForum],
@@ -305,6 +410,8 @@ async function route() {
   updateNav(path);
   document.title = "Platform — Consultations, Speaking, Blog & Community | Dr. Yasas Sri Wickramasinghe";
   window.scrollTo(0, 0);
+  if (lessonUnmount) { lessonUnmount(); lessonUnmount = null; }
+  view.classList.remove("lesson-full-bleed");
   view.innerHTML = `<div class="loading"><div class="spinner"></div></div>`;
   await authReady;
   for (const [re, fn] of routes) {
@@ -840,6 +947,88 @@ async function viewBlogPost(_, slug) {
       </div>
     </div>
   </article>`;
+}
+
+/* ==========================================================================
+   VIEW: Lessons (markdown study articles)
+   ========================================================================== */
+
+async function fetchPublishedLessons() {
+  if (!CONFIGURED) return [];
+  const snap = await getDocs(query(collection(db, "lessons"), where("status", "==", "published")));
+  return snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .sort((a, b) => (tsDate(b.publishedAt || b.createdAt) || 0) - (tsDate(a.publishedAt || a.createdAt) || 0));
+}
+
+async function viewLessonArticle(_, slug) {
+  if (!CONFIGURED) { view.innerHTML = setupNotice() + `<div class="empty">Lessons aren't connected yet.</div>`; return; }
+  let lesson = null;
+  const constraints = [where("slug", "==", slug)];
+  if (!isAdmin()) constraints.push(where("status", "==", "published"));
+  const bySlug = await getDocs(query(collection(db, "lessons"), ...constraints, limit(1)));
+  if (!bySlug.empty) lesson = { id: bySlug.docs[0].id, ...bySlug.docs[0].data() };
+  else {
+    try { const d = await getDoc(doc(db, "lessons", slug)); if (d.exists()) lesson = { id: d.id, ...d.data() }; } catch (_) {}
+  }
+  if (!lesson || (lesson.status !== "published" && !isAdmin())) {
+    view.innerHTML = `<div class="empty">Lesson not found. <a href="#/lessons" style="color:var(--accent);font-weight:600">Back to all lessons →</a></div>`;
+    return;
+  }
+  document.title = `${lesson.title} — Yasas Sri Wickramasinghe`;
+  view.innerHTML = `
+  <article class="article">
+    <div class="app-crumb"><a href="#/">Platform</a> / <a href="#/lessons">Lessons</a> / ${esc(lesson.title)}</div>
+    <header class="article-header">
+      <span class="badge cat">Article</span>
+      <h1>${esc(lesson.title)}</h1>
+      <div class="pmeta">By Dr. Yasas Sri Wickramasinghe · ${fmtDate(lesson.publishedAt || lesson.createdAt)} ·
+        ${lesson.readingTime || readingTime(lesson.content)} min read
+        ${lesson.status !== "published" ? " · " + badge(lesson.status) : ""}</div>
+      ${lesson.subtitle ? `<p class="article-summary">${esc(lesson.subtitle)}</p>` : ""}
+    </header>
+    ${lesson.objectives && lesson.objectives.length ? `
+    <div class="panel" style="margin-bottom:28px">
+      <h3 style="margin-bottom:10px">What you'll learn</h3>
+      <ul style="margin:0 0 0 20px">${lesson.objectives.map(o => `<li>${esc(o)}</li>`).join("")}</ul>
+    </div>` : ""}
+    <div class="prose">${mdToHtml(lesson.content)}</div>
+    ${lesson.tags && lesson.tags.length ? `<div class="tmeta" style="margin-top:28px">${lesson.tags.map(t => `<span class="chip">#${esc(t)}</span>`).join("")}</div>` : ""}
+  </article>`;
+}
+
+async function viewLessonsIndex() {
+  view.innerHTML = `
+  <div class="app-crumb"><a href="#/">Platform</a> / Lessons</div>
+  <div class="app-head">
+    <span class="eyebrow">Lessons</span>
+    <h1 style="margin-top:14px">Teaching material, <em>freely reusable.</em></h1>
+    <p>Interactive walkthroughs and short articles — database design, data modelling, SQL,
+    referencing and a few career extras.</p>
+  </div>
+  <div class="post-grid">
+    ${LESSON_DECKS.map(d => `
+      <a class="post-card" href="#/lessons/deck/${esc(d.slug)}">
+        <span class="pmeta"><span class="badge cat" style="background:${esc(d.accent)}22;color:${esc(d.accent)}">Interactive</span></span>
+        <h3>${esc(d.title)}</h3>
+        <p>${esc(d.subtitle)}</p>
+        <span class="go" style="color:var(--accent);font-weight:600;font-size:14px">Start lesson →</span>
+      </a>`).join("")}
+    <span id="lessonArticleCards"></span>
+  </div>`;
+
+  const box = document.getElementById("lessonArticleCards");
+  try {
+    const lessons = await fetchPublishedLessons();
+    box.outerHTML = lessons.map(l => `
+      <a class="post-card" href="#/lessons/article/${esc(l.slug || l.id)}">
+        <span class="pmeta"><span class="badge cat">Article</span> &nbsp; ${l.readingTime || readingTime(l.content)} min read</span>
+        <h3>${esc(l.title)}</h3>
+        <p>${esc(l.subtitle || "")}</p>
+        <span class="go" style="color:var(--accent);font-weight:600;font-size:14px">Read lesson →</span>
+      </a>`).join("");
+  } catch (e) {
+    box.outerHTML = "";
+  }
 }
 
 /* ==========================================================================
@@ -1485,6 +1674,7 @@ async function viewAdmin() {
     <button data-t="messages">Messages</button>
     <button data-t="book">Book Downloads</button>
     <button data-t="blog">Blog</button>
+    <button data-t="lessons">Lessons</button>
     <button data-t="subs">Subscribers</button>
     <button data-t="mod">Moderation</button>
   </div>
@@ -1494,7 +1684,7 @@ async function viewAdmin() {
   const tabs = document.getElementById("adminTabs").querySelectorAll("button");
   const setTab = t => {
     tabs.forEach(b => b.classList.toggle("active", b.dataset.t === t));
-    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, book: adminBookDownloads, blog: adminBlog, subs: adminSubs, mod: adminMod })[t](body);
+    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, book: adminBookDownloads, blog: adminBlog, lessons: adminLessons, subs: adminSubs, mod: adminMod })[t](body);
   };
   tabs.forEach(b => b.onclick = () => setTab(b.dataset.t));
 
@@ -1803,6 +1993,92 @@ async function adminBlog(body, editId) {
   body.querySelectorAll("[data-pdel]").forEach(b => b.onclick = async () => {
     if (!confirm("Delete this article permanently?")) return;
     try { await deleteDoc(doc(db, "posts", b.dataset.pdel)); adminBlog(body); }
+    catch (e) { toast(fbError(e)); }
+  });
+}
+
+async function adminLessons(body, editId) {
+  body.innerHTML = `<div class="loading"><div class="spinner"></div></div>`;
+  const snap = await getDocs(collection(db, "lessons"));
+  const lessons = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .sort((a, b) => (tsDate(b.createdAt) || 0) - (tsDate(a.createdAt) || 0));
+  const editing = editId ? lessons.find(l => l.id === editId) : null;
+
+  body.innerHTML = `
+  <div class="two-col">
+    <form class="form panel" id="lessonForm">
+      <h3>${editing ? "Edit lesson" : "New lesson"}</h3>
+      <div class="field"><label>Title *</label><input name="title" required maxlength="200" value="${esc(editing?.title || "")}"/></div>
+      <div class="field"><label>Subtitle <small>(shown at top &amp; in cards)</small></label>
+        <textarea name="subtitle" maxlength="500" style="min-height:70px">${esc(editing?.subtitle || "")}</textarea></div>
+      <div class="field"><label>Objectives <small>(one per line — "What you'll learn")</small></label>
+        <textarea name="objectives" maxlength="2000" style="min-height:90px">${esc((editing?.objectives || []).join("\n"))}</textarea></div>
+      <div class="field"><label>Tags <small>(comma-separated)</small></label><input name="tags" maxlength="200" value="${esc((editing?.tags || []).join(", "))}"/></div>
+      <div class="field"><label>Content * <small>(Markdown: ## headings, **bold**, [links](url), \`\`\`code\`\`\`, lists, &gt; quotes, images, tables, ::: definition :::)</small></label>
+        <textarea name="content" required maxlength="60000" style="min-height:320px;font-family:ui-monospace,Menlo,monospace;font-size:13px">${esc(editing?.content || "")}</textarea></div>
+      <div class="form-actions">
+        <button class="btn btn-solid small" type="submit" data-status="published">${editing?.status === "published" ? "Update (published)" : "Publish"}</button>
+        <button class="btn small" type="submit" data-status="draft">Save as draft</button>
+        ${editing ? `<button class="btn small" type="button" id="cancelEdit">Cancel edit</button>` : ""}
+        <span class="form-msg" id="lessonMsg"></span>
+      </div>
+    </form>
+    <div>
+      <h3 style="margin-bottom:12px">All lessons (${lessons.length})</h3>
+      <div class="list">${lessons.map(l => `
+        <div class="list-item">
+          <div class="li-main"><h3>${esc(l.title)}</h3>
+            <div class="meta">${fmtDate(l.publishedAt || l.createdAt)} · /${esc(l.slug || l.id)}</div></div>
+          <div class="li-side" style="flex-direction:row;align-items:center">
+            ${badge(l.status)}
+            <button class="btn small" data-edit="${l.id}">Edit</button>
+            <button class="btn small danger" data-ldel="${l.id}">✕</button>
+          </div>
+        </div>`).join("") || `<div class="empty" style="padding:24px">No lessons yet.</div>`}</div>
+    </div>
+  </div>`;
+
+  let clickedStatus = "published";
+  const form = document.getElementById("lessonForm");
+  form.querySelectorAll("button[type=submit]").forEach(b => b.addEventListener("click", () => { clickedStatus = b.dataset.status; }));
+  form.addEventListener("submit", async ev => {
+    ev.preventDefault();
+    const f = new FormData(form);
+    const title = String(f.get("title")).trim();
+    const content = String(f.get("content"));
+    const data = {
+      title,
+      slug: editing?.slug || slugify(title),
+      subtitle: String(f.get("subtitle") || "").trim(),
+      objectives: String(f.get("objectives") || "").split("\n").map(s => s.trim()).filter(Boolean),
+      tags: String(f.get("tags") || "").split(",").map(s => s.trim()).filter(Boolean),
+      content,
+      readingTime: readingTime(content),
+      status: clickedStatus,
+      updatedAt: serverTimestamp()
+    };
+    try {
+      if (editing) {
+        if (clickedStatus === "published" && editing.status !== "published") data.publishedAt = serverTimestamp();
+        await updateDoc(doc(db, "lessons", editing.id), data);
+      } else {
+        data.createdAt = serverTimestamp();
+        if (clickedStatus === "published") data.publishedAt = serverTimestamp();
+        await addDoc(collection(db, "lessons"), data);
+      }
+      toast(clickedStatus === "published" ? "Lesson published ✓" : "Draft saved ✓");
+      adminLessons(body);
+    } catch (e) {
+      document.getElementById("lessonMsg").className = "form-msg err";
+      document.getElementById("lessonMsg").textContent = fbError(e);
+    }
+  });
+  const cancel = document.getElementById("cancelEdit");
+  if (cancel) cancel.onclick = () => adminLessons(body);
+  body.querySelectorAll("[data-edit]").forEach(b => b.onclick = () => adminLessons(body, b.dataset.edit));
+  body.querySelectorAll("[data-ldel]").forEach(b => b.onclick = async () => {
+    if (!confirm("Delete this lesson permanently?")) return;
+    try { await deleteDoc(doc(db, "lessons", b.dataset.ldel)); adminLessons(body); }
     catch (e) { toast(fbError(e)); }
   });
 }
