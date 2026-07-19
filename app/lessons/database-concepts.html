@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Database Concepts — Interactive Lesson | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Table design, backup &amp; restore, and a plain-English look at SQL injection."/>
+<link rel="icon" href="../../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#4b6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/app/lessons/database-concepts.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Advanced Database Concepts — Interactive Lesson | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Table design, backup &amp; restore, and a plain-English look at SQL injection."/>
+<meta property="og:url" content="https://www.yasassri.me/app/lessons/database-concepts.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Advanced Database Concepts",
+  "description": "One database, one table, built up step by step. We create it, shape it, back it up, sort it and count it, then take a plain-English, hands-on look at SQL injection.",
+  "url": "https://www.yasassri.me/app/lessons/database-concepts.html",
+  "learningResourceType": "Interactive lesson deck",
+  "teaches": [
+    "Table design",
+    "Foreign keys & CASCADE",
+    "Backup & restore",
+    "SQL injection"
+  ],
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "about": "Database Management",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Dr. Yasas Sri Wickramasinghe — Academic Platform",
+    "url": "https://www.yasassri.me/app/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="../../assets/css/redesign.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="../../research.html">Research</a>
+      <a href="../../teaching.html">Teaching</a>
+      <a href="../../products.html">Products</a>
+      <a href="../../news.html">News</a>
+      <a href="../../blogs.html">Writing</a>
+      <a href="../../app/#/">Platform</a>
+      <a href="../../contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="app-crumb" style="margin-bottom:14px;"><a href="../../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Lessons / Advanced Database Concepts</span></div>
+
+    <span class="eyebrow reveal">Database Management</span>
+    <h1 class="reveal" style="--d:.1s">Let's make sense of <em>Advanced Database Concepts</em></h1>
+    <p class="lead reveal" style="--d:.2s">One database, one table, built up step by step. We create it, shape it, back it up, sort it and count it, then take a plain-English, hands-on look at SQL injection.</p>
+    <div class="hero-actions reveal" style="--d:.3s">
+      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/database-concepts">Open the Interactive Deck <span class="arrow">→</span></a>
+      <a class="btn" href="../#/lessons">All Lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</header>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">01</span>
+      <h2>What you'll <em>learn</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li>Table design</li>
+      <li>Foreign keys &amp; CASCADE</li>
+      <li>Backup &amp; restore</li>
+      <li>SQL injection</li>
+    </ul>
+    <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
+      This page is a text summary of an interactive, slide-by-slide lesson deck built for
+      the Yoobees teaching platform. Open the interactive version above to work through it
+      with live examples, diagrams and a practice quiz where included.
+    </p>
+    <div class="reveal" style="margin-top:28px;">
+      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/database-concepts">Open the Interactive Deck <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="../../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

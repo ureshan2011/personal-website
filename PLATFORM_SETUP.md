@@ -137,6 +137,66 @@ Visit `https://www.yasassri.me/app/#/account`, sign in **with Google** using the
 admin email (Google accounts are auto-verified). The nav now shows **Admin ⚙**
 and `app/#/admin` unlocks the dashboard.
 
+## IndexNow — instant indexing pings (Bing, and anyone else who honours it)
+
+[IndexNow](https://www.indexnow.org/) lets a static site (no server needed —
+GitHub Pages is fine) tell participating search engines "this URL changed"
+the moment it's published, instead of waiting for the next crawl. Bing is the
+main consumer today, and Bing also powers a meaningful share of ChatGPT
+Search / Copilot results, so this is disproportionately useful for AI-chatbot
+visibility, not just classic search.
+
+**Key file** (already committed): [`b535fe818a0247db987ecaa5253e4f24.txt`](b535fe818a0247db987ecaa5253e4f24.txt)
+at the repo root. Its contents are just the key itself. Once deployed it must
+resolve at:
+
+```
+https://www.yasassri.me/b535fe818a0247db987ecaa5253e4f24.txt
+```
+
+That's the entire setup — IndexNow verifies ownership by fetching this file,
+not by any DNS or console step. Nothing to rotate unless the key is
+compromised (if so: generate a new GUID, add a new `<key>.txt` file with that
+value, and update the pings below to use it).
+
+**Pinging a single URL after a content update** (e.g. right after editing
+`news.html` and deploying):
+
+```bash
+curl -s "https://api.indexnow.org/indexnow?url=https://www.yasassri.me/news.html&key=b535fe818a0247db987ecaa5253e4f24&keyLocation=https://www.yasassri.me/b535fe818a0247db987ecaa5253e4f24.txt"
+```
+
+**Pinging several URLs at once** (bulk POST — use after a deploy that touches
+multiple pages, e.g. this SEO pass):
+
+```bash
+curl -s -X POST "https://api.indexnow.org/indexnow" \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -d '{
+    "host": "www.yasassri.me",
+    "key": "b535fe818a0247db987ecaa5253e4f24",
+    "keyLocation": "https://www.yasassri.me/b535fe818a0247db987ecaa5253e4f24.txt",
+    "urlList": [
+      "https://www.yasassri.me/",
+      "https://www.yasassri.me/research.html",
+      "https://www.yasassri.me/teaching.html",
+      "https://www.yasassri.me/products.html",
+      "https://www.yasassri.me/news.html",
+      "https://www.yasassri.me/blogs.html",
+      "https://www.yasassri.me/contact.html",
+      "https://www.yasassri.me/app/",
+      "https://www.yasassri.me/feed.xml",
+      "https://www.yasassri.me/sitemap.xml"
+    ]
+  }'
+```
+
+A `200`/`202` response means the submission was accepted (IndexNow fans the
+ping out to every participating engine, not just the one you posted to — no
+need to repeat this per-engine). Run the bulk ping once after any deploy that
+changes more than one or two pages; use the single-URL form for one-off
+edits.
+
 That's it — no servers, no build pipeline, no billing.
 
 ## How day-to-day admin works

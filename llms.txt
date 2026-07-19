@@ -22,22 +22,40 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 - [Research](https://www.yasassri.me/research.html): Peer-reviewed publications in AR, XR and HCI, with venues, DOIs and links (IEEE VR, ACM SUI, OzCHI, Elsevier Entertainment Computing, MDPI).
 - [Teaching](https://www.yasassri.me/teaching.html): Postgraduate teaching in information systems and project management; gamified, high-engagement courses; thesis and capstone supervision.
 - [Web Products](https://www.yasassri.me/products.html): Portfolio of software he has designed and built — HouseScout, Faro, and Yoobees.
-- [News](https://www.yasassri.me/news.html): Upcoming events (CODE with WIE 2026 workshop, 11 July 2026; NZGDC 2026 talk, 1 October 2026), invited talks, media, international collaborations (e.g. Tohoku University research visit, Falling Walls Lab NZ), and how to invite him for a talk or workshop.
+- [News](https://www.yasassri.me/news.html): Upcoming events (NZGDC 2026 talk, 1 October 2026), recent talks (CODE with WIE 2026 workshop, 11 July 2026), invited talks, media, international collaborations (e.g. Tohoku University research visit, Falling Walls Lab NZ), and how to invite him for a talk or workshop.
 - [Writing](https://www.yasassri.me/blogs.html): Essays on AR, spatial computing, and software engineering.
 - [Contact](https://www.yasassri.me/contact.html): For research collaborations, guest talks, and consulting.
 - [Platform](https://www.yasassri.me/app/): Interactive academic platform — free consultation booking (education, research, career mentoring), speaker-invitation requests with a talk-topics catalogue, blog, newsletter signup, and a student community forum.
 
 ## Upcoming events
 
-- CODE with WIE 2026 — Workshop 01: "Architecting the Augmented Tomorrow" — 11 July 2026, 9:00 AM, online via Google Meet. Hosted by IEEE Women in Engineering Sri Lanka. Details: https://www.yasassri.me/news.html#upcoming
 - NZGDC 2026 — "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland, New Zealand. Details: https://www.yasassri.me/news.html#upcoming
 - To invite Yasas Sri Wickramasinghe for a similar talk, workshop, or seminar: https://www.yasassri.me/app/#/invite
+
+## Recent talks
+
+- CODE with WIE 2026 — Workshop 01: "Architecting the Augmented Tomorrow" — delivered 11 July 2026, 9:00 AM, online via Google Meet. Hosted by IEEE Women in Engineering Sri Lanka. Details: https://www.yasassri.me/news.html#upcoming
 
 ## Web products (built by Yasas Sri Wickramasinghe)
 
 - [HouseScout](https://ureshan2011.github.io/HouseScout/): A property-buying intelligence dashboard for Christchurch home buyers. Tracks listings against user-defined criteria, shows a metrics dashboard, offers indicative valuations and market insights, a buying-journey planner, and a private local AI assistant (powered by the Gemma model). Built with Python. Live and publicly usable. (Estimates are indicative, not registered valuations; not financial advice.)
 - [Faro](https://ureshan2011.github.io/flightwatch/): A flight-fare timing assistant that uses machine learning trained on route-specific price history to recommend whether to "book now" or "wait". Monitors fares daily across airlines, shows full flight details, and adds live weather and currency context. Built with Python. Live and publicly usable.
 - Yoobees: A web-based attendance management and learning-support platform for postgraduate teaching, built with React 18, TypeScript, Vite, Tailwind CSS and Firebase (Auth, Firestore, Storage). Currently used to run the Master of Business Informatics (MBI) programme at Yoobee Colleges across the Auckland and Christchurch campuses. Features include QR + timed-code attendance with checkpoints, automated suspicious-activity detection (shared-IP and GPS-outlier proxy check-in flagging), a real-time Live Lesson Playground (presence, shared canvas, polls, checklists), quizzes with distinction badges, learning resources and an SQL practice lab, a student "Daily Match" feature, a campus-targeted notice board, and lecturer analytics with CSV export. Role-based access for students, lecturers and teaching assistants. Private and login-gated (no public demo).
+
+## Interactive lessons (Yoobees teaching platform)
+
+Ten interactive lesson decks, text-summarised as static pages for crawlers, each linking to the full interactive version:
+
+- [Advanced Database Concepts](https://www.yasassri.me/app/lessons/database-concepts.html): Table design, foreign keys & CASCADE, backup & restore, and a plain-English look at SQL injection.
+- [ER Diagrams](https://www.yasassri.me/app/lessons/er-diagrams.html): Entities, attributes and relationships in Chen's notation, reading cardinality (1:1, 1:N, M:N).
+- [SQL Programming](https://www.yasassri.me/app/lessons/sql-programming.html): CREATE, INSERT, SELECT — one interactive slide at a time.
+- [ER Diagrams in Practice](https://www.yasassri.me/app/lessons/er-activities.html): Modelling five real systems (library, university, hospital, online store, hotel) against worked answers.
+- [Advanced ER Concepts](https://www.yasassri.me/app/lessons/er-advanced.html): Weak entities, identifying relationships, multivalued and derived attributes.
+- [Attributes & Participation](https://www.yasassri.me/app/lessons/er-attributes.html): Composite attributes, and total/partial participation constraints.
+- [APA 7 Citations](https://www.yasassri.me/app/lessons/apa-referencing.html): In-text citations, reference lists, and common mistakes, with a practice quiz.
+- [Free Jira & Agile Certifications](https://www.yasassri.me/app/lessons/jira-certifications.html): Three free Jira/Agile credentials — Atlassian's learning path, a LinkedIn Professional Certificate, and a free completion certificate.
+- [Free SQL Certifications](https://www.yasassri.me/app/lessons/sql-certifications.html): Nine free SQL credentials, from Oracle and IBM badges to project-based certificates.
+- [From Vibe to Production](https://www.yasassri.me/app/lessons/vibe-to-production.html): Going from an idea to a live website in one sitting with Google Stitch, Claude Code and GitHub Pages.
 
 ## Selected research publications
 
@@ -50,6 +68,7 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 ## Profiles and links
 
 - Google Scholar: https://scholar.google.com/citations?user=sIFk7asAAAAJ
+- ORCID: https://orcid.org/0000-0002-2421-8165
 - LinkedIn: https://www.linkedin.com/in/yasassri
 - GitHub: https://github.com/ureshan2011
 - Medium: https://yasassri.medium.com
