@@ -1,0 +1,43 @@
+/*
+ * Self-hosted Inter (replaces the render-blocking fonts.googleapis.com
+ * <link>). SEO_STRATEGY.md gap G7. Linked on all 8 indexable pages that
+ * use var(--sans) — every one of them.
+ *
+ * Mirrors the exact @font-face rules Google Fonts served for this site's
+ * actual request (family=Inter:wght@300;400;500;600;700;800), restricted to
+ * the "latin" and "latin-ext" unicode-range subsets, which is everything
+ * this site's markup actually uses (checked: body copy is English with a
+ * handful of Latin-Extended-A macron characters — Ōtautahi, Apārangi — no
+ * Cyrillic/Greek/Vietnamese-only characters appear anywhere in the 8
+ * indexable pages). Inter ships as a variable font, so one file per subset
+ * covers every weight the site uses via the font-weight range descriptor
+ * below — same file Google's own CDN was serving, just fetched from
+ * same-origin instead.
+ *
+ * Newsreader (the --serif face) is intentionally NOT in this file — see
+ * fonts-newsreader.css. Only index.html, products.html and news.html
+ * requested Newsreader from Google Fonts originally; the other 5 pages
+ * (research, teaching, blogs, contact, app) never loaded it and their
+ * h1/h2 (font-family: var(--serif)) fell back to Georgia/Times New Roman.
+ * Bundling Newsreader into every page's stylesheet would silently change
+ * those 5 pages' heading typeface — a visual regression this pass must not
+ * introduce. Keep the two files separate and only add the Newsreader link
+ * to pages that originally requested it.
+ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
