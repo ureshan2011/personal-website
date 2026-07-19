@@ -16,6 +16,7 @@ renders, but forms, sign-in and the forum are disabled with a visible notice.
 | Free consultation booking (4 types, intake form, up to 3 preferred times, status tracking, cancel) | `app/#/consult` | `consultations` |
 | Speaker page + invitation form (topics catalogue, engagements, event/logistics intake) | `app/#/invite` | `invitations` |
 | Blog (Markdown articles, categories, tags, reading time, "discuss in forum") | `app/#/blog` | `posts` |
+| Lessons — 10 interactive decks (static bundle) + Markdown articles (objectives, tables, callouts) | `app/#/lessons` | `lessons` |
 | Newsletter signup (segments, CSV export for any email tool) | `app/#/newsletter` | `subscribers` |
 | Community forum (8 seeded categories, threads/replies, reports, pin/lock/hide) | `app/#/forum` | `threads` + `replies` |
 | Book — gated download (Firestore-chunked PDF), logged per reader | `app/#/book` | `bookDownloads` + `bookFile` |
@@ -94,7 +95,43 @@ Prefer the CLI for rules + indexes together? `firebase deploy --only firestore:r
 (`firebase.json` and `.firebaserc` in this repo are already set up for it —
 just `firebase login` first).
 
-### 6. Sign in as admin
+### 6. Lessons (`app/#/lessons`) — optional, two independent parts
+
+**Interactive decks** (`app/#/lessons/deck/:slug`) are a self-contained,
+statically-built bundle — no Firebase, no admin editing. Source lives in
+`app/lessons-src/` (its own `package.json`, not part of the site's
+dependency tree); the site only ever serves the committed build output at
+`app/lessons/lessons.js` + `lessons.css`, lazy-loaded on those routes. If
+you edit a deck:
+
+```
+cd app/lessons-src
+npm install
+npm run build
+```
+
+This regenerates and overwrites `app/lessons/lessons.js`/`.css` — commit
+those two files along with your source changes. The live site never runs
+this build itself (same zero-build-step deploy as everything else).
+
+**Markdown lesson articles** (`app/#/lessons/article/:slug`) work exactly
+like the Blog — write/edit them straight in the admin dashboard's "Lessons"
+tab, or bulk-import from a Markdown source with:
+
+```
+npm install firebase-admin --no-save
+node scripts/import-lessons.js /path/to/thisisnotalms/checkout --dry-run
+node scripts/import-lessons.js /path/to/thisisnotalms/checkout /path/to/service-account.json
+```
+
+Always run `--dry-run` first and read the output — the script refuses to
+write anything if it finds a leftover course code or "Yoobee" mention after
+sanitizing, so a thrown error there means a lesson needs a manual look
+before re-running. Every import lands as a **draft**; review and publish
+each one from the admin UI. See the comment at the top of
+[`scripts/import-lessons.js`](scripts/import-lessons.js) for details.
+
+### 7. Sign in as admin
 
 Visit `https://www.yasassri.me/app/#/account`, sign in **with Google** using the
 admin email (Google accounts are auto-verified). The nav now shows **Admin ⚙**
@@ -113,6 +150,9 @@ That's it — no servers, no build pipeline, no billing.
 - **Blog** — write articles in Markdown (headings, bold, links, code blocks,
   lists, quotes, images by URL). Save as draft or publish; slug, reading time
   and cards are automatic. Each article gets a "Discuss in the Forum" button.
+- **Lessons** — same editor as the Blog, plus objectives (one per line) and
+  tables/`::: definition :::`-style callouts in the Markdown. The 10
+  interactive decks aren't editable here — see setup step 6.
 - **Subscribers** — export a CSV any time and import it into Mailchimp,
   Buttondown, Brevo, etc. to send the actual campaigns.
 - **Moderation** — reported threads queue; pin/lock/hide controls on every

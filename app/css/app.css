@@ -5,6 +5,12 @@
 
 .app-main { min-height: 70vh; padding: 48px 0 80px; }
 
+/* Lesson decks (ported interactive content, app/lessons-src/) render
+   full-bleed, edge-to-edge — override the platform's centered .container
+   width for this view only, since the deck brings its own nav/hero/footer. */
+#view.lesson-full-bleed { max-width: none; padding-inline: 0; }
+.app-main:has(#view.lesson-full-bleed) { padding: 0; min-height: 0; }
+
 .app-crumb { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
 .app-crumb a { color: var(--accent); font-weight: 600; }
 
@@ -181,6 +187,26 @@ a.list-item:hover, .list-item.clickable:hover { border-color: var(--line-strong)
 .prose pre code { background: none; border: none; padding: 0; color: inherit; }
 .prose img { border-radius: var(--radius-sm); margin: 0 0 18px; }
 .prose hr { border: none; border-top: 1px solid var(--line); margin: 28px 0; }
+.prose table { width: 100%; border-collapse: collapse; margin: 0 0 20px; font-size: 15px; }
+.prose th, .prose td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.prose th { font-weight: 600; color: var(--ink); background: var(--bg-soft); }
+.prose td { color: var(--ink-soft); }
+
+/* ---------- Lesson callouts (::: definition / example / tip / activity ::: ) */
+.prose .callout {
+  border-radius: var(--radius-sm); border: 1px solid var(--line);
+  border-left-width: 4px; padding: 16px 20px; margin: 0 0 20px; background: var(--bg-soft);
+}
+.prose .callout > :last-child { margin-bottom: 0; }
+.prose .callout-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+.prose .callout-definition { border-left-color: var(--accent); }
+.prose .callout-definition .callout-title { color: var(--accent); }
+.prose .callout-example { border-left-color: #b45309; }
+.prose .callout-example .callout-title { color: #b45309; }
+.prose .callout-tip { border-left-color: #0d9488; }
+.prose .callout-tip .callout-title { color: #0d9488; }
+.prose .callout-activity { border-left-color: #7c3aed; }
+.prose .callout-activity .callout-title { color: #7c3aed; }
 
 /* ---------- Speaker page ---------- */
 .topic-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
