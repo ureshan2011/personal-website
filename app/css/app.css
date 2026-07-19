@@ -5,6 +5,11 @@
 
 .app-main { min-height: 70vh; padding: 48px 0 80px; }
 
+/* Static fallback heading for the SPA shell — every route immediately
+   overwrites #view via innerHTML, so this is invisible to JS-executing
+   visitors but gives non-JS crawlers a real <h1> instead of none. */
+.shell-h1 { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
 /* Lesson decks (ported interactive content, app/lessons-src/) render
    full-bleed, edge-to-edge — override the platform's centered .container
    width for this view only, since the deck brings its own nav/hero/footer. */
