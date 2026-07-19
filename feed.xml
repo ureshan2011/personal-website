@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Dr. Yasas Sri Wickramasinghe — News &amp; Lessons</title>
+  <link>https://www.yasassri.me/</link>
+  <description>Augmented reality researcher, university lecturer and software builder — upcoming talks and events, and interactive lessons from the Yoobees teaching platform.</description>
+  <language>en-nz</language>
+  <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +1200</lastBuildDate>
+  <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
+  <image>
+    <url>https://www.yasassri.me/assets/images/icons/favicon.png</url>
+    <title>Dr. Yasas Sri Wickramasinghe — News &amp; Lessons</title>
+    <link>https://www.yasassri.me/</link>
+  </image>
+
+  <item>
+    <title>NZGDC 2026 — Designing Shared Worlds Across Distance</title>
+    <link>https://www.yasassri.me/news.html#upcoming</link>
+    <guid isPermaLink="false">yasassri-event-nzgdc-2026</guid>
+    <pubDate>Thu, 01 Oct 2026 15:00:00 +1300</pubDate>
+    <category>Event</category>
+    <description>I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland.</description>
+  </item>
+
+  <item>
+    <title>CODE with WIE 2026 — Workshop 01: Architecting the Augmented Tomorrow</title>
+    <link>https://www.yasassri.me/news.html#upcoming</link>
+    <guid isPermaLink="false">yasassri-event-code-with-wie-2026</guid>
+    <pubDate>Sat, 11 Jul 2026 09:00:00 +0530</pubDate>
+    <category>Event</category>
+    <description>Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri Lanka — exploring the technologies shaping the future and how innovation is transforming tomorrow's world, drawn from research in immersive technologies, software product engineering and game design. Online via Google Meet.</description>
+  </item>
+
+  <item>
+    <title>Research Visit to Tohoku University — Building an NZ–Japan AR Collaboration</title>
+    <link>https://www.yasassri.me/news.html</link>
+    <guid isPermaLink="false">yasassri-event-tohoku-visit-2025</guid>
+    <pubDate>Mon, 08 Dec 2025 00:00:00 +1300</pubDate>
+    <category>Collaboration</category>
+    <description>Prof. Rob Lindeman and I (HIT Lab NZ, University of Canterbury) visited the Interactive Content Design Lab at the Research Institute of Electrical Communication (RIEC), Tohoku University, Sendai, Japan. We presented our research on location-based augmented reality and immersive interaction, and explored a joint research project bridging New Zealand and Japan.</description>
+  </item>
+
+  <item>
+    <title>Selected for Falling Walls Lab Aotearoa New Zealand 2024</title>
+    <link>https://www.yasassri.me/news.html</link>
+    <guid isPermaLink="false">yasassri-event-falling-walls-2024</guid>
+    <pubDate>Wed, 11 Sep 2024 00:00:00 +1200</pubDate>
+    <category>Talk</category>
+    <description>One of nineteen researchers and innovators chosen from across Aotearoa New Zealand and the Pacific to pitch a breakthrough idea in three minutes at Falling Walls Lab Aotearoa New Zealand 2024, organised by Royal Society Te Apārangi. Pitch: "Breaking the Wall of Loneliness through Play" — how location-based augmented reality games can bring people together and ease loneliness through shared experiences.</description>
+  </item>
+
+  <item>
+    <title>Talking AR Game Design on the National Stage — NZGDC 2023</title>
+    <link>https://www.yasassri.me/news.html</link>
+    <guid isPermaLink="false">yasassri-event-nzgdc-2023-panel</guid>
+    <category>Panel</category>
+    <description>New Zealand Game Developers Conference, 2023. A panel of New Zealand augmented reality developers for the first-ever AR Game Dev Rant at NZGDC — a candid, fast-paced conversation about what it really takes to design and ship location-based AR experiences, alongside Evie, Melanie and Devi. (Exact date not published on-site; year only.)</description>
+  </item>
+
+  <item>
+    <title>Advanced Database Concepts — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/database-concepts.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/database-concepts.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Table design, backup &amp; restore, and a plain-English look at SQL injection — one database, one table, built up step by step.</description>
+  </item>
+
+  <item>
+    <title>ER Diagrams — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/er-diagrams.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-diagrams.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Entities, attributes and relationships in Chen's notation — and learning to read cardinality at a glance.</description>
+  </item>
+
+  <item>
+    <title>SQL Programming — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/sql-programming.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/sql-programming.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>CREATE, INSERT, SELECT — one interactive slide at a time, the language databases actually speak.</description>
+  </item>
+
+  <item>
+    <title>ER Diagrams in Practice — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/er-activities.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-activities.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Model five real systems — a library, a university, a hospital, an online store and a hotel — and check your diagram against a worked answer.</description>
+  </item>
+
+  <item>
+    <title>Advanced ER Concepts — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/er-advanced.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-advanced.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Weak entities, identifying relationships, multivalued and derived attributes — with two exercises to test yourself.</description>
+  </item>
+
+  <item>
+    <title>Attributes &amp; Participation — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/er-attributes.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-attributes.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Composite and derived attributes, and participation constraints, read through two guided activities.</description>
+  </item>
+
+  <item>
+    <title>APA 7 Citations — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/apa-referencing.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/apa-referencing.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>A 14-slide interactive crash course on APA 7 citations, from the first in-text citation to the last reference entry, with a practice quiz.</description>
+  </item>
+
+  <item>
+    <title>Free Jira &amp; Agile Certifications — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/jira-certifications.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/jira-certifications.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Three hand-picked, genuinely free Jira and Agile credentials worth putting on LinkedIn.</description>
+  </item>
+
+  <item>
+    <title>Free SQL Certifications — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/sql-certifications.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/sql-certifications.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>Nine genuinely free SQL credentials, from vendor badges to project-based certificates.</description>
+  </item>
+
+  <item>
+    <title>From Vibe to Production — Interactive Lesson</title>
+    <link>https://www.yasassri.me/app/lessons/vibe-to-production.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/vibe-to-production.html</guid>
+    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
+    <category>Lesson</category>
+    <description>How to go from an idea to a live website in one sitting, using Google Stitch, Claude Code and GitHub Pages.</description>
+  </item>
+
+</channel>
+</rss>
