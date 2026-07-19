@@ -128,6 +128,12 @@ service cloud.firestore {
       allow create, update, delete: if isAdmin();
     }
 
+    // ---- Lessons (markdown study articles) -----------------------------------
+    match /lessons/{id} {
+      allow read: if resource.data.status == 'published' || isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
     // ---- Member profiles ----------------------------------------------------
     match /profiles/{uid} {
       allow read: if true;
