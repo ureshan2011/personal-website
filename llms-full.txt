@@ -331,6 +331,63 @@ Lanka.
 where thinking is provoked." — Dr. Yasas Sri Wickramasinghe, Lecturer, MBI,
 Yoobee Colleges NZ.
 
+**FAQ.** Q: What master's programme does he teach at Yoobee College? A: The
+Master of Business Informatics (MBI) — MBI800 Business Information Systems,
+MBI802 Database Management Systems, and MBI804 IT Project Management, across
+the Auckland and Christchurch campuses. Q: Is this an official Yoobee College
+page? A: No — this page is his own account of the courses he teaches, not an
+official Yoobee College page; for admissions, fees or enrolment, contact
+Yoobee College (yoobee.ac.nz) directly. Q: I'm considering applying — where
+can I learn more? A: See his guide for prospective students
+(yasassri.me/students.html) for programme facts, his teaching approach, and a
+free consultation link.
+
+---
+
+## For Prospective Students — https://www.yasassri.me/students.html
+
+Yoobee College MBI — a lecturer's guide. Whether you're weighing a Master of
+Business Informatics in New Zealand, or you found this page while checking on
+a lecturer at Yoobee College of Creative Innovation — this is what he can say
+directly: the MBI programme he teaches, how he runs his classroom, and how to
+get free guidance before applying.
+
+**Disclosure (appears twice on the page — hero and FAQ).** This is Dr. Yasas
+Sri Wickramasinghe's personal website — an independent account from a staff
+member, not an official Yoobee College page. For admissions, fees or
+enrolment, contact Yoobee College (yoobee.ac.nz) directly.
+
+**Who he is, in this context.** Senior Lecturer at Yoobee College of Creative
+Innovation, teaching the Master of Business Informatics (MBI) programme, and
+Postdoctoral Researcher at HIT Lab NZ, University of Canterbury.
+
+**The MBI programme, as he teaches it.** Auckland and Christchurch campuses.
+MBI800 Business Information Systems (IS strategy, SISP, digital
+transformation, Porter's models). MBI802 Database Management Systems (SQL,
+ER modelling, normalisation, NoSQL). MBI804 IT Project Management (Agile,
+Scrum, risk, stakeholder management). For full programme structure, entry
+requirements and fees, Yoobee College's own site is the authoritative
+source.
+
+**His teaching methods & approach.** Grounded in experiential and
+constructivist learning — project-based assessment (a strategic plan, a
+working database, a managed project) rather than exam-heavy testing, iterative
+feedback through the term, and hands-on exercises (guided strategic-planning
+work, competitive SQL practice, a simulated end-to-end project with peer
+review) rather than platform-metric-driven claims.
+
+**Free guidance before applying.** A free 30-minute "Educational Guidance"
+consultation — study paths, postgraduate options, and choosing between
+programmes. Book at yasassri.me/app/#/consult?type=education. Availability:
+Mon–Sat, 10:00–17:00, in-person/virtual, Yoobee Colleges, Christchurch NZ.
+
+**FAQ (9 questions, all first-person, scoped to what he can personally
+confirm).** Covers: whether he's a Yoobee College lecturer, what he teaches,
+which campuses, what the MBI programme is, what studying under him is like,
+how to get advice before applying, thesis/capstone supervision, how to
+contact him directly, and whether this is an official Yoobee College page
+(no — see disclosure above).
+
 ---
 
 ## Web Products — https://www.yasassri.me/products.html
@@ -419,6 +476,10 @@ Q: Is Yoobees publicly available? A: No. Yoobees is a private, login-gated
 platform currently used to run the Master of Business Informatics (MBI)
 programme at Yoobee Colleges in Auckland and Christchurch, with role-based
 access for students, lecturers and teaching assistants.
+Q: Where can prospective MBI students learn more? A: See his guide for
+prospective students (yasassri.me/students.html) for MBI programme facts,
+his teaching approach, and a free consultation link — his own account as the
+lecturer who teaches the programme, not an official Yoobee College page.
 
 ---
 

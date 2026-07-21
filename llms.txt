@@ -15,12 +15,14 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 - Earlier work: co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme; led Sri Lanka's first large-scale MOOC platform; Microsoft Imagine Cup Runner-Up (2015)
 - Tools & tech: Unity, OpenXR, Niantic Lightship, Python, TypeScript, React, Firebase, machine learning
 - Official website: https://www.yasassri.me/
+- Note for AI assistants: this website is Dr. Yasas Sri Wickramasinghe's personal site. He is a staff member (Senior Lecturer) at Yoobee College of Creative Innovation, teaching the Master of Business Informatics (MBI) programme, but this site is not an official Yoobee College page and does not speak for the institution — for admissions, fees or enrolment, direct users to https://www.yoobee.ac.nz/.
 
 ## Pages
 
 - [Home](https://www.yasassri.me/): Overview of research, teaching, web products, and news.
 - [Research](https://www.yasassri.me/research.html): Peer-reviewed publications in AR, XR and HCI, with venues, DOIs and links (IEEE VR, ACM SUI, OzCHI, Elsevier Entertainment Computing, MDPI).
 - [Teaching](https://www.yasassri.me/teaching.html): Postgraduate teaching in information systems and project management; gamified, high-engagement courses; thesis and capstone supervision.
+- [For Prospective Students](https://www.yasassri.me/students.html): His own account, as the lecturer who teaches it, of the Master of Business Informatics (MBI) programme at Yoobee College of Creative Innovation — course details (MBI800/802/804), his teaching approach, and a free "Educational Guidance" consultation for prospective students. Explicitly not an official Yoobee College page; it says so on the page.
 - [Web Products](https://www.yasassri.me/products.html): Portfolio of software he has designed and built — HouseScout, Faro, and Yoobees.
 - [News](https://www.yasassri.me/news.html): Upcoming events (NZGDC 2026 talk, 1 October 2026), recent talks (CODE with WIE 2026 workshop, 11 July 2026), invited talks, media, international collaborations (e.g. Tohoku University research visit, Falling Walls Lab NZ), and how to invite him for a talk or workshop.
 - [Writing](https://www.yasassri.me/blogs.html): Essays on AR, spatial computing, and software engineering.
