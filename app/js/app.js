@@ -181,6 +181,27 @@ function toast(msg) {
   t._h = setTimeout(() => t.classList.remove("show"), 3500);
 }
 
+function openModal({ icon = "✉️", title, body, actionLabel = "Got it" }) {
+  const scrim = document.getElementById("modalScrim");
+  scrim.innerHTML = `
+    <div class="modal-box" role="document">
+      <div class="ic" aria-hidden="true">${icon}</div>
+      <h3>${esc(title)}</h3>
+      <p>${esc(body)}</p>
+      <button class="btn btn-solid" type="button" id="modalCloseBtn">${esc(actionLabel)}</button>
+    </div>`;
+  scrim.hidden = false;
+  requestAnimationFrame(() => scrim.classList.add("show"));
+  const close = () => closeModal();
+  scrim.onclick = e => { if (e.target === scrim) close(); };
+  document.getElementById("modalCloseBtn").onclick = close;
+}
+function closeModal() {
+  const scrim = document.getElementById("modalScrim");
+  scrim.classList.remove("show");
+  setTimeout(() => { scrim.hidden = true; scrim.innerHTML = ""; }, 250);
+}
+
 const tsDate = ts => (ts && typeof ts.toDate === "function") ? ts.toDate() : (ts ? new Date(ts) : null);
 function fmtDate(ts, withTime) {
   const d = tsDate(ts);
@@ -477,7 +498,7 @@ function viewHub() {
     <a class="hub-card" href="#/book" style="border-color:var(--accent)">
       <div class="ic">📘</div>
       <h3>The Collaboration Reflex</h3>
-      <p>My new book on why the instinct to “collaborate” is usually the wrong answer to conflict — free to download.</p>
+      <p>My new book on why the instinct to “collaborate” is usually the wrong answer to conflict — free, sent by email.</p>
       <span class="go">Get the book →</span>
     </a>
     <a class="hub-card" href="#/consult">
@@ -1157,43 +1178,16 @@ async function viewBook() {
 
   const panel = document.getElementById("bookDownloadPanel");
 
-  // Fetches the PDF (stored as base64 chunks, since Firebase Storage now
-  // requires the paid Blaze plan even for free-tier usage) through
-  // firestore.rules — isVerified() is re-checked by Google's servers on
-  // every one of these reads, so this is not a shareable link, it fails
-  // fresh for anyone who isn't signed in and verified — then reassembles
-  // and saves it via a short-lived local object URL.
-  async function fetchAndTriggerDownload() {
-    const metaSnap = await getDoc(doc(db, BOOK.fileDocPath));
-    if (!metaSnap.exists()) throw { code: "book/not-found" };
-    const meta = metaSnap.data();
-
-    const chunkSnaps = await Promise.all(
-      Array.from({ length: meta.chunkCount }, (_, i) =>
-        getDoc(doc(db, BOOK.fileDocPath, "chunks", String(i))))
-    );
-    const base64 = chunkSnaps.map(s => s.data().data).join("");
-    const binary = atob(base64);
-    const bytes = new Uint8Array(binary.length);
-    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-
-    const blobUrl = URL.createObjectURL(new Blob([bytes], { type: meta.mimeType || "application/pdf" }));
-    const a = document.createElement("a");
-    a.href = blobUrl;
-    a.download = BOOK.fileName;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
-  }
-
+  // Direct download is switched off — a request just records the reader's
+  // name/email in bookDownloads (rules-gated, same as before) and points
+  // them to email instead, so every copy goes out personally.
   function renderDownloadCta(record) {
     const already = record && record.downloadCount > 0;
     panel.innerHTML = `
     <div class="panel">
-      <h3>Download your copy</h3>
-      <p class="sub" style="margin-bottom:16px">Free, full PDF. ${already ? `You first downloaded this on ${fmtDate(record.firstDownloadAt)} — ${record.downloadCount} download${record.downloadCount === 1 ? "" : "s"} so far.` : "I keep a simple record of who's downloaded it — no spam, ever — just so I know the book is reaching people."}</p>
-      <button class="btn btn-solid" type="button" id="bookDownloadBtn" style="width:100%;justify-content:center">${already ? "Download Again" : "Download the Book"} <span class="arrow">→</span></button>
+      <h3>Get your copy</h3>
+      <p class="sub" style="margin-bottom:16px">${already ? `You requested this on ${fmtDate(record.firstDownloadAt)} — I'll follow up by email.` : "Free, full PDF — sent to your inbox, not an instant download. I keep a simple record of who's asked for it — no spam, ever."}</p>
+      <button class="btn btn-solid" type="button" id="bookDownloadBtn" style="width:100%;justify-content:center">${already ? "Request Again" : "Get the Book"} <span class="arrow">→</span></button>
       <span class="form-msg" id="bookDownloadMsg" style="display:block;margin-top:10px"></span>
     </div>`;
     const btn = document.getElementById("bookDownloadBtn");
@@ -1201,11 +1195,6 @@ async function viewBook() {
     btn.onclick = async () => {
       btn.disabled = true; msg.className = "form-msg"; msg.textContent = "";
       try {
-        // Fetch first — only log a download once Storage's rules have
-        // actually granted the file, so the record can't be gamed by a
-        // request that was rejected.
-        await fetchAndTriggerDownload();
-
         const ref = doc(db, "bookDownloads", currentUser.uid);
         const existing = await getDoc(ref);
         if (existing.exists()) {
@@ -1225,15 +1214,18 @@ async function viewBook() {
             lastDownloadAt: serverTimestamp()
           });
         }
-        toast("Downloading — enjoy the book!");
+        openModal({
+          icon: "✉️",
+          title: "Keep an eye on your email",
+          body: `I've got your request — I send the book out personally rather than as an instant download. It'll land at ${currentUser.email} soon.`,
+          actionLabel: "Got it"
+        });
         const fresh = await getDoc(ref);
         renderDownloadCta(fresh.data());
       } catch (e) {
         msg.className = "form-msg err";
-        msg.textContent = String(e && e.code) === "book/not-found"
-          ? "The book file isn't uploaded yet — the site owner needs to run scripts/upload-book.js."
-          : String(e && e.code).includes("permission-denied")
-          ? "Your account isn't authorised to download this yet — try signing out and back in."
+        msg.textContent = String(e && e.code).includes("permission-denied")
+          ? "Your account isn't authorised to request this yet — try signing out and back in."
           : fbError(e);
       } finally { btn.disabled = false; }
     };
@@ -1242,7 +1234,7 @@ async function viewBook() {
   if (!CONFIGURED) {
     panel.innerHTML = "";
   } else if (!currentUser) {
-    panel.innerHTML = authPrompt("Create a free account to download the book — it takes under a minute.");
+    panel.innerHTML = authPrompt("Create a free account to request the book — it takes under a minute.");
   } else if (!currentUser.emailVerified) {
     panel.innerHTML = verifyPrompt();
     bindResendVerify();
@@ -1704,7 +1696,7 @@ async function viewAdmin() {
         <div class="stat"><b>${pend(c)}</b><span>pending consultations</span></div>
         <div class="stat"><b>${pend(i)}</b><span>pending invitations</span></div>
         <div class="stat"><b>${m.docs.filter(d => d.data().status === "new").length}</b><span>new messages</span></div>
-        <div class="stat"><b>${bk.size}</b><span>readers who've downloaded the book</span></div>
+        <div class="stat"><b>${bk.size}</b><span>readers who've requested the book</span></div>
         <div class="stat"><b>${s.docs.filter(d => d.data().status === "subscribed").length}</b><span>newsletter subscribers</span></div>
         <div class="stat"><b>${r.size}</b><span>reported threads</span></div>`;
     } catch (e) { console.error(e); }
@@ -2092,16 +2084,16 @@ async function adminBookDownloads(body) {
   body.innerHTML = `
   <div class="form-actions" style="margin-bottom:18px">
     <button class="btn small btn-solid" id="bookCsvBtn" ${rows.length ? "" : "disabled"}>Export CSV (${rows.length})</button>
-    <span class="form-msg">Everyone who has downloaded <i>${esc(BOOK.title)}</i> through the platform.</span>
+    <span class="form-msg">Everyone who has requested <i>${esc(BOOK.title)}</i> through the platform — email them the PDF directly.</span>
   </div>
   <div class="list">${rows.map(r => `
     <div class="list-item">
       <div class="li-main"><h3 style="font-size:14.5px">${esc(r.name || "(no name set)")}</h3>
-        <div class="meta">${esc(r.email)} · first downloaded ${fmtDate(r.firstDownloadAt)} · last ${fmtDate(r.lastDownloadAt)}</div></div>
+        <div class="meta">${esc(r.email)} · first requested ${fmtDate(r.firstDownloadAt)} · last ${fmtDate(r.lastDownloadAt)}</div></div>
       <div class="li-side" style="flex-direction:row;align-items:center">
-        <span class="badge">${r.downloadCount || 1} download${(r.downloadCount || 1) === 1 ? "" : "s"}</span>
+        <span class="badge">${r.downloadCount || 1} request${(r.downloadCount || 1) === 1 ? "" : "s"}</span>
       </div>
-    </div>`).join("") || `<div class="empty">No downloads yet — readers who sign in and download the book will appear here.</div>`}</div>`;
+    </div>`).join("") || `<div class="empty">No requests yet — readers who sign in and request the book will appear here.</div>`}</div>`;
 
   const csvBtn = document.getElementById("bookCsvBtn");
   if (csvBtn) csvBtn.onclick = () => {
