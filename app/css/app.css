@@ -316,6 +316,28 @@ a.list-item:hover, .list-item.clickable:hover { border-color: var(--line-strong)
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+/* ---------- Modal ---------- */
+.modal-scrim {
+  position: fixed; inset: 0; background: rgba(19, 26, 38, 0.55); backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  z-index: 1300; opacity: 0; transition: opacity .25s var(--ease);
+}
+.modal-scrim.show { opacity: 1; }
+.modal-box {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 30px; max-width: 420px; width: 100%;
+  text-align: center; transform: translateY(10px) scale(.98); transition: transform .25s var(--ease);
+}
+.modal-scrim.show .modal-box { transform: translateY(0) scale(1); }
+.modal-box .ic {
+  width: 48px; height: 48px; margin: 0 auto 16px; border-radius: 50%;
+  background: var(--accent-soft); color: var(--accent);
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.modal-box h3 { font-size: 19px; }
+.modal-box p { margin-top: 10px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.55; }
+.modal-box .btn { margin-top: 20px; width: 100%; justify-content: center; }
+
 /* ---------- Loading ---------- */
 .loading { display: flex; justify-content: center; padding: 60px 0; }
 .spinner {
