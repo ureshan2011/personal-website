@@ -322,6 +322,7 @@ a.list-item:hover, .list-item.clickable:hover { border-color: var(--line-strong)
   display: flex; align-items: center; justify-content: center; padding: 20px;
   z-index: 1300; opacity: 0; transition: opacity .25s var(--ease);
 }
+.modal-scrim[hidden] { display: none; }
 .modal-scrim.show { opacity: 1; }
 .modal-box {
   background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
