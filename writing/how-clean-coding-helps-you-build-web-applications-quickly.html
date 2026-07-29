@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How Clean Coding Helps You Build Web Applications Quickly | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#4b6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="How Clean Coding Helps You Build Web Applications Quickly | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable."/>
+<meta property="og:url" content="https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How Clean Coding Helps You Build Web Applications Quickly",
+  "description": "Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.",
+  "url": "https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html",
+  "inLanguage": "en",
+  "datePublished": "2022-10-09",
+  "dateModified": "2022-10-09",
+  "articleSection": "Software",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://www.yasassri.me/blogs.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How Clean Coding Helps You Build Web Applications Quickly",
+      "item": "https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../app/#/">Platform</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="app-crumb" style="margin-bottom:14px;"><a href="../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Writing / How Clean Coding Helps You Build Web Applications Quickly</span></div>
+
+    <span class="eyebrow reveal">Software</span>
+    <h1 class="reveal" style="--d:.1s">How Clean Coding Helps You Build Web Applications Quickly</h1>
+    <p class="lead reveal" style="--d:.2s">Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.</p>
+    <p style="color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Published 2022-10-09</p>
+  </div>
+</header>
+<section class="section">
+  <div class="container prose" style="max-width:72ch;">
+    <p>[<img src="https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg" alt="Yasas Sri Wickramasinghe" loading="lazy" decoding="async"/>](/?source=post_page---byline--91c5669fe097---------------------------------------)</p>
+<p>[Yasas Sri Wickramasinghe](/?source=post_page---byline--91c5669fe097---------------------------------------)</p>
+<p>7 min readApr 14, 2021</p>
+<p>\--</p>
+<p>Press enter or click to view image in full size</p>
+<p>As newbies to the software engineering field, most of us focuses a lot on building web apps that are ‘working’ or at least ‘demo-able’, which is somewhat understandable. But I have seen most of the newbies into software engineering are having various problems when they are supposed to complete a project within a certain time period. If you are a software engineering undergraduate, I guess you have experienced some issues related to your code such as,</p>
+<ul>
+<li>Your code is giving a lot of compile errors.</li>
+<li>Your IDE (integrated development environment — simply the tool you use to code) shows so many red markings, alerts and you can’t run your code.</li>
+<li>You can’t remember the execution flow of your code.</li>
+<li>Your project proposal contains some set of diagrams that are opposite to your current implementation (and you have no idea how to modify your diagrams reflecting the current code you have).</li>
+<li>You can’t write unit tests for your code (Your methods/functions are not testable).</li>
+<li>When you are looking at your code, You don’t ‘feel good’ to read your code.</li>
+</ul>
+<p>If so, you may continue reading this article to be inspired with “clean coding practices” meanwhile you are working on writing web applications so that you can build great solutions with less time. And of course, you will find the above problems are getting resolved without much additional effort!</p>
+<p>If you are someone who wants to know What is “Clean Coding” and “How You Can Start Writing Clean Code”, this 5-minute article is for you.</p>
+<blockquote>
+<p>What you are going to learn…</p>
+</blockquote>
+<ol>
+<li>_How to Name Files in JavaScript_</li>
+<li>_How to Name Boolean Type Variables_</li>
+<li>_How to Name Private Variables or Functions/Methods_</li>
+<li>_How to Name Constants_</li>
+<li>_How to Name Functions_</li>
+<li>_How to Name Classes_</li>
+<li>_How to Name Components_</li>
+<li>_Some General Tips_</li>
+</ol>
+<p>In this article, I’ll guide you to write Clean Code from the basics. However, Clean Coding is a skill and you can improve your skill by practising it whenever possible. Here I’m using general examples using JavaScript but the concepts are mostly the same in other programming languages/frameworks except for few scenarios. Please follow official guidelines/documentation of your language for further details.</p>
+<p>_Let’s get started with one famous quote from Martin Fowler, an American software engineer and one of the founders of Agile Manifesto._</p>
+<p>Press enter or click to view image in full size</p>
+<h3>As a beginner, How can you improve your Clean Coding skills?</h3>
+<p><strong>Let’s start with the basics of Naming Variables, Functions, Methods and Classes</strong></p>
+<p>Variables names are used to identify a value stored in memory locations instead of using memory addresses. So when you are supposed to define a variable, make sure to put a meaningful name instead of using a very generic or random name. Some examples of ‘not so good’ variable names are,</p>
+<blockquote>
+<p>_int i= 10,_</p>
+<p></p>
+<p>_String s = “abc”,_</p>
+<p></p>
+<p>_Student stu = new Student();_</p>
+</blockquote>
+<p>Whenever you are going to give a name to a variable, method, function or class, make sure to give a clear specific name that helps you and other developers to understand the use of it.</p>
+<blockquote>
+<p><strong>But I know, it’s easier said than done.</strong></p>
+</blockquote>
+<p>How do you verify your identifier whether it is ‘Good’?</p>
+<p>Simple, If your name tells,</p>
+<ul>
+<li>Why It exists</li>
+<li>What It does</li>
+<li>How It is used</li>
+</ul>
+<p>You have chosen a ‘Good’ name.</p>
+<p>_but If your name requires a comment to explain it, probably your name is ‘Not So Good’._</p>
+<h3>Let’s look into Clean Coding Practices related to JavaScript.</h3>
+<p>_The below clean code practices apply to Angular, React, Vue or any other JS-based front end frameworks as well._</p>
+<p>Some Good JS Variable Names,</p>
+<blockquote>
+<p>var remainingTimeInDays;</p>
+<p></p>
+<p>var daysUntilShipment;</p>
+<p></p>
+<p>var daysSinceModification;</p>
+</blockquote>
+<h2><strong>Did you know that in JavaScript, variable names are Case Sensitive?</strong></h2>
+<p><em>In JavaScript, if you define the same variable name using different caps, those variables will be treated differently. so remember, CAPS count!</em></p>
+<h3>1\. How to Name Files in JavaScript</h3>
+<p><em>In this example, front-end JS file names are written in PascalCase, back-end JS file names are written in kebab-case</em></p>
+<p>If you are going to name project files in any JavaScript framework, you may use PascalCase for frontend projects with JavaScript Frameworks like React. If you are working with Backend Framework (Express/Node etc.) you can use kebab-case.</p>
+<ul>
+<li><strong>Important Note</strong>: This is a generic pattern you can follow in JavaScript based frameworks. But file naming standards are different in other Non-JS based Frameworks. I advise you to refer to official style guides specific to your framework or use Google Style Guide to explore more. I have linked them at the end of this article.</li>
+</ul>
+<h3>2\. How to Name Boolean Type Variables</h3>
+<p>When you are going to name a variable that defines a boolean type value, It is always good to give a name that can express the variable whether it can either be ‘true’ or ‘false’. One approach is to start with ‘is’ as a prefix. Ex: isStudent, isValid etc.</p>
+<p>You may use other prefix terms like ‘has’, ‘can’, ‘should’ as well, but make sure not to give nouns just like you give for other variables, but treat boolean variables differently.</p>
+<h3>3\. How to Name Private Variables or Functions/Methods</h3>
+<p>If you see an underscore (\_) in front of a name, it implies that the variable, function or method is private.</p>
+<p>Press enter or click to view image in full size</p>
+<h3>4\. How to Name Constants</h3>
+<p>Constants are the variables you declare with a value that is expected to remain unchanged. These variables are named with CAPITAL letters.</p>
+<p>Press enter or click to view image in full size</p>
+<p><strong>_Before moving further, Let me refresh your knowledge…_</strong></p>
+<p>Are you familiar with <strong>camelCase</strong> and <strong>PascalCase</strong>?</p>
+<p>Press enter or click to view image in full size</p>
+<p><em>PascalCase and camelCase are commonly used in naming functions and classes</em></p>
+<h2>Here is a $200 for FREE on DigitalOcean. One Click, Simpler Web Hosting for you!</h2>
+<p><a href="https://m.do.co/c/22ae290baec3?source=post_page-----91c5669fe097---------------------------------------" target="_blank" rel="noopener">## DigitalOcean - The developer cloud</a></p>
+<h3>5\. How to Name Functions/Methods</h3>
+<p>applicable to JS Frameworks like Angular, React etc. and Backed Frameworks like Java SpringBoot, .NET etc.</p>
+<p>When you are naming a Function/Method, <strong>use</strong> <strong>camelCase</strong>.</p>
+<p>Press enter or click to view image in full size</p>
+<h3>6\. How to Name Classes</h3>
+<p>applicable to JS Frameworks like Angular, React etc. and Backed Frameworks like Java SpringBoot, .NET etc.</p>
+<p>When you are naming a Class, <strong>use PascalCase.</strong></p>
+<p>Press enter or click to view image in full size</p>
+<h3>7\. How to Name Components</h3>
+<p>applicable to any JS Framework like Angular, React etc.</p>
+<p>When you are naming a Component, <strong>use PascalCase.</strong> Components are common in modern JavaScript frameworks like Angular and React.</p>
+<p>Press enter or click to view image in full size</p>
+<p>When you name your components in PascalCase, it is easier for you to identify in HTML component bindings because HTML tags will be in simple letters and your component will be in PascalCase.</p>
+<h3>8\. Some General Tips</h3>
+<ul>
+<li>Make sure to give pronounceable names for your identifiers.</li>
+<li>Avoid giving numbers in the middle of your code unexpectedly. Try to use variables appropriately.</li>
+</ul>
+<p>Press enter or click to view image in full size</p>
+<ul>
+<li>When you are using axios or any other web service call and declaring your API path, don’t hardcode path in every place where you call your backend APIs. Make sure to define your backend path as a base URL and import it whenever you need to call your API.</li>
+</ul>
+<p>Press enter or click to view image in full size</p>
+<p><em>_Read axios Best Practices:_ <a href="https://github.com/axios/axios#config-defaults" target="_blank" rel="noopener">_https://github.com/axios/axios#config-defaults_</a></em></p>
+<ul>
+<li>Make your words/naming styles consistent across your application. For example, if you use <strong>get</strong>Student(), <strong>get</strong>Scores() kind of pattern for your methods/functions, don’t define some other similar functions like <strong>fetch</strong>Time(), <strong>fetch</strong>Name() etc. Make them consistent as previous methods by naming getTime(), getName() etc.</li>
+<li>Make sure your functions/methods do just one thing. For example, calculateExamGrade() should do only calculating the Grade. But if it is calculating Grade AND saving the Grade in a database or sending an API request or even if it is performing a validation within the same calculateExamGrade method, it is ‘not nice’.</li>
+<li>Try to maintain minimum number of arguments/parameters you pass to a function/method.</li>
+<li>Know your programming language’s style conventions. Best resource is to read official style guides available. I’ll list some below for your reference.</li>
+</ul>
+<p>Angular Style Guide: <a href="https://angular.io/guide/styleguide" target="_blank" rel="noopener">https://angular.io/guide/styleguide</a></p>
+<p>React Style Guide: <a href="https://react-styleguidist.js.org/" target="_blank" rel="noopener">https://react-styleguidist.js.org</a></p>
+<p>VueJS Style Guide: <a href="https://vuejs.org/v2/style-guide/" target="_blank" rel="noopener">https://vuejs.org/v2/style-guide</a></p>
+<p>Google Style Guide for Backend and Frontend Frameworks: <a href="https://google.github.io/styleguide/" target="_blank" rel="noopener">https://google.github.io/styleguide</a></p>
+<h2>Summary</h2>
+<p>Clean Coding is a skill every developer should practice more often. This article presented some basic steps that you can think of when you are coding next time. Clean Coding is not just about naming conventions, but I believe this is a very good starting point for anyone who is new to this topic. In the next article, I will write further details and aspects of clean coding.</p>
+<p>Do you know that you can automate most of the above practices using some plugins? You can configure your IDE to ensure Clean Coding standards and check the compliance of your coding style with official style guides very easily. Let me know if you are interested to learn how to do it, So I’ll write further covering those aspects as well.</p>
+<p>Please leave your feedback as a comment and <strong>don’t forget to subscribe to my Newsletter below.</strong></p>
+    <hr/>
+    <p style="color:var(--text-dim); font-weight:300; font-size:14px;">
+      Originally published on <a href="https://yasassri.medium.com/how-clean-coding-helps-you-to-build-web-applications-quickly-91c5669fe097" target="_blank" rel="noopener">Medium</a>.
+    </p>
+    <div class="hero-actions reveal" style="margin-top:32px;">
+      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

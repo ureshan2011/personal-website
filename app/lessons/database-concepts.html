@@ -27,15 +27,26 @@
   "name": "Advanced Database Concepts",
   "description": "One database, one table, built up step by step. We create it, shape it, back it up, sort it and count it, then take a plain-English, hands-on look at SQL injection.",
   "url": "https://www.yasassri.me/app/lessons/database-concepts.html",
-  "learningResourceType": "Interactive lesson deck",
+  "learningResourceType": [
+    "Lesson",
+    "Presentation",
+    "Interactive Resource"
+  ],
   "teaches": [
     "Table design",
     "Foreign keys & CASCADE",
     "Backup & restore",
     "SQL injection"
   ],
+  "keywords": "Table design, Foreign keys & CASCADE, Backup & restore, SQL injection",
   "isAccessibleForFree": true,
   "inLanguage": "en",
+  "educationalUse": [
+    "instruction",
+    "self study"
+  ],
+  "timeRequired": "PT14M",
+  "dateModified": "2026-07-29",
   "about": "Database Management",
   "author": {
     "@type": "Person",
@@ -50,12 +61,118 @@
   "isPartOf": {
     "@type": "WebSite",
     "@id": "https://www.yasassri.me/#website"
-  }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/app/lessons/database-concepts.html"
+  },
+  "hasPart": [
+    {
+      "@type": "LearningResource",
+      "name": "Create the database",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#create-the-database"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Create a table",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#create-a-table"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Add a new column",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#add-a-new-column"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Change a column's data type",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#change-a-column-s-data-type"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Make a column the primary key",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#make-a-column-the-primary-key"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Make a column auto-increment",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#make-a-column-auto-increment"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Part 7",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#part-7"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Part 8",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#part-8"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Part 9",
+      "url": "https://www.yasassri.me/app/lessons/database-concepts.html#part-9"
+    }
+  ]
 }
 </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/app/#/lessons"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Advanced Database Concepts",
+      "item": "https://www.yasassri.me/app/lessons/database-concepts.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a foreign key and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A foreign key is a column that points at the primary key of another table, which is how two tables get linked. It also enforces referential integrity: the database refuses to store a row pointing at a record that does not exist, and can stop you deleting a record other rows still depend on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you protect a database against SQL injection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never build a query by concatenating user input into a string. Use parameterised queries or prepared statements so the input is always treated as a value, never as executable SQL. Validating input and limiting the database account's permissions reduce the damage if something does get through, but parameterisation is the actual fix."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
@@ -111,12 +228,113 @@
       <li>SQL injection</li>
     </ul>
     <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This page is a text summary of an interactive, slide-by-slide lesson deck built for
-      the Yoobees teaching platform. Open the interactive version above to work through it
-      with live examples, diagrams and a practice quiz where included.
+      This is the full written version of an interactive, slide-by-slide lesson deck used in
+      teaching. Everything covered in the deck is below — open the interactive version to work
+      through it with live diagrams, worked examples and a practice quiz where included.
     </p>
-    <div class="reveal" style="margin-top:28px;">
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Lesson <em>contents</em></h2>
+    </div>
+    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
+      <li><a href="#create-the-database">Create the database</a></li>
+      <li><a href="#create-a-table">Create a table</a></li>
+      <li><a href="#add-a-new-column">Add a new column</a></li>
+      <li><a href="#change-a-column-s-data-type">Change a column's data type</a></li>
+      <li><a href="#make-a-column-the-primary-key">Make a column the primary key</a></li>
+      <li><a href="#make-a-column-auto-increment">Make a column auto-increment</a></li>
+      <li><a href="#part-7">Part 7</a></li>
+      <li><a href="#part-8">Part 8</a></li>
+      <li><a href="#part-9">Part 9</a></li>
+    </ol>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:74ch;">
+    <h2 id="create-the-database">Create the database</h2>
+    <p>Before we can make any tables, we need somewhere to keep them. CREATE DATABASE tells MySQL to start a fresh, empty space with the name we give it. We run this in MySQL Workbench, then click the refresh icon on the Schemas panel to see our new bookshop appear.</p>
+    <p>Create a database called bookshop in MySQL Workbench. Then double-click it in the Schemas panel so it becomes your active database (its name turns bold).</p>
+    <pre><code>CREATE DATABASE bookshop;</code></pre>
+    <h2 id="create-a-table">Create a table</h2>
+    <p>A table is just a grid of rows and columns, a bit like a spreadsheet with rules. Every column needs a name and a data type. We use INT for whole numbers, VARCHAR(100) for short text (100 is the longest it can hold), and DECIMAL for money. For now we make price an INT on purpose, and we fix that in step 4.</p>
+    <p>Inside bookshop, create a table called books with four columns: id (INT), title (VARCHAR 100), author (VARCHAR 100) and price (INT).</p>
+    <pre><code>USE bookshop;
+
+CREATE TABLE books (
+  id     INT,
+  title  VARCHAR(100),
+  author VARCHAR(100),
+  price  INT
+);</code></pre>
+    <h2 id="add-a-new-column">Add a new column</h2>
+    <p>Tables are not set in stone. With ALTER TABLE ADD COLUMN we can add a new field at any time, and none of the data we already have is lost. Let us say the shop now wants to keep track of how many copies of each book are in stock.</p>
+    <ul>
+      <li>Add a new column called stock_count (INT) to the books table.</li>
+    </ul>
+    <pre><code>ALTER TABLE books ADD COLUMN stock_count INT;</code></pre>
+    <h2 id="change-a-column-s-data-type">Change a column's data type</h2>
+    <p>Right now price is an INT, so it can only hold whole numbers. But a book costs $19.99, not $19. MODIFY COLUMN lets us change the type of a column we already have. DECIMAL(6,2) means up to 6 digits in total, with 2 of them after the decimal point, which is perfect for prices.</p>
+    <ul>
+      <li>Change the price column from INT to DECIMAL(6,2) so it can hold cents.</li>
+    </ul>
+    <pre><code>ALTER TABLE books MODIFY COLUMN price DECIMAL(6,2);</code></pre>
+    <h2 id="make-a-column-the-primary-key">Make a column the primary key</h2>
+    <p>A primary key is the column that gives every row its own identity. No two rows can share the same value, and it can never be left blank. id is the obvious choice here, because every book gets its own number and nothing else has to be unique.</p>
+    <ul>
+      <li>Make id the primary key of the books table.</li>
+    </ul>
+    <pre><code>ALTER TABLE books ADD PRIMARY KEY (id);</code></pre>
+    <h2 id="make-a-column-auto-increment">Make a column auto-increment</h2>
+    <p>Typing an id by hand for every new book is slow and easy to get wrong. AUTO_INCREMENT asks MySQL to do the counting for us. When we add a book without giving an id, MySQL fills in the next free number by itself (1, 2, 3 and so on). In MySQL a column has to be a key before it can auto-increment, which is why we did step 5 first.</p>
+    <p>Make id AUTO_INCREMENT, then add a new book without giving it an id. Leave id out of the column list and watch MySQL fill in the number for you.</p>
+    <pre><code>ALTER TABLE books MODIFY COLUMN id INT AUTO_INCREMENT;</code></pre>
+    <h2 id="part-7">Part 7</h2>
+    <pre><code>ALTER TABLE books ADD COLUMN stock_count INT;</code></pre>
+    <h2 id="part-8">Part 8</h2>
+    <pre><code>ALTER TABLE books ADD COLUMN pages INT AFTER title;</code></pre>
+    <h2 id="part-9">Part 9</h2>
+    <pre><code>ALTER TABLE books ADD COLUMN sku INT FIRST;</code></pre>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What is a foreign key and why does it matter?</h3>
+    <p>A foreign key is a column that points at the primary key of another table, which is how two tables get linked. It also enforces referential integrity: the database refuses to store a row pointing at a record that does not exist, and can stop you deleting a record other rows still depend on.</p>
+    <h3>How do you protect a database against SQL injection?</h3>
+    <p>Never build a query by concatenating user input into a string. Use parameterised queries or prepared statements so the input is always treated as a value, never as executable SQL. Validating input and limiting the database account's permissions reduce the damage if something does get through, but parameterisation is the actual fix.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="sql-programming.html">SQL Programming</a> — CREATE, INSERT, SELECT — one interactive slide at a time.</li>
+      <li><a href="sql-certifications.html">Free SQL Certifications</a> — Nine genuinely free credentials, from vendor badges to project-based certs.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Work through it <em>interactively</em></h2>
+    </div>
+    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
+      The interactive deck adds live diagrams, step-by-step reveals and practice activities
+      that this written version can't carry.
+    </p>
+    <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/database-concepts">Open the Interactive Deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
