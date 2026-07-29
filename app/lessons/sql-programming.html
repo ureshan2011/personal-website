@@ -27,15 +27,26 @@
   "name": "SQL Programming",
   "description": "The language databases actually speak. Create a database, build a table, drop in some rows, then ask it questions — one interactive slide at a time.",
   "url": "https://www.yasassri.me/app/lessons/sql-programming.html",
-  "learningResourceType": "Interactive lesson deck",
+  "learningResourceType": [
+    "Lesson",
+    "Presentation",
+    "Interactive Resource"
+  ],
   "teaches": [
     "CREATE",
     "INSERT",
     "SELECT",
     "Live syntax"
   ],
+  "keywords": "CREATE, INSERT, SELECT, Live syntax",
   "isAccessibleForFree": true,
   "inLanguage": "en",
+  "educationalUse": [
+    "instruction",
+    "self study"
+  ],
+  "timeRequired": "PT18M",
+  "dateModified": "2026-07-29",
   "about": "SQL Programming",
   "author": {
     "@type": "Person",
@@ -50,12 +61,109 @@
   "isPartOf": {
     "@type": "WebSite",
     "@id": "https://www.yasassri.me/#website"
-  }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/app/lessons/sql-programming.html"
+  },
+  "hasPart": [
+    {
+      "@type": "LearningResource",
+      "name": "The Language",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#the-language"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Building Blocks",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#building-blocks"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Command 1 of 5",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#command-1-of-5"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Command 2 of 5",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#command-2-of-5"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Command 3 of 5",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#command-3-of-5"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Filtering with WHERE",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#filtering-with-where"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Sorting with ORDER BY",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#sorting-with-order-by"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Command 4 of 5",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#command-4-of-5"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Command 5 of 5",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#command-5-of-5"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Going Further",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#going-further"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Joining Tables",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#joining-tables"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Quick Reference",
+      "url": "https://www.yasassri.me/app/lessons/sql-programming.html#quick-reference"
+    }
+  ]
 }
 </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/app/#/lessons"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "SQL Programming",
+      "item": "https://www.yasassri.me/app/lessons/sql-programming.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
@@ -111,12 +219,301 @@
       <li>Live syntax</li>
     </ul>
     <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This page is a text summary of an interactive, slide-by-slide lesson deck built for
-      the Yoobees teaching platform. Open the interactive version above to work through it
-      with live examples, diagrams and a practice quiz where included.
+      This is the full written version of an interactive, slide-by-slide lesson deck used in
+      teaching. Everything covered in the deck is below — open the interactive version to work
+      through it with live diagrams, worked examples and a practice quiz where included.
     </p>
-    <div class="reveal" style="margin-top:28px;">
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Lesson <em>contents</em></h2>
+    </div>
+    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
+      <li><a href="#the-language">The Language</a></li>
+      <li><a href="#building-blocks">Building Blocks</a></li>
+      <li><a href="#command-1-of-5">Command 1 of 5</a></li>
+      <li><a href="#command-2-of-5">Command 2 of 5</a></li>
+      <li><a href="#command-3-of-5">Command 3 of 5</a></li>
+      <li><a href="#filtering-with-where">Filtering with WHERE</a></li>
+      <li><a href="#sorting-with-order-by">Sorting with ORDER BY</a></li>
+      <li><a href="#command-4-of-5">Command 4 of 5</a></li>
+      <li><a href="#command-5-of-5">Command 5 of 5</a></li>
+      <li><a href="#going-further">Going Further</a></li>
+      <li><a href="#joining-tables">Joining Tables</a></li>
+      <li><a href="#quick-reference">Quick Reference</a></li>
+    </ol>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:74ch;">
+    <h2 id="the-language">The Language</h2>
+    <ul>
+      <li>What is SQL?</li>
+      <li><strong>SQL</strong> (Structured Query Language) is the standard language for talking to relational databases.</li>
+      <li>Make databases and tables</li>
+      <li>INSERT / SELECT</li>
+      <li>Add and read data</li>
+      <li>UPDATE / DELETE</li>
+      <li>Modify and remove data</li>
+      <li>MySQL = SQL + Database Server</li>
+      <li>The world's most popular open-source database</li>
+      <li>Used by <strong>Facebook, Twitter, YouTube</strong> and thousands of other applications worldwide.</li>
+    </ul>
+    <p>SQL is not case-sensitive — <code>SELECT</code> = <code>select</code> = <code>Select</code>. But writing keywords in UPPERCASE is standard practice.</p>
+    <ul>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="building-blocks">Building Blocks</h2>
+    <ul>
+      <li>MySQL Data Types</li>
+    </ul>
+    <p>Every column in a table must have a data type — it tells MySQL <strong>what kind of value</strong> to expect.</p>
+    <ul>
+      <li>Whole numbers</li>
+      <li>e.g. 1, 25, 1000</li>
+      <li>FLOAT / DECIMAL</li>
+      <li>Decimal numbers</li>
+      <li>e.g. 3.14, 99.99</li>
+      <li>Very large whole numbers</li>
+      <li>e.g. 9,223,372,036…</li>
+      <li>Text up to <em>n</em> characters</li>
+      <li>e.g. 'Alice', 'Hello'</li>
+      <li>Long text (no length limit)</li>
+      <li>e.g. blog post content</li>
+      <li>Fixed-length text</li>
+      <li>e.g. country codes 'MY'</li>
+      <li>Calendar date</li>
+      <li>e.g. '2024-09-01'</li>
+      <li>Date + time combined</li>
+      <li>e.g. '2024-09-01 09:30:00'</li>
+      <li>True or False (1 or 0)</li>
+      <li>e.g. is_active = TRUE</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="command-1-of-5">Command 1 of 5</h2>
+    <ul>
+      <li>Creating Databases &amp; Tables</li>
+      <li>Step 1 — Create a Database</li>
+      <li>CREATE DATABASE school_db;</li>
+      <li>USE school_db;</li>
+      <li>Step 2 — Create a Table</li>
+      <li>CREATE TABLE students (</li>
+      <li>id INT PRIMARY KEY,</li>
+      <li>name VARCHAR(100),</li>
+      <li>age INT,</li>
+      <li>email VARCHAR(150),</li>
+      <li>gpa DECIMAL(3,2)</li>
+      <li>🔑 Key Concepts</li>
+      <li>PRIMARY KEY— unique identifier for each row</li>
+      <li>VARCHAR(n)— text up to <em>n</em> characters</li>
+      <li>DECIMAL(3,2)— 3 digits, 2 after decimal (e.g. 3.75)</li>
+      <li>Result — empty table created</li>
+      <li>(no rows yet)</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="command-2-of-5">Command 2 of 5</h2>
+    <ul>
+      <li>Inserting Data</li>
+      <li>INSERT INTO table_name</li>
+      <li>(column1, column2, ...)</li>
+      <li>(value1, value2, ...);</li>
+      <li>Example — Insert 3 students</li>
+      <li>INSERT INTO students (id, name, age, email, gpa)</li>
+      <li>(1, 'Alice', 20, 'alice@uni.edu', 3.80),</li>
+      <li>(2, 'Bob', 22, 'bob@uni.edu', 3.50),</li>
+      <li>(3, 'Carol', 21, 'carol@uni.edu',3.90);</li>
+      <li>Anatomy of INSERT</li>
+      <li>INSERT INTO which table to add rows to</li>
+      <li>(columns) which columns you're filling</li>
+      <li>VALUES the actual data — match column order!</li>
+      <li>Result — students table now has rows</li>
+    </ul>
+    <p>💡 You must supply a value for <code>id</code> — it is the PRIMARY KEY and must be unique for every row.</p>
+    <ul>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="command-3-of-5">Command 3 of 5</h2>
+    <ul>
+      <li>Querying Data with SELECT</li>
+      <li>Select ALL columns</li>
+      <li>SELECT * FROM students;</li>
+      <li>Select SPECIFIC columns</li>
+      <li>SELECT name, gpa</li>
+      <li>FROM students;</li>
+      <li>Select with an alias</li>
+      <li>SELECT name AS 'Student Name',</li>
+      <li>gpa AS 'Grade Point'</li>
+      <li>FROM students;</li>
+      <li>SELECT * → all columns</li>
+      <li>SELECT name, gpa → 2 columns only</li>
+      <li>⭐ Use <code>SELECT *</code> for exploration; use specific columns in real apps for speed.</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="filtering-with-where">Filtering with WHERE</h2>
+    <ul>
+      <li>SELECT columns</li>
+      <li>FROM table</li>
+      <li>WHERE condition;</li>
+      <li>-- students older than 20</li>
+      <li>SELECT * FROM students</li>
+      <li>WHERE age &gt; 20;</li>
+      <li>-- find a specific student</li>
+      <li>SELECT * FROM students</li>
+      <li>WHERE name = 'Alice';</li>
+      <li>-- multiple conditions</li>
+      <li>SELECT * FROM students</li>
+      <li>WHERE age &gt; 20 AND gpa &gt;= 3.70;</li>
+      <li>Comparison Operators</li>
+      <li>= equal to</li>
+      <li>!= not equal</li>
+      <li>&gt; greater than</li>
+      <li>&lt; less than</li>
+      <li>&gt;= ≥</li>
+      <li>&lt;= ≤</li>
+      <li>AND both true</li>
+      <li>OR either true</li>
+      <li>WHERE age &gt; 20</li>
+    </ul>
+    <p>💡 Use <code>LIKE '%term%'</code> to search text — e.g. <code>WHERE name LIKE 'A%'</code> finds all names starting with A.</p>
+    <ul>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="sorting-with-order-by">Sorting with ORDER BY</h2>
+    <ul>
+      <li>SELECT columns</li>
+      <li>FROM table</li>
+      <li>ORDER BY column ASC|DESC;</li>
+      <li>-- highest GPA first</li>
+      <li>SELECT * FROM students</li>
+      <li>ORDER BY gpa DESC;</li>
+      <li>-- alphabetical by name</li>
+      <li>SELECT * FROM students</li>
+      <li>ORDER BY name ASC;</li>
+      <li>-- combined with WHERE + LIMIT</li>
+      <li>SELECT * FROM students</li>
+      <li>WHERE age &gt; 20</li>
+      <li>ORDER BY gpa DESC LIMIT 10;</li>
+      <li>Ascending (default)</li>
+      <li>smallest → largest</li>
+      <li>A → B → C</li>
+      <li>largest → smallest</li>
+      <li>C → B → A</li>
+      <li>ORDER BY gpa DESC</li>
+    </ul>
+    <p>💡 Add <code>LIMIT 10</code> at the end to get only the top N results — great for leaderboards!</p>
+    <ul>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="command-4-of-5">Command 4 of 5</h2>
+    <ul>
+      <li>Updating Records</li>
+      <li>UPDATE table</li>
+      <li>SET column1 = new_value</li>
+      <li>WHERE condition;</li>
+      <li>-- Bob got a better grade!</li>
+      <li>UPDATE students</li>
+      <li>SET gpa = 3.75</li>
+      <li>WHERE id = 2;</li>
+      <li>-- Update multiple columns</li>
+      <li>UPDATE students</li>
+      <li>SET age = 23, email = 'bob.new@uni.edu'</li>
+      <li>WHERE id = 2;</li>
+      <li>Before UPDATE</li>
+      <li>After UPDATE</li>
+      <li>⚠️ <strong>Always use WHERE!</strong> Without it, every row gets updated — a common mistake!</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="command-5-of-5">Command 5 of 5</h2>
+    <ul>
+      <li>Deleting Records</li>
+      <li>DELETE FROM table</li>
+      <li>WHERE condition;</li>
+      <li>-- remove one student</li>
+      <li>DELETE FROM students</li>
+      <li>WHERE id = 2;</li>
+      <li>-- remove low-GPA records</li>
+      <li>DELETE FROM students</li>
+      <li>WHERE gpa &lt; 3.60;</li>
+      <li>Before DELETE WHERE id = 2</li>
+      <li>After DELETE</li>
+      <li>⚠️ DELETE vs TRUNCATE</li>
+      <li><code>DELETE FROM t WHERE …</code> — removes specific rows</li>
+      <li><code>DELETE FROM t</code> — removes all rows (slow)</li>
+      <li><code>TRUNCATE TABLE t</code> — wipes all rows instantly, resets IDs</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="going-further">Going Further</h2>
+    <ul>
+      <li>Aggregate Functions</li>
+      <li>Perform calculations <strong>across many rows</strong> and return a single result.</li>
+      <li>-- count all students</li>
+      <li>SELECT COUNT(*) FROM students;</li>
+      <li>-- average GPA</li>
+      <li>SELECT AVG(gpa) FROM students;</li>
+      <li>-- highest and lowest GPA</li>
+      <li>SELECT MAX(gpa), MIN(gpa)</li>
+      <li>FROM students;</li>
+      <li>-- group by + count</li>
+      <li>SELECT age, COUNT(*) AS total</li>
+      <li>FROM students</li>
+      <li>GROUP BY age;</li>
+      <li>Counts number of rows</li>
+      <li>Average of a column</li>
+      <li>Highest value</li>
+      <li>Lowest value</li>
+      <li>GROUP BY age result</li>
+      <li>💡 <code>GROUP BY</code> groups rows so functions run <em>per group</em>.</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="joining-tables">Joining Tables</h2>
+    <ul>
+      <li>INNER JOIN query</li>
+      <li>FROM students AS s</li>
+      <li>INNER JOIN grades AS g</li>
+      <li>ON s.id = g.student_id;</li>
+      <li>Combined result</li>
+      <li><strong>INNER JOIN</strong> returns only matching rows from <em>both</em> tables.</li>
+      <li>Database Management Systems</li>
+    </ul>
+    <h2 id="quick-reference">Quick Reference</h2>
+    <ul>
+      <li>Summary &amp; Quick Reference</li>
+      <li>Make a new database or table</li>
+      <li>CREATE TABLE t (…);</li>
+      <li>Add rows to a table</li>
+      <li>INSERT INTO t (…) VALUES (…);</li>
+      <li>Read / query data</li>
+      <li>SELECT * FROM t WHERE …;</li>
+      <li>Modify existing rows</li>
+      <li>UPDATE t SET col=v WHERE …;</li>
+      <li>Remove rows</li>
+      <li>DELETE FROM t WHERE …;</li>
+      <li>ORDER BY</li>
+      <li>Sort results</li>
+      <li>ORDER BY col ASC|DESC;</li>
+      <li>Calculate across rows</li>
+      <li>COUNT · AVG · MAX · MIN · SUM</li>
+      <li>Combine multiple tables</li>
+      <li>INNER JOIN t ON a.id=b.id;</li>
+      <li>Database Management Systems</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Work through it <em>interactively</em></h2>
+    </div>
+    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
+      The interactive deck adds live diagrams, step-by-step reveals and practice activities
+      that this written version can't carry.
+    </p>
+    <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/sql-programming">Open the Interactive Deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
