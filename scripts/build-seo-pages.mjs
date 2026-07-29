@@ -11,13 +11,22 @@
    canonical, and Article/LearningResource JSON-LD — each linking back into
    the interactive SPA route for the full experience.
 
-   THREE INDEPENDENT SOURCES, ALL HANDLED BY THIS ONE SCRIPT
+   FOUR INDEPENDENT SOURCES, ALL HANDLED BY THIS ONE SCRIPT
    1. Interactive lesson decks (app/lessons/<slug>.html)
       Source: app/lessons-src/src/lessons/*.tsx — the small page-wrapper
       files (apa-referencing.tsx, database-concepts.tsx, ...) that pass
-      eyebrow/title/subtitle/pills props into <LessonShell>. These are
-      static repo files, so this always runs, no credentials needed.
-      Slugs are cross-checked against LESSON_DECKS in app/js/app.js.
+      eyebrow/title/subtitle/pills props into <LessonShell>, PLUS the
+      PascalCase implementation file each one imports, which is where the
+      actual teaching content lives. The slide/content arrays in those files
+      are evaluated in a node:vm sandbox rather than pattern-matched — see
+      the comment above sliceArrayLiteral(). These are static repo files, so
+      this always runs, no credentials needed. Slugs are cross-checked
+      against LESSON_DECKS in app/js/app.js.
+
+      Extraction failures THROW, and a page below MIN_DECK_WORDS sets a
+      non-zero exit code. That is deliberate: silently regenerating a thin
+      stub over a full page is the failure mode worth breaking the build for.
+      If a deck is restructured, teach loadDeckContent() its new shape.
 
    2. Firestore blog posts (app/blog/<slug>.html)
       Source: Firestore collection "posts" (fields: slug, title,
@@ -30,6 +39,18 @@
       subtitle, objectives[], content, tags, readingTime), OR a local JSON
       export (see --lessons-dir below). Skipped (with a warning) if the
       slug collides with one of the 10 static decks in (1).
+
+   4. Repatriated writing (writing/<slug>.html)
+      Source: Markdown with front matter in content/writing/. These are
+      articles first published on readclub.me, Medium and Level Up Coding,
+      republished here SELF-CANONICAL so the writing earns ranking for this
+      domain, each with a visible credit line linking the original. Static
+      repo files, so no credentials needed.
+
+   feed.xml IS GENERATED, NOT HAND-EDITED. It is rebuilt from
+   content/feed-manual.json (hand-written news and event items) plus the deck
+   and writing pages above. Deck pubDates come from content/feed-dates.json so
+   rebuilds don't re-date every entry. Edit those JSON files, not feed.xml.
 
    THIS SANDBOX HAS NO FIRESTORE CREDENTIALS, so (2) and (3) run against
    whatever local JSON files exist (none, by default) and simply report
@@ -67,7 +88,10 @@
                                  articles, used when --service-account is
                                  not given.
                                  Default: content/seo-import/lesson-articles
+     --writing-dir=<path>       Repatriated articles as Markdown with front
+                                 matter. Default: content/writing
      --no-sitemap                Skip the sitemap.xml sync step.
+     --no-feed                   Skip regenerating feed.xml.
      --dry-run                   Print what would be written, write nothing.
 
    LOCAL JSON EXPORT SCHEMA (one file per item; filename is ignored)
@@ -125,6 +149,7 @@ const postsDir = path.resolve(REPO_ROOT, flag("posts-dir", "content/seo-import/p
 const lessonsDir = path.resolve(REPO_ROOT, flag("lessons-dir", "content/seo-import/lesson-articles"));
 const writingDir = path.resolve(REPO_ROOT, flag("writing-dir", "content/writing"));
 const skipSitemap = has("no-sitemap");
+const skipFeed = has("no-feed");
 const dryRun = has("dry-run");
 
 const today = new Date().toISOString().slice(0, 10);
@@ -1017,7 +1042,7 @@ function renderBlogPostPage(post) {
    linking the original, and lives at depth 1 under writing/ rather than in
    app/blog/, whose pages link into an SPA route these articles don't have. */
 function renderWritingArticlePage(article) {
-  const { slug, title, summary, category, originalUrl, originalSource, body } = article;
+  const { slug, title, summary, category, originalUrl, originalSource, originalDate, body } = article;
   const canonical = `${SITE_URL}/writing/${slug}.html`;
   const pageTitle = `${title} | Dr. Yasas Sri Wickramasinghe`;
 
@@ -1028,6 +1053,8 @@ function renderWritingArticlePage(article) {
     "description": summary,
     "url": canonical,
     "inLanguage": "en",
+    "datePublished": originalDate || undefined,
+    "dateModified": originalDate || undefined,
     "articleSection": category || undefined,
     "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
     "publisher": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
@@ -1043,6 +1070,7 @@ function renderWritingArticlePage(article) {
     <span class="eyebrow reveal">${esc(category || "Writing")}</span>
     <h1 class="reveal" style="--d:.1s">${esc(title)}</h1>
     <p class="lead reveal" style="--d:.2s">${esc(summary)}</p>
+    ${originalDate ? `<p style="color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Published ${esc(originalDate)}</p>` : ""}
   </div>
 </header>
 <section class="section">
@@ -1157,6 +1185,102 @@ function syncSitemap(newUrls) {
   return added;
 }
 
+/* ---------- feed.xml generation ----------------------------------------- */
+
+/* feed.xml used to be hand-maintained, which meant it drifted: lastBuildDate
+   was stuck, generated pages advertised <link rel="alternate"> to a feed that
+   never listed them, and one item shipped with no pubDate at all.
+
+   It is now generated from three sources — hand-written news and event items
+   in content/feed-manual.json, the lesson decks, and the repatriated writing.
+   Deck items take their dates from content/feed-dates.json rather than today's
+   date, so a rebuild doesn't re-date every entry and look like churn to readers
+   already subscribed. */
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function toRfc822(dateStr) {
+  const d = new Date(`${dateStr}T00:00:00+12:00`);
+  if (Number.isNaN(d.getTime())) return null;
+  const p = n => String(n).padStart(2, "0");
+  return `${DAYS[d.getUTCDay()]}, ${p(d.getUTCDate())} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()} ` +
+    `${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:00 +0000`;
+}
+
+/* RFC-822 back to a sortable value; unparseable or absent dates sort last. */
+const feedSortKey = item => {
+  const t = item.pubDate ? Date.parse(item.pubDate) : NaN;
+  return Number.isNaN(t) ? -Infinity : t;
+};
+
+function syncFeed(decks, writing) {
+  const feedPath = path.join(REPO_ROOT, "feed.xml");
+  const manualPath = path.join(REPO_ROOT, "content", "feed-manual.json");
+  const datesPath = path.join(REPO_ROOT, "content", "feed-dates.json");
+
+  let manual = [];
+  if (fs.existsSync(manualPath)) {
+    try { manual = JSON.parse(fs.readFileSync(manualPath, "utf8")); }
+    catch (e) { console.warn(`  ! ${path.relative(REPO_ROOT, manualPath)} is not valid JSON (${e.message}) — skipping hand-written items`); }
+  }
+  let deckDates = {};
+  if (fs.existsSync(datesPath)) {
+    try { deckDates = JSON.parse(fs.readFileSync(datesPath, "utf8")); }
+    catch (e) { console.warn(`  ! ${path.relative(REPO_ROOT, datesPath)} is not valid JSON (${e.message})`); }
+  }
+
+  const items = [
+    ...manual.map(m => ({
+      title: m.title, link: m.link, guid: m.guid || m.link,
+      pubDate: m.pubDate || null, category: m.category, description: m.description
+    })),
+    ...decks.map(d => ({
+      title: `${d.title} — Interactive Lesson`,
+      link: `${SITE_URL}/app/lessons/${d.slug}.html`,
+      guid: `${SITE_URL}/app/lessons/${d.slug}.html`,
+      pubDate: toRfc822(deckDates[d.slug] || today),
+      category: "Lessons",
+      description: d.shortSubtitle || d.subtitle || ""
+    })),
+    ...writing.map(w => ({
+      title: w.title,
+      link: `${SITE_URL}/writing/${w.slug}.html`,
+      guid: `${SITE_URL}/writing/${w.slug}.html`,
+      pubDate: w.originalDate ? toRfc822(w.originalDate) : null,
+      category: w.category || "Writing",
+      description: w.summary || ""
+    }))
+  ];
+
+  items.sort((a, b) => feedSortKey(b) - feedSortKey(a));
+  const capped = items.slice(0, 30);
+
+  const cdata = s => `<![CDATA[${String(s ?? "").replace(/]]>/g, "]]&gt;")}]]>`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Dr. Yasas Sri Wickramasinghe</title>
+  <link>${SITE_URL}/</link>
+  <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
+  <language>en</language>
+  <lastBuildDate>${toRfc822(today)}</lastBuildDate>
+  <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+${capped.map(i => `  <item>
+    <title>${cdata(i.title)}</title>
+    <link>${esc(i.link)}</link>
+    <guid isPermaLink="true">${esc(i.guid)}</guid>${i.pubDate ? `
+    <pubDate>${i.pubDate}</pubDate>` : ""}${i.category ? `
+    <category>${cdata(i.category)}</category>` : ""}
+    <description>${cdata(i.description)}</description>
+  </item>`).join("\n")}
+</channel>
+</rss>
+`;
+  if (!dryRun) fs.writeFileSync(feedPath, xml);
+  const undated = capped.filter(i => !i.pubDate).length;
+  return { total: capped.length, undated };
+}
+
 /* ---------- main ---------------------------------------------------------- */
 
 async function main() {
@@ -1164,7 +1288,7 @@ async function main() {
 
   // (1) Lesson decks — always runs, no credentials needed.
   const decks = loadLessonDecks();
-  console.log(`\n[1/4] Lesson decks: found ${decks.length} page-wrapper file(s) in app/lessons-src/src/lessons/`);
+  console.log(`\n[1/5] Lesson decks: found ${decks.length} page-wrapper file(s) in app/lessons-src/src/lessons/`);
   const lessonsOutDir = path.join(REPO_ROOT, "app", "lessons");
   if (!dryRun) fs.mkdirSync(lessonsOutDir, { recursive: true });
   const newUrls = [];
@@ -1190,10 +1314,10 @@ async function main() {
   let posts = [];
   let lessonArticles = [];
   if (serviceAccountPath) {
-    console.log(`\n[2/4] Pulling live data from Firestore using ${serviceAccountPath} ...`);
+    console.log(`\n[2/5] Pulling live data from Firestore using ${serviceAccountPath} ...`);
     ({ posts, lessonArticles } = await fetchFromFirestore(serviceAccountPath));
   } else {
-    console.log(`\n[2/4] No --service-account given. Looking for local JSON export at:`);
+    console.log(`\n[2/5] No --service-account given. Looking for local JSON export at:`);
     console.log(`      posts:   ${path.relative(REPO_ROOT, postsDir)}`);
     console.log(`      lessons: ${path.relative(REPO_ROOT, lessonsDir)}`);
     posts = readJsonDir(postsDir);
@@ -1230,7 +1354,7 @@ async function main() {
 
   // (3) Repatriated writing — markdown in content/writing/, no credentials needed.
   const writing = loadWritingArticles();
-  console.log(`\n[3/4] Writing: found ${writing.length} article(s) in ${path.relative(REPO_ROOT, writingDir)}`);
+  console.log(`\n[3/5] Writing: found ${writing.length} article(s) in ${path.relative(REPO_ROOT, writingDir)}`);
   if (writing.length) {
     const writingOutDir = path.join(REPO_ROOT, "writing");
     if (!dryRun) fs.mkdirSync(writingOutDir, { recursive: true });
@@ -1243,8 +1367,18 @@ async function main() {
     }
   }
 
-  // (4) sitemap.xml sync
-  console.log(`\n[4/4] sitemap.xml`);
+  // (4) feed.xml
+  console.log(`\n[4/5] feed.xml`);
+  if (skipFeed) {
+    console.log("  skipped (--no-feed)");
+  } else {
+    const { total, undated } = syncFeed(decks, writing);
+    console.log(`  ${dryRun ? "(dry-run) would write" : "wrote"} ${total} item(s)` +
+      (undated ? `, ${undated} with no pubDate — add one in content/feed-manual.json` : ""));
+  }
+
+  // (5) sitemap.xml sync
+  console.log(`\n[5/5] sitemap.xml`);
   if (skipSitemap) {
     console.log("  skipped (--no-sitemap)");
   } else {

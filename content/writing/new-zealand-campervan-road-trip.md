@@ -4,6 +4,7 @@ slug: new-zealand-campervan-road-trip
 summary: "A personal account of a campervan road trip through New Zealand. A change of pace from the technical writing — travel notes and reflections from the road."
 category: "Travel"
 originalUrl: https://readclub.me/new-zealand-campervan-road-trip/
+originalDate: 2024-02-20
 originalSource: "readclub.me"
 ---
 Imagine a whole crew of friends hitting the open road, campervans convoy as we conquered those winding New Zealand roads.  That's exactly what my mates and I did! From mountain passes to seaside sunsets, our trusty JUCY Chasers rolled together.  Every day was an adventure powered by our shared excitement and StudentCard deals.  Buckle up and get ready for the story of our epic Kiwi convoy journey!

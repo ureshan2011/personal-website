@@ -4,6 +4,7 @@ slug: computer-architect-s-view-on-apple-m1-ultra-chip
 summary: "A computer-architecture perspective on Apple's M1 Ultra chip, examining how its UltraFusion interconnect fuses two dies into a single unified processor. Considers what that design choice means for chip architecture more broadly."
 category: "Architecture"
 originalUrl: https://yasassri.medium.com/computer-architects-view-on-apple-m1-ultra-chip-821805860c42
+originalDate: 2022-10-15
 originalSource: "Medium"
 ---
 Computer Architecture

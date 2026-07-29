@@ -4,6 +4,7 @@ slug: game-development-with-augmented-reality
 summary: "A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay."
 category: "AR / Gaming"
 originalUrl: https://readclub.me/game-development-with-augmented-reality/
+originalDate: 2022-10-09
 originalSource: "readclub.me"
 ---
 Step by step tutorial to designing state-of-the-art AR apps with Niantic Lightship ARDK for Android and iOS

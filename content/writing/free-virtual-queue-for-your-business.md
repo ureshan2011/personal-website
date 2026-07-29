@@ -4,6 +4,7 @@ slug: free-virtual-queue-for-your-business
 summary: "Introduces a free virtual queueing tool built to help small businesses manage customer queues without hardware. Explains the problem it solves and how businesses can start using it."
 category: "Innovation"
 originalUrl: https://yasassri.medium.com/free-virtual-queue-for-your-business-5b8eb49f1b35
+originalDate: 2021-05-05
 originalSource: "Medium"
 ---
 [

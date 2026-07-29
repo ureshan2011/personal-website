@@ -4,6 +4,7 @@ slug: how-clean-coding-helps-you-build-web-applications-quickly
 summary: "Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable."
 category: "Software"
 originalUrl: https://yasassri.medium.com/how-clean-coding-helps-you-to-build-web-applications-quickly-91c5669fe097
+originalDate: 2022-10-09
 originalSource: "Medium"
 ---
 [

@@ -4,6 +4,7 @@ slug: github-student-pack-hidden-treasure-for-university-students
 summary: "Highlights the GitHub Student Developer Pack and the free developer tools and services it unlocks for university students. Aimed at students who may not realise how much value the pack offers."
 category: "Education"
 originalUrl: https://readclub.me/github-student-pack-hidden-treasure-that-most-university-students-unaware/
+originalDate: 2022-10-19
 originalSource: "readclub.me"
 ---
 **Create a professional website for you and host it, or even run a live webinar using this completely free access to various developer tools**

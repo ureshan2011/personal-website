@@ -4,6 +4,7 @@ slug: i-built-a-free-website-to-help-sri-lankan-drivers-save-thousands-on-fuel
 summary: "The story behind a free website built to help drivers in Sri Lanka find ways to save on fuel costs. Covers the motivation for the project and what it took to build and ship it."
 category: "Innovation"
 originalUrl: https://readclub.me/i-built-a-free-website-to-help-sri-lankan-drivers-save-thousands-on-fuel-heres-the-story-behind-it/
+originalDate: 2026-03-24
 originalSource: "readclub.me"
 ---
 A few months ago, I was stuck in Colombo traffic, watching my fuel gauge drop, and I did some rough math in my head. The number I landed on genuinely bothered me. So I did what any engineer with too much free time would do — I turned it into a hobby project.

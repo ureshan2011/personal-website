@@ -1,151 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>Dr. Yasas Sri Wickramasinghe — News &amp; Lessons</title>
+  <title>Dr. Yasas Sri Wickramasinghe</title>
   <link>https://www.yasassri.me/</link>
-  <description>Augmented reality researcher, university lecturer and software builder — upcoming talks and events, and interactive lessons from the Yoobees teaching platform.</description>
-  <language>en-nz</language>
-  <lastBuildDate>Sun, 19 Jul 2026 00:00:00 +1200</lastBuildDate>
+  <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
+  <language>en</language>
+  <lastBuildDate>Tue, 28 Jul 2026 12:00:00 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
-  <image>
-    <url>https://www.yasassri.me/assets/images/icons/favicon.png</url>
-    <title>Dr. Yasas Sri Wickramasinghe — News &amp; Lessons</title>
-    <link>https://www.yasassri.me/</link>
-  </image>
-
   <item>
-    <title>NZGDC 2026 — Designing Shared Worlds Across Distance</title>
+    <title><![CDATA[NZGDC 2026 — Designing Shared Worlds Across Distance]]></title>
     <link>https://www.yasassri.me/news.html#upcoming</link>
-    <guid isPermaLink="false">yasassri-event-nzgdc-2026</guid>
+    <guid isPermaLink="true">yasassri-event-nzgdc-2026</guid>
     <pubDate>Thu, 01 Oct 2026 15:00:00 +1300</pubDate>
-    <category>Event</category>
-    <description>I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland.</description>
+    <category><![CDATA[Event]]></category>
+    <description><![CDATA[I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland.]]></description>
   </item>
-
   <item>
-    <title>CODE with WIE 2026 — Workshop 01: Architecting the Augmented Tomorrow</title>
-    <link>https://www.yasassri.me/news.html#upcoming</link>
-    <guid isPermaLink="false">yasassri-event-code-with-wie-2026</guid>
-    <pubDate>Sat, 11 Jul 2026 09:00:00 +0530</pubDate>
-    <category>Event</category>
-    <description>Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri Lanka — exploring the technologies shaping the future and how innovation is transforming tomorrow's world, drawn from research in immersive technologies, software product engineering and game design. Online via Google Meet.</description>
-  </item>
-
-  <item>
-    <title>Research Visit to Tohoku University — Building an NZ–Japan AR Collaboration</title>
-    <link>https://www.yasassri.me/news.html</link>
-    <guid isPermaLink="false">yasassri-event-tohoku-visit-2025</guid>
-    <pubDate>Mon, 08 Dec 2025 00:00:00 +1300</pubDate>
-    <category>Collaboration</category>
-    <description>Prof. Rob Lindeman and I (HIT Lab NZ, University of Canterbury) visited the Interactive Content Design Lab at the Research Institute of Electrical Communication (RIEC), Tohoku University, Sendai, Japan. We presented our research on location-based augmented reality and immersive interaction, and explored a joint research project bridging New Zealand and Japan.</description>
-  </item>
-
-  <item>
-    <title>Selected for Falling Walls Lab Aotearoa New Zealand 2024</title>
-    <link>https://www.yasassri.me/news.html</link>
-    <guid isPermaLink="false">yasassri-event-falling-walls-2024</guid>
-    <pubDate>Wed, 11 Sep 2024 00:00:00 +1200</pubDate>
-    <category>Talk</category>
-    <description>One of nineteen researchers and innovators chosen from across Aotearoa New Zealand and the Pacific to pitch a breakthrough idea in three minutes at Falling Walls Lab Aotearoa New Zealand 2024, organised by Royal Society Te Apārangi. Pitch: "Breaking the Wall of Loneliness through Play" — how location-based augmented reality games can bring people together and ease loneliness through shared experiences.</description>
-  </item>
-
-  <item>
-    <title>Talking AR Game Design on the National Stage — NZGDC 2023</title>
-    <link>https://www.yasassri.me/news.html</link>
-    <guid isPermaLink="false">yasassri-event-nzgdc-2023-panel</guid>
-    <category>Panel</category>
-    <description>New Zealand Game Developers Conference, 2023. A panel of New Zealand augmented reality developers for the first-ever AR Game Dev Rant at NZGDC — a candid, fast-paced conversation about what it really takes to design and ship location-based AR experiences, alongside Evie, Melanie and Devi. (Exact date not published on-site; year only.)</description>
-  </item>
-
-  <item>
-    <title>Advanced Database Concepts — Interactive Lesson</title>
-    <link>https://www.yasassri.me/app/lessons/database-concepts.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/database-concepts.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Table design, backup &amp; restore, and a plain-English look at SQL injection — one database, one table, built up step by step.</description>
-  </item>
-
-  <item>
-    <title>ER Diagrams — Interactive Lesson</title>
-    <link>https://www.yasassri.me/app/lessons/er-diagrams.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-diagrams.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Entities, attributes and relationships in Chen's notation — and learning to read cardinality at a glance.</description>
-  </item>
-
-  <item>
-    <title>SQL Programming — Interactive Lesson</title>
-    <link>https://www.yasassri.me/app/lessons/sql-programming.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/sql-programming.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>CREATE, INSERT, SELECT — one interactive slide at a time, the language databases actually speak.</description>
-  </item>
-
-  <item>
-    <title>ER Diagrams in Practice — Interactive Lesson</title>
-    <link>https://www.yasassri.me/app/lessons/er-activities.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-activities.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Model five real systems — a library, a university, a hospital, an online store and a hotel — and check your diagram against a worked answer.</description>
-  </item>
-
-  <item>
-    <title>Advanced ER Concepts — Interactive Lesson</title>
-    <link>https://www.yasassri.me/app/lessons/er-advanced.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-advanced.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Weak entities, identifying relationships, multivalued and derived attributes — with two exercises to test yourself.</description>
-  </item>
-
-  <item>
-    <title>Attributes &amp; Participation — Interactive Lesson</title>
-    <link>https://www.yasassri.me/app/lessons/er-attributes.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-attributes.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Composite and derived attributes, and participation constraints, read through two guided activities.</description>
-  </item>
-
-  <item>
-    <title>APA 7 Citations — Interactive Lesson</title>
+    <title><![CDATA[APA 7 Citations — Interactive Lesson]]></title>
     <link>https://www.yasassri.me/app/lessons/apa-referencing.html</link>
     <guid isPermaLink="true">https://www.yasassri.me/app/lessons/apa-referencing.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>A 14-slide interactive crash course on APA 7 citations, from the first in-text citation to the last reference entry, with a practice quiz.</description>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[A 14-slide interactive crash course with a practice quiz.]]></description>
   </item>
-
   <item>
-    <title>Free Jira &amp; Agile Certifications — Interactive Lesson</title>
+    <title><![CDATA[Advanced Database Concepts — Interactive Lesson]]></title>
+    <link>https://www.yasassri.me/app/lessons/database-concepts.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/database-concepts.html</guid>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Table design, backup & restore, and a plain-English look at SQL injection.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[ER Diagrams in Practice — Interactive Lesson]]></title>
+    <link>https://www.yasassri.me/app/lessons/er-activities.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-activities.html</guid>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Model five real systems and check your diagram against a worked answer.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Advanced ER Concepts — Interactive Lesson]]></title>
+    <link>https://www.yasassri.me/app/lessons/er-advanced.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-advanced.html</guid>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Weak entities, identifying relationships, multivalued & derived attributes.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Attributes & Participation — Interactive Lesson]]></title>
+    <link>https://www.yasassri.me/app/lessons/er-attributes.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-attributes.html</guid>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Composite/derived attributes and participation constraints, guided.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[ER Diagrams — Interactive Lesson]]></title>
+    <link>https://www.yasassri.me/app/lessons/er-diagrams.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/er-diagrams.html</guid>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Entities, attributes and relationships in Chen's notation.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Free Jira & Agile Certifications — Interactive Lesson]]></title>
     <link>https://www.yasassri.me/app/lessons/jira-certifications.html</link>
     <guid isPermaLink="true">https://www.yasassri.me/app/lessons/jira-certifications.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Three hand-picked, genuinely free Jira and Agile credentials worth putting on LinkedIn.</description>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Three hand-picked, genuinely free credentials worth putting on LinkedIn.]]></description>
   </item>
-
   <item>
-    <title>Free SQL Certifications — Interactive Lesson</title>
+    <title><![CDATA[Free SQL Certifications — Interactive Lesson]]></title>
     <link>https://www.yasassri.me/app/lessons/sql-certifications.html</link>
     <guid isPermaLink="true">https://www.yasassri.me/app/lessons/sql-certifications.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>Nine genuinely free SQL credentials, from vendor badges to project-based certificates.</description>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Nine genuinely free credentials, from vendor badges to project-based certs.]]></description>
   </item>
-
   <item>
-    <title>From Vibe to Production — Interactive Lesson</title>
+    <title><![CDATA[SQL Programming — Interactive Lesson]]></title>
+    <link>https://www.yasassri.me/app/lessons/sql-programming.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/app/lessons/sql-programming.html</guid>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[CREATE, INSERT, SELECT — one interactive slide at a time.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[From Vibe to Production — Interactive Lesson]]></title>
     <link>https://www.yasassri.me/app/lessons/vibe-to-production.html</link>
     <guid isPermaLink="true">https://www.yasassri.me/app/lessons/vibe-to-production.html</guid>
-    <pubDate>Sun, 19 Jul 2026 00:00:00 +1200</pubDate>
-    <category>Lesson</category>
-    <description>How to go from an idea to a live website in one sitting, using Google Stitch, Claude Code and GitHub Pages.</description>
+    <pubDate>Sat, 18 Jul 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lessons]]></category>
+    <description><![CDATA[Idea to live website in one sitting: Google Stitch, Claude Code, GitHub Pages.]]></description>
   </item>
-
+  <item>
+    <title><![CDATA[CODE with WIE 2026 — Workshop 01: Architecting the Augmented Tomorrow]]></title>
+    <link>https://www.yasassri.me/news.html#upcoming</link>
+    <guid isPermaLink="true">yasassri-event-code-with-wie-2026</guid>
+    <pubDate>Sat, 11 Jul 2026 09:00:00 +0530</pubDate>
+    <category><![CDATA[Event]]></category>
+    <description><![CDATA[Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri Lanka — exploring the technologies shaping the future and how innovation is transforming tomorrow's world, drawn from research in immersive technologies, software product engineering and game design. Online via Google Meet.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[I Built a Free Website to Help Sri Lankan Drivers Save Thousands on Fuel]]></title>
+    <link>https://www.yasassri.me/writing/i-built-a-free-website-to-help-sri-lankan-drivers-save-thousands-on-fuel.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/i-built-a-free-website-to-help-sri-lankan-drivers-save-thousands-on-fuel.html</guid>
+    <pubDate>Mon, 23 Mar 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Innovation]]></category>
+    <description><![CDATA[The story behind a free website built to help drivers in Sri Lanka find ways to save on fuel costs. Covers the motivation for the project and what it took to build and ship it.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Research Visit to Tohoku University — Building an NZ–Japan AR Collaboration]]></title>
+    <link>https://www.yasassri.me/news.html</link>
+    <guid isPermaLink="true">yasassri-event-tohoku-visit-2025</guid>
+    <pubDate>Mon, 08 Dec 2025 00:00:00 +1300</pubDate>
+    <category><![CDATA[Collaboration]]></category>
+    <description><![CDATA[Prof. Rob Lindeman and I (HIT Lab NZ, University of Canterbury) visited the Interactive Content Design Lab at the Research Institute of Electrical Communication (RIEC), Tohoku University, Sendai, Japan. We presented our research on location-based augmented reality and immersive interaction, and explored a joint research project bridging New Zealand and Japan.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Selected for Falling Walls Lab Aotearoa New Zealand 2024]]></title>
+    <link>https://www.yasassri.me/news.html</link>
+    <guid isPermaLink="true">yasassri-event-falling-walls-2024</guid>
+    <pubDate>Wed, 11 Sep 2024 00:00:00 +1200</pubDate>
+    <category><![CDATA[Talk]]></category>
+    <description><![CDATA[One of nineteen researchers and innovators chosen from across Aotearoa New Zealand and the Pacific to pitch a breakthrough idea in three minutes at Falling Walls Lab Aotearoa New Zealand 2024, organised by Royal Society Te Apārangi. Pitch: "Breaking the Wall of Loneliness through Play" — how location-based augmented reality games can bring people together and ease loneliness through shared experiences.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[New Zealand Campervan Road Trip]]></title>
+    <link>https://www.yasassri.me/writing/new-zealand-campervan-road-trip.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/new-zealand-campervan-road-trip.html</guid>
+    <pubDate>Mon, 19 Feb 2024 12:00:00 +0000</pubDate>
+    <category><![CDATA[Travel]]></category>
+    <description><![CDATA[A personal account of a campervan road trip through New Zealand. A change of pace from the technical writing — travel notes and reflections from the road.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Start a Money-Making Blog on Ghost]]></title>
+    <link>https://www.yasassri.me/writing/start-a-money-making-blog-on-ghost.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/start-a-money-making-blog-on-ghost.html</guid>
+    <pubDate>Wed, 02 Nov 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[Blogging]]></category>
+    <description><![CDATA[A practical walkthrough of starting a blog on the Ghost publishing platform with monetisation in mind. Covers the basics of setup and the choices that shape whether a blog can sustain itself.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Hand Tracking in Augmented Reality]]></title>
+    <link>https://www.yasassri.me/writing/hand-tracking-in-augmented-reality.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/hand-tracking-in-augmented-reality.html</guid>
+    <pubDate>Sun, 23 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[AR / VR]]></category>
+    <description><![CDATA[An overview of how hand-tracking technology works in AR and why it matters for natural, controller-free interaction. Looks at the techniques and challenges behind tracking hand movement and gestures in real time.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Black Friday Gift Ideas for Him or Her in 2022]]></title>
+    <link>https://www.yasassri.me/writing/black-friday-gift-ideas-for-him-or-her-in-2022.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/black-friday-gift-ideas-for-him-or-her-in-2022.html</guid>
+    <pubDate>Sat, 22 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[Lifestyle]]></category>
+    <description><![CDATA[A lighter, seasonal piece with Black Friday gift ideas. A departure from the technical essays — practical, timely shopping suggestions.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[ASML Chip Manufacturing: EUV Lithography & Computer Architecture]]></title>
+    <link>https://www.yasassri.me/writing/asml-chip-manufacturing-euv-lithography-computer-architecture.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/asml-chip-manufacturing-euv-lithography-computer-architecture.html</guid>
+    <pubDate>Tue, 18 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[Architecture]]></category>
+    <description><![CDATA[Explains ASML's role in modern chip manufacturing through extreme ultraviolet (EUV) lithography. Connects the physics of EUV to why it has become essential for producing today's most advanced processors.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[GitHub Student Pack: Hidden Treasure for University Students]]></title>
+    <link>https://www.yasassri.me/writing/github-student-pack-hidden-treasure-for-university-students.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/github-student-pack-hidden-treasure-for-university-students.html</guid>
+    <pubDate>Tue, 18 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[Education]]></category>
+    <description><![CDATA[Highlights the GitHub Student Developer Pack and the free developer tools and services it unlocks for university students. Aimed at students who may not realise how much value the pack offers.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Computer Architect's View on Apple M1 Ultra Chip]]></title>
+    <link>https://www.yasassri.me/writing/computer-architect-s-view-on-apple-m1-ultra-chip.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/computer-architect-s-view-on-apple-m1-ultra-chip.html</guid>
+    <pubDate>Fri, 14 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[Architecture]]></category>
+    <description><![CDATA[A computer-architecture perspective on Apple's M1 Ultra chip, examining how its UltraFusion interconnect fuses two dies into a single unified processor. Considers what that design choice means for chip architecture more broadly.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Game Development with Augmented Reality]]></title>
+    <link>https://www.yasassri.me/writing/game-development-with-augmented-reality.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/game-development-with-augmented-reality.html</guid>
+    <pubDate>Sat, 08 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[AR / Gaming]]></category>
+    <description><![CDATA[A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[How Clean Coding Helps You Build Web Applications Quickly]]></title>
+    <link>https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html</guid>
+    <pubDate>Sat, 08 Oct 2022 12:00:00 +0000</pubDate>
+    <category><![CDATA[Software]]></category>
+    <description><![CDATA[Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Creating a Design System Using React Material UI]]></title>
+    <link>https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html</guid>
+    <pubDate>Mon, 21 Jun 2021 12:00:00 +0000</pubDate>
+    <category><![CDATA[Frontend]]></category>
+    <description><![CDATA[Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Free Virtual Queue for Your Business]]></title>
+    <link>https://www.yasassri.me/writing/free-virtual-queue-for-your-business.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/free-virtual-queue-for-your-business.html</guid>
+    <pubDate>Tue, 04 May 2021 12:00:00 +0000</pubDate>
+    <category><![CDATA[Innovation]]></category>
+    <description><![CDATA[Introduces a free virtual queueing tool built to help small businesses manage customer queues without hardware. Explains the problem it solves and how businesses can start using it.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Virtual Reality: A Secret Weapon to Boost Warehouse Efficiency]]></title>
+    <link>https://www.yasassri.me/writing/virtual-reality-a-secret-weapon-to-boost-warehouse-efficiency.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/virtual-reality-a-secret-weapon-to-boost-warehouse-efficiency.html</guid>
+    <pubDate>Tue, 04 May 2021 12:00:00 +0000</pubDate>
+    <category><![CDATA[VR]]></category>
+    <description><![CDATA[Explores how virtual reality can improve training, layout planning and operational efficiency in warehouse environments. Argues that VR offers a low-risk way to rehearse and refine warehouse processes before rollout.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[Talking AR Game Design on the National Stage — NZGDC 2023]]></title>
+    <link>https://www.yasassri.me/news.html</link>
+    <guid isPermaLink="true">yasassri-event-nzgdc-2023-panel</guid>
+    <category><![CDATA[Panel]]></category>
+    <description><![CDATA[New Zealand Game Developers Conference, 2023. A panel of New Zealand augmented reality developers for the first-ever AR Game Dev Rant at NZGDC — a candid, fast-paced conversation about what it really takes to design and ship location-based AR experiences, alongside Evie, Melanie and Devi. (Exact date not published on-site; year only.)]]></description>
+  </item>
 </channel>
 </rss>
