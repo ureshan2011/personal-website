@@ -246,6 +246,36 @@ function fbError(e) {
   return "Something went wrong — please try again.";
 }
 
+/* ---------- Submission notifications ------------------------------------- */
+
+/* Firestore writes are silent — nothing tells the site owner a request came in,
+   and there is no backend here to run a Firestore trigger on. So each form
+   also posts a plain-text summary to a form-to-email endpoint.
+
+   Deliberately fire-and-forget: the submission itself already succeeded by the
+   time this runs, so a failed or blocked notification must never surface to
+   the visitor or undo their request. Failures go to the console only.
+
+   No-ops until PLATFORM_NOTIFY_ENDPOINT is set in firebase-config.js, so the
+   platform behaves exactly as before if it is left unconfigured. */
+function notifyOwner(subject, fields) {
+  const endpoint = window.PLATFORM_NOTIFY_ENDPOINT;
+  if (!endpoint) return;
+  try {
+    const body = Object.entries(fields)
+      .filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== "")
+      .map(([k, v]) => `${k}: ${v}`)
+      .join("\n");
+    fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ _subject: subject, subject, message: body })
+    }).catch(e => console.warn("notify failed:", e));
+  } catch (e) {
+    console.warn("notify failed:", e);
+  }
+}
+
 /* ---------- Minimal safe Markdown renderer ------------------------------- */
 
 function mdToHtml(src) {
@@ -700,6 +730,18 @@ async function viewConsult(params) {
         website: "",
         createdAt: serverTimestamp()
       });
+      notifyOwner("New consultation request", {
+        Type: (CONSULT_TYPES.find(t => t.id === selectedType) || {}).name || selectedType,
+        Name: String(f.get("name")).trim(),
+        Email: String(f.get("email")).trim(),
+        Role: f.get("role"),
+        Organization: String(f.get("organization") || "").trim(),
+        Topic: String(f.get("topic")).trim(),
+        Goals: String(f.get("goals")).trim(),
+        Mode: f.get("mode"),
+        Timezone: String(f.get("timezone") || "").trim(),
+        Review: location.origin + location.pathname + "#/admin"
+      });
       form.reset();
       msg.className = "form-msg ok";
       msg.textContent = "Request submitted — you'll hear back by email once it's reviewed.";
@@ -875,6 +917,24 @@ function viewInvite() {
         data[k] = String(f.get(k) || "").trim();
       }
       await addDoc(collection(db, "invitations"), data);
+      notifyOwner("New speaking invitation", {
+        Organizer: data.organizerName,
+        Role: data.organizerRole,
+        Organization: data.organization,
+        Email: data.email,
+        Phone: data.phone,
+        Event: data.eventName,
+        "Event type": data.eventType,
+        Date: data.eventDate,
+        Location: data.location,
+        Audience: data.audience,
+        Topic: data.topic,
+        Format: data.format,
+        Travel: data.travel,
+        Honorarium: data.honorarium,
+        Message: data.message,
+        Review: location.origin + location.pathname + "#/admin"
+      });
       form.reset();
       msg.className = "form-msg ok";
       msg.textContent = "Invitation sent — thank you! You'll get a reply by email.";
@@ -1119,6 +1179,11 @@ function viewNewsletter(params) {
         website: "",
         createdAt: serverTimestamp()
       });
+      notifyOwner("New newsletter subscriber", {
+        Email: email,
+        Name: String(f.get("name") || "").trim(),
+        Segment: f.get("segment")
+      });
       form.reset();
       msg.className = "form-msg ok"; msg.textContent = "You're on the list — welcome!";
       toast("Subscribed ✓");
@@ -1214,6 +1279,15 @@ async function viewBook() {
             lastDownloadAt: serverTimestamp()
           });
         }
+        // The reader is now waiting on a manual send — this is the one queue
+        // where a missed notification leaves someone hanging.
+        notifyOwner("Book request — send the PDF", {
+          Name: currentUser.displayName || "",
+          Email: currentUser.email,
+          Repeat: existing.exists() ? "yes — has requested before" : "no",
+          Action: "Email The Collaboration Reflex PDF to this address",
+          Queue: location.origin + location.pathname + "#/admin"
+        });
         openModal({
           icon: "✉️",
           title: "Keep an eye on your email",
