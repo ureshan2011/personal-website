@@ -103,6 +103,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -132,6 +133,15 @@ const today = new Date().toISOString().slice(0, 10);
 const esc = s => String(s ?? "")
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;");
+
+/* Rendered-page word count, used as a floor check on extraction. */
+const countWords = html =>
+  String(html).replace(/<[^>]*>/g, " ").replace(/&[a-z]+;/gi, " ")
+    .split(/\s+/).filter(Boolean).length;
+
+/* A generated deck page below this is thin enough that extraction almost
+   certainly broke — the pre-extraction stubs were ~230 words. */
+const MIN_DECK_WORDS = 500;
 
 function slugify(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 80) || "page";
@@ -207,6 +217,188 @@ function parsePills(src) {
     .map(m => ({ emoji: m[1], name: m[2], color: m[3] }));
 }
 
+/* ---------- deck slide extraction --------------------------------------- */
+
+/* Each deck implementation file (ERDiagramsDeck.tsx and friends) keeps its
+   slides in one top-level array literal:
+
+     const SLIDES: { classes: string; label: string; html: string }[] = [
+       { classes: "dark", label: "01 Title", html: `<div class="inner">...` },
+     ];
+
+   The `html` values are plain HTML template literals with no ${} interpolation,
+   so the array is pure data and can be evaluated exactly rather than scraped.
+   That matters — quoting style differs between decks ("01 Title" in some,
+   '01 Title' in others), which a regex would have to guess at.
+
+   Extraction failures throw. Quietly falling back to the old ~230-word stub
+   would regress a good page to a thin one without anyone noticing, which is
+   the one outcome worth failing the build over. */
+
+function sliceArrayLiteral(src, openIdx) {
+  // Walk from the opening "[" tracking string/template state, so brackets
+  // inside slide markup or CSS selectors don't close the array early.
+  let depth = 0, quote = null;
+  for (let i = openIdx; i < src.length; i++) {
+    const c = src[i];
+    if (quote) {
+      if (c === "\\") { i++; continue; }
+      if (c === quote) quote = null;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === "`") { quote = c; continue; }
+    if (c === "[") depth++;
+    else if (c === "]" && --depth === 0) return src.slice(openIdx, i + 1);
+  }
+  return null;
+}
+
+function findArrayLiteral(src, name) {
+  const decl = new RegExp(`(?:^|\\n)\\s*const\\s+${name}\\b[^=\\n]*=\\s*\\[`).exec(src);
+  if (!decl) return null;
+  return sliceArrayLiteral(src, decl.index + decl[0].length - 1);
+}
+
+function evalArrayLiteral(literal, label) {
+  // Some arrays reference outer consts (accent colours, imported icon
+  // components) and hold arrow functions. A permissive sandbox lets those
+  // resolve to harmless stubs rather than throwing — only string fields are read.
+  const sandbox = new Proxy({}, {
+    has: () => true,
+    get: (_t, k) => (k === Symbol.unscopables ? undefined : "")
+  });
+  try {
+    return vm.runInNewContext(`(${literal})`, sandbox, { timeout: 2000 });
+  } catch (e) {
+    throw new Error(`could not evaluate ${label}: ${e.message}`);
+  }
+}
+
+/* Tags worth preserving inside extracted prose — they carry meaning a crawler
+   uses. Everything else is presentational and gets dropped. */
+const KEEP_INLINE = /^(strong|em|b|i|code|sub|sup)$/i;
+const BLOCK_TAGS = /<\/?(div|p|li|ul|ol|h[1-6]|section|header|footer|td|th|tr|table|br|figcaption|blockquote)\b[^>]*>/gi;
+
+const stripTags = s => String(s).replace(/<[^>]*>/g, "");
+const norm = s => stripTags(s).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+/* Flattens one slide's markup into an ordered list of prose blocks.
+
+   A selector-based approach loses content here: several slides carry their
+   body text in styled <div>s with no <p> or <li> at all. Marking every
+   block-level boundary and then stripping tags recovers those. */
+function slideBlocks(html) {
+  let h = String(html || "")
+    .replace(/<svg[\s\S]*?<\/svg>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, "");
+  h = h.replace(BLOCK_TAGS, " ");
+  h = h.replace(/<(\/?)([a-z0-9]+)\b[^>]*>/gi, (_m, close, tag) =>
+    KEEP_INLINE.test(tag) ? `<${close}${tag.toLowerCase()}>` : "");
+  return h.split(" ")
+    .map(t => t.replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim())
+    .filter(t => {
+      const bare = stripTags(t);
+      if (!/[a-z]/i.test(bare)) return false;              // pure decoration
+      if (/^©\s*Yasas/i.test(bare)) return false;          // per-slide copyright
+      return bare.split(/\s+/).filter(Boolean).length >= 2;
+    });
+}
+
+/* "04 What Is ER" -> "What Is ER". The ordinal is deck navigation, not a title. */
+const slideHeading = label => String(label || "").replace(/^\s*\d+\s*[.\-–—)·|]?\s+/, "").trim();
+
+/* Cover, divider and sign-off slides carry no teaching content — their text is
+   the deck title and tagline, which the page lead already states. */
+const CHROME_SLIDE = /^(title|end\s*title|end|cover|thanks?|thank you|questions?|q\s*&\s*a)$/i;
+/* Kickers like "Section 01" label the slide, they don't title it. */
+const KICKER_ONLY = /^(section|part|step|module)\s*\d+$/i;
+
+/* Headings are rendered as plain text and escaped downstream, so entities
+   carried over from the slide markup have to be decoded once here — otherwise
+   "&amp;" ships as "&amp;amp;". Body blocks keep theirs, being real HTML. */
+const decodeEntities = s => String(s)
+  .replace(/&nbsp;/g, " ").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'")
+  .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
+
+/* The label is often an internal deck code ("Sec What Why"); the slide's own
+   on-screen title reads better. Slides run kicker → title → body, so the first
+   short non-kicker block is the title. */
+function pickHeading(blocks, label) {
+  const title = blocks
+    .slice(0, 3)
+    .map(b => decodeEntities(stripTags(b)).trim())
+    .find(t => !KICKER_ONLY.test(t) && t.split(/\s+/).filter(Boolean).length <= 12);
+  return title || slideHeading(label);
+}
+
+function extractDeckSections(implSrc, file) {
+  const literal = findArrayLiteral(implSrc, "SLIDES");
+  if (!literal) throw new Error(`${file}: no top-level "const SLIDES = [...]" found`);
+  const slides = evalArrayLiteral(literal, `${file} SLIDES`);
+  if (!Array.isArray(slides) || !slides.length) throw new Error(`${file}: SLIDES evaluated to no slides`);
+
+  return slides.map((slide, i) => {
+    if (CHROME_SLIDE.test(slideHeading(slide.label))) return null;
+    const blocks = slideBlocks(slide.html);
+    if (!blocks.length) return null;
+    const heading = pickHeading(blocks, slide.label) || `Part ${i + 1}`;
+    // Drop the block the heading came from, plus any kicker above it, so the
+    // heading isn't immediately echoed back in the body.
+    const body = blocks.filter(b =>
+      norm(b) !== norm(heading) && !KICKER_ONLY.test(decodeEntities(stripTags(b)).trim()));
+    return { id: slugify(heading) || `part-${i + 1}`, heading, blocks: body };
+  }).filter(s => s && s.blocks.length);
+}
+
+/* The four interactive lessons (DatabaseConceptsLesson and friends) are React
+   components rather than slide decks — their teaching content lives in named
+   top-level arrays of plain objects. Same evaluation trick, different shape. */
+const COMPONENT_CONTENT_ARRAYS = [
+  "TABLE_STEPS", "TYPE_SCENARIOS", "COL_POSITIONS", "COUNT_FILTERS",
+  "STAGES", "PRESETS", "certs", "whyLinkedIn", "bonusResources"
+];
+
+const HEADING_KEYS = ["title", "name", "q", "front", "label", "stage"];
+const PROSE_KEYS = ["explain", "body", "blurb", "desc", "description", "text",
+  "answer", "back", "why", "detail", "summary", "activityTask"];
+const LIST_KEYS = ["notes", "points", "bullets", "items"];
+
+function itemToSection(item, i) {
+  if (!item || typeof item !== "object") return null;
+  const headingRaw = HEADING_KEYS.map(k => item[k]).find(v => typeof v === "string" && v.trim());
+  const heading = slideHeading(headingRaw || "") || `Part ${i + 1}`;
+  const blocks = [];
+  for (const k of PROSE_KEYS) {
+    const v = item[k];
+    if (typeof v === "string" && v.trim().split(/\s+/).filter(Boolean).length >= 2) blocks.push(v.trim());
+  }
+  for (const k of LIST_KEYS) {
+    if (!Array.isArray(item[k])) continue;
+    for (const v of item[k]) if (typeof v === "string" && v.trim()) blocks.push(v.trim());
+  }
+  const code = typeof item.code === "string" && item.code.trim() ? item.code.trim() : null;
+  if (!blocks.length && !code) return null;
+  return { id: slugify(heading) || `part-${i + 1}`, heading, blocks, code };
+}
+
+function extractComponentSections(implSrc, file) {
+  const sections = [];
+  for (const name of COMPONENT_CONTENT_ARRAYS) {
+    const literal = findArrayLiteral(implSrc, name);
+    if (!literal) continue;
+    let items;
+    try { items = evalArrayLiteral(literal, `${file} ${name}`); }
+    catch (e) { console.warn(`  ! ${file}: skipping ${name} — ${e.message}`); continue; }
+    if (!Array.isArray(items)) continue;
+    items.forEach(item => {
+      const s = itemToSection(item, sections.length);
+      if (s) sections.push(s);
+    });
+  }
+  return sections;
+}
+
 function loadLessonDecks() {
   const registry = parseLessonDeckRegistry();
   if (!fs.existsSync(LESSONS_SRC_DIR)) return [];
@@ -244,10 +436,36 @@ function loadLessonDecks() {
       titleAccent,
       accent: accent || (reg && reg.accent) || "#4b6bff",
       subtitle,
-      pills
+      pills,
+      ...loadDeckContent(src, file)
     });
   }
   return decks.sort((a, b) => a.slug.localeCompare(b.slug));
+}
+
+/* Resolves the wrapper's deck component (`import ERDiagramsDeck from
+   './ERDiagramsDeck'`) and pulls its teaching content out of the source. */
+function loadDeckContent(wrapperSrc, wrapperFile) {
+  const imports = [...wrapperSrc.matchAll(/import\s+([A-Z][A-Za-z0-9_]*)\s+from\s+['"]\.\/([^'"]+)['"]/g)];
+  for (const [, , rel] of imports) {
+    const implPath = path.join(LESSONS_SRC_DIR, `${rel}.tsx`);
+    if (!fs.existsSync(implPath)) continue;
+    const implSrc = fs.readFileSync(implPath, "utf8");
+    const implFile = `${rel}.tsx`;
+
+    if (findArrayLiteral(implSrc, "SLIDES")) {
+      return { sections: extractDeckSections(implSrc, implFile), sourceFile: implFile };
+    }
+    const sections = extractComponentSections(implSrc, implFile);
+    if (sections.length) return { sections, sourceFile: implFile };
+    throw new Error(
+      `${implFile}: no SLIDES array and none of the known content arrays ` +
+      `(${COMPONENT_CONTENT_ARRAYS.join(", ")}) yielded prose. ` +
+      `If this deck was restructured, teach loadDeckContent() its new shape — ` +
+      `do not let it silently regenerate a thin page.`
+    );
+  }
+  throw new Error(`${wrapperFile}: could not resolve a deck component import`);
 }
 
 /* ---------- (2) & (3) Firestore (live, if --service-account given) ----- */
@@ -308,9 +526,8 @@ function pageShell({ depth, title, description, canonical, ogImage, jsonLd, body
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@sri_yasas"/>
 ${ldBlocks}
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="preload" href="${up}assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="${up}assets/css/fonts.css" rel="stylesheet"/>
 <link href="${up}assets/css/redesign.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
@@ -371,21 +588,36 @@ function renderLessonDeckPage(deck) {
   const description = deck.shortSubtitle || deck.subtitle;
   const topics = deck.pills.map(p => p.name);
 
+  const sections = deck.sections || [];
+
   const jsonLd = [{
     "@context": "https://schema.org",
     "@type": "LearningResource",
     "name": deck.title,
     "description": deck.subtitle || deck.shortSubtitle,
     "url": canonical,
-    "learningResourceType": "Interactive lesson deck",
+    "learningResourceType": ["Lesson", "Presentation", "Interactive Resource"],
     "teaches": topics,
+    "keywords": topics.join(", "),
     "isAccessibleForFree": true,
     "inLanguage": "en",
+    "educationalUse": ["instruction", "self study"],
+    "timeRequired": `PT${Math.max(5, Math.round(sections.length * 1.5))}M`,
+    "dateModified": today,
     "about": deck.eyebrow || undefined,
     "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
     "provider": { "@type": "Organization", "name": "Dr. Yasas Sri Wickramasinghe — Academic Platform", "url": SITE_URL + "/app/" },
-    "isPartOf": { "@type": "WebSite", "@id": SITE_URL + "/#website" }
-  }];
+    "isPartOf": { "@type": "WebSite", "@id": SITE_URL + "/#website" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+    "hasPart": sections.map(s => ({
+      "@type": "LearningResource", "name": s.heading, "url": `${canonical}#${s.id}`
+    }))
+  }, breadcrumbLd([
+    ["Home", `${SITE_URL}/`],
+    ["Teaching", `${SITE_URL}/teaching.html`],
+    ["Lessons", `${SITE_URL}/app/#/lessons`],
+    [deck.title, canonical]
+  ])];
 
   const bodyHtml = `
     <span class="eyebrow reveal">${esc(deck.eyebrow || "Interactive Lesson")}</span>
@@ -407,12 +639,40 @@ function renderLessonDeckPage(deck) {
       ${topics.map(t => `<li>${esc(t)}</li>`).join("\n      ")}
     </ul>
     <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This page is a text summary of an interactive, slide-by-slide lesson deck built for
-      the Yoobees teaching platform. Open the interactive version above to work through it
-      with live examples, diagrams and a practice quiz where included.
+      This is the full written version of an interactive, slide-by-slide lesson deck used in
+      teaching. Everything covered in the deck is below — open the interactive version to work
+      through it with live diagrams, worked examples and a practice quiz where included.
     </p>
-    <div class="reveal" style="margin-top:28px;">
+  </div>
+</section>
+${sections.length ? `<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Lesson <em>contents</em></h2>
+    </div>
+    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
+      ${sections.map(s => `<li><a href="#${esc(s.id)}">${esc(s.heading)}</a></li>`).join("\n      ")}
+    </ol>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:74ch;">
+    ${sections.map(s => renderSection(s)).join("\n    ")}
+  </div>
+</section>` : ""}
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Work through it <em>interactively</em></h2>
+    </div>
+    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
+      The interactive deck adds live diagrams, step-by-step reveals and practice activities
+      that this written version can't carry.
+    </p>
+    <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="${esc(spaUrl)}">Open the Interactive Deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
     </div>
   </div>
 </section>`;
@@ -427,6 +687,36 @@ function renderLessonDeckPage(deck) {
     bodyHtml,
     breadcrumbLabel: `Lessons / ${deck.title}`
   });
+}
+
+function breadcrumbLd(pairs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": pairs.map(([name, item], i) => ({
+      "@type": "ListItem", "position": i + 1, "name": name, "item": item
+    }))
+  };
+}
+
+/* Renders one extracted section. Short blocks read as list items, longer ones
+   as paragraphs — the decks mix both and forcing either alone reads badly.
+   Blocks already carry only whitelisted inline tags, so they are not re-escaped. */
+function renderSection(s) {
+  const out = [`<h2 id="${esc(s.id)}">${esc(s.heading)}</h2>`];
+  let list = [];
+  const flush = () => {
+    if (!list.length) return;
+    out.push(`<ul>\n      ${list.map(b => `<li>${b}</li>`).join("\n      ")}\n    </ul>`);
+    list = [];
+  };
+  for (const b of s.blocks) {
+    if (stripTags(b).split(/\s+/).filter(Boolean).length < 15) list.push(b);
+    else { flush(); out.push(`<p>${b}</p>`); }
+  }
+  flush();
+  if (s.code) out.push(`<pre><code>${esc(s.code)}</code></pre>`);
+  return out.join("\n    ");
 }
 
 function renderBlogPostPage(post) {
@@ -564,12 +854,22 @@ async function main() {
   const lessonsOutDir = path.join(REPO_ROOT, "app", "lessons");
   if (!dryRun) fs.mkdirSync(lessonsOutDir, { recursive: true });
   const newUrls = [];
+  const thin = [];
   for (const deck of decks) {
     const outPath = path.join(lessonsOutDir, `${deck.slug}.html`);
     const html = renderLessonDeckPage(deck);
+    const words = countWords(html);
+    if (words < MIN_DECK_WORDS) thin.push(`${deck.slug} (${words} words, from ${deck.sourceFile})`);
     if (!dryRun) fs.writeFileSync(outPath, html);
-    console.log(`  ${dryRun ? "(dry-run) would write" : "wrote"} app/lessons/${deck.slug}.html`);
+    console.log(`  ${dryRun ? "(dry-run) would write" : "wrote"} app/lessons/${deck.slug}.html` +
+      `  — ${deck.sections.length} section(s), ${words} words`);
     newUrls.push(`${SITE_URL}/app/lessons/${deck.slug}.html`);
+  }
+  if (thin.length) {
+    console.error(`\n  ! These pages fell below the ${MIN_DECK_WORDS}-word floor, which means extraction`);
+    console.error(`    probably failed for them rather than the lesson genuinely being short:`);
+    for (const t of thin) console.error(`      - ${t}`);
+    process.exitCode = 1;
   }
 
   // (2) & (3) Blog posts + lesson articles — Firestore (if creds given) or local JSON export.
