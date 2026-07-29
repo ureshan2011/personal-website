@@ -123,6 +123,7 @@ const has = name => args.includes(`--${name}`);
 const serviceAccountPath = flag("service-account", null);
 const postsDir = path.resolve(REPO_ROOT, flag("posts-dir", "content/seo-import/posts"));
 const lessonsDir = path.resolve(REPO_ROOT, flag("lessons-dir", "content/seo-import/lesson-articles"));
+const writingDir = path.resolve(REPO_ROOT, flag("writing-dir", "content/writing"));
 const skipSitemap = has("no-sitemap");
 const dryRun = has("dry-run");
 
@@ -147,31 +148,129 @@ function slugify(s) {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "").slice(0, 80) || "page";
 }
 
-/* Deliberately narrow Markdown -> HTML converter — headings, paragraphs,
-   bold/italic, links and "- " lists. Not a general Markdown parser; the
-   lesson/blog content this project produces never uses more than this. */
+/* Narrow Markdown -> HTML converter. Not a general parser — it covers exactly
+   what this project's content uses: headings, paragraphs, bold/italic, inline
+   code, links, images, bullet and numbered lists, blockquotes, fenced code
+   blocks and horizontal rules. Everything is escaped before formatting, so no
+   raw HTML from a source file reaches the page. */
 function mdToHtml(md) {
-  const lines = String(md || "").replace(/\r\n/g, "\n").split("\n");
+  const lines = String(md || "")
+    .replace(/\r\n/g, "\n")
+    // Linked images arrive from the converters split across several lines:
+    //   [
+    //   ![alt](img)
+    //   ](href)
+    // Collapse both halves back onto one line so the construct parses as a
+    // single linked image instead of leaving stray "[" and "](href)" paragraphs.
+    // Both joins are anchored to their neighbouring token so ordinary
+    // "[text](url)" links are left alone.
+    .replace(/\[[ \t]*\n\s*(?=!\[)/g, "[")
+    .replace(/\)[ \t]*\n\s*(?=\]\()/g, ")")
+    // Embedded link-preview cards arrive as a bare "[", several lines of card
+    // metadata (title, then domain), then "](href)". Collapse each to a plain
+    // link labelled with the card's title — its first meaningful line.
+    .replace(/\[[ \t]*\n([\s\S]{0,600}?)\n[ \t]*\]\((https?:[^\s)]+)\)/g, (_m, inner, href) => {
+      const label = inner.split("\n").map(s => s.trim()).filter(Boolean)[0] || href;
+      return `[${label.replace(/[[\]]/g, "")}](${href})`;
+    })
+    .split("\n");
   const out = [];
-  let inList = false;
-  const closeList = () => { if (inList) { out.push("</ul>"); inList = false; } };
+  let listTag = null;      // "ul" | "ol" | null
+  let inQuote = false;
+  let fence = null;        // language of the open fence, or null
+  let fenceLines = [];
+
+  const closeList = () => { if (listTag) { out.push(`</${listTag}>`); listTag = null; } };
+  const closeQuote = () => { if (inQuote) { out.push("</blockquote>"); inQuote = false; } };
+  const openList = tag => {
+    if (listTag === tag) return;
+    closeList();
+    out.push(`<${tag}>`);
+    listTag = tag;
+  };
+
   const inline = t => esc(t)
+    // Linked images first: "[![alt](src)](href)" would otherwise be split by
+    // the image rule into markup the link rule can no longer recognise.
+    .replace(/\[!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)\]\((https?:\/\/[^\s)]+)\)/g,
+      (_m, alt, src, href) =>
+        `<a href="${href}" target="_blank" rel="noopener"><img src="${src}" alt="${alt}" loading="lazy" decoding="async"/></a>`)
+    // Images before links — the syntax differs only by the leading "!".
+    .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g,
+      (_m, alt, src) => `<img src="${src}" alt="${alt}" loading="lazy" decoding="async"/>`)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
     .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
   for (const raw of lines) {
+    // Inside a fenced block everything is literal until the closing fence.
+    if (fence !== null) {
+      if (/^\s*```/.test(raw)) {
+        const cls = fence ? ` class="language-${esc(fence)}"` : "";
+        out.push(`<pre><code${cls}>${esc(fenceLines.join("\n"))}</code></pre>`);
+        fence = null; fenceLines = [];
+      } else fenceLines.push(raw);
+      continue;
+    }
+
     const line = raw.trim();
-    if (!line) { closeList(); continue; }
+
+    const openFence = line.match(/^```\s*([A-Za-z0-9+#-]*)\s*$/);
+    if (openFence) { closeList(); closeQuote(); fence = openFence[1] || ""; fenceLines = []; continue; }
+
+    if (!line) { closeList(); closeQuote(); continue; }
+
+    if (/^(\*\s*\*\s*\*|---+|___+)$/.test(line)) { closeList(); closeQuote(); out.push("<hr/>"); continue; }
+
     const h = line.match(/^(#{2,4})\s+(.*)$/);
-    if (h) { closeList(); const lvl = h[1].length; out.push(`<h${lvl}>${inline(h[2])}</h${lvl}>`); continue; }
-    const li = line.match(/^-\s+(.*)$/);
-    if (li) { if (!inList) { out.push("<ul>"); inList = true; } out.push(`<li>${inline(li[1])}</li>`); continue; }
+    if (h) { closeList(); closeQuote(); out.push(`<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`); continue; }
+
+    const quote = line.match(/^>\s?(.*)$/);
+    if (quote) {
+      closeList();
+      if (!inQuote) { out.push("<blockquote>"); inQuote = true; }
+      out.push(`<p>${inline(quote[1])}</p>`);
+      continue;
+    }
+    closeQuote();
+
+    const ul = line.match(/^[-*]\s+(.*)$/);
+    if (ul) { openList("ul"); out.push(`<li>${inline(ul[1])}</li>`); continue; }
+
+    const ol = line.match(/^\d+[.)]\s+(.*)$/);
+    if (ol) { openList("ol"); out.push(`<li>${inline(ol[1])}</li>`); continue; }
+
     closeList();
+    // A standalone image, linked or not, gets its own figure rather than <p>.
+    if (/^\[?!\[[^\]]*\]\(https?:\/\/[^\s)]+\)(\]\(https?:\/\/[^\s)]+\))?$/.test(line)) {
+      out.push(`<figure>${inline(line)}</figure>`);
+      continue;
+    }
     out.push(`<p>${inline(line)}</p>`);
   }
+
+  if (fence !== null) out.push(`<pre><code>${esc(fenceLines.join("\n"))}</code></pre>`);
   closeList();
+  closeQuote();
   return out.join("\n");
+}
+
+/* Front matter is a small fixed set of `key: value` lines between --- fences,
+   with JSON-quoted values where the text may contain colons. */
+function parseFrontMatter(src) {
+  const m = String(src).match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!m) return { meta: {}, body: String(src) };
+  const meta = {};
+  for (const line of m[1].split("\n")) {
+    const kv = line.match(/^([A-Za-z][A-Za-z0-9_]*):\s*(.*)$/);
+    if (!kv) continue;
+    const raw = kv[2].trim();
+    let val = raw;
+    if (raw.startsWith('"')) { try { val = JSON.parse(raw); } catch { /* keep raw */ } }
+    meta[kv[1]] = val;
+  }
+  return { meta, body: m[2] };
 }
 
 function readJsonDir(dir) {
@@ -911,6 +1010,81 @@ function renderBlogPostPage(post) {
   });
 }
 
+/* Articles repatriated from readclub.me, Medium and Level Up Coding.
+
+   These are self-canonical: the whole point is that the writing earns ranking
+   for this domain rather than someone else's. Each keeps a visible credit line
+   linking the original, and lives at depth 1 under writing/ rather than in
+   app/blog/, whose pages link into an SPA route these articles don't have. */
+function renderWritingArticlePage(article) {
+  const { slug, title, summary, category, originalUrl, originalSource, body } = article;
+  const canonical = `${SITE_URL}/writing/${slug}.html`;
+  const pageTitle = `${title} | Dr. Yasas Sri Wickramasinghe`;
+
+  const jsonLd = [{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": summary,
+    "url": canonical,
+    "inLanguage": "en",
+    "articleSection": category || undefined,
+    "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
+    "publisher": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
+    "isPartOf": { "@type": "WebSite", "@id": SITE_URL + "/#website" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
+  }, breadcrumbLd([
+    ["Home", `${SITE_URL}/`],
+    ["Writing", `${SITE_URL}/blogs.html`],
+    [title, canonical]
+  ])];
+
+  const bodyHtml = `
+    <span class="eyebrow reveal">${esc(category || "Writing")}</span>
+    <h1 class="reveal" style="--d:.1s">${esc(title)}</h1>
+    <p class="lead reveal" style="--d:.2s">${esc(summary)}</p>
+  </div>
+</header>
+<section class="section">
+  <div class="container prose" style="max-width:72ch;">
+    ${mdToHtml(body)}
+    ${originalUrl ? `<hr/>
+    <p style="color:var(--text-dim); font-weight:300; font-size:14px;">
+      Originally published on <a href="${esc(originalUrl)}" target="_blank" rel="noopener">${esc(originalSource || "another site")}</a>.
+    </p>` : ""}
+    <div class="hero-actions reveal" style="margin-top:32px;">
+      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>`;
+
+  return pageShell({
+    depth: 1,
+    title: pageTitle,
+    description: summary,
+    canonical,
+    ogImage: `${SITE_URL}/assets/images/og-card.png`,
+    jsonLd,
+    bodyHtml,
+    breadcrumbLabel: `Writing / ${title}`
+  });
+}
+
+function loadWritingArticles() {
+  if (!fs.existsSync(writingDir)) return [];
+  return fs.readdirSync(writingDir)
+    .filter(f => f.endsWith(".md"))
+    .map(f => {
+      const { meta, body } = parseFrontMatter(fs.readFileSync(path.join(writingDir, f), "utf8"));
+      const slug = meta.slug || slugify(meta.title || f.replace(/\.md$/, ""));
+      if (!meta.title) { console.warn(`  ! ${f}: no title in front matter — skipping`); return null; }
+      return { ...meta, slug, body };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.slug.localeCompare(b.slug));
+}
+
 function renderLessonArticlePage(article) {
   const slug = article.slug || slugify(article.title);
   const canonical = `${SITE_URL}/app/lessons/${slug}.html`;
@@ -990,7 +1164,7 @@ async function main() {
 
   // (1) Lesson decks — always runs, no credentials needed.
   const decks = loadLessonDecks();
-  console.log(`\n[1/3] Lesson decks: found ${decks.length} page-wrapper file(s) in app/lessons-src/src/lessons/`);
+  console.log(`\n[1/4] Lesson decks: found ${decks.length} page-wrapper file(s) in app/lessons-src/src/lessons/`);
   const lessonsOutDir = path.join(REPO_ROOT, "app", "lessons");
   if (!dryRun) fs.mkdirSync(lessonsOutDir, { recursive: true });
   const newUrls = [];
@@ -1016,10 +1190,10 @@ async function main() {
   let posts = [];
   let lessonArticles = [];
   if (serviceAccountPath) {
-    console.log(`\n[2/3] Pulling live data from Firestore using ${serviceAccountPath} ...`);
+    console.log(`\n[2/4] Pulling live data from Firestore using ${serviceAccountPath} ...`);
     ({ posts, lessonArticles } = await fetchFromFirestore(serviceAccountPath));
   } else {
-    console.log(`\n[2/3] No --service-account given. Looking for local JSON export at:`);
+    console.log(`\n[2/4] No --service-account given. Looking for local JSON export at:`);
     console.log(`      posts:   ${path.relative(REPO_ROOT, postsDir)}`);
     console.log(`      lessons: ${path.relative(REPO_ROOT, lessonsDir)}`);
     posts = readJsonDir(postsDir);
@@ -1054,8 +1228,23 @@ async function main() {
     }
   }
 
-  // (3) sitemap.xml sync
-  console.log(`\n[3/3] sitemap.xml`);
+  // (3) Repatriated writing — markdown in content/writing/, no credentials needed.
+  const writing = loadWritingArticles();
+  console.log(`\n[3/4] Writing: found ${writing.length} article(s) in ${path.relative(REPO_ROOT, writingDir)}`);
+  if (writing.length) {
+    const writingOutDir = path.join(REPO_ROOT, "writing");
+    if (!dryRun) fs.mkdirSync(writingOutDir, { recursive: true });
+    for (const article of writing) {
+      const outPath = path.join(writingOutDir, `${article.slug}.html`);
+      const html = renderWritingArticlePage(article);
+      if (!dryRun) fs.writeFileSync(outPath, html);
+      console.log(`  ${dryRun ? "(dry-run) would write" : "wrote"} writing/${article.slug}.html  — ${countWords(html)} words`);
+      newUrls.push(`${SITE_URL}/writing/${article.slug}.html`);
+    }
+  }
+
+  // (4) sitemap.xml sync
+  console.log(`\n[4/4] sitemap.xml`);
   if (skipSitemap) {
     console.log("  skipped (--no-sitemap)");
   } else {
