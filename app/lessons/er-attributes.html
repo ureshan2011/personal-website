@@ -192,6 +192,126 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a composite and a multivalued attribute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A composite attribute is one value split into parts — Name is First plus Last. A multivalued attribute is several separate values of the same kind — a customer with three phone numbers. They use different notation and map to the database differently: composites become multiple columns, multivalued attributes become a separate table."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a derived attribute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An attribute whose value is calculated from other stored data rather than stored itself — age derived from date of birth, or order total derived from line items. It is drawn with a dashed ellipse, and is normally computed on read instead of being stored, so it cannot fall out of sync."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a composite attribute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An attribute made up of multiple sub-attributes, each holding a distinct piece of information. Example: Address = StreetNumber + StreetName + City + PostCode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a composite attribute drawn in Chen's notation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An outer ellipse (the composite parent, drawn with a thicker teal border) with smaller sub-attribute ellipses connected to it by lines — like branches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Give an example of a composite attribute in a booking system.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GuestName (FirstName, LastName), CheckInAddress (StreetName, Suburb, City, PostCode), or ContactDetails (PhoneNumber, Email)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why break an attribute into composite sub-attributes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To allow querying or processing individual parts — e.g., sorting by LastName, filtering by City, or extracting PostCode for delivery routing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between composite and multivalued?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Composite: ONE value split into parts (Name = First + Last). Multivalued: MULTIPLE separate values ({PhoneNumber} = 021…, 09…). Different notations and SQL mappings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a composite attribute map to SQL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each sub-attribute becomes its own column. The composite parent itself does NOT become a column. E.g., Address → street_name, city, post_code columns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a participation constraint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rule specifying whether ALL entities in an entity set (total participation) or just SOME (partial participation) must participate in at least one instance of a relationship."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does total participation mean and how is it drawn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every entity instance MUST participate in at least one relationship instance. Drawn as a DOUBLE LINE (══) between the entity and the relationship diamond."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does partial participation mean and how is it drawn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some entity instances do NOT have to participate in any relationship instance. Drawn as a SINGLE LINE (──) — the default notation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A business rule says \"Every ORDER must belong to a CUSTOMER\". What participation does ORDER have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total participation — drawn as a double line from ORDER to the places/belongs_to relationship diamond. Maps to NOT NULL FK in SQL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A business rule says \"A CUSTOMER may or may not have placed an ORDER\". What participation does CUSTOMER have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partial participation — drawn as a single line (default) from CUSTOMER to the relationship diamond. The FK column in ORDER allows NULL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you identify total vs. partial participation from a business rule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total: key words are \"must\", \"every\", \"all\", \"required\", \"always\". Partial: key words are \"may\", \"can\", \"optional\", \"might\", \"not necessarily\"."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
@@ -496,6 +616,53 @@
   </div>
 </section>
 <section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What is the difference between a composite and a multivalued attribute?</h3>
+    <p>A composite attribute is one value split into parts — Name is First plus Last. A multivalued attribute is several separate values of the same kind — a customer with three phone numbers. They use different notation and map to the database differently: composites become multiple columns, multivalued attributes become a separate table.</p>
+    <h3>What is a derived attribute?</h3>
+    <p>An attribute whose value is calculated from other stored data rather than stored itself — age derived from date of birth, or order total derived from line items. It is drawn with a dashed ellipse, and is normally computed on read instead of being stored, so it cannot fall out of sync.</p>
+    <h3>What is a composite attribute?</h3>
+    <p>An attribute made up of multiple sub-attributes, each holding a distinct piece of information. Example: Address = StreetNumber + StreetName + City + PostCode.</p>
+    <h3>How is a composite attribute drawn in Chen's notation?</h3>
+    <p>An outer ellipse (the composite parent, drawn with a thicker teal border) with smaller sub-attribute ellipses connected to it by lines — like branches.</p>
+    <h3>Give an example of a composite attribute in a booking system.</h3>
+    <p>GuestName (FirstName, LastName), CheckInAddress (StreetName, Suburb, City, PostCode), or ContactDetails (PhoneNumber, Email).</p>
+    <h3>Why break an attribute into composite sub-attributes?</h3>
+    <p>To allow querying or processing individual parts — e.g., sorting by LastName, filtering by City, or extracting PostCode for delivery routing.</p>
+    <h3>What is the difference between composite and multivalued?</h3>
+    <p>Composite: ONE value split into parts (Name = First + Last). Multivalued: MULTIPLE separate values ({PhoneNumber} = 021…, 09…). Different notations and SQL mappings.</p>
+    <h3>How does a composite attribute map to SQL?</h3>
+    <p>Each sub-attribute becomes its own column. The composite parent itself does NOT become a column. E.g., Address → street_name, city, post_code columns.</p>
+    <h3>What is a participation constraint?</h3>
+    <p>A rule specifying whether ALL entities in an entity set (total participation) or just SOME (partial participation) must participate in at least one instance of a relationship.</p>
+    <h3>What does total participation mean and how is it drawn?</h3>
+    <p>Every entity instance MUST participate in at least one relationship instance. Drawn as a DOUBLE LINE (══) between the entity and the relationship diamond.</p>
+    <h3>What does partial participation mean and how is it drawn?</h3>
+    <p>Some entity instances do NOT have to participate in any relationship instance. Drawn as a SINGLE LINE (──) — the default notation.</p>
+    <h3>A business rule says &quot;Every ORDER must belong to a CUSTOMER&quot;. What participation does ORDER have?</h3>
+    <p>Total participation — drawn as a double line from ORDER to the places/belongs_to relationship diamond. Maps to NOT NULL FK in SQL.</p>
+    <h3>A business rule says &quot;A CUSTOMER may or may not have placed an ORDER&quot;. What participation does CUSTOMER have?</h3>
+    <p>Partial participation — drawn as a single line (default) from CUSTOMER to the relationship diamond. The FK column in ORDER allows NULL.</p>
+    <h3>How do you identify total vs. partial participation from a business rule?</h3>
+    <p>Total: key words are &quot;must&quot;, &quot;every&quot;, &quot;all&quot;, &quot;required&quot;, &quot;always&quot;. Partial: key words are &quot;may&quot;, &quot;can&quot;, &quot;optional&quot;, &quot;might&quot;, &quot;not necessarily&quot;.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="er-diagrams.html">ER Diagrams</a> — Entities, attributes and relationships in Chen's notation.</li>
+      <li><a href="er-advanced.html">Advanced ER Concepts</a> — Weak entities, identifying relationships, multivalued &amp; derived attributes.</li>
+      <li><a href="er-activities.html">ER Diagrams in Practice</a> — Model five real systems and check your diagram against a worked answer.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
       <h2>Work through it <em>interactively</em></h2>
@@ -507,6 +674,7 @@
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-attributes">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>

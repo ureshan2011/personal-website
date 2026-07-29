@@ -152,6 +152,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a weak entity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An entity that cannot be identified by its own attributes alone and depends on another entity to exist. A hotel room number only makes sense alongside the hotel it belongs to. It is drawn with a double rectangle and connects to its owner through an identifying relationship, drawn as a double diamond."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When do you need a ternary relationship?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When three entities genuinely participate in one relationship at the same time and splitting it into separate binary relationships would lose meaning — for example a supplier supplying a specific part to a specific project. If the fact only holds when all three are considered together, it is genuinely ternary."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
@@ -379,6 +403,29 @@
   </div>
 </section>
 <section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What is a weak entity?</h3>
+    <p>An entity that cannot be identified by its own attributes alone and depends on another entity to exist. A hotel room number only makes sense alongside the hotel it belongs to. It is drawn with a double rectangle and connects to its owner through an identifying relationship, drawn as a double diamond.</p>
+    <h3>When do you need a ternary relationship?</h3>
+    <p>When three entities genuinely participate in one relationship at the same time and splitting it into separate binary relationships would lose meaning — for example a supplier supplying a specific part to a specific project. If the fact only holds when all three are considered together, it is genuinely ternary.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="er-diagrams.html">ER Diagrams</a> — Entities, attributes and relationships in Chen's notation.</li>
+      <li><a href="er-attributes.html">Attributes &amp; Participation</a> — Composite/derived attributes and participation constraints, guided.</li>
+      <li><a href="er-activities.html">ER Diagrams in Practice</a> — Model five real systems and check your diagram against a worked answer.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
       <h2>Work through it <em>interactively</em></h2>
@@ -390,6 +437,7 @@
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
