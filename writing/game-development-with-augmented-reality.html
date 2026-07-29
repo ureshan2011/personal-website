@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Game Development with Augmented Reality | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#4b6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/writing/game-development-with-augmented-reality.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<!-- Open Graph -->
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Game Development with Augmented Reality | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay."/>
+<meta property="og:url" content="https://www.yasassri.me/writing/game-development-with-augmented-reality.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Game Development with Augmented Reality",
+  "description": "A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.",
+  "url": "https://www.yasassri.me/writing/game-development-with-augmented-reality.html",
+  "inLanguage": "en",
+  "articleSection": "AR / Gaming",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/writing/game-development-with-augmented-reality.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://www.yasassri.me/blogs.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Game Development with Augmented Reality",
+      "item": "https://www.yasassri.me/writing/game-development-with-augmented-reality.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../app/#/">Platform</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <div class="app-crumb" style="margin-bottom:14px;"><a href="../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Writing / Game Development with Augmented Reality</span></div>
+
+    <span class="eyebrow reveal">AR / Gaming</span>
+    <h1 class="reveal" style="--d:.1s">Game Development with Augmented Reality</h1>
+    <p class="lead reveal" style="--d:.2s">A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.</p>
+  </div>
+</header>
+<section class="section">
+  <div class="container prose" style="max-width:72ch;">
+    <p>Step by step tutorial to designing state-of-the-art AR apps with Niantic Lightship ARDK for Android and iOS</p>
+<figure><img src="https://images.unsplash.com/photo-1590126141992-d6a613152c77?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGF1Z21lbnRlZCUyMHJlYWxpdHl8ZW58MHx8fHwxNjY1MjQ1NzA1&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000" alt="Augmented Reality on UNIBOA.fr" loading="lazy" decoding="async"/></figure>
+<p><em>Photo by <a href="https://unsplash.com/@uniboa?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit" target="_blank" rel="noopener">UNIBOA</a> / <a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit" target="_blank" rel="noopener">Unsplash</a></em></p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Install <a href="https://unity3d.com/get-unity/download?ref=readclub.me" target="_blank" rel="noopener">Unity Hub</a></li>
+<li>Install <a href="https://prf.hn/click/camref:1011lr4gQ?ref=readclub.me" target="_blank" rel="noopener">Unity version 2020.3.2f1</a></li>
+<li>Download Niantic <a href="https://lightship.dev/account/downloads?ref=readclub.me" target="_blank" rel="noopener">Lightship ARDK</a>, Lightship Example Projects, ARDK Sample Mock Meshes, ARDK Mock Environments and Lightship Hub files</li>
+</ul>
+<h3>Optional</h3>
+<ul>
+<li><a href="https://developer.apple.com/programs/enroll/?ref=readclub.me" target="_blank" rel="noopener">Apple Developer Account</a> and <a href="https://developer.apple.com/xcode/?ref=readclub.me" target="_blank" rel="noopener">XCode</a> (if you plan to create apps for iOS (You need to have a Mac also)</li>
+<li><a href="https://lightship.dev/docs/building_android.html?ref=readclub.me" target="_blank" rel="noopener">Android SDK</a> _(if you plan to create apps for Android, this can be downloaded via Unity as well)_</li>
+</ul>
+<hr/>
+<h3>Step 01: Open Unity Hub</h3>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-9.37.40-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<h3>Step 02: Create a New Unity 3D/3D Mobile Project</h3>
+<ul>
+<li>Go to Create -&gt; New Project and select the 3D (or 3D Mobile) template.</li>
+<li>Give a project name and click the &quot;Create project&quot; button.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-9.40.39-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>It will take a few minutes, and you will get a new Unity 3D project.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-9.57.11-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<h3>Step 03: Importing Lightship ARDK packages to Unity</h3>
+<ul>
+<li>Import ARDK files to Unity via Assets --&gt; Import Package --&gt; Custom Package</li>
+<li>Make sure to select all the downloaded files following the above process starting with <code>ardk-x.x.x.unitypackage</code>.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-10.05.09-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<h3>Step 04: Integrate Lightship ARDK Account with Unity Project</h3>
+<ul>
+<li>Create an account on the <a href="https://lightship.dev/?ref=readclub.me" target="_blank" rel="noopener">Lightship Developer Platform</a>.</li>
+<li>Login to your Lightship developer account, go to the Projects section and click on the &quot;New Project&quot; button to create a new project.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-10.17.18-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>You can rename your newly created project and create a new API key by clicking the &quot;+Create New Key&quot; button. Then you need to copy your newly created API key by clicking the Copy button.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-10.53.53-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>Then open Configuration Helper Window through Lightship --&gt; Lightship Hub --&gt; Configuration Helper Window.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-10-at-11.16.32-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>Paste the previously copied API key to the &quot;API Key&quot; input box and click the &quot;Setup&quot; button.</li>
+<li>You may get a popup message to confirm the API key submission is successful. Now you may close the &quot;Configuration Helper&quot; window.</li>
+</ul>
+<p>⚠️</p>
+<p>Make sure you have only one ArdkAuthCongig.asset in your Project. You can search and verify it. If multiple ArdkAuthConfig.asset files are found, delete the duplicates and keep only one (which is located at _Assets/LightshipHUB/Resources/ARDK path.)_</p>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-6.42.37-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<h2>Subscribe ReadClub™</h2>
+<h3>Receive the Latest Blog Posts Directly to Your Email for FREE</h3>
+<p><a href="https://readclub.me/#/portal/signup" target="_blank" rel="noopener">Subscribe Now</a></p>
+<h3>Step 05: Use Lightship Templates</h3>
+<ul>
+<li>Open Lightship Hub through Lightship --&gt; Lightship Hub --&gt; Welcome</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-8.21.03-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>You will get get &quot;Lightship Templates Gallery&quot; window.</li>
+<li>These pre-made AR applications include various AR functionalities ranging from basic AR object placement to Shared AR and Visual Positioning System (VPS) based experiences.</li>
+<li>As a beginner, you can use one of these templates and customize one to get familiar with AR.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-8.21.42-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>Let's pick the &quot;Object Placement&quot; template. Once you click on it, your Unity will be updated with all the project resources and configurations.</li>
+</ul>
+<h3>Step 06: Use Mock Environment and Test the AR App</h3>
+<ul>
+<li>Now you have an AR app ready to test. But first, let's open Virtual Studio and load a mock environment so you can test your AR app within the Unity editor.</li>
+<li>Go to Lightship --&gt; ARDK --&gt; Virtual Studio</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-8.52.36-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>You will get the Lightship Virtual Studio as below. Next, go to the &quot;Mock&quot; tab and select &quot;MeshInteriorScene&quot; from the Mock Scene drop-down.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-8.58.25-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>Now you can run your AR app by clicking the run button on top of your Unity editor.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-9.00.07-PM.png" alt="" loading="lazy" decoding="async"/></figure>
+<ul>
+<li>You can use the mouse and WASD keys to navigate the mock environment and place the AR object on horizontal surfaces.</li>
+</ul>
+<figure><img src="https://readclub.me/content/images/2022/10/Screen-Recording-2022-10-11-at-9.01.33-PM-2.gif" alt="" loading="lazy" decoding="async"/></figure>
+<h2>This post is for subscribers only</h2>
+<p>Subscribe now</p>
+<p>Already have an account? Sign in</p>
+    <hr/>
+    <p style="color:var(--text-dim); font-weight:300; font-size:14px;">
+      Originally published on <a href="https://readclub.me/game-development-with-augmented-reality/" target="_blank" rel="noopener">readclub.me</a>.
+    </p>
+    <div class="hero-actions reveal" style="margin-top:32px;">
+      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
