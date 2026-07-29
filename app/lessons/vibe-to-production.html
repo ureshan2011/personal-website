@@ -27,14 +27,25 @@
   "name": "From Vibe to Production",
   "description": "How to go from an idea to a live website in one sitting, using Google Stitch, Claude Code, and GitHub Pages.",
   "url": "https://www.yasassri.me/app/lessons/vibe-to-production.html",
-  "learningResourceType": "Interactive lesson deck",
+  "learningResourceType": [
+    "Lesson",
+    "Presentation",
+    "Interactive Resource"
+  ],
   "teaches": [
     "Google Stitch 2.0",
     "Claude Code (Web)",
     "GitHub Pages"
   ],
+  "keywords": "Google Stitch 2.0, Claude Code (Web), GitHub Pages",
   "isAccessibleForFree": true,
   "inLanguage": "en",
+  "educationalUse": [
+    "instruction",
+    "self study"
+  ],
+  "timeRequired": "PT5M",
+  "dateModified": "2026-07-29",
   "about": "Capstone Bonus Lecture",
   "author": {
     "@type": "Person",
@@ -49,12 +60,88 @@
   "isPartOf": {
     "@type": "WebSite",
     "@id": "https://www.yasassri.me/#website"
-  }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/app/lessons/vibe-to-production.html"
+  },
+  "hasPart": [
+    {
+      "@type": "LearningResource",
+      "name": "Design the layout.",
+      "url": "https://www.yasassri.me/app/lessons/vibe-to-production.html#design-the-layout"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Turn it into real code.",
+      "url": "https://www.yasassri.me/app/lessons/vibe-to-production.html#turn-it-into-real-code"
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Ship it.",
+      "url": "https://www.yasassri.me/app/lessons/vibe-to-production.html#ship-it"
+    }
+  ]
 }
 </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/app/#/lessons"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "From Vibe to Production",
+      "item": "https://www.yasassri.me/app/lessons/vibe-to-production.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it take to move an AI-generated prototype to production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The prototype proves the idea works; production adds everything it skipped — error handling, input validation, authentication, tests, monitoring, and a deployment path someone else can run. Expect the hardening to take longer than the original build, and treat generated code as a first draft you own rather than finished work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What usually breaks first when a prototype meets real users?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Input you did not anticipate and state you did not persist. Prototypes are demonstrated on the happy path with one user, so the first real failures are unhandled edge cases, missing validation, and data that vanishes on refresh. Close those before performance work — performance problems are rarely what stops an early product."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
@@ -109,12 +196,84 @@
       <li>GitHub Pages</li>
     </ul>
     <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This page is a text summary of an interactive, slide-by-slide lesson deck built for
-      the Yoobees teaching platform. Open the interactive version above to work through it
-      with live examples, diagrams and a practice quiz where included.
+      This is the full written version of an interactive, slide-by-slide lesson deck used in
+      teaching. Everything covered in the deck is below — open the interactive version to work
+      through it with live diagrams, worked examples and a practice quiz where included.
     </p>
-    <div class="reveal" style="margin-top:28px;">
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Lesson <em>contents</em></h2>
+    </div>
+    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
+      <li><a href="#design-the-layout">Design the layout.</a></li>
+      <li><a href="#turn-it-into-real-code">Turn it into real code.</a></li>
+      <li><a href="#ship-it">Ship it.</a></li>
+    </ol>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:74ch;">
+    <h2 id="design-the-layout">Design the layout.</h2>
+    <p>Describe the site you want in plain language — the audience, the sections, the mood. Stitch turns that into real screens: hero, nav, content blocks. Then you refine in rounds — "make the hero calmer," "give the projects section more air" — until it looks right.</p>
+    <ul>
+      <li>One instruction at a time. Don't describe the whole site in one prompt.</li>
+      <li>Export the HTML/CSS once you're happy — that's your starting repo.</li>
+      <li>This stage is sketching, not shipping. It doesn't need to be production-ready.</li>
+    </ul>
+    <h2 id="turn-it-into-real-code">Turn it into real code.</h2>
+    <p>Bring the Stitch export into Claude Code, running in your browser — no local setup needed. Ask it to add the contact form, wire up the project grid, make the nav responsive, write tests. It reads the repo, makes the changes, runs checks, and shows you the diff before anything ships.</p>
+    <p>Describe outcomes, not implementations: "let visitors book a call from the hero" beats "add a button."</p>
+    <ul>
+      <li>Ask for a review pass — accessibility, broken links, mobile layout.</li>
+      <li>This is where the site stops being a mockup and becomes software.</li>
+    </ul>
+    <h2 id="ship-it">Ship it.</h2>
+    <p>Push the repo to GitHub and turn on Pages in the repository settings. Your site is live at yourname.github.io within minutes. Every future push republishes it. No hosting bill, no server to manage — just a URL you can put on a resume or a business card.</p>
+    <ul>
+      <li>Point a custom domain at it later with a CNAME file.</li>
+      <li>Commit often — your git history is a record of the site improving.</li>
+    </ul>
+    <p>This is the step most courses skip, and the one that makes the other two matter.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What does it take to move an AI-generated prototype to production?</h3>
+    <p>The prototype proves the idea works; production adds everything it skipped — error handling, input validation, authentication, tests, monitoring, and a deployment path someone else can run. Expect the hardening to take longer than the original build, and treat generated code as a first draft you own rather than finished work.</p>
+    <h3>What usually breaks first when a prototype meets real users?</h3>
+    <p>Input you did not anticipate and state you did not persist. Prototypes are demonstrated on the happy path with one user, so the first real failures are unhandled edge cases, missing validation, and data that vanishes on refresh. Close those before performance work — performance problems are rarely what stops an early product.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="jira-certifications.html">Free Jira &amp; Agile Certifications</a> — Three hand-picked, genuinely free credentials worth putting on LinkedIn.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Work through it <em>interactively</em></h2>
+    </div>
+    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
+      The interactive deck adds live diagrams, step-by-step reveals and practice activities
+      that this written version can't carry.
+    </p>
+    <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/vibe-to-production">Open the Interactive Deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
