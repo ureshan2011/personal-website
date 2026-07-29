@@ -1,0 +1,42 @@
+[
+  {
+    "title": "NZGDC 2026 — Designing Shared Worlds Across Distance",
+    "link": "https://www.yasassri.me/news.html#upcoming",
+    "guid": "yasassri-event-nzgdc-2026",
+    "pubDate": "Thu, 01 Oct 2026 15:00:00 +1300",
+    "category": "Event",
+    "description": "I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on \"Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research\" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland."
+  },
+  {
+    "title": "CODE with WIE 2026 — Workshop 01: Architecting the Augmented Tomorrow",
+    "link": "https://www.yasassri.me/news.html#upcoming",
+    "guid": "yasassri-event-code-with-wie-2026",
+    "pubDate": "Sat, 11 Jul 2026 09:00:00 +0530",
+    "category": "Event",
+    "description": "Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri Lanka — exploring the technologies shaping the future and how innovation is transforming tomorrow's world, drawn from research in immersive technologies, software product engineering and game design. Online via Google Meet."
+  },
+  {
+    "title": "Research Visit to Tohoku University — Building an NZ–Japan AR Collaboration",
+    "link": "https://www.yasassri.me/news.html",
+    "guid": "yasassri-event-tohoku-visit-2025",
+    "pubDate": "Mon, 08 Dec 2025 00:00:00 +1300",
+    "category": "Collaboration",
+    "description": "Prof. Rob Lindeman and I (HIT Lab NZ, University of Canterbury) visited the Interactive Content Design Lab at the Research Institute of Electrical Communication (RIEC), Tohoku University, Sendai, Japan. We presented our research on location-based augmented reality and immersive interaction, and explored a joint research project bridging New Zealand and Japan."
+  },
+  {
+    "title": "Selected for Falling Walls Lab Aotearoa New Zealand 2024",
+    "link": "https://www.yasassri.me/news.html",
+    "guid": "yasassri-event-falling-walls-2024",
+    "pubDate": "Wed, 11 Sep 2024 00:00:00 +1200",
+    "category": "Talk",
+    "description": "One of nineteen researchers and innovators chosen from across Aotearoa New Zealand and the Pacific to pitch a breakthrough idea in three minutes at Falling Walls Lab Aotearoa New Zealand 2024, organised by Royal Society Te Apārangi. Pitch: \"Breaking the Wall of Loneliness through Play\" — how location-based augmented reality games can bring people together and ease loneliness through shared experiences."
+  },
+  {
+    "title": "Talking AR Game Design on the National Stage — NZGDC 2023",
+    "link": "https://www.yasassri.me/news.html",
+    "guid": "yasassri-event-nzgdc-2023-panel",
+    "pubDate": null,
+    "category": "Panel",
+    "description": "New Zealand Game Developers Conference, 2023. A panel of New Zealand augmented reality developers for the first-ever AR Game Dev Rant at NZGDC — a candid, fast-paced conversation about what it really takes to design and ship location-based AR experiences, alongside Evie, Melanie and Devi. (Exact date not published on-site; year only.)"
+  }
+]

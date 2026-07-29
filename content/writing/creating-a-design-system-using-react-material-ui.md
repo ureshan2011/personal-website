@@ -4,6 +4,7 @@ slug: creating-a-design-system-using-react-material-ui
 summary: "Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library."
 category: "Frontend"
 originalUrl: https://levelup.gitconnected.com/creating-a-design-system-using-react-material-ui-498e2e9d3480
+originalDate: 2021-06-22
 originalSource: "Level Up Coding"
 ---
 ## **Building a custom design system using Material UI library**

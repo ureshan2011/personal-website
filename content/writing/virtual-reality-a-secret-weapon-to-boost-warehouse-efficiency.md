@@ -4,6 +4,7 @@ slug: virtual-reality-a-secret-weapon-to-boost-warehouse-efficiency
 summary: "Explores how virtual reality can improve training, layout planning and operational efficiency in warehouse environments. Argues that VR offers a low-risk way to rehearse and refine warehouse processes before rollout."
 category: "VR"
 originalUrl: https://yasassri.medium.com/virtual-reality-a-secret-weapon-to-boost-efficiency-of-a-warehouse-3aa065eddea1
+originalDate: 2021-05-05
 originalSource: "Medium"
 ---
 [

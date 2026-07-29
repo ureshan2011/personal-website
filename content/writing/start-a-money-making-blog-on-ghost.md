@@ -4,6 +4,7 @@ slug: start-a-money-making-blog-on-ghost
 summary: "A practical walkthrough of starting a blog on the Ghost publishing platform with monetisation in mind. Covers the basics of setup and the choices that shape whether a blog can sustain itself."
 category: "Blogging"
 originalUrl: https://yasassri.medium.com/start-a-money-making-blog-on-ghost-497c1d2c99c7
+originalDate: 2022-11-03
 originalSource: "Medium"
 ---
 Money Making Blog

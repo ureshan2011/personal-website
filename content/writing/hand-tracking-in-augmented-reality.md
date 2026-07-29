@@ -4,6 +4,7 @@ slug: hand-tracking-in-augmented-reality
 summary: "An overview of how hand-tracking technology works in AR and why it matters for natural, controller-free interaction. Looks at the techniques and challenges behind tracking hand movement and gestures in real time."
 category: "AR / VR"
 originalUrl: https://readclub.me/hand-tracking-in-augmented-reality/
+originalDate: 2022-10-24
 originalSource: "readclub.me"
 ---
 AR Hand tracking is not a new playground for researchers developing image and video processing applications. After some time, hand tracking became important for many immersive applications such as Augmented Reality (AR).  Even though devices with embedded sensors detect hand gestures, such as hand tracking Oculus Quest 2, hand tracking VR devices and hand tracking gloves for mixed reality applications, it is pretty complex and processor-intensive work to track hands with hand-held mobile AR applications.

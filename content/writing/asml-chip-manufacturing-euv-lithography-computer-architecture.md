@@ -4,6 +4,7 @@ slug: asml-chip-manufacturing-euv-lithography-computer-architecture
 summary: "Explains ASML's role in modern chip manufacturing through extreme ultraviolet (EUV) lithography. Connects the physics of EUV to why it has become essential for producing today's most advanced processors."
 category: "Architecture"
 originalUrl: https://readclub.me/asml-chip-manufacturing/
+originalDate: 2022-10-19
 originalSource: "readclub.me"
 ---
 ### ASML EUV Machine takes the size of a minibus but works with an atomic-level precession

@@ -4,6 +4,7 @@ slug: black-friday-gift-ideas-for-him-or-her-in-2022
 summary: "A lighter, seasonal piece with Black Friday gift ideas. A departure from the technical essays — practical, timely shopping suggestions."
 category: "Lifestyle"
 originalUrl: https://yasassri.medium.com/black-friday-gift-ideas-for-him-or-her-in-2022-d476463b6a8f
+originalDate: 2022-10-23
 originalSource: "Medium"
 ---
 Black Friday
