@@ -212,6 +212,46 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an ER diagram?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An entity-relationship diagram is a blueprint for a database, drawn before any code is written. It shows the real-world things you want to store (entities), their properties (attributes), and how they connect (relationships). Peter Chen introduced the notation in 1976 and it is language-neutral, so any team can read it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Chen's notation and Crow's Foot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chen's notation uses distinct geometric shapes — rectangles for entities, ellipses for attributes, diamonds for relationships — and labels cardinality with 1, N and M. Crow's Foot draws entities as boxes listing their attributes and encodes cardinality in the line ending itself. Chen's is clearer for teaching the concepts; Crow's Foot is more compact and more common in industry tooling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you read 1:1, 1:N and M:N cardinality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1:1 means each instance on one side matches exactly one on the other. 1:N means one instance on the left side can match many on the right, but each of those matches only one on the left. M:N means instances on both sides can match many on the other, and it always becomes a separate junction table when you build the database."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does an ER diagram map to actual database tables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each entity becomes a table, each attribute becomes a column, and each key attribute becomes the primary key. One-to-many relationships become a foreign key on the many side; many-to-many relationships become a new junction table holding both foreign keys."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
@@ -535,6 +575,33 @@
   </div>
 </section>
 <section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What is an ER diagram?</h3>
+    <p>An entity-relationship diagram is a blueprint for a database, drawn before any code is written. It shows the real-world things you want to store (entities), their properties (attributes), and how they connect (relationships). Peter Chen introduced the notation in 1976 and it is language-neutral, so any team can read it.</p>
+    <h3>What is the difference between Chen's notation and Crow's Foot?</h3>
+    <p>Chen's notation uses distinct geometric shapes — rectangles for entities, ellipses for attributes, diamonds for relationships — and labels cardinality with 1, N and M. Crow's Foot draws entities as boxes listing their attributes and encodes cardinality in the line ending itself. Chen's is clearer for teaching the concepts; Crow's Foot is more compact and more common in industry tooling.</p>
+    <h3>How do you read 1:1, 1:N and M:N cardinality?</h3>
+    <p>1:1 means each instance on one side matches exactly one on the other. 1:N means one instance on the left side can match many on the right, but each of those matches only one on the left. M:N means instances on both sides can match many on the other, and it always becomes a separate junction table when you build the database.</p>
+    <h3>How does an ER diagram map to actual database tables?</h3>
+    <p>Each entity becomes a table, each attribute becomes a column, and each key attribute becomes the primary key. One-to-many relationships become a foreign key on the many side; many-to-many relationships become a new junction table holding both foreign keys.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="er-attributes.html">Attributes &amp; Participation</a> — Composite/derived attributes and participation constraints, guided.</li>
+      <li><a href="er-advanced.html">Advanced ER Concepts</a> — Weak entities, identifying relationships, multivalued &amp; derived attributes.</li>
+      <li><a href="er-activities.html">ER Diagrams in Practice</a> — Model five real systems and check your diagram against a worked answer.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
       <h2>Work through it <em>interactively</em></h2>
@@ -546,6 +613,7 @@
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-diagrams">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>

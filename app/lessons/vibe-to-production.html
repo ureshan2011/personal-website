@@ -116,6 +116,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it take to move an AI-generated prototype to production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The prototype proves the idea works; production adds everything it skipped — error handling, input validation, authentication, tests, monitoring, and a deployment path someone else can run. Expect the hardening to take longer than the original build, and treat generated code as a first draft you own rather than finished work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What usually breaks first when a prototype meets real users?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Input you did not anticipate and state you did not persist. Prototypes are demonstrated on the happy path with one user, so the first real failures are unhandled edge cases, missing validation, and data that vanishes on refresh. Close those before performance work — performance problems are rarely what stops an early product."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
@@ -217,6 +241,27 @@
   </div>
 </section>
 <section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What does it take to move an AI-generated prototype to production?</h3>
+    <p>The prototype proves the idea works; production adds everything it skipped — error handling, input validation, authentication, tests, monitoring, and a deployment path someone else can run. Expect the hardening to take longer than the original build, and treat generated code as a first draft you own rather than finished work.</p>
+    <h3>What usually breaks first when a prototype meets real users?</h3>
+    <p>Input you did not anticipate and state you did not persist. Prototypes are demonstrated on the happy path with one user, so the first real failures are unhandled edge cases, missing validation, and data that vanishes on refresh. Close those before performance work — performance problems are rarely what stops an early product.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="jira-certifications.html">Free Jira &amp; Agile Certifications</a> — Three hand-picked, genuinely free credentials worth putting on LinkedIn.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
       <h2>Work through it <em>interactively</em></h2>
@@ -228,6 +273,7 @@
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/vibe-to-production">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>

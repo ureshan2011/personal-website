@@ -147,6 +147,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a foreign key and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A foreign key is a column that points at the primary key of another table, which is how two tables get linked. It also enforces referential integrity: the database refuses to store a row pointing at a record that does not exist, and can stop you deleting a record other rows still depend on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you protect a database against SQL injection?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Never build a query by concatenating user input into a string. Use parameterised queries or prepared statements so the input is always treated as a value, never as executable SQL. Validating input and limiting the database account's permissions reduce the damage if something does get through, but parameterisation is the actual fix."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
@@ -277,6 +301,28 @@ CREATE TABLE books (
   </div>
 </section>
 <section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What is a foreign key and why does it matter?</h3>
+    <p>A foreign key is a column that points at the primary key of another table, which is how two tables get linked. It also enforces referential integrity: the database refuses to store a row pointing at a record that does not exist, and can stop you deleting a record other rows still depend on.</p>
+    <h3>How do you protect a database against SQL injection?</h3>
+    <p>Never build a query by concatenating user input into a string. Use parameterised queries or prepared statements so the input is always treated as a value, never as executable SQL. Validating input and limiting the database account's permissions reduce the damage if something does get through, but parameterisation is the actual fix.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="sql-programming.html">SQL Programming</a> — CREATE, INSERT, SELECT — one interactive slide at a time.</li>
+      <li><a href="sql-certifications.html">Free SQL Certifications</a> — Nine genuinely free credentials, from vendor badges to project-based certs.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
       <h2>Work through it <em>interactively</em></h2>
@@ -288,6 +334,7 @@ CREATE TABLE books (
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/database-concepts">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>

@@ -399,6 +399,98 @@ function extractComponentSections(implSrc, file) {
   return sections;
 }
 
+/* ---------- lesson FAQs and topic clusters ------------------------------ */
+
+/* Two decks already ship question/answer data built for their own quiz and
+   flashcard UI. Reused verbatim rather than rewritten.
+
+   For QUIZ_QUESTIONS only `q` and `explain` are published — `explain` is a
+   complete standalone answer, while `options`/`correct` are the answer key and
+   are deliberately left in the interactive deck. */
+function extractFaq(implSrc, file) {
+  const out = [];
+  const read = (name, qKey, aKey) => {
+    const literal = findArrayLiteral(implSrc, name);
+    if (!literal) return;
+    let items;
+    try { items = evalArrayLiteral(literal, `${file} ${name}`); }
+    catch (e) { console.warn(`  ! ${file}: skipping ${name} FAQ — ${e.message}`); return; }
+    if (!Array.isArray(items)) return;
+    for (const it of items) {
+      if (it && typeof it[qKey] === "string" && typeof it[aKey] === "string" && it[qKey].trim() && it[aKey].trim()) {
+        out.push({ q: it[qKey].trim(), a: it[aKey].trim() });
+      }
+    }
+  };
+  read("QUIZ_QUESTIONS", "q", "explain");
+  read("FLASHCARDS", "front", "back");
+  return out;
+}
+
+/* Hand-written answers to the questions students actually search for. These
+   merge with (and lead) anything auto-derived above. */
+const DECK_FAQ = {
+  "er-diagrams": [
+    { q: "What is an ER diagram?", a: "An entity-relationship diagram is a blueprint for a database, drawn before any code is written. It shows the real-world things you want to store (entities), their properties (attributes), and how they connect (relationships). Peter Chen introduced the notation in 1976 and it is language-neutral, so any team can read it." },
+    { q: "What is the difference between Chen's notation and Crow's Foot?", a: "Chen's notation uses distinct geometric shapes — rectangles for entities, ellipses for attributes, diamonds for relationships — and labels cardinality with 1, N and M. Crow's Foot draws entities as boxes listing their attributes and encodes cardinality in the line ending itself. Chen's is clearer for teaching the concepts; Crow's Foot is more compact and more common in industry tooling." },
+    { q: "How do you read 1:1, 1:N and M:N cardinality?", a: "1:1 means each instance on one side matches exactly one on the other. 1:N means one instance on the left side can match many on the right, but each of those matches only one on the left. M:N means instances on both sides can match many on the other, and it always becomes a separate junction table when you build the database." },
+    { q: "How does an ER diagram map to actual database tables?", a: "Each entity becomes a table, each attribute becomes a column, and each key attribute becomes the primary key. One-to-many relationships become a foreign key on the many side; many-to-many relationships become a new junction table holding both foreign keys." }
+  ],
+  "er-attributes": [
+    { q: "What is the difference between a composite and a multivalued attribute?", a: "A composite attribute is one value split into parts — Name is First plus Last. A multivalued attribute is several separate values of the same kind — a customer with three phone numbers. They use different notation and map to the database differently: composites become multiple columns, multivalued attributes become a separate table." },
+    { q: "What is a derived attribute?", a: "An attribute whose value is calculated from other stored data rather than stored itself — age derived from date of birth, or order total derived from line items. It is drawn with a dashed ellipse, and is normally computed on read instead of being stored, so it cannot fall out of sync." }
+  ],
+  "er-advanced": [
+    { q: "What is a weak entity?", a: "An entity that cannot be identified by its own attributes alone and depends on another entity to exist. A hotel room number only makes sense alongside the hotel it belongs to. It is drawn with a double rectangle and connects to its owner through an identifying relationship, drawn as a double diamond." },
+    { q: "When do you need a ternary relationship?", a: "When three entities genuinely participate in one relationship at the same time and splitting it into separate binary relationships would lose meaning — for example a supplier supplying a specific part to a specific project. If the fact only holds when all three are considered together, it is genuinely ternary." }
+  ],
+  "sql-programming": [
+    { q: "What is the difference between CREATE DATABASE and CREATE TABLE?", a: "CREATE DATABASE makes an empty container to hold tables. CREATE TABLE defines the actual structure — the columns, their data types, and the constraints — inside that container. You run CREATE DATABASE once, then CREATE TABLE for each table you need." },
+    { q: "What order do the parts of a SELECT statement go in?", a: "SELECT columns, FROM table, WHERE row conditions, GROUP BY grouping, HAVING conditions on groups, then ORDER BY sorting. The database does not execute them in that order — FROM and WHERE run before SELECT — which is why you cannot use a column alias defined in SELECT inside a WHERE clause." }
+  ],
+  "database-concepts": [
+    { q: "What is a foreign key and why does it matter?", a: "A foreign key is a column that points at the primary key of another table, which is how two tables get linked. It also enforces referential integrity: the database refuses to store a row pointing at a record that does not exist, and can stop you deleting a record other rows still depend on." },
+    { q: "How do you protect a database against SQL injection?", a: "Never build a query by concatenating user input into a string. Use parameterised queries or prepared statements so the input is always treated as a value, never as executable SQL. Validating input and limiting the database account's permissions reduce the damage if something does get through, but parameterisation is the actual fix." }
+  ],
+  "apa-referencing": [
+    { q: "How do you cite a source with three or more authors in APA 7?", a: "Use the first author's surname followed by et al. from the very first citation. This changed in APA 7 — APA 6 required listing all authors up to five on the first mention." },
+    { q: "What is the difference between a reference list and a bibliography?", a: "A reference list contains only the sources you actually cited in the text, and every in-text citation must have a matching entry. A bibliography can include background reading you consulted but never cited. APA uses a reference list." }
+  ],
+  "er-activities": [
+    { q: "How do you practise drawing ER diagrams?", a: "Work from a written scenario. Underline the nouns to find candidate entities, underline the descriptive phrases to find attributes, and underline the verbs connecting nouns to find relationships. Then decide cardinality by asking, for each side, whether one instance can relate to more than one on the other side." },
+    { q: "How do you know when an ER diagram is finished?", a: "Read it back as sentences and check it against the original scenario: every fact the scenario states should be expressible from the diagram, and every entity should have a key attribute. If a requirement cannot be read off the diagram, something is missing; if a shape does not correspond to anything in the scenario, it is probably invented." }
+  ],
+  "sql-certifications": [
+    { q: "Which SQL certification is worth taking first?", a: "It depends where you want to work rather than which is hardest. Vendor certifications from Oracle and Microsoft carry weight if you are targeting shops built on those platforms; vendor-neutral options are more portable. For most students the value is in the structured study path and the evidence on a CV, not in the certificate itself." },
+    { q: "Is a SQL certification worth it without work experience?", a: "It is worth more when paired with something you have actually built. A certificate proves you studied; a small project with a real schema, sensible keys and queries you can explain proves you can apply it. Employers hiring graduates tend to ask about the project, so treat the certification as the study plan rather than the outcome." }
+  ],
+  "jira-certifications": [
+    { q: "Do Jira certifications actually help getting hired?", a: "They help most as supporting evidence when you already have project experience to point at. On their own they rarely move a hiring decision, but they signal familiarity with agile tooling and give you vocabulary for interviews — which matters for graduate roles where you have little else to show." },
+    { q: "What is the difference between the Atlassian certifications?", a: "They split by role. User-level certifications cover working inside Jira day to day — boards, workflows, reporting. Administrator certifications cover configuring projects, permissions and schemes for other people. Pick the one matching the job you are applying for; the administrator track assumes you already know the user-level material." }
+  ],
+  "vibe-to-production": [
+    { q: "What does it take to move an AI-generated prototype to production?", a: "The prototype proves the idea works; production adds everything it skipped — error handling, input validation, authentication, tests, monitoring, and a deployment path someone else can run. Expect the hardening to take longer than the original build, and treat generated code as a first draft you own rather than finished work." },
+    { q: "What usually breaks first when a prototype meets real users?", a: "Input you did not anticipate and state you did not persist. Prototypes are demonstrated on the happy path with one user, so the first real failures are unhandled edge cases, missing validation, and data that vanishes on refresh. Close those before performance work — performance problems are rarely what stops an early product." }
+  ]
+};
+
+/* Related-lesson clusters. Ten pages that link to nothing become two dense
+   topical hubs, which is where much of the ranking lift comes from. */
+const DECK_CLUSTERS = [
+  ["er-diagrams", "er-attributes", "er-advanced", "er-activities"],
+  ["sql-programming", "database-concepts", "sql-certifications"],
+  ["apa-referencing"],
+  ["vibe-to-production", "jira-certifications"]
+];
+
+function relatedSlugs(slug) {
+  const cluster = DECK_CLUSTERS.find(c => c.includes(slug)) || [];
+  const siblings = cluster.filter(s => s !== slug);
+  if (siblings.length) return siblings;
+  // Singleton cluster — link one page from each other cluster so it isn't orphaned.
+  return DECK_CLUSTERS.filter(c => !c.includes(slug)).map(c => c[0]);
+}
+
 function loadLessonDecks() {
   const registry = parseLessonDeckRegistry();
   if (!fs.existsSync(LESSONS_SRC_DIR)) return [];
@@ -440,8 +532,14 @@ function loadLessonDecks() {
       ...loadDeckContent(src, file)
     });
   }
-  return decks.sort((a, b) => a.slug.localeCompare(b.slug));
+  decks.sort((a, b) => a.slug.localeCompare(b.slug));
+  deckIndex.clear();
+  for (const d of decks) deckIndex.set(d.slug, d);
+  return decks;
 }
+
+/* slug -> deck, so a page can name and link its related lessons. */
+const deckIndex = new Map();
 
 /* Resolves the wrapper's deck component (`import ERDiagramsDeck from
    './ERDiagramsDeck'`) and pulls its teaching content out of the source. */
@@ -453,11 +551,12 @@ function loadDeckContent(wrapperSrc, wrapperFile) {
     const implSrc = fs.readFileSync(implPath, "utf8");
     const implFile = `${rel}.tsx`;
 
+    const faq = extractFaq(implSrc, implFile);
     if (findArrayLiteral(implSrc, "SLIDES")) {
-      return { sections: extractDeckSections(implSrc, implFile), sourceFile: implFile };
+      return { sections: extractDeckSections(implSrc, implFile), faq, sourceFile: implFile };
     }
     const sections = extractComponentSections(implSrc, implFile);
-    if (sections.length) return { sections, sourceFile: implFile };
+    if (sections.length) return { sections, faq, sourceFile: implFile };
     throw new Error(
       `${implFile}: no SLIDES array and none of the known content arrays ` +
       `(${COMPONENT_CONTENT_ARRAYS.join(", ")}) yielded prose. ` +
@@ -589,6 +688,14 @@ function renderLessonDeckPage(deck) {
   const topics = deck.pills.map(p => p.name);
 
   const sections = deck.sections || [];
+  // Hand-written questions lead — they target real search queries. Deck-derived
+  // quiz and flashcard entries follow, de-duplicated by question text.
+  const seen = new Set();
+  const faq = [...(DECK_FAQ[deck.slug] || []), ...(deck.faq || [])]
+    .filter(item => { const k = norm(item.q); if (seen.has(k)) return false; seen.add(k); return true; });
+  const related = relatedSlugs(deck.slug)
+    .map(s => deckIndex.get(s))
+    .filter(Boolean);
 
   const jsonLd = [{
     "@context": "https://schema.org",
@@ -618,6 +725,8 @@ function renderLessonDeckPage(deck) {
     ["Lessons", `${SITE_URL}/app/#/lessons`],
     [deck.title, canonical]
   ])];
+
+  if (faq.length >= 2) jsonLd.push(faqLd(faq));
 
   const bodyHtml = `
     <span class="eyebrow reveal">${esc(deck.eyebrow || "Interactive Lesson")}</span>
@@ -661,6 +770,24 @@ ${sections.length ? `<section class="section">
     ${sections.map(s => renderSection(s)).join("\n    ")}
   </div>
 </section>` : ""}
+${faq.length ? `<section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    ${faq.map(f => `<h3>${esc(f.q)}</h3>\n    <p>${esc(f.a)}</p>`).join("\n    ")}
+  </div>
+</section>` : ""}
+${related.length ? `<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      ${related.map(r => `<li><a href="${esc(r.slug)}.html">${esc(r.title)}</a> — ${esc(r.shortSubtitle || r.subtitle)}</li>`).join("\n      ")}
+    </ul>
+  </div>
+</section>` : ""}
 <section class="section">
   <div class="container">
     <div class="section-head reveal">
@@ -673,6 +800,7 @@ ${sections.length ? `<section class="section">
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="${esc(spaUrl)}">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>`;
@@ -687,6 +815,18 @@ ${sections.length ? `<section class="section">
     bodyHtml,
     breadcrumbLabel: `Lessons / ${deck.title}`
   });
+}
+
+function faqLd(faq) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  };
 }
 
 function breadcrumbLd(pairs) {

@@ -162,6 +162,30 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between CREATE DATABASE and CREATE TABLE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CREATE DATABASE makes an empty container to hold tables. CREATE TABLE defines the actual structure — the columns, their data types, and the constraints — inside that container. You run CREATE DATABASE once, then CREATE TABLE for each table you need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What order do the parts of a SELECT statement go in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SELECT columns, FROM table, WHERE row conditions, GROUP BY grouping, HAVING conditions on groups, then ORDER BY sorting. The database does not execute them in that order — FROM and WHERE run before SELECT — which is why you cannot use a column alias defined in SELECT inside a WHERE clause."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
@@ -503,6 +527,28 @@
   </div>
 </section>
 <section class="section">
+  <div class="container" style="max-width:74ch;">
+    <div class="section-head reveal">
+      <h2>Common <em>questions</em></h2>
+    </div>
+    <h3>What is the difference between CREATE DATABASE and CREATE TABLE?</h3>
+    <p>CREATE DATABASE makes an empty container to hold tables. CREATE TABLE defines the actual structure — the columns, their data types, and the constraints — inside that container. You run CREATE DATABASE once, then CREATE TABLE for each table you need.</p>
+    <h3>What order do the parts of a SELECT statement go in?</h3>
+    <p>SELECT columns, FROM table, WHERE row conditions, GROUP BY grouping, HAVING conditions on groups, then ORDER BY sorting. The database does not execute them in that order — FROM and WHERE run before SELECT — which is why you cannot use a column alias defined in SELECT inside a WHERE clause.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Related <em>lessons</em></h2>
+    </div>
+    <ul class="feat" style="grid-template-columns:1fr 1fr;">
+      <li><a href="database-concepts.html">Advanced Database Concepts</a> — Table design, backup &amp; restore, and a plain-English look at SQL injection.</li>
+      <li><a href="sql-certifications.html">Free SQL Certifications</a> — Nine genuinely free credentials, from vendor badges to project-based certs.</li>
+    </ul>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head reveal">
       <h2>Work through it <em>interactively</em></h2>
@@ -514,6 +560,7 @@
     <div class="hero-actions reveal" style="margin-top:24px;">
       <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/sql-programming">Open the Interactive Deck <span class="arrow">→</span></a>
       <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
+      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
