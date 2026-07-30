@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="ACM Symposium on Virtual Reality Software and Technology">
+  <rect width="128" height="128" rx="30" fill="#eef1f5"/>
+  <rect x="0.75" y="0.75" width="126.5" height="126.5" rx="29.25" fill="none" stroke="#d3dae4"/>
+  <text x="64" y="49" text-anchor="middle" dominant-baseline="middle"
+        font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="700" fill="#5b6577" letter-spacing="1"
+        textLength="48" lengthAdjust="spacingAndGlyphs">ACM</text>
+  <text x="64" y="86" text-anchor="middle" dominant-baseline="middle"
+        font-family="Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="30" font-weight="700" fill="#2a3446"
+        textLength="72" lengthAdjust="spacingAndGlyphs">VRST</text>
+</svg>
