@@ -227,6 +227,13 @@ Learning Experience for Children. Wickramasinghe, W., & Gunasekara, E.H.D.A.
 — Research Symposium of the Information Technology Research Unit (ITRU
 2015). University of Moratuwa, Sri Lanka.
 
+**Peer review service.** Serves as a reviewer for the International Journal
+of Human-Computer Interaction (Taylor & Francis), the IEEE Conference on
+Virtual Reality and 3D User Interfaces (IEEE VR), OZCHI — the Australian
+Conference on Human-Computer Interaction (CHISIG / ACM Digital Library),
+Multimodal Technologies and Interaction (MTI, MDPI), and the ACM Symposium
+on Virtual Reality Software and Technology (VRST, since 2025).
+
 **Collaborators & links.** Co-authoring with researchers at HIT Lab NZ,
 University of Moratuwa, and Niantic Aotearoa. Google Scholar:
 https://scholar.google.com/citations?user=sIFk7asAAAAJ — HIT Lab NZ AR Games
