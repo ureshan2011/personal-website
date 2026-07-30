@@ -67,6 +67,14 @@ Ten interactive lesson decks, text-summarised as static pages for crawlers, each
 - On the Impact of Augmented Reality Game Mechanics on the Player Experience in Remote Multiplayer Gameplay — OzCHI '25, ACM. https://doi.org/10.1145/3764687.3764699
 - Trustful Trading in Shared Augmented Reality — ACM SUI '24. https://doi.org/10.1145/3677386.3682086
 
+## Peer review service (reviewer)
+
+- International Journal of Human-Computer Interaction — Taylor & Francis (journal)
+- IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR) — IEEE (conference)
+- OZCHI, the Australian Conference on Human-Computer Interaction — CHISIG / ACM Digital Library (conference)
+- Multimodal Technologies and Interaction (MTI) — MDPI (journal)
+- ACM Symposium on Virtual Reality Software and Technology (VRST) — ACM (conference), since 2025
+
 ## Profiles and links
 
 - Google Scholar: https://scholar.google.com/citations?user=sIFk7asAAAAJ
