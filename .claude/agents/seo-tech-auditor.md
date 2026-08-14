@@ -14,9 +14,10 @@ report findings, change nothing.
 Check, per page:
 1. Exactly one <title> (≤60 chars ideal), one meta description (50–160 chars), one
    canonical pointing at the production URL for that page.
-2. robots meta: indexable pages must not carry noindex; template demos
-   (about.html, home-agency.html, single-portfolio.html, "index original.html")
-   MUST carry noindex — flag drift in either direction.
+2. robots meta: indexable pages must not carry noindex. (The orphaned template
+   demos this rule used to carve out — about.html, home-agency.html,
+   single-portfolio.html, "index original.html" — were deleted; flag if any
+   reappear without noindex.)
 3. Open Graph + Twitter card completeness; og:image absolute URL that exists in assets/.
 4. JSON-LD present and syntactically valid (parse each block with python3 json.loads).
 5. Exactly one <h1>; heading order sane; images missing alt text (count per page).
