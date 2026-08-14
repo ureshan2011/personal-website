@@ -105,6 +105,60 @@ function redirectSignInUsable() {
   return site(authDomain) === site(location.hostname);
 }
 
+/* ---------- Email sign-in / sign-up in one step ---------------------------
+   Visitors should not have to decide, before typing anything, whether they
+   are "signing in" or "creating an account" — they know their email and a
+   password, and that is enough. One button covers both: a known email signs
+   in, an unknown one gets an account.
+
+   Firebase's email-enumeration protection deliberately returns the same
+   auth/invalid-credential for "no such account" and "wrong password", so the
+   two cannot be told apart by asking. Attempting the sign-up is the way to
+   find out: auth/email-already-in-use coming back means the account existed
+   and the password was simply wrong. */
+function nameFromEmail(email) {
+  const name = String(email).split("@")[0]
+    .replace(/[._-]+/g, " ").replace(/\d+/g, "").replace(/\s+/g, " ").trim()
+    .replace(/\b\w/g, c => c.toUpperCase())
+    .slice(0, 60);
+  return name || "Member";
+}
+
+/* Resolves true when a new account was created, false on a plain sign-in. */
+async function signInOrCreate(email, pass) {
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+    return false;
+  } catch (e) {
+    const code = String(e && e.code || "");
+    const mayBeNewAccount = code === "auth/user-not-found" ||
+                            code === "auth/invalid-credential" ||
+                            code === "auth/invalid-login-credentials";
+    if (!mayBeNewAccount) throw e;
+  }
+
+  let cred;
+  try {
+    cred = await createUserWithEmailAndPassword(auth, email, pass);
+  } catch (e) {
+    if (String(e && e.code || "") === "auth/email-already-in-use") {
+      const wrongPassword = new Error("Account exists, password did not match");
+      wrongPassword.code = "app/account-exists";
+      throw wrongPassword;
+    }
+    throw e;
+  }
+
+  /* A display name is needed for the forum, but asking for one up front is a
+     third field to fill in. Derive it from the email and let people change it
+     on the account page whenever they like. */
+  const displayName = nameFromEmail(email);
+  await updateProfile(cred.user, { displayName });
+  await setDoc(doc(db, "profiles", cred.user.uid), { displayName, createdAt: serverTimestamp() });
+  sendEmailVerification(cred.user).catch(e => console.error("Verification email failed:", e));
+  return true;
+}
+
 /* ---------- Static content ------------------------------------------------ */
 
 const CONSULT_TYPES = [
@@ -282,6 +336,7 @@ function setupNotice() {
 function fbError(e) {
   const m = String(e && (e.code || e.message) || e);
   if (m.includes("permission-denied")) return "Permission denied — you may not have access for this action.";
+  if (m.includes("app/account-exists")) return "That email already has an account and the password doesn't match. Try again, use 'Forgot password?', or sign in with Google if that's how you joined.";
   if (m.includes("auth/invalid-credential") || m.includes("auth/wrong-password")) return "Incorrect email or password.";
   if (m.includes("auth/email-already-in-use")) return "An account with this email already exists — try signing in.";
   if (m.includes("auth/weak-password")) return "Password should be at least 6 characters.";
@@ -1696,42 +1751,31 @@ function viewAccount() {
   <div class="auth-box">
     <div class="app-head" style="margin-bottom:22px;text-align:center;max-width:none">
       <h1 style="font-size:clamp(26px,3.5vw,34px)">Welcome</h1>
-      <p>One free account for the high-value things — booking consultations and posting in the forum.
-      Everything else (reading, newsletter, speaking invitations, contact) works without one.</p>
+      <p>Sign in, or create a free account just by continuing. You only need one to book a
+      consultation or post in the forum — everything else works without an account.</p>
     </div>
     <div class="panel">
-      <div class="auth-tabs">
-        <button type="button" class="active" data-tab="signin">Sign In</button>
-        <button type="button" data-tab="signup">Create Account</button>
-      </div>
       <button class="btn btn-google" id="googleBtn" type="button">
         <svg width="17" height="17" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.5 30.2 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.8 6.1C12.3 13.2 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.4 28.7a14.5 14.5 0 0 1 0-9.4l-7.8-6.1a24 24 0 0 0 0 21.6l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.4-5.6l-7.5-5.8c-2.1 1.4-4.8 2.3-7.9 2.3-6.3 0-11.7-3.7-13.6-9.2l-7.8 6.1C6.5 42.6 14.6 48 24 48z"/></svg>
         Continue with Google
       </button>
-      <div class="divider">or with email</div>
+      <div class="divider">or with your email</div>
       <form class="form" id="authForm">
-        <div class="field" id="nameField" style="display:none"><label>Display name *</label><input name="displayName" maxlength="60"/></div>
-        <div class="field"><label>Email *</label><input name="email" type="email" required maxlength="200"/></div>
-        <div class="field"><label>Password *</label><input name="password" type="password" required minlength="6" maxlength="100"/></div>
+        <div class="field"><label>Email</label>
+          <input name="email" type="email" required maxlength="200" autocomplete="email" placeholder="you@example.com"/></div>
+        <div class="field"><label>Password</label>
+          <input name="password" type="password" required minlength="6" maxlength="100" autocomplete="current-password"/>
+          <span class="hint">At least 6 characters. First time here? Just pick one — your account is created as you continue.</span></div>
         <div class="form-actions">
-          <button class="btn btn-solid" type="submit" id="authSubmit">Sign In</button>
+          <button class="btn btn-solid" type="submit" id="authSubmit">Continue</button>
           <button class="btn small" type="button" id="forgotBtn">Forgot password?</button>
         </div>
         <span class="form-msg" id="authMsg"></span>
-        <p class="hint" style="font-size:12px;color:var(--muted)">By creating an account you accept the
+        <p class="hint" style="font-size:12px;color:var(--muted)">By continuing you accept the
           <a href="#/guidelines" style="color:var(--accent)">community guidelines</a>.</p>
       </form>
     </div>
   </div>`;
-
-  let mode = "signin";
-  const tabs = view.querySelectorAll(".auth-tabs button");
-  tabs.forEach(b => b.onclick = () => {
-    mode = b.dataset.tab;
-    tabs.forEach(x => x.classList.toggle("active", x === b));
-    document.getElementById("nameField").style.display = mode === "signup" ? "" : "none";
-    document.getElementById("authSubmit").textContent = mode === "signup" ? "Create Account" : "Sign In";
-  });
 
   const msg = document.getElementById("authMsg");
   const googleBtn = document.getElementById("googleBtn");
@@ -1782,22 +1826,19 @@ function viewAccount() {
     ev.preventDefault();
     const f = new FormData(ev.target);
     const email = String(f.get("email")).trim(), pass = String(f.get("password"));
+    const submit = document.getElementById("authSubmit");
+    const submitLabel = submit.textContent;
     msg.className = "form-msg"; msg.textContent = "";
+    submit.disabled = true; submit.textContent = "Please wait…";
     try {
-      if (mode === "signup") {
-        const name = String(f.get("displayName") || "").trim();
-        if (!name) { msg.className = "form-msg err"; msg.textContent = "Please choose a display name."; return; }
-        const cred = await createUserWithEmailAndPassword(auth, email, pass);
-        await updateProfile(cred.user, { displayName: name });
-        await setDoc(doc(db, "profiles", cred.user.uid), { displayName: name, createdAt: serverTimestamp() });
-        await sendEmailVerification(cred.user);
-        toast("Account created — check your inbox to verify your email.");
-      } else {
-        await signInWithEmailAndPassword(auth, email, pass);
-        toast("Signed in ✓");
-      }
+      const created = await signInOrCreate(email, pass);
+      toast(created ? "Welcome — your account is ready ✓" : "Signed in ✓");
       route();
-    } catch (e) { msg.className = "form-msg err"; msg.textContent = fbError(e); }
+    } catch (e) {
+      msg.className = "form-msg err"; msg.textContent = fbError(e);
+    } finally {
+      if (document.body.contains(submit)) { submit.disabled = false; submit.textContent = submitLabel; }
+    }
   });
 }
 
