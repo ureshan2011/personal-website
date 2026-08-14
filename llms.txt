@@ -80,6 +80,7 @@ Ten interactive lesson decks, text-summarised as static pages for crawlers, each
 
 - Google Scholar: https://scholar.google.com/citations?user=sIFk7asAAAAJ
 - ORCID: https://orcid.org/0000-0002-2421-8165
+- Yoobee College research profile (institutional): https://www.yoobee.ac.nz/our-research-profile/yasas-sri-wickramasinghe
 - LinkedIn: https://www.linkedin.com/in/yasassri
 - GitHub: https://github.com/ureshan2011
 - Medium: https://yasassri.medium.com
