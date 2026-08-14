@@ -20,7 +20,7 @@ renders, but forms, sign-in and the forum are disabled with a visible notice.
 | Newsletter signup (segments, CSV export for any email tool) | `app/#/newsletter` | `subscribers` |
 | Community forum (8 seeded categories, threads/replies, reports, pin/lock/hide) | `app/#/forum` | `threads` + `replies` |
 | Book — gated download (Firestore-chunked PDF), logged per reader | `app/#/book` | `bookDownloads` + `bookFile` |
-| Sign in (Google or email+password with email verification) | `app/#/account` | `profiles` |
+| Sign in — one step: Google, or an email + password that signs in or creates the account as needed | `app/#/account` | `profiles` |
 | Admin dashboard (queues, blog editor, subscribers, moderation, book downloads) | `app/#/admin` | all of the above |
 
 ## One-time setup (~15 minutes)
