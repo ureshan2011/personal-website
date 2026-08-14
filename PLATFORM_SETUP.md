@@ -48,6 +48,29 @@ Firebase console → **Build → Authentication → Get started**:
 3. Under **Settings → Authorized domains**, add `www.yasassri.me` and
    `yasassri.me` (and your `*.github.io` domain if you use it).
 
+#### What the Google sign-in window says about you
+
+The Google window is rendered by Google, not by this site, so its wording comes
+from console settings rather than from any code here. It reads
+*"Sign in to **&lt;app name&gt;**"* and *"to continue to **&lt;auth domain&gt;**"*, and both
+halves are worth fixing:
+
+| Shown | Comes from | Fix |
+|---|---|---|
+| the app name | Google Cloud → **APIs & Services → OAuth consent screen → App name** | Set it to `Dr. Yasas Sri Wickramasinghe` (or `Yasas Sri Wickramasinghe — Academic Platform`), with your support email. Takes effect immediately. |
+| `angular5-firebase-project.firebaseapp.com` | the `authDomain` in `app/js/firebase-config.js` — this platform runs on a Firebase project recycled from an older app | Move it to `auth.yasassri.me` following the steps in the comment at the top of that file, **then** swap the two `authDomain` lines. |
+
+Adding a **logo** to the consent screen triggers Google's brand-verification
+review, which can take weeks. Do the name first and on its own — it is the part
+people actually read — and treat the logo as a separate, later errand.
+
+Switching `authDomain` before its three prerequisites are done (Firebase Hosting
+site + custom domain, authorized domain, OAuth client origins) breaks Google
+sign-in outright, so do them in order. Once `authDomain` is on `yasassri.me`,
+the sign-in code also gains a redirect fallback for browsers that block
+pop-ups — it stays switched off until then, because redirect sign-in cannot
+complete from a third-party `firebaseapp.com` domain in Safari or Chrome.
+
 ### 4. Create Firestore + deploy the security rules
 
 1. **Build → Firestore Database → Create database** → production mode →
