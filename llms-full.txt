@@ -55,9 +55,10 @@ works, when it backfires, and what to do instead. Free download at
 yasassri.me/app/#/book; sign-in required, takes under a minute.
 
 **Upcoming talks & workshops.** Two engagements on the calendar, or invite me
-for something similar: CODE with WIE 2026 — Architecting the Augmented
-Tomorrow (IEEE WIE Sri Lanka, 11 July 2026) — Designing Shared Worlds Across
-Distance (NZGDC, 1 October 2026). Full details at yasassri.me/news.html.
+for something similar: Designing Shared Worlds Across Distance (NZGDC,
+1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
+Distance (University of Moratuwa, date to be announced). Full details at
+yasassri.me/news.html.
 
 **In the news.** Invited talks, international collaborations and outreach —
 where the research meets people and places: Research Visit to Tohoku
@@ -497,22 +498,31 @@ talks, international research collaborations, media appearances, and
 community outreach — moments where augmented reality research meets real
 people and places.
 
-**Upcoming events.** CODE with WIE 2026 — Workshop 01: Architecting the
-Augmented Tomorrow. 11 July 2026, 9:00 AM, online via Google Meet. I'll be
-leading Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in
-Engineering Sri Lanka — exploring the technologies shaping the future and how
-innovation is transforming tomorrow's world, drawn from my research in
-immersive technologies, software product engineering and game design.
+**Upcoming events.**
 NZGDC 2026 — Designing Shared Worlds Across Distance. 1 October 2026,
 3:00–3:30 PM, NZ International Convention Centre, Auckland. I'm speaking at
 NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across
 Distance: Lessons from Multiplayer AR Game Research" — covering real-time
 connections across distance, bridging places and people, and designing for
 presence, engagement and trust in multiplayer AR.
-(As of the date this file was generated — 19 July 2026 — the CODE with WIE
-2026 workshop above has already taken place; see /llms.txt "Recent talks" for
-the freshness-corrected framing. This section mirrors the on-site copy
-verbatim and is maintained by a separate editorial pass on news.html.)
+ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance. Date and
+time to be announced, online session, ICITR 2026, University of Moratuwa.
+I'm leading Workshop 01 of ICITR 2026 — the 11th International Conference on
+Information Technology Research (1–2 December 2026), organised by the
+Information Technology Research Unit at the University of Moratuwa, Sri
+Lanka. "Designing Shared Worlds Across Distance: What Multiplayer AR Research
+Taught Me" explores the design and development of location-based multiplayer
+AR games, and how augmented reality becomes a core gameplay mechanic that
+connects remote players through shared immersive experiences. The date and
+time are still to be confirmed by the organisers. Official programme:
+https://icitr.uom.lk/workshops/
+
+**Recently delivered.** CODE with WIE 2026 — Workshop 01: Architecting the
+Augmented Tomorrow. 11 July 2026, 9:00 AM, online via Google Meet. I led
+Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri
+Lanka — exploring the technologies shaping the future and how innovation is
+transforming tomorrow's world, drawn from my research in immersive
+technologies, software product engineering and game design.
 
 **In the spotlight.** Research Visit to Tohoku University — Building an
 NZ–Japan AR Collaboration. 8 December 2025, Sendai, Japan. In December 2025,
@@ -568,7 +578,7 @@ https://www.instagram.com/yasassri.me — Availability: Mon–Sat, 10:00–17:00
 
 ---
 
-*Generated from repo content on 2026-07-19 as part of the site's GEO/AEO
+*Generated from repo content on 2026-08-14 as part of the site's GEO/AEO
 (AI-visibility) workstream. Regenerate whenever index.html, research.html,
 teaching.html, products.html, news.html or contact.html change their visible
 copy — this file has no build step; it is maintained by hand to stay a

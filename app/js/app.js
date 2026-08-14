@@ -119,6 +119,7 @@ const SPEAKER_TOPICS = [
 ];
 
 const PAST_ENGAGEMENTS = [
+  { when: "Date TBA", title: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me", detail: "ICITR 2026, University of Moratuwa · Workshop 01 · Online", upcoming: true },
   { when: "Oct 2026", title: "Designing Shared Worlds Across Distance", detail: "NZGDC 2026 · Conference talk · Wellington, NZ", upcoming: true },
   { when: "Jul 2026", title: "CODE with WIE 2026 — Architecting the Augmented Tomorrow", detail: "IEEE WIE Sri Lanka · Workshop · Online" },
   { when: "Dec 2025", title: "Research Visit — Interactive Content Design Lab", detail: "Tohoku University, Japan · Invited research talk & collaboration" },
