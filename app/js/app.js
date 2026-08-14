@@ -15,6 +15,7 @@ const ADMIN_EMAILS = (window.PLATFORM_ADMINS || []).map(e => e.toLowerCase());
 
 let auth = null, db = null;
 let onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+    signInWithRedirect, getRedirectResult,
     createUserWithEmailAndPassword, signInWithEmailAndPassword,
     sendEmailVerification, sendPasswordResetEmail, signOut, updateProfile,
     collection, doc, addDoc, setDoc, getDoc, getDocs,
@@ -30,6 +31,7 @@ if (CONFIGURED) {
       import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`)
     ]);
     ({ onAuthStateChanged, GoogleAuthProvider, signInWithPopup,
+       signInWithRedirect, getRedirectResult,
        createUserWithEmailAndPassword, signInWithEmailAndPassword,
        sendEmailVerification, sendPasswordResetEmail, signOut, updateProfile } = authM);
     ({ collection, doc, addDoc, setDoc, getDoc, getDocs,
@@ -55,10 +57,53 @@ let authReady = new Promise(resolve => {
   });
 });
 
+/* Completes a redirect sign-in when the page comes back from Google. Harmless
+   on every other load — it resolves to null. Errors go to the console rather
+   than a toast: the account view renders straight after and shows the state. */
+if (auth && getRedirectResult) {
+  getRedirectResult(auth)
+    .then(cred => { if (cred && cred.user) toast("Signed in ✓"); })
+    .catch(e => console.error("Redirect sign-in failed:", e));
+}
+
 const isAdmin = () =>
   !!(currentUser && currentUser.email &&
      currentUser.emailVerified &&
      ADMIN_EMAILS.includes(currentUser.email.toLowerCase()));
+
+/* ---------- Google sign-in ------------------------------------------------
+   One popup at a time. Without a guard, a second click while the first popup
+   is still opening (or has opened behind the window) starts a second sign-in
+   flow; Firebase then aborts the first with auth/cancelled-popup-request,
+   which is what the "popup keeps appearing again" behaviour actually is.
+   googleSignInPending is module-level, so it also survives the account view
+   being re-rendered underneath an open popup.
+
+   prompt=select_account makes the flow predictable: Google always shows the
+   account chooser instead of silently reusing whichever session it saw last,
+   which is what makes a second, unexpected-looking window appear for people
+   signed into more than one Google account. */
+let googleSignInPending = false;
+
+function googleProvider() {
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" });
+  return provider;
+}
+
+/* Redirect sign-in only completes if the browser lets the auth domain set
+   cookies for this site. While authDomain is the project's *.firebaseapp.com
+   address that is a third-party context — Safari and Chrome drop the state
+   and the user lands back signed out. So redirect is used as the popup-blocked
+   fallback only once authDomain is a same-registrable-domain host (the
+   auth.yasassri.me setup described in firebase-config.js); until then a
+   blocked popup gets a clear message instead of a silent failure. */
+function redirectSignInUsable() {
+  const authDomain = String(CFG.authDomain || "");
+  if (!authDomain || !signInWithRedirect) return false;
+  const site = h => h.split(".").slice(-2).join(".");
+  return site(authDomain) === site(location.hostname);
+}
 
 /* ---------- Static content ------------------------------------------------ */
 
@@ -241,7 +286,9 @@ function fbError(e) {
   if (m.includes("auth/email-already-in-use")) return "An account with this email already exists — try signing in.";
   if (m.includes("auth/weak-password")) return "Password should be at least 6 characters.";
   if (m.includes("auth/invalid-email")) return "That email address doesn't look right.";
-  if (m.includes("auth/popup")) return "Sign-in popup was blocked or closed — please try again.";
+  if (m.includes("auth/popup-blocked")) return "Your browser blocked the Google sign-in window. Allow pop-ups for this site and try again, or use the email form below.";
+  if (m.includes("auth/unauthorized-domain")) return "Google sign-in isn't enabled for this address yet. Please use the email form below.";
+  if (m.includes("auth/popup")) return "The Google sign-in window closed before finishing — please try again.";
   if (m.includes("unavailable") || m.includes("network")) return "Network problem — please try again.";
   console.error(e);
   return "Something went wrong — please try again.";
@@ -1687,11 +1734,43 @@ function viewAccount() {
   });
 
   const msg = document.getElementById("authMsg");
-  document.getElementById("googleBtn").onclick = async () => {
+  const googleBtn = document.getElementById("googleBtn");
+  const googleBtnHtml = googleBtn.innerHTML;
+  if (googleSignInPending) {
+    googleBtn.disabled = true;
+    googleBtn.innerHTML = "Waiting for Google…";
+  }
+  googleBtn.onclick = async () => {
+    if (googleSignInPending) return;           // a popup is already open
+    googleSignInPending = true;
+    googleBtn.disabled = true;
+    googleBtn.innerHTML = "Waiting for Google…";
+    msg.className = "form-msg"; msg.textContent = "";
     try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
+      await signInWithPopup(auth, googleProvider());
       toast("Signed in ✓"); route();
-    } catch (e) { msg.className = "form-msg err"; msg.textContent = fbError(e); }
+    } catch (e) {
+      const code = String(e && e.code || "");
+      /* The user closing the window, or a second click superseding the first,
+         is a normal outcome and not something to report as an error. */
+      if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
+        /* nothing to say */
+      } else if (code === "auth/popup-blocked" && redirectSignInUsable()) {
+        try {
+          await signInWithRedirect(auth, googleProvider());   // page navigates to Google
+        } catch (re) {
+          msg.className = "form-msg err"; msg.textContent = fbError(re);
+        }
+      } else {
+        msg.className = "form-msg err"; msg.textContent = fbError(e);
+      }
+    } finally {
+      googleSignInPending = false;
+      if (document.body.contains(googleBtn)) {
+        googleBtn.disabled = false;
+        googleBtn.innerHTML = googleBtnHtml;
+      }
+    }
   };
   document.getElementById("forgotBtn").onclick = async () => {
     const email = String(new FormData(document.getElementById("authForm")).get("email")).trim();
