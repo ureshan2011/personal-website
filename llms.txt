@@ -24,7 +24,7 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 - [Teaching](https://www.yasassri.me/teaching.html): Postgraduate teaching in information systems and project management; gamified, high-engagement courses; thesis and capstone supervision.
 - [For Prospective Students](https://www.yasassri.me/students.html): His own account, as the lecturer who teaches it, of the Master of Business Informatics (MBI) programme at Yoobee College of Creative Innovation — course details (MBI800/802/804), his teaching approach, and a free "Educational Guidance" consultation for prospective students. Explicitly not an official Yoobee College page; it says so on the page.
 - [Web Products](https://www.yasassri.me/products.html): Portfolio of software he has designed and built — HouseScout, Faro, and Yoobees.
-- [News](https://www.yasassri.me/news.html): Upcoming events (NZGDC 2026 talk, 1 October 2026), recent talks (CODE with WIE 2026 workshop, 11 July 2026), invited talks, media, international collaborations (e.g. Tohoku University research visit, Falling Walls Lab NZ), and how to invite him for a talk or workshop.
+- [News](https://www.yasassri.me/news.html): Upcoming events (NZGDC 2026 talk, 1 October 2026; ICITR 2026 Workshop 01, University of Moratuwa, date to be announced), recent talks (CODE with WIE 2026 workshop, 11 July 2026), invited talks, media, international collaborations (e.g. Tohoku University research visit, Falling Walls Lab NZ), and how to invite him for a talk or workshop.
 - [Writing](https://www.yasassri.me/blogs.html): Essays on AR, spatial computing, and software engineering.
 - [Contact](https://www.yasassri.me/contact.html): For research collaborations, guest talks, and consulting.
 - [Platform](https://www.yasassri.me/app/): Interactive academic platform — free consultation booking (education, research, career mentoring), speaker-invitation requests with a talk-topics catalogue, blog, newsletter signup, and a student community forum.
@@ -32,6 +32,7 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 ## Upcoming events
 
 - NZGDC 2026 — "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland, New Zealand. Details: https://www.yasassri.me/news.html#upcoming
+- ICITR 2026 — Workshop 01: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me" — date and time to be announced; planned as an online session. Part of the 11th International Conference on Information Technology Research (ICITR 2026, 1–2 December 2026), organised by the Information Technology Research Unit (ITRU), Faculty of Information Technology, University of Moratuwa, Sri Lanka. Official programme: https://icitr.uom.lk/workshops/ · Details: https://www.yasassri.me/news.html#upcoming
 - To invite Yasas Sri Wickramasinghe for a similar talk, workshop, or seminar: https://www.yasassri.me/app/#/invite
 
 ## Recent talks
