@@ -7,11 +7,6 @@
 User-agent: *
 Allow: /
 
-# Note: orphaned template demos (about.html, home-agency.html,
-# single-portfolio.html, "index original.html") carry an on-page
-# <meta name="robots" content="noindex, nofollow"> so they are read but
-# never indexed.
-
 # ---------------------------------------------------------------------------
 # AI / LLM crawlers — explicitly welcome.
 # This site WANTS to be read, learned from, and cited by AI assistants
