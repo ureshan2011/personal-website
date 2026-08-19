@@ -5,8 +5,16 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 13 Aug 2026 12:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 19 Aug 2026 12:00:00 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title><![CDATA[Code Champ 2026 — Workshop 07: Augmented Reality and Game Development]]></title>
+    <link>https://www.yasassri.me/news.html#upcoming</link>
+    <guid isPermaLink="true">yasassri-event-code-champ-2026-workshop-07</guid>
+    <pubDate>Wed, 19 Aug 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Event]]></category>
+    <description><![CDATA[I'm leading Workshop 07 of Code Champ 2026 — "Code Your World" — organised by E3 (Computer Science) with the Committee for Popularization of Science (CPS), SLAAS and the IEEE Computer Society Sri Lanka Chapter. The session covers augmented reality and game development. 20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via Zoom.]]></description>
+  </item>
   <item>
     <title><![CDATA[NZGDC 2026 — Designing Shared Worlds Across Distance]]></title>
     <link>https://www.yasassri.me/news.html#upcoming</link>
