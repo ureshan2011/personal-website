@@ -54,11 +54,12 @@ forty-five real, anonymised workplace conflicts to show when collaboration
 works, when it backfires, and what to do instead. Free download at
 yasassri.me/app/#/book; sign-in required, takes under a minute.
 
-**Upcoming talks & workshops.** Two engagements on the calendar, or invite me
-for something similar: Designing Shared Worlds Across Distance (NZGDC,
-1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
-Distance (University of Moratuwa, date to be announced). Full details at
-yasassri.me/news.html.
+**Upcoming talks & workshops.** Three engagements on the calendar, or invite
+me for something similar: Code Champ 2026 Workshop 07: Augmented Reality and
+Game Development (20 August 2026) — Designing Shared Worlds Across Distance
+(NZGDC, 1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds
+Across Distance (University of Moratuwa, date to be announced). Full details
+at yasassri.me/news.html.
 
 **In the news.** Invited talks, international collaborations and outreach —
 where the research meets people and places: Research Visit to Tohoku
@@ -499,6 +500,12 @@ community outreach — moments where augmented reality research meets real
 people and places.
 
 **Upcoming events.**
+Code Champ 2026 — Workshop 07: Augmented Reality and Game Development.
+20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via Zoom. I'm leading
+Workshop 07 of Code Champ 2026 — "Code Your World" — organised by E3
+(Computer Science) with the Committee for Popularization of Science (CPS),
+SLAAS and the IEEE Computer Society Sri Lanka Chapter, covering augmented
+reality and game development.
 NZGDC 2026 — Designing Shared Worlds Across Distance. 1 October 2026,
 3:00–3:30 PM, NZ International Convention Centre, Auckland. I'm speaking at
 NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across
