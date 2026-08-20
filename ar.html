@@ -205,13 +205,6 @@
   .fig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
 
   /* ---- embeds ----------------------------------------------------------- */
-  .embed-frame { position: relative; aspect-ratio: 16/10; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-panel); cursor: pointer; width: 100%; padding: 0; display: block; }
-  .embed-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .embed-cta { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 12px; text-align: center; padding: 26px; }
-  .embed-cta strong { font-size: 16px; color: var(--ink); }
-  .embed-cta span { font-size: 13.5px; color: var(--ink-soft); max-width: 40ch; }
-  .embed-cta em { font-style: normal; color: var(--accent); font-weight: 600; font-size: 13.5px; }
-
   .step-list { counter-reset: step; display: grid; gap: 16px; margin-top: 22px; }
   .step { position: relative; padding-left: 46px; }
   .step::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 1px; width: 30px; height: 30px; border-radius: 9px;
@@ -813,23 +806,6 @@
       <a href="research.html#publications" style="color:var(--accent); font-weight:600;">all publications</a>.
     </p>
 
-    <div class="reveal" style="margin-top:52px;">
-      <h3 style="font-size:20px; margin-bottom:6px;">The workshop board</h3>
-      <p style="color:var(--ink-soft); font-size:14.5px; max-width:60ch; margin-bottom:20px;">
-        The board we'll work through together. It's a heavy embed, so it only loads when you ask for it —
-        best opened on a laptop.
-      </p>
-      <button class="embed-frame" type="button"
-              data-embed="https://miro.com/app/live-embed/uXjVO4QG3Ts=/?focusWidget=3458764529619482266&amp;embedMode=view_only_without_ui&amp;embedId=234961355136"
-              data-embed-title="Workshop Miro board"
-              aria-label="Load the workshop Miro board">
-        <span class="embed-cta">
-          <strong>Workshop board (Miro)</strong>
-          <span>An interactive whiteboard — roughly 2&nbsp;MB to load. Skip it on mobile data.</span>
-          <em>Tap to load ↗</em>
-        </span>
-      </button>
-    </div>
   </div>
 </section>
 
@@ -1009,25 +985,6 @@
         v.play().catch(function () { /* the visitor can still press play */ });
       });
     });
-
-    document.querySelectorAll('[data-embed]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        if (btn.dataset.loaded) return;
-        btn.dataset.loaded = '1';
-        var f = document.createElement('iframe');
-        f.src = btn.getAttribute('data-embed');
-        f.title = btn.getAttribute('data-embed-title') || 'Embedded board';
-        f.setAttribute('frameborder', '0');
-        f.setAttribute('scrolling', 'no');
-        f.setAttribute('allow', 'fullscreen; clipboard-read; clipboard-write');
-        f.setAttribute('allowfullscreen', '');
-        f.setAttribute('loading', 'lazy');
-        btn.innerHTML = '';
-        btn.appendChild(f);
-        btn.style.cursor = 'default';
-      });
-    });
-
 
     // Diagram toggles: flip an attribute on the figure, CSS does the rest.
     var TOGGLES = {
