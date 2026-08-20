@@ -105,6 +105,28 @@
   .yt-facade:hover .yt-play-btn, .yt-facade:focus-visible .yt-play-btn { background: #f00; }
   .yt-facade iframe { width: 100%; height: 100%; border: 0; display: block; }
 
+  /* ---- explainer diagrams ----------------------------------------------- */
+  .ar-diagram { --d-bg:#f7f9fc; --d-room:#eef2f8; --d-mesh:#2f6bff; --d-cone:#4d7dff22; --d-cone-line:#4d7dff; }
+  .ar-diagram svg { width: 100%; height: auto; display: block; background: var(--d-bg); }
+  /* Scoped on the wrapper, never inside the SVG: an inline <svg><style> leaks
+     to the whole document, and the two toggles would then cancel each other. */
+  [data-mesh="off"] .mesh-layer { display: none; }
+  [data-occ="on"] .occ-off { display: none; }
+  [data-occ="off"] .occ-on { display: none; }
+  /* flex (not inline-flex) so the button drops onto its own line under the caption */
+  .diagram-toggle { display: flex; width: fit-content; align-items: center; margin-top: 14px; padding: 8px 16px; border-radius: 999px;
+    border: 1px solid var(--line-strong); background: var(--card); color: var(--ink); font: inherit; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: background .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease); }
+  .diagram-toggle:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .diagram-toggle[aria-pressed="false"] { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+
+  /* ---- SDK spotlight ---------------------------------------------------- */
+  .spotlight { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: clamp(24px, 4vw, 38px); box-shadow: var(--shadow-sm); }
+  .spotlight code { font-size: .92em; background: var(--bg-panel); padding: 2px 6px; border-radius: 5px; }
+  .spotlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin-top: 26px; }
+  .spotlight-grid .req { background: var(--bg-soft); }
+  .spotlight-grid .req i { font-size: 16px; line-height: 1; }
+
   /* ---- AR stage --------------------------------------------------------- */
   .ar-shell { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; box-shadow: var(--shadow-sm); }
   .ar-stage { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 78vh; background: #0d1220; overflow: hidden; }
@@ -183,13 +205,6 @@
   .fig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
 
   /* ---- embeds ----------------------------------------------------------- */
-  .embed-frame { position: relative; aspect-ratio: 16/10; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-panel); cursor: pointer; width: 100%; padding: 0; display: block; }
-  .embed-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .embed-cta { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 12px; text-align: center; padding: 26px; }
-  .embed-cta strong { font-size: 16px; color: var(--ink); }
-  .embed-cta span { font-size: 13.5px; color: var(--ink-soft); max-width: 40ch; }
-  .embed-cta em { font-style: normal; color: var(--accent); font-weight: 600; font-size: 13.5px; }
-
   .step-list { counter-reset: step; display: grid; gap: 16px; margin-top: 22px; }
   .step { position: relative; padding-left: 46px; }
   .step::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 1px; width: 30px; height: 30px; border-radius: 9px;
@@ -285,7 +300,6 @@
         <div class="ar-overlay" data-ar-overlay>
           <div class="ar-hud">
             <span class="ar-chip" data-ar-badge hidden></span>
-            <span class="ar-chip" data-ar-counter>0 placed · 0 collected</span>
           </div>
           <p class="ar-hint" data-ar-hint>Tap anywhere to leave a crystal in the air.</p>
         </div>
@@ -378,11 +392,111 @@
   </div>
 </section>
 
-<!-- 02 — CONCEPTS -->
-<section class="section" id="concepts" style="background:var(--bg-soft);">
+<!-- 02 — HOW IT WORKS -->
+<section class="section" id="how" style="background:var(--bg-soft);">
   <div class="container">
     <div class="section-head reveal">
       <span class="idx">02</span>
+      <h2>How a phone turns a camera into <em>a window</em>.</h2>
+      <p>
+        Nothing is really floating in your room. The phone is drawing a 3D object into
+        a live photo, sixty times a second, from exactly the right angle. Here is the trick,
+        drawn to scale.
+      </p>
+    </div>
+
+    <div class="grid-2 reveal" style="gap:34px; align-items:center;">
+      <figure class="fig ar-diagram">
+        <svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" role="img"
+             aria-label="A person's phone held up in a room. A dashed cone shows what its camera can see, taking in a table with a blue crystal floating above it. The phone's screen shows that same table and crystal from the phone's own point of view.">
+          <rect x="0" y="0" width="760" height="420" fill="var(--d-bg)"/>
+<g opacity=".75"><line x1="605.9" y1="840.2" x2="69.3" y2="291.0" stroke="#c9d3e6" stroke-width="1" /><line x1="673.7" y1="646.5" x2="137.5" y2="273.8" stroke="#c9d3e6" stroke-width="1" /><line x1="713.6" y1="532.3" x2="194.9" y2="259.4" stroke="#c9d3e6" stroke-width="1" /><line x1="740.0" y1="457.0" x2="244.0" y2="247.0" stroke="#c9d3e6" stroke-width="1" /><line x1="758.7" y1="403.6" x2="286.4" y2="236.4" stroke="#c9d3e6" stroke-width="1" /><line x1="772.6" y1="363.8" x2="323.4" y2="227.1" stroke="#c9d3e6" stroke-width="1" /><line x1="783.4" y1="332.9" x2="356.0" y2="218.9" stroke="#c9d3e6" stroke-width="1" /><line x1="792.0" y1="308.3" x2="384.9" y2="211.6" stroke="#c9d3e6" stroke-width="1" /><line x1="605.9" y1="840.2" x2="794.5" y2="301.2" stroke="#c9d3e6" stroke-width="1" /><line x1="419.2" y1="649.2" x2="713.7" y2="282.7" stroke="#c9d3e6" stroke-width="1" /><line x1="308.4" y1="535.7" x2="645.9" y2="267.1" stroke="#c9d3e6" stroke-width="1" /><line x1="234.9" y1="460.5" x2="588.2" y2="253.9" stroke="#c9d3e6" stroke-width="1" /><line x1="182.7" y1="407.0" x2="538.5" y2="242.5" stroke="#c9d3e6" stroke-width="1" /><line x1="143.6" y1="367.0" x2="495.3" y2="232.6" stroke="#c9d3e6" stroke-width="1" /><line x1="113.3" y1="336.0" x2="457.3" y2="223.9" stroke="#c9d3e6" stroke-width="1" /><line x1="89.1" y1="311.2" x2="423.8" y2="216.2" stroke="#c9d3e6" stroke-width="1" /><line x1="69.3" y1="291.0" x2="393.8" y2="209.4" stroke="#c9d3e6" stroke-width="1" /></g>
+<polygon points="540.8,53.6 373.7,57.7 368.8,301.4 518.9,325.9" fill="var(--d-cone)" stroke="none" stroke-width="1" opacity=".5"/>
+<line x1="321.4" y1="257.4" x2="540.8" y2="53.6" stroke="var(--d-cone-line)" stroke-width="1.4" stroke-dasharray="5 4"/>
+<line x1="321.4" y1="257.4" x2="373.7" y2="57.7" stroke="var(--d-cone-line)" stroke-width="1.4" stroke-dasharray="5 4"/>
+<line x1="321.4" y1="257.4" x2="368.8" y2="301.4" stroke="var(--d-cone-line)" stroke-width="1.4" stroke-dasharray="5 4"/>
+<line x1="321.4" y1="257.4" x2="518.9" y2="325.9" stroke="var(--d-cone-line)" stroke-width="1.4" stroke-dasharray="5 4"/>
+<polygon points="479.7,246.7 338.6,210.2 340.3,286.2 474.6,342.6" fill="#d3dbe9" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="338.6,210.2 407.7,194.6 406.8,261.5 340.3,286.2" fill="#c3ccdd" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="479.7,246.7 338.6,210.2 407.7,194.6 543.2,221.0" fill="#e7ecf5" stroke="#8f9cb5" stroke-width="1.2" />
+<polygon points="439.3,121.0 450.4,152.4 429.1,152.4" fill="#4d7dff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="439.3,121.0 429.1,152.4 426.9,149.9" fill="#7aa1ff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="437.7,176.9 429.1,152.4 450.4,152.4" fill="#2f5fd8" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="437.7,176.9 426.9,149.9 429.1,152.4" fill="#3f6ee8" stroke="none" stroke-width="1" opacity="1.0"/>
+<line x1="437.6" y1="179.2" x2="436.5" y2="215.4" stroke="#4d7dff" stroke-width="1.2" stroke-dasharray="3 4" opacity=".55"/>
+<polygon points="371.9,152.5 275.0,147.9 278.1,347.1 367.6,366.3" fill="#161d2b" stroke="#0b0f18" stroke-width="1.4" opacity=".97"/>
+<g clip-path="url(#screenClip)"><polygon points="365.7,165.5 280.3,160.5 282.8,337.5 362.3,353.8" fill="#dfe6f2" stroke="none" stroke-width="1" /><polygon points="263.4,278.1 401.9,286.8 397.7,354.2 267.0,363.0" fill="#c2ccdd" stroke="none" stroke-width="1" /><polygon points="401.9,286.8 352.2,270.2 351.0,317.0 397.7,354.2" fill="#b3bed2" stroke="none" stroke-width="1" /><polygon points="263.4,278.1 401.9,286.8 352.2,270.2 258.1,262.1" fill="#e2e8f3" stroke="none" stroke-width="1" /><polygon points="321.5,200.0 311.8,221.8 325.9,222.5" fill="#4d7dff" stroke="none" stroke-width="1" /><polygon points="321.5,200.0 325.9,222.5 330.8,224.8" fill="#7aa1ff" stroke="none" stroke-width="1" /><polygon points="321.4,243.3 325.9,222.5 311.8,221.8" fill="#2f5fd8" stroke="none" stroke-width="1" /><polygon points="321.4,243.3 330.8,224.8 325.9,222.5" fill="#3f6ee8" stroke="none" stroke-width="1" /></g>
+<clipPath id="screenClip"><polygon points="365.7,165.5 280.3,160.5 282.8,337.5 362.3,353.8"/></clipPath>
+<polygon points="365.7,165.5 280.3,160.5 282.8,337.5 362.3,353.8" fill="none" stroke="#39445c" stroke-width="1.2" />
+        </svg>
+        <figcaption>
+          <b>The phone is not a magic mirror — it is a camera plus arithmetic.</b>
+          The dashed cone is what the camera can see. The crystal is not in the room;
+          it only exists as three numbers, and the phone works out where those numbers
+          should land on the screen.
+        </figcaption>
+      </figure>
+
+      <div>
+        <div class="step-list" style="margin-top:0;">
+          <div class="step">
+            <b>The camera takes a picture</b>
+            <span>Sixty times a second. This becomes the background — the “reality” half.</span>
+          </div>
+          <div class="step">
+            <b>The sensors say which way you're pointing</b>
+            <span>The gyroscope reports the phone's tilt and turn. Better AR systems also watch the picture itself to work out where you have <em>walked</em>, not just where you have turned.</span>
+          </div>
+          <div class="step">
+            <b>The object is stored as a place, not a pixel</b>
+            <span>“2.2 metres that way, at eye height.” Because it is stored in the room's coordinates rather than the screen's, it does not slide about when you move.</span>
+          </div>
+          <div class="step">
+            <b>Maths puts it back on the screen</b>
+            <span>Knowing where you are and where the object is, the phone calculates the exact pixel it should appear at, then draws it on top of the photo. Repeat sixty times a second and your eyes call it real.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:20px; margin-top:56px;" class="reveal">Two tricks that make it convincing</h3>
+    <p class="reveal" style="color:var(--ink-soft); font-size:14.5px; max-width:62ch; margin-top:8px;">
+      The demo at the top of this page skips both of these — they need more capable hardware.
+      Tap the buttons to see what each one actually does.
+    </p>
+
+    <div class="fig-grid reveal" style="margin-top:22px;">
+      <figure class="fig ar-diagram" data-mesh="on">
+        <svg viewBox="0 0 460 330" xmlns="http://www.w3.org/2000/svg" role="img"
+             aria-label="A box on a floor with a blue crystal resting on top of it, covered by a blue triangular mesh that follows the shape of the box and the floor.">
+          <rect x="0" y="0" width="460" height="330" fill="var(--d-room)"/><g opacity=".55"><line x1="957.7" y1="568.7" x2="-451.8" y2="493.3" stroke="#c9d3e6" stroke-width="1" /><line x1="695.2" y1="395.1" x2="-223.7" y2="363.1" stroke="#c9d3e6" stroke-width="1" /><line x1="573.8" y1="314.8" x2="-108.2" y2="297.2" stroke="#c9d3e6" stroke-width="1" /><line x1="503.8" y1="268.5" x2="-38.5" y2="257.4" stroke="#c9d3e6" stroke-width="1" /><line x1="458.3" y1="238.4" x2="8.1" y2="230.7" stroke="#c9d3e6" stroke-width="1" /><line x1="426.4" y1="217.3" x2="41.5" y2="211.7" stroke="#c9d3e6" stroke-width="1" /><line x1="402.7" y1="201.6" x2="66.6" y2="197.3" stroke="#c9d3e6" stroke-width="1" /><line x1="957.7" y1="568.7" x2="385.9" y2="190.5" stroke="#c9d3e6" stroke-width="1" /><line x1="752.9" y1="557.7" x2="347.0" y2="190.1" stroke="#c9d3e6" stroke-width="1" /><line x1="557.4" y1="547.3" x2="308.5" y2="189.6" stroke="#c9d3e6" stroke-width="1" /><line x1="370.6" y1="537.3" x2="270.3" y2="189.2" stroke="#c9d3e6" stroke-width="1" /><line x1="191.9" y1="527.7" x2="232.4" y2="188.8" stroke="#c9d3e6" stroke-width="1" /><line x1="20.7" y1="518.6" x2="195.0" y2="188.3" stroke="#c9d3e6" stroke-width="1" /><line x1="-143.3" y1="509.8" x2="157.8" y2="187.9" stroke="#c9d3e6" stroke-width="1" /><line x1="-300.7" y1="501.4" x2="121.0" y2="187.5" stroke="#c9d3e6" stroke-width="1" /><line x1="-451.8" y1="493.3" x2="84.6" y2="187.1" stroke="#c9d3e6" stroke-width="1" /></g><polygon points="346.8,191.1 110.6,188.4 118.8,291.6 338.5,296.9" fill="#d3dbe9" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="110.6,188.4 151.5,160.0 155.3,234.3 118.8,291.6" fill="#c3ccdd" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="346.8,191.1 110.6,188.4 151.5,160.0 314.3,161.3" fill="#e7ecf5" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="230.0,102.3 245.5,134.3 229.3,136.0" fill="#4d7dff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="230.0,102.3 229.3,136.0 214.5,134.1" fill="#7aa1ff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="230.0,161.2 229.3,136.0 245.5,134.3" fill="#2f5fd8" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="230.0,161.2 214.5,134.1 229.3,136.0" fill="#3f6ee8" stroke="none" stroke-width="1" opacity="1.0"/><g class="mesh-layer" opacity=".8"><polygon points="477.9,362.2 305.7,356.8 283.5,264.0" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="477.9,362.2 283.5,264.0 393.3,266.2" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="393.3,266.2 283.5,264.0 273.0,219.9" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="393.3,266.2 273.0,219.9 353.6,221.2" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="305.7,356.8 140.4,351.5 176.7,261.8" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="305.7,356.8 176.7,261.8 283.5,264.0" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="283.5,264.0 176.7,261.8 194.0,218.7" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="283.5,264.0 194.0,218.7 273.0,219.9" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="140.4,351.5 -18.3,346.5 72.5,259.6" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="140.4,351.5 72.5,259.6 176.7,261.8" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="176.7,261.8 72.5,259.6 116.6,217.6" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="176.7,261.8 116.6,217.6 194.0,218.7" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="346.8,191.1 266.5,190.2 262.2,172.8" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="346.8,191.1 262.2,172.8 327.5,173.5" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="327.5,173.5 262.2,172.8 259.3,160.9" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="327.5,173.5 259.3,160.9 314.3,161.3" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="266.5,190.2 187.8,189.3 198.0,172.2" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="266.5,190.2 198.0,172.2 262.2,172.8" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="262.2,172.8 198.0,172.2 205.1,160.5" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="262.2,172.8 205.1,160.5 259.3,160.9" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="187.8,189.3 110.6,188.4 134.8,171.7" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="187.8,189.3 134.8,171.7 198.0,172.2" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="198.0,172.2 134.8,171.7 151.5,160.0" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="198.0,172.2 151.5,160.0 205.1,160.5" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="346.8,191.1 266.5,190.2 265.2,244.6" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="346.8,191.1 265.2,244.6 342.5,246.0" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="342.5,246.0 265.2,244.6 263.9,295.1" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="342.5,246.0 263.9,295.1 338.5,296.9" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="266.5,190.2 187.8,189.3 189.3,243.2" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="266.5,190.2 189.3,243.2 265.2,244.6" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="265.2,244.6 189.3,243.2 190.7,293.3" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="265.2,244.6 190.7,293.3 263.9,295.1" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="187.8,189.3 110.6,188.4 114.8,241.8" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="187.8,189.3 114.8,241.8 189.3,243.2" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="189.3,243.2 114.8,241.8 118.8,291.6" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /><polygon points="189.3,243.2 118.8,291.6 190.7,293.3" fill="none" stroke="var(--d-mesh)" stroke-width="0.9" /></g>
+        </svg>
+        <figcaption>
+          <b>Mesh detection — the phone learns the shape of the room.</b>
+          It builds an invisible skin of triangles over whatever it sees. Once that exists,
+          virtual things can rest on real surfaces, roll off them and bump into them
+          instead of hovering in a void.
+          <button class="diagram-toggle" type="button" data-toggle="mesh" aria-pressed="true">Hide the mesh</button>
+        </figcaption>
+      </figure>
+
+      <figure class="fig ar-diagram" data-occ="on">
+        <svg viewBox="0 0 460 330" xmlns="http://www.w3.org/2000/svg" role="img"
+             aria-label="A box on a floor with a blue crystal standing behind it. Only the crystal's tip shows above the box, because the box hides the rest.">
+          <rect x="0" y="0" width="460" height="330" fill="var(--d-room)"/><g opacity=".55"><line x1="957.7" y1="568.7" x2="-451.8" y2="493.3" stroke="#c9d3e6" stroke-width="1" /><line x1="695.2" y1="395.1" x2="-223.7" y2="363.1" stroke="#c9d3e6" stroke-width="1" /><line x1="573.8" y1="314.8" x2="-108.2" y2="297.2" stroke="#c9d3e6" stroke-width="1" /><line x1="503.8" y1="268.5" x2="-38.5" y2="257.4" stroke="#c9d3e6" stroke-width="1" /><line x1="458.3" y1="238.4" x2="8.1" y2="230.7" stroke="#c9d3e6" stroke-width="1" /><line x1="426.4" y1="217.3" x2="41.5" y2="211.7" stroke="#c9d3e6" stroke-width="1" /><line x1="402.7" y1="201.6" x2="66.6" y2="197.3" stroke="#c9d3e6" stroke-width="1" /><line x1="957.7" y1="568.7" x2="385.9" y2="190.5" stroke="#c9d3e6" stroke-width="1" /><line x1="752.9" y1="557.7" x2="347.0" y2="190.1" stroke="#c9d3e6" stroke-width="1" /><line x1="557.4" y1="547.3" x2="308.5" y2="189.6" stroke="#c9d3e6" stroke-width="1" /><line x1="370.6" y1="537.3" x2="270.3" y2="189.2" stroke="#c9d3e6" stroke-width="1" /><line x1="191.9" y1="527.7" x2="232.4" y2="188.8" stroke="#c9d3e6" stroke-width="1" /><line x1="20.7" y1="518.6" x2="195.0" y2="188.3" stroke="#c9d3e6" stroke-width="1" /><line x1="-143.3" y1="509.8" x2="157.8" y2="187.9" stroke="#c9d3e6" stroke-width="1" /><line x1="-300.7" y1="501.4" x2="121.0" y2="187.5" stroke="#c9d3e6" stroke-width="1" /><line x1="-451.8" y1="493.3" x2="84.6" y2="187.1" stroke="#c9d3e6" stroke-width="1" /></g><g class="occ-on"><polygon points="233.8,128.4 254.2,169.8 233.1,174.5" fill="#4d7dff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="233.8,128.4 233.1,174.5 213.4,169.5" fill="#7aa1ff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="233.6,204.2 233.1,174.5 254.2,169.8" fill="#2f5fd8" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="233.6,204.2 213.4,169.5 233.1,174.5" fill="#3f6ee8" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="346.8,191.1 110.6,188.4 118.8,291.6 338.5,296.9" fill="#d3dbe9" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="110.6,188.4 151.5,160.0 155.3,234.3 118.8,291.6" fill="#c3ccdd" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="346.8,191.1 110.6,188.4 151.5,160.0 314.3,161.3" fill="#e7ecf5" stroke="#8f9cb5" stroke-width="1.2" /></g><g class="occ-off"><polygon points="346.8,191.1 110.6,188.4 118.8,291.6 338.5,296.9" fill="#d3dbe9" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="110.6,188.4 151.5,160.0 155.3,234.3 118.8,291.6" fill="#c3ccdd" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="346.8,191.1 110.6,188.4 151.5,160.0 314.3,161.3" fill="#e7ecf5" stroke="#8f9cb5" stroke-width="1.2" /><polygon points="233.8,128.4 254.2,169.8 233.1,174.5" fill="#4d7dff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="233.8,128.4 233.1,174.5 213.4,169.5" fill="#7aa1ff" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="233.6,204.2 233.1,174.5 254.2,169.8" fill="#2f5fd8" stroke="none" stroke-width="1" opacity="1.0"/><polygon points="233.6,204.2 213.4,169.5 233.1,174.5" fill="#3f6ee8" stroke="none" stroke-width="1" opacity="1.0"/></g>
+        </svg>
+        <figcaption>
+          <b>Occlusion — real things get to block virtual ones.</b>
+          The crystal is standing <em>behind</em> the box, so you should only see its tip.
+          Turn occlusion off and it floats in front of the box instead — the single fastest
+          way to make AR look fake.
+          <button class="diagram-toggle" type="button" data-toggle="occ" aria-pressed="true">Turn occlusion off</button>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — CONCEPTS -->
+<section class="section" id="concepts" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">03</span>
       <h2>Five ideas that make AR <em>feel real</em>.</h2>
       <p>
         The demo above is deliberately simple. Five more layers sit between it and a real AR game —
@@ -425,14 +539,15 @@
   </div>
 </section>
 
-<!-- 03 — CLIPS -->
+<!-- 04 — CLIPS -->
 <section class="section" id="clips">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">03</span>
+      <span class="idx">04</span>
       <h2>The same ideas, <em>actually running</em>.</h2>
       <p>
-        Four experiments from my PhD work at HIT Lab NZ, built with the Niantic Lightship SDK.
+        Four experiments from my PhD work at HIT Lab NZ, built with the Niantic Lightship SDK
+        (since renamed the Niantic Spatial SDK).
         Each card starts with a short, low-bandwidth preview — tap it and it plays straight away.
         The full-length version opens in a new tab when you want it.
       </p>
@@ -521,11 +636,11 @@
   </div>
 </section>
 
-<!-- 04 — HIDE AND SEEK -->
+<!-- 05 — HIDE AND SEEK -->
 <section class="section" id="game" style="background:var(--bg-soft);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">04</span>
+      <span class="idx">05</span>
       <h2>Now make it a game: <em>AR hide-and-seek</em>.</h2>
       <p>
         Everything above is plumbing. This is what it was for — a hide-and-seek game where one player
@@ -630,11 +745,11 @@
   </div>
 </section>
 
-<!-- 05 — DESIGN -->
+<!-- 06 — DESIGN -->
 <section class="section" id="design">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">05</span>
+      <span class="idx">06</span>
       <h2>Designing it before <em>building</em> it.</h2>
       <p>
         The most useful lesson from years of AR research is unglamorous: sketch the rules first.
@@ -691,31 +806,14 @@
       <a href="research.html#publications" style="color:var(--accent); font-weight:600;">all publications</a>.
     </p>
 
-    <div class="reveal" style="margin-top:52px;">
-      <h3 style="font-size:20px; margin-bottom:6px;">The workshop board</h3>
-      <p style="color:var(--ink-soft); font-size:14.5px; max-width:60ch; margin-bottom:20px;">
-        The board we'll work through together. It's a heavy embed, so it only loads when you ask for it —
-        best opened on a laptop.
-      </p>
-      <button class="embed-frame" type="button"
-              data-embed="https://miro.com/app/live-embed/uXjVO4QG3Ts=/?focusWidget=3458764529619482266&amp;embedMode=view_only_without_ui&amp;embedId=234961355136"
-              data-embed-title="Workshop Miro board"
-              aria-label="Load the workshop Miro board">
-        <span class="embed-cta">
-          <strong>Workshop board (Miro)</strong>
-          <span>An interactive whiteboard — roughly 2&nbsp;MB to load. Skip it on mobile data.</span>
-          <em>Tap to load ↗</em>
-        </span>
-      </button>
-    </div>
   </div>
 </section>
 
-<!-- 06 — BUILD YOUR OWN -->
+<!-- 07 — BUILD YOUR OWN -->
 <section class="section" id="build" style="background:var(--bg-soft);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="idx">06</span>
+      <span class="idx">07</span>
       <h2>Where to start, <em>honestly</em>.</h2>
       <p>
         If today is your first day with AR, here is the order I'd recommend — easiest first,
@@ -744,10 +842,10 @@
         <h3>Unity AR Foundation</h3>
         <p>When you want a real app on the store. One project builds to both Android and iOS. This is what most AR studios use.</p>
       </a>
-      <a class="card" href="https://lightship.dev/docs/" target="_blank" rel="noopener">
+      <a class="card" href="https://www.nianticspatial.com/docs/nsdk/" target="_blank" rel="noopener">
         <span class="kicker">Going further · Apps</span>
-        <h3>Niantic Lightship</h3>
-        <p>The toolkit behind the four clips above — meshing, semantic segmentation, occlusion and shared AR sessions.</p>
+        <h3>Niantic Spatial SDK</h3>
+        <p>The toolkit behind the four clips above — formerly Lightship, now the Niantic Spatial SDK. Everything section 02 describes, production-ready.</p>
       </a>
       <a class="card" href="research.html" style="background:var(--accent-soft); border-color:transparent;">
         <span class="kicker">And then</span>
@@ -756,14 +854,67 @@
       </a>
     </div>
 
+    <!-- Niantic Spatial spotlight -->
+    <div class="spotlight reveal" style="margin-top:44px;">
+      <div class="spotlight-head">
+        <div>
+          <span class="kicker">Worth your weekend</span>
+          <h3 style="font-size:22px; margin-top:4px;">The Niantic Spatial SDK</h3>
+          <p style="color:var(--ink-soft); font-size:14.5px; margin-top:10px; max-width:64ch;">
+            If one thing on this page is worth downloading tonight, it's this. It's the toolkit the four
+            clips above were built with, and it hands you — for free, in an afternoon — the exact
+            capabilities that took research labs years to build. If you've followed an older tutorial
+            and hit a dead end, that's why: <b>Lightship was renamed the Niantic Spatial SDK</b>, and
+            <code>lightship.dev</code> now redirects here.
+          </p>
+        </div>
+      </div>
+
+      <div class="spotlight-grid">
+        <div class="req">
+          <i>◐</i>
+          <div><b>Meshing</b><span>Rebuilds the room around you as live triangle geometry, in updating chunks — so virtual things can sit on real tables and bounce off real walls.</span></div>
+        </div>
+        <div class="req">
+          <i>◑</i>
+          <div><b>Depth &amp; occlusion</b><span>Real-time depth maps, so a virtual character can walk behind a real tree instead of sliding over it. Diagram 2 above, done properly.</span></div>
+        </div>
+        <div class="req">
+          <i>◎</i>
+          <div><b>Semantics &amp; object detection</b><span>The phone labels what it's looking at — sky, ground, buildings, water — so your content can behave differently depending on where it lands.</span></div>
+        </div>
+        <div class="req">
+          <i>⌖</i>
+          <div><b>Visual Positioning System (VPS)</b><span>Pins content to a real place to centimetre accuracy by recognising what the camera sees — so it still works where GPS is hopeless, like alleyways and indoors.</span></div>
+        </div>
+        <div class="req">
+          <i>⇄</i>
+          <div><b>Shared AR</b><span>Two or more phones agreeing on one coordinate system, seeing the same virtual object in the same real spot. This is the hard part of multiplayer AR, handed to you.</span></div>
+        </div>
+        <div class="req">
+          <i>▣</i>
+          <div><b>Unity, Swift, Kotlin — and Quest 3</b><span>Extends Unity's AR Foundation, with native iOS and Android SDKs. Recent releases also bring outdoor VPS and live meshing to Meta Quest 3 through its passthrough camera.</span></div>
+        </div>
+      </div>
+
+      <p style="margin-top:22px; font-size:14px; color:var(--ink-soft);">
+        <b style="color:var(--ink);">Start here:</b> install
+        <a href="https://www.nianticspatial.com/docs/nsdk/setup/" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">the SDK for Unity ↗</a>,
+        open one of
+        <a href="https://www.nianticspatial.com/docs/nsdk/sample_projects/" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">the sample projects ↗</a>,
+        and run it on your phone before you write a single line of your own. Seeing occlusion work on
+        your own desk is worth more than any lecture — including mine.
+      </p>
+    </div>
+
     <div class="note reveal" style="margin-top:34px;">
       <b>One piece of advice for the session:</b> resist the urge to build a game first. Build a cube
-      that stays on the floor when you walk away. Once that works, everything else is just adding rules.
+      that stays put when you walk away. Once that works, everything else is just adding rules.
     </div>
   </div>
 </section>
 
-<!-- 07 — CTA -->
+<!-- 08 — CTA -->
 <section class="section" id="workshop">
   <div class="container">
     <div class="grid-2 reveal" style="gap:36px; align-items:center;">
@@ -835,21 +986,20 @@
       });
     });
 
-    document.querySelectorAll('[data-embed]').forEach(function (btn) {
+    // Diagram toggles: flip an attribute on the figure, CSS does the rest.
+    var TOGGLES = {
+      mesh: { attr: 'data-mesh', on: 'Hide the mesh', off: 'Show the mesh' },
+      occ:  { attr: 'data-occ',  on: 'Turn occlusion off', off: 'Turn occlusion on' }
+    };
+    document.querySelectorAll('.diagram-toggle').forEach(function (btn) {
+      var cfg = TOGGLES[btn.getAttribute('data-toggle')];
+      if (!cfg) return;
       btn.addEventListener('click', function () {
-        if (btn.dataset.loaded) return;
-        btn.dataset.loaded = '1';
-        var f = document.createElement('iframe');
-        f.src = btn.getAttribute('data-embed');
-        f.title = btn.getAttribute('data-embed-title') || 'Embedded board';
-        f.setAttribute('frameborder', '0');
-        f.setAttribute('scrolling', 'no');
-        f.setAttribute('allow', 'fullscreen; clipboard-read; clipboard-write');
-        f.setAttribute('allowfullscreen', '');
-        f.setAttribute('loading', 'lazy');
-        btn.innerHTML = '';
-        btn.appendChild(f);
-        btn.style.cursor = 'default';
+        var fig = btn.closest('figure');
+        var isOn = fig.getAttribute(cfg.attr) !== 'off';
+        fig.setAttribute(cfg.attr, isOn ? 'off' : 'on');
+        btn.textContent = isOn ? cfg.off : cfg.on;
+        btn.setAttribute('aria-pressed', isOn ? 'false' : 'true');
       });
     });
 
