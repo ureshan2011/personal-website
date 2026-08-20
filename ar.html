@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Try AR on Your Phone — Code Champ 2026 Workshop 07</title>
+<meta name="description" content="A hands-on augmented reality playground for complete beginners. Place a virtual object on your floor using your phone's camera, then see real AR research clips — meshing, occlusion, location-based AR and shared AR. Built light enough for slow connections."/>
+<link rel="icon" href="assets/images/icons/favicon.png"/>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="keywords" content="augmented reality for beginners, try AR in browser, WebXR demo, AR workshop, Code Champ 2026, AR game development, plane detection, occlusion, location-based AR, shared AR, Yasas Sri Wickramasinghe, HIT Lab NZ"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/ar.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="Try AR on Your Phone — Code Champ 2026 Workshop 07"/>
+<meta property="og:description" content="Open this on your phone and place a virtual object on your floor. Then watch how real AR research works — meshing, occlusion, location-based AR and shared AR."/>
+<meta property="og:url" content="https://www.yasassri.me/ar.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"/>
+<meta property="og:image:width" content="1045"/>
+<meta property="og:image:height" content="1045"/>
+<meta property="og:image:alt" content="Code Champ 2026 Workshop 07 — Augmented Reality and Game Development with Dr. Yasas Sri Wickramasinghe"/>
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<meta name="twitter:creator" content="@sri_yasas"/>
+<meta name="twitter:title" content="Try AR on Your Phone — Code Champ 2026 Workshop 07"/>
+<meta name="twitter:description" content="Open this on your phone and place a virtual object on your floor. No app, no download."/>
+<meta name="twitter:image" content="https://www.yasassri.me/assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.yasassri.me/ar.html#page",
+      "url": "https://www.yasassri.me/ar.html",
+      "name": "Try AR on Your Phone — Code Champ 2026 Workshop 07",
+      "description": "A hands-on augmented reality playground for complete beginners, built to run on low-end phones and slow connections.",
+      "inLanguage": "en",
+      "isPartOf": { "@type": "WebSite", "name": "Dr. Yasas Sri Wickramasinghe", "url": "https://www.yasassri.me/" },
+      "author": { "@id": "https://www.yasassri.me/#yasas" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.yasassri.me/#yasas",
+      "name": "Dr. Yasas Sri Wickramasinghe",
+      "url": "https://www.yasassri.me/",
+      "jobTitle": "Augmented Reality Researcher",
+      "worksFor": { "@type": "Organization", "name": "HIT Lab NZ, University of Canterbury", "url": "https://www.hitlabnz.org/" }
+    },
+    {
+      "@type": "LearningResource",
+      "name": "Augmented Reality for Complete Beginners — interactive companion",
+      "description": "An in-browser AR demo plus annotated research clips covering scene meshing, plane detection, occlusion, location-based AR and shared AR.",
+      "learningResourceType": "Interactive demonstration",
+      "educationalLevel": "Beginner",
+      "teaches": ["Augmented reality basics", "Plane detection", "Occlusion", "Location-based AR", "Shared AR"],
+      "isAccessibleForFree": true,
+      "url": "https://www.yasassri.me/ar.html",
+      "author": { "@id": "https://www.yasassri.me/#yasas" }
+    },
+    {
+      "@type": "Event",
+      "name": "Code Champ 2026 — Workshop 07: Augmented Reality and Game Development",
+      "startDate": "2026-08-20T20:00:00+05:30",
+      "endDate": "2026-08-20T21:30:00+05:30",
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": { "@type": "VirtualLocation", "url": "https://www.yasassri.me/news.html#upcoming" },
+      "description": "Workshop 07 of Code Champ 2026 — \"Code Your World\" — on augmented reality and game development.",
+      "performer": { "@id": "https://www.yasassri.me/#yasas" },
+      "subjectOf": { "@id": "https://www.yasassri.me/ar.html#page" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yasassri.me/" },
+        { "@type": "ListItem", "position": 2, "name": "News", "item": "https://www.yasassri.me/news.html" },
+        { "@type": "ListItem", "position": 3, "name": "Try AR", "item": "https://www.yasassri.me/ar.html" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="assets/css/redesign.css" rel="stylesheet"/>
+<style>
+  /* ---- AR stage --------------------------------------------------------- */
+  .ar-shell { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .ar-stage { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 78vh; background: #0d1220; overflow: hidden; }
+  /* the no-camera tier has no video behind it, so give it a sky */
+  [data-tier="demo"] .ar-stage { background: radial-gradient(120% 95% at 50% 6%, #1c2a54 0%, #0d1220 64%); }
+  @media (min-width: 760px) { .ar-stage { aspect-ratio: 16/10; } }
+  .ar-stage video, .ar-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .ar-stage video { object-fit: cover; opacity: 0; transition: opacity .4s var(--ease); }
+  [data-camera="on"] .ar-stage video { opacity: 1; }
+  .ar-stage canvas { touch-action: none; z-index: 2; }
+
+  /* Idle poster: a CSS-only scene so the box is never a dead black rectangle. */
+  .ar-idle { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; text-align: center; padding: 28px;
+    background: radial-gradient(120% 90% at 50% 8%, #1c2a54 0%, #0d1220 62%); color: #fff; }
+  [data-active="true"] .ar-idle { display: none; }
+  .ar-idle-orb { width: 74px; height: 74px; margin: 0 auto 20px; border-radius: 18px; transform: rotate(45deg);
+    background: linear-gradient(150deg, #6ea0ff, #2f6bff 55%, #1636a8);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.16), 0 18px 44px -12px rgba(47,107,255,.75);
+    animation: arFloat 3.6s var(--ease) infinite; }
+  @keyframes arFloat { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(-12px); } }
+  @media (prefers-reduced-motion: reduce) { .ar-idle-orb { animation: none; } }
+  .ar-idle h3 { color: #fff; font-size: 20px; }
+  .ar-idle p { color: rgba(255,255,255,.72); font-size: 14.5px; margin-top: 8px; max-width: 42ch; }
+
+  /* dom-overlay root: the HUD the headless AR session draws over the camera. */
+  .ar-overlay { position: absolute; inset: 0; z-index: 4; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 14px; }
+  .ar-hud { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ar-chip { pointer-events: none; font-size: 12px; font-weight: 600; letter-spacing: .01em; color: #fff;
+    background: rgba(13,18,32,.72); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 7px 13px; backdrop-filter: blur(6px); }
+  .ar-chip[hidden] { display: none; }
+  .ar-hint { align-self: center; text-align: center; font-size: 13.5px; line-height: 1.45; color: #fff; max-width: 34ch;
+    background: rgba(13,18,32,.72); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 10px 14px; backdrop-filter: blur(6px); }
+  /* the HUD belongs to a running session — keep it off the idle poster */
+  .ar-overlay { opacity: 0; transition: opacity .3s var(--ease); }
+  [data-active="true"] .ar-overlay { opacity: 1; }
+
+  .ar-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 18px; border-top: 1px solid var(--line); background: var(--bg-soft); }
+  .ar-controls .btn { flex: 0 0 auto; }
+  [data-active="true"] [data-ar-start] { display: none; }
+  :not([data-active="true"]) > .ar-controls [data-ar-stop],
+  :not([data-active="true"]) > .ar-controls [data-ar-reset] { display: none; }
+  .ar-status { flex: 1 1 220px; font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
+  .ar-status[data-tone="good"] { color: #1b7f4d; }
+  .ar-status[data-tone="warn"] { color: #9a6200; }
+
+  /* ---- requirements ----------------------------------------------------- */
+  .req-list { display: grid; gap: 12px; margin-top: 18px; }
+  .req { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--card); }
+  .req b { display: block; font-size: 14.5px; }
+  .req span { display: block; font-size: 13.5px; color: var(--ink-soft); margin-top: 3px; }
+  .req i { font-style: normal; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 13px; }
+
+  /* ---- video cards ------------------------------------------------------ */
+  .clip-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
+  @media (min-width: 720px) { .clip-grid { grid-template-columns: repeat(2, 1fr); } }
+  .clip { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--card); }
+  .clip-frame { position: relative; aspect-ratio: 16/9; background: #0d1220; cursor: pointer; border: 0; padding: 0; width: 100%; display: block; }
+  .clip-frame img, .clip-frame video, .clip-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border: 0; object-fit: cover; }
+  .clip-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 62px; height: 62px; border-radius: 50%;
+    background: rgba(13,18,32,.62); border: 1px solid rgba(255,255,255,.28); display: grid; place-items: center; transition: background .2s var(--ease), transform .2s var(--ease); }
+  .clip-play::after { content: ""; border-style: solid; border-width: 10px 0 10px 17px; border-color: transparent transparent transparent #fff; margin-left: 4px; }
+  .clip-frame:hover .clip-play, .clip-frame:focus-visible .clip-play { background: var(--accent); transform: translate(-50%,-50%) scale(1.06); }
+  .clip-size { position: absolute; right: 10px; bottom: 10px; font-size: 11px; font-weight: 600; color: #fff; background: rgba(13,18,32,.74); border-radius: 6px; padding: 4px 8px; }
+  .clip-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .clip-body h3 { margin-bottom: 6px; }
+  .clip-body p { font-size: 14.5px; color: var(--ink-soft); flex: 1; }
+  .clip-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px; font-size: 13.5px; font-weight: 600; }
+  .clip-links a { color: var(--accent); }
+  .clip-links a:hover { text-decoration: underline; }
+
+  /* ---- figures ---------------------------------------------------------- */
+  .fig { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--card); }
+  .fig img { width: 100%; height: auto; background: #fff; }
+  .fig figcaption { padding: 14px 18px 16px; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; border-top: 1px solid var(--line); }
+  .fig figcaption b { color: var(--ink); font-weight: 600; }
+  .fig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+
+  /* ---- embeds ----------------------------------------------------------- */
+  .embed-frame { position: relative; aspect-ratio: 16/10; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-panel); cursor: pointer; width: 100%; padding: 0; display: block; }
+  .embed-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .embed-cta { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 12px; text-align: center; padding: 26px; }
+  .embed-cta strong { font-size: 16px; color: var(--ink); }
+  .embed-cta span { font-size: 13.5px; color: var(--ink-soft); max-width: 40ch; }
+  .embed-cta em { font-style: normal; color: var(--accent); font-weight: 600; font-size: 13.5px; }
+
+  .step-list { counter-reset: step; display: grid; gap: 16px; margin-top: 22px; }
+  .step { position: relative; padding-left: 46px; }
+  .step::before { counter-increment: step; content: counter(step); position: absolute; left: 0; top: 1px; width: 30px; height: 30px; border-radius: 9px;
+    background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; display: grid; place-items: center; }
+  .step b { display: block; font-size: 15px; }
+  .step span { display: block; font-size: 14px; color: var(--ink-soft); margin-top: 3px; }
+
+  .note { border-left: 3px solid var(--accent); background: var(--accent-soft); padding: 16px 20px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 14px; color: var(--ink-soft); }
+  .note b { color: var(--ink); }
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="students.html">Students</a>
+      <a href="products.html">Products</a>
+      <a href="news.html">News</a>
+      <a href="blogs.html">Writing</a>
+      <a href="app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-solid" href="#try">Try AR <span class="arrow">↓</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span class="idx">01</span>Home</a>
+  <a href="research.html"><span class="idx">02</span>Research</a>
+  <a href="teaching.html"><span class="idx">03</span>Teaching</a>
+  <a href="students.html"><span class="idx">04</span>Students</a>
+  <a href="products.html"><span class="idx">05</span>Products</a>
+  <a href="news.html"><span class="idx">06</span>News</a>
+  <a href="blogs.html"><span class="idx">07</span>Writing</a>
+  <a href="app/#/"><span class="idx">08</span>Platform <span class="nav-badge">New</span></a>
+  <a href="contact.html"><span class="idx">09</span>Contact</a>
+</div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Code Champ 2026 · Workshop 07</span>
+    <h1 class="reveal" style="--d:.1s">Augmented reality, running on <em>the phone in your hand</em>.</h1>
+    <p class="lead reveal" style="--d:.2s">
+      No app. No download. No account. Open this page on your phone, point it at your floor,
+      and put something that isn't there into your room. Then scroll on to see how the same
+      ideas turn into real research and real games.
+    </p>
+    <div class="hero-actions reveal" style="--d:.3s">
+      <a class="btn btn-solid" href="#try">Try it now <span class="arrow">↓</span></a>
+      <a class="btn" href="#clips">Watch the clips</a>
+      <a class="btn" href="news.html#upcoming">Workshop details</a>
+    </div>
+    <p class="reveal" style="--d:.4s; margin-top:26px; font-size:13.5px; color:var(--muted);">
+      Companion page for <b style="color:var(--ink-soft); font-weight:600;">Workshop 07 — Augmented Reality &amp; Game Development</b>,
+      part of Code Champ 2026 “Code Your World”, run by E3 (Computer Science) with CPS, SLAAS and the IEEE Computer Society Sri Lanka Chapter.
+    </p>
+  </div>
+</header>
+
+<!-- 01 — THE DEMO -->
+<section class="section" id="try">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">01</span>
+      <h2>Put something <em>in your room</em>.</h2>
+      <p>
+        This runs entirely inside your browser. Your camera feed never leaves your phone —
+        there is no server, no upload, and nothing is recorded.
+      </p>
+    </div>
+
+    <div class="ar-shell reveal" data-ar-root>
+      <div class="ar-stage" data-ar-stage>
+        <video data-ar-video playsinline muted autoplay disablepictureinpicture aria-hidden="true"></video>
+        <canvas data-ar-canvas aria-label="Augmented reality view"></canvas>
+
+        <div class="ar-overlay" data-ar-overlay>
+          <div class="ar-hud">
+            <span class="ar-chip" data-ar-badge hidden></span>
+            <span class="ar-chip" data-ar-counter>0 placed · 0 collected</span>
+          </div>
+          <p class="ar-hint" data-ar-hint>Point at the floor, then tap to place.</p>
+        </div>
+
+        <div class="ar-idle" data-ar-intro>
+          <div>
+            <div class="ar-idle-orb" aria-hidden="true"></div>
+            <h3>Ready when you are</h3>
+            <p>Best on a phone. Your browser will ask for camera permission — that's normal, and it's what lets you see through the camera.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ar-controls">
+        <button class="btn btn-solid" type="button" data-ar-start>Start</button>
+        <button class="btn" type="button" data-ar-stop>Stop</button>
+        <button class="btn" type="button" data-ar-reset>Clear</button>
+        <p class="ar-status" data-ar-status data-tone="info">Checking what your phone can do…</p>
+      </div>
+    </div>
+
+    <div class="grid-2 reveal" style="margin-top:44px; gap:32px;">
+      <div>
+        <h3 style="font-size:20px;">What am I looking at?</h3>
+        <div class="step-list">
+          <div class="step">
+            <b>Your camera becomes the background</b>
+            <span>AR always starts here. The “reality” half of augmented reality is just a live camera picture.</span>
+          </div>
+          <div class="step">
+            <b>The phone works out where it is</b>
+            <span>Using the camera and motion sensors, it tracks how you move. That's why the crystal stays where you put it instead of sliding around the screen.</span>
+          </div>
+          <div class="step">
+            <b>A 3D object is drawn on top</b>
+            <span>Once the phone knows its own position, it can draw an object as if it were sitting on your floor — correct size, correct angle, correct place.</span>
+          </div>
+          <div class="step">
+            <b>Tap a crystal to collect it</b>
+            <span>That tiny loop — place, look away, come back, find it, collect it — is the seed of every location-based AR game, including the ones further down this page.</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size:20px;">Will it work on my phone?</h3>
+        <p style="color:var(--ink-soft); font-size:14.5px; margin-top:10px;">
+          The page checks your device and gives you the best mode it can run. You will always get
+          <em>something</em> — nobody is left with a blank screen.
+        </p>
+        <div class="req-list">
+          <div class="req">
+            <i>1</i>
+            <div>
+              <b>Full AR — plane detection &amp; occlusion</b>
+              <span>Android 8+ with Google Play Services for AR (ARCore) and Chrome 81+. The phone finds your real floor, and on devices with a depth sensor, virtual objects can be hidden behind real furniture.</span>
+            </div>
+          </div>
+          <div class="req">
+            <i>2</i>
+            <div>
+              <b>Camera AR — the lightweight mode</b>
+              <span>Any phone with a rear camera and a modern browser, including iPhones on iOS 13+. There is no real plane detection here — the floor is assumed to be about 1.45&nbsp;m below the camera — but objects still stay anchored as you turn around.</span>
+            </div>
+          </div>
+          <div class="req">
+            <i>3</i>
+            <div>
+              <b>3D demo — no camera needed</b>
+              <span>If the camera is unavailable or you decline permission, the same scene runs as an animation you can drag to look around. Works on a laptop too.</span>
+            </div>
+          </div>
+        </div>
+        <div class="note" style="margin-top:18px;">
+          <b>If it misbehaves:</b> AR needs light and texture. A plain, shiny or very dark floor gives the phone nothing to track,
+          so stand somewhere with a patterned rug, carpet or tiles. Move the phone slowly for the first few seconds.
+          On iPhone this must be opened in Safari — camera access is blocked inside in-app browsers like Facebook or Instagram.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — CONCEPTS -->
+<section class="section" id="concepts" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">02</span>
+      <h2>Five ideas that make AR <em>feel real</em>.</h2>
+      <p>
+        The demo above is deliberately simple. Five more layers sit between it and a real AR game —
+        and the first four each have a clip from my research further down, recorded on an ordinary phone.
+      </p>
+    </div>
+
+    <div class="grid-3 reveal" style="gap:22px;">
+      <div class="card">
+        <span class="kicker">Layer 01</span>
+        <h3>Understanding the room</h3>
+        <p>The phone builds an invisible 3D mesh of the surfaces around you — walls, floors, tables. Once it has that mesh, virtual things can rest on real surfaces and bounce off them.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Layer 02</span>
+        <h3>Knowing what things are</h3>
+        <p>Beyond shape, the phone can label what it sees — sky, ground, buildings — and work out how far away each pixel is. That's what lets a virtual character walk <em>behind</em> a real tree.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Layer 03</span>
+        <h3>Anchoring to a place</h3>
+        <p>Tie the content to a real location and AR stops being a party trick. The same virtual object appears in the same physical spot every time anyone visits.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Layer 04</span>
+        <h3>Sharing the illusion</h3>
+        <p>Two phones, one agreed coordinate system. Both players see the same virtual object in the same real place at the same time — the foundation of every multiplayer AR game.</p>
+      </div>
+      <div class="card">
+        <span class="kicker">Layer 05</span>
+        <h3>Giving it rules</h3>
+        <p>Add a goal, a score and another player, and the technology becomes a game. This is where the research on this page lives.</p>
+      </div>
+      <div class="card" style="background:var(--accent-soft); border-color:transparent;">
+        <span class="kicker">In the session</span>
+        <h3>We build up from here</h3>
+        <p>You don't need any of this on day one. Start with a camera and a cube — everything else is layers you add later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — CLIPS -->
+<section class="section" id="clips">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">03</span>
+      <h2>The same ideas, <em>actually running</em>.</h2>
+      <p>
+        Four experiments from my PhD work at HIT Lab NZ, built with the Niantic Lightship SDK.
+        Each card starts with a short, low-bandwidth preview — tap it and it plays straight away.
+        The full-length version opens in a new tab when you want it.
+      </p>
+    </div>
+
+    <div class="clip-grid reveal">
+
+      <article class="clip">
+        <button class="clip-frame" type="button"
+                data-clip="assets/images/ar-workshop/meshing-preview.mp4"
+                aria-label="Play the scene meshing preview">
+          <img src="assets/images/ar-workshop/meshing-poster.webp" alt="A room with chairs and a table overlaid by a coloured 3D mesh generated live by the phone" loading="lazy" decoding="async" width="640" height="360"/>
+          <span class="clip-play" aria-hidden="true"></span>
+          <span class="clip-size">Preview · 14s</span>
+        </button>
+        <div class="clip-body">
+          <span class="kicker">Experiment 01 · Meshing</span>
+          <h3>The phone maps the room</h3>
+          <p>Watch the coloured surface crawl over the chairs and floor. That mesh is the phone working out the shape of the room in real time — and the basketball you see rolls across it like it would across the real floor.</p>
+          <div class="clip-links">
+            <a href="https://ucliveac-my.sharepoint.com/:v:/g/personal/uwi11_uclive_ac_nz/EZ00bZaoydZGhnG5Bq8W4bIBJZvUPanvJwrN4C9cJnoz7Q?e=oUOE1n" target="_blank" rel="noopener">Full clip ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="clip">
+        <button class="clip-frame" type="button"
+                data-clip="assets/images/ar-workshop/segmentation-preview.mp4"
+                aria-label="Play the semantic segmentation and occlusion preview">
+          <img src="assets/images/ar-workshop/segmentation-poster.webp" alt="An outdoor AR scene where the sky is recoloured in stripes by the segmentation system, with a virtual character standing on a path" loading="lazy" decoding="async" width="640" height="360"/>
+          <span class="clip-play" aria-hidden="true"></span>
+          <span class="clip-size">Preview · 14s</span>
+        </button>
+        <div class="clip-body">
+          <span class="kicker">Experiment 02 · Segmentation, planes &amp; occlusion</span>
+          <h3>The phone labels what it sees</h3>
+          <p>The sky gets recoloured because the phone has identified it <em>as sky</em>. The same understanding places the character on flat ground and lets real objects pass in front of virtual ones — the effect called occlusion.</p>
+          <div class="clip-links">
+            <a href="https://ucliveac-my.sharepoint.com/:v:/g/personal/uwi11_uclive_ac_nz/EW22LE41uGlDuBRm97K61YsB87wStEFD9DsgBGp7erZthA?e=kfcWok" target="_blank" rel="noopener">Full clip ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="clip">
+        <button class="clip-frame" type="button"
+                data-clip="assets/images/ar-workshop/location-preview.mp4"
+                aria-label="Play the location-based AR preview">
+          <img src="assets/images/ar-workshop/location-poster.webp" alt="A virtual character and floating collectible objects placed along a real paved outdoor walkway" loading="lazy" decoding="async" width="640" height="360"/>
+          <span class="clip-play" aria-hidden="true"></span>
+          <span class="clip-size">Preview · 14s</span>
+        </button>
+        <div class="clip-body">
+          <span class="kicker">Experiment 03 · Location-based AR</span>
+          <h3>Content that belongs to a place</h3>
+          <p>Here the virtual content is tied to the real walkway rather than to the screen. Walk away and it stays behind; come back and it's still there. This is the mechanic behind every “go outside and play” AR game.</p>
+          <div class="clip-links">
+            <a href="https://ucliveac-my.sharepoint.com/:v:/g/personal/uwi11_uclive_ac_nz/EXMO0zRKYaRDn7BPMawrjYQBu_ZRZYwJzxLE6BrqQjomeg?e=CLmM22" target="_blank" rel="noopener">Full clip ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="clip">
+        <button class="clip-frame" type="button"
+                data-clip="assets/images/ar-workshop/sharedar-preview.mp4"
+                aria-label="Play the shared AR preview">
+          <img src="assets/images/ar-workshop/sharedar-poster.webp" alt="Two phones held side by side, each showing the same virtual red chair in the same spot in a real room" loading="lazy" decoding="async" width="640" height="360"/>
+          <span class="clip-play" aria-hidden="true"></span>
+          <span class="clip-size">Preview · 14s</span>
+        </button>
+        <div class="clip-body">
+          <span class="kicker">Experiment 04 · Shared AR</span>
+          <h3>Two phones, one shared world</h3>
+          <p>Look closely: both phones show the same virtual chair standing in the same spot in the same real room. Getting two devices to agree on where “here” is turns out to be one of the hardest and most interesting problems in AR.</p>
+          <div class="clip-links">
+            <a href="https://ucliveac-my.sharepoint.com/:v:/g/personal/uwi11_uclive_ac_nz/EUGdYg79LedPrRQouBwZOLIBgbZRZtLRmfqRTHZkTrQ9bg?e=wadvb5" target="_blank" rel="noopener">Full clip ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="reveal" style="margin-top:26px; font-size:13px; color:var(--muted);">
+      Previews are ~250&nbsp;KB each and only download when you tap them. Full clips are hosted on
+      University of Canterbury OneDrive and are much larger — save those for Wi-Fi.
+    </p>
+  </div>
+</section>
+
+<!-- 04 — HIDE AND SEEK -->
+<section class="section" id="game" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">04</span>
+      <h2>Now make it a game: <em>AR hide-and-seek</em>.</h2>
+      <p>
+        Everything above is plumbing. This is what it was for — a hide-and-seek game where one player
+        hides virtual objects in another player's room, from a different building entirely.
+      </p>
+    </div>
+
+    <div class="reveal" style="max-width:900px; margin-inline:auto;">
+      <div class="yt-facade" data-yt="sJTn7yiinlI" role="button" tabindex="0"
+           aria-label="Play: Design and Evaluation of a Multiplayer Location-based AR Hide and Seek Game, IEEE VR 2025"
+           style="aspect-ratio:16/9; border-radius:var(--radius); border:1px solid var(--line); background:#0d1220;">
+        <img src="assets/images/ar-workshop/hide-and-seek-video-poster.webp"
+             alt="Title frame of the IEEE VR 2025 video on a multiplayer location-based AR hide-and-seek game"
+             loading="lazy" decoding="async" width="960" height="540"/>
+        <span class="yt-play-btn" aria-hidden="true"></span>
+      </div>
+      <p style="margin-top:14px; font-size:13.5px; color:var(--ink-soft);">
+        <b style="color:var(--ink);">Augmented Hide-and-Seek</b> — presented at IEEE VR 2025.
+        The full study is open access in <a href="https://www.mdpi.com/2414-4088/9/8/79" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">Multimodal Technologies and Interaction ↗</a>.
+      </p>
+    </div>
+
+    <div class="grid-2 reveal" style="margin-top:52px; gap:32px; align-items:start;">
+      <div>
+        <h3 style="font-size:20px;">How the game works</h3>
+        <div class="step-list">
+          <div class="step">
+            <b>The Hider sees the Seeker's room</b>
+            <span>The Seeker's space is scanned and sent across as a 1:1 AR representation, so the Hider can look around a room they have never physically been in.</span>
+          </div>
+          <div class="step">
+            <b>The Hider hides a virtual object</b>
+            <span>They pick an object and place it somewhere awkward — behind a chair, above a shelf, tucked in a corner.</span>
+          </div>
+          <div class="step">
+            <b>The Seeker hunts for it</b>
+            <span>Back in the real room, the Seeker walks around holding up their phone, searching the physical space for something that only exists virtually.</span>
+          </div>
+          <div class="step">
+            <b>They talk each other through it</b>
+            <span>Live voice chat carries “hotter, colder” hints, and a cone of light shows the Hider exactly where the Seeker is looking.</span>
+          </div>
+        </div>
+        <p style="margin-top:22px; font-size:14px; color:var(--ink-soft);">
+          Across 60 participants, playing in AR changed <em>how</em> people searched — they used vertical
+          and mid-air space that never comes into play in the real-world version of the game.
+        </p>
+      </div>
+
+      <!-- Figures from the open-access hide-and-seek study (CC BY 4.0).
+           Drop a replacement into assets/images/ar-workshop/ and swap the src —
+           the layout adapts to any aspect ratio. -->
+      <div style="display:grid; gap:22px;">
+        <figure class="fig">
+          <img src="assets/images/ar-workshop/hs-concept.webp"
+               alt="Two-panel illustration: on the left a Hider places a small virtual toy into a view of the Seeker's room on a tablet; on the right the Seeker holds up a tablet in that real room and finds the same virtual toy"
+               loading="lazy" decoding="async" width="1180" height="471"/>
+          <figcaption>
+            <b>The whole game in one picture.</b> The Hider (left) drops a virtual object into a live
+            representation of a room they are not in. The Seeker (right) stands in that real room and
+            has to find it through their screen.
+          </figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="assets/images/ar-workshop/hs-frustum.webp"
+               alt="Illustration of a player holding a tablet showing a remote room, with a red cone of light marking where the remote player is standing and looking"
+               loading="lazy" decoding="async" width="760" height="521"/>
+          <figcaption>
+            <b>Seeing where your partner is looking.</b> That red cone is the Seeker's field of view,
+            drawn into the Hider's screen. No avatar, no video — one simple cue, and players suddenly
+            feel like they're in the room together.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="fig-grid reveal" style="margin-top:28px;">
+      <figure class="fig">
+        <img src="assets/images/ar-workshop/hs-hider-view.webp"
+             alt="Three screenshots of the Hider's tablet: a one-to-one AR view of the Seeker's room, an inventory of virtual objects to choose from, and on-screen thumbsticks used to position the chosen object"
+             loading="lazy" decoding="async" width="1100" height="442"/>
+        <figcaption>
+          <b>What the Hider actually does.</b> (a) A 1:1 AR view of the Seeker's room.
+          (b) Pick an object from the inventory. (c) Nudge it into a hiding place with on-screen sticks.
+        </figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/images/ar-workshop/hs-seeking.webp"
+             alt="Three photographs of players holding tablets up in a real room, discovering virtual objects hidden on a shelf, beside a door and on a desk"
+             loading="lazy" decoding="async" width="1180" height="237"/>
+        <figcaption>
+          <b>And what the Seeker does.</b> Real people, real rooms, holding a screen up to furniture
+          to find something that only exists in software.
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="reveal" style="margin-top:18px; font-size:13px; color:var(--muted);">
+      Figures from Wickramasinghe, Lukosch, Everett &amp; Lukosch (2025),
+      <a href="https://www.mdpi.com/2414-4088/9/8/79" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">Multimodal Technologies and Interaction 9(8), 79</a> — open access, CC BY 4.0.
+    </p>
+  </div>
+</section>
+
+<!-- 05 — DESIGN -->
+<section class="section" id="design">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">05</span>
+      <h2>Designing it before <em>building</em> it.</h2>
+      <p>
+        The most useful lesson from years of AR research is unglamorous: sketch the rules first.
+        Code is the last step, not the first.
+      </p>
+    </div>
+
+    <figure class="fig reveal" style="margin-bottom:22px;">
+      <img src="assets/images/ar-workshop/fig1-game-design-modes.webp"
+           alt="Seven-panel line diagram: scanning a room, then representing that scanned space in window, tabletop and overlay modes, and sharing virtual objects between two spaces"
+           loading="lazy" decoding="async" width="1200" height="600"/>
+      <figcaption>
+        <b>Three ways to show someone else's room.</b> A space is scanned (a), then shown to the other
+        player as a window into it (b), a tabletop miniature (c), or overlaid on their own surroundings (d).
+        Panels (e–g) show virtual objects being passed between the two spaces. Which one you choose
+        changes how present the other place feels — that was the finding, and it came from sketching, not coding.
+      </figcaption>
+    </figure>
+
+    <div class="fig-grid reveal">
+      <figure class="fig">
+        <img src="assets/images/ar-workshop/fig2-ar-display-modes.webp"
+             alt="Three phone screenshots side by side showing the same AR game in window mode, overlay mode and tabletop mode"
+             loading="lazy" decoding="async" width="864" height="396"/>
+        <figcaption>
+          <b>The same three modes, running on a phone.</b> Left to right: window, overlay, tabletop.
+          The player's task is identical in all three — only the presentation changes.
+        </figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/images/ar-workshop/fig3-game-flow.webp"
+             alt="Flow chart of the game scenario, from opening the game and choosing a mode through exploring, collecting grass, clouds and wood, crafting a shield and passing it to the remote player"
+             loading="lazy" decoding="async" width="620" height="474"/>
+        <figcaption>
+          <b>The whole game on one page.</b> Before a line of code exists, the rules are a flow chart:
+          what the player can do, what the game asks next, and how a round ends.
+        </figcaption>
+      </figure>
+      <figure class="fig">
+        <img src="assets/images/ar-workshop/fig5-resource-collection.webp"
+             alt="Three phone screenshots prompting the player to find the ground to collect grass, find a tree to collect wood, and find the sky to collect clouds"
+             loading="lazy" decoding="async" width="864" height="462"/>
+        <figcaption>
+          <b>Rules that need the real world.</b> “Find the Ground”, “Find a Tree”, “Find the Sky” —
+          each task forces the player to physically look at something real. That's the difference
+          between a game <em>with</em> AR and a game that <em>needs</em> AR.
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="reveal" style="margin-top:18px; font-size:13px; color:var(--muted);">
+      Figures from my PhD research at HIT Lab NZ, University of Canterbury —
+      <a href="Wickramasinghe.pdf" target="_blank" style="color:var(--accent); font-weight:600;">thesis PDF</a> ·
+      <a href="research.html#publications" style="color:var(--accent); font-weight:600;">all publications</a>.
+    </p>
+
+    <div class="reveal" style="margin-top:52px;">
+      <h3 style="font-size:20px; margin-bottom:6px;">The workshop board</h3>
+      <p style="color:var(--ink-soft); font-size:14.5px; max-width:60ch; margin-bottom:20px;">
+        The board we'll work through together. It's a heavy embed, so it only loads when you ask for it —
+        best opened on a laptop.
+      </p>
+      <button class="embed-frame" type="button"
+              data-embed="https://miro.com/app/live-embed/uXjVO4QG3Ts=/?focusWidget=3458764529619482266&amp;embedMode=view_only_without_ui&amp;embedId=234961355136"
+              data-embed-title="Workshop Miro board"
+              aria-label="Load the workshop Miro board">
+        <span class="embed-cta">
+          <strong>Workshop board (Miro)</strong>
+          <span>An interactive whiteboard — roughly 2&nbsp;MB to load. Skip it on mobile data.</span>
+          <em>Tap to load ↗</em>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — BUILD YOUR OWN -->
+<section class="section" id="build" style="background:var(--bg-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">06</span>
+      <h2>Where to start, <em>honestly</em>.</h2>
+      <p>
+        If today is your first day with AR, here is the order I'd recommend — easiest first,
+        and every one of them is free.
+      </p>
+    </div>
+
+    <div class="grid-3 reveal" style="gap:22px;">
+      <a class="card" href="https://aframe.io/docs/1.7.0/introduction/" target="_blank" rel="noopener">
+        <span class="kicker">Start here · Web</span>
+        <h3>A-Frame</h3>
+        <p>3D and AR scenes written as HTML tags. If you can write a web page, you can write your first AR scene today. Nothing to install.</p>
+      </a>
+      <a class="card" href="https://ar-js-org.github.io/AR.js-Docs/" target="_blank" rel="noopener">
+        <span class="kicker">Next · Web</span>
+        <h3>AR.js</h3>
+        <p>Adds marker and location tracking to A-Frame. Print a pattern, point your phone at it, and something appears on top of it.</p>
+      </a>
+      <a class="card" href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API" target="_blank" rel="noopener">
+        <span class="kicker">Under the hood · Web</span>
+        <h3>WebXR Device API</h3>
+        <p>The browser standard behind the demo at the top of this page — real plane detection, no plugins. This page's code is a readable example.</p>
+      </a>
+      <a class="card" href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">
+        <span class="kicker">Going further · Apps</span>
+        <h3>Unity AR Foundation</h3>
+        <p>When you want a real app on the store. One project builds to both Android and iOS. This is what most AR studios use.</p>
+      </a>
+      <a class="card" href="https://lightship.dev/docs/" target="_blank" rel="noopener">
+        <span class="kicker">Going further · Apps</span>
+        <h3>Niantic Lightship</h3>
+        <p>The toolkit behind the four clips above — meshing, semantic segmentation, occlusion and shared AR sessions.</p>
+      </a>
+      <a class="card" href="research.html" style="background:var(--accent-soft); border-color:transparent;">
+        <span class="kicker">And then</span>
+        <h3>Read the research</h3>
+        <p>Studies, thesis and papers on designing location-based AR games that connect remote players and places.</p>
+      </a>
+    </div>
+
+    <div class="note reveal" style="margin-top:34px;">
+      <b>One piece of advice for the session:</b> resist the urge to build a game first. Build a cube
+      that stays on the floor when you walk away. Once that works, everything else is just adding rules.
+    </div>
+  </div>
+</section>
+
+<!-- 07 — CTA -->
+<section class="section" id="workshop">
+  <div class="container">
+    <div class="grid-2 reveal" style="gap:36px; align-items:center;">
+      <div>
+        <span class="eyebrow">The session</span>
+        <h2 style="margin-top:14px;">Workshop 07 — Augmented Reality &amp; <em>Game Development</em></h2>
+        <p style="color:var(--ink-soft); margin-top:18px;">
+          Part of Code Champ 2026, “Code Your World”, organised by E3 (Computer Science) with the
+          Committee for Popularization of Science (CPS), SLAAS and the IEEE Computer Society Sri Lanka Chapter.
+          Led by Dr. Yasas Sri Wickramasinghe, Postdoctoral Researcher at HIT Lab NZ, University of Canterbury.
+        </p>
+        <div class="info-list" style="margin-top:26px;">
+          <div class="info-row"><span class="k">Date</span><span class="v">20 August 2026</span></div>
+          <div class="info-row"><span class="k">Time</span><span class="v">8:00 – 9:30 PM (Sri Lanka)</span></div>
+          <div class="info-row"><span class="k">Format</span><span class="v">Online via Zoom</span></div>
+          <div class="info-row"><span class="k">Level</span><span class="v">Complete beginners welcome</span></div>
+        </div>
+        <div class="hero-actions" style="margin-top:30px;">
+          <a class="btn btn-solid" href="news.html#upcoming">Event details <span class="arrow">→</span></a>
+          <a class="btn" href="contact.html">Invite me to speak</a>
+        </div>
+      </div>
+      <div>
+        <img src="assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"
+             alt="Code Champ 2026 Workshop 07 flyer — Augmented Reality and Game Development with Dr. Yasas Sri Wickramasinghe, 20 August 2026, via Zoom"
+             loading="lazy" decoding="async" width="1045" height="1045"
+             style="border-radius:var(--radius); border:1px solid var(--line);"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="news.html">Events</a>
+      <a href="research.html">Research</a>
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/premium.js" defer></script>
+<script src="assets/js/ar-lab.js" defer></script>
+<script>
+  /* Click-to-load media. Nothing heavy touches the network until it is asked for. */
+  (function () {
+    document.querySelectorAll('[data-clip]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.dataset.loaded) return;
+        btn.dataset.loaded = '1';
+        var v = document.createElement('video');
+        v.src = btn.getAttribute('data-clip');
+        v.setAttribute('playsinline', '');
+        v.muted = true;
+        v.loop = true;
+        v.controls = true;
+        v.preload = 'auto';
+        v.setAttribute('aria-label', btn.getAttribute('aria-label') || 'Preview clip');
+        btn.innerHTML = '';
+        btn.appendChild(v);
+        btn.style.cursor = 'default';
+        v.play().catch(function () { /* the visitor can still press play */ });
+      });
+    });
+
+    document.querySelectorAll('[data-embed]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.dataset.loaded) return;
+        btn.dataset.loaded = '1';
+        var f = document.createElement('iframe');
+        f.src = btn.getAttribute('data-embed');
+        f.title = btn.getAttribute('data-embed-title') || 'Embedded board';
+        f.setAttribute('frameborder', '0');
+        f.setAttribute('scrolling', 'no');
+        f.setAttribute('allow', 'fullscreen; clipboard-read; clipboard-write');
+        f.setAttribute('allowfullscreen', '');
+        f.setAttribute('loading', 'lazy');
+        btn.innerHTML = '';
+        btn.appendChild(f);
+        btn.style.cursor = 'default';
+      });
+    });
+
+    document.querySelectorAll('.yt-facade').forEach(function (el) {
+      function play() {
+        if (el.dataset.loaded) return;
+        el.dataset.loaded = '1';
+        var frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube-nocookie.com/embed/' + el.getAttribute('data-yt') + '?autoplay=1&rel=0';
+        frame.title = el.getAttribute('aria-label') || 'YouTube video';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.setAttribute('allowfullscreen', '');
+        el.innerHTML = '';
+        el.appendChild(frame);
+        el.style.cursor = 'default';
+      }
+      el.addEventListener('click', play);
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
