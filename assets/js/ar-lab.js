@@ -363,7 +363,6 @@
     this.canvas = root.querySelector("[data-ar-canvas]");
     this.video = root.querySelector("[data-ar-video]");
     this.hint = root.querySelector("[data-ar-hint]");
-    this.counter = root.querySelector("[data-ar-counter]");
     this.badge = root.querySelector("[data-ar-badge]");
     this.startBtn = root.querySelector("[data-ar-start]");
     this.stopBtn = root.querySelector("[data-ar-stop]");
@@ -398,12 +397,6 @@
     this.badge.hidden = !t;
   };
 
-  ARLab.prototype.count = function () {
-    if (this.counter) {
-      this.counter.textContent = this.scene.gems.length + " placed · " + this.scene.collected + " collected";
-    }
-  };
-
   ARLab.prototype.probe = function () {
     var hasCamera = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
     var secure = window.isSecureContext !== false;
@@ -428,7 +421,6 @@
     if (this.resetBtn) this.resetBtn.addEventListener("click", function () {
       self.scene.gems.length = 0;
       self.scene.collected = 0;
-      self.count();
       self.say("Cleared. Tap anywhere to place a new crystal.");
     });
     window.addEventListener("pagehide", function () { self.stop(); });
@@ -442,6 +434,16 @@
 
     this.orientationHandler = function (e) {
       if (e.alpha === null && e.beta === null && e.gamma === null) return;
+
+      /* Android Chrome fires both events and they use different reference
+         frames, so mixing them makes the scene shudder. Lock to whichever
+         arrives first and ignore the other for the rest of the session —
+         never switch, because anything already placed was anchored in the
+         first frame and would jump the moment the frame changed. Objects are
+         anchored relative to wherever you started, so a compass is not needed. */
+      if (!self.orientSource) self.orientSource = e.type;
+      else if (e.type !== self.orientSource) return;
+
       var screenAngle = 0;
       if (screen.orientation && typeof screen.orientation.angle === "number") screenAngle = screen.orientation.angle;
       else if (typeof window.orientation === "number") screenAngle = window.orientation;
@@ -585,7 +587,6 @@
       }
     });
 
-    this.count();
     this.loop();
   };
 
@@ -614,6 +615,7 @@
     this.detachOrientation();
     this.sensorOk = false;
     this.hasTarget = false;
+    this.orientSource = null;
     this.root.removeAttribute("data-active");
     this.root.removeAttribute("data-camera");
     this.root.removeAttribute("data-tier");
@@ -626,7 +628,6 @@
     this.scene.add(0, 0.05, -2.4);
     this.scene.add(2.0, 0.35, -1.4);
     this.scene.add(-1.9, -0.15, -1.7);
-    this.count();
   };
 
   /* ------------------------------------------------------------ interaction */
@@ -656,58 +657,85 @@
     var demoAngle = 0;
     var lastNudge = 0;
 
-    var pointer = { down: false, moved: false, x: 0, y: 0, lx: 0, ly: 0 };
+    /* Input, once, through Pointer Events.
 
-    function point(e) { return e.touches && e.touches[0] ? e.touches[0] : (e.changedTouches && e.changedTouches[0]) || e; }
+       The earlier touch+mouse pair was the cause of taps appearing to do
+       nothing: a phone fires touchend AND a synthesised mouseup about 300 ms
+       later, so one tap ran the handler twice — the first press placed a
+       crystal and the second, raycasting the same screen point, immediately
+       collected it again. Pointer Events deliver exactly one stream for touch,
+       pen and mouse alike, which fixes it on Android and iOS together. */
+    var pointer = { id: null, moved: false, x: 0, y: 0, lx: 0, ly: 0 };
+    var TAP_SLOP = 12;   // px of finger drift still counted as a tap
 
     function onDown(e) {
-      var p = point(e);
-      pointer.down = true; pointer.moved = false;
-      pointer.x = pointer.lx = p.clientX;
-      pointer.y = pointer.ly = p.clientY;
+      if (pointer.id !== null) return;               // ignore extra fingers
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      pointer.id = e.pointerId;
+      pointer.moved = false;
+      pointer.x = pointer.lx = e.clientX;
+      pointer.y = pointer.ly = e.clientY;
+      if (canvas.setPointerCapture) {
+        try { canvas.setPointerCapture(e.pointerId); } catch (err) { /* not fatal */ }
+      }
     }
+
     function onMove(e) {
-      if (!pointer.down) return;
-      var p = point(e);
-      if (Math.abs(p.clientX - pointer.x) > 10 || Math.abs(p.clientY - pointer.y) > 10) pointer.moved = true;
+      if (e.pointerId !== pointer.id) return;
+      if (Math.abs(e.clientX - pointer.x) > TAP_SLOP || Math.abs(e.clientY - pointer.y) > TAP_SLOP) {
+        pointer.moved = true;
+      }
       if (!self.sensorOk) {
-        self.drag.yaw -= (p.clientX - pointer.lx) * 0.005;
-        self.drag.pitch -= (p.clientY - pointer.ly) * 0.005;
+        self.drag.yaw -= (e.clientX - pointer.lx) * 0.005;
+        self.drag.pitch -= (e.clientY - pointer.ly) * 0.005;
         self.drag.pitch = Math.max(-1.3, Math.min(1.3, self.drag.pitch));
-        pointer.lx = p.clientX; pointer.ly = p.clientY;
+        pointer.lx = e.clientX; pointer.ly = e.clientY;
         if (e.cancelable) e.preventDefault();
       }
     }
+
     function onUp(e) {
-      if (!pointer.down) return;
-      pointer.down = false;
+      if (e.pointerId !== pointer.id) return;
+      pointer.id = null;
       if (pointer.moved) return;
-      var p = point(e);
-      self.ray(p.clientX, p.clientY, camWorld, dir);
+      self.ray(e.clientX, e.clientY, camWorld, dir);
 
       var hit = self.scene.pick(dir[0], dir[1], dir[2]);
       if (hit >= 0) {
         self.scene.collect(hit);
-        self.count();
         self.say(self.scene.gems.length
-          ? "Collected. " + self.scene.gems.length + " still out there."
-          : "All collected. Tap again to hide more.");
+          ? "Collected — keep looking, there are more."
+          : "All collected. Tap again to hide another one.");
         return;
       }
       self.scene.add(dir[0] * PLACE_DISTANCE, dir[1] * PLACE_DISTANCE, dir[2] * PLACE_DISTANCE);
-      self.count();
       self.say(self.sensorOk
         ? "Now turn away and come back — it stays where you left it."
         : "Drag to look around — it stays where you left it.");
     }
 
-    canvas.addEventListener("touchstart", onDown, { passive: true });
-    canvas.addEventListener("touchmove", onMove, { passive: false });
-    canvas.addEventListener("touchend", onUp);
-    canvas.addEventListener("touchcancel", function () { pointer.down = false; });
-    canvas.addEventListener("mousedown", onDown);
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
+    function onCancel(e) {
+      if (e.pointerId === pointer.id) pointer.id = null;
+    }
+
+    if (window.PointerEvent) {
+      canvas.addEventListener("pointerdown", onDown);
+      canvas.addEventListener("pointermove", onMove, { passive: false });
+      canvas.addEventListener("pointerup", onUp);
+      canvas.addEventListener("pointercancel", onCancel);
+    } else {
+      // Only reached on browsers old enough to lack Pointer Events entirely.
+      // Bind touch alone there and suppress the synthesised mouse follow-up.
+      var shim = function (e) {
+        var t = (e.touches && e.touches[0]) || (e.changedTouches && e.changedTouches[0]);
+        if (!t) return;
+        return { pointerId: 1, pointerType: "touch", clientX: t.clientX, clientY: t.clientY, cancelable: e.cancelable, preventDefault: function () { e.preventDefault(); } };
+      };
+      canvas.addEventListener("touchstart", function (e) { var s = shim(e); if (s) onDown(s); }, { passive: true });
+      canvas.addEventListener("touchmove", function (e) { var s = shim(e); if (s) onMove(s); }, { passive: false });
+      canvas.addEventListener("touchend", function (e) { var s = shim(e); if (s) { onUp(s); e.preventDefault(); } });
+      canvas.addEventListener("touchcancel", function () { pointer.id = null; });
+    }
 
     function frame(now) {
       if (!self.running) return;
