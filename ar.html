@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Try AR on Your Phone — Code Champ 2026 Workshop 07</title>
-<meta name="description" content="A hands-on augmented reality playground for complete beginners. Place a virtual object on your floor using your phone's camera, then see real AR research clips — meshing, occlusion, location-based AR and shared AR. Built light enough for slow connections."/>
+<meta name="description" content="A hands-on augmented reality playground for complete beginners. Hang a virtual object in the air using your phone's camera and gyroscope — no app, no install — then see real AR research clips on meshing, occlusion, location-based AR and shared AR. Built light enough for slow connections."/>
 <link rel="icon" href="assets/images/icons/favicon.png"/>
 <meta name="author" content="Yasas Sri Wickramasinghe"/>
-<meta name="keywords" content="augmented reality for beginners, try AR in browser, WebXR demo, AR workshop, Code Champ 2026, AR game development, plane detection, occlusion, location-based AR, shared AR, Yasas Sri Wickramasinghe, HIT Lab NZ"/>
+<meta name="keywords" content="augmented reality for beginners, try AR in browser, no-app AR demo, gyroscope AR, AR workshop, Code Champ 2026, AR game development, plane detection, occlusion, location-based AR, shared AR, Yasas Sri Wickramasinghe, HIT Lab NZ"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
 <meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/ar.html"/>
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:title" content="Try AR on Your Phone — Code Champ 2026 Workshop 07"/>
-<meta property="og:description" content="Open this on your phone and place a virtual object on your floor. Then watch how real AR research works — meshing, occlusion, location-based AR and shared AR."/>
+<meta property="og:description" content="Open this on your phone and hang a virtual object in the air. Then watch how real AR research works — meshing, occlusion, location-based AR and shared AR."/>
 <meta property="og:url" content="https://www.yasassri.me/ar.html"/>
 <meta property="og:image" content="https://www.yasassri.me/assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"/>
 <meta property="og:image:width" content="1045"/>
@@ -28,7 +28,7 @@
 <meta name="twitter:site" content="@sri_yasas"/>
 <meta name="twitter:creator" content="@sri_yasas"/>
 <meta name="twitter:title" content="Try AR on Your Phone — Code Champ 2026 Workshop 07"/>
-<meta name="twitter:description" content="Open this on your phone and place a virtual object on your floor. No app, no download."/>
+<meta name="twitter:description" content="Open this on your phone and hang a virtual object in the air. No app, no download."/>
 <meta name="twitter:image" content="https://www.yasassri.me/assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"/>
 
 <script type="application/ld+json">
@@ -93,6 +93,18 @@
 <link href="assets/css/fonts-newsreader.css" rel="stylesheet"/>
 <link href="assets/css/redesign.css" rel="stylesheet"/>
 <style>
+  /* Images carry width/height attributes for layout stability; without this
+     the attribute height wins over the scaled width and the picture stretches. */
+  .fig img, .poster-img { height: auto; }
+
+  /* ---- click-to-play YouTube facade ------------------------------------- */
+  .yt-facade { position: relative; cursor: pointer; overflow: hidden; }
+  .yt-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .yt-facade .yt-play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 74px; height: 52px; background: rgba(0,0,0,.55); border-radius: 14px; transition: background .2s var(--ease); }
+  .yt-facade .yt-play-btn::after { content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-38%,-50%); border-style: solid; border-width: 11px 0 11px 19px; border-color: transparent transparent transparent #fff; }
+  .yt-facade:hover .yt-play-btn, .yt-facade:focus-visible .yt-play-btn { background: #f00; }
+  .yt-facade iframe { width: 100%; height: 100%; border: 0; display: block; }
+
   /* ---- AR stage --------------------------------------------------------- */
   .ar-shell { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; box-shadow: var(--shadow-sm); }
   .ar-stage { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 78vh; background: #0d1220; overflow: hidden; }
@@ -257,9 +269,10 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="idx">01</span>
-      <h2>Put something <em>in your room</em>.</h2>
+      <h2>Leave something <em>floating in your room</em>.</h2>
       <p>
-        This runs entirely inside your browser. Your camera feed never leaves your phone —
+        Tap to hang a crystal in the air, turn away, then turn back and find it again.
+        It runs entirely inside your browser — your camera feed never leaves your phone,
         there is no server, no upload, and nothing is recorded.
       </p>
     </div>
@@ -274,14 +287,14 @@
             <span class="ar-chip" data-ar-badge hidden></span>
             <span class="ar-chip" data-ar-counter>0 placed · 0 collected</span>
           </div>
-          <p class="ar-hint" data-ar-hint>Point at the floor, then tap to place.</p>
+          <p class="ar-hint" data-ar-hint>Tap anywhere to leave a crystal in the air.</p>
         </div>
 
         <div class="ar-idle" data-ar-intro>
           <div>
             <div class="ar-idle-orb" aria-hidden="true"></div>
             <h3>Ready when you are</h3>
-            <p>Best on a phone. Your browser will ask for camera permission — that's normal, and it's what lets you see through the camera.</p>
+            <p>Best on a phone. You'll be asked for motion access and then camera access — say yes to both. Nothing is uploaded or recorded.</p>
           </div>
         </div>
       </div>
@@ -303,17 +316,23 @@
             <span>AR always starts here. The “reality” half of augmented reality is just a live camera picture.</span>
           </div>
           <div class="step">
-            <b>The phone works out where it is</b>
-            <span>Using the camera and motion sensors, it tracks how you move. That's why the crystal stays where you put it instead of sliding around the screen.</span>
+            <b>The gyroscope tracks which way you're facing</b>
+            <span>Every phone has one. It reports the phone's tilt and turn hundreds of times a second — the same sensor that rotates your photos.</span>
           </div>
           <div class="step">
-            <b>A 3D object is drawn on top</b>
-            <span>Once the phone knows its own position, it can draw an object as if it were sitting on your floor — correct size, correct angle, correct place.</span>
+            <b>The crystal is pinned to a direction, not to the screen</b>
+            <span>When you tap, the crystal is stored as a point in the world around you. As you turn, the maths works out where that point should now appear on screen — so it stays put while everything else moves.</span>
           </div>
           <div class="step">
-            <b>Tap a crystal to collect it</b>
-            <span>That tiny loop — place, look away, come back, find it, collect it — is the seed of every location-based AR game, including the ones further down this page.</span>
+            <b>Turn away, turn back, collect it</b>
+            <span>That tiny loop — place it, lose it, find it again — is the seed of every location-based AR game, including the hide-and-seek one further down this page.</span>
           </div>
+        </div>
+        <div class="note" style="margin-top:22px;">
+          <b>What this demo deliberately doesn't do:</b> it has no idea where your floor is,
+          and virtual things won't hide behind real furniture. Those need depth sensing and
+          ARCore-class hardware. Everything you see here is a camera, a gyroscope and about
+          20&nbsp;KB of code — which is exactly the point.
         </div>
       </div>
 
@@ -327,29 +346,32 @@
           <div class="req">
             <i>1</i>
             <div>
-              <b>Full AR — plane detection &amp; occlusion</b>
-              <span>Android 8+ with Google Play Services for AR (ARCore) and Chrome 81+. The phone finds your real floor, and on devices with a depth sensor, virtual objects can be hidden behind real furniture.</span>
+              <b>AR with motion tracking</b>
+              <span>Any phone with a rear camera and a gyroscope — iPhone on iOS 13+, or essentially any Android from the last decade. No ARCore, no app, no install. This is what almost everyone gets.</span>
             </div>
           </div>
           <div class="req">
             <i>2</i>
             <div>
-              <b>Camera AR — the lightweight mode</b>
-              <span>Any phone with a rear camera and a modern browser, including iPhones on iOS 13+. There is no real plane detection here — the floor is assumed to be about 1.45&nbsp;m below the camera — but objects still stay anchored as you turn around.</span>
+              <b>AR with drag to look</b>
+              <span>If motion access is declined or the sensor stays silent, the camera still works — you swipe across the picture to look around instead. Same crystals, same game.</span>
             </div>
           </div>
           <div class="req">
             <i>3</i>
             <div>
               <b>3D demo — no camera needed</b>
-              <span>If the camera is unavailable or you decline permission, the same scene runs as an animation you can drag to look around. Works on a laptop too.</span>
+              <span>No camera, or permission declined? The same scene runs as an animation you can drag to look around. Works on a laptop too.</span>
             </div>
           </div>
         </div>
         <div class="note" style="margin-top:18px;">
-          <b>If it misbehaves:</b> AR needs light and texture. A plain, shiny or very dark floor gives the phone nothing to track,
-          so stand somewhere with a patterned rug, carpet or tiles. Move the phone slowly for the first few seconds.
-          On iPhone this must be opened in Safari — camera access is blocked inside in-app browsers like Facebook or Instagram.
+          <b>Two things that trip people up.</b> Your phone will ask twice — once for motion, once
+          for the camera. Say yes to both; neither leaves your device. And on iPhone, motion access
+          has a master switch: if you're never asked, turn it on at
+          <b>Settings → Apps → Safari → Motion &amp; Orientation Access</b>, then reload this page.
+          Open the link in Safari or Chrome directly — camera access is blocked inside in-app
+          browsers like Facebook, Instagram or WhatsApp.
         </div>
       </div>
     </div>
@@ -715,7 +737,7 @@
       <a class="card" href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API" target="_blank" rel="noopener">
         <span class="kicker">Under the hood · Web</span>
         <h3>WebXR Device API</h3>
-        <p>The browser standard behind the demo at the top of this page — real plane detection, no plugins. This page's code is a readable example.</p>
+        <p>The next step up from the demo at the top of this page: real plane detection and depth in the browser, no plugins — on Android phones that support it.</p>
       </a>
       <a class="card" href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">
         <span class="kicker">Going further · Apps</span>
@@ -765,10 +787,10 @@
         </div>
       </div>
       <div>
-        <img src="assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"
+        <img class="poster-img" src="assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"
              alt="Code Champ 2026 Workshop 07 flyer — Augmented Reality and Game Development with Dr. Yasas Sri Wickramasinghe, 20 August 2026, via Zoom"
              loading="lazy" decoding="async" width="1045" height="1045"
-             style="border-radius:var(--radius); border:1px solid var(--line);"/>
+             style="width:100%; border-radius:var(--radius); border:1px solid var(--line);"/>
       </div>
     </div>
   </div>
