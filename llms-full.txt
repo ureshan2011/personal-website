@@ -54,12 +54,16 @@ forty-five real, anonymised workplace conflicts to show when collaboration
 works, when it backfires, and what to do instead. Free download at
 yasassri.me/app/#/book; sign-in required, takes under a minute.
 
-**Upcoming talks & workshops.** Three engagements on the calendar, or invite
-me for something similar: Code Champ 2026 Workshop 07: Augmented Reality and
-Game Development (20 August 2026) — Designing Shared Worlds Across Distance
-(NZGDC, 1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds
-Across Distance (University of Moratuwa, date to be announced). Full details
-at yasassri.me/news.html.
+**Upcoming talks & workshops.** Two engagements on the calendar, or invite
+me for something similar: Designing Shared Worlds Across Distance (NZGDC,
+1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
+Distance (University of Moratuwa, date to be announced). Full details at
+yasassri.me/news.html.
+
+**Just wrapped.** Workshops delivered this year, with the material and demos
+still online: Code Champ 2026 Workshop 07: Augmented Reality and Game
+Development (20 August 2026) — CODE with WIE 2026 Workshop 01: Architecting
+the Augmented Tomorrow (IEEE WIE Sri Lanka, 11 July 2026).
 
 **In the news.** Invited talks, international collaborations and outreach —
 where the research meets people and places: Research Visit to Tohoku
@@ -105,9 +109,10 @@ Creative Innovation, teaching postgraduate information systems and project
 management, including the Master of Business Informatics (MBI) programme
 across the Auckland and Christchurch campuses.
 Q: What web products has he built? A: He has designed and built HouseScout (a
-property-intelligence dashboard for Christchurch home buyers), Faro (a
-machine-learning flight-fare timing assistant) and Yoobees (an EdTech
-attendance and learning-support platform). See yasassri.me/products.html.
+property-intelligence dashboard for Christchurch home buyers), PathFinder (a
+planning platform for Sri Lankan students applying to postgraduate study in
+New Zealand) and Faro (a machine-learning flight-fare timing assistant). See
+yasassri.me/products.html.
 Q: How can I get in touch? A: Via the contact page at yasassri.me/contact.html
 for research collaborations, guest talks, consulting and academic mentorship.
 
@@ -405,7 +410,7 @@ Research-grade thinking, shipped as software. Beyond the lab, I design and
 build full-stack web products that put data, machine learning and clean UX in
 front of real users. Snapshot: 3 products in portfolio, 2 live and publicly
 usable, AI + ML (local LLM and predictive models), full-stack Python &
-TypeScript.
+JavaScript.
 
 **HouseScout** (Live · Property Intelligence · Python, Local AI). A
 property-buying dashboard that helps Christchurch home buyers find affordable
@@ -422,7 +427,28 @@ features (garage, backyard) so first-home buyers and investors can move fast
 and buy with confidence. Estimates are indicative, not registered valuations,
 and not financial advice. Live: https://ureshan2011.github.io/HouseScout/
 
-**Faro** (Live · Travel · Python, Machine Learning). A flight-fare timing
+**PathFinder** (Live · Study Planning, New Zealand · Static Web,
+Client-side). A planning platform for Sri Lankan students applying to
+master's and PhD study in New Zealand. Applying for postgraduate study abroad
+means piecing the answer together from a dozen half-reliable sources — agent
+blogs, forum threads, PDFs three years out of date. PathFinder puts the whole
+route in one place: what you qualify for, what it really costs, the visa, and
+the move. Key features: seven-stage tracker from assessment to first week; a
+five-minute readiness assessment that generates a personalised
+month-by-month timeline; 1,716 current NZQF level 8 and 9 qualifications,
+searchable by subject, provider and level; 51 providers across 11 subject
+areas; a cost calculator in NZ$ and rupees covering tuition, living costs and
+visa funds; visa deadlines and settlement guidance; 281 scholarships and
+funding sources; mentors already studying in New Zealand. Value: replaces
+guesswork and agent fees with the published record — real entry requirements
+from the NZQA register, real fees, real visa thresholds — so a student can
+see in five minutes whether the route is open to them, and what the next
+month should look like. Free to start, no account needed. An independent tool
+built from published sources; not affiliated with NZQA, Immigration New
+Zealand or any provider, and not immigration advice.
+Live: https://ureshan2011.github.io/Pathfinder/
+
+**Faro** (Travel · Python, Machine Learning). A flight-fare timing
 assistant that answers the one question every traveller has: book now, or
 wait? Faro tracks prices across airlines and uses a model trained on
 route-specific history to give a clear, daily Book/Wait call. Key features:
@@ -432,23 +458,7 @@ details (airline, stops, times); refreshes several times a day; aggregates
 fares from Google Flights; live weather & currency context; open, publicly
 accessible underlying data. Value: flexible travellers save money by booking
 in the optimal window, guided by predictive modelling instead of gut feel.
-Live: https://ureshan2011.github.io/flightwatch/
-
-**Yoobees** (In Production · EdTech, Attendance · React, TypeScript,
-Firebase). A web-based attendance and learning-support platform for
-postgraduate teaching, currently used to run the Master of Business
-Informatics (MBI) programme at Yoobee Colleges across the Auckland and
-Christchurch campuses. A React + TypeScript single-page app backed entirely
-by Firebase. Key features: QR + timed code attendance with checkpoints;
-auto-detection of proxy & suspicious check-ins; Live Lesson Playground
-(canvas, polls, presence); quizzes with instant feedback & distinction
-badges; SQL practice lab, slide decks & video lessons; Daily Match; notice
-board with per-campus targeting & pinning; lecturer analytics, overrides &
-CSV export. Value: replaces manual roll-calls and scattered tools with one
-real-time hub, automating attendance and flagging proxy check-ins via
-shared-IP and GPS signals. Private, login-gated platform in live use at
-Yoobee Colleges (Auckland & Christchurch); access limited to enrolled
-students and teaching staff, with role-based permissions.
+A personal build; not publicly hosted.
 
 **How these are built.** Full-stack web — end-to-end builds in Python and
 TypeScript, from data layer to a clean, responsive interface. AI & machine
@@ -458,18 +468,18 @@ weather, currency) into something dependable. Product UX — designing focused
 interfaces that make a complex decision feel simple and trustworthy.
 
 **FAQ.**
-Q: Who built HouseScout, Faro and Yoobees? A: All three products were
+Q: Who built HouseScout, PathFinder and Faro? A: All three products were
 designed and built by Dr. Yasas Sri Wickramasinghe, a researcher, university
 lecturer and software developer based in Christchurch, New Zealand.
-Q: Are HouseScout and Faro free to use? A: Yes. HouseScout and Faro are both
-live and free to use directly in a web browser. Yoobees is a private,
-login-gated platform used in teaching at Yoobee Colleges and is not publicly
-available.
+Q: Are HouseScout and PathFinder free to use? A: Yes. HouseScout and
+PathFinder are both live and free to use directly in a web browser, with no
+account required to start. Faro is a personal build and is not publicly
+hosted.
 Q: What technologies are these products built with? A: HouseScout and Faro
 are built with Python, with Faro also using a machine-learning model for
-price prediction. Yoobees is a React 18 and TypeScript single-page
-application backed by Firebase (Authentication, Cloud Firestore and
-Storage).
+price prediction. PathFinder is a static browser application with no backend
+— the assessment, cost calculator and NZQA programme catalogue all run
+client-side.
 Q: What does HouseScout do? A: HouseScout is a property-buying dashboard for
 Christchurch home buyers. It tracks listings against user-defined criteria,
 surfaces indicative valuations and market insights, includes a
@@ -481,10 +491,12 @@ machine-learning model trained on route-specific historical fares to predict
 how a price is likely to move, then gives a clear "Book now" or "Wait"
 recommendation. It monitors fares across airlines and refreshes several
 times a day.
-Q: Is Yoobees publicly available? A: No. Yoobees is a private, login-gated
-platform currently used to run the Master of Business Informatics (MBI)
-programme at Yoobee Colleges in Auckland and Christchurch, with role-based
-access for students, lecturers and teaching assistants.
+Q: Who is PathFinder for? A: Sri Lankan students planning a master's or PhD
+in New Zealand. It covers the whole route in one place — a five-minute
+readiness assessment, a searchable catalogue of 1,716 current NZQF level 8
+and 9 qualifications from 51 providers, real tuition, living and visa-funds
+costs in NZ$ and rupees, 281 scholarships, and mentors already studying in
+New Zealand.
 Q: Where can prospective MBI students learn more? A: See his guide for
 prospective students (yasassri.me/students.html) for MBI programme facts,
 his teaching approach, and a free consultation link — his own account as the
@@ -500,12 +512,6 @@ community outreach — moments where augmented reality research meets real
 people and places.
 
 **Upcoming events.**
-Code Champ 2026 — Workshop 07: Augmented Reality and Game Development.
-20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via Zoom. I'm leading
-Workshop 07 of Code Champ 2026 — "Code Your World" — organised by E3
-(Computer Science) with the Committee for Popularization of Science (CPS),
-SLAAS and the IEEE Computer Society Sri Lanka Chapter, covering augmented
-reality and game development.
 NZGDC 2026 — Designing Shared Worlds Across Distance. 1 October 2026,
 3:00–3:30 PM, NZ International Convention Centre, Auckland. I'm speaking at
 NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across
@@ -524,7 +530,14 @@ connects remote players through shared immersive experiences. The date and
 time are still to be confirmed by the organisers. Official programme:
 https://icitr.uom.lk/workshops/
 
-**Recently delivered.** CODE with WIE 2026 — Workshop 01: Architecting the
+**Recently delivered.** Code Champ 2026 — Workshop 07: Augmented Reality and
+Game Development. 20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via
+Zoom. I led Workshop 07 of Code Champ 2026 — "Code Your World" — organised by
+E3 (Computer Science) with the Committee for Popularization of Science (CPS),
+SLAAS and the IEEE Computer Society Sri Lanka Chapter, covering augmented
+reality and game development. The browser-based AR demo built for the
+workshop is still online at yasassri.me/ar.html.
+CODE with WIE 2026 — Workshop 01: Architecting the
 Augmented Tomorrow. 11 July 2026, 9:00 AM, online via Google Meet. I led
 Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri
 Lanka — exploring the technologies shaping the future and how innovation is
