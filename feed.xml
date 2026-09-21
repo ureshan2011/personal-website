@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 21 Sep 2026 12:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 20:00:00 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[Code Champ 2026 — Workshop 07: Augmented Reality and Game Development]]></title>
@@ -30,6 +30,14 @@
     <pubDate>Thu, 01 Oct 2026 15:00:00 +1300</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
+    <link>https://vrst.acm.org/vrst2026/</link>
+    <guid isPermaLink="true">yasassri-event-vrst-2026</guid>
+    <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
+    <category><![CDATA[Event]]></category>
+    <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
   </item>
   <item>
     <title><![CDATA[ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance]]></title>
