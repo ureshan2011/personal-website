@@ -733,7 +733,7 @@ const SLIDES: { classes: string; label: string; html: string }[] = [
           <div style="font-size:var(--tiny);font-weight:800;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;">Conference Paper</div>
         </div>
         <div style="font-family:'Courier New',monospace;font-size:19px;color:#334155;line-height:1.8;background:rgba(255,255,255,0.7);padding:14px 16px;border-radius:12px;">
-          <span style="color:#4c1d95;">Bowman, D. A., &amp; McMahan, R. P.</span> <span style="color:#92400e;">(2007).</span> Virtual reality: How much immersion is enough? In <span style="font-style:italic;color:#0f766e;">Proceedings of the ACM CHI Conference</span> (pp. 36–43). ACM. https://doi.org/10.1145/xxxxxxx
+          <span style="color:#4c1d95;">Bowman, D. A., &amp; Hodges, L. F.</span> <span style="color:#92400e;">(1997).</span> An evaluation of techniques for grabbing and manipulating remote objects in immersive virtual environments. In <span style="font-style:italic;color:#0f766e;">Proceedings of the 1997 Symposium on Interactive 3D Graphics</span> (pp. 35–38). ACM. https://doi.org/10.1145/253284.253301
         </div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
           <li style="font-size:var(--micro);color:var(--slate);padding-left:18px;position:relative;"><span style="position:absolute;left:0;color:var(--teal);">→</span> Proceedings title italicised (like a book)</li>

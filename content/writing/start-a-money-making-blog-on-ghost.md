@@ -19,31 +19,15 @@ Affiliate Marketing
 
 ## Guide to Creating a Ghost CMS and [Self-host with Zero Cost](https://bit.ly/READCLUBPROMO)
 
-[
-
-![Yasas Sri Wickramasinghe](https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg)
-
-](/?source=post_page---byline--497c1d2c99c7---------------------------------------)
-
-[Yasas Sri Wickramasinghe](/?source=post_page---byline--497c1d2c99c7---------------------------------------)
-
-8 min readOct 13, 2022
-
-\--
-
-Press enter or click to view image in full size
-
 ## What is a Money Making Blog?
 
 There are many great opportunities for making money online in 2022 and beyond. However, not all opportunities are created equal. To make the best choices for your money, it’s important to understand what makes a money-making blog site successful.
 
-You can create blogs on multiple platforms, and the most popular one is Medium blogs. However, writing on a third-party platform can sometimes be tricky to reach your financial expectations. I have been a [medium writer](/) since 2019 and have quite a good reach.
+You can create blogs on multiple platforms, and the most popular one is Medium blogs. However, writing on a third-party platform can sometimes be tricky to reach your financial expectations. I have been a [medium writer](https://yasassri.medium.com) since 2019 and have quite a good reach.
 
 > However, I decided to start a blog, making money online using Ghost CMS.
 
 Then I could boost my audience, and customize the blog as I prefer, import members from other platforms to my blog and deliver high quality content via high speed Google AMP supported posts.
-
-Press enter or click to view image in full size
 
 *Admin Dashboard of [https://readclub.me](https://readclub.me) Ghost CMS Powered Blog*
 
@@ -61,37 +45,19 @@ Of course, without spending thousands of bucks, you can start blogging today. An
 
 > You can create a blog, host it with a domain and also automate some audience engagement techniques such as automated emails and newsletters for absolutely free!
 
-Do you need an evidence? If you visit my [Ghost Blog](https://readclub.me/)([readclub.me](https://readclub.me)), everything there is setup for free, including the automated signup process and newsletter.
-
-Press enter or click to view image in full size
+Do you need an evidence? If you visit my [Ghost Blog](https://readclub.me/) ([readclub.me](https://readclub.me)), everything there is setup for free, including the automated signup process and newsletter.
 
 *Ghost CMS Powered Blog with a Responsive Theme*
 
-[
-
-## ReadClub
-
-### This blog contains experiences, stories and step by step tutorials on Higher Studies, Migration, Student Visa…
-
-readclub.me
-
-](https://readclub.me/?source=post_page-----497c1d2c99c7---------------------------------------)
-
 If you click “Sign Up”, it will ask you to provide your email address and setup an account.
-
-Press enter or click to view image in full size
 
 *Ghost CMS in-built Sign Up Flow*
 
 You will get an email to verify your Sign Up process, and then you will get the exclusive access to premium articles.
 
-Press enter or click to view image in full size
-
 *Ghost CMS Generated Sign Up Email*
 
 There is a subscription model in my blog as well. (However, these days ,I am providing premium membership for free. So you can Sign Up today and become an exclusive member at the [ReadClub](https://readclub.me/).) All the subscribers will receive exclusive newsletters to their email inbox through an automated process.
-
-Press enter or click to view image in full size
 
 *Ghost CMS Generated Exclusive Newsletter*
 
@@ -140,8 +106,6 @@ There are a number of different blog hosting sites out there, each with its own 
 
 I recommend you try DigitalOcean because it includes Ghost inbuilt as a template and is very easy to deploy Ghost. And most importantly, you can create a [DigitalOcean](https://m.do.co/c/22ae290baec3) via the below link, so you will receive $200 absolutely free to use for up to 60 days.
 
-Press enter or click to view image in full size
-
 *DigitalOcean Offer*
 
 [Click Here to Redeem the $200 DigitalOcean Offer](https://bit.ly/READCLUBPROMO)
@@ -150,19 +114,13 @@ After creating an account on DigitalOcean, use the [1-click Ghost Setup Droplet]
 
 Below you can see that I have selected the lowest allowed server configuration for [my Ghost blog site](https://readclub.me/), costing only $6 per month. Since I have $200 as free credit because I signed up for DigitalOcean via the [coupon link](https://bit.ly/READCLUBPROMO), I did not need to spend at least a single dollar up to two months.
 
-Press enter or click to view image in full size
-
 *My Server Specifications for Running Ghost CMS Blog*
 
 The DigitalOcean server with the lowest specification can handle the Ghost website pretty efficiently. The below picture shows the CPU usage so far.
 
-Press enter or click to view image in full size
-
 *Resource Usage of [My Blog](https://readclub.me)*
 
 As you can see, my CPU usage is approximately 2% for most of the time. However, my Ghost blog performs blazing fast even with this lowest-spec server. Below is the [Google PageSpeed Insights](https://pagespeed.web.dev/) report of my money making blog.
-
-Press enter or click to view image in full size
 
 *Performance Statistics of [My Blog](https://readclub.me)*
 

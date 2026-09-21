@@ -7,20 +7,6 @@ originalUrl: https://yasassri.medium.com/how-clean-coding-helps-you-to-build-web
 originalDate: 2022-10-09
 originalSource: "Medium"
 ---
-[
-
-![Yasas Sri Wickramasinghe](https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg)
-
-](/?source=post_page---byline--91c5669fe097---------------------------------------)
-
-[Yasas Sri Wickramasinghe](/?source=post_page---byline--91c5669fe097---------------------------------------)
-
-7 min readApr 14, 2021
-
-\--
-
-Press enter or click to view image in full size
-
 As newbies to the software engineering field, most of us focuses a lot on building web apps that are ‘working’ or at least ‘demo-able’, which is somewhat understandable. But I have seen most of the newbies into software engineering are having various problems when they are supposed to complete a project within a certain time period. If you are a software engineering undergraduate, I guess you have experienced some issues related to your code such as,
 
 -   Your code is giving a lot of compile errors.
@@ -48,8 +34,6 @@ If you are someone who wants to know What is “Clean Coding” and “How You C
 In this article, I’ll guide you to write Clean Code from the basics. However, Clean Coding is a skill and you can improve your skill by practising it whenever possible. Here I’m using general examples using JavaScript but the concepts are mostly the same in other programming languages/frameworks except for few scenarios. Please follow official guidelines/documentation of your language for further details.
 
 _Let’s get started with one famous quote from Martin Fowler, an American software engineer and one of the founders of Agile Manifesto._
-
-Press enter or click to view image in full size
 
 ### As a beginner, How can you improve your Clean Coding skills?
 
@@ -113,33 +97,17 @@ You may use other prefix terms like ‘has’, ‘can’, ‘should’ as well, 
 
 If you see an underscore (\_) in front of a name, it implies that the variable, function or method is private.
 
-Press enter or click to view image in full size
-
 ### 4\. How to Name Constants
 
 Constants are the variables you declare with a value that is expected to remain unchanged. These variables are named with CAPITAL letters.
-
-Press enter or click to view image in full size
 
 **_Before moving further, Let me refresh your knowledge…_**
 
 Are you familiar with **camelCase** and **PascalCase**?
 
-Press enter or click to view image in full size
-
 *PascalCase and camelCase are commonly used in naming functions and classes*
 
-## Here is a $200 for FREE on DigitalOcean. One Click, Simpler Web Hosting for you!
-
-[
-
-## DigitalOcean - The developer cloud
-
-### Businesses grow faster when developers can build on the simple, affordable cloud they love. DigitalOcean has the cloud…
-
-m.do.co
-
-](https://m.do.co/c/22ae290baec3?source=post_page-----91c5669fe097---------------------------------------)
+*Here's a $200 free credit on [DigitalOcean](https://m.do.co/c/22ae290baec3) — one-click, simpler web hosting.*
 
 ### 5\. How to Name Functions/Methods
 
@@ -147,23 +115,17 @@ applicable to JS Frameworks like Angular, React etc. and Backed Frameworks like 
 
 When you are naming a Function/Method, **use** **camelCase**.
 
-Press enter or click to view image in full size
-
 ### 6\. How to Name Classes
 
 applicable to JS Frameworks like Angular, React etc. and Backed Frameworks like Java SpringBoot, .NET etc.
 
 When you are naming a Class, **use PascalCase.**
 
-Press enter or click to view image in full size
-
 ### 7\. How to Name Components
 
 applicable to any JS Framework like Angular, React etc.
 
 When you are naming a Component, **use PascalCase.** Components are common in modern JavaScript frameworks like Angular and React.
-
-Press enter or click to view image in full size
 
 When you name your components in PascalCase, it is easier for you to identify in HTML component bindings because HTML tags will be in simple letters and your component will be in PascalCase.
 
@@ -172,11 +134,7 @@ When you name your components in PascalCase, it is easier for you to identify in
 -   Make sure to give pronounceable names for your identifiers.
 -   Avoid giving numbers in the middle of your code unexpectedly. Try to use variables appropriately.
 
-Press enter or click to view image in full size
-
 -   When you are using axios or any other web service call and declaring your API path, don’t hardcode path in every place where you call your backend APIs. Make sure to define your backend path as a base URL and import it whenever you need to call your API.
-
-Press enter or click to view image in full size
 
 *_Read axios Best Practices:_ [_https://github.com/axios/axios#config-defaults_](https://github.com/axios/axios#config-defaults)*
 
