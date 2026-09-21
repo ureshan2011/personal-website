@@ -17,21 +17,7 @@ Benchmark
 
 Processors
 
-[
-
-![Yasas Sri Wickramasinghe](https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg)
-
-](/?source=post_page---byline--821805860c42---------------------------------------)
-
-[Yasas Sri Wickramasinghe](/?source=post_page---byline--821805860c42---------------------------------------)
-
-6 min readMar 20, 2022
-
-\--
-
 Did Apple Just Release a Breakthrough Design in CPU Structure and Organization?
-
-Press enter or click to view image in full size
 
 The Apple event on 8th March 2022 unleashed a truly unprecedented computer system packed in a boxy compact design. They called this machine as the “Mac Studio”.
 
@@ -49,8 +35,6 @@ The Apple M1 Pro and M1 Max chips were another step ahead, released on October 2
 
 A few weeks ago, Apple released their latest M1 Chip, Ultra with “Mac Studio,” and they [claim](https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/) this chip to be the “world’s most powerful chip for a personal computer.”
 
-Press enter or click to view image in full size
-
 Usually, the general-purpose computers use Complex Instruction Set Computing (CISC) architecture for CPUs. Still, the Apple M1 platform is based on ARM, in Reduced Instruction Set Computing (RISC). RISC Processors are mostly used for mobile computing devices such as smartphones.
 
 > But how did Apple adapt the RISC architecture for their high-performance laptops and nail the benchmark scores?
@@ -63,8 +47,6 @@ There are two main CPU design architectures in-use today. Based on the Instructi
 
 1.  Reduced Instruction Set Computing (RISC)
 2.  Complex Instruction Set Computing (CISC)
-
-Press enter or click to view image in full size
 
 *Two different CPU designs*
 
@@ -80,10 +62,6 @@ Are you a university student reading for Computer Science or Information Technol
 
 I released my latest course — The Computer Architecture and Computer Organization Full Course on Udemy. I packed everything you need to know in the subject, including Instruction Set Architecture, RISC and CISC, Calculating Performance Benchmark Scores, etc.
 
-Press enter or click to view image in full size
-
-Press enter or click to view image in full size
-
 ***Enroll in learning** [**Computer Architecture and Organization**](https://www.udemy.com/course/computer-organization-and-architecture-course-masterclass/?referralCode=283EE8EE4B939642F32B) **now***
 
 If you like to learn Computer Organization and Architecture with the latest examples, tools, and concepts, click here to enroll in [my new course.](https://www.udemy.com/course/computer-organization-and-architecture-course-masterclass/?referralCode=283EE8EE4B939642F32B)
@@ -92,13 +70,9 @@ If you like to learn Computer Organization and Architecture with the latest exam
 
 The System on Chip (SoC) M1 chipset is remarkably efficient due to its energy-efficient and high-performance cores. M1 chip is already a considerable performance gain featured on MacBook Air 2020 models. It evolved so much until the M1 Max, which now features on MacBook Pros.
 
-Press enter or click to view image in full size
-
 *M1 Chip Series (Image from [Apple Newsroom](https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/))*
 
 The Ultra chip design is incredibly simple at a glance, but an engineering marvel in another hand. The M1 Ultra chip is literally a combination of 2 M1 Max chips.
-
-Press enter or click to view image in full size
 
 *M1 Ultra SoC Design (Image from [Apple Newsroom](https://www.apple.com/newsroom/2022/03/apple-unveils-m1-ultra-the-worlds-most-powerful-chip-for-a-personal-computer/))*
 
@@ -120,44 +94,10 @@ The M1 Ultra is available only on the “Mac Studio” device yet, costing a few
 
 I hope this article helps you explore more on Computer Organization and Architecture and make your buying decisions with more knowledge. Thank you for reading!
 
-Press enter or click to view image in full size
-
 ## You might be interested,
 
-### Learn Augmented Reality with Step by step Guide
-
-[
-
-## Beginners Guide to Augmented Reality Game Development
-
-### Step by step tutorial to designing state-of-the-art AR apps with Niantic Lightship ARDK for Android and iOS
-
-readclub.me
-
-](https://readclub.me/game-development-with-augmented-reality/?source=post_page-----821805860c42---------------------------------------)
-
-### **Are you looking for starting your own blog or website?**
-
-[
-
-## Start a Money Making Blog on Ghost
-
-### Guide to Creating a Ghost CMS and Self-host with Zero Cost
-
-yasassri.medium.com
-
-](/start-a-money-making-blog-on-ghost-497c1d2c99c7?source=post_page-----821805860c42---------------------------------------)
-
-### Beginners Guide: Clean Code Practices in JavaScript in 2022
-
-[
-
-## How to Write JavaScript Clean Code in 8 Steps
-
-### Clean Coding Practices for JavaScript Beginners in 2022 As newbies to the software engineering field, most of us focus…
-
-readclub.me
-
-](https://readclub.me/how-to-write-javascript-clean-code-and-clean-coding-practices/?source=post_page-----821805860c42---------------------------------------)
+- [Beginners Guide to Augmented Reality Game Development](https://readclub.me/game-development-with-augmented-reality/) — step by step tutorial to designing state-of-the-art AR apps with Niantic Lightship ARDK for Android and iOS.
+- [Start a Money Making Blog on Ghost](https://yasassri.medium.com/start-a-money-making-blog-on-ghost-497c1d2c99c7) — guide to creating a Ghost CMS and self-hosting with zero cost.
+- [How to Write JavaScript Clean Code in 8 Steps](https://readclub.me/how-to-write-javascript-clean-code-and-clean-coding-practices/) — clean coding practices for JavaScript beginners.
 
 *Start your own blog with $200 free with [this link](https://m.do.co/c/22ae290baec3)*

@@ -15,14 +15,14 @@ Step by step tutorial to designing state-of-the-art AR apps with Niantic Lightsh
 
 ## Prerequisites
 
--   Install [Unity Hub](https://unity3d.com/get-unity/download?ref=readclub.me)
+-   Install [Unity Hub](https://unity.com/download)
 -   Install [Unity version 2020.3.2f1](https://prf.hn/click/camref:1011lr4gQ?ref=readclub.me)
 -   Download Niantic [Lightship ARDK](https://lightship.dev/account/downloads?ref=readclub.me), Lightship Example Projects, ARDK Sample Mock Meshes, ARDK Mock Environments and Lightship Hub files
 
 ### Optional
 
 -   [Apple Developer Account](https://developer.apple.com/programs/enroll/?ref=readclub.me) and [XCode](https://developer.apple.com/xcode/?ref=readclub.me) (if you plan to create apps for iOS (You need to have a Mac also)
--   [Android SDK](https://lightship.dev/docs/building_android.html?ref=readclub.me) _(if you plan to create apps for Android, this can be downloaded via Unity as well)_
+-   [Android SDK](https://developer.android.com/studio) _(if you plan to create apps for Android, this can be downloaded via Unity as well)_
 
 * * *
 
@@ -72,12 +72,6 @@ Make sure you have only one ArdkAuthCongig.asset in your Project. You can search
 
 ![](https://readclub.me/content/images/2022/10/Screenshot-2022-10-11-at-6.42.37-PM.png)
 
-## Subscribe ReadClub™
-
-### Receive the Latest Blog Posts Directly to Your Email for FREE
-
-[Subscribe Now](https://readclub.me/#/portal/signup)
-
 ### Step 05: Use Lightship Templates
 
 -   Open Lightship Hub through Lightship --> Lightship Hub --> Welcome
@@ -111,8 +105,4 @@ Make sure you have only one ArdkAuthCongig.asset in your Project. You can search
 
 ![](https://readclub.me/content/images/2022/10/Screen-Recording-2022-10-11-at-9.01.33-PM-2.gif)
 
-## This post is for subscribers only
-
-Subscribe now
-
-Already have an account? Sign in
+From here, you're ready to start building your own AR experience with Lightship ARDK.
