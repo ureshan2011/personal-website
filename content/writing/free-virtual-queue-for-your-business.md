@@ -7,25 +7,11 @@ originalUrl: https://yasassri.medium.com/free-virtual-queue-for-your-business-5b
 originalDate: 2021-05-05
 originalSource: "Medium"
 ---
-[
-
-![Yasas Sri Wickramasinghe](https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg)
-
-](/?source=post_page---byline--5b8eb49f1b35---------------------------------------)
-
-[Yasas Sri Wickramasinghe](/?source=post_page---byline--5b8eb49f1b35---------------------------------------)
-
-3 min readMay 5, 2021
-
-\--
-
 Free Google Solution, No Download or Login Required
 
 With social distancing and safety measures, every business tries to implement solutions to make the customer experience better and safer.
 
 [“Hack to Help: COVID-19 at Experiments With Google](https://experiments.withgoogle.com/hacktohelp)” is a community that volunteers to build small web solutions and they have released an app to create and manage virtual queues for businesses.
-
-Press enter or click to view image in full size
 
 *Virtual queue user interface*
 
