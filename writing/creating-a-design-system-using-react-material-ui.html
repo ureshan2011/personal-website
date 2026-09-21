@@ -121,16 +121,10 @@
 <section class="section">
   <div class="container prose" style="max-width:72ch;">
     <h2><strong>Building a custom design system using Material UI library</strong></h2>
-<figure><a href="https://yasassri.medium.com/?source=post_page---byline--498e2e9d3480---------------------------------------" target="_blank" rel="noopener"><img src="https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg" alt="Yasas Sri Wickramasinghe" loading="lazy" decoding="async"/></a></figure>
-<p><a href="https://yasassri.medium.com/?source=post_page---byline--498e2e9d3480---------------------------------------" target="_blank" rel="noopener">Yasas Sri Wickramasinghe</a></p>
-<p>5 min readJun 22, 2021</p>
-<p>\--</p>
-<p>Press enter or click to view image in full size</p>
 <p>Modern design systems rely heavily on rich UI component libraries. They promote code reusability, enable consistency in design (in and across apps) and speed up overall development.</p>
 <p>This article shares how I used React Material UI with <a href="https://github.com/teambit/bit" target="_blank" rel="noopener">Bit open source</a> platform to create a custom design system focused on consistency with high governance.</p>
-<p>You can preview each <a href="https://blog.bitsrc.io/independent-components-the-webs-new-building-blocks-59c893ef0f65" target="_blank" rel="noopener">independent components</a> by visiting the <a href="https://bit.dev/enlear/react-material-design/" target="_blank" rel="noopener">Bit collection URL</a>.</p>
-<p><a href="https://bit.dev/enlear/react-material-design/" target="_blank" rel="noopener">https://bit.dev/enlear/react-material-design/</a></p>
-<p><em>Overview of the design system: <a href="https://bit.dev/enlear/react-material-design/" target="_blank" rel="noopener">https://bit.dev/enlear/react-material-design/</a></em></p>
+<p>You can preview each independent component by visiting the Bit collection.</p>
+<p><em>Overview of the design system on Bit</em></p>
 <p>Here, each component in the design system is authored, versioned, and shared individually and not as part of a single monolithic library, that creates countless benefits such as;</p>
 <ul>
 <li>Import only the components that are used within your application.</li>
@@ -139,7 +133,6 @@
 </ul>
 <h2>Using React Material UI</h2>
 <p>As we all know <a href="https://material-ui.com/" target="_blank" rel="noopener"><strong>React Material UI</strong></a> provides a range of UI components that are ready to use. However, think of a scenario where you want to add a React button component, and you know it supports different attributes. You can have a button with rounded edges, a button with a label, a button with an icon, or even a button in disabled status.</p>
-<p>Press enter or click to view image in full size</p>
 <p><em>Different button variants in React Material UI</em></p>
 <h2>Consistency Over Flexibility?</h2>
 <p>Though it’s one of the prime objectives of a UI library to allow customization, if we expose this flexibility to developers, it could adversely affect the consistency of the user interfaces.</p>
@@ -165,14 +158,10 @@
 <li><strong>Pages</strong> — Composition of components that reassembles a web page.</li>
 </ul>
 <p>Then you might wonder why I chose to group them in this way.</p>
-<h2>Get Yasas Sri Wickramasinghe’s stories in your inbox</h2>
-<p>Join Medium for free to get updates from this writer.</p>
-<p>Remember me for faster sign in</p>
 <p>For lower-order components such as UI/Inputs, Layouts, and Surfaces, I’ve followed the same structure as in React Material UI library.</p>
 <p>For higher-order components, I’ve introduced Widgets and Pages out of thin air. 🙂</p>
 <h3>Starting with UI/Inputs</h3>
 <p>At first, I got stuck on choosing the basic building blocks for the design system. I’ve decided to select a subset of components from React Material UI <strong>wrap</strong> them to create the Button, Radio, Select and Text field as the foundation. These components you can find under the UI/Inputs, as shown below.</p>
-<p><a href="https://bit.dev/enlear/react-material-design/ui/inputs/button/~code/button.tsx" target="_blank" rel="noopener">https://bit.dev/enlear/react-material-design/ui/inputs/button/~code/button.tsx</a></p>
 <p><em>Button component in the design system at bit.dev</em></p>
 <blockquote>
 <p>For instance, I don’t want developers to make spontaneous decisions on how a button should look or behave, breaking the consistency.</p>
@@ -180,12 +169,9 @@
 <p>Though the button’s functionality is limited, we can gradually add more functionality having complete control since it’s the only button reused elsewhere in the application. Besides, it also reduces the coupling of React Material UI with higher-order components.</p>
 <h3>Higher-Order Components</h3>
 <p>Then, gradually the higher-order components were defined. The below example shows how the product page components look like.</p>
-<p><a href="https://bit.dev/enlear/react-material-design/pages/products" target="_blank" rel="noopener">https://bit.dev/enlear/react-material-design/pages/products</a></p>
 <p><em>Products page component composition in bit.dev</em></p>
-<p><a href="https://bit.dev/enlear/react-material-design/pages/products/~code/products.tsx" target="_blank" rel="noopener">https://bit.dev/enlear/react-material-design/pages/products/~code/products.tsx</a></p>
 <p><em>Product page code example in bit.dev</em></p>
 <p>Furthermore, to understand its dependencies, let’s look at the complete dependency graph of the products page.</p>
-<p><a href="https://bit.dev/enlear/react-material-design/pages/products/~dependencies" target="_blank" rel="noopener">https://bit.dev/enlear/react-material-design/pages/products/~dependencies</a></p>
 <p><em>Dependency graph of product page component</em></p>
 <p>As you can see, the design system clearly reuses its foundational building blocks, which is a good sign that it’s working.</p>
 <h2>Theming Support</h2>
@@ -193,11 +179,9 @@
 <blockquote>
 <p>That’s precisely the theme provider global overrides supposed to do.</p>
 </blockquote>
-<p>Following are some of the properties we can override by creating a custom theme provider.</p>
-<p><a href="https://material-ui.com/customization/theming/#theming" target="_blank" rel="noopener">https://material-ui.com/customization/theming/#theming</a></p>
+<p>Following are some of the properties we can override by creating a custom theme provider, <a href="https://material-ui.com/customization/theming/#theming" target="_blank" rel="noopener">documented here</a>.</p>
 <p><em>Theme overrides in React Material UI</em></p>
 <p>For example, suppose I override the “primary” property of the palette object inside a custom theme provider. As a result, it directly overrides the color of the button component in the design system.</p>
-<p>Press enter or click to view image in full size</p>
 <p><em>Overriding primary color palette in React Material UI</em></p>
 <h2>Conclusion</h2>
 <p>I believe design system should become the norm to bridge the gap between designers and developers to establish consistency in frontend development.</p>

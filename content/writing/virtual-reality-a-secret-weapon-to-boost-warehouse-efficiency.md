@@ -7,23 +7,7 @@ originalUrl: https://yasassri.medium.com/virtual-reality-a-secret-weapon-to-boos
 originalDate: 2021-05-05
 originalSource: "Medium"
 ---
-[
-
-![Yasas Sri Wickramasinghe](https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg)
-
-](/?source=post_page---byline--3aa065eddea1---------------------------------------)
-
-[Yasas Sri Wickramasinghe](/?source=post_page---byline--3aa065eddea1---------------------------------------)
-
-3 min readMay 3, 2021
-
-\--
-
-Press enter or click to view image in full size
-
 **VR** is not a science fiction or a technology limited to researches. Still, nowadays,It has become a tool to make some tasks way easier and more efficient than we assume. But as many think, Virtual Reality is only good at Gaming or Entertainment related fields. However, its powerful capabilities have already unlocked the potential of adapting it to many more industries, including “Warehouse Management.”
-
-Press enter or click to view image in full size
 
 *Aerial View of a Warehouse (Source : [www.unsplash.com](https://unsplash.com/photos/oh0DITWoHi4))*
 
@@ -36,9 +20,7 @@ Press enter or click to view image in full size
 
 Mostly, people working at warehouses are working for a roaster/part-time based. These people are mostly changing jobs, and Warehouses have a tremendous employee turnover rate compared to other industries.
 
-Press enter or click to view image in full size
-
-*Source : [https://www.refrigiwear.com/knowledge-center/reducing-employee-turnover](https://www.refrigiwear.com/knowledge-center/reducing-employee-turnover)*
+*Source : [RefrigiWear — Reducing Employee Turnover](https://web.archive.org/web/2020/https://www.refrigiwear.com/knowledge-center/reducing-employee-turnover) (archived; original page no longer live)*
 
 Employee turnover might sound routine in the warehouse industry. Still, if you dig into actual figures and relate them to financials, it’s clear that a high turnover rate directly impacts business performance and financial goals. Some clearly identifiable factors associated with the on-boarding new employee to a warehouse as follow,
 
@@ -58,8 +40,6 @@ If we can reduce the training cost of new employees and make employee training m
 For this, Virtual Reality(VR) comes handy
 
 ## **Why Virtual Reality ?**
-
-Press enter or click to view image in full size
 
 *Source : [https://www.pexels.com/photo/boy-in-yellow-crew-neck-t-shirt-using-white-and-black-vr-box-4144152/](https://www.pexels.com/photo/boy-in-yellow-crew-neck-t-shirt-using-white-and-black-vr-box-4144152/)*
 

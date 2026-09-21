@@ -9,31 +9,13 @@ originalSource: "Level Up Coding"
 ---
 ## **Building a custom design system using Material UI library**
 
-[
-
-![Yasas Sri Wickramasinghe](https://miro.medium.com/v2/resize:fill:64:64/1*abNALGUtTLIDn8RcSNFJWA.jpeg)
-
-](https://yasassri.medium.com/?source=post_page---byline--498e2e9d3480---------------------------------------)
-
-[Yasas Sri Wickramasinghe](https://yasassri.medium.com/?source=post_page---byline--498e2e9d3480---------------------------------------)
-
-5 min readJun 22, 2021
-
-\--
-
-Press enter or click to view image in full size
-
 Modern design systems rely heavily on rich UI component libraries. They promote code reusability, enable consistency in design (in and across apps) and speed up overall development.
 
 This article shares how I used React Material UI with [Bit open source](https://github.com/teambit/bit) platform to create a custom design system focused on consistency with high governance.
 
-You can preview each [independent components](https://blog.bitsrc.io/independent-components-the-webs-new-building-blocks-59c893ef0f65) by visiting the [Bit collection URL](https://bit.dev/enlear/react-material-design/).
+You can preview each independent component by visiting the Bit collection.
 
-[
-
-](https://bit.dev/enlear/react-material-design/)
-
-*Overview of the design system: [https://bit.dev/enlear/react-material-design/](https://bit.dev/enlear/react-material-design/)*
+*Overview of the design system on Bit*
 
 Here, each component in the design system is authored, versioned, and shared individually and not as part of a single monolithic library, that creates countless benefits such as;
 
@@ -44,8 +26,6 @@ Here, each component in the design system is authored, versioned, and shared ind
 ## Using React Material UI
 
 As we all know [**React Material UI**](https://material-ui.com/) provides a range of UI components that are ready to use. However, think of a scenario where you want to add a React button component, and you know it supports different attributes. You can have a button with rounded edges, a button with a label, a button with an icon, or even a button in disabled status.
-
-Press enter or click to view image in full size
 
 *Different button variants in React Material UI*
 
@@ -79,12 +59,6 @@ For the design system, I’ve developed the following categories to group UI com
 
 Then you might wonder why I chose to group them in this way.
 
-## Get Yasas Sri Wickramasinghe’s stories in your inbox
-
-Join Medium for free to get updates from this writer.
-
-Remember me for faster sign in
-
 For lower-order components such as UI/Inputs, Layouts, and Surfaces, I’ve followed the same structure as in React Material UI library.
 
 For higher-order components, I’ve introduced Widgets and Pages out of thin air. 🙂
@@ -93,9 +67,6 @@ For higher-order components, I’ve introduced Widgets and Pages out of thin air
 
 At first, I got stuck on choosing the basic building blocks for the design system. I’ve decided to select a subset of components from React Material UI **wrap** them to create the Button, Radio, Select and Text field as the foundation. These components you can find under the UI/Inputs, as shown below.
 
-[
-
-](https://bit.dev/enlear/react-material-design/ui/inputs/button/~code/button.tsx)
 
 *Button component in the design system at bit.dev*
 
@@ -107,23 +78,14 @@ Though the button’s functionality is limited, we can gradually add more functi
 
 Then, gradually the higher-order components were defined. The below example shows how the product page components look like.
 
-[
-
-](https://bit.dev/enlear/react-material-design/pages/products)
 
 *Products page component composition in bit.dev*
 
-[
-
-](https://bit.dev/enlear/react-material-design/pages/products/~code/products.tsx)
 
 *Product page code example in bit.dev*
 
 Furthermore, to understand its dependencies, let’s look at the complete dependency graph of the products page.
 
-[
-
-](https://bit.dev/enlear/react-material-design/pages/products/~dependencies)
 
 *Dependency graph of product page component*
 
@@ -135,17 +97,11 @@ Typically theming applies to basic UI components. With React Material UI, each c
 
 > That’s precisely the theme provider global overrides supposed to do.
 
-Following are some of the properties we can override by creating a custom theme provider.
-
-[
-
-](https://material-ui.com/customization/theming/#theming)
+Following are some of the properties we can override by creating a custom theme provider, [documented here](https://material-ui.com/customization/theming/#theming).
 
 *Theme overrides in React Material UI*
 
 For example, suppose I override the “primary” property of the palette object inside a custom theme provider. As a result, it directly overrides the color of the button component in the design system.
-
-Press enter or click to view image in full size
 
 *Overriding primary color palette in React Material UI*
 
