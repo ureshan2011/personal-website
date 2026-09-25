@@ -378,8 +378,15 @@ free consultation link.
 
 ### Teaching in Sri Lanka
 
-Alongside my work in New Zealand, I teach A/L ICT to Grade 12 and 13
-students in Sri Lanka through ICT Campus (https://ictcampus.lk), the online
+Before New Zealand I was a Lecturer at the University of Moratuwa's Faculty
+of Information Technology (2018–2022), teaching object-oriented programming,
+multimedia and web technologies, computer architecture and enterprise
+software, databases and HCI, and supervising research. I was also a visiting
+lecturer at NSBM Green University, SLIIT and the Institute of Technology,
+University of Moratuwa (ITUM), and Platform Lead for the Software Engineering
+strand of the University of Moratuwa's open learning platform (open.uom.lk),
+which reached 150,000+ registered learners. Today I teach A/L ICT to Grade 12
+and 13 students in Sri Lanka through ICT Campus (https://ictcampus.lk), the online
 classroom I founded. Classes are live, in Sinhala and English medium, and
 follow the NIE syllabus. Free study material, no account needed: the A/L ICT
 syllabus (https://ictcampus.lk/syllabus), past papers
