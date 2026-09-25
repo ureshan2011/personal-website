@@ -54,14 +54,16 @@ forty-five real, anonymised workplace conflicts to show when collaboration
 works, when it backfires, and what to do instead. Free download at
 yasassri.me/app/#/book; sign-in required, takes under a minute.
 
-**Upcoming talks & workshops.** Two engagements on the calendar, or invite
+**Upcoming talks & workshops.** Three engagements on the calendar, or invite
 me for something similar: Designing Shared Worlds Across Distance (NZGDC,
-1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
+1 October 2026) — Presenting on VR Presence & Motion Sickness (VRST 2026,
+Sendai, Japan, 16–18 November 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
 Distance (University of Moratuwa, date to be announced). Full details at
 yasassri.me/news.html.
 
-**Just wrapped.** Workshops delivered this year, with the material and demos
-still online: Code Champ 2026 Workshop 07: Augmented Reality and Game
+**Just wrapped.** Talks and workshops delivered this year, with the material
+and demos still online: From Research to Reality — AR/VR Entrepreneurship
+Opportunities (IEEE Entrepreneurship, Sri Lanka, 22 September 2026) — Code Champ 2026 Workshop 07: Augmented Reality and Game
 Development (20 August 2026) — CODE with WIE 2026 Workshop 01: Architecting
 the Augmented Tomorrow (IEEE WIE Sri Lanka, 11 July 2026).
 
@@ -546,7 +548,12 @@ connects remote players through shared immersive experiences. The date and
 time are still to be confirmed by the organisers. Official programme:
 https://icitr.uom.lk/workshops/
 
-**Recently delivered.** Code Champ 2026 — Workshop 07: Augmented Reality and
+**Recently delivered.** From Research to Reality — AR/VR Entrepreneurship
+Opportunities for Sri Lankans. 22 September 2026, 3:30 PM (Sri Lanka time),
+online via Zoom. I spoke at an IEEE Entrepreneurship, Sri Lanka Section
+session on the AR/VR startup landscape and the entrepreneurship opportunities
+open to Sri Lankan innovators.
+Code Champ 2026 — Workshop 07: Augmented Reality and
 Game Development. 20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via
 Zoom. I led Workshop 07 of Code Champ 2026 — "Code Your World" — organised by
 E3 (Computer Science) with the Committee for Popularization of Science (CPS),

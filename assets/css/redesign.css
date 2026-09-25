@@ -933,3 +933,99 @@ html.lenis, html.lenis body { height: auto; }
   .vmock-live .dot { animation: none; }
   .vcard:hover { transform: none; }
 }
+
+/* ==========================================================================
+   Study in New Zealand — postgraduate interest form (index.html#study-nz)
+   ========================================================================== */
+.pgnz { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); }
+.pgnz-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+.pgnz-pitch { position: sticky; top: 110px; }
+.pgnz-lede { margin-top: 18px; color: var(--ink-soft); font-size: 16.5px; }
+.pgnz-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.pgnz-path { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.pgnz-path-ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 12px; }
+.pgnz-path h3 { font-size: 17px; }
+.pgnz-path p { font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+.pgnz-help { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.pgnz-help li { position: relative; padding-left: 28px; font-size: 15px; color: var(--ink); }
+.pgnz-help li::before {
+  content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat;
+}
+.pgnz-fine { margin-top: 24px; font-size: 13px; color: var(--muted); }
+.pgnz-fine a { color: var(--accent); font-weight: 600; }
+
+.pgnz-form {
+  position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+  padding: clamp(22px, 3.2vw, 36px); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.pg-progress { display: flex; flex-direction: column; gap: 12px; }
+.pgnz-form:not(.is-stepped) .pg-progress { display: none; }
+.pg-steps { display: flex; justify-content: space-between; gap: 8px; }
+.pg-step { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.pg-step b { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; border: 1px solid var(--line-strong); color: var(--muted); transition: all .3s var(--ease); }
+.pg-step.is-on { color: var(--ink); }
+.pg-step.is-on b { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pg-step.is-done b { background: var(--accent-soft); border-color: var(--accent-soft); color: var(--accent); }
+.pg-track { height: 4px; border-radius: 999px; background: var(--bg-panel); overflow: hidden; }
+.pg-track span { display: block; height: 100%; width: 33%; border-radius: inherit; background: var(--accent); transition: width .5s var(--ease); }
+
+.pg-panel { border: 0; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.pg-panel[hidden] { display: none; }
+.pgnz-form:not(.is-stepped) .pg-panel + .pg-panel { border-top: 1px solid var(--line); padding-top: 22px; }
+.pg-legend { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink); margin-bottom: 4px; padding: 0; }
+.pg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pg-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+.pgnz-form .field input, .pgnz-form .field select, .pgnz-form .field textarea { width: 100%; min-width: 0; }
+.pg-label { font-size: 13px; font-weight: 600; color: var(--ink); }
+.pg-label small { font-weight: 400; color: var(--muted); margin-left: 6px; }
+
+.pg-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; border-radius: 16px; }
+.pg-tile { position: relative; cursor: pointer; }
+.pg-tile input { position: absolute; opacity: 0; pointer-events: none; }
+.pg-tile span {
+  display: flex; flex-direction: column; gap: 2px; height: 100%;
+  border: 1.5px solid var(--line-strong); border-radius: 14px; padding: 14px 14px 12px;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.pg-tile b { font-size: 16px; color: var(--ink); }
+.pg-tile small { font-size: 12.5px; color: var(--muted); }
+.pg-tile:hover span { border-color: var(--accent); }
+.pg-tile input:checked + span { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 4px var(--ring); }
+.pg-tile input:focus-visible + span { box-shadow: 0 0 0 4px var(--ring); }
+
+.pg-checks { display: flex; flex-wrap: wrap; gap: 8px; }
+.pg-checks label { cursor: pointer; }
+.pg-checks input { position: absolute; opacity: 0; pointer-events: none; }
+.pg-checks span { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink-soft); transition: all .2s; }
+.pg-checks input:checked + span { background: var(--accent); border-color: var(--accent); color: #fff; }
+.pg-checks input:checked + span::before { content: "✓"; font-size: 12px; }
+.pg-checks input:focus-visible + span { box-shadow: 0 0 0 4px var(--ring); }
+
+.pg-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--ink-soft); cursor: pointer; }
+.pg-consent input { margin-top: 3px; width: 16px; height: 16px; accent-color: var(--accent); flex: none; }
+.pgnz-form.is-stepped:not(.is-phd) .pg-phd-only { display: none; }
+.pg-invalid input:not([type=radio]):not([type=checkbox]), .pg-invalid select { border-color: #d93a2b; }
+.pg-tiles.pg-invalid .pg-tile span, .pg-consent.pg-invalid { border-color: #d93a2b; color: #b3261e; }
+
+.pg-actions { display: flex; gap: 10px; align-items: center; justify-content: flex-end; }
+.pg-actions [hidden] { display: none; }
+#pgBack { margin-right: auto; }
+.pg-msg { font-size: 14px; font-weight: 600; min-height: 1em; }
+.pg-msg:empty { display: none; }
+.pg-msg.ok { color: #1a7f4b; }
+.pg-msg.err { color: #b3261e; }
+
+@media (max-width: 940px) {
+  .pgnz-grid { grid-template-columns: 1fr; }
+  .pgnz-pitch { position: static; }
+}
+@media (max-width: 560px) {
+  .pg-row, .pg-row-3 { grid-template-columns: 1fr; }
+  .pg-tiles { grid-template-columns: 1fr; }
+  .pgnz-paths { grid-template-columns: 1fr; }
+  .pg-step { font-size: 0; gap: 0; }
+  .pg-step b { font-size: 12px; }
+  .pg-steps { justify-content: space-around; }
+}
