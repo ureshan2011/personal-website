@@ -448,6 +448,179 @@
   </div>
 </section>
 
+<!-- STUDY IN NEW ZEALAND — postgraduate interest form -->
+<section class="section pgnz" id="study-nz" aria-labelledby="pgnz-title">
+  <div class="container pgnz-grid">
+
+    <div class="pgnz-pitch reveal">
+      <span class="eyebrow">Study in New Zealand</span>
+      <h2 id="pgnz-title">Thinking about a <em>master's or PhD</em> in New Zealand?</h2>
+      <p class="pgnz-lede">I did my PhD at the University of Canterbury, I teach postgraduate students in New Zealand, and I came here from Sri Lanka myself. Tell me where you are and where you want to go — the more you share, the more useful my reply will be.</p>
+
+      <div class="pgnz-paths">
+        <div class="pgnz-path">
+          <span class="pgnz-path-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+          <h3>Master's</h3>
+          <p>Taught or research master's — choosing a programme, entry requirements, costs and scholarships.</p>
+        </div>
+        <div class="pgnz-path">
+          <span class="pgnz-path-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14z"/><path d="M9 8h7M9 12h5"/></svg></span>
+          <h3>PhD</h3>
+          <p>Finding a supervisor, shaping a research proposal, and doctoral scholarships.</p>
+        </div>
+      </div>
+
+      <ul class="pgnz-help">
+        <li>Which universities and programmes fit your background</li>
+        <li>How to approach a supervisor, and what to send them</li>
+        <li>Scholarships, funding and realistic costs</li>
+        <li>Feedback on your research idea or application</li>
+      </ul>
+
+      <p class="pgnz-fine">Independent guidance from me personally — not on behalf of any university, and not immigration advice. For costs, courses and scholarships, <a href="https://ureshan2011.github.io/Pathfinder/" target="_blank" rel="noopener">PathFinder</a> is also free to use.</p>
+    </div>
+
+    <form class="pgnz-form reveal" id="pgForm" style="--d:.1s" action="https://formspree.io/f/xleookvv" method="post" novalidate>
+      <input type="hidden" name="_subject" value="Postgraduate study in NZ — new enquiry"/>
+      <input type="hidden" name="form" value="Postgraduate study in New Zealand"/>
+
+      <div class="pg-progress" aria-hidden="true">
+        <div class="pg-steps">
+          <span class="pg-step is-on" data-step-label="1"><b>1</b>About you</span>
+          <span class="pg-step" data-step-label="2"><b>2</b>Background</span>
+          <span class="pg-step" data-step-label="3"><b>3</b>Your plans</span>
+        </div>
+        <div class="pg-track"><span id="pgBar"></span></div>
+      </div>
+
+      <!-- STEP 1 -->
+      <fieldset class="pg-panel" data-step="1">
+        <legend class="pg-legend">What are you interested in?</legend>
+        <div class="pg-tiles" role="radiogroup" aria-label="Degree level">
+          <label class="pg-tile"><input type="radio" name="level" value="Master's" required/><span><b>Master's</b><small>Taught or research</small></span></label>
+          <label class="pg-tile"><input type="radio" name="level" value="PhD"/><span><b>PhD</b><small>Doctoral research</small></span></label>
+          <label class="pg-tile"><input type="radio" name="level" value="Not sure yet"/><span><b>Not sure yet</b><small>Help me decide</small></span></label>
+        </div>
+        <div class="pg-row">
+          <div class="field"><label for="pgName">Full name *</label><input id="pgName" name="name" type="text" maxlength="120" required autocomplete="name" placeholder="Your full name"/></div>
+          <div class="field"><label for="pgEmail">Email *</label><input id="pgEmail" name="email" type="email" maxlength="200" required autocomplete="email" placeholder="you@example.com"/></div>
+        </div>
+        <div class="pg-row">
+          <div class="field"><label for="pgPhone">WhatsApp / phone</label><input id="pgPhone" name="phone" type="tel" maxlength="40" autocomplete="tel" placeholder="+94 7X XXX XXXX"/></div>
+          <div class="field"><label for="pgCountry">Country you live in</label><input id="pgCountry" name="country" type="text" maxlength="80" autocomplete="country-name" value="Sri Lanka"/></div>
+        </div>
+        <div class="field"><label for="pgStatus">Where are you right now?</label>
+          <select id="pgStatus" name="currentStatus">
+            <option value="">Choose one</option>
+            <option>Final-year undergraduate</option>
+            <option>Graduate, working</option>
+            <option>Graduate, not working yet</option>
+            <option>Already have a master's</option>
+            <option>Already studying in New Zealand</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- STEP 2 -->
+      <fieldset class="pg-panel" data-step="2">
+        <legend class="pg-legend">Your academic background</legend>
+        <div class="pg-row">
+          <div class="field"><label for="pgQual">Highest qualification</label><input id="pgQual" name="qualification" type="text" maxlength="160" placeholder="e.g. BSc (Hons) in IT"/></div>
+          <div class="field"><label for="pgUni">University / institute</label><input id="pgUni" name="institution" type="text" maxlength="160" placeholder="e.g. University of Moratuwa"/></div>
+        </div>
+        <div class="pg-row pg-row-3">
+          <div class="field"><label for="pgYear">Year completed</label><input id="pgYear" name="gradYear" type="text" inputmode="numeric" maxlength="12" placeholder="e.g. 2024"/></div>
+          <div class="field"><label for="pgGpa">GPA / class</label><input id="pgGpa" name="gpa" type="text" maxlength="60" placeholder="e.g. 3.4 / Second upper"/></div>
+          <div class="field"><label for="pgWork">Work experience</label>
+            <select id="pgWork" name="workExperience">
+              <option value="">Choose</option>
+              <option>None yet</option><option>Under 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option>
+            </select>
+          </div>
+        </div>
+        <div class="pg-row">
+          <div class="field"><label for="pgEng">English test</label>
+            <select id="pgEng" name="englishTest">
+              <option value="">Choose</option>
+              <option>IELTS Academic</option><option>PTE Academic</option><option>TOEFL iBT</option><option>Not taken yet</option><option>Degree taught in English</option>
+            </select>
+          </div>
+          <div class="field"><label for="pgEngScore">Score (if taken)</label><input id="pgEngScore" name="englishScore" type="text" maxlength="40" placeholder="e.g. 7.0 overall"/></div>
+        </div>
+        <div class="field pg-phd-only"><label for="pgPubs">Research experience or publications</label><input id="pgPubs" name="research" type="text" maxlength="300" placeholder="e.g. final-year thesis, 1 conference paper"/></div>
+      </fieldset>
+
+      <!-- STEP 3 -->
+      <fieldset class="pg-panel" data-step="3">
+        <legend class="pg-legend">What you want to study</legend>
+        <div class="pg-row">
+          <div class="field"><label for="pgField">Field</label>
+            <select id="pgField" name="field">
+              <option value="">Choose</option>
+              <option>Computer Science / IT</option>
+              <option>Information Systems / Business Informatics</option>
+              <option>Data Science / AI</option>
+              <option>HCI, AR / VR, games</option>
+              <option>Engineering</option>
+              <option>Business / Management</option>
+              <option>Education</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="pgIntake">When would you like to start?</label>
+            <select id="pgIntake" name="intake">
+              <option value="">Choose</option>
+              <option>2027 — first half</option><option>2027 — second half</option><option>2028</option><option>Later / not sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="pgTopic">Your research idea or area of interest</label><textarea id="pgTopic" name="topic" rows="3" maxlength="2000" placeholder="A few lines is plenty. For a PhD, the problem you want to work on."></textarea></div>
+        <div class="pg-row">
+          <div class="field"><label for="pgFund">Funding</label>
+            <select id="pgFund" name="funding">
+              <option value="">Choose</option>
+              <option>Need a scholarship</option><option>Self-funded</option><option>Employer / sponsor</option><option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field"><label for="pgUnis">Universities or cities in mind</label><input id="pgUnis" name="preferred" type="text" maxlength="200" placeholder="e.g. Canterbury, Auckland"/></div>
+        </div>
+        <div class="field">
+          <span class="pg-label">Where do you want help? <small>Pick any</small></span>
+          <div class="pg-checks">
+            <label><input type="checkbox" name="help" value="Choosing a programme"/><span>Choosing a programme</span></label>
+            <label><input type="checkbox" name="help" value="Finding a supervisor"/><span>Finding a supervisor</span></label>
+            <label><input type="checkbox" name="help" value="Scholarships"/><span>Scholarships</span></label>
+            <label><input type="checkbox" name="help" value="Research proposal"/><span>Research proposal</span></label>
+            <label><input type="checkbox" name="help" value="Application review"/><span>Application review</span></label>
+            <label><input type="checkbox" name="help" value="Life in New Zealand"/><span>Life in New Zealand</span></label>
+          </div>
+        </div>
+        <div class="field"><label for="pgMsg">Anything else?</label><textarea id="pgMsg" name="message" rows="3" maxlength="3000" placeholder="Questions, worries, deadlines — anything that helps me reply properly."></textarea></div>
+        <div class="pg-row">
+          <div class="field"><label for="pgHeard">How did you find me?</label>
+            <select id="pgHeard" name="heardFrom">
+              <option value="">Choose</option>
+              <option>LinkedIn</option><option>A talk or workshop</option><option>ICT Campus</option><option>Google search</option><option>A friend</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <label class="pg-consent"><input type="checkbox" name="consent" value="yes" required/><span>I'm happy for Dr. Yasas Sri Wickramasinghe to contact me about this by email or WhatsApp.</span></label>
+      </fieldset>
+
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this field empty</label><input name="website" tabindex="-1" autocomplete="off"/></div>
+
+      <div class="pg-actions">
+        <button class="btn" type="button" id="pgBack" hidden>← Back</button>
+        <button class="btn btn-solid" type="button" id="pgNext" hidden>Next <span class="arrow">→</span></button>
+        <button class="btn btn-solid" type="submit" id="pgSubmit">Send my details <span class="arrow">→</span></button>
+      </div>
+      <p class="pg-msg" id="pgMsgOut" role="status" aria-live="polite"></p>
+    </form>
+
+  </div>
+</section>
+
 <!-- PLATFORM PROMO -->
 <section class="section soft" id="platform">
   <div class="container">
@@ -575,21 +748,12 @@
     <div class="section-head reveal">
       <span class="eyebrow">Upcoming</span>
       <h2>Upcoming talks &amp; workshops</h2>
-      <p>Four engagements on the calendar — or invite me for something similar.</p>
+      <p>Three engagements on the calendar — or invite me for something similar.</p>
     </div>
     <div class="grid-2">
 
       <a class="article-card reveal" href="news.html#upcoming">
-        <div class="article-cover cover-flyer" data-num="—01"><img class="cover-img" src="assets/images/events/ieee-entrepreneurship-arvr-sri-lanka-2026.png" alt="IEEE Entrepreneurship Sri Lanka Section flyer — From Research to Reality: AR/VR Entrepreneurship Opportunities for Sri Lankans" loading="lazy" decoding="async" width="1131" height="1600"><span class="cat">Talk</span></div>
-        <div class="article-body">
-          <span class="src">IEEE Entrepreneurship, Sri Lanka · 22 September 2026</span>
-          <h3>From Research to Reality — AR/VR Entrepreneurship Opportunities</h3>
-          <span class="read">See event details →</span>
-        </div>
-      </a>
-
-      <a class="article-card reveal" style="--d:.05s" href="news.html#upcoming">
-        <div class="article-cover cover-flyer" data-num="—02"><img class="cover-img" src="assets/images/events/nzgdc-2026-designing-shared-worlds-across-distance.png" alt="NZGDC 2026 speaker flyer — Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" loading="lazy" decoding="async" width="1024" height="1536"><span class="cat">Conference Talk</span></div>
+        <div class="article-cover cover-flyer" data-num="—01"><img class="cover-img" src="assets/images/events/nzgdc-2026-designing-shared-worlds-across-distance.png" alt="NZGDC 2026 speaker flyer — Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" loading="lazy" decoding="async" width="1024" height="1536"><span class="cat">Conference Talk</span></div>
         <div class="article-body">
           <span class="src">NZGDC · 1 October 2026</span>
           <h3>Designing Shared Worlds Across Distance</h3>
@@ -597,8 +761,8 @@
         </div>
       </a>
 
-      <a class="article-card reveal" style="--d:.1s" href="news.html#upcoming">
-        <div class="article-cover cover-flyer" data-num="—03"><img class="cover-img" src="assets/images/events/vrst-2026-badge.png" alt="VRST 2026 — 32nd ACM Symposium on Virtual Reality Software and Technology badge, Sendai, Japan" loading="lazy" decoding="async" width="2127" height="2127"><span class="cat">Conference Paper</span></div>
+      <a class="article-card reveal" style="--d:.05s" href="news.html#upcoming">
+        <div class="article-cover cover-flyer" data-num="—02"><img class="cover-img" src="assets/images/events/vrst-2026-badge.png" alt="VRST 2026 — 32nd ACM Symposium on Virtual Reality Software and Technology badge, Sendai, Japan" loading="lazy" decoding="async" width="2127" height="2127"><span class="cat">Conference Paper</span></div>
         <div class="article-body">
           <span class="src">VRST 2026, Sendai, Japan · 16–18 November 2026</span>
           <h3>Presenting on VR Presence &amp; Motion Sickness</h3>
@@ -606,8 +770,8 @@
         </div>
       </a>
 
-      <a class="article-card reveal" style="--d:.15s" href="news.html#upcoming">
-        <div class="article-cover cover-flyer" data-num="—04"><img class="cover-img" src="assets/images/events/icitr-2026-workshop-01-card.jpg" alt="ICITR 2026 Workshop 01 — Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me, with Dr. Yasas Sri Wickramasinghe, University of Canterbury; date and time to be announced, online session" loading="lazy" decoding="async" width="2400" height="1800" style="object-position:center;"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Workshop</span></div>
+      <a class="article-card reveal" style="--d:.1s" href="news.html#upcoming">
+        <div class="article-cover cover-flyer" data-num="—03"><img class="cover-img" src="assets/images/events/icitr-2026-workshop-01-card.jpg" alt="ICITR 2026 Workshop 01 — Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me, with Dr. Yasas Sri Wickramasinghe, University of Canterbury; date and time to be announced, online session" loading="lazy" decoding="async" width="2400" height="1800" style="object-position:center;"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Workshop</span></div>
         <div class="article-body">
           <span class="src">ICITR 2026, Univ. of Moratuwa · Date TBA</span>
           <h3>ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance</h3>
@@ -620,12 +784,21 @@
     <div class="section-head reveal" style="margin-top:56px;">
       <span class="eyebrow">Recently delivered</span>
       <h2>Just wrapped</h2>
-      <p>Workshops delivered this year — the material and demos are still online.</p>
+      <p>Talks and workshops delivered this year — the material and demos are still online.</p>
     </div>
     <div class="grid-2">
 
-      <a class="article-card reveal" href="ar.html">
-        <div class="article-cover cover-flyer" data-num="—01"><img class="cover-img" src="assets/images/events/code-champ-2026-workshop-07-ar-game-development.png" alt="Code Champ 2026 Workshop 07 flyer — Augmented Reality and Game Development, with speaker Dr. Yasas Sri Wickramasinghe" loading="lazy" decoding="async" width="1045" height="1045"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Past Event</span></div>
+      <a class="article-card reveal" href="news.html#recent">
+        <div class="article-cover cover-flyer" data-num="—01"><img class="cover-img" src="assets/images/events/ieee-entrepreneurship-arvr-sri-lanka-2026.png" alt="IEEE Entrepreneurship Sri Lanka Section flyer — From Research to Reality: AR/VR Entrepreneurship Opportunities for Sri Lankans" loading="lazy" decoding="async" width="1131" height="1600"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Past Event</span></div>
+        <div class="article-body">
+          <span class="src">IEEE Entrepreneurship, Sri Lanka · 22 September 2026</span>
+          <h3>From Research to Reality — AR/VR Entrepreneurship Opportunities</h3>
+          <span class="read">Read the recap →</span>
+        </div>
+      </a>
+
+      <a class="article-card reveal" style="--d:.05s" href="ar.html">
+        <div class="article-cover cover-flyer" data-num="—02"><img class="cover-img" src="assets/images/events/code-champ-2026-workshop-07-ar-game-development.png" alt="Code Champ 2026 Workshop 07 flyer — Augmented Reality and Game Development, with speaker Dr. Yasas Sri Wickramasinghe" loading="lazy" decoding="async" width="1045" height="1045"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Past Event</span></div>
         <div class="article-body">
           <span class="src">Code Champ 2026 · 20 August 2026</span>
           <h3>Workshop 07: Augmented Reality and Game Development</h3>
@@ -633,8 +806,8 @@
         </div>
       </a>
 
-      <a class="article-card reveal" style="--d:.05s" href="news.html#recent">
-        <div class="article-cover cover-flyer" data-num="—02"><img class="cover-img" src="assets/images/events/code-with-wie-2026-workshop-01-architecting-augmented-tomorrow.jpg" alt="CODE with WIE 2026 Workshop 01 flyer — Architecting the Augmented Tomorrow, with speaker Dr. Yasas Sri Wickramasinghe, 11 July 2026, via Google Meet" loading="lazy" decoding="async" width="1024" height="1280"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Past Event</span></div>
+      <a class="article-card reveal" style="--d:.1s" href="news.html#recent">
+        <div class="article-cover cover-flyer" data-num="—03"><img class="cover-img" src="assets/images/events/code-with-wie-2026-workshop-01-architecting-augmented-tomorrow.jpg" alt="CODE with WIE 2026 Workshop 01 flyer — Architecting the Augmented Tomorrow, with speaker Dr. Yasas Sri Wickramasinghe, 11 July 2026, via Google Meet" loading="lazy" decoding="async" width="1024" height="1280"><span class="cat" style="background:rgba(19,26,38,.82);color:#fff;">Past Event</span></div>
         <div class="article-body">
           <span class="src">IEEE WIE Sri Lanka · 11 July 2026</span>
           <h3>Workshop 01: Architecting the Augmented Tomorrow</h3>
@@ -922,6 +1095,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
 <script src="assets/js/premium.js"></script>
+<script src="app/js/firebase-config.js"></script>
+<script src="assets/js/pg-interest.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3-array@3/dist/d3-array.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
