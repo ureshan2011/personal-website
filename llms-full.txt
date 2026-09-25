@@ -54,14 +54,16 @@ forty-five real, anonymised workplace conflicts to show when collaboration
 works, when it backfires, and what to do instead. Free download at
 yasassri.me/app/#/book; sign-in required, takes under a minute.
 
-**Upcoming talks & workshops.** Two engagements on the calendar, or invite
+**Upcoming talks & workshops.** Three engagements on the calendar, or invite
 me for something similar: Designing Shared Worlds Across Distance (NZGDC,
-1 October 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
+1 October 2026) — Presenting on VR Presence & Motion Sickness (VRST 2026,
+Sendai, Japan, 16–18 November 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
 Distance (University of Moratuwa, date to be announced). Full details at
 yasassri.me/news.html.
 
-**Just wrapped.** Workshops delivered this year, with the material and demos
-still online: Code Champ 2026 Workshop 07: Augmented Reality and Game
+**Just wrapped.** Talks and workshops delivered this year, with the material
+and demos still online: From Research to Reality — AR/VR Entrepreneurship
+Opportunities (IEEE Entrepreneurship, Sri Lanka, 22 September 2026) — Code Champ 2026 Workshop 07: Augmented Reality and Game
 Development (20 August 2026) — CODE with WIE 2026 Workshop 01: Architecting
 the Augmented Tomorrow (IEEE WIE Sri Lanka, 11 July 2026).
 
@@ -115,6 +117,22 @@ New Zealand) and Faro (a machine-learning flight-fare timing assistant). See
 yasassri.me/products.html.
 Q: How can I get in touch? A: Via the contact page at yasassri.me/contact.html
 for research collaborations, guest talks, consulting and academic mentorship.
+
+### Founder — ICT Campus and Campus Ready
+
+Dr. Yasas Sri Wickramasinghe founded ICT Campus (https://ictcampus.lk) and is
+its lead teacher: an online tuition platform for Sri Lankan A/L ICT students in
+Grades 12 and 13, in Sinhala and English medium, covering the full NIE
+syllabus, with live classes, recordings, timed mock exams, a Code Lab, free
+notes and past papers, and a free 7-day trial.
+
+Campus Ready (https://ictcampus.lk/campus-ready) is ICT Campus's second
+initiative: a 12-week programme, taught in Sinhala, for students waiting
+between their A/Ls and university. It covers Word, Excel, Python, statistics,
+Power BI, referencing, Zotero and ethical AI use, ending in a capstone
+dashboard on real Sri Lankan open data and a graded, verifiable certificate
+(issued by ICT Campus; not university-accredited). Intakes in January and
+July; first intake January 2027.
 
 ---
 
@@ -358,6 +376,31 @@ free consultation link.
 
 ---
 
+### Teaching in Sri Lanka
+
+Before New Zealand I was a Lecturer at the University of Moratuwa's Faculty
+of Information Technology (2018–2022), teaching object-oriented programming,
+multimedia and web technologies, computer architecture and enterprise
+software, databases and HCI, and supervising research. I was also a visiting
+lecturer at NSBM Green University, SLIIT and the Institute of Technology,
+University of Moratuwa (ITUM), and Platform Lead for the Software Engineering
+strand of the University of Moratuwa's open learning platform (open.uom.lk),
+which reached 150,000+ registered learners. Today I teach A/L ICT to Grade 12
+and 13 students in Sri Lanka through ICT Campus (https://ictcampus.lk), the online
+classroom I founded. Classes are live, in Sinhala and English medium, and
+follow the NIE syllabus. Free study material, no account needed: the A/L ICT
+syllabus (https://ictcampus.lk/syllabus), past papers
+(https://ictcampus.lk/past-papers), short notes, exam command words, logic
+gates, number systems and a revision plan. For the wait between A/Ls and
+university: Campus Ready (https://ictcampus.lk/campus-ready), a 12-week
+course, plus free guides on what to do after A/Ls
+(https://ictcampus.lk/after-al), the Z-score (https://ictcampus.lk/z-score),
+university Z-score cut-offs (https://ictcampus.lk/z-score-cutoffs), the UGC
+application, APA referencing and using AI in assignments. Teacher profile:
+https://ictcampus.lk/dr-yasas
+
+---
+
 ## For Prospective Students — https://www.yasassri.me/students.html
 
 Yoobee College MBI — a lecturer's guide. Whether you're weighing a Master of
@@ -408,9 +451,18 @@ contact him directly, and whether this is an official Yoobee College page
 
 Research-grade thinking, shipped as software. Beyond the lab, I design and
 build full-stack web products that put data, machine learning and clean UX in
-front of real users. Snapshot: 3 products in portfolio, 2 live and publicly
+front of real users. Snapshot: 4 products in portfolio, 3 live and publicly
 usable, AI + ML (local LLM and predictive models), full-stack Python &
 JavaScript.
+
+ICT Campus (https://ictcampus.lk) — an online classroom for Sri Lankan A/L
+ICT students (Grades 12 and 13) that I founded and teach on. Built with
+Next.js, TypeScript and Firebase: phone-number sign-in, live classes through
+Zoom with recordings, real-time class chat, timed mock exams, a browser-based
+Code Lab, a Sinhala and English interface, and card, bank-slip and cash
+payments in one ledger. Its second programme, Campus Ready
+(https://ictcampus.lk/campus-ready), teaches students waiting for university
+the computer, data and research skills a degree assumes.
 
 **HouseScout** (Live · Property Intelligence · Python, Local AI). A
 property-buying dashboard that helps Christchurch home buyers find affordable
@@ -530,7 +582,12 @@ connects remote players through shared immersive experiences. The date and
 time are still to be confirmed by the organisers. Official programme:
 https://icitr.uom.lk/workshops/
 
-**Recently delivered.** Code Champ 2026 — Workshop 07: Augmented Reality and
+**Recently delivered.** From Research to Reality — AR/VR Entrepreneurship
+Opportunities for Sri Lankans. 22 September 2026, 3:30 PM (Sri Lanka time),
+online via Zoom. I spoke at an IEEE Entrepreneurship, Sri Lanka Section
+session on the AR/VR startup landscape and the entrepreneurship opportunities
+open to Sri Lankan innovators.
+Code Champ 2026 — Workshop 07: Augmented Reality and
 Game Development. 20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via
 Zoom. I led Workshop 07 of Code Champ 2026 — "Code Your World" — organised by
 E3 (Computer Science) with the Committee for Popularization of Science (CPS),
