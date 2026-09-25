@@ -1859,6 +1859,7 @@ async function viewAdmin() {
     <button data-t="consult" class="active">Consultations</button>
     <button data-t="invites">Invitations</button>
     <button data-t="messages">Messages</button>
+    <button data-t="pg">PG enquiries</button>
     <button data-t="book">Book Downloads</button>
     <button data-t="blog">Blog</button>
     <button data-t="lessons">Lessons</button>
@@ -1871,17 +1872,18 @@ async function viewAdmin() {
   const tabs = document.getElementById("adminTabs").querySelectorAll("button");
   const setTab = t => {
     tabs.forEach(b => b.classList.toggle("active", b.dataset.t === t));
-    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, book: adminBookDownloads, blog: adminBlog, lessons: adminLessons, subs: adminSubs, mod: adminMod })[t](body);
+    ({ consult: adminConsults, invites: adminInvites, messages: adminMessages, pg: adminPgEnquiries, book: adminBookDownloads, blog: adminBlog, lessons: adminLessons, subs: adminSubs, mod: adminMod })[t](body);
   };
   tabs.forEach(b => b.onclick = () => setTab(b.dataset.t));
 
   // Stats
   (async () => {
     try {
-      const [c, i, m, bk, s, r] = await Promise.all([
+      const [c, i, m, pg, bk, s, r] = await Promise.all([
         getDocs(collection(db, "consultations")),
         getDocs(collection(db, "invitations")),
         getDocs(collection(db, "messages")),
+        getDocs(collection(db, "pgEnquiries")).catch(() => ({ docs: [] })),
         getDocs(collection(db, "bookDownloads")),
         getDocs(collection(db, "subscribers")),
         getDocs(query(collection(db, "threads"), where("reported", "==", true)))
@@ -1891,6 +1893,7 @@ async function viewAdmin() {
         <div class="stat"><b>${pend(c)}</b><span>pending consultations</span></div>
         <div class="stat"><b>${pend(i)}</b><span>pending invitations</span></div>
         <div class="stat"><b>${m.docs.filter(d => d.data().status === "new").length}</b><span>new messages</span></div>
+        <div class="stat"><b>${pg.docs.filter(d => d.data().status === "new").length}</b><span>new PG enquiries</span></div>
         <div class="stat"><b>${bk.size}</b><span>readers who've requested the book</span></div>
         <div class="stat"><b>${s.docs.filter(d => d.data().status === "subscribed").length}</b><span>newsletter subscribers</span></div>
         <div class="stat"><b>${r.size}</b><span>reported threads</span></div>`;
@@ -1959,6 +1962,84 @@ async function adminMessages(body) {
   body.querySelectorAll("[data-mdelete]").forEach(b => b.onclick = async () => {
     if (!confirm("Permanently delete this message?")) return;
     try { await deleteDoc(doc(db, "messages", b.dataset.mdelete)); adminMessages(body); }
+    catch (e) { toast(fbError(e)); }
+  });
+}
+
+/* Postgraduate-in-NZ enquiries (written by assets/js/pg-interest.js via the
+   Firestore REST API; each one is also emailed via Formspree). */
+async function adminPgEnquiries(body) {
+  body.innerHTML = `<div class="loading"><div class="spinner"></div></div>`;
+  const snap = await getDocs(collection(db, "pgEnquiries"));
+  const rank = s => (s === "new" ? 0 : s === "read" ? 1 : 2);
+  const items = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .sort((a, b) => rank(a.status) - rank(b.status) ||
+                    ((tsDate(b.createdAt) || 0) - (tsDate(a.createdAt) || 0)));
+  if (!items.length) {
+    body.innerHTML = `<div class="empty">No postgraduate enquiries yet. Submissions from the
+      <a href="../index.html#study-nz" style="color:var(--accent);font-weight:600">Study in New Zealand form</a> appear here
+      (you also receive each one by email).</div>`;
+    return;
+  }
+
+  body.innerHTML = `
+  <p class="sub" style="margin-bottom:16px">People interested in a master's or PhD in New Zealand. Each one was also emailed to you.</p>
+  <div class="list">${items.map(r => `
+    <div class="list-item" style="flex-direction:column;align-items:stretch">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div class="li-main">
+          <h3>${esc(r.level || "PG")} — ${esc(r.name)}</h3>
+          <div class="meta">${esc(r.email)}${r.country ? " · " + esc(r.country) : ""}${r.field ? " · " + esc(r.field) : ""} · ${fmtDate(r.createdAt, true)}</div>
+        </div>
+        <div class="li-side" style="flex-direction:row;align-items:center">
+          ${badge(r.status === "new" ? "pending" : r.status).replace(">pending<", ">new<")}
+          <button class="btn small" data-open="${r.id}">Details</button>
+        </div>
+      </div>
+      <div id="pgdetail-${r.id}" style="display:none;border-top:1px solid var(--line);margin-top:14px;padding-top:14px">
+        <dl class="detail-grid">
+          ${detailRow("Phone / WhatsApp", r.phone)}
+          ${detailRow("Current status", r.currentStatus)}
+          ${detailRow("Qualification", r.qualification)}
+          ${detailRow("Institution", r.institution)}
+          ${detailRow("Year completed", r.gradYear)}
+          ${detailRow("GPA / class", r.gpa)}
+          ${detailRow("Work experience", r.workExperience)}
+          ${detailRow("English test", [r.englishTest, r.englishScore].filter(Boolean).join(" — "))}
+          ${detailRow("Research / publications", r.research)}
+          ${detailRow("Start", r.intake)}
+          ${detailRow("Funding", r.funding)}
+          ${detailRow("Universities / cities", r.preferred)}
+          ${detailRow("Wants help with", r.help)}
+          ${detailRow("Found me via", r.heardFrom)}
+          ${detailRow("Research idea", r.topic)}
+          ${detailRow("Message", r.message)}
+        </dl>
+        <div class="form-actions" style="margin-top:16px">
+          <a class="btn btn-solid small" href="mailto:${esc(r.email)}?subject=${encodeURIComponent("Your postgraduate study plans in New Zealand")}">Reply by email ↗</a>
+          ${r.status === "new" ? `<button class="btn small" data-pgset="read:${r.id}">Mark read</button>` : ""}
+          ${r.status !== "archived" ? `<button class="btn small" data-pgset="archived:${r.id}">Archive</button>` : `<button class="btn small" data-pgset="read:${r.id}">Unarchive</button>`}
+          <button class="btn small danger" data-pgdelete="${r.id}">Delete</button>
+        </div>
+      </div>
+    </div>`).join("")}</div>`;
+
+  body.querySelectorAll("[data-open]").forEach(b => b.onclick = () => {
+    const d = document.getElementById("pgdetail-" + b.dataset.open);
+    d.style.display = d.style.display === "none" ? "" : "none";
+    const item = items.find(x => x.id === b.dataset.open);
+    if (item && item.status === "new" && d.style.display !== "none") {
+      updateDoc(doc(db, "pgEnquiries", item.id), { status: "read" }).then(() => { item.status = "read"; }).catch(() => {});
+    }
+  });
+  body.querySelectorAll("[data-pgset]").forEach(b => b.onclick = async () => {
+    const [status, id] = b.dataset.pgset.split(":");
+    try { await updateDoc(doc(db, "pgEnquiries", id), { status }); adminPgEnquiries(body); }
+    catch (e) { toast(fbError(e)); }
+  });
+  body.querySelectorAll("[data-pgdelete]").forEach(b => b.onclick = async () => {
+    if (!confirm("Permanently delete this enquiry?")) return;
+    try { await deleteDoc(doc(db, "pgEnquiries", b.dataset.pgdelete)); adminPgEnquiries(body); }
     catch (e) { toast(fbError(e)); }
   });
 }

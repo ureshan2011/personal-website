@@ -75,6 +75,33 @@ service cloud.firestore {
       allow read, update, delete: if isAdmin();
     }
 
+    // ---- Postgraduate-in-NZ enquiries (public form on index.html#study-nz)
+    // Written anonymously via the Firestore REST API by
+    // assets/js/pg-interest.js; every value is a short string.
+    match /pgEnquiries/{id} {
+      function str(k, max) {
+        return request.resource.data[k] is string && request.resource.data[k].size() <= max;
+      }
+      allow create: if noHoneypot()
+        && request.resource.data.keys().hasOnly(['level', 'name', 'email', 'phone', 'country',
+             'currentStatus', 'qualification', 'institution', 'gradYear', 'gpa', 'workExperience',
+             'englishTest', 'englishScore', 'research', 'field', 'intake', 'topic', 'funding',
+             'preferred', 'help', 'message', 'heardFrom', 'status', 'website', 'createdAt'])
+        && request.resource.data.status == 'new'
+        && request.resource.data.level in ["Master's", 'PhD', 'Not sure yet']
+        && str('name', 120) && request.resource.data.name.size() > 0
+        && str('email', 200) && request.resource.data.email.matches('.+@.+\\..+')
+        && str('phone', 40) && str('country', 80) && str('currentStatus', 80)
+        && str('qualification', 160) && str('institution', 160) && str('gradYear', 12)
+        && str('gpa', 60) && str('workExperience', 40) && str('englishTest', 40)
+        && str('englishScore', 40) && str('research', 300) && str('field', 80)
+        && str('intake', 40) && str('topic', 2000) && str('funding', 40)
+        && str('preferred', 200) && str('help', 300) && str('message', 3000)
+        && str('heardFrom', 40)
+        && request.resource.data.createdAt is timestamp;
+      allow read, update, delete: if isAdmin();
+    }
+
     // ---- Newsletter subscribers (doc id = lowercased email) ----------------
     match /subscribers/{email} {
       allow create: if noHoneypot()
