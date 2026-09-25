@@ -376,6 +376,24 @@ free consultation link.
 
 ---
 
+### Teaching in Sri Lanka
+
+Alongside my work in New Zealand, I teach A/L ICT to Grade 12 and 13
+students in Sri Lanka through ICT Campus (https://ictcampus.lk), the online
+classroom I founded. Classes are live, in Sinhala and English medium, and
+follow the NIE syllabus. Free study material, no account needed: the A/L ICT
+syllabus (https://ictcampus.lk/syllabus), past papers
+(https://ictcampus.lk/past-papers), short notes, exam command words, logic
+gates, number systems and a revision plan. For the wait between A/Ls and
+university: Campus Ready (https://ictcampus.lk/campus-ready), a 12-week
+course, plus free guides on what to do after A/Ls
+(https://ictcampus.lk/after-al), the Z-score (https://ictcampus.lk/z-score),
+university Z-score cut-offs (https://ictcampus.lk/z-score-cutoffs), the UGC
+application, APA referencing and using AI in assignments. Teacher profile:
+https://ictcampus.lk/dr-yasas
+
+---
+
 ## For Prospective Students — https://www.yasassri.me/students.html
 
 Yoobee College MBI — a lecturer's guide. Whether you're weighing a Master of
@@ -426,9 +444,18 @@ contact him directly, and whether this is an official Yoobee College page
 
 Research-grade thinking, shipped as software. Beyond the lab, I design and
 build full-stack web products that put data, machine learning and clean UX in
-front of real users. Snapshot: 3 products in portfolio, 2 live and publicly
+front of real users. Snapshot: 4 products in portfolio, 3 live and publicly
 usable, AI + ML (local LLM and predictive models), full-stack Python &
 JavaScript.
+
+ICT Campus (https://ictcampus.lk) — an online classroom for Sri Lankan A/L
+ICT students (Grades 12 and 13) that I founded and teach on. Built with
+Next.js, TypeScript and Firebase: phone-number sign-in, live classes through
+Zoom with recordings, real-time class chat, timed mock exams, a browser-based
+Code Lab, a Sinhala and English interface, and card, bank-slip and cash
+payments in one ledger. Its second programme, Campus Ready
+(https://ictcampus.lk/campus-ready), teaches students waiting for university
+the computer, data and research skills a degree assumes.
 
 **HouseScout** (Live · Property Intelligence · Python, Local AI). A
 property-buying dashboard that helps Christchurch home buyers find affordable
