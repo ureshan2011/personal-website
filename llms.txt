@@ -7,7 +7,7 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 ## Key facts
 
 - Full name: Dr. Yasas Sri Wickramasinghe (also written Yasas Sri Wickramasinghe; W.A.U.Y.S. Wickramasinghe)
-- Current roles: Postdoctoral Researcher, HIT Lab NZ, University of Canterbury; Senior Lecturer, Yoobee College of Creative Innovation
+- Current roles: Postdoctoral Researcher, HIT Lab NZ, University of Canterbury; Senior Lecturer, Yoobee College of Creative Innovation; Founder, ICT Campus (https://ictcampus.lk)
 - Based in: Christchurch, New Zealand (nationality: Sri Lankan)
 - PhD: Human Interface Technology, University of Canterbury — dissertation on designing multiplayer location-based AR games that connect remote players and places
 - Research focus: location-based AR, multiplayer/remote AR, spatial computing, extended reality (XR), player experience, trust in shared AR, human-computer interaction (HCI)
@@ -40,6 +40,11 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 
 - Code Champ 2026 — Workshop 07: "Augmented Reality and Game Development" — delivered 20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via Zoom. Organised by E3 (Computer Science) with the Committee for Popularization of Science (CPS), SLAAS and the IEEE Computer Society Sri Lanka Chapter, as part of the "Code Your World" series. Details: https://www.yasassri.me/news.html#recent · Interactive companion page, still online (try AR in your browser): https://www.yasassri.me/ar.html
 - CODE with WIE 2026 — Workshop 01: "Architecting the Augmented Tomorrow" — delivered 11 July 2026, 9:00 AM, online via Google Meet. Hosted by IEEE Women in Engineering Sri Lanka. Details: https://www.yasassri.me/news.html#recent
+
+## Founder — ICT Campus and Campus Ready
+
+- [ICT Campus](https://ictcampus.lk): Founded by Dr. Yasas Sri Wickramasinghe, who is also its lead teacher. An online tuition platform for Sri Lankan A/L ICT (Advanced Level Information & Communication Technology), Grades 12 and 13, in Sinhala and English medium, covering the full National Institute of Education (NIE) syllabus. Live online classes with recordings, timed mock exams, a Code Lab, free notes and past papers, and a free 7-day trial.
+- [Campus Ready](https://ictcampus.lk/campus-ready): A second initiative from ICT Campus — a 12-week programme, taught in Sinhala with English technical terms, for students in the gap between their A/L exams and their first university lecture. Covers the computer and research skills a degree assumes students already have: Moodle, Word, Excel, surveys, Python and pandas, statistics, Power BI, literature search, APA/Harvard referencing, Zotero, and ethical AI use. Ends in a capstone dashboard on real Sri Lankan open data and a graded, verifiable certificate. Two intakes a year (January and July); first intake January 2027. The certificate is issued by ICT Campus and is not accredited by any university.
 
 ## Web products (built by Yasas Sri Wickramasinghe)
 
