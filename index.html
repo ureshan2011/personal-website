@@ -44,7 +44,8 @@
   "jobTitle": [
     "Augmented Reality Researcher",
     "Postdoctoral Researcher",
-    "Senior Lecturer"
+    "Senior Lecturer",
+    "Founder, ICT Campus"
   ],
   "description": "Augmented reality researcher and university lecturer specialising in location-based AR, spatial computing, and human-computer interaction.",
   "knowsAbout": [
@@ -72,6 +73,7 @@
       "url": "https://www.yoobee.ac.nz/"
     }
   ],
+  "founder": { "@id": "https://ictcampus.lk/#organization" },
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "University of Canterbury",
@@ -89,6 +91,26 @@
     "https://github.com/ureshan2011",
     "https://ir.canterbury.ac.nz/items/6df971c0-1314-4863-8156-304c838686d0"
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://ictcampus.lk/#organization",
+  "name": "ICT Campus",
+  "url": "https://ictcampus.lk",
+  "description": "Online A/L ICT tuition for Sri Lankan students in Grades 12 and 13, in Sinhala and English medium, covering the full NIE syllabus.",
+  "areaServed": { "@type": "Country", "name": "Sri Lanka" },
+  "founder": { "@id": "https://www.yasassri.me/#yasas" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "ICT Campus programmes",
+    "itemListElement": [
+      { "@type": "Course", "name": "A/L ICT classes", "url": "https://ictcampus.lk/al-ict-classes", "description": "Live online A/L ICT classes for Grades 12 and 13 in Sinhala and English medium.", "provider": { "@id": "https://ictcampus.lk/#organization" } },
+      { "@type": "Course", "name": "Campus Ready", "url": "https://ictcampus.lk/campus-ready", "description": "A 12-week programme, taught in Sinhala, covering the computer, data and research skills university assumes students already have: Word, Excel, Python, statistics, Power BI, referencing and ethical AI use.", "provider": { "@id": "https://ictcampus.lk/#organization" } }
+    ]
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -133,7 +155,7 @@
     {
       "@type": "Question",
       "name": "Who is Dr. Yasas Sri Wickramasinghe?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Dr. Yasas Sri Wickramasinghe is an augmented reality researcher, university lecturer and software builder based in Christchurch, New Zealand. He is a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury) and a Senior Lecturer at Yoobee College of Creative Innovation." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Dr. Yasas Sri Wickramasinghe is an augmented reality researcher, university lecturer and software builder based in Christchurch, New Zealand. He is a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury), a Senior Lecturer at Yoobee College of Creative Innovation, and the founder of ICT Campus, an online A/L ICT tuition platform for Sri Lankan students." }
     },
     {
       "@type": "Question",
@@ -149,6 +171,11 @@
       "@type": "Question",
       "name": "What web products has Yasas Sri Wickramasinghe built?",
       "acceptedAnswer": { "@type": "Answer", "text": "He has designed and built HouseScout (a property-intelligence dashboard for Christchurch home buyers), PathFinder (a planning platform for Sri Lankan students applying to postgraduate study in New Zealand) and Faro (a machine-learning flight-fare timing assistant). They are showcased on the Products page at yasassri.me/products." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is ICT Campus?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ICT Campus (ictcampus.lk) is an online tuition platform for Sri Lankan A/L ICT students in Grades 12 and 13, founded by Dr. Yasas Sri Wickramasinghe, who also teaches the classes. It runs live classes in Sinhala and English medium with recordings, mock exams, a Code Lab, and free notes and past papers. Its second programme, Campus Ready, is a 12-week course that teaches students waiting for university the computer, data and research skills their degree will assume." }
     },
     {
       "@type": "Question",
@@ -212,7 +239,7 @@
 <header class="hero" id="top">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
-    <span class="hero-eyebrow">Postdoctoral Researcher · Senior Lecturer</span>
+    <span class="hero-eyebrow">Founder, ICT Campus · Postdoctoral Researcher · Senior Lecturer</span>
     <a class="status-badge" href="contact.html">
       <span class="status-dot" aria-hidden="true"></span>
       Open to research collaborations &amp; new opportunities
@@ -311,7 +338,7 @@
     <div class="reveal">
       <span class="eyebrow">About</span>
       <h2>Collaborating at the intersection of spatial interfaces and human behavior.</h2>
-      <p>I'm Dr. Yasas Sri Wickramasinghe — a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury) and Senior Lecturer at Yoobee College of Creative Innovation. I hold a PhD in Human Interface Technology, with a dissertation on designing multiplayer location-based AR games that connect remote players and places.</p>
+      <p>I'm Dr. Yasas Sri Wickramasinghe — a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury), Senior Lecturer at Yoobee College of Creative Innovation, and the founder of <a href="#ventures" style="color:var(--accent);font-weight:600">ICT Campus</a>, an online A/L ICT classroom for Sri Lankan students. I hold a PhD in Human Interface Technology, with a dissertation on designing multiplayer location-based AR games that connect remote players and places.</p>
       <p>My work is conducted with industry partners including Sony Interactive Entertainment (Japan) and Niantic, Inc. Earlier I co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme and served as Platform Lead for the Software Engineering strand of Sri Lanka's first large-scale MOOC platform, scaling it to 150,000+ registered learners. I also taught at the University of Moratuwa's Faculty of Information Technology, and spent four years as Technical Lead &amp; Senior Software Engineer at 99X Technology.</p>
       <div class="intro-meta">
         <span class="trust-label">Trusted by</span>
@@ -329,6 +356,95 @@
     <div class="intro-visual reveal" style="--d:.15s">
       <img src="assets/images/phd-graduation.jpg" alt="Dr. Yasas Sri Wickramasinghe at his PhD graduation, University of Canterbury" loading="lazy" decoding="async" width="1366" height="2048" />
     </div>
+  </div>
+</section>
+
+<!-- FOUNDER — ICT Campus & Campus Ready -->
+<section class="venture" id="ventures" aria-labelledby="venture-title">
+  <div class="venture-glow" aria-hidden="true"></div>
+  <div class="container">
+
+    <div class="venture-head reveal">
+      <span class="venture-eyebrow">Founder · Sri Lanka</span>
+      <h2 id="venture-title">I founded <span class="venture-brand">ICT<b>CAMPUS</b></span><br/>to give every Sri Lankan student <em>a world-class classroom</em>.</h2>
+      <p>Online tuition for A/L ICT, taught by me, in Sinhala and English — plus a second programme that carries students past their A/Ls and into university.</p>
+    </div>
+
+    <div class="venture-grid">
+      <!-- ICT Campus -->
+      <article class="vcard vcard-main reveal">
+        <div class="vcard-top">
+          <span class="vlogo" aria-hidden="true">IC</span>
+          <div>
+            <span class="vcard-kicker">Founder &amp; lead teacher</span>
+            <h3>ICT Campus</h3>
+          </div>
+          <a class="vcard-url" href="https://ictcampus.lk" target="_blank" rel="noopener">ictcampus.lk ↗</a>
+        </div>
+        <p class="vcard-lede">Live online classes for Sri Lankan A/L ICT — Grades 12 &amp; 13, the full NIE syllabus, in Sinhala and English medium.</p>
+
+        <!-- Stylised product preview, drawn in CSS -->
+        <div class="vmock" aria-hidden="true">
+          <div class="vmock-bar"><i></i><i></i><i></i><span>ictcampus.lk</span></div>
+          <div class="vmock-body">
+            <div class="vmock-rail">
+              <span class="on"></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="vmock-main">
+              <div class="vmock-live"><span class="dot"></span>Live now · Unit 8 — Databases</div>
+              <div class="vmock-row">
+                <div class="vmock-tile"><b>82%</b><small>Syllabus covered</small><span class="vbar"><span style="width:82%"></span></span></div>
+                <div class="vmock-tile"><b>14</b><small>Mock exams done</small><span class="vbar"><span style="width:58%"></span></span></div>
+              </div>
+              <div class="vmock-lines"><span></span><span></span><span style="width:62%"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="vchips">
+          <li>Live Zoom classes</li>
+          <li>Recordings</li>
+          <li>Timed mock exams</li>
+          <li>Code Lab</li>
+          <li>Free notes &amp; past papers</li>
+          <li>7-day free trial</li>
+        </ul>
+        <div class="vstats">
+          <div><b>Gr. 12–13</b><span>A/L ICT</span></div>
+          <div><b>2</b><span>Mediums — සිංහල &amp; English</span></div>
+          <div><b>100%</b><span>NIE syllabus</span></div>
+        </div>
+        <a class="vbtn vbtn-solid" href="https://ictcampus.lk" target="_blank" rel="noopener">Visit ICT Campus <span class="arrow">→</span></a>
+      </article>
+
+      <!-- Campus Ready -->
+      <article class="vcard vcard-cr reveal" style="--d:.12s">
+        <div class="vcard-top">
+          <span class="vlogo vlogo-cr" aria-hidden="true">CR</span>
+          <div>
+            <span class="vcard-kicker">New initiative</span>
+            <h3>Campus Ready</h3>
+          </div>
+          <span class="vpill">First intake Jan 2027</span>
+        </div>
+        <p class="vcard-quote">&ldquo;Your degree assumes you already know this. Nobody taught you.&rdquo;</p>
+        <p class="vcard-lede">A 12-week programme for the long wait between A/L results and the first lecture — the computer and research skills every university student needs, taught in Sinhala.</p>
+
+        <div class="vtimeline" role="list" aria-label="Campus Ready, 12 weeks">
+          <div class="vt-seg" role="listitem" style="--w:4"><span class="vt-wk">Wk 1–4</span><b>Campus basics</b><small>Moodle, Word, Excel, surveys</small></div>
+          <div class="vt-seg" role="listitem" style="--w:5"><span class="vt-wk">Wk 5–9</span><b>Python &amp; statistics</b><small>pandas, charts, t-tests, regression</small></div>
+          <div class="vt-seg" role="listitem" style="--w:3"><span class="vt-wk">Wk 10–12</span><b>Power BI &amp; capstone</b><small>Referencing, ethical AI, portfolio</small></div>
+        </div>
+
+        <ul class="vlist">
+          <li>A capstone dashboard on real Sri Lankan open data</li>
+          <li>A graded, verifiable certificate</li>
+          <li>Two intakes a year — January and July</li>
+        </ul>
+        <a class="vbtn" href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener">Explore Campus Ready <span class="arrow">→</span></a>
+      </article>
+    </div>
+
   </div>
 </section>
 
@@ -789,6 +905,8 @@
       </div>
       <div class="footer-col">
         <h4>Resources</h4>
+        <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus — founder ↗</a>
+        <a href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener">Campus Ready ↗</a>
         <a href="app/#/book">The Collaboration Reflex (Book)</a>
         <a href="assets/files/cv_yasas.pdf" target="_blank">Curriculum Vitae</a>
         <a href="research.html">Publications</a>

@@ -116,6 +116,22 @@ yasassri.me/products.html.
 Q: How can I get in touch? A: Via the contact page at yasassri.me/contact.html
 for research collaborations, guest talks, consulting and academic mentorship.
 
+### Founder — ICT Campus and Campus Ready
+
+Dr. Yasas Sri Wickramasinghe founded ICT Campus (https://ictcampus.lk) and is
+its lead teacher: an online tuition platform for Sri Lankan A/L ICT students in
+Grades 12 and 13, in Sinhala and English medium, covering the full NIE
+syllabus, with live classes, recordings, timed mock exams, a Code Lab, free
+notes and past papers, and a free 7-day trial.
+
+Campus Ready (https://ictcampus.lk/campus-ready) is ICT Campus's second
+initiative: a 12-week programme, taught in Sinhala, for students waiting
+between their A/Ls and university. It covers Word, Excel, Python, statistics,
+Power BI, referencing, Zotero and ethical AI use, ending in a capstone
+dashboard on real Sri Lankan open data and a graded, verifiable certificate
+(issued by ICT Campus; not university-accredited). Intakes in January and
+July; first intake January 2027.
+
 ---
 
 ## Research — https://www.yasassri.me/research.html
