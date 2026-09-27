@@ -21,14 +21,15 @@ dissertation on designing multiplayer location-based AR games that connect
 remote players and places. My work is conducted with industry partners
 including Sony Interactive Entertainment (Japan) and Niantic, Inc. Earlier I
 co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme and led
-Sri Lanka's first large-scale MOOC platform. Trusted by HIT Lab NZ, Sony
-Interactive Entertainment, and Niantic Spatial.
+Sri Lanka's first large-scale MOOC platform. Research partners: HIT Lab NZ,
+Sony Interactive Entertainment, and Niantic Spatial.
 
 **Academic Platform — work with me directly.** Consultations, speaking
 invitations, writing, and a student community, in one place, at
 yasassri.me/app: Book a Free Consultation (30–45 min on education, research or
-career guidance, no charge) — Invite Me to Speak (keynotes, guest lectures,
-workshops and panels, browse topics) — Read the Blog (writing on HCI, AR/VR,
+career guidance, no charge) — Invite Me to Speak (signature talks, a
+ready-to-use speaker kit, and invitations, at yasassri.me/speaking.html) —
+Read the Blog (writing on HCI, AR/VR,
 software engineering and education) — Join the Forum (ask questions, help
 peers, stay connected as a community).
 
@@ -79,21 +80,9 @@ papers. Teaching & Supervision — Master's-level courses in information
 systems and project management, plus capstone and thesis supervision,
 gamified and high-engagement. XR & Software Development — building immersive
 prototypes and production systems with Unity, OpenXR and Niantic Lightship.
-Talks & Consulting — speaking and advising on immersive media, spatial
-computing strategy, and translating emerging XR research into product.
-
-**In their words.** "Yasas brings rare range — the rigour of a researcher and
-the instincts of a builder. His work on location-based AR genuinely advanced
-how we think about connecting remote players, and his teaching makes complex
-ideas click for students." — Research & Industry Partners, HIT Lab NZ · Sony
-Interactive Entertainment. Student perspectives: "I took his free course on a
-whim and ended up changing my career into HCI. That's the kind of teacher he
-is." — Maya Robinson, Online MOOC (AR Fundamentals), United States. "Yasas
-pushed my AR project further than I thought I could take it — rigorous
-feedback, always delivered with kindness." — Liam Carter, Capstone supervisee,
-University of Canterbury, New Zealand. "Access to teaching this good, for
-free, from Lagos — it genuinely opened a door for me into XR." — Adaeze
-Okonkwo, Online MOOC (AR Fundamentals), Nigeria.
+Talks & Consulting — consulting, team workshops and keynotes on immersive
+technology, XR user research and engaged learning, evidence-led with a fixed
+scope agreed up front (yasassri.me/work-with-me.html).
 
 **FAQ.**
 Q: Who is Dr. Yasas Sri Wickramasinghe? A: Dr. Yasas Sri Wickramasinghe is an
@@ -703,22 +692,195 @@ X/Twitter @sri_yasas.
 
 ---
 
+## Work With Me — https://www.yasassri.me/work-with-me.html
+
+Research-grade thinking for teams building immersive and learning experiences.
+I'm an augmented reality researcher, a senior lecturer and a software builder.
+Organisations bring me in when they need all three at once: to decide whether
+an immersive idea is worth building, to find out whether people actually enjoy
+using it, or to build a classroom that students don't skip. Proof points: 128
+participants across my three published AR user studies; 150,000+ learners on
+the MOOC platform I led at the University of Moratuwa; four years as Technical
+Lead and Senior Software Engineer at 99X; Sony Interactive Entertainment and
+Niantic as industry partners on my AR research at HIT Lab NZ.
+
+**Offer 01 — XR Opportunity Sprint (2–3 weeks).** For tourism operators,
+museums and cultural sites, retailers, training providers and game studios
+considering AR or VR. Deliverables: a use-case assessment (where AR/VR beats a
+screen, and where it doesn't); an experience concept with an interaction flow
+grounded in published design guidelines; a technology recommendation (WebAR or
+app, Unity, OpenXR, Niantic Lightship, device reach); a prototype plan and
+build estimate; and an evaluation plan so the pilot produces evidence.
+
+**Offer 02 — Immersive UX & Playtest Evaluation (3–6 weeks).** For XR
+start-ups, game studios and product teams with a prototype or live AR/VR
+experience. Study design (lab study, in-the-wild playtest or comparison of
+design variants); established measures of presence, simulator sickness, player
+experience, workload and usability; session protocol and recruitment including
+physical-movement safety; analysis with prioritised recommendations; and a
+findings session with the team. Built on three published studies (128
+participants), a 36-participant study on trust in shared AR (ACM SUI 2024), and
+a VRST 2026 paper on VR presence and motion sickness.
+
+**Offer 03 — EdTech & Engaged-Classroom Advisory (2 weeks to ongoing).** For
+private colleges, training providers, universities and EdTech teams. Course
+redesign into interactive browser-based lessons; engagement mechanics that
+reward persistence; academic-integrity tooling such as attendance fraud
+detection; responsible AI in teaching and assessment; and platform build or
+review (React, TypeScript, Next.js, Firebase).
+
+**How an engagement runs.** A free 30-minute discovery call; a written scope
+with deliverables, timeline and a fixed fee agreed before work starts; regular
+working sessions; and a written handover. Remote worldwide or in person in New
+Zealand; NDAs welcome. Consulting, workshops and speaking are his independent
+practice, not offered on behalf of the University of Canterbury, HIT Lab NZ or
+Yoobee College. Discovery-call form (no sign-in):
+https://www.yasassri.me/work-with-me.html#discovery
+
+## Speaking — https://www.yasassri.me/speaking.html
+
+Talks that turn research into something people use — on multiplayer augmented
+reality, spatial computing and, from his book, why teams reach for the wrong
+answer to conflict. Where he speaks and presents (past and scheduled): NZGDC (2023 panel, 2026
+talk), IEEE VR (2025 paper), ACM VRST (2026 paper), OzCHI (2025 paper), ACM
+SUI (2024 paper), Falling Walls Lab Aotearoa NZ (2024 pitch), Tohoku University
+RIEC (2025 invited talk), IEEE Women in Engineering Sri Lanka (2026 workshop),
+Code Champ / IEEE Computer Society Sri Lanka (2026 workshop), IEEE
+Entrepreneurship Sri Lanka (2026 talk), ICITR, University of Moratuwa (2026
+workshop).
+
+**Signature talks.** (1) "Designing Shared Worlds Across Distance" — what three
+studies and 128 players taught him about AR that connects people in different
+places; for game developers, XR teams and researchers. (2) "From Research to
+Reality: Where AR/VR Creates Real Value" — spatial computing without the hype;
+for founders, industry and innovation teams. (3) "The Collaboration Reflex: Why
+Win-Win Is Usually the Wrong Answer" — forty-five real workplace conflicts and
+what experienced professionals do instead; for teams, managers, project
+leaders, HR and L&D. Also available as guest lectures: Immersive Technology in
+Education, UX Research Methods for Emerging Tech, Postgraduate Research Skills.
+
+**Formats and fees.** Keynotes, talks and workshops are paid engagements; the
+fee depends on format, preparation and travel. Online worldwide, in person
+across New Zealand, further afield by arrangement. A small number of free
+sessions each year for student, community and non-profit events. Speaker kit
+(bios, MC introduction, headshots, one-page speaker sheet, tech rider):
+https://www.yasassri.me/speaking.html#kit — Invitation form:
+https://www.yasassri.me/app/#/invite
+
+## Workshops & Training — https://www.yasassri.me/workshops.html
+
+Hands-on team workshops built from the interactive lessons he teaches at
+postgraduate level, each with a lesson you can try before booking.
+Leadership, teams & delivery: The Collaboration Reflex (conflict, half day);
+Agile & Scrum, seen from the inside (3D Scrum studio and peer-audit round, half
+or full day); Threats, platforms & strategy (half day). Technology & data:
+Think like an attacker — the SwiftShop security lab with twenty hidden
+vulnerabilities (2–3 hours); Data & machine learning, without the maths (half
+day); From idea to live website with AI — Google Stitch, Claude Code and GitHub
+Pages (3 hours). Immersive tech & education: Augmented reality, no headset
+needed (2–3 hours); The interactive classroom, for faculty and teaching teams
+(half day). Tailored to the team, best with roughly 8 to 30 people, in person in
+New Zealand or online worldwide; paid engagements with fees agreed up front.
+
+## Case Studies — https://www.yasassri.me/case-studies.html
+
+**Connecting remote players through multiplayer AR (2022–2025).** With Sony
+Interactive Entertainment and Niantic as industry partners, at HIT Lab NZ. Three
+studies: Study 1 (30 participants) compared Overlay, Window and Tabletop views
+of a remote room — Overlay gave the strongest sense of being there; Study 2 (60
+participants) ran a remote multiplayer AR hide-and-seek game — a lightweight
+view-frustum cue strengthened social connection without avatars or video, and
+players used mid-air and vertical space; Study 3 (38 participants) showed
+interactive AR mechanics deepened strategic search and engagement when paired
+with clear feedback and calibrated constraints. Published across five
+peer-reviewed articles including IEEE VR, OzCHI and Elsevier's Entertainment
+Computing.
+
+**YooBees: a classroom students don't want to skip.** A learning platform he
+designed and built for the Master of Business Informatics at Yoobee College:
+one-tap attendance with three fraud checks (shared-IP clustering, GPS outliers
+more than 500 m from campus, check-ins within 30 seconds of opening), a live
+SQL/Python playground, SQL Race, quiz badges, daily cross-cohort matches and
+lecturer analytics — used by 228 students from 24 countries, with 2,500+
+attendance records. Four courses were then rebuilt as 39 interactive lessons,
+labs and study packs.
+
+**ICT Campus: building a bilingual online school.** Founder, lead teacher and
+developer of ictcampus.lk — live Zoom classes with recordings, real-time chat,
+timed mock exams and a browser Code Lab covering the full NIE A/L ICT syllabus
+in Sinhala and English; free public study pages; and Campus Ready, a 12-week
+programme for students waiting to start university.
+
+## The Location-Based AR Design Playbook — https://www.yasassri.me/playbook.html
+
+A free playbook of four evidence-based principles for location-based AR that
+connects people across distance, from three user studies with 128 participants
+at HIT Lab NZ with Sony Interactive Entertainment as industry partner.
+(1) Make the place feel present — use a real-world-scale Overlay for presence
+and self-location, Window portals for passing resources between locations, and
+high-fidelity 3D scans of the remote space (Study 1, Entertainment Computing
+2025). (2) Lightweight presence beats fidelity — show the remote player's
+viewpoint in real time, pair it with voice, test minimal cues like a view
+frustum before investing in avatars, and design for vertical and mid-air space
+(Study 2, IEEE VR 2025 and MDPI MTI 2025). (3) Make AR a core mechanic — embed
+AR in the gameplay loop with remotely anchored objects, real-time manipulation
+and time pressure calibrated in playtests (Study 3, OzCHI 2025). (4) Guide
+without removing the challenge — subtle feedback such as particle trails,
+onboarding for the first minutes, and design for safe physical movement. Includes
+a 12-question pre-build checklist and a printable PDF:
+https://www.yasassri.me/assets/files/ar-design-playbook.pdf — Cite as:
+Wickramasinghe, Y. S. (2026). The location-based AR design playbook: Four
+evidence-based principles for AR that connects people across distance.
+
+## Media & Press — https://www.yasassri.me/media.html
+
+Expert comment, in English or Sinhala, on: augmented and virtual reality (what
+is useful today and what is hype; comfort, presence and motion sickness); games
+that connect people across distance; AI in education and academic integrity;
+EdTech and interactive, bilingual classrooms; technology careers in New Zealand
+and Sri Lanka; and workplace conflict (from The Collaboration Reflex). Credit as
+Dr. Yasas Sri Wickramasinghe, AR researcher, HIT Lab NZ, University of
+Canterbury; he comments in a personal capacity. Recent appearances: PSR Vlog
+podcast on NZ software jobs; Falling Walls Lab Aotearoa NZ 2024; NZGDC 2023 AR
+Game Dev Rant panel; Tohoku University research visit (Dec 2025). Bio, photos
+and a media-request form are on the page.
+
+## About — https://www.yasassri.me/about.html
+
+From Colombo lecture halls to Christchurch labs. He studied IT at the
+University of Moratuwa (2013–2017), was a Microsoft Imagine Cup runner-up
+(2015) and co-founded the AR/VR start-up NavitaZ VR Labs under the MIT Global
+Startup Labs programme (2015–2019). He spent four years as a technical lead and
+senior software engineer at 99X, lectured at the University of Moratuwa
+(2018–2022) and led the Software Engineering strand of its open learning
+platform (150,000+ registered learners), then completed a specialisation in
+virtual reality at Goldsmiths, University of London. In 2022 he moved to New
+Zealand for a fully funded PhD at HIT Lab NZ, University of Canterbury
+(2022–2025), researching multiplayer AR with Sony Interactive Entertainment and
+Niantic. Today he is a Postdoctoral Researcher at HIT Lab NZ, a Senior Lecturer
+at Yoobee College of Creative Innovation, the founder of ICT Campus and the
+author of The Collaboration Reflex. What he believes: measure before you argue;
+build, test, repeat; and good teaching shouldn't depend on where you live.
+
 ## Contact — https://www.yasassri.me/contact.html
 
-Inquiries & correspondence. Looking to book a free consultation or invite me
-to speak? Those now have their own quick, structured forms — usually faster
-than email. For anything else, the general contact form works too.
+Inquiries & correspondence. Hiring me for your organisation, booking a free
+consultation, or inviting me to speak? Each has its own quick, structured
+route — usually faster than email. For anything else, the general contact
+form works too.
 
-Quick options: Book a Free Consultation (education, research or career
+Quick options: Work With Me (organisations: consulting, team workshops and
+keynotes — request a discovery call) at yasassri.me/work-with-me.html — Book a Free Consultation (education, research or career
 guidance — pick a time that works for you) at yasassri.me/app/#/consult —
-Invite Me to Speak (conferences, guest lectures, workshops and panels — send
-event details) at yasassri.me/app/#/invite — Join the Forum (students and
+Invite Me to Speak (signature talks and a speaker kit, then send your event
+details) at yasassri.me/speaking.html — Join the Forum (students and
 followers staying in touch — ask, answer, connect) at
 yasassri.me/app/#/forum.
 
-General contact form fields: Full Name, Email Address, Subject (Research
-Collaboration / Tech Talk / Speaking Engagement / Teaching & Lectures /
-Project Mentoring / General Inquiry), Message. No account needed.
+General contact form fields: Full Name, Email Address, Subject (Consulting for
+my organisation / Workshop or team training / Research Collaboration / Tech
+Talk / Speaking Engagement / Teaching & Lectures / Project Mentoring / Media /
+press enquiry / General Inquiry), Message. No account needed.
 
 **Location.** HIT Lab NZ / Yoobee Colleges, University of Canterbury,
 Christchurch 8041, New Zealand. Originally from Colombo, Sri Lanka.

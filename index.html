@@ -59,7 +59,17 @@
     "Player Experience",
     "Unity",
     "OpenXR",
-    "Niantic Lightship"
+    "Niantic Lightship",
+    "XR User Research",
+    "Educational Technology",
+    "Learning Design",
+    "Conflict Management"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.yasassri.me/work-with-me.html#xr-sprint", "name": "XR Opportunity Sprint" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.yasassri.me/work-with-me.html#ux-evaluation", "name": "Immersive UX & Playtest Evaluation" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "@id": "https://www.yasassri.me/work-with-me.html#edtech", "name": "EdTech & Engaged-Classroom Advisory" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Keynotes, talks and team workshops", "url": "https://www.yasassri.me/speaking.html" } }
   ],
   "worksFor": [
     {
@@ -181,7 +191,12 @@
     {
       "@type": "Question",
       "name": "How can I contact Yasas Sri Wickramasinghe?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You can get in touch via the contact page at yasassri.me/contact for research collaborations, guest talks, consulting and academic mentorship." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Organisations can request a discovery call at yasassri.me/work-with-me.html, event organisers can find talks and a speaker kit at yasassri.me/speaking.html, and anyone can use the contact page at yasassri.me/contact for research collaborations, mentorship and general questions." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I hire Dr. Yasas Sri Wickramasinghe for consulting, workshops or a keynote?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. For organisations he offers an XR Opportunity Sprint, immersive UX and playtest evaluation, and EdTech advisory; hands-on team workshops on topics from web security and Agile to machine learning and AI-assisted building; and keynotes on multiplayer AR, spatial computing and workplace conflict. Engagements are scoped with a fixed fee agreed up front and run remotely worldwide or in person in New Zealand." }
     }
   ]
 }
@@ -209,31 +224,34 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">Yasas Sri <em>Wickramasinghe</em></a>
     <div class="nav-links">
-      <a class="active" href="index.html">Home</a>
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
       <a href="students.html">Students</a>
       <a href="products.html">Products</a>
       <a href="news.html">News</a>
       <a href="blogs.html">Writing</a>
+      <a href="about.html">About</a>
       <a href="app/#/">Platform <span class="nav-badge">New</span></a>
       <a href="contact.html">Contact</a>
-      <a class="btn btn-solid" href="assets/files/cv_yasas.pdf" target="_blank">Download CV <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="work-with-me.html">Work With Me <span class="arrow">→</span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobile-menu">
   <a class="active" href="index.html"><span class="idx">01</span>Home</a>
-  <a href="research.html"><span class="idx">02</span>Research</a>
-  <a href="teaching.html"><span class="idx">03</span>Teaching</a>
-  <a href="students.html"><span class="idx">04</span>Students</a>
-  <a href="products.html"><span class="idx">05</span>Products</a>
-  <a href="news.html"><span class="idx">06</span>News</a>
-  <a href="blogs.html"><span class="idx">07</span>Writing</a>
-  <a href="app/#/"><span class="idx">08</span>Platform <span class="nav-badge">New</span></a>
-  <a href="contact.html"><span class="idx">09</span>Contact</a>
-  <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">10</span>Curriculum Vitae</a>
+  <a href="work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="research.html"><span class="idx">04</span>Research</a>
+  <a href="teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="students.html"><span class="idx">06</span>Students</a>
+  <a href="products.html"><span class="idx">07</span>Products</a>
+  <a href="news.html"><span class="idx">08</span>News</a>
+  <a href="blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="about.html"><span class="idx">10</span>About</a>
+  <a href="app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="contact.html"><span class="idx">12</span>Contact</a>
+  <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
 </div>
 
 <!-- HERO -->
@@ -241,9 +259,9 @@
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
     <span class="hero-eyebrow">Founder, ICT Campus · Postdoctoral Researcher · Senior Lecturer</span>
-    <a class="status-badge" href="contact.html">
+    <a class="status-badge" href="work-with-me.html">
       <span class="status-dot" aria-hidden="true"></span>
-      Open to research collaborations &amp; new opportunities
+      Available for consulting, workshops &amp; keynotes
     </a>
     <div class="hero-stage">
       <h1 class="hero-name" aria-label="Yasas Sri Wickramasinghe">
@@ -284,8 +302,9 @@
   </div>
 </div>
 
-<!-- STUDENT VOICES — interactive globe (Anthropic-inspired editorial section) -->
-<section class="avoices" id="voices" aria-label="What students say around the world">
+<!-- STUDENT VOICES — interactive globe. Hidden until assets/js/testimonials.js
+     holds real, consented quotes; it un-hides itself when it does. -->
+<section class="avoices" id="voices" aria-label="What students say around the world" hidden>
   <div class="container av-inner">
     <div class="av-head reveal">
       <span class="av-eyebrow">Voices from my classroom</span>
@@ -323,8 +342,8 @@
 
         <div class="av-foot">
           <div class="av-stats">
-            <span><b class="count" data-voices-stat="countries" data-target="16">16</b> countries</span>
-            <span><b class="count" data-voices-stat="voices" data-target="23">23</b> voices</span>
+            <span><b class="count" data-voices-stat="countries" data-target="0">0</b> countries</span>
+            <span><b class="count" data-voices-stat="voices" data-target="0">0</b> voices</span>
           </div>
         </div>
       </div>
@@ -342,7 +361,7 @@
       <p>I'm Dr. Yasas Sri Wickramasinghe — a Postdoctoral Researcher at HIT Lab NZ (University of Canterbury), Senior Lecturer at Yoobee College of Creative Innovation, and the founder of <a href="#ventures" style="color:var(--accent);font-weight:600">ICT Campus</a>, an online A/L ICT classroom for Sri Lankan students. I hold a PhD in Human Interface Technology, with a dissertation on designing multiplayer location-based AR games that connect remote players and places.</p>
       <p>My work is conducted with industry partners including Sony Interactive Entertainment (Japan) and Niantic, Inc. Earlier I co-founded NavitaZ VR Labs under the MIT Global Startup Labs programme and served as Platform Lead for the Software Engineering strand of Sri Lanka's first large-scale MOOC platform, scaling it to 150,000+ registered learners. I also taught at the University of Moratuwa's Faculty of Information Technology, and spent four years as Technical Lead &amp; Senior Software Engineer at 99X Technology.</p>
       <div class="intro-meta">
-        <span class="trust-label">Trusted by</span>
+        <span class="trust-label">Research with</span>
         <div class="trust-logos">
           <img src="assets/images/logo-hitlabnz.png" alt="HIT Lab NZ, University of Canterbury — augmented reality research lab logo" loading="lazy" decoding="async" width="2500" height="875" />
           <img class="logo-sony" src="assets/images/logo-sony.svg" alt="Sony Interactive Entertainment logo" loading="lazy" decoding="async" width="1000" height="359" />
@@ -672,10 +691,10 @@
         <h3>Book a Free Consultation</h3>
         <p>30–45 min on education, research or career guidance — no charge.</p>
       </a>
-      <a class="feature reveal" href="app/#/invite" style="display:block;--d:.05s">
+      <a class="feature reveal" href="speaking.html" style="display:block;--d:.05s">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
         <h3>Invite Me to Speak</h3>
-        <p>Keynotes, guest lectures, workshops and panels — browse topics.</p>
+        <p>Signature talks, a ready-to-use speaker kit, and invitations.</p>
       </a>
       <a class="feature reveal" href="app/#/blog" style="display:block;--d:.1s">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
@@ -854,7 +873,7 @@
 
     </div>
     <div class="reveal" style="text-align:center; margin-top:36px;">
-      <a class="btn btn-solid" href="app/#/invite">Invite Me to Speak <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="speaking.html">Invite Me to Speak <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -969,64 +988,26 @@
       <div class="service reveal" style="--d:.15s">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
         <h3>Talks &amp; Consulting</h3>
-        <p>Speaking and advising on immersive media, spatial computing strategy, and translating emerging XR research into product.</p>
-        <a class="more" href="contact.html">Learn more <span class="arrow">→</span></a>
+        <p>Consulting, team workshops and keynotes on immersive technology, XR user research and engaged learning — evidence-led, with a fixed scope agreed up front.</p>
+        <a class="more" href="work-with-me.html">Work with me <span class="arrow">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="section">
+<!-- TESTIMONIALS — rendered from assets/js/testimonials.js. The section stays
+     hidden until that file holds real quotes from named people who agreed to
+     be quoted; see the note at the top of the file. -->
+<section class="section" id="testimonials" hidden>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">In Their Words</span>
-      <h2>From collaborators &amp; <em>students</em></h2>
+      <h2>From students &amp; <em>organisers</em></h2>
     </div>
-    <div class="testi">
-      <div class="testi-photo reveal">
-        <img src="assets/images/collab.jpg" alt="Dr. Yasas Sri Wickramasinghe collaborating with HIT Lab NZ and Sony Interactive Entertainment research partners" loading="lazy" decoding="async" width="1100" height="825" />
-      </div>
-      <div class="testi-quote reveal" style="--d:.1s">
-        <div class="mark">"</div>
-        <blockquote>Yasas brings rare range — the rigour of a researcher and the instincts of a builder. His work on location-based AR genuinely advanced how we think about connecting remote players, and his teaching makes complex ideas click for students.</blockquote>
-        <div class="testi-author">Research &amp; Industry Partners<small>HIT Lab NZ · Sony Interactive Entertainment</small></div>
-      </div>
-    </div>
-
-    <!-- Student perspectives: three featured quotes, the rest behind a quiet toggle -->
-    <div class="tgrid-label reveal">
-      <span class="eyebrow">Student Perspectives</span>
-    </div>
-    <div class="tgrid reveal" id="tgridFeatured">
-      <figure class="tcard">
-        <blockquote>“I took his free course on a whim and ended up changing my career into HCI. That's the kind of teacher he is.”</blockquote>
-        <figcaption>
-          <strong>Maya Robinson</strong>
-          <span>Online MOOC — AR Fundamentals</span>
-          <span class="tloc">United States</span>
-        </figcaption>
-      </figure>
-      <figure class="tcard">
-        <blockquote>“Yasas pushed my AR project further than I thought I could take it — rigorous feedback, always delivered with kindness.”</blockquote>
-        <figcaption>
-          <strong>Liam Carter</strong>
-          <span>Capstone supervisee · University of Canterbury</span>
-          <span class="tloc">New Zealand</span>
-        </figcaption>
-      </figure>
-      <figure class="tcard">
-        <blockquote>“Access to teaching this good, for free, from Lagos — it genuinely opened a door for me into XR.”</blockquote>
-        <figcaption>
-          <strong>Adaeze Okonkwo</strong>
-          <span>Online MOOC — AR Fundamentals</span>
-          <span class="tloc">Nigeria</span>
-        </figcaption>
-      </figure>
-    </div>
+    <div class="tgrid reveal" id="tgridFeatured"></div>
     <div class="tgrid tgrid-more" id="tgridMore" hidden></div>
     <div class="tgrid-toggle-wrap reveal">
-      <button class="btn" type="button" id="tgridToggle" aria-expanded="false" aria-controls="tgridMore">View more student perspectives</button>
+      <button class="btn" type="button" id="tgridToggle" aria-expanded="false" aria-controls="tgridMore">View more perspectives</button>
     </div>
   </div>
 </section>
@@ -1037,9 +1018,12 @@
     <div class="bigcta reveal">
       <div class="bigcta-text">
         <span class="eyebrow">Collaboration</span>
-        <h2>Research collaborations, talks &amp; <em style="color:#6ea0ff">advisory</em></h2>
-        <p>For a research collaboration, a guest lecture, or advice on an immersive project — my inbox is open.</p>
-        <a class="btn" href="contact.html">Get in Touch <span class="arrow">→</span></a>
+        <h2>Consulting, workshops, talks &amp; <em style="color:#6ea0ff">research</em></h2>
+        <p>For an immersive or learning project, a team workshop, a keynote or a research collaboration — see how I work, or just say hello.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="work-with-me.html">Work With Me <span class="arrow">→</span></a>
+          <a class="btn" href="case-studies.html" style="background:transparent;border-color:rgba(255,255,255,.32);color:#fff">Case Studies</a>
+        </div>
       </div>
       <div class="bigcta-visual">
         <svg width="100%" height="200" viewBox="0 0 400 200" fill="none" preserveAspectRatio="none" aria-hidden="true">
@@ -1078,7 +1062,11 @@
       </details>
       <details class="faq-item reveal">
         <summary>How can I get in touch?</summary>
-        <p>You can reach out via the <a href="contact.html" style="color:var(--accent);font-weight:600;">contact page</a> for research collaborations, guest talks, consulting and academic mentorship.</p>
+        <p>Organisations can request a discovery call on the <a href="work-with-me.html" style="color:var(--accent);font-weight:600;">Work With Me</a> page, event organisers will find talks and a speaker kit on the <a href="speaking.html" style="color:var(--accent);font-weight:600;">Speaking</a> page, and anyone can use the <a href="contact.html" style="color:var(--accent);font-weight:600;">contact page</a> for research collaborations, mentorship and general questions.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Can I hire him for consulting, workshops or a keynote?</summary>
+        <p>Yes. For organisations he offers an XR Opportunity Sprint, immersive UX and playtest evaluation, and EdTech advisory; hands-on <a href="workshops.html" style="color:var(--accent);font-weight:600;">team workshops</a> on topics from web security and Agile to machine learning and AI-assisted building; and keynotes on multiplayer AR, spatial computing and workplace conflict. Engagements are scoped with a fixed fee agreed up front and run remotely worldwide or in person in New Zealand.</p>
       </details>
     </div>
   </div>
@@ -1097,7 +1085,16 @@
         </form>
       </div>
       <div class="footer-col">
+        <h4>Work With Me</h4>
+        <a href="work-with-me.html">Consulting</a>
+        <a href="speaking.html">Speaking</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="media.html">Media</a>
+      </div>
+      <div class="footer-col">
         <h4>Explore</h4>
+        <a href="about.html">About</a>
         <a href="research.html">Research</a>
         <a href="teaching.html">Teaching</a>
         <a href="students.html">Students</a>
@@ -1117,6 +1114,7 @@
         <h4>Resources</h4>
         <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus — founder ↗</a>
         <a href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener">Campus Ready ↗</a>
+        <a href="playbook.html">AR Design Playbook (free)</a>
         <a href="app/#/book">The Collaboration Reflex (Book)</a>
         <a href="assets/files/cv_yasas.pdf" target="_blank">Curriculum Vitae</a>
         <a href="research.html">Publications</a>
@@ -1134,9 +1132,6 @@
 <script src="assets/js/premium.js"></script>
 <script src="app/js/firebase-config.js"></script>
 <script src="assets/js/pg-interest.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-array@3/dist/d3-array.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-geo@3/dist/d3-geo.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script src="assets/js/testimonials.js"></script>
 <script src="assets/js/globe-voices.js"></script>
 </body>
