@@ -1,0 +1,560 @@
+{
+  "syncedAt": "2026-09-27",
+  "source": "https://raw.githubusercontent.com/ureshan2011/thisisnotalms/main/src/content/courses.ts",
+  "base": "https://ureshan2011.github.io/thisisnotalms/",
+  "courses": [
+    {
+      "code": "MBI800",
+      "slug": "mbi800",
+      "name": "Strategic Information Systems Planning",
+      "accent": "planning",
+      "lede": "What an organisation decides to build, and why it keeps getting the decision wrong. Every lesson on this page is a page you can open now — start with the first one, or take whichever answers the thing you came for.",
+      "summary": "What an organisation decides to build, and why it keeps getting the decision wrong.",
+      "facts": "15 credits, Level 8, no prerequisites",
+      "keyline": "The course runs from a single system to a whole industry: systems thinking first, then five platforms that rewired their markets, then what it costs when security is an afterthought.",
+      "outcomes": [
+        {
+          "n": "LO1",
+          "short": "Read the system you have",
+          "body": "Assess current information systems to identify strategic opportunities and associated risks for improvement in a business context."
+        },
+        {
+          "n": "LO2",
+          "short": "Weigh culture and privacy",
+          "body": "Evaluate the impact of cultural protocols and data privacy on the successful implementation of information systems in diverse cultural settings."
+        },
+        {
+          "n": "LO3",
+          "short": "Write the plan",
+          "body": "Develop strategic plans to align information systems with organisational goals in a business context."
+        }
+      ],
+      "assessments": [
+        [
+          "60%",
+          "Strategic Information Systems Planning report",
+          "Individual · assesses LO1 and LO3"
+        ],
+        [
+          "40%",
+          "Case study analysis: cultural and ethical analysis in information systems implementation",
+          "Individual · assesses LO2"
+        ]
+      ],
+      "content": [
+        "Understanding information systems and their role in organisations",
+        "How information systems shape and influence organisational strategy",
+        "Strategic Information Systems Planning (SISP)",
+        "Methods and tools for conducting SISP",
+        "Challenges and risks in SISP",
+        "Risk management in IS planning: technological failure, data breaches, resource constraints",
+        "Case studies of successful SISP implementations",
+        "Designing culturally appropriate information services",
+        "IT trends and emerging technologies"
+      ],
+      "home": "https://ureshan2011.github.io/thisisnotalms/#/mbi800",
+      "lessons": [
+        {
+          "id": "sisp-intro",
+          "slug": "intro-to-sisp",
+          "n": 1,
+          "title": "Introduction and systems thinking",
+          "blurb": "The whole of Lesson 1: what strategic planning actually decides, systems against collections, a sales loop you can run for twelve months to watch the obvious fix rebound, and the Iceberg Model taken down through a real outage. Ends with a knowledge check.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-sisp"
+        },
+        {
+          "id": "business-model-canvas",
+          "slug": "business-model-canvas",
+          "n": 2,
+          "title": "The Business Model Canvas",
+          "blurb": "How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/business-model-canvas"
+        },
+        {
+          "id": "threats-to-strategy",
+          "slug": "threats-to-strategy",
+          "n": 3,
+          "title": "Threats to opportunities to strategy",
+          "blurb": "How a business capitalises on its threats. Netflix, Apple, Adobe, Microsoft, NZ Post and Google each turned a threat into a strategy, Kodak and Fujifilm took the same threat two ways, then you flip six threats yourself.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/threats-to-strategy"
+        },
+        {
+          "id": "five-stories",
+          "slug": "five-stories",
+          "n": 4,
+          "title": "Five stories that changed everything",
+          "blurb": "Airbnb, Netflix, Xero, Canva and Alibaba — how each started from one frustration and built a platform that rewired its industry. IS architecture, growth figures and discussion questions for each.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/five-stories"
+        },
+        {
+          "id": "platform-strategy",
+          "slug": "platform-strategy",
+          "n": 5,
+          "title": "Platform strategy",
+          "blurb": "Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE Predix — then a group research task and a knowledge check.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/platform-strategy"
+        },
+        {
+          "id": "systems-security",
+          "slug": "systems-security",
+          "n": 6,
+          "title": "Systems security",
+          "blurb": "What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup simulator and choose a disaster-recovery plan.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/systems-security"
+        },
+        {
+          "id": "xr-explorer",
+          "slug": "xr-explorer",
+          "n": 7,
+          "title": "Immersive realities",
+          "blurb": "A walk through AR, VR and mixed reality, with two demos that run in the browser. No headset needed, and no prior graphics knowledge assumed.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/xr-explorer"
+        },
+        {
+          "id": "bonus-lecture",
+          "slug": "bonus-lecture",
+          "n": 8,
+          "title": "Capstone: shipping your own site",
+          "blurb": "The final lecture. Design a layout in Google Stitch, turn it into real code with Claude Code, and put it live on GitHub Pages. Includes a prompt generator for your own portfolio.",
+          "kind": "Lab",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/bonus-lecture"
+        },
+        {
+          "id": "study-packs",
+          "slug": "study-packs",
+          "n": 9,
+          "title": "The written study pack",
+          "blurb": "The whole course rewritten as a properly typeset book: eleven chapters, worked examples, practice questions and answer keys. Yours to download and keep.",
+          "kind": "Pack",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/study-packs"
+        }
+      ]
+    },
+    {
+      "code": "MBI802",
+      "slug": "mbi802",
+      "name": "Database Management Systems",
+      "accent": "default",
+      "lede": "From a spreadsheet that contradicts itself to a normalised database you can query. Sixteen lessons, in the order the course teaches them — the first one opens for anybody, with nothing to install.",
+      "summary": "From a spreadsheet that contradicts itself to a normalised database you can query.",
+      "facts": "15 credits, Level 8, no prerequisites",
+      "keyline": "Each lesson assumes the one before it. SQL before diagrams, diagrams before mapping, mapping before normalisation — that order is the course, not a filing system.",
+      "outcomes": [],
+      "assessments": [],
+      "content": [
+        "Data against information, and why file-based systems fail",
+        "The relational model and setting up MySQL",
+        "SQL fundamentals: data types, CREATE, INSERT and your first SELECT",
+        "Advanced queries: filtering, sorting, safe UPDATE and DELETE, aggregates and joins",
+        "ER diagram foundations in Chen's notation: entities, attributes, keys and cardinality",
+        "Advanced ER: weak entities, composite and multivalued attributes, total against partial participation",
+        "The eight rules that turn any ER diagram into a complete set of tables",
+        "Functional dependencies, 1NF through BCNF, and decomposing a table properly",
+        "Consolidation: the full pipeline from raw data to a queryable database"
+      ],
+      "home": "https://ureshan2011.github.io/thisisnotalms/#/mbi802",
+      "lessons": [
+        {
+          "id": "dbms-intro",
+          "slug": "intro-to-dbms",
+          "n": 1,
+          "title": "Introduction to DBMS",
+          "blurb": "Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms"
+        },
+        {
+          "id": "mysql-setup",
+          "slug": "mysql-setup",
+          "n": 2,
+          "title": "Setting up MySQL",
+          "blurb": "Two short guide videos — one for MacOS, one for Windows — so your MySQL client and Workbench are installed and ready before the first hands-on class.",
+          "kind": "Video",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/mysql-setup"
+        },
+        {
+          "id": "sql-programming",
+          "slug": "sql-programming",
+          "n": 3,
+          "title": "Introduction to SQL with MySQL",
+          "blurb": "The language databases actually speak. Create a database, build a table, insert real rows, then ask it questions — one interactive slide at a time.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/sql-programming"
+        },
+        {
+          "id": "database-concepts",
+          "slug": "database-concepts",
+          "n": 4,
+          "title": "Advanced database concepts",
+          "blurb": "One table, built up step by step: add a column, change a data type, set a primary key and auto-number it, back it up and restore it, then ORDER BY and count it. Finishes with a safe look at SQL injection.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/database-concepts"
+        },
+        {
+          "id": "web-architecture",
+          "slug": "web-architecture",
+          "n": 5,
+          "title": "Client, server and databases",
+          "blurb": "How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/web-architecture"
+        },
+        {
+          "id": "er-diagrams",
+          "slug": "er-diagrams",
+          "n": 6,
+          "title": "ER diagrams",
+          "blurb": "Sketch the world before you build the tables. Entities, attributes and relationships in Chen's notation, and how to read cardinality at a glance.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/er-diagrams"
+        },
+        {
+          "id": "er-activities",
+          "slug": "er-activities",
+          "n": 7,
+          "title": "ER diagrams in practice",
+          "blurb": "Model five real systems — a library, a university, a hospital, an online store and a hotel — then check your diagram against a worked answer.",
+          "kind": "Practice",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/er-activities"
+        },
+        {
+          "id": "er-advanced",
+          "slug": "er-advanced",
+          "n": 8,
+          "title": "Advanced ER concepts",
+          "blurb": "Real data is messier than the textbook. Weak entities, identifying relationships, and multivalued or derived attributes, with two exercises to test yourself.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/er-advanced"
+        },
+        {
+          "id": "er-attributes",
+          "slug": "er-attributes",
+          "n": 9,
+          "title": "Attributes and participation",
+          "blurb": "The details that decide whether a model is right or wrong. Break attributes into their parts, then read total against partial participation through guided activities.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/er-attributes"
+        },
+        {
+          "id": "er-mapping",
+          "slug": "er-mapping",
+          "n": 10,
+          "title": "ER to relational mapping",
+          "blurb": "Turn entity-relationship diagrams into real relational tables — entities, relationships, keys, and every tricky case in between.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/er-mapping"
+        },
+        {
+          "id": "normalisation",
+          "slug": "normalisation",
+          "n": 11,
+          "title": "Database normalisation",
+          "blurb": "From messy tables to clean ones. Spot the anomalies, then split a table step by step from 1NF all the way to 3NF.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/normalisation"
+        },
+        {
+          "id": "normalisation-activities",
+          "slug": "normalisation-activities",
+          "n": 12,
+          "title": "Normalisation activities",
+          "blurb": "Seven short tables to practise on, mixed up and with no hints. Work out what normal form each is in and normalise it. The answers sit behind a password so you try it first.",
+          "kind": "Practice",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/normalisation-activities"
+        },
+        {
+          "id": "normalisation-videos",
+          "slug": "normalisation-videos",
+          "n": 13,
+          "title": "Normalisation on video",
+          "blurb": "Prefer to watch? A short walkthrough series — why we normalise, functional dependencies, and First Normal Form — each as a clip you can play any time.",
+          "kind": "Video",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/normalisation-videos"
+        },
+        {
+          "id": "sql-reels",
+          "slug": "sql-reels",
+          "n": 14,
+          "title": "UPDATE and DELETE",
+          "blurb": "Change and remove rows with confidence. Short scrollable reels that show how to edit data without breaking everything around it.",
+          "kind": "Video",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/sql-reels"
+        },
+        {
+          "id": "security-lab",
+          "slug": "security-lab",
+          "n": 15,
+          "title": "SwiftShop security lab",
+          "blurb": "A deliberately insecure shop with twenty hidden vulnerabilities, from editable price tags and secrets in the page source to XSS, privilege escalation and business-logic flaws. Find them, exploit them, then explain the fix.",
+          "kind": "Lab",
+          "url": "https://ureshan2011.github.io/thisisnotalms/security-lab.html"
+        },
+        {
+          "id": "sql-certifications",
+          "slug": "sql-certifications",
+          "n": 16,
+          "title": "Free SQL certifications",
+          "blurb": "Nine genuinely free credentials — Oracle badges, IBM digital badges, HackerRank exams, Cisco certs and more. No credit card for any of them.",
+          "kind": "Reference",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/sql-certifications"
+        },
+        {
+          "id": "study-packs",
+          "slug": "study-packs",
+          "n": 17,
+          "title": "The written study pack",
+          "blurb": "The whole course rewritten as a properly typeset book: eight chapters, worked examples, practice questions and answer keys. Yours to download and keep.",
+          "kind": "Pack",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/study-packs"
+        }
+      ]
+    },
+    {
+      "code": "MBI804",
+      "slug": "mbi804",
+      "name": "IT Project Management",
+      "accent": "project",
+      "lede": "What is really fixed on a project, what a delay actually costs, and which method the work in front of you is asking for. Every lesson here opens for anybody, with no code.",
+      "summary": "What is really fixed on a project, what a delay actually costs, and which method the work in front of you is asking for.",
+      "facts": "15 credits, Level 8 · prerequisites MBI800 and MBI801",
+      "keyline": "The course keeps returning to one question: which of the three constraints are you willing to move? Every estimate, every risk and every conflict on this page is another way of asking it.",
+      "outcomes": [
+        {
+          "n": "LO1",
+          "short": "Choose the method",
+          "body": "Critically analyse the attributes of an IT project to recommend the most suitable project management methodologies in an organisation."
+        },
+        {
+          "n": "LO2",
+          "short": "Name the risks",
+          "body": "Assess potential risks associated with IT projects to propose mitigation strategies for an organisation."
+        },
+        {
+          "n": "LO3",
+          "short": "Run it in your field",
+          "body": "Apply IT project management approaches and practices within specialised domains in a professional context."
+        }
+      ],
+      "assessments": [
+        [
+          "60%",
+          "Project methodology selection: case study",
+          "Individual · assesses LO1 and LO3"
+        ],
+        [
+          "40%",
+          "Risk management plan: report",
+          "Individual · assesses LO2 and LO3"
+        ]
+      ],
+      "content": [
+        "Overview of project management principles and practices",
+        "Project initiation and planning",
+        "Scope management in IT projects",
+        "Risk management in IT projects",
+        "Quality management in informatics projects",
+        "Project monitoring, control and closure",
+        "Agile, Waterfall and PRINCE2 project management",
+        "Case studies and best practices in IT project management",
+        "Ethical and legal considerations in IT project management"
+      ],
+      "home": "https://ureshan2011.github.io/thisisnotalms/#/mbi804",
+      "lessons": [
+        {
+          "id": "pm-intro",
+          "slug": "intro-to-project-management",
+          "n": 1,
+          "title": "What a project is, and what decides how to run it",
+          "blurb": "The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the launch date cares about, choose between Agile, Waterfall and PRINCE2 across four project shapes, then price a risk on the grid.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management"
+        },
+        {
+          "id": "business-model-canvas",
+          "slug": "business-model-canvas-mbi804",
+          "n": 2,
+          "title": "The Business Model Canvas",
+          "blurb": "How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck. Shared with MBI800.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/business-model-canvas-mbi804"
+        },
+        {
+          "id": "pm-methodologies",
+          "slug": "project-methodologies",
+          "n": 3,
+          "title": "Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close",
+          "blurb": "Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s spiral walked loop by loop, PRINCE2’s seven principles, themes and processes opened one at a time, then the whole Agile family — and Scrum in full: a clickable framework diagram, twelve “whose job is this?” situations, timeboxes that scale with the Sprint, and a board with a live burndown.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/project-methodologies"
+        },
+        {
+          "id": "scrum-simulation",
+          "slug": "scrum-simulation",
+          "n": 4,
+          "title": "The Scrum studio: a Sprint you can watch, pause and orbit",
+          "blurb": "Lesson 3. Six 3D miniatures build a parcel drone through three one-week Sprints while a caption says what is happening and a timeline marks every milestone: the Product Backlog ordered on the wall, refined and estimated with Planning Poker, Sprint Planning pulling cards into the Sprint Backlog, a fifteen-minute Daily Scrum every morning, an impediment landing and being cleared, stakeholders watching the drone lift off at the Review, one improvement from each Retrospective. It pauses after each step so you can read, then a seven-question check.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/scrum-simulation"
+        },
+        {
+          "id": "pm-peer-audit",
+          "slug": "peer-audit",
+          "n": 5,
+          "title": "The outside auditor: peer audit round",
+          "blurb": "The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional scenario whose author is confident and wrong about all of them, sort eight sentences into restating, asserting and auditing, choose a risk response where mitigating is the wrong answer, then build the one-page Corrective Action Plan and export it.",
+          "kind": "Practice",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/peer-audit"
+        },
+        {
+          "id": "cost-management",
+          "slug": "cost-management",
+          "n": 6,
+          "title": "Project cost management",
+          "blurb": "Plan, estimate, budget — and avoid the traps that sink most IT projects. Seven interactive sections around the SecurePay NZ scenario: PERT calculator, budget builder, live S-curve and a closing challenge.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/cost-management"
+        },
+        {
+          "id": "collaboration-reflex",
+          "slug": "collaboration-reflex-lecture",
+          "n": 7,
+          "title": "The collaboration reflex",
+          "blurb": "Conflict and communication management taught through forty-five real, anonymised classroom conflicts: six full stories, four frameworks, and the one reflex experienced professionals reach for even when it is the wrong answer.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/collaboration-reflex-lecture.html"
+        },
+        {
+          "id": "conflict-swap",
+          "slug": "conflict-swap",
+          "n": 8,
+          "title": "Conflict swap",
+          "blurb": "Write a real conflict you have lived through, anonymously. The class shuffles everyone's stories so you analyse someone else's — root cause, the mode that was used, and the mode that should have been. A class code from me, no login.",
+          "kind": "Practice",
+          "url": "https://ureshan2011.github.io/thisisnotalms/conflict-swap.html"
+        },
+        {
+          "id": "jira-certifications",
+          "slug": "jira-certifications",
+          "n": 9,
+          "title": "Free Jira and Agile certifications",
+          "blurb": "Three hand-picked credentials: Atlassian's own Jira learning path, a LinkedIn Agile Professional Certificate, and a quick free completion cert.",
+          "kind": "Reference",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/jira-certifications"
+        }
+      ]
+    },
+    {
+      "code": "MBI806B",
+      "slug": "mbi806b",
+      "name": "Business Data Analytics with AI and ML",
+      "accent": "analytics",
+      "lede": "What AI and ML actually mean, where you already rely on them without noticing, and how a real decision gets made step by step. Written for people who have never opened a data tool — every lesson opens with no code.",
+      "summary": "What AI and ML actually mean, where you already rely on them without noticing, and how a real decision gets made step by step.",
+      "facts": "15 credits, Level 8 · prerequisite MBI801, co-requisite MBI805B",
+      "keyline": "Getting a number out is the easy half. Being able to defend the number, and say what it cannot tell you, is the job this course is actually about.",
+      "outcomes": [
+        {
+          "n": "LO1",
+          "short": "Decide with AI and ML",
+          "body": "Evaluate advanced business data analytics techniques, including AI and ML algorithms, to make informed decisions within a business organization."
+        },
+        {
+          "n": "LO2",
+          "short": "Use industry tools",
+          "body": "Apply industry-standard business analytics tools to improve the efficiency and effectiveness of decision-making processes in a business context."
+        },
+        {
+          "n": "LO3",
+          "short": "Visualise for an audience",
+          "body": "Assess and apply different data visualization techniques to convey specific types of business information for an organization."
+        },
+        {
+          "n": "LO4",
+          "short": "Judge it ethically",
+          "body": "Critically evaluate business analytics practices from an ethical and data privacy perspective within a business context."
+        }
+      ],
+      "assessments": [],
+      "content": [
+        "Business decision-making with AI and ML",
+        "Data visualisation for business communication",
+        "Advanced data analysis with AI and ML",
+        "Risk management in AI/ML applications",
+        "Addressing data privacy and security risks in business analytics",
+        "Decision-making frameworks",
+        "Advanced visualisation techniques",
+        "Integrating findings and visualisations into decisions",
+        "Industry-standard business analytics tools",
+        "Advanced data analysis and predictive modelling",
+        "Ethical considerations in business analytics",
+        "Future trends in business data analytics"
+      ],
+      "home": "https://ureshan2011.github.io/thisisnotalms/#/mbi806b",
+      "lessons": [
+        {
+          "id": "analytics-intro",
+          "slug": "intro-to-business-analytics",
+          "n": 1,
+          "title": "Welcome to business data analytics",
+          "blurb": "For absolute beginners: what AI and ML actually mean, where you already use them without noticing, how real decisions get made step by step, and a first look at Power BI.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-business-analytics"
+        },
+        {
+          "id": "python-setup",
+          "slug": "python-setup",
+          "n": 2,
+          "title": "Setting up Python",
+          "blurb": "No installing, no downloads. Open Google Colab in your browser — identical on Mac and Windows — and write your first line of Python in two minutes.",
+          "kind": "Lab",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/python-setup"
+        },
+        {
+          "id": "ml-three-models",
+          "slug": "predicting-with-data",
+          "n": 3,
+          "title": "Three ways to predict things",
+          "blurb": "Linear regression, decision trees and random forests, explained with no maths. Move a line until it fits, grow a tree until it cheats, watch nine trees outvote the best one — then run real Python in the page.",
+          "kind": "Lesson",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data"
+        },
+        {
+          "id": "power-bi-setup",
+          "slug": "power-bi-setup",
+          "n": 4,
+          "title": "Setting up Power BI",
+          "blurb": "From nothing to your first chart. Everybody starts in the browser, which works the same on a Mac as on a PC — nobody should spend the first class watching a download bar.",
+          "kind": "Lab",
+          "url": "https://ureshan2011.github.io/thisisnotalms/#/power-bi-setup"
+        }
+      ]
+    }
+  ],
+  "general": [
+    {
+      "id": "apa-referencing",
+      "slug": "apa-referencing",
+      "n": 1,
+      "title": "APA 7 citations: the crash course",
+      "blurb": "Everything needed to cite correctly, from the first in-text citation to the last reference entry. Fourteen interactive slides and a practice quiz.",
+      "kind": "Reference",
+      "url": "https://ureshan2011.github.io/thisisnotalms/#/apa-referencing"
+    },
+    {
+      "id": "pre-class",
+      "slug": "pre-class",
+      "n": 2,
+      "title": "The pre-class idea swarm",
+      "blurb": "A full-screen countdown for the minutes before class. Key concepts drift like a galaxy, then swarm together to reveal the course code right as we begin.",
+      "kind": "Reference",
+      "url": "https://ureshan2011.github.io/thisisnotalms/#/pre-class"
+    }
+  ]
+}
