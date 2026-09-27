@@ -102,6 +102,7 @@
       smoothWheel: true,
       easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
     });
+    window.__lenis = lenis; // page scripts (blended.js) scroll through it
     var rafLenis = function (time) { lenis.raf(time); requestAnimationFrame(rafLenis); };
     requestAnimationFrame(rafLenis);
 
