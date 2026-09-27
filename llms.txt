@@ -35,6 +35,7 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 - [AR Design Playbook](https://www.yasassri.me/playbook.html): A free, citable playbook of four evidence-based principles for location-based AR that connects people across distance, with a 12-question checklist and a printable PDF.
 - [Media](https://www.yasassri.me/media.html): Media and press page — topics he comments on (AR/VR, games that connect people, AI in education, EdTech, tech careers in NZ and Sri Lanka, workplace conflict), recent appearances, bio and photos, and a media-request form.
 - [About](https://www.yasassri.me/about.html): His story from the University of Moratuwa, 99X and an MIT Global Startup Labs AR start-up in Sri Lanka to a PhD at HIT Lab NZ, teaching at Yoobee and founding ICT Campus, with a milestones timeline.
+- [NZGDC 2026 talk](https://www.yasassri.me/nzgdc/): Companion page for the talk "Designing Shared Worlds Across Distance" — what three multiplayer AR games and 128 players showed (Tabletop, Window and Overlay views of a remote room; remote AR hide-and-seek against real-world play; AR-only mechanics such as swapping and time pressure), six design rules, an interactive view-cone demo, papers, videos, slides after the talk, and Q&A.
 - [Contact](https://www.yasassri.me/contact.html): General enquiries, research collaborations, mentorship and media; routes organisations to Work With Me and event organisers to Speaking.
 - [Platform](https://www.yasassri.me/app/): Interactive academic platform — free consultation booking (education, research, career mentoring), speaker-invitation requests with a talk-topics catalogue, blog, newsletter signup, and a student community forum.
 
@@ -48,7 +49,7 @@ This file follows the llms.txt convention (https://llmstxt.org) to help AI assis
 
 ## Upcoming events
 
-- NZGDC 2026 — "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland, New Zealand. Details: https://www.yasassri.me/news.html#upcoming
+- NZGDC 2026 — "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — 1 October 2026, 3:00–3:30 PM NZDT, NZ International Convention Centre, Auckland, New Zealand. Talk companion page (findings, the six rules, papers, videos, slides after the talk, Q&A): https://www.yasassri.me/nzgdc/
 - VRST 2026 — paper presentation: "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" — 16–18 November 2026 (talk time to be confirmed), 32nd ACM Symposium on Virtual Reality Software and Technology, RIEC, Tohoku University, Sendai, Japan. Details: https://www.yasassri.me/news.html#upcoming
 - ICITR 2026 — Workshop 01: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me" — date and time to be announced; planned as an online session. Part of the 11th International Conference on Information Technology Research (ICITR 2026, 1–2 December 2026), organised by the Information Technology Research Unit (ITRU), Faculty of Information Technology, University of Moratuwa, Sri Lanka. Official programme: https://icitr.uom.lk/workshops/ · Details: https://www.yasassri.me/news.html#upcoming
 - To invite Yasas Sri Wickramasinghe for a similar talk, workshop, or seminar: https://www.yasassri.me/app/#/invite
