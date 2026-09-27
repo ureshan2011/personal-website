@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Designing Shared Worlds Across Distance — NZGDC 2026 Talk | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="description" content="Companion page for Dr. Yasas Sri Wickramasinghe&#x27;s NZGDC 2026 talk: what three multiplayer AR games and 128 players revealed about playing together from apart, six rules for remote AR game design, slides, papers, videos and Q&amp;A."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="keywords" content="NZGDC 2026, Designing Shared Worlds Across Distance, multiplayer AR, location-based AR games, remote multiplayer, AR hide-and-seek, game design talk, Niantic Lightship, view cone, spatial presence, Yasas Sri Wickramasinghe, HIT Lab NZ"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#121a2c"/>
+<link rel="canonical" href="https://www.yasassri.me/nzgdc/"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:locale" content="en_NZ"/>
+<meta property="og:title" content="Designing Shared Worlds Across Distance — NZGDC 2026"/>
+<meta property="og:description" content="Three multiplayer AR games, 128 players, six rules for designing play across distance. Slides, papers, videos and an interactive demo."/>
+<meta property="og:url" content="https://www.yasassri.me/nzgdc/"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/events/nzgdc-2026-talk-og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Designing Shared Worlds Across Distance — NZGDC 2026 talk by Dr. Yasas Sri Wickramasinghe"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<meta name="twitter:creator" content="@sri_yasas"/>
+<meta name="twitter:title" content="Designing Shared Worlds Across Distance — NZGDC 2026"/>
+<meta name="twitter:description" content="Three multiplayer AR games, 128 players, six rules for designing play across distance. Slides, papers, videos and an interactive demo."/>
+<meta name="twitter:image" content="https://www.yasassri.me/assets/images/events/nzgdc-2026-talk-og.jpg"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "@id": "https://www.yasassri.me/nzgdc/#talk",
+  "name": "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research",
+  "description": "A 30-minute NZGDC 2026 talk by Dr. Yasas Sri Wickramasinghe on what three multiplayer augmented reality games and 128 players revealed about playing together from apart, and six rules for designing remote AR games.",
+  "startDate": "2026-10-01T15:00:00+13:00",
+  "endDate": "2026-10-01T15:30:00+13:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "NZ International Convention Centre",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Auckland",
+      "addressCountry": "NZ"
+    }
+  },
+  "image": [
+    "https://www.yasassri.me/assets/images/events/nzgdc-2026-talk-og.jpg"
+  ],
+  "url": "https://www.yasassri.me/nzgdc/",
+  "inLanguage": "en",
+  "performer": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "New Zealand Game Developers Conference (NZGDC)",
+    "url": "https://nzgdc.com/"
+  },
+  "superEvent": {
+    "@type": "Event",
+    "name": "NZGDC 2026",
+    "startDate": "2026-09-30",
+    "endDate": "2026-10-03",
+    "url": "https://nzgdc.com/",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "NZ International Convention Centre",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Auckland",
+        "addressCountry": "NZ"
+      }
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Would this work on Quest or Vision Pro instead of iPads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In some ways, better. A headset fixes the arm fatigue — four players reported it from holding an iPad up at the ceiling. But Overlay mode already blocked out enough of the real room to disorient three players, so on a headset, occlusion and physical safety become the design problem to solve first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How did you keep both players in sync?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unity NetCode with Lightship networking, over a dedicated Wi-Fi network, running at 60 FPS on both devices. The particle trail doubles as a fairness signal: when a hidden object swaps, both players can see where it was."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Did anyone cheat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Active swapping felt sneaky — one Hider said exactly that — but players accepted it as fair, because the particle trail showed where the object had been."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about more than two players, or playing outdoors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every study was played in pairs, and both hide-and-seek games ran indoors. Groups, and hide-and-seek outdoors, are the obvious next step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the novelty wear off?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Honestly, we don't know yet. Everything in this talk is first-session data. A longitudinal study is next."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Speaking",
+      "item": "https://www.yasassri.me/speaking.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "NZGDC 2026 talk",
+      "item": "https://www.yasassri.me/nzgdc/"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/services.css" rel="stylesheet"/>
+<link href="../assets/css/talk.css" rel="stylesheet"/>
+<!-- Google Analytics. Scans of the slide's QR code (…/nzgdc/?qr) are attributed
+     to the talk as a campaign, then the URL is tidied back to /nzgdc/. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function () {
+    var cfg = {}, fromQr = false;
+    try {
+      if (new URLSearchParams(location.search).has('qr')) {
+        fromQr = true;
+        document.documentElement.classList.add('from-qr');
+        cfg.page_location = location.origin + location.pathname + '?utm_source=nzgdc2026&utm_medium=qr&utm_campaign=shared_worlds_talk';
+        history.replaceState(null, '', location.pathname + location.hash);
+      }
+    } catch (e) {}
+    gtag('config', 'G-N2BH0F6SNE', cfg);
+    if (fromQr) gtag('event', 'qr_scan', { event_category: 'nzgdc2026' });
+  })();
+</script>
+</head>
+<body class="talk-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a class="active" href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main id="main">
+
+<!-- ============================================================ HERO -->
+<header class="t-hero" id="top">
+  <div class="t-hero-bg" aria-hidden="true"></div>
+  <div class="container t-hero-grid">
+    <div class="t-hero-copy">
+      <div class="t-kicker reveal">
+        <span class="t-badge">NZGDC 2026</span>
+        <span class="t-status" id="talkStatus" data-state="before"><i aria-hidden="true"></i><span>On stage Thursday 1 October, 3:00 PM NZDT</span></span>
+      </div>
+      <h1 class="reveal" style="--d:.08s">Designing shared worlds <em>across distance</em></h1>
+      <p class="t-sub reveal" style="--d:.16s">What three multiplayer AR games and 128 players taught me about playing together from apart — and the six rules I'd now build any remote AR game around.</p>
+      <dl class="t-meta reveal" style="--d:.22s">
+        <div><dt>When</dt><dd>Thursday 1 October 2026 · 3:00–3:30 PM NZDT</dd></div>
+        <div><dt>Where</dt><dd>NZ International Convention Centre, Auckland</dd></div>
+        <div><dt>Speaker</dt><dd>Dr. Yasas Sri Wickramasinghe · HIT Lab NZ, University of Canterbury</dd></div>
+      </dl>
+      <div class="t-countdown reveal" id="countdown" style="--d:.28s" aria-label="Countdown to the talk">
+        <div class="u"><b data-u="d">–</b><small>days</small></div>
+        <div class="u"><b data-u="h">–</b><small>hrs</small></div>
+        <div class="u"><b data-u="m">–</b><small>min</small></div>
+        <div class="u"><b data-u="s">–</b><small>sec</small></div>
+        <span class="lbl">until I'm on stage in Auckland</span>
+      </div>
+      <div class="t-actions reveal" style="--d:.34s">
+        <a class="btn t-btn-primary" href="#rules">The six rules <span class="arrow">↓</span></a>
+        <a class="btn t-btn-ghost" href="#resources">Slides &amp; papers <span class="arrow">↓</span></a>
+      </div>
+    </div>
+
+    <figure class="t-window reveal" id="talkWindow" style="--d:.2s">
+      <div class="t-window-stage">
+        <div class="t-window-frame">
+          <span class="t-shutter l" aria-hidden="true"></span>
+          <span class="t-shutter r" aria-hidden="true"></span>
+          <canvas id="roomCanvas" tabindex="0" role="img"
+                  aria-label="Interactive illustration: a scanned room seen through an open window. Move your pointer, tap, or use the arrow keys to aim the Seeker's orange view-cone and find three hidden objects."></canvas>
+          <div class="t-toast" id="roomToast" role="status" aria-live="polite"></div>
+          <div class="t-hint" id="roomHint" aria-hidden="true">Move your cursor to look around</div>
+          <div class="t-hud">
+            <span class="found"><span>Found <b id="foundCount">0</b>/3</span> <span class="dots" id="foundDots"><i></i><i></i><i></i></span></span>
+            <button type="button" id="roomReset">Hide again</button>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>You're the Seeker.</b> That orange cone is all your partner ever saw of you in our hide-and-seek study — no avatar, no video. Three objects are hidden the way AR players hid them. <span class="k">Tip</span> look up.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ============================================================ CHAPTER BAR -->
+<nav class="t-chapters" aria-label="Talk chapters">
+  <div class="container">
+    <a href="#prologue" data-ch="prologue">Prologue</a>
+    <a href="#show" data-ch="show"><small>01</small>Show</a>
+    <a href="#play" data-ch="play"><small>02</small>Play</a>
+    <a href="#mechanics" data-ch="mechanics"><small>03</small>Rules of play</a>
+    <a href="#rules" data-ch="rules">The six rules</a>
+    <a href="#watch" data-ch="watch">Watch</a>
+    <a href="#resources" data-ch="resources">Slides &amp; papers</a>
+    <a href="#qa" data-ch="qa">Q&amp;A</a>
+    <a class="t-ch-cta" href="#feedback" data-ch="feedback">Get the slides</a>
+  </div>
+  <span class="t-ch-progress" aria-hidden="true"></span>
+</nav>
+
+<!-- ============================================================ PROLOGUE -->
+<section class="t-sec" id="prologue">
+  <div class="container">
+    <div class="t-chead">
+      <span class="t-cnum" aria-hidden="true">00</span>
+      <div>
+        <span class="eyebrow reveal">Prologue · the problem</span>
+        <h2 class="reveal" style="--d:.06s">The feature everyone <em>turns off</em></h2>
+      </div>
+    </div>
+    <p class="t-lede reveal">Pokémon GO has grossed around <b>US$9 billion</b> in ten years. The AR camera is the part players switch off in the settings. Niantic eventually retired the basic AR mode altogether.</p>
+
+    <div class="t-stats">
+      <div class="t-stat hot reveal"><b>~7<small>%</small></b><span>of Pokémon GO players say they regularly use the AR camera.</span><cite>Laato et al., 2021</cite></div>
+      <div class="t-stat reveal" style="--d:.06s"><b>#1</b><span>reason for turning it off: <em style="font-family:var(--serif);font-size:1.15em">“It slows me down.”</em></span></div>
+      <div class="t-stat reveal" style="--d:.12s"><b>US$1.4<small>B</small></b><span>Pokémon GO's best year ever — Jul 2020 to Jun 2021, the year remote play arrived.</span></div>
+    </div>
+
+    <blockquote class="t-pull reveal">AR is usually “a technical gimmick or marketing tool” that could be removed “without substantially altering the experience.”<cite>Alha et al., on location-based AR games</cite></blockquote>
+
+    <div class="t-questions">
+      <div class="t-q reveal"><small>Question one</small><p>What would it take for AR to be something you <em>can't</em> turn off — because the game doesn't work without it?</p></div>
+      <div class="t-q reveal" style="--d:.08s"><small>Question two</small><p>Remote Raids let people act on a place without ever being there. Can two people far apart genuinely feel they share <em>one</em> physical world?</p></div>
+    </div>
+
+    <div class="t-study reveal">
+      <div class="t-study-nums">
+        <div><b>3</b><span>games</span></div>
+        <div><b class="count" data-target="128">128</b><span>players</span></div>
+        <div><b>1</b><span>question</span></div>
+      </div>
+      <div>
+        <p class="t-study-q">How can AR make meaningful use of the real world for synchronous remote multiplayer play?</p>
+        <div class="t-tags"><span>Unity</span><span>Niantic Lightship ARDK</span><span>LiDAR iPads</span><span>Rooms scanned with Scaniverse</span><span>Tobii eye-tracking glasses</span><span>Ceiling cameras</span><span>Co-designed with Niantic Aotearoa, Wellington</span></div>
+        <p class="t-study-note">So when I say players looked up, they didn't just tell me — I watched their eyes do it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CHAPTER 1 -->
+<section class="t-sec paper" id="show">
+  <div class="container">
+    <div class="t-chead">
+      <span class="t-cnum" aria-hidden="true">01</span>
+      <div>
+        <span class="eyebrow reveal">Chapter one · Show</span>
+        <h2 class="reveal" style="--d:.06s">How do you show someone a place <em>they're not in</em>?</h2>
+        <div class="meta reveal" style="--d:.1s"><span class="t-chip dark">Game 1</span><span class="t-chip">30 players</span><span class="t-chip">Entertainment Computing, 2025</span></div>
+      </div>
+    </div>
+    <p class="t-lede reveal">One player is outdoors, collecting <b>grass, wood and clouds</b> by pointing the camera at the real thing. Their partner is indoors, under attack, and needs those resources to fight back. We scanned each space with LiDAR and showed the remote room three ways. Same scan, same game, same enemies — <b>only the representation changed.</b></p>
+
+    <div class="t-modes" style="margin-top:40px">
+      <div class="reveal">
+        <div class="t-tabs" id="modeTabs" role="tablist" aria-label="Ways to show a remote room">
+          <button role="tab" type="button" data-mode="tabletop" aria-selected="false" tabindex="-1">Tabletop</button>
+          <button role="tab" type="button" data-mode="window" aria-selected="false" tabindex="-1">Window</button>
+          <button role="tab" type="button" data-mode="overlay" aria-selected="true" tabindex="0">Overlay</button>
+        </div>
+        <div class="t-mode-view" id="modeView" data-mode="overlay" role="img" aria-label="Screenshot of the selected display mode from Study 1">
+          <div class="strip"></div><span class="tag">Overlay</span>
+        </div>
+      </div>
+      <div class="t-mode-copy reveal" id="modePanel" aria-live="polite" style="--d:.08s"></div>
+    </div>
+
+    <div class="t-quotes">
+      <blockquote class="t-quote reveal">The portal feels like my friend's space is also part of my real world.<cite>Study 1 player</cite></blockquote>
+      <blockquote class="t-quote reveal" style="--d:.06s">I didn't consciously think about it, that I was actually walking.<cite>Study 1 player — the real world had become a resource, not a backdrop</cite></blockquote>
+    </div>
+
+    <div class="t-rule reveal">
+      <span class="n">2</span>
+      <div><small>Rule two</small><p>Scale is presence. <span>Life-size to be there; a window to get things done.</span></p></div>
+    </div>
+
+    <figure class="t-figure reveal">
+      <img src="../assets/images/ar-workshop/fig5-resource-collection.webp" alt="Three screenshots from Game 1: collecting grass from the ground, wood from a tree and clouds from the sky, with a window into the partner's room at the side" loading="lazy" decoding="async" width="864" height="432"/>
+      <figcaption><b>The resource mechanic mattered more than any of the visuals.</b> Find the ground to collect grass, a tree for wood, the sky for clouds.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================================================ CHAPTER 2 -->
+<section class="t-sec" id="play">
+  <div class="container">
+    <div class="t-chead">
+      <span class="t-cnum" aria-hidden="true">02</span>
+      <div>
+        <span class="eyebrow reveal">Chapter two · Play</span>
+        <h2 class="reveal" style="--d:.06s">Hide-and-seek, <em>1,000 km apart</em></h2>
+        <div class="meta reveal" style="--d:.1s"><span class="t-chip dark">Game 2</span><span class="t-chip">60 players</span><span class="t-chip">IEEE VR 2025 · MTI 2025</span></div>
+      </div>
+    </div>
+
+    <div class="t-roles">
+      <div class="t-role reveal"><small>HIDER</small><p>Sees a 1:1 scan of the Seeker's room and places virtual objects anywhere in it, using thumbsticks.</p></div>
+      <div class="t-role reveal" style="--d:.06s"><small>SEEKER</small><p>Hunts through the real room with the camera, against a five-minute countdown.</p></div>
+      <div class="t-role cone reveal" style="--d:.12s"><small>BETWEEN THEM</small><p>Voice chat for “hot and cold” — and a <b>moving view-cone</b> showing the Hider where the Seeker is looking. <b>It's the cone you steered at the top of this page.</b></p></div>
+    </div>
+    <figure class="t-figure reveal">
+      <img src="../assets/images/ar-workshop/hs-seeking.webp" alt="Three photographs of Seekers holding iPads up in a real room, finding virtual objects hidden on a shelf, above a door and on a desk" loading="lazy" decoding="async" width="1180" height="237"/>
+      <figcaption><b>Sixty players played this — and real hide-and-seek with real toys, in the same room.</b> For the first time, we could compare the AR version with the thing it imitates.</figcaption>
+    </figure>
+
+    <div class="t-compare">
+      <div class="t-panel reveal">
+        <h3>The room grew a third dimension</h3>
+        <p>AR against real-world hide-and-seek — same 60 players, same room.</p>
+        <div class="t-legend"><span><i></i>AR</span><span><i class="real"></i>Real world</span></div>
+        <div class="t-bars">
+          <div class="t-bar">
+            <h4>Time to hide</h4>
+            <div class="row"><span>AR</span><span class="t-track"><span class="fill" style="--w:86%"></span></span><span class="val">69s</span></div>
+            <div class="row"><span>Real</span><span class="t-track"><span class="fill real" style="--w:61%"></span></span><span class="val">49s</span></div>
+          </div>
+          <div class="t-bar diverge">
+            <h4>“Fun” (hedonic) score, −3 to +3</h4>
+            <div class="row"><span>AR</span><span class="t-track"><span class="fill" style="--w:33.3%"></span></span><span class="val">2.0</span></div>
+            <div class="row"><span>Real</span><span class="t-track"><span class="fill real" style="--w:10%"></span></span><span class="val">0.6</span></div>
+            <div class="axis"><span>−3</span><span>0</span><span>+3</span></div>
+          </div>
+        </div>
+        <blockquote class="t-quote" style="margin-top:22px">I had to look above me, behind me, basically everywhere. It was exhausting but fun.<cite>Study 2 player</cite></blockquote>
+      </div>
+      <div class="t-bigstat reveal" style="--d:.08s">
+        <div><b>~40%</b><span>longer to hide in AR — not slow controls, just far more places to hide.</span></div>
+        <div><b><span class="count" data-target="32">32</span> <em>of</em> 60</b><span>players “lost track of time” — with a countdown on screen the whole round.</span></div>
+        <div><b>Same</b><span>finding time. Seekers rewired their search strategy within a single five-minute round.</span></div>
+      </div>
+    </div>
+
+    <div class="t-spots reveal" id="spots" data-view="ar">
+      <div>
+        <div class="t-tabs" id="spotTabs" role="tablist" aria-label="Where people hid things">
+          <button role="tab" type="button" data-view="real" aria-selected="false" tabindex="-1">Real world</button>
+          <button role="tab" type="button" data-view="ar" aria-selected="true" tabindex="0">AR</button>
+        </div>
+        <svg viewBox="0 0 520 300" role="img" aria-label="Side view of a room showing typical hiding spots: in the real game, under desks and behind chairs; in AR, on the ceiling, mid-air and inside the light fitting">
+          <defs><radialGradient id="sg" r=".5"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+          <g stroke="rgba(170,190,255,.45)" stroke-width="1.5" fill="none">
+            <path d="M20 30H500V262H20Z"/>
+            <path d="M60 190h150M70 190v72M200 190v72"/>
+            <path d="M240 262v-44h40v44M280 218v-40"/>
+            <path d="M390 262V110h80v152M390 160h80M390 210h80"/>
+            <path d="M300 30v26M286 70l14-14 14 14"/>
+          </g>
+          <rect class="gaze sp real" x="20" y="176" width="480" height="62" fill="rgba(185,194,211,.14)"/>
+          <rect class="gaze sp ar" x="20" y="34" width="480" height="188" fill="rgba(242,107,58,.10)"/>
+          <g class="sp real" fill="#b9c2d3"><circle cx="135" cy="244" r="8"/><circle cx="300" cy="248" r="8"/><circle cx="430" cy="244" r="8"/></g>
+          <g class="sp real" fill="#b9c2d3" font-family="Inter, sans-serif" font-size="12" font-weight="600"><text x="92" y="228">under the desk</text><text x="246" y="286">behind the chair</text><text x="404" y="286">low shelf</text></g>
+          <g class="sp ar" fill="#f26b3a"><circle cx="470" cy="48" r="8"/><circle cx="345" cy="112" r="8"/><circle cx="300" cy="72" r="8"/><circle cx="120" cy="44" r="8"/></g>
+          <g class="sp ar" fill="#ffb892" font-family="Inter, sans-serif" font-size="12" font-weight="600"><text x="398" y="78">ceiling corner</text><text x="356" y="130">mid-air</text><text x="226" y="100">in the light</text><text x="132" y="68">up high</text></g>
+          <text x="30" y="292" fill="rgba(238,240,246,.5)" font-family="Inter, sans-serif" font-size="11">Seeker gaze band shaded · illustration from observed hiding spots</text>
+        </svg>
+      </div>
+      <div class="t-spots-copy">
+        <h3 style="font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1">AR didn't decorate the game. <em style="color:var(--orange)">It changed where people look.</em></h3>
+        <p style="margin-top:14px">Real-world hiders put things under desks and behind chairs. AR hiders went to the ceiling, floated objects in corners, tucked them inside the light fitting.</p>
+        <p>The eye-tracking showed it too: in the real game, Seekers scanned at waist height. In AR, their gaze scattered upward — doorframes, ceilings, mid-air. Changing where people look changed how they think. That's a mechanic.</p>
+        <p class="fine">The diagram is an illustration of the spots described in the study, not a plot of the data.</p>
+      </div>
+    </div>
+
+    <div class="t-minion reveal">
+      <div>
+        <div class="versus">
+          <div><b>15×</b><span>chosen in AR</span></div>
+          <span class="vs">vs</span>
+          <div class="small"><b>1×</b><span>in real life</span></div>
+        </div>
+        <p style="font-weight:700;margin-top:18px">Bold, high-contrast objects were chosen 1.6× more often in AR.</p>
+      </div>
+      <div>
+        <h3>The Minion problem</h3>
+        <p>In real hide-and-seek, the most-hidden object was a dull grey koala; the bright yellow Minion was picked once. In AR it flipped — the Minion was picked fifteen times. In a game about concealment, players chose the most visible object in the pool.</p>
+        <blockquote>“It stood out more, so it was easier to place where I wanted.”</blockquote>
+        <p>Placement used fiddly on-screen thumbsticks, so players optimised for the controls — even when it made their strategy worse.</p>
+        <span class="pill">Rule five · Players optimise for your controls before your game</span>
+      </div>
+    </div>
+
+    <div class="t-together">
+      <div class="t-panel reveal">
+        <h3>Togetherness is cheaper than you think</h3>
+        <p>What made two rooms feel like one? Not photoreal avatars. A grey cone showing where your partner is looking, and a voice line.</p>
+        <div class="t-split" role="img" aria-label="16 players said the cone was already enough; 10 wanted a real avatar">
+          <div class="cone"><b>16</b> the cone was enough</div>
+          <div class="avatar"><b>10</b> wanted an avatar</div>
+        </div>
+        <div class="t-note"><b>Design note.</b> Strangers cut their verbal hints by a third when they moved from real to AR play; friends didn't — and enjoyment was identical. If you're matching strangers, give them more explicit spatial cues.</div>
+      </div>
+      <div style="display:grid;gap:18px">
+        <blockquote class="t-quote reveal">I live abroad, so it was such a cool way to feel connected to my sister back home.<cite>Study 2 player</cite></blockquote>
+        <blockquote class="t-quote reveal" style="--d:.06s">It felt like we were kids again.<cite>Study 2 player</cite></blockquote>
+        <div class="t-rule reveal" style="margin-top:0"><span class="n">4</span><div><small>Rule four</small><p>Ship the cone first. <span>A view-cone and a voice channel buy most of “together”.</span></p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CHAPTER 3 -->
+<section class="t-sec navy" id="mechanics">
+  <div class="container">
+    <div class="t-chead">
+      <span class="t-cnum" aria-hidden="true">03</span>
+      <div>
+        <span class="eyebrow reveal">Chapter three · Rules of play</span>
+        <h2 class="reveal" style="--d:.06s">When AR becomes <em>the rules</em></h2>
+        <div class="meta reveal" style="--d:.1s"><span class="t-chip">Game 3</span><span class="t-chip">38 players</span><span class="t-chip">OzCHI 2025</span></div>
+      </div>
+    </div>
+    <p class="t-lede reveal">So far AR had been the medium. In the last game we made it the ruleset: <b>mechanics that are impossible without AR, and impossible to switch off.</b> The Hider stopped being a spectator and stayed in the game all round.</p>
+
+    <div class="t-mechs" style="margin-top:36px">
+      <div class="t-mech reveal" style="--d:0.00s"><svg viewBox="0 0 44 44" fill="none" stroke="#f26b3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="18" width="12" height="12" rx="2"/><rect x="22" y="8" width="16" height="22" rx="2" stroke-dasharray="3 3"/><path d="M14 36l8-6m0 0h-5m5 0v5"/></svg><small>MECHANIC 01</small><h3>Resize &amp; camouflage</h3><p>Pinch to shrink it, colour-match it to the chair. Tiny, in a corner, hiding in plain sight.</p></div>
+      <div class="t-mech reveal" style="--d:0.06s"><svg viewBox="0 0 44 44" fill="none" stroke="#f26b3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="22" r="6"/><circle cx="22" cy="22" r="6" fill="#f26b3a"/><circle cx="33" cy="22" r="6"/></svg><small>MECHANIC 02</small><h3>Multi-object</h3><p>Hide three clones of an object — only one of them is live at any moment.</p></div>
+      <div class="t-mech reveal" style="--d:0.12s"><svg viewBox="0 0 44 44" fill="none" stroke="#f26b3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="30" r="5"/><circle cx="34" cy="14" r="5" fill="#f26b3a"/><path d="M14 26c6-8 10-10 15-11" stroke-dasharray="2 4"/><path d="M26 11l4 4-5 2"/></svg><small>MECHANIC 03</small><h3>Active swapping</h3><p>The Seeker's cone gets close — you flick the live target to another clone. A particle trail keeps it fair.</p></div>
+      <div class="t-mech reveal" style="--d:0.18s"><svg viewBox="0 0 44 44" fill="none" stroke="#f26b3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="22" cy="24" r="13"/><path d="M22 24V16M22 24l6 4M18 6h8M22 6v5"/></svg><small>MECHANIC 04</small><h3>Time pressure</h3><p>Two minutes to hide, five to seek. It stretched players — and split them.</p></div>
+    </div>
+    <blockquote class="t-quote reveal" style="margin-top:20px;max-width:760px">If I see them getting close, I'll just reassign the target. It felt a bit sneaky, but that was the point.<cite>Study 3 Hider</cite></blockquote>
+
+    <div class="t-dial">
+      <div class="t-settings reveal" aria-label="Game settings demo">
+        <div class="ttl">Game settings <span>● playtest build</span></div>
+        <div class="t-set"><span class="l">Hidden objects<small>How many clones the Hider places</small></span>
+          <span class="t-seg" id="dialObjects"><button type="button" data-v="1" aria-pressed="true">1</button><button type="button" data-v="3" aria-pressed="false">3</button></span></div>
+        <div class="t-set"><label for="dialTimer" class="l">Timer<small>Two minutes to hide, five to seek</small></label>
+          <span class="t-switch"><input type="checkbox" id="dialTimer" role="switch"/><span></span></span></div>
+        <div class="t-set"><label for="dialSwap" class="l">Active swapping<small>Flick the live target between clones</small></label>
+          <span class="t-switch"><input type="checkbox" id="dialSwap" role="switch"/><span></span></span></div>
+        <p class="hint" id="dialHint" aria-live="polite"></p>
+      </div>
+      <div class="t-outcome reveal" id="dialOut" aria-live="polite" style="--d:.08s"></div>
+    </div>
+    <div class="t-5050 reveal">
+      <blockquote class="t-quote">Makes it competitive, so it won't take an eternity.<cite>A “give me the clock” player</cite></blockquote>
+      <div class="mid">50/50<small>preference split</small></div>
+      <blockquote class="t-quote">If I'm playing with friends I'd rather not have that stress — we just laugh and hide things.<cite>A “let me chill” player</cite></blockquote>
+    </div>
+    <div class="t-rule reveal" style="background:var(--navy-2)"><span class="n">6</span><div><small>Rule six</small><p>Don't choose the pacing. Expose the dial. <span>It's cheap, and it doubled the audience the game worked for.</span></p></div></div>
+
+    <div class="t-honest reveal">
+      <span class="eyebrow" style="color:var(--yellow)">The honest list</span>
+      <h3 style="margin-top:12px;font-family:var(--serif);font-weight:500;font-size:clamp(28px,3.4vw,40px)">What didn't work (yet)</h3>
+      <ul>
+        <li>Thumbstick placement dragged usability below the real-world game <span>tap-to-place next</span></li>
+        <li>Overlay needs an empty room — and it blocks out reality <span>3 disoriented</span></li>
+        <li>Holding an iPad up at the ceiling is a workout <span>4 reported arm fatigue</span></li>
+        <li>Swapping had a learning curve a two-minute demo couldn't cover <span>onboarding matters</span></li>
+        <li>Lag and tracking drift broke flow instantly for a few players <span>trust is the whole game</span></li>
+      </ul>
+      <p class="open">And the big one: everything here is <em>first-session data</em>. We don't yet know what survives the novelty.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SIX RULES -->
+<section class="t-sec t-rules" id="rules">
+  <div class="container">
+    <div class="t-chead">
+      <span class="t-cnum" aria-hidden="true" style="-webkit-text-stroke-color:#fff">06</span>
+      <div>
+        <span class="eyebrow reveal">Takeaways</span>
+        <h2 class="reveal" style="--d:.06s">Six things I'd build on <em>next time</em></h2>
+      </div>
+    </div>
+    <div class="t-rules-grid">
+      <article class="t-rcard reveal" id="rule-1" style="--d:0.00s">
+        <span class="n">1</span>
+        <h3>If players can switch the AR off, it isn't a mechanic yet.</h3>
+        <p>Make something the game needs that only AR can do. Pokémon GO players turn the camera off because the game still works without it.</p>
+        <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
+      </article>
+      <article class="t-rcard reveal" id="rule-2" style="--d:0.06s">
+        <span class="n">2</span>
+        <h3>Scale is presence.</h3>
+        <p>Life-size when you want players there. A window when you want them to get things done.</p>
+        <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
+      </article>
+      <article class="t-rcard reveal" id="rule-3" style="--d:0.12s">
+        <span class="n">3</span>
+        <h3>Break physics on purpose.</h3>
+        <p>The ceiling is the best hiding spot. Mid-air and ceilings were the most-loved thing we built — and the cheapest.</p>
+        <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
+      </article>
+      <article class="t-rcard reveal" id="rule-4" style="--d:0.00s">
+        <span class="n">4</span>
+        <h3>A view-cone and a voice channel buy most of “together”.</h3>
+        <p>Sixteen players said the cone was already enough. Ship the cone before you build avatars.</p>
+        <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
+      </article>
+      <article class="t-rcard reveal" id="rule-5" style="--d:0.06s">
+        <span class="n">5</span>
+        <h3>Players optimise for your controls before your game.</h3>
+        <p>Watch what they choose to hide, not just how they score. Fiddly input turned a concealment game into a visibility game.</p>
+        <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
+      </article>
+      <article class="t-rcard reveal" id="rule-6" style="--d:0.12s">
+        <span class="n">6</span>
+        <h3>Don't choose the pacing. Expose the dial.</h3>
+        <p>Players split almost 50/50 between “give me the clock” and “let me chill”. An optional timer is cheap, and it doubles who the game works for.</p>
+        <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
+      </article>
+    </div>
+    <div class="t-closing">
+      <blockquote class="reveal">Putting my living room in your park is no longer the hard part. <em>Designing the reason to is</em> — and that part is ours.</blockquote>
+      <div class="acts reveal" style="--d:.1s">
+        <a class="btn solid" href="../assets/files/nzgdc-2026/six-rules-shared-worlds.png" download>Save the six rules (image) <span class="arrow">↓</span></a>
+        <a class="btn" href="../playbook.html">The full AR design playbook <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WATCH -->
+<section class="t-sec soft" id="watch">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Watch</span>
+      <h2 style="margin-top:14px">See the games <em>being played</em></h2>
+    </div>
+    <div class="t-watch">
+      <div class="reveal">
+        <div class="t-soon" id="recordingSlot"><div><b>The NZGDC 2026 recording lands here</b><span>As soon as the conference publishes it. Until then — the hide-and-seek study on the right.</span></div></div>
+        <p class="t-vcap"><b>Designing Shared Worlds Across Distance</b> — NZGDC 2026, Auckland.</p>
+      </div>
+      <div class="side">
+        <div class="reveal" style="--d:.06s">
+          <div class="yt-facade" data-yt="sJTn7yiinlI" role="button" tabindex="0" aria-label="Play: Augmented Hide-and-Seek, IEEE VR 2025">
+            <img src="../assets/images/ar-workshop/hide-and-seek-video-poster.webp" alt="Title frame of the IEEE VR 2025 video on multiplayer location-based AR hide-and-seek" loading="lazy" decoding="async" width="960" height="540"/>
+            <span class="yt-play-btn" aria-hidden="true"></span>
+          </div>
+          <p class="t-vcap"><b>Augmented Hide-and-Seek</b> — IEEE VR 2025 video (Game 2).</p>
+        </div>
+        <div class="reveal" style="--d:.12s">
+          <div class="yt-facade" data-yt="Sj7ZjsN-ue4" role="button" tabindex="0" aria-label="Play: the NZGDC 2023 AR Game Dev Rant panel">
+            <img src="../assets/images/news/nzgdc-2023-stream.jpg" alt="NZGDC 2023 livestream frame showing a location-based AR demo" loading="lazy" decoding="async" width="2306" height="1297"/>
+            <span class="yt-play-btn" aria-hidden="true"></span>
+          </div>
+          <p class="t-vcap"><b>The AR Game Dev Rant</b> — NZGDC 2023 panel.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ RESOURCES -->
+<section class="t-sec" id="resources">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Slides &amp; papers</span>
+      <h2 style="margin-top:14px">Take it <em>home</em></h2>
+    </div>
+    <div class="t-res">
+      <div>
+        <div class="t-slides reveal">
+          <small>The slides</small>
+          <h3>Designing Shared Worlds Across Distance</h3>
+          <p id="slidesState">The slides go live here straight after the talk on 1 October — this button switches on by itself.</p>
+          <div class="acts">
+            <a class="btn t-btn-primary" id="slidesBtn" aria-disabled="true" role="link">Slides after the talk <span class="arrow">⏳</span></a>
+            <a class="btn" href="#feedback">Email them to me</a>
+          </div>
+        </div>
+        <div class="t-reslist">
+          <a class="t-resrow reveal" href="../playbook.html"><span class="ic">PDF</span><span><b>The Location-Based AR Design Playbook</b><small>Four evidence-based principles and a 12-question checklist — free</small></span><span class="go">→</span></a>
+          <a class="t-resrow reveal" href="../ar.html"><span class="ic">AR</span><span><b>Try AR on your phone</b><small>Hang a virtual object in the air, turn away, find it again — no app</small></span><span class="go">→</span></a>
+          <a class="t-resrow reveal" href="../case-studies.html#sony-multiplayer-ar"><span class="ic">CS</span><span><b>The case study</b><small>The three games, written up for studios and product teams</small></span><span class="go">→</span></a>
+        </div>
+      </div>
+      <div class="t-papers">
+        <h3 class="reveal" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">The papers behind the talk</h3>
+        <div class="t-reslist">
+        <a class="t-resrow" href="https://doi.org/10.1016/j.entcom.2025.100932" target="_blank" rel="noopener"><span class="ic">G1</span><span><b>Representing Remote Locations with Location-Based Augmented Reality Game Design</b><small>Entertainment Computing 53 · Elsevier · 2025 · Game 1</small></span><span class="go">↗</span></a>
+        <a class="t-resrow" href="https://ieeexplore.ieee.org/document/10973019" target="_blank" rel="noopener"><span class="ic">G2</span><span><b>Augmented Hide-And-Seek: Evaluating Spatial Decision-Making and Player Experience in a Multiplayer Location-Based Game</b><small>IEEE VR · 2025 · Game 2</small></span><span class="go">↗</span></a>
+        <a class="t-resrow" href="https://doi.org/10.3390/mti9080079" target="_blank" rel="noopener"><span class="ic">G2</span><span><b>Evaluating Spatial Decision-Making and Player Experience in a Remote Multiplayer AR Hide-and-Seek Game</b><small>Multimodal Technologies and Interaction · MDPI · 2025 · Game 2 · open access</small></span><span class="go">↗</span></a>
+        <a class="t-resrow" href="https://doi.org/10.1145/3764687.3764699" target="_blank" rel="noopener"><span class="ic">G3</span><span><b>On the Impact of Augmented Reality Game Mechanics on the Player Experience in Remote Multiplayer Gameplay</b><small>OzCHI &#x27;25 · ACM · Game 3</small></span><span class="go">↗</span></a>
+        <a class="t-resrow" href="https://ir.canterbury.ac.nz/items/6df971c0-1314-4863-8156-304c838686d0" target="_blank" rel="noopener"><span class="ic">PhD</span><span><b>Designing Multiplayer Location-Based AR Games that Connect Remote Players and Places</b><small>PhD thesis · University of Canterbury · 2025 · all three games</small></span><span class="go">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ Q&A -->
+<section class="t-sec paper" id="qa">
+  <div class="container split">
+    <div class="sticky-col reveal">
+      <span class="eyebrow">Q&amp;A</span>
+      <h2 style="margin-top:14px">Questions from <em>the room</em></h2>
+      <p style="margin-top:14px;color:var(--ink-soft)">The ones I get asked most. Didn't get yours in? Ask it below — I'll answer by email.</p>
+    </div>
+    <div class="faq" style="max-width:none">
+      <details class="faq-item reveal">
+        <summary>Would this work on Quest or Vision Pro instead of iPads?</summary>
+        <p>In some ways, better. A headset fixes the arm fatigue — four players reported it from holding an iPad up at the ceiling. But Overlay mode already blocked out enough of the real room to disorient three players, so on a headset, occlusion and physical safety become the design problem to solve first.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>How did you keep both players in sync?</summary>
+        <p>Unity NetCode with Lightship networking, over a dedicated Wi-Fi network, running at 60 FPS on both devices. The particle trail doubles as a fairness signal: when a hidden object swaps, both players can see where it was.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Did anyone cheat?</summary>
+        <p>Active swapping felt sneaky — one Hider said exactly that — but players accepted it as fair, because the particle trail showed where the object had been.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>What about more than two players, or playing outdoors?</summary>
+        <p>Every study was played in pairs, and both hide-and-seek games ran indoors. Groups, and hide-and-seek outdoors, are the obvious next step.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Does the novelty wear off?</summary>
+        <p>Honestly, we don&#x27;t know yet. Everything in this talk is first-session data. A longitudinal study is next.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FEEDBACK -->
+<section class="t-sec" id="feedback">
+  <div class="container t-fb">
+    <div class="reveal">
+      <span class="eyebrow">Stay in touch</span>
+      <h2 style="margin-top:14px">Get the slides — and tell me <em>what stuck</em>.</h2>
+      <p class="t-lede" style="margin-top:16px">Leave your email and I'll send the slides the moment they're up. And if something from the talk changes what you build, I'd love to hear it.</p>
+      <p class="t-qr-hello"><b>Kia ora — you scanned the slide.</b> Thanks for staying to the end. Everything from the talk is on this page.</p>
+      <div class="t-thanks" role="status">
+        <h3>Ngā mihi — got it.</h3>
+        <p>I'll email the slides as soon as they're up. In the meantime:</p>
+        <div class="acts">
+          <a class="btn" href="../playbook.html">Get the AR playbook</a>
+          <a class="btn" href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+          <a class="btn" id="fbNotesLink" href="../app/#/newsletter" hidden>Confirm research notes →</a>
+        </div>
+      </div>
+    </div>
+    <div class="panel reveal" style="--d:.08s">
+      <form class="form-grid" id="fbForm" data-enquiry="nzgdc-2026" action="https://formspree.io/f/xleookvv" method="post"
+            data-success="Sent — thank you!">
+        <input type="hidden" name="_subject" value="NZGDC 2026 talk — slides request &amp; feedback"/>
+        <input type="hidden" name="subject" value="NZGDC 2026 talk feedback"/>
+        <div class="form-row">
+          <div class="field"><label for="fb-name">Name *</label><input id="fb-name" name="name" required maxlength="120" autocomplete="name"/></div>
+          <div class="field"><label for="fb-email">Email *</label><input id="fb-email" name="email" type="email" required maxlength="200" autocomplete="email"/></div>
+        </div>
+        <div class="field"><label for="fb-role">Role &amp; studio <small style="font-weight:400;color:var(--muted)">(optional)</small></label><input id="fb-role" name="role" maxlength="160" placeholder="e.g. Game designer, Wellington"/></div>
+        <div class="field">
+          <label>How useful was the talk?</label>
+          <div class="t-rate">
+            <label><input type="radio" name="useful" value="Not for me"/><span>Not for me</span></label>
+            <label><input type="radio" name="useful" value="Interesting"/><span>Interesting</span></label>
+            <label><input type="radio" name="useful" value="Useful"/><span>Useful</span></label>
+            <label><input type="radio" name="useful" value="Changes what I'll build"/><span>Changes what I'll build</span></label>
+          </div>
+        </div>
+        <div class="field"><label for="fb-msg">What will you take back to your game? <small style="font-weight:400;color:var(--muted)">(optional)</small></label><textarea id="fb-msg" name="message" rows="4" maxlength="2000" placeholder="A rule you'll steal, a question you didn't get to ask…"></textarea></div>
+        <div class="field"><label class="t-consent"><input type="checkbox" name="quote_consent" value="Yes"/> <span>You may quote my comment on yasassri.me with my name and role.</span></label></div>
+        <div class="field"><label class="t-consent"><input type="checkbox" id="fbNotes"/> <span>Also send me occasional research notes (you'll confirm by email first).</span></label></div>
+        <div class="hp" aria-hidden="true"><label>Leave this field empty</label><input name="website" tabindex="-1" autocomplete="off"/></div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <button class="btn btn-solid" type="submit">Send me the slides <span class="arrow">→</span></button>
+          <span class="form-msg" role="status"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ NEXT -->
+<section class="t-sec soft" id="next">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Building something shared?</span>
+      <h2 style="margin-top:14px">Let's design the <em>reason to</em>.</h2>
+    </div>
+    <div class="t-next">
+      <a class="door reveal" href="../app/#/invite?topic=1&amp;type=conference"><span class="kicker">Events &amp; studios</span><h3>Bring this talk to your team</h3><p>As a keynote, a conference talk, or a hands-on half-day workshop for your designers.</p><span class="link-arrow">Invite me <span class="arrow">→</span></span></a>
+      <a class="door reveal" style="--d:.06s" href="../work-with-me.html#xr-sprint"><span class="kicker">Before you build</span><h3>XR Opportunity Sprint</h3><p>Two to three weeks to decide whether a shared AR idea deserves a budget, and what the smallest convincing version is.</p><span class="link-arrow">How it works <span class="arrow">→</span></span></a>
+      <a class="door reveal" style="--d:.12s" href="../work-with-me.html#ux-evaluation"><span class="kicker">After you build</span><h3>Playtest &amp; UX evaluation</h3><p>The same methods as these studies — presence, comfort, player experience — applied to your game.</p><span class="link-arrow">How it works <span class="arrow">→</span></span></a>
+    </div>
+    <div class="t-speaker reveal">
+      <img src="../assets/files/speaker-kit/yasas-sri-wickramasinghe-headshot.jpg" alt="Dr. Yasas Sri Wickramasinghe" loading="lazy" decoding="async" width="993" height="1390"/>
+      <div>
+        <h3>Dr. Yasas Sri Wickramasinghe</h3>
+        <p>Dr. Yasas Sri Wickramasinghe is an augmented reality researcher, senior lecturer and software builder based in Christchurch, New Zealand. A Postdoctoral Researcher at HIT Lab NZ, University of Canterbury, he studies how multiplayer AR can connect people and places across distance, working with Sony Interactive Entertainment and Niantic.</p>
+      </div>
+      <div class="acts">
+        <a class="btn" href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="../speaking.html">Speaker page →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="../work-with-me.html">Work With Me</a>
+      <a href="../speaking.html">Speaking</a>
+      <a href="../workshops.html">Workshops</a>
+      <a href="../case-studies.html">Case Studies</a>
+      <a href="../media.html">Media</a>
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
+<script src="../assets/js/premium.js"></script>
+<script src="../app/js/firebase-config.js"></script>
+<script src="../assets/js/contact-form.js"></script>
+<script src="../assets/js/talk-nzgdc.js"></script>
+</body>
+</html>

@@ -184,28 +184,35 @@ const CONSULT_TYPES = [
   }
 ];
 
+// The first three are the signature talks on speaking.html — keep the two in step.
 const SPEAKER_TOPICS = [
   {
-    title: "Location-Based AR & Place Attachment",
-    abs: "How location-based augmented reality can meaningfully connect people to real-world places — and to each other across distance — drawing on peer-reviewed research with Sony Interactive Entertainment and Niantic.",
-    formats: ["Keynote", "Guest lecture"], duration: "30–60 min", audience: "Researchers · Industry · Students",
-    tech: "Standard AV; optional live AR demo (needs open Wi-Fi + space to move)"
+    title: "Designing Shared Worlds Across Distance",
+    abs: "What three studies and 128 participants taught me about multiplayer AR that connects people in different places: how to make a remote place feel present, why lightweight presence cues beat heavy avatars, and how to make AR a core mechanic rather than decoration. Research with Sony Interactive Entertainment and Niantic, told for people who build things.",
+    formats: ["Keynote", "Conference talk", "Workshop"], duration: "30–60 min · workshop half day", audience: "Game developers · XR teams · Researchers",
+    tech: "Standard AV; optional live AR demo on audience phones (needs Wi-Fi)"
   },
   {
-    title: "Designing AR Games for the Real World",
-    abs: "Practical design lessons from building and evaluating multiplayer location-based AR games: playtesting in the wild, safety, spatial UX patterns, and what actually engages players outdoors.",
-    formats: ["Conference talk", "Workshop"], duration: "45 min – half day", audience: "Game developers · Designers",
-    tech: "Projector; workshop version needs tables and participant phones"
+    title: "From Research to Reality: Where AR/VR Creates Real Value",
+    abs: "A grounded look at spatial computing beyond the hype — where AR and VR measurably help (training, place-based experiences, remote collaboration), where they don't, and how founders and organisations can turn research into products and ventures.",
+    formats: ["Keynote", "Panel", "Guest lecture"], duration: "30–45 min", audience: "Founders · Industry · Innovation teams",
+    tech: "Standard AV"
+  },
+  {
+    title: "The Collaboration Reflex: Why Win-Win Is Usually the Wrong Answer",
+    abs: "Drawn from forty-five real, anonymised workplace and project conflicts: why reaching for collaboration by default so often backfires, how to read which conflict mode a situation actually needs, and what experienced professionals do instead. From my book of the same name.",
+    formats: ["Keynote", "Workshop"], duration: "45 min · workshop half day", audience: "Teams · Managers · Project leaders",
+    tech: "Standard AV; workshop needs group seating"
   },
   {
     title: "Immersive Technology in Education",
-    abs: "Where AR/VR genuinely helps learning (and where it doesn't) — evidence-informed strategies for educators and institutions adopting immersive tools, with examples from tertiary teaching.",
+    abs: "Where AR/VR genuinely helps learning (and where it doesn't) — evidence-informed strategies for educators and institutions adopting immersive tools, with browser-based demos from my own postgraduate teaching.",
     formats: ["Keynote", "Guest lecture", "Panel"], duration: "30–60 min", audience: "Educators · EdTech · Leadership",
     tech: "Standard AV"
   },
   {
     title: "UX Research Methods for Emerging Tech",
-    abs: "Choosing and combining methods to evaluate novel interfaces: from lab studies to in-the-wild deployments, measuring presence, place attachment, and player experience.",
+    abs: "Choosing and combining methods to evaluate novel interfaces: from lab studies to in-the-wild deployments, measuring presence, comfort and motion sickness, and player experience.",
     formats: ["Guest lecture", "Workshop"], duration: "60 min – half day", audience: "Postgraduate students · UX teams",
     tech: "Standard AV; workshop version needs group seating"
   },
@@ -217,14 +224,20 @@ const SPEAKER_TOPICS = [
   }
 ];
 
+// `ends` is the last day of each engagement (ISO date). The "Upcoming" badge
+// is worked out from it at render time, so the list never goes stale.
 const PAST_ENGAGEMENTS = [
-  { when: "Date TBA", title: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me", detail: "ICITR 2026, University of Moratuwa · Workshop 01 · Online", upcoming: true },
-  { when: "Oct 2026", title: "Designing Shared Worlds Across Distance", detail: "NZGDC 2026 · Conference talk · Wellington, NZ", upcoming: true },
-  { when: "Jul 2026", title: "CODE with WIE 2026 — Architecting the Augmented Tomorrow", detail: "IEEE WIE Sri Lanka · Workshop · Online" },
-  { when: "Dec 2025", title: "Research Visit — Interactive Content Design Lab", detail: "Tohoku University, Japan · Invited research talk & collaboration" },
-  { when: "2024", title: "Breaking the Wall of Loneliness Through Play", detail: "Falling Walls Lab Aotearoa NZ · Royal Society Te Apārangi · Pitch talk" },
-  { when: "2023", title: "AR Game Development Panel", detail: "NZGDC 2023 · Panel · New Zealand Game Developers Conference" }
+  { when: "Dec 2026", ends: "2026-12-02", title: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me", detail: "ICITR 2026, University of Moratuwa · Workshop 01 · Online · date TBA" },
+  { when: "Nov 2026", ends: "2026-11-18", title: "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness", detail: "ACM VRST 2026 · Paper presentation · Tohoku University, Sendai, Japan" },
+  { when: "Oct 2026", ends: "2026-10-01", title: "Designing Shared Worlds Across Distance", detail: "NZGDC 2026 · Conference talk · NZ International Convention Centre, Auckland" },
+  { when: "Sep 2026", ends: "2026-09-22", title: "From Research to Reality: AR/VR Entrepreneurship Opportunities for Sri Lankans", detail: "IEEE Entrepreneurship, Sri Lanka Section · Talk · Online" },
+  { when: "Aug 2026", ends: "2026-08-20", title: "Workshop 07: Augmented Reality and Game Development", detail: "Code Champ 2026 · E3, SLAAS & IEEE Computer Society Sri Lanka · Online" },
+  { when: "Jul 2026", ends: "2026-07-11", title: "CODE with WIE 2026 — Architecting the Augmented Tomorrow", detail: "IEEE WIE Sri Lanka · Workshop · Online" },
+  { when: "Dec 2025", ends: "2025-12-08", title: "Research Visit — Interactive Content Design Lab", detail: "Tohoku University, Japan · Invited research talk & collaboration" },
+  { when: "2024", ends: "2024-09-11", title: "Breaking the Wall of Loneliness Through Play", detail: "Falling Walls Lab Aotearoa NZ · Royal Society Te Apārangi · Pitch talk" },
+  { when: "2023", ends: "2023-12-31", title: "AR Game Development Panel", detail: "NZGDC 2023 · Panel · New Zealand Game Developers Conference" }
 ];
+const isUpcoming = e => new Date(e.ends + "T23:59:59") >= new Date();
 
 const FORUM_CATEGORIES = [
   { id: "announcements", icon: "📣", name: "Announcements", desc: "Official updates from Yasas — new articles, opportunities, events.", adminOnly: true },
@@ -697,6 +710,8 @@ async function viewConsult(params) {
     <p>Structured, free sessions for students, researchers and professionals — on education, research and
     technology. Pick a type, tell me what you need, and propose up to three times that suit you.
     Sessions run online (Meet/Teams/Zoom) or in person in Christchurch, NZ.</p>
+    <p class="sub" style="margin-top:10px">Booking for an organisation? Consulting, team workshops and keynotes have their own route —
+    <a href="../work-with-me.html" style="color:var(--accent);font-weight:600">Work With Me →</a></p>
   </div>
 
   <h2 style="font-size:20px;margin-bottom:14px">1 · Choose a consultation type</h2>
@@ -897,7 +912,7 @@ async function viewConsult(params) {
    VIEW: Invite Me (speaker page + invitation form)
    ========================================================================== */
 
-function viewInvite() {
+function viewInvite(params) {
   view.innerHTML = `
   ${setupNotice()}
   <div class="app-crumb"><a href="#/">Platform</a> / Invite Me</div>
@@ -908,7 +923,7 @@ function viewInvite() {
     education. Based in Christchurch, New Zealand — available for national and international engagements,
     and remote talks worldwide. All engagements are handled personally and promptly.</p>
     <div class="form-actions" style="margin-top:18px">
-      <a class="btn" href="../assets/files/cv_yasas.pdf" target="_blank">Speaker Bio / CV (PDF) <span class="arrow">→</span></a>
+      <a class="btn" href="../speaking.html#kit">Speaker kit — bios &amp; headshots <span class="arrow">→</span></a>
       <a class="btn" href="../news.html">Past Talks &amp; Media</a>
     </div>
   </div>
@@ -992,16 +1007,21 @@ function viewInvite() {
         <div class="engagement">
           <span class="when">${esc(e.when)}</span>
           <div>
-            <h3>${esc(e.title)} ${e.upcoming ? '<span class="badge pending" style="vertical-align:middle">Upcoming</span>' : ""}</h3>
+            <h3>${esc(e.title)} ${isUpcoming(e) ? '<span class="badge pending" style="vertical-align:middle">Upcoming</span>' : ""}</h3>
             <p>${esc(e.detail)}</p>
           </div>
         </div>`).join("")}
-      <blockquote style="margin-top:18px;border-left:3px solid var(--accent);padding-left:16px;color:var(--ink-soft);font-size:14px;font-style:italic">
-        "Yasas brings rare range — the rigour of a researcher and the instincts of a builder."
-        <br/><small style="font-style:normal;color:var(--muted)">— Research &amp; industry partners, HIT Lab NZ · Sony Interactive Entertainment</small>
-      </blockquote>
+      <p class="sub" style="margin-top:18px">Organising an event? The <a href="../speaking.html#kit" style="color:var(--accent);font-weight:600">speaker kit</a> has bios, headshots, an MC introduction and the tech rider, ready to copy.</p>
     </div>
   </div>`;
+
+  // Deep links from speaking.html: #/invite?topic=3&type=corporate
+  const wantTopic = parseInt(params?.get("topic") || "", 10);
+  const topicSel = view.querySelector("#inviteForm [name=topic]");
+  if (topicSel && wantTopic >= 1 && wantTopic <= SPEAKER_TOPICS.length) topicSel.selectedIndex = wantTopic - 1;
+  const wantType = params?.get("type") || "";
+  const typeSel = view.querySelector("#inviteForm [name=eventType]");
+  if (typeSel && [...typeSel.options].some(o => o.value === wantType)) typeSel.value = wantType;
 
   const form = document.getElementById("inviteForm");
   const msg = document.getElementById("inviteMsg");

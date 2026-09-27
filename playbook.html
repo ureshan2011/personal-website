@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Location-Based AR Design Playbook — 4 Evidence-Based Principles | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="description" content="Free playbook: four evidence-based principles for location-based AR that connects people across distance, from three user studies with 128 participants at HIT Lab NZ with Sony Interactive Entertainment. Includes a 12-question checklist and printable PDF."/>
+<link rel="icon" href="assets/images/icons/favicon.png"/>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="keywords" content="AR design guidelines, location-based AR design, multiplayer AR game design, remote multiplayer AR, AR game design principles, spatial presence, view frustum avatar, AR playbook, Yasas Sri Wickramasinghe"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/playbook.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="The Location-Based AR Design Playbook"/>
+<meta property="og:description" content="Four evidence-based principles for AR that connects people across distance — with a 12-question checklist and a printable PDF."/>
+<meta property="og:url" content="https://www.yasassri.me/playbook.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/ar-workshop/fig2-ar-display-modes.webp"/>
+<meta property="og:image:width" content="864"/>
+<meta property="og:image:height" content="396"/>
+<meta property="og:image:alt" content="Three AR display modes for a remote room: Window, Overlay and Tabletop"/>
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<meta name="twitter:creator" content="@sri_yasas"/>
+<meta name="twitter:title" content="The Location-Based AR Design Playbook"/>
+<meta name="twitter:description" content="Four evidence-based principles for AR that connects people across distance — with a 12-question checklist and a printable PDF."/>
+<meta name="twitter:image" content="https://www.yasassri.me/assets/images/ar-workshop/fig2-ar-display-modes.webp"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.yasassri.me/playbook.html#playbook",
+  "headline": "The Location-Based AR Design Playbook",
+  "alternativeHeadline": "Four evidence-based principles for AR that connects people across distance",
+  "author": {
+    "@id": "https://www.yasassri.me/#yasas"
+  },
+  "datePublished": "2026-09-27",
+  "url": "https://www.yasassri.me/playbook.html",
+  "image": "https://www.yasassri.me/assets/images/ar-workshop/fig2-ar-display-modes.webp",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "about": [
+    "Augmented reality",
+    "Location-based games",
+    "Remote multiplayer",
+    "Game design"
+  ],
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://www.yasassri.me/assets/files/ar-design-playbook.pdf",
+    "encodingFormat": "application/pdf"
+  },
+  "isBasedOn": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Representing Remote Locations with Location-Based Augmented Reality Game Design",
+      "sameAs": "https://doi.org/10.1016/j.entcom.2025.100932"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Augmented Hide-And-Seek: Evaluating Spatial Decision-Making and Player Experience in a Multiplayer Location-Based Game",
+      "sameAs": "https://ieeexplore.ieee.org/document/10973019"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Evaluating Spatial Decision-Making and Player Experience in a Remote Multiplayer Augmented Reality Hide-and-Seek Game",
+      "sameAs": "https://doi.org/10.3390/mti9080079"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "On the Impact of Augmented Reality Game Mechanics on the Player Experience in Remote Multiplayer Gameplay",
+      "sameAs": "https://doi.org/10.1145/3764687.3764699"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Designing Multiplayer Location-Based Augmented Reality Games that Connect Remote Players and Places",
+      "sameAs": "https://ir.canterbury.ac.nz/items/6df971c0-1314-4863-8156-304c838686d0"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Work With Me",
+      "item": "https://www.yasassri.me/work-with-me.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AR Design Playbook",
+      "item": "https://www.yasassri.me/playbook.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="assets/css/fonts.css" rel="stylesheet"/>
+<link href="assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="assets/css/redesign.css" rel="stylesheet"/>
+<link href="assets/css/services.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body>
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="students.html">Students</a>
+      <a href="products.html">Products</a>
+      <a href="news.html">News</a>
+      <a href="blogs.html">Writing</a>
+      <a href="about.html">About</a>
+      <a href="app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-solid" href="work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html"><span class="idx">01</span>Home</a>
+  <a class="active" href="work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="research.html"><span class="idx">04</span>Research</a>
+  <a href="teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="students.html"><span class="idx">06</span>Students</a>
+  <a href="products.html"><span class="idx">07</span>Products</a>
+  <a href="news.html"><span class="idx">08</span>News</a>
+  <a href="blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="about.html"><span class="idx">10</span>About</a>
+  <a href="app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="contact.html"><span class="idx">12</span>Contact</a>
+  <a href="assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<header class="page-hero">
+  <div class="container">
+    <span class="eyebrow reveal">Free resource · Playbook</span>
+    <h1 class="reveal" style="--d:.1s">Designing AR that connects <em>people and places</em>.</h1>
+    <p class="lead reveal" style="--d:.2s">Four evidence-based principles for location-based augmented reality that works across distance — distilled from three user studies with 128 participants, run at HIT Lab NZ with Sony Interactive Entertainment as industry partner. Written for game designers, XR studios and anyone building shared experiences for people who aren't in the same place.</p>
+    <div class="hero-actions reveal" style="--d:.3s">
+      <a class="btn btn-solid" href="#get">Get the printable PDF <span class="arrow">↓</span></a>
+      <a class="btn" href="#present">Read it here <span class="arrow">↓</span></a>
+    </div>
+    <p class="reveal" style="--d:.35s;margin-top:22px;font-size:13px;color:var(--muted)">Version 1.0 · September 2026 · about a 10-minute read · by Dr. Yasas Sri Wickramasinghe</p>
+  </div>
+</header>
+
+<section class="section" style="padding-bottom:0">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow">Why this matters</span>
+      <h2 style="margin-top:14px">Most AR is <em>decoration</em>.</h2>
+    </div>
+    <div class="reveal" style="--d:.1s">
+      <p class="lead">Most location-based AR games treat AR as an optional visual layer — players can switch it off and the game barely changes. That's fine for collecting creatures on a street corner. It falls apart when the whole point is to connect people who are physically apart: a family across two countries, a distributed team, visitors to a heritage site and the expert guiding them from elsewhere.</p>
+      <p style="margin-top:16px;color:var(--ink-soft)">The four principles below come from research-through-design: build a game, test it with players, learn, build the next one. Each principle names the study it comes from, so you can check the evidence yourself.</p>
+      <figure class="hero-photo" style="margin-top:28px;box-shadow:none">
+        <img src="assets/images/ar-workshop/fig2-ar-display-modes.webp" alt="Three tablets showing the same remote room rendered three ways in AR: as a Window portal, as a full-scale Overlay, and as a Tabletop miniature" loading="lazy" decoding="async" width="864" height="396"/>
+        <figcaption>One remote room, three ways to show it: Window, Overlay and Tabletop (Study 1).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <article class="principle reveal" id="present">
+      <div class="principle-n">01</div>
+      <div>
+        <span class="kicker">Remote space representation</span>
+        <h2 style="margin-top:6px">Make the place feel present</h2>
+        <p class="body">When people share a game across distance, the remote place is the game board. How you show it decides whether players feel they are in it, or looking at a picture of it.</p><p class="body">We compared three techniques. Showing the remote room as a real-world-scale <b>Overlay</b> around the player produced the strongest sense of “being there” and of knowing where you are in the space. A <b>Window</b> portal felt like the remote place extending into your own, which makes it a natural doorway between locations. A <b>Tabletop</b> miniature gave a useful strategic overview — but a detached one.</p>
+        <p class="evidence">Evidence: Study 1 · 30 participants · Entertainment Computing (Elsevier), 2025</p>
+        <div class="dodont">
+          <div class="do"><h4>Do</h4><ul class="checks"><li>Use a real-world-scale Overlay when you want presence and self-location</li>
+<li>Use Window “portals” as the interface for passing resources between locations</li>
+<li>Ground the remote space in high-fidelity 3D scans of the real environment</li></ul></div>
+          <div class="dont"><h4>Avoid</h4><ul class="checks x"><li>Reaching for a tabletop miniature when players need to feel present — it gives overview, not immersion</li>
+<li>Treating the remote place as a backdrop rather than the space players act in</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="principle reveal" id="presence">
+      <div class="principle-n">02</div>
+      <div>
+        <span class="kicker">Player interaction & coordination</span>
+        <h2 style="margin-top:6px">Lightweight presence beats fidelity</h2>
+        <p class="body">It's tempting to spend the budget on realistic avatars. In a remote multiplayer AR hide-and-seek game, a minimal cue — a <b>view frustum</b> showing where the remote player was looking — strengthened social connection and coordinated players as effectively as far heavier embodiment, without avatars or video.</p><p class="body">AR shifted how people played, too: players made use of mid-air and vertical space. Design for it, because they will find it.</p>
+        <p class="evidence">Evidence: Study 2 · 60 participants · IEEE VR 2025 and Multimodal Technologies and Interaction (MDPI), 2025</p>
+        <div class="dodont">
+          <div class="do"><h4>Do</h4><ul class="checks"><li>Show the remote player's viewpoint in real time</li>
+<li>Pair visual cues with voice</li>
+<li>Test minimal orientation cues, like a view frustum, before investing in avatars</li>
+<li>Design play spaces with vertical and mid-air positions in mind</li></ul></div>
+          <div class="dont"><h4>Avoid</h4><ul class="checks x"><li>Spending on high-fidelity avatars or video before simple cues have been tested</li>
+<li>Designing only at ground level</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="principle reveal" id="mechanic">
+      <div class="principle-n">03</div>
+      <div>
+        <span class="kicker">AR mechanics & constraints</span>
+        <h2 style="margin-top:6px">Make AR a core mechanic</h2>
+        <p class="body">If players can switch AR off without changing the game, AR is decoration. When AR was built into the gameplay loop — several remotely anchored objects, real-time manipulation, and time pressure — strategic search behaviour and engagement deepened.</p><p class="body">The condition is <b>clear feedback and well-calibrated constraints</b>. Time pressure that stretches players works; time pressure that overwhelms them doesn't.</p>
+        <p class="evidence">Evidence: Study 3 · 38 participants · OzCHI 2025 (ACM)</p>
+        <div class="dodont">
+          <div class="do"><h4>Do</h4><ul class="checks"><li>Embed AR in the gameplay loop, so the game changes if AR is removed</li>
+<li>Anchor several objects remotely and let players manipulate them in real time</li>
+<li>Calibrate time pressure in playtests until it stretches without overwhelming</li></ul></div>
+          <div class="dont"><h4>Avoid</h4><ul class="checks x"><li>AR as an optional visual layer</li>
+<li>Constraints tuned on paper rather than with real players</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="principle reveal" id="guide">
+      <div class="principle-n">04</div>
+      <div>
+        <span class="kicker">Engagement & spatial decisions</span>
+        <h2 style="margin-top:6px">Guide without removing the challenge</h2>
+        <p class="body">Players new to shared AR get disoriented early. Subtle feedback — such as <b>particle trails</b> marking where objects were swapped — helped them stay oriented while leaving the discovery to them.</p><p class="body">Good onboarding reduces that early confusion. And because players move through physical space, their safety is part of the design, not an afterthought.</p>
+        <p class="evidence">Evidence: Studies 2 and 3 · synthesised in the PhD thesis, University of Canterbury, 2025</p>
+        <div class="dodont">
+          <div class="do"><h4>Do</h4><ul class="checks"><li>Use subtle feedback, like particle trails, to support orientation</li>
+<li>Invest in onboarding for the first minutes of play</li>
+<li>Design for safe physical movement: space, pace and awareness of surroundings</li></ul></div>
+          <div class="dont"><h4>Avoid</h4><ul class="checks x"><li>Guidance so strong it solves the puzzle for players</li>
+<li>Leaving safety to a warning screen</li></ul></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section soft" id="checklist">
+  <div class="container split">
+    <div class="sticky-col reveal">
+      <span class="eyebrow">Before you build</span>
+      <h2 style="margin-top:14px">A twelve-question <em>checklist</em></h2>
+      <p style="margin-top:14px;color:var(--ink-soft)">Run through it at concept stage, and again before your first playtest. Every “no” is a design decision worth making on purpose.</p>
+    </div>
+    <ol class="checks reveal" style="--d:.1s;gap:14px">
+<li>Would the game change if AR were switched off? (It should.)</li>
+<li>Where presence matters, is the remote place shown at real-world scale?</li>
+<li>Is there a clear, intuitive way to pass things between locations?</li>
+<li>Is the remote space built from real scans rather than generic stand-ins?</li>
+<li>Can players see, in real time, where remote teammates are looking?</li>
+<li>Can players talk to each other?</li>
+<li>Have simple presence cues been tested before investing in avatars?</li>
+<li>Do levels use vertical and mid-air space?</li>
+<li>Are there several remotely anchored objects players can manipulate live?</li>
+<li>Has time pressure been calibrated with real players?</li>
+<li>Does feedback support orientation without giving answers away?</li>
+<li>Is there onboarding for the first minutes — and a plan for safe movement?</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="get" style="scroll-margin-top:70px">
+  <div class="container">
+    <div class="gate reveal" id="gate">
+      <div>
+        <span class="eyebrow">Printable edition</span>
+        <h2 style="margin-top:14px">Take the playbook <em>to your team</em>.</h2>
+        <p>A typeset PDF with all four principles, the do/avoid lists, the checklist and full sources — made for printing and pinning above a desk. Tell me where to send new editions and I'll unlock the download.</p>
+        <p class="fine" style="margin-top:14px">Prefer not to share your email? Everything is on this page — the PDF is just the printable version.</p>
+      </div>
+      <div>
+        <form class="form-grid gate-form" id="playbookForm" data-enquiry="playbook" action="https://formspree.io/f/xleookvv" method="post"
+              data-success="Unlocked — your download is ready.">
+          <input type="hidden" name="_subject" value="AR Design Playbook download — yasassri.me"/>
+          <input type="hidden" name="subject" value="AR Design Playbook download"/>
+          <div class="field"><label for="pb-name">Name</label><input id="pb-name" name="name" required maxlength="120" autocomplete="name"/></div>
+          <div class="field"><label for="pb-email">Email</label><input id="pb-email" name="email" type="email" required maxlength="200" autocomplete="email"/></div>
+          <div class="field">
+            <label for="pb-role">What do you do?</label>
+            <select id="pb-role" name="role">
+              <option>Game developer or designer</option>
+              <option>XR studio or product team</option>
+              <option>Researcher or student</option>
+              <option>Educator</option>
+              <option>Tourism, museum or heritage</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <label class="fine" style="display:flex;gap:10px;align-items:flex-start;cursor:pointer"><input type="checkbox" id="pb-notes" style="margin-top:3px"/> <span>Also send me occasional research notes (a few a year; you'll confirm by email first)</span></label>
+          <div class="hp" aria-hidden="true"><label>Leave this field empty</label><input name="website" tabindex="-1" autocomplete="off"/></div>
+          <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+            <button class="btn btn-solid" type="submit">Unlock the PDF <span class="arrow">→</span></button>
+            <span class="form-msg" role="status"></span>
+          </div>
+        </form>
+        <div class="gate-done" aria-live="polite">
+          <p style="color:#fff;font-size:18px;margin:0">Thank you — here's your copy.</p>
+          <a class="btn btn-solid" href="assets/files/ar-design-playbook.pdf" download>Download the playbook (PDF) <span class="arrow">↓</span></a>
+          <a class="fine" id="pbNotesLink" href="app/#/newsletter" hidden>Confirm your research-notes subscription →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow">Sources</span>
+      <h2 style="margin-top:14px">Check the <em>evidence</em></h2>
+      <p style="margin-top:14px;color:var(--ink-soft)">Cite as: Wickramasinghe, Y. S. (2026). <i>The location-based AR design playbook: Four evidence-based principles for AR that connects people across distance.</i> https://www.yasassri.me/playbook.html</p>
+    </div>
+    <div class="facts reveal" style="--d:.1s">
+<div class="info-row"><span class="k">Study 1</span><span class="v"><a href="https://doi.org/10.1016/j.entcom.2025.100932" target="_blank" rel="noopener">Representing Remote Locations with Location-Based Augmented Reality Game Design</a><br/><small style="color:var(--muted)">Entertainment Computing 53 (2025), Elsevier</small></span></div>
+<div class="info-row"><span class="k">Study 2</span><span class="v"><a href="https://ieeexplore.ieee.org/document/10973019" target="_blank" rel="noopener">Augmented Hide-And-Seek: Evaluating Spatial Decision-Making and Player Experience in a Multiplayer Location-Based Game</a><br/><small style="color:var(--muted)">IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2025</small></span></div>
+<div class="info-row"><span class="k">Study 2</span><span class="v"><a href="https://doi.org/10.3390/mti9080079" target="_blank" rel="noopener">Evaluating Spatial Decision-Making and Player Experience in a Remote Multiplayer Augmented Reality Hide-and-Seek Game</a><br/><small style="color:var(--muted)">Multimodal Technologies and Interaction 9(8):79 (2025), MDPI</small></span></div>
+<div class="info-row"><span class="k">Study 3</span><span class="v"><a href="https://doi.org/10.1145/3764687.3764699" target="_blank" rel="noopener">On the Impact of Augmented Reality Game Mechanics on the Player Experience in Remote Multiplayer Gameplay</a><br/><small style="color:var(--muted)">OzCHI &#x27;25, ACM</small></span></div>
+<div class="info-row"><span class="k">All studies</span><span class="v"><a href="https://ir.canterbury.ac.nz/items/6df971c0-1314-4863-8156-304c838686d0" target="_blank" rel="noopener">Designing Multiplayer Location-Based Augmented Reality Games that Connect Remote Players and Places</a><br/><small style="color:var(--muted)">PhD thesis, University of Canterbury, 2025</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <span class="eyebrow reveal">Apply it</span>
+    <h2 class="reveal" style="--d:.1s">Want these principles applied to <em>your</em> project?</h2>
+    <div class="cta-actions reveal" style="--d:.2s">
+      <a class="btn btn-solid" href="work-with-me.html#xr-sprint">XR Opportunity Sprint <span class="arrow">→</span></a>
+      <a class="btn" href="work-with-me.html#ux-evaluation">Playtest evaluation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">© <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="work-with-me.html">Work With Me</a>
+      <a href="speaking.html">Speaking</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="media.html">Media</a>
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
+<script src="assets/js/premium.js"></script>
+<script src="app/js/firebase-config.js"></script>
+<script src="assets/js/contact-form.js"></script>
+<script>
+  // Unlock the download once the request has gone through; offer the
+  // (double opt-in) research-notes sign-up if they ticked the box.
+  (function () {
+    var form = document.getElementById("playbookForm");
+    var gate = document.getElementById("gate");
+    var notes = document.getElementById("pb-notes");
+    var link = document.getElementById("pbNotesLink");
+    if (!form || !gate) return;
+    var wantNotes = false;
+    form.addEventListener("submit", function () { wantNotes = !!(notes && notes.checked); });
+    form.addEventListener("enquiry:sent", function (e) {
+      gate.classList.add("is-done");
+      if (wantNotes && link) {
+        link.href = "app/#/newsletter?email=" + encodeURIComponent(e.detail.email);
+        link.hidden = false;
+      }
+    });
+  })();
+</script>
+</body>
+</html>
