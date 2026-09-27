@@ -862,6 +862,52 @@ at Yoobee College of Creative Innovation, the founder of ICT Campus and the
 author of The Collaboration Reflex. What he believes: measure before you argue;
 build, test, repeat; and good teaching shouldn't depend on where you live.
 
+## NZGDC 2026 talk — https://www.yasassri.me/nzgdc/
+
+Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game
+Research. NZGDC 2026, Thursday 1 October 2026, 3:00–3:30 PM NZDT, NZ
+International Convention Centre, Auckland. What three multiplayer AR games and
+128 players taught him about playing together from apart.
+
+**The problem.** Pokémon GO has grossed around US$9 billion in ten years, yet
+only about 7% of players say they regularly use the AR camera (Laato et al.,
+2021) — the top reason being "it slows me down". Remote play (Remote Raids)
+arrived in 2020, Pokémon GO's best year (~US$1.4B), but let players act on a
+place without being there. The research question: how can AR make meaningful
+use of the real world for synchronous remote multiplayer play? Built in Unity
+with Niantic Lightship ARDK on LiDAR iPads, rooms scanned with Scaniverse,
+co-designed with Niantic Aotearoa (Wellington), measured with questionnaires,
+Tobii eye-tracking glasses, ceiling cameras and interviews.
+
+**Game 1 (30 players): Tabletop, Window or Overlay?** Overlay (the remote room
+at 1:1 around you) was preferred by 67% and was the only mode with a
+significant lift in feeling present; Window was the most usable, players
+called it "the portal", and 8 of 30 tried to walk through it; Tabletop had one
+fan. Rule: scale is presence.
+
+**Game 2 (60 players): remote AR hide-and-seek vs real hide-and-seek.** AR
+hiders used ceilings and mid-air; hiding took ~40% longer (69s vs 49s), the
+"fun" score rose (2.0 vs 0.6 on −3…+3), finding time stayed the same, and 32 of
+60 lost track of time. The bright yellow Minion was chosen 15× in AR versus
+once in real life (bold objects 1.6× more often) because fiddly thumbstick
+placement made players optimise for the controls. A moving view-cone plus
+voice created togetherness: 16 players said the cone was enough, 10 wanted an
+avatar; strangers cut verbal hints by a third in AR, friends did not.
+
+**Game 3 (38 players): AR-only mechanics.** Resize and camouflage,
+multi-object clones, active swapping (with a particle trail for fairness) and
+time pressure. One object with no timer gave the highest reward and ease of
+use; three objects with no timer the highest engagement; timer plus swapping
+the most fun and deepest immersion but the hardest to learn. Players split
+roughly 50/50 on wanting a timer.
+
+**Six rules.** (1) If players can switch the AR off, it isn't a mechanic yet.
+(2) Scale is presence. (3) Break physics on purpose. (4) A view-cone and a
+voice channel buy most of "together". (5) Players optimise for your controls
+before your game. (6) Don't choose the pacing — expose the dial. Limitations:
+thumbstick placement, Overlay needs an empty room (3 disoriented), arm fatigue
+(4), a learning curve for swapping, lag and drift, and first-session data only.
+
 ## Contact — https://www.yasassri.me/contact.html
 
 Inquiries & correspondence. Hiring me for your organisation, booking a free
