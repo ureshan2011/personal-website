@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Database normalisation | MBI802 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="From messy tables to clean ones. Spot the anomalies, then split a table step by step from 1NF all the way to 3NF."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/normalisation.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Database normalisation | MBI802 Lesson"/>
+<meta property="og:description" content="From messy tables to clean ones. Spot the anomalies, then split a table step by step from 1NF all the way to 3NF."/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/normalisation.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/normalisation-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/normalisation.html#lesson",
+  "name": "Database normalisation",
+  "description": "From messy tables to clean ones. Spot the anomalies, then split a table step by step from 1NF all the way to 3NF.",
+  "url": "https://www.yasassri.me/lessons/normalisation.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/normalisation-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT7M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Database Management Systems",
+      "courseCode": "MBI802",
+      "description": "From a spreadsheet that contradicts itself to a normalised database you can query.",
+      "url": "https://www.yasassri.me/lessons.html#mbi802",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/normalisation.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI802",
+      "item": "https://www.yasassri.me/lessons.html#mbi802"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Database normalisation",
+      "item": "https://www.yasassri.me/lessons/normalisation.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi802">MBI802</a><span aria-hidden="true">/</span><span aria-current="page">Database normalisation</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi802" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">MBI802</a><span class="lp-tag">Lesson</span></div>
+      <h1>Database normalisation</h1>
+      <p class="lp-lead">From messy tables to clean ones. Spot the anomalies, then split a table step by step from 1NF all the way to 3NF.</p>
+      <div class="lp-facts"><span><b>Database Management Systems</b></span><span>7 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/normalisation" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/normalisation" target="_blank" rel="noopener" aria-label="Open Database normalisation on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI802 · Database normalisation</span></span>
+      <img src="../assets/images/lessons/normalisation-640.webp" srcset="../assets/images/lessons/normalisation-640.webp 640w, ../assets/images/lessons/normalisation-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Database normalisation" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#what-goes-wrong-without-normalisation">What goes wrong without normalisation?</a></li><li><a href="#functional-dependencies">Functional dependencies</a></li><li><a href="#the-normalisation-studio">The Normalisation Studio</a></li><li><a href="#break-apart-the-lists">Break apart the lists</a></li><li><a href="#fixing-a-music-streaming-playlist-table">Fixing a music streaming playlist table</a></li><li><a href="#2nf-and-3nf-in-really-plain-words">2NF and 3NF, in really plain words</a></li><li><a href="#is-my-table-in-this-form">Is my table in this form?</a></li><li><a href="#fixing-an-e-commerce-order-table">Fixing an e-commerce order table</a></li><li><a href="#fixing-an-hr-employee-records-table">Fixing an HR employee records table</a></li><li><a href="#a-good-split-keeps-two-promises">A good split keeps two promises</a></li><li><a href="#normal-form-detective">Normal Form Detective</a></li><li><a href="#the-normal-forms-side-by-side">The normal forms, side by side</a></li><li><a href="#five-quick-questions">Five quick questions</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/normalisation" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Database normalisation, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/normalisation" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>We’ll start with the messes that bad table design creates, then climb the ladder — 1NF, 2NF, 3NF and BCNF — one rung at a time. Along the way you can play with live simulations: trigger the anomalies, split tables apart, and test yourself. No headset, no sign-in, nothing collected.</p>
+<p>Start here</p>
+<h2 id="what-goes-wrong-without-normalisation">What goes wrong without normalisation?</h2>
+<p>When one table tries to store everything at once, the same fact gets written in many places. That redundancy quietly breeds three classic anomalies. Poke the table below to feel each one.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>StudentID</th><th>Name</th><th>Dept</th><th>DeptHead</th><th>Course</th><th>Instructor</th></tr></thead><tbody><tr><td>S1</td><td>Alice</td><td>CS</td><td>Dr. Smith</td><td>Databases</td><td>Prof. Lee</td></tr><tr><td>S2</td><td>Bob</td><td>CS</td><td>Dr. Smith</td><td>Databases</td><td>Prof. Lee</td></tr><tr><td>S3</td><td>Carol</td><td>Math</td><td>Dr. Jones</td><td>Statistics</td><td>Prof. Hill</td></tr></tbody></table></div>
+<p>This one table stores students, departments <em>and</em> courses all at once. Tap a button to see how that bites back.</p>
+<h3>Update anomaly</h3>
+<p>A repeated fact is changed in some rows but not others, so the database ends up contradicting itself.</p>
+<h3>Insertion anomaly</h3>
+<p>You can’t record one fact without inventing another — a department needs a student before it can exist.</p>
+<h3>Deletion anomaly</h3>
+<p>Removing one row quietly destroys unrelated information that happened to live in the same place.</p>
+<p>The core idea</p>
+<h2 id="functional-dependencies">Functional dependencies</h2>
+<p>Normalisation is really about one question: which columns determine which? We write X → Y to mean “if you know X, you know exactly one Y.” Getting these right is the whole game.</p>
+<p>X is the <strong>determinant</strong> · Y is the <strong>dependent</strong></p>
+<p>Does the left side really <em>determine</em> the right side? Make your guess, then tap to check.</p>
+<p>Interactive · the main event</p>
+<h2 id="the-normalisation-studio">The Normalisation Studio</h2>
+<p>Here is one messy table. Step it up the ladder and watch tables split apart, redundancy drain away and the anomalies disappear — the whole journey from un-normalised to BCNF in one place.</p>
+<h3>Un-normalised</h3>
+<p>StudentCourses PK: StudentID</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>StudentID</th><th>Name</th><th>Dept</th><th>DeptHead</th><th>Courses (id: grade)</th></tr></thead><tbody><tr><td>S1</td><td>Alice</td><td>CS</td><td>Dr. Smith</td><td>C1:A, C2:B</td></tr><tr><td>S2</td><td>Bob</td><td>CS</td><td>Dr. Smith</td><td>C1:A</td></tr><tr><td>S3</td><td>Carol</td><td>Math</td><td>Dr. Jones</td><td>C3:A, C4:C</td></tr></tbody></table></div>
+<p>Everything lives in one table, and a single cell can hold a list of courses. Impossible to query cleanly and riddled with repetition.</p>
+<p>⚠️ Update, insert &amp; delete anomalies still possible</p>
+<p>First Normal Form · 1NF</p>
+<h2 id="break-apart-the-lists">Break apart the lists</h2>
+<p>1NF asks for one thing: every cell holds a single, atomic value — no comma-separated lists, no repeating groups. Flip the table below and watch a multi-valued column become tidy rows.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>OrderID</th><th>Products</th></tr></thead><tbody><tr><td>101</td><td>Laptop, Mouse, Keyboard</td></tr><tr><td>102</td><td>Monitor, HDMI Cable</td></tr></tbody></table></div>
+<p>Three products crammed into one cell. Counting, filtering or joining on a single product is painful.</p>
+<p>1NF · Real-world walkthrough</p>
+<h2 id="fixing-a-music-streaming-playlist-table">Fixing a music streaming playlist table</h2>
+<p>This is the kind of table a junior dev might design for a Spotify-style app. Walk through three steps to see exactly what 1NF demands — and what gets unlocked when every cell is atomic.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>playlist_id</th><th>playlist_name</th><th>tracks</th></tr></thead><tbody><tr><td>PL01</td><td>Morning Vibes</td><td>T01 · Blinding Lights, T02 · Levitating, T03 · Stay</td></tr><tr><td>PL02</td><td>Workout Mix</td><td>T04 · POWER, T05 · Lose Yourself</td></tr><tr><td>PL03</td><td>Study Mode</td><td>T06 · Lo-fi Beat #1, T07 · Rain Sounds, T08 · Focus Flow</td></tr></tbody></table></div>
+<p>A music-streaming playlist table. The <em>tracks</em> column hides a comma-separated list — already violating 1NF.</p>
+<p>Climbing higher</p>
+<h2 id="2nf-and-3nf-in-really-plain-words">2NF and 3NF, in really plain words</h2>
+<p>1NF was about tidying up the cells. 2NF and 3NF are about one thing only: making sure each column is sitting in the right table. Let’s take them one at a time — slowly.</p>
+<p>Does each column need the <em>whole</em> key, or just half of it?</p>
+<p>2NF only matters when your table’s key is made of two columns stuck together (a “composite” key). Picture an order table where the key is {OrderID, ProductID}. Now look at <strong>ProductName</strong>. Does it care which order it was on? Nope — it only depends on <strong>ProductID</strong>. So you’d be repeating “iPhone 15” on every single order that includes it.</p>
+<p>The fix: move ProductName into its own little Products table, where ProductID alone is the key.</p>
+<p>In one line: if a column only needs <em>part</em> of the key, it’s sitting in the wrong table.</p>
+<p>Does each column point straight at the key — or sneak in through another column?</p>
+<p>Once 2NF is sorted, 3NF asks the next question. Take an employee table. Each <strong>Employee</strong> has a <strong>DeptID</strong>, and that DeptID tells you the <strong>DeptName</strong> and <strong>DeptPhone</strong>. So DeptName doesn’t really depend on the employee — it depends on the <em>department</em>, which depends on the employee. That extra hop is a “middleman”:</p>
+<p>Employee → DeptID → DeptName</p>
+<p>The fix: give departments their own table, and let the employee row just keep the DeptID.</p>
+<p>In one line: every column should point straight at the key — no hopping through another column.</p>
+<p>Nice to have — but you usually don’t need it.</p>
+<p>Here’s the honest truth: most real databases stop at 3NF and are completely fine. BCNF is just a stricter, extra-tidy version of 3NF that handles a few rare edge cases. Think of it as a polish, not a box you <em>have</em> to tick. If your table is solidly in 3NF, you’re already in great shape — so feel free to treat this one as bonus reading.</p>
+<p>Self-check</p>
+<h2 id="is-my-table-in-this-form">Is my table in this form?</h2>
+<p>A quick checklist for the three forms that matter. Tap a tab and run down the boxes — if they all hold true, your table has reached that form.</p>
+<p class="lp-label">Tidy up the cells</p>
+<p>One value per cell. Nothing crammed together.</p>
+<ul><li>✓ Every cell holds a single value — no lists like “Maths, Science” stuffed into one box.</li><li>✓ No repeating columns like Phone1, Phone2, Phone3 to hold “more of the same thing”.</li><li>✓ Each row can be told apart from the rest (there is a key).</li></ul>
+<p>Quick example</p>
+<p>Split a cell that says “Maths, Science” into two separate rows — one per subject.</p>
+<p>Tick all the boxes on a tab? Your table is in that form. Each form builds on the one before it.</p>
+<p>2NF · Real-world walkthrough</p>
+<h2 id="fixing-an-e-commerce-order-table">Fixing an e-commerce order table</h2>
+<p>This is the table a new developer builds on day one. It looks sensible — until you trace the partial dependencies and see the update anomalies hiding inside.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>order_id</th><th>product_id</th><th>qty</th><th>customer_name</th><th>product_name</th><th>unit_price</th></tr></thead><tbody><tr><td>ORD-1</td><td>P-101</td><td>3</td><td>Alice</td><td>Wireless Mouse</td><td>$29.99</td></tr><tr><td>ORD-1</td><td>P-102</td><td>1</td><td>Alice</td><td>USB Hub</td><td>$19.99</td></tr><tr><td>ORD-2</td><td>P-101</td><td>2</td><td>Bob</td><td>Wireless Mouse</td><td>$29.99</td></tr><tr><td>ORD-3</td><td>P-103</td><td>1</td><td>Carol</td><td>Laptop Stand</td><td>$49.99</td></tr></tbody></table></div>
+<p>3NF · Real-world walkthrough</p>
+<h2 id="fixing-an-hr-employee-records-table">Fixing an HR employee records table</h2>
+<p>Employee info that carries along department details creates transitive chains. Watch the chain animate, then see exactly which table gets extracted and why.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>emp_id</th><th>emp_name</th><th>dept_id</th><th>dept_name</th><th>dept_city</th></tr></thead><tbody><tr><td>E-01</td><td>Alice</td><td>D-10</td><td>Engineering</td><td>Auckland</td></tr><tr><td>E-02</td><td>Bob</td><td>D-10</td><td>Engineering</td><td>Auckland</td></tr><tr><td>E-03</td><td>Carol</td><td>D-20</td><td>Marketing</td><td>Wellington</td></tr><tr><td>E-04</td><td>Dave</td><td>D-10</td><td>Engineering</td><td>Auckland</td></tr></tbody></table></div>
+<p>HR table for a NZ company. The Engineering team in Auckland appears three times — why is that a problem?</p>
+<p>The fine print</p>
+<h2 id="a-good-split-keeps-two-promises">A good split keeps two promises</h2>
+<p>Splitting a table isn’t free — a careless decomposition can invent fake rows or lose rules you cared about. Two properties tell you whether a split is safe.</p>
+<p>Joining the pieces back together must reproduce the <em>exact</em> original table — no spurious, invented rows and nothing lost.</p>
+<pre><code>R = R₁ ⋈ R₂</code></pre>
+<p>Every functional dependency from the original can still be checked on the new tables, without re-joining them first.</p>
+<pre><code>F ≡ F₁ ∪ F₂</code></pre>
+<p><strong>The trade-off:</strong> BCNF always gives you a lossless join but may sacrifice dependency preservation. 3NF guarantees <em>both</em> — which is why it’s often the practical target in real systems.</p>
+<p>Interactive · put it together</p>
+<h2 id="normal-form-detective">Normal Form Detective</h2>
+<p>Read each schema and its dependencies, then call the highest normal form it satisfies. This is exactly the reasoning you’ll use on real designs.</p>
+<p class="lp-label">The schema</p>
+<pre><code>Enrolment(StudentID, CourseID, StudentName, CourseName, Grade)</code></pre>
+<pre><code>PK = {StudentID, CourseID}</code></pre>
+<p>StudentID → StudentName CourseID → CourseName {StudentID, CourseID} → Grade</p>
+<p>What is the <em>highest</em> normal form this table satisfies?</p>
+<p>At a glance</p>
+<h2 id="the-normal-forms-side-by-side">The normal forms, side by side</h2>
+<p>One card per rung of the ladder — the rule it enforces and how you fix a violation.</p>
+<p>Every cell is atomic, no repeating groups, a primary key exists.</p>
+<p>Fix: One value per cell; give multiple values their own rows.</p>
+<p>In 1NF and no non-key attribute depends on only part of a composite key.</p>
+<p>Fix: Split partial dependencies into their own table.</p>
+<p>In 2NF and no non-key attribute depends on the key through another non-key attribute.</p>
+<p>Fix: Extract the transitive chain (A → B → C) into a new table.</p>
+<p>For every dependency X → Y, X is a superkey. Stricter than 3NF.</p>
+<p>Fix: Decompose so every determinant is a key — may cost dependency preservation.</p>
+<p>Unnormalised → 1NF → 2NF → 3NF → BCNF</p>
+<p>Check yourself</p>
+<h2 id="five-quick-questions">Five quick questions</h2>
+<p>See how much of the lesson stuck.</p>
+<p>A table in 1NF can still have plenty of redundant data.</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/er-mapping.html"><small>Previous lesson</small><b>ER to relational mapping</b></a><a class="is-next" href="../lessons/normalisation-activities.html"><small>Next lesson</small><b>Normalisation activities</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/normalisation" target="_blank" rel="noopener" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI802, Database Management Systems</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-dbms.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-dbms-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to DBMS</span>
+            <span class="lp-card-blurb">Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/mysql-setup.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/mysql-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Video</span>
+            <span class="lp-card-title">Setting up MySQL</span>
+            <span class="lp-card-blurb">Two short guide videos — one for MacOS, one for Windows — so your MySQL client and Workbench are installed and ready before the first hands-on class.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/sql-programming.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/sql-programming-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to SQL with MySQL</span>
+            <span class="lp-card-blurb">The language databases actually speak. Create a database, build a table, insert real rows, then ask it questions — one interactive slide at a time.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/database-concepts.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/database-concepts-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Advanced database concepts</span>
+            <span class="lp-card-blurb">One table, built up step by step: add a column, change a data type, set a primary key and auto-number it, back it up and restore it, then ORDER BY and count it. Finishes with a safe look at SQL injection.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/web-architecture.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/web-architecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Client, server and databases</span>
+            <span class="lp-card-blurb">How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-diagrams.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">ER diagrams</span>
+            <span class="lp-card-blurb">Sketch the world before you build the tables. Entities, attributes and relationships in Chen's notation, and how to read cardinality at a glance.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

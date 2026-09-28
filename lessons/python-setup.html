@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Setting up Python | MBI806B Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="No installing, no downloads. Open Google Colab in your browser — identical on Mac and Windows — and write your first line of Python in two minutes."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/python-setup.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Setting up Python | MBI806B Lesson"/>
+<meta property="og:description" content="No installing, no downloads. Open Google Colab in your browser — identical on Mac and Windows — and write your first line of Python in two minutes."/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/python-setup.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/python-setup-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/python-setup.html#lesson",
+  "name": "Setting up Python",
+  "description": "No installing, no downloads. Open Google Colab in your browser — identical on Mac and Windows — and write your first line of Python in two minutes.",
+  "url": "https://www.yasassri.me/lessons/python-setup.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/python-setup-1280.webp",
+  "learningResourceType": "Lab",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT3M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Business Data Analytics with AI and ML",
+      "courseCode": "MBI806B",
+      "description": "What AI and ML actually mean, where you already rely on them without noticing, and how a real decision gets made step by step.",
+      "url": "https://www.yasassri.me/lessons.html#mbi806b",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/python-setup.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI806B",
+      "item": "https://www.yasassri.me/lessons.html#mbi806b"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Setting up Python",
+      "item": "https://www.yasassri.me/lessons/python-setup.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi806b">MBI806B</a><span aria-hidden="true">/</span><span aria-current="page">Setting up Python</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi806b" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">MBI806B</a><span class="lp-tag">Lab</span></div>
+      <h1>Setting up Python</h1>
+      <p class="lp-lead">No installing, no downloads. Open Google Colab in your browser — identical on Mac and Windows — and write your first line of Python in two minutes.</p>
+      <div class="lp-facts"><span><b>Business Data Analytics with AI and ML</b></span><span>3 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/python-setup" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/python-setup" target="_blank" rel="noopener" aria-label="Open Setting up Python on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI806B · Setting up Python</span></span>
+      <img src="../assets/images/lessons/python-setup-640.webp" srcset="../assets/images/lessons/python-setup-640.webp 640w, ../assets/images/lessons/python-setup-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Setting up Python" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#why-we-start-in-colab">Why we start in Colab</a></li><li><a href="#open-google-colab">Open Google Colab</a></li><li><a href="#say-hello-to-python">Say hello to Python</a></li><li><a href="#from-one-line-to-real-predictions">From one line to real predictions</a></li><li><a href="#when-it-goes-wrong">When it goes wrong</a></li><li><a href="#where-to-go-from-here">Where to go from here</a></li><li><a href="#bring-a-laptop-and-a-google-account">Bring a laptop and a Google account.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/python-setup" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Setting up Python, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/python-setup" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<h2 id="why-we-start-in-colab"><span class="lp-kicker">Start here</span>Why we start in Colab</h2>
+<p>You don't need to install anything. Not today, maybe not ever.</p>
+<p>Some of you have a Mac. Some have Windows. Installing Python is a different fight on each one, and it often breaks. Colab skips all of that. It runs on Google's computer, not yours.</p>
+<h4>Installing Python yourself</h4>
+<p>Different steps on Mac and Windows. One typo and it breaks. Can eat a whole hour.</p>
+<h4>Google Colab</h4>
+<p>One link. The same steps for everyone. Ready in under a minute.</p>
+<h2 id="open-google-colab"><span class="lp-kicker">Step by step</span>Open Google Colab</h2>
+<p>Four clicks. Same four clicks whether you're on a Mac or a Windows laptop.</p>
+<ol><li>1 Open your browser Chrome, Safari, Edge — any of them works.</li><li>2 Go to colab.research.google.com Type the address, or use the button below.</li><li>3 Sign in with a Google account Use one you already have. No account? Make a free one in a minute.</li><li>4 Click "New notebook" It’s on the welcome screen. A blank notebook opens, ready for code.</li></ol>
+<p>colab.research.google.com</p>
+<p class="lp-label">A blank notebook</p>
+<p>This is what you'll see after step 4. One empty grey box, waiting for code.</p>
+<h2 id="say-hello-to-python"><span class="lp-kicker">Your first code</span>Say hello to Python</h2>
+<p>One line. One button. Try it right here first.</p>
+<ol><li>1 Click inside the empty grey box That's a code cell. It's where Python code goes.</li><li>2 Type the line below, exactly Quotes, brackets and capital letters all matter.</li><li>3 Press ▶, or Shift + Enter Python reads your line and prints the answer right below it.</li></ol>
+<pre><code>print(&quot;Hello, World!&quot;)</code></pre>
+<p>Try it for real: in your own notebook, change the words between the quotes and run it again. Your own message appears.</p>
+<h2 id="from-one-line-to-real-predictions"><span class="lp-kicker">Where this goes</span>From one line to real predictions</h2>
+<p>This same notebook is where we try three simple ways computers learn to predict things.</p>
+<h4>Linear regression</h4>
+<p>Draw the straightest line through your data, then use it to guess the next point.</p>
+<h4>Decision tree</h4>
+<p>A tree of yes/no questions that sorts your data into an answer.</p>
+<h4>Random forest</h4>
+<p>Many decision trees voting together, usually more accurate than just one.</p>
+<h2 id="when-it-goes-wrong"><span class="lp-kicker">Stuck?</span>When it goes wrong</h2>
+<p>These four come up every year. None of them are your fault.</p>
+<h4>I don’t have a Google account</h4>
+<p>Make one free at accounts.google.com. Two minutes, no cost, no card needed.</p>
+<h4>Nothing happens when I press Run</h4>
+<p>Wait a few seconds. Colab is connecting you to a computer in the cloud.</p>
+<h4>I closed the tab. Is my work gone?</h4>
+<p>No. Open Colab again, click File, then Open notebook, then Recent.</p>
+<h4>My work laptop won’t let me sign in</h4>
+<p>Colab needs no install and no admin rights. If sign-in itself is blocked, bring it to class.</p>
+<h2 id="where-to-go-from-here"><span class="lp-kicker">Links</span>Where to go from here</h2>
+<p>Bookmark the first one. You'll open it every week.</p>
+<ul><li>Google Colab Where every step on this page happens. Free, no install.</li><li>Make a free Google account Only needed if you don’t already have one.</li><li>Three ways to predict things The next lesson: linear regression, decision trees and random forests, explained with no maths.</li><li>scikit-learn The Python library behind all three models. Already installed in every Colab notebook.</li></ul>
+<h2 id="bring-a-laptop-and-a-google-account"><span class="lp-kicker">Your lecturer</span>Bring a laptop and a Google account.</h2>
+<p>That's genuinely everything you need. If Colab won't open, or the sign-in step gets stuck, come and ask me. It's faster to fix in person than to fight it alone the night before class.</p>
+<p>Yasas Sri Wickramasinghe MBI806B lecturer</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/intro-to-business-analytics.html"><small>Previous lesson</small><b>Welcome to business data analytics</b></a><a class="is-next" href="../lessons/predicting-with-data.html"><small>Next lesson</small><b>Three ways to predict things</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/python-setup" target="_blank" rel="noopener" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI806B, Business Data Analytics with AI and ML</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-business-analytics.html" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-business-analytics-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI806B · Lesson</span>
+            <span class="lp-card-title">Welcome to business data analytics</span>
+            <span class="lp-card-blurb">For absolute beginners: what AI and ML actually mean, where you already use them without noticing, how real decisions get made step by step, and a first look at Power BI.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/predicting-with-data.html" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+          <span class="lp-card-media"><img src="../assets/images/lessons/predicting-with-data-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI806B · Lesson</span>
+            <span class="lp-card-title">Three ways to predict things</span>
+            <span class="lp-card-blurb">Linear regression, decision trees and random forests, explained with no maths. Move a line until it fits, grow a tree until it cheats, watch nine trees outvote the best one — then run real Python in the page.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/power-bi-setup.html" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+          <span class="lp-card-media"><img src="../assets/images/lessons/power-bi-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI806B · Lab</span>
+            <span class="lp-card-title">Setting up Power BI</span>
+            <span class="lp-card-blurb">From nothing to your first chart. Everybody starts in the browser, which works the same on a Mac as on a PC — nobody should spend the first class watching a download bar.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

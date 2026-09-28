@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>What a project is, and what decides how to run it | MBI804 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/intro-to-project-management.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="What a project is, and what decides how to run it | MBI804 Lesson"/>
+<meta property="og:description" content="The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/intro-to-project-management.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/intro-to-project-management-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/intro-to-project-management.html#lesson",
+  "name": "What a project is, and what decides how to run it",
+  "description": "The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the launch date cares about, choose between Agile, Waterfall and PRINCE2 across four project shapes, then price a risk on the grid.",
+  "url": "https://www.yasassri.me/lessons/intro-to-project-management.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/intro-to-project-management-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT14M",
+  "teaches": [
+    "Say what makes something a project rather than the work an organisation already does",
+    "Name which of scope, time and cost is actually free to move on a given project",
+    "Explain why two tasks can slip by the same amount and only one of them costs the launch",
+    "Match a project’s attributes to Agile, Waterfall or PRINCE2, and defend the match",
+    "Turn a risk into an exposure figure, and choose a response that costs less than it removes"
+  ],
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "IT Project Management",
+      "courseCode": "MBI804",
+      "description": "What is really fixed on a project, what a delay actually costs, and which method the work in front of you is asking for.",
+      "url": "https://www.yasassri.me/lessons.html#mbi804",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/intro-to-project-management.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI804",
+      "item": "https://www.yasassri.me/lessons.html#mbi804"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "What a project is, and what decides how to run it",
+      "item": "https://www.yasassri.me/lessons/intro-to-project-management.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi804">MBI804</a><span aria-hidden="true">/</span><span aria-current="page">What a project is, and what decides how to run it</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi804" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">MBI804</a><span class="lp-tag">Lesson</span></div>
+      <h1>What a project is, and what decides how to run it</h1>
+      <p class="lp-lead">The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the launch date cares about, choose between Agile, Waterfall and PRINCE2 across four project shapes, then price a risk on the grid.</p>
+      <div class="lp-facts"><span><b>IT Project Management</b></span><span>14 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management" target="_blank" rel="noopener" aria-label="Open What a project is, and what decides how to run it on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI804 · What a project is, and what decides how to run it</span></span>
+      <img src="../assets/images/lessons/intro-to-project-management-640.webp" srcset="../assets/images/lessons/intro-to-project-management-640.webp 640w, ../assets/images/lessons/intro-to-project-management-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of What a project is, and what decides how to run it" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#what-makes-it-a-project">What makes it a project</a></li><li><a href="#something-has-to-give">Something has to give</a></li><li><a href="#not-every-delay-costs-the-same">Not every delay costs the same.</a></li><li><a href="#three-ways-to-shape-the-work">Three ways to shape the work</a></li><li><a href="#put-a-number-on-a-risk">Put a number on a risk</a></li><li><a href="#write-up-one-of-your-own">Write up one of your own.</a></li><li><a href="#check-yourself">Check yourself</a></li><li><a href="#five-things-to-carry-forward">Five things to carry forward</a></li><li><a href="#where-this-goes-next">Where this goes next</a></li><li><a href="#how-this-course-runs">How this course runs</a></li><li><a href="#what-to-bring">What to bring</a></li><li><a href="#save-these-as-notes">Save these as notes.</a></li><li><a href="#see-you-in-class">See you in class.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of What a project is, and what decides how to run it, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>MBI800 asked whether a system should exist. This course starts once that is settled and something has to be delivered. The first lesson covers the three things a project manager decides before any work begins: what is actually fixed, what a delay really costs, and which methodology the project's own attributes call for.</p>
+<p>Reading <strong>30 minutes</strong> Assumes <strong>MBI800 and MBI801</strong> Bring <strong>a project you watched go wrong</strong></p>
+<p class="lp-label">By the end of this lesson you can</p>
+<ul><li>Say what makes something a project rather than the work an organisation already does</li><li>Name which of scope, time and cost is actually free to move on a given project</li><li>Explain why two tasks can slip by the same amount and only one of them costs the launch</li><li>Match a project’s attributes to Agile, Waterfall or PRINCE2, and defend the match</li><li>Turn a risk into an exposure figure, and choose a response that costs less than it removes</li></ul>
+<h2 id="what-makes-it-a-project"><span class="lp-kicker">1.1 · Principles and practices</span>What makes it a project</h2>
+<p>Three tests, and then the harder question underneath them: what it would mean for this one to have succeeded.</p>
+<p>Most of what an organisation does is not a project. Serving customers, closing the month, keeping the network up — that is operations: ongoing, repetitive, and judged on consistency. A project is the other thing, and it is judged on entirely different terms.</p>
+<h4>Temporary</h4>
+<p>It has a definite start and a definite end. Not short — temporary. A five-year infrastructure programme is a project; running the service it delivers is not.</p>
+<h4>Unique</h4>
+<p>It produces a result that did not exist before. The hundredth store fit-out is still a project, because this store, this site and this landlord have never been done.</p>
+<h4>Progressively elaborated</h4>
+<p>You know least on the first day and are expected to commit anyway. Detail arrives as the work does, which is why an estimate has a maturity and a plan has versions.</p>
+<p>That last property is the awkward one. A project commits to a date and a budget on the day it understands least about the work, and everything this course teaches is a way of making that commitment honestly rather than optimistically.</p>
+<h4><span class="lp-kicker">Three levels of success, and only one gets reported</span>Delivered</h4>
+<p>On time, inside budget, matching the agreed scope. This is what gets reported, and it is the only one of the three most projects measure.</p>
+<h4>Adopted</h4>
+<p>The people it was built for actually use it. A system delivered perfectly and used by nobody has consumed the whole budget and returned nothing.</p>
+<h4>Worth it</h4>
+<p>The benefit the business case promised turned up. This is measured months after the project closes, usually by somebody else, and it is the only level that pays for the other two.</p>
+<p class="lp-label">Where this course sits</p>
+<p>A project can pass the first level and fail the other two. That is the headline at the top of this page, and it is why MBI800 is a prerequisite: choosing the right project is a planning problem, and running it well is this one.</p>
+<h2 id="something-has-to-give"><span class="lp-kicker">1.2 · Initiation</span>Something has to give</h2>
+<p>Scope, time and cost, with quality in the middle. Pin two and the third is absorbing every surprise the project meets.</p>
+<p class="lp-label">Pin the corners the sponsor will not move</p>
+<p>Only two can be pinned. Pin a third and the one you pinned first is released — which is the constraint, not a limitation of the drawing.</p>
+<pre><code>Dashed edges are the elastic ones · the filled dots are pinned</code></pre>
+<p><strong>Scope is what moves</strong> A fixed date and a fixed budget mean the feature list is the variable, whether anybody says so or not. Handled openly this is exactly how an Agile backlog works: the sponsor gets the most valuable slice by the date. Handled quietly, it becomes features silently dropped in the last fortnight, which is the same outcome with the trust removed.</p>
+<p>Nothing here lets you pin all three. When a sponsor insists on all three, quality becomes the undeclared variable — testing gets compressed, review gets skipped, and the cost arrives later as defects. Naming which corner moves is most of what a project manager does on day one.</p>
+<h2 id="not-every-delay-costs-the-same"><span class="lp-kicker">1.3 · Planning</span>Not every delay costs the same.</h2>
+<p>Two tasks lose the same three weeks. One moves the launch date and one costs nothing at all. Knowing which is which is where a schedule earns its keep.</p>
+<p>A schedule is not a list of dates. It is a network of dependencies, and somewhere in that network runs the longest chain with no slack in it — the <strong>critical path</strong>. Tasks on it have nothing to give. Tasks off it have <strong>float</strong>: time they can lose before anything downstream notices.</p>
+<p class="lp-label">Which task slips</p>
+<p><strong>Week 14</strong> Launch date. Unmoved from the plan.</p>
+<ul><li>On the critical path</li><li>Has float</li><li>Float remaining</li></ul>
+<p><strong>Nothing has slipped yet</strong> Discovery, integration, security review and user acceptance test form a chain with no slack anywhere in it — the critical path. Onboarding documentation runs alongside it and finishes four weeks before anything needs it. Slide the weeks and watch which one the launch date cares about.</p>
+<p>This is why a project manager who treats every delay as equally urgent spends their attention in the wrong place, and why the first question about any slipped task is not how late it is, but what is waiting on it.</p>
+<h2 id="three-ways-to-shape-the-work"><span class="lp-kicker">1.4 · LO1 · Methodology selection</span>Three ways to shape the work</h2>
+<p>Agile, Waterfall and PRINCE2 are not competing answers to one question. They answer different questions, and the project decides which question is being asked.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th></th><th>Agile (Scrum)</th><th>Waterfall</th><th>PRINCE2</th></tr></thead><tbody><tr><td>Delivery</td><td>Incremental, every sprint</td><td>One delivery at the end</td><td>Staged, board-approved</td></tr><tr><td>Requirements</td><td>Evolving, change welcomed</td><td>Fixed up front, change is costly</td><td>Fixed per stage, re-justified between</td></tr><tr><td>Customer</td><td>Continuous involvement</td><td>Start and end only</td><td>Represented on the project board</td></tr><tr><td>Testing</td><td>Continuous, every sprint</td><td>A phase after development</td><td>Per stage, with stage assurance</td></tr><tr><td>Risk</td><td>Surfaced early and often</td><td>Discovered late, expensively</td><td>Reviewed at every boundary</td></tr><tr><td>Best suited to</td><td>Complex, evolving software</td><td>Fixed scope, stable requirements</td><td>Governance-heavy, publicly funded work</td></tr></tbody></table></div>
+<p>The row that decides most arguments is <strong>risk</strong>. Every project starts with a pile of things nobody knows yet, and a methodology is largely a choice about when you find them out.</p>
+<p>Both curves end at the same place. The difference is when you find out — and a surprise discovered during testing costs several times what the same surprise costs in week three.</p>
+<p class="lp-label">Activity · pick a method for each project</p>
+<p>Running A payment gateway integration for one retail client, who will change their mind once they see it working.</p>
+<pre><code>Agile (Scrum) · Repeating sprints, each ending in a usable increment</code></pre>
+<ul><li><strong>Requirements</strong> will move</li><li><strong>Customer</strong> available weekly</li><li><strong>Governance</strong> one account manager</li></ul>
+<p class="lp-label">Fits</p>
+<p>Requirements that move as the client sees the product working is the case Scrum was built for. Short sprints, a review the client attends, and a backlog they help re-order. Changing their mind stops being a crisis, because the framework already has a place to put it.</p>
+<p>1 of 12 combinations tried. Every project here has a method that fits it and a method that would wreck it, and no method fits all four.</p>
+<p>No methodology is good or bad on its own, only fit or unfit for a project’s attributes. That sentence is the whole of LO1, and the 60% case study is marked on the argument rather than on the choice.</p>
+<h2 id="put-a-number-on-a-risk"><span class="lp-kicker">1.5 · LO2 · Risk and mitigation</span>Put a number on a risk</h2>
+<p>A risk you cannot compare to another risk cannot be prioritised, funded or argued about. Probability times impact is what makes it comparable.</p>
+<p>Risk arrives in Lesson 1 rather than Lesson 4 for the same reason the methodology does: both decisions are made at the point where they are cheapest, and both are routinely left until they are not. Place one real risk on the grid, then choose what to do about it.</p>
+<p class="lp-label">The register row</p>
+<p><strong>R-04 · The payment vendor’s sandbox does not match production.</strong> Found in week two of the SecurePay NZ integration. Click the grid to place it.</p>
+<p><strong>$75,000</strong> Expected monetary value: 50% × $150,000. Owner, response and review date in the register, checked every reporting cycle.</p>
+<p>The number is not a prediction. It is what lets two risks be compared, and what makes a mitigation costing more than the exposure visible as the bad trade it is.</p>
+<pre><code>Each cell is likelihood × impact · click to place the risk</code></pre>
+<p class="lp-label">Now choose a response</p>
+<p><strong>Mitigate</strong> Reduce probability, impact, or both: a spike to de-risk the unknown integration, a staged rollout, an earlier load test. The most common response, and the one that needs a number attached — spending $60k to reduce a $20k exposure is a decision, usually the wrong one.</p>
+<p>A register row is not finished until it has an owner, a response, a trigger to watch for and a review date. The 40% assessment on this course is a risk management plan, and that is what it is marked against.</p>
+<h2 id="write-up-one-of-your-own"><span class="lp-kicker">1.6 · Your turn</span>Write up one of your own.</h2>
+<p>Six questions on a project you watched, in the order this lesson covered them. The page builds as you answer, and you take it away at the end.</p>
+<p>This is deliberately a small version of the 60% case study: a project’s attributes, the methodology those attributes called for, and an argument about the gap between that and what actually happened. Finish it now, on a project you already know, and the assessment stops being a research exercise four months from now.</p>
+<h3><span class="lp-kicker">Start here</span>Which project are you writing up?</h3>
+<p>Work, university, a group assignment, a house renovation. It does not have to be IT, and it does not have to have failed — only to have surprised somebody.</p>
+<p class="lp-label">Your page, so far</p>
+<p>MBI804 · Project post-mortem Lesson 1</p>
+<p>Your project goes here</p>
+<p>Not yet answered.</p>
+<p>Everything you type stays in this browser and is saved as you go. Nothing is uploaded, so you can name what really happened — bring the printed page to class instead.</p>
+<h2 id="check-yourself"><span class="lp-kicker">End of the lesson</span>Check yourself</h2>
+<p>Five questions on what this lesson claimed. Nothing is stored and nothing is reported — this is for you, now, while there is still time to reread.</p>
+<p>A client fixes the launch date, signs off a budget that will not grow, and insists every feature in the specification ships. What actually becomes the variable?</p>
+<h2 id="five-things-to-carry-forward"><span class="lp-kicker">What this lesson said</span>Five things to carry forward</h2>
+<ul><li>01 <strong>A project is temporary and produces something unique.</strong> That is what separates it from the operations it will eventually hand over to, and it is why you commit on the day you know least.</li><li>02 <strong>Two corners, never three.</strong> Pin scope, time and cost all at once and quality becomes the variable nobody declared. Naming which corner moves is most of the first week.</li><li>03 <strong>Not every slip costs the same.</strong> Float is a task’s budget for going wrong. A slip on the critical path has no budget, so it spends the launch date instead.</li><li>04 <strong>Methodology is a judgement about the project, not a preference.</strong> Moving requirements want Agile. Signed and audited ones want Waterfall. Public money and stage funding want PRINCE2, with one of the other two underneath it.</li><li>05 <strong>A risk is not named until it has a number, an owner and a date.</strong> Everything before that is a worry, and worries do not get compared, funded or reviewed.</li></ul>
+<p>Everything below this line is what the course does next, and the practical detail on how it runs. The lesson itself ends here.</p>
+<h2 id="where-this-goes-next"><span class="lp-kicker">Lessons 2 onward</span>Where this goes next</h2>
+<p>Scope, money, the framework you are most likely to meet in industry, and the part of the job that is people rather than plans.</p>
+<h3>Scope, and the sentence that costs the most money</h3>
+<p>The work breakdown structure decomposes the deliverable until every piece is small enough to estimate and assign. The scope baseline records what is in — which is also the only way to recognise scope creep when it arrives, one reasonable request at a time.</p>
+<p class="lp-label">The sentence</p>
+<p>“While you’re in there, could you also…”. Every one of these is individually reasonable and free to ask for. Without a baseline to compare against, nobody can say what they have collectively cost.</p>
+<h3>Estimating, and the honesty of a range</h3>
+<p>An estimate has a maturity. Asking for a definitive number before the scope exists does not make it accurate — it hides the uncertainty that is still there.</p>
+<h4>Rough order of magnitude</h4>
+<p>Very early, before requirements settle. Typically −25% to +75%. Useful to decide whether to look further, not to sign anything.</p>
+<h4>Budgetary</h4>
+<p>Once scope is roughly known, for allocating money into a budget. Typically −10% to +25%.</p>
+<h4>Definitive</h4>
+<p>Late, from a decomposed work breakdown structure. Typically −5% to +10%, and the only one worth committing to a contract.</p>
+<p>PERT weights the most likely case four to one and still lets the tails count. The pessimistic tail alone moved this estimate a week to the right of the number the team would have said out loud.</p>
+<h3>Two reserves, two different owners</h3>
+<p>Contingency reserve covers the risks you identified and wrote down — the known unknowns — and the project manager spends it. Management reserve covers what nobody saw coming, sits outside the cost baseline, and needs the sponsor’s approval to touch. Collapsing the two into one pot is how a project quietly spends its safety margin before the risks it was set aside for have happened.</p>
+<h3>Scrum, in one page</h3>
+<p>The Agile framework you are most likely to meet in industry, and the one with the most confidently misremembered rules. Three roles, three artifacts, five events, each with a timebox that is part of the definition rather than a suggestion.</p>
+<h4>Three roles</h4>
+<p>Product Owner, one person, maximises product value and owns the backlog. Scrum Master, a servant-leader who removes impediments. Developers, 3–9 cross-functional people who own the increment.</p>
+<h4>Three artifacts</h4>
+<p>Product Backlog, committed to a Product Goal. Sprint Backlog, committed to a Sprint Goal and owned by the developers. Increment, held to the Definition of Done.</p>
+<h4>Five events</h4>
+<p>The Sprint, 1–4 weeks, containing the rest. Sprint Planning, up to 8 hours. Daily Scrum, 15 minutes. Sprint Review, up to 4 hours. Retrospective, up to 3 hours. Timeboxes shown for a four-week sprint; scale down proportionally.</p>
+<p>Agile is not the absence of a plan. It is a plan re-made every fortnight against what the last fortnight actually taught you.</p>
+<h3>The part of the job that is people</h3>
+<p>Communication, stakeholder management and conflict are named on the descriptor as key aspects of project success, and they are where most delivery problems actually begin. The five Thomas-Kilmann modes describe how people handle a disagreement. There is no best one — only a best one for this situation, and a strong bias in most teams toward naming the second.</p>
+<h4>Competing</h4>
+<p>Assertive, uncooperative. Right when a decision is urgent and unpopular, or safety is at stake.</p>
+<h4>Collaborating</h4>
+<p>Assertive and cooperative. The mode everybody names first, and the most expensive: it needs time and trust both sides have to spend.</p>
+<h4>Compromising</h4>
+<p>Moderate on both. Fast and fair-looking, and it can leave both sides equally unhappy with a solution neither believes in.</p>
+<h4>Avoiding</h4>
+<p>Unassertive, uncooperative. Occasionally correct — when the issue is trivial, or tempers need to cool — and corrosive as a habit.</p>
+<h4>Accommodating</h4>
+<p>Unassertive, cooperative. Right when you are wrong, or when the relationship matters more than this particular point.</p>
+<p class="lp-label">The full topic list, from the descriptor</p>
+<ol><li>01 Overview of project management principles and practices</li><li>02 Project initiation and planning</li><li>03 Scope management in IT projects</li><li>04 Risk management in IT projects</li><li>05 Quality management in informatics projects</li><li>06 Project monitoring, control and closure</li><li>07 Agile, Waterfall and PRINCE2 project management</li><li>08 Case studies and best practices in IT project management</li><li>09 Ethical and legal considerations in IT project management</li></ol>
+<h2 id="how-this-course-runs"><span class="lp-kicker">The practical detail</span>How this course runs</h2>
+<p>15 credits at Level 8, in trimester two. MBI800 and MBI801 are prerequisites, and the course assumes both.</p>
+<ul class="lp-bits"><li>Strand Business Analytics or Healthcare Informatics</li><li><strong>150</strong> Learning hours: 36 in class, 114 yours</li><li><strong>9</strong> Topics across the whole course</li><li><strong>3</strong> Learning outcomes you are assessed against</li></ul>
+<h3>Choose the method</h3>
+<p>Critically analyse the attributes of an IT project to recommend the most suitable project management methodologies in an organisation.</p>
+<h3>Name the risks</h3>
+<p>Assess potential risks associated with IT projects to propose mitigation strategies for an organisation.</p>
+<h3>Run it in your field</h3>
+<p>Apply IT project management approaches and practices within specialised domains in a professional context.</p>
+<p>Word for word from the course descriptor. Everything you are assessed on maps back to one of these three.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Weighting</th><th>Assessment</th><th>Detail</th></tr></thead><tbody><tr><td>60%</td><td>Project methodology selection: case study</td><td>Individual · assesses LO1 and LO3</td></tr><tr><td>40%</td><td>Risk management plan: report</td><td>Individual · assesses LO2 and LO3</td></tr></tbody></table></div>
+<p>Both assessments are individual, and neither is a memory test. One asks you to recommend a methodology and defend it against a real case; the other asks you to write a risk management plan somebody could actually run.</p>
+<h2 id="what-to-bring"><span class="lp-kicker">Before the first class</span>What to bring</h2>
+<p>Nothing here needs buying. Mainly: a project you watched go wrong, and a laptop.</p>
+<p class="lp-label">Why it is worth learning</p>
+<ol><li>It is the most portable skill on the programme Every sector runs projects. The methodology vocabulary travels between industries in a way a specific technology stack does not.</li><li>It is how technical people become senior The step from doing the work to being accountable for it is mostly scope, estimates, risk and communication.</li><li>The certifications are recognised Scrum and Jira credentials are asked for by name in job listings, and several useful ones are free. There is a page on this site listing them.</li><li>It makes you harder to mislead Once you can read a budget baseline and a risk register, an optimistic status report stops being persuasive.</li></ol>
+<p class="lp-label">Come prepared</p>
+<ul><li>Bring a project that went wrong Work, university, a group assignment, a house renovation. We diagnose it against the constraint triangle in the first class, and it works better when the example is yours.</li><li>Bring a laptop A free Jira or Trello account is useful from early on. If you cannot install anything, the browser version does everything this course needs.</li><li>No management experience assumed Never run a project? That is the expected starting point. What the course does assume is MBI800 and MBI801, which you will already have.</li></ul>
+<h2 id="save-these-as-notes"><span class="lp-kicker">Take it with you</span>Save these as notes.</h2>
+<p>A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out.</p>
+<p>Password to open it</p>
+<p>Built here in your browser. Nothing is uploaded and no account is needed.</p>
+<h3>Extra reading only</h3>
+<p>A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements.</p>
+<p>All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems.</p>
+<h2 id="see-you-in-class"><span class="lp-kicker">Your lecturer</span>See you in class.</h2>
+<p>Most of this course is judgement rather than technique, and judgement is built from examples. Bring one project you watched go badly and an argument about why. That conversation is the first class, and most of the first assessment.</p>
+<p>Yasas Sri Wickramasinghe MBI804 lecturer</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-next" href="../lessons/business-model-canvas.html"><small>Next lesson</small><b>The Business Model Canvas</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management" target="_blank" rel="noopener" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI804, IT Project Management</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/business-model-canvas.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/business-model-canvas-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The Business Model Canvas</span>
+            <span class="lp-card-blurb">How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/project-methodologies.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/project-methodologies-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close</span>
+            <span class="lp-card-blurb">Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s spiral walked loop by loop, PRINCE2’s seven principles, themes and processes opened one at a time, then the whole Agile family — and Scrum in full: a clickable framework diagram, twelve “whose job is this?” situations, timeboxes that scale with the Sprint, and a board with a live burndown.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/scrum-simulation.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/scrum-simulation-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The Scrum studio: a Sprint you can watch, pause and orbit</span>
+            <span class="lp-card-blurb">Lesson 3. Six 3D miniatures build a parcel drone through three one-week Sprints while a caption says what is happening and a timeline marks every milestone: the Product Backlog ordered on the wall, refined and estimated with Planning Poker, Sprint Planning pulling cards into the Sprint Backlog, a fifteen-minute Daily Scrum every morning, an impediment landing and being cleared, stakeholders watching the drone lift off at the Review, one improvement from each Retrospective. Voice-narrated, it pauses after each step so you can read, then a seven-question check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/peer-audit.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/peer-audit-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Practice</span>
+            <span class="lp-card-title">The outside auditor: peer audit round</span>
+            <span class="lp-card-blurb">The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional scenario whose author is confident and wrong about all of them, sort eight sentences into restating, asserting and auditing, choose a risk response where mitigating is the wrong answer, then build the one-page Corrective Action Plan and export it.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="https://ureshan2011.github.io/thisisnotalms/#/cost-management" target="_blank" rel="noopener" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><b>MBI804</b></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">Project cost management</span>
+            <span class="lp-card-blurb">Plan, estimate, budget — and avoid the traps that sink most IT projects. Seven interactive sections around the SecurePay NZ scenario: PERT calculator, budget builder, live S-curve and a closing challenge.</span>
+            <span class="lp-card-cta">Open on the lessons site ↗</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/collaboration-reflex-lecture.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/collaboration-reflex-lecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The collaboration reflex</span>
+            <span class="lp-card-blurb">Conflict and communication management taught through forty-five real, anonymised classroom conflicts: six full stories, four frameworks, and the one reflex experienced professionals reach for even when it is the wrong answer.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>
