@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Holo research cards — cards.html (the prize for finding the six crystals)
+
+   Works in layers, so every browser gets a complete page:
+     · No JavaScript: every card is visible and flips with its Flip control
+       (a native checkbox + label, so it is keyboard and screen-reader
+       friendly without any script).
+     · holo-cards.js adds the pointer-driven foil and tilt on devices with a
+       mouse, the sealed/unsealed state, sharing and the unseal animation.
+     · Reduced motion: no tilt, shimmer or card animation; flips are instant.
+   ========================================================================== */
+
+/* Page-wide tokens (this file is only loaded on cards.html), so a card works
+   wherever it is placed, not only inside the vault section. */
+:root {
+  --hc-night: #0b1220;
+  --hc-cream: #f3e6c4;
+  --hc-lilac: #9db8ff;
+  --hc-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --hc-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+.hc-vault {
+  position: relative; overflow: hidden; isolation: isolate;
+  padding: clamp(64px, 9vw, 112px) 0 clamp(72px, 10vw, 120px);
+  background:
+    radial-gradient(60% 50% at 12% 0%, rgba(47, 107, 255, .22), transparent 70%),
+    radial-gradient(50% 45% at 92% 18%, rgba(123, 92, 255, .2), transparent 70%),
+    radial-gradient(70% 60% at 50% 110%, rgba(47, 107, 255, .16), transparent 70%),
+    var(--hc-night);
+  color: #fff;
+}
+.hc-vault::before { /* faint tracking grid, echoing AR Mode */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .5;
+  background-image: linear-gradient(rgba(157, 184, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(157, 184, 255, .06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 30%, #000, transparent);
+  mask-image: radial-gradient(80% 70% at 50% 30%, #000, transparent);
+}
+.hc-vault .eyebrow { color: var(--hc-lilac); }
+.hc-vault h2 { color: #fff; }
+.hc-vault h2 em { color: var(--hc-lilac); }
+.hc-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px 40px; flex-wrap: wrap; margin-bottom: 30px; }
+.hc-head p { max-width: 46ch; color: rgba(255, 255, 255, .72); font-size: 15.5px; }
+
+/* ---------- Foil legend */
+.hc-legend { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 0 0 clamp(34px, 5vw, 52px); padding: 0; list-style: none; }
+.hc-legend li { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(255, 255, 255, .78); }
+.hc-legend b { font: 700 10px/1 var(--hc-mono); letter-spacing: .14em; text-transform: uppercase; color: #fff; }
+.hc-swatch { width: 26px; height: 16px; border-radius: 5px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25); }
+
+/* ---------- Status (sealed / unsealed) — shown by holo-cards.js */
+.hc-status {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px 28px; flex-wrap: wrap;
+  margin-top: 30px; padding: 18px 20px; border-radius: 20px;
+  background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+.hc-status[hidden] { display: none; }
+.hc-status-l { display: flex; align-items: center; gap: 16px; min-width: 0; }
+.hc-gems { display: flex; gap: 5px; flex: none; }
+.hc-gems svg { width: 15px; height: 23px; }
+.hc-gems .off path { fill: #dfe4ee; }
+.hc-status p { margin: 0; font-size: 14.5px; color: var(--ink-soft); max-width: 56ch; }
+.hc-status p b { color: var(--ink); }
+.hc-acts { display: flex; gap: 10px; flex-wrap: wrap; }
+/* The site's accent (#2f6bff) measures 4.49:1 behind white 14px text; the
+   darker accent passes AA comfortably. */
+.hc-acts .btn-solid { background: var(--accent-dark); border-color: var(--accent-dark); }
+.hc-acts .btn-solid:hover { background: #1a44b8; border-color: #1a44b8; }
+
+/* ---------- Grid */
+.hc-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(236px, 1fr)); gap: clamp(34px, 4vw, 48px) clamp(20px, 2.4vw, 30px);
+}
+.hc-item { position: relative; display: flex; flex-direction: column; gap: 14px; }
+.hc-flipbox { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); border: 0; opacity: 0; }
+
+/* ---------- The card */
+.hc-card {
+  --mx: 50%; --my: 32%; --fx: 50%; --fy: 50%; --rx: 0deg; --ry: 0deg; --glare: .38;
+  position: relative; aspect-ratio: 63 / 88; perspective: 1100px; container-type: inline-size;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.hc-tilt {
+  position: absolute; inset: 0; transform-style: preserve-3d;
+  transform: rotateX(var(--ry)) rotateY(var(--rx));
+  transition: transform .6s var(--hc-ease);
+}
+.hc-card.is-active .hc-tilt { transition: transform .12s linear; }
+.hc-inner {
+  position: absolute; inset: 0; transform-style: preserve-3d;
+  transition: transform .75s cubic-bezier(.2, .8, .2, 1);
+}
+.hc-flipbox:checked ~ .hc-card .hc-inner { transform: rotateY(180deg); }
+.hc-face {
+  position: absolute; inset: 0; border-radius: 18px; overflow: hidden;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  box-shadow: 0 34px 60px -30px rgba(0, 0, 0, .75), 0 0 0 1px rgba(255, 255, 255, .06);
+}
+.hc-back { transform: rotateY(180deg); }
+.hc-frame { position: absolute; inset: 0; padding: 9px; border-radius: 18px; background: var(--hc-edge); }
+.hc-panel {
+  position: relative; height: 100%; border-radius: 11px; overflow: hidden;
+  display: flex; flex-direction: column; padding: 11px 12px 10px;
+  background:
+    radial-gradient(120% 70% at 20% 0%, rgba(90, 120, 255, .28), transparent 60%),
+    linear-gradient(170deg, #1a2656 0%, #0e1533 55%, #080d20 100%);
+  color: #fff;
+}
+.hc-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; font: 700 9.5px/1 var(--hc-mono); letter-spacing: .14em; text-transform: uppercase; }
+.hc-no { color: var(--hc-cream); }
+.hc-type { display: inline-flex; align-items: center; gap: 6px; color: rgba(255, 255, 255, .8); white-space: nowrap; }
+.hc-type::before { content: ""; width: 9px; height: 9px; border-radius: 3px; background: var(--hc-edge); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); }
+.hc-art {
+  position: relative; margin: 9px 0 10px; height: 39%; border-radius: 9px; overflow: hidden; flex: none;
+  background: radial-gradient(90% 90% at 50% 100%, rgba(157, 184, 255, .16), transparent 70%), rgba(255, 255, 255, .03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1);
+  color: var(--hc-cream);
+}
+.hc-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hc-art svg * { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.hc-art svg .a { stroke: var(--hc-lilac); }
+.hc-art svg .h { stroke: rgba(157, 184, 255, .22); stroke-width: 1; }
+.hc-art svg .f { fill: currentColor; stroke: none; }
+.hc-art svg .fa { fill: var(--hc-lilac); stroke: none; }
+.hc-art svg .cone { fill: url(#hcCone); stroke: none; }
+.hc-venue { margin: 0 0 5px; font: 700 9px/1.3 var(--hc-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--hc-lilac); }
+.hc-title {
+  margin: 0; font-family: var(--serif); font-weight: 500; color: #fff; letter-spacing: -.01em;
+  font-size: 15px; font-size: clamp(12.5px, 6.1cqi, 17px); line-height: 1.17; text-wrap: balance;
+}
+.hc-title.is-long { font-size: 13.5px; font-size: clamp(11.5px, 5.3cqi, 15px); }
+.hc-stats { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-top: 9px; }
+.hc-stats span {
+  display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 6px;
+  font: 700 8.5px/1 var(--hc-mono); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+  color: #fff; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14);
+}
+.hc-foot { display: flex; justify-content: space-between; margin-top: 8px; font: 600 8px/1 var(--hc-mono); letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .45); }
+
+/* Foil + glare: only on the front. color-dodge turns the navy into light. */
+.hc-foil, .hc-glare, .hc-sparkle { position: absolute; inset: 9px; border-radius: 11px; pointer-events: none; z-index: 3; }
+.hc-foil {
+  background-image: var(--hc-foil);
+  background-size: 300% 300%; background-position: var(--fx) var(--fy);
+  mix-blend-mode: color-dodge; opacity: .26;
+  transition: background-position .6s var(--hc-ease), opacity .4s ease;
+}
+.hc-card.is-active .hc-foil { opacity: .62; }
+.hc--prism .hc-foil { opacity: .32; }
+.hc--prism.is-active .hc-foil { opacity: .7; }
+.hc-glare {
+  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, .14) 22%, transparent 52%);
+  mix-blend-mode: overlay; opacity: var(--glare);
+  transition: opacity .4s ease;
+}
+.hc-card.is-active .hc-foil { transition: none; }
+.hc-sparkle { display: none; }
+
+/* Foil types (named for the kind of paper, not rarity) */
+.hc--prism {
+  --hc-edge: conic-gradient(from 210deg at 50% 50%, #ff9bd2, #ffd36e, #9dffb0, #7fd3ff, #b89bff, #ff9bd2);
+  --hc-foil: linear-gradient(115deg, transparent 30%, rgba(255, 120, 200, .8) 38%, rgba(255, 230, 120, .8) 43%, rgba(120, 255, 190, .8) 48%, rgba(120, 190, 255, .8) 53%, rgba(190, 140, 255, .8) 58%, transparent 66%);
+}
+.hc--prism .hc-sparkle {
+  display: block; mix-blend-mode: color-dodge; opacity: .35;
+  background-image: radial-gradient(rgba(255, 255, 255, .95) .8px, transparent 1.4px), radial-gradient(rgba(255, 255, 255, .7) .6px, transparent 1.2px);
+  background-size: 17px 17px, 11px 11px; background-position: 0 0, 5px 7px;
+}
+.hc--gold {
+  --hc-edge: linear-gradient(135deg, #f7e7b4 0%, #d4ae5c 30%, #f4dc97 55%, #a97f2f 82%, #f7e7b4 100%);
+  --hc-foil: linear-gradient(115deg, transparent 34%, rgba(255, 214, 130, .85) 44%, rgba(255, 246, 208, .95) 50%, rgba(212, 170, 90, .85) 56%, transparent 66%);
+}
+.hc--holo {
+  --hc-edge: linear-gradient(135deg, #b8c8ff 0%, #e2c4ff 22%, #a4ecff 44%, #c6ffdc 62%, #fff0b8 80%, #ffc6e4 100%);
+  --hc-foil: linear-gradient(115deg, transparent 30%, rgba(255, 130, 210, .7) 38%, rgba(255, 235, 140, .7) 43%, rgba(130, 255, 200, .7) 48%, rgba(130, 200, 255, .7) 53%, rgba(200, 150, 255, .7) 58%, transparent 66%);
+}
+.hc--silver {
+  --hc-edge: linear-gradient(135deg, #f4f6f9 0%, #b9c1cf 34%, #eef1f6 56%, #8e98a9 84%, #f4f6f9 100%);
+  --hc-foil: linear-gradient(115deg, transparent 34%, rgba(230, 236, 246, .75) 44%, rgba(255, 255, 255, .9) 50%, rgba(170, 182, 200, .75) 56%, transparent 66%);
+}
+
+/* Back: the finding, in plain English */
+.hc-panel--back {
+  padding: 16px 16px 14px;
+  background: linear-gradient(180deg, #fbf9f3 0%, #f2ede1 100%); color: var(--ink);
+}
+.hc-k { font: 700 9.5px/1.3 var(--hc-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-dark); }
+.hc-finding { margin: 10px 0 0; font-size: 13.5px; font-size: clamp(11.5px, 5.2cqi, 14.5px); line-height: 1.52; color: var(--ink); text-wrap: pretty; }
+.hc-cite { margin: auto 0 0; padding-top: 10px; border-top: 1px solid rgba(19, 26, 38, .12); font-size: 11px; font-size: clamp(9.5px, 4.2cqi, 11.5px); line-height: 1.45; color: var(--ink-soft); }
+.hc-backmark { display: flex; justify-content: space-between; align-items: center; margin-top: 9px; font: 700 8.5px/1 var(--hc-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.hc-backmark svg { width: 11px; height: 17px; }
+
+/* ---------- Sealed sleeve (only when holo-cards.js seals the grid) */
+.hc-sleeve { display: none; }
+.hc-grid.is-sealed .hc-sleeve, .hc-grid.is-unsealing .hc-sleeve {
+  position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  border-radius: 18px; overflow: hidden; color: var(--hc-cream);
+  background:
+    repeating-linear-gradient(135deg, rgba(243, 230, 196, .05) 0 2px, transparent 2px 12px),
+    radial-gradient(80% 60% at 50% 40%, #1f2d66 0%, #0c1330 70%);
+  box-shadow: 0 34px 60px -30px rgba(0, 0, 0, .75), inset 0 0 0 1px rgba(243, 230, 196, .25), inset 0 0 0 7px rgba(11, 18, 32, .9), inset 0 0 0 8px rgba(243, 230, 196, .35);
+}
+.hc-sleeve-no { font: 700 10px/1 var(--hc-mono); letter-spacing: .18em; text-transform: uppercase; opacity: .8; }
+.hc-sleeve-seal { width: 46%; max-width: 120px; aspect-ratio: 1; }
+.hc-sleeve-seal svg { display: block; width: 100%; height: 100%; }
+.hc-sleeve-t { font: 500 20px/1 var(--serif); letter-spacing: -.01em; color: #fff; }
+.hc-sleeve-s { font-size: 11.5px; color: rgba(255, 255, 255, .6); }
+.hc-sleeve::after { /* a slow sheen */
+  content: ""; position: absolute; inset: -40% -60%; pointer-events: none;
+  background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, .12) 50%, transparent 58%);
+  transform: translateX(-30%);
+  animation: hcSheen 5.5s ease-in-out infinite; animation-delay: calc(var(--i, 0) * 180ms);
+}
+@keyframes hcSheen { 0%, 55% { transform: translateX(-35%); } 100% { transform: translateX(35%); } }
+.hc-grid.is-unsealing .hc-sleeve { animation: hcUnseal .9s var(--hc-ease) both; animation-delay: calc(var(--i, 0) * 90ms); }
+@keyframes hcUnseal {
+  0% { opacity: 1; transform: none; }
+  40% { opacity: 1; transform: translateY(-8px) scale(1.02); filter: brightness(1.6); }
+  100% { opacity: 0; transform: translateY(-40px) scale(1.04); filter: brightness(2); }
+}
+.hc-grid.is-unsealing .hc-foil { animation: hcFlash 1.2s ease both; animation-delay: calc(var(--i, 0) * 90ms + .3s); }
+@keyframes hcFlash { 0% { background-position: 0% 0%; opacity: .9; } 100% { background-position: 100% 100%; } }
+
+/* ---------- Caption row under each card */
+.hc-cap { display: flex; align-items: center; gap: 8px; }
+.hc-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 36px; padding: 0 13px;
+  border-radius: 999px; border: 1px solid rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .04);
+  color: #fff; font: 600 12.5px/1 var(--sans); cursor: pointer; white-space: nowrap; text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s var(--hc-ease);
+}
+.hc-btn:hover { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .4); transform: translateY(-1px); }
+.hc-btn svg { flex: none; width: 14px; height: 14px; }
+.hc-flip { margin-right: auto; }
+.hc-flipbox:focus-visible ~ .hc-cap .hc-flip, .hc-btn:focus-visible { outline: 2px solid var(--hc-lilac); outline-offset: 3px; }
+.hc-flipbox:checked ~ .hc-cap .hc-flip { background: #fff; color: var(--hc-night); border-color: #fff; }
+.hc-grid.is-sealed .hc-cap .hc-flip, .hc-grid.is-sealed .hc-cap .hc-save { opacity: .35; pointer-events: none; }
+
+/* ---------- Mouse only: the tilt and glare follow the pointer */
+@media (hover: hover) and (pointer: fine) {
+  .hc-card:hover .hc-glare { opacity: .7; }
+}
+/* ---------- Touch: the foil drifts on its own so it still catches the light */
+@media (hover: none) {
+  .hc-foil { opacity: .34; animation: hcDrift 7s ease-in-out infinite alternate; animation-delay: calc(var(--i, 0) * -600ms); }
+}
+@keyframes hcDrift { from { background-position: 10% 20%; } to { background-position: 90% 80%; } }
+
+/* ---------- Share + the rest of the page */
+.hc-share-msg { font-size: 13px; color: var(--muted); min-height: 1em; }
+.hc-cta { text-align: center; }
+.hc-cta h2 { margin: 0 auto 14px; max-width: 22ch; }
+.hc-cta p { margin: 0 auto 26px; max-width: 52ch; color: var(--ink-soft); }
+.hc-cta .hero-actions { justify-content: center; }
+
+@media (max-width: 640px) {
+  .hc-grid { grid-template-columns: minmax(0, 330px); justify-content: center; }
+  .hc-status { padding: 16px; }
+  .hc-status-l { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc-tilt, .hc-inner, .hc-foil, .hc-glare { transition: none !important; }
+  .hc-card { --rx: 0deg !important; --ry: 0deg !important; }
+}
+@media (forced-colors: active) {
+  .hc-foil, .hc-glare, .hc-sparkle, .hc-sleeve::after { display: none; }
+  .hc-face, .hc-sleeve { border: 2px solid CanvasText; }
+}
+@media print {
+  .hc-vault { background: #fff; color: #000; }
+  .hc-foil, .hc-glare, .hc-sparkle, .hc-sleeve, .hc-cap { display: none !important; }
+}

@@ -71,6 +71,13 @@
     <image:image><image:loc>https://www.yasassri.me/assets/images/phd-certificate-arch-900.webp</image:loc></image:image>
   </url>
   <url>
+    <loc>https://www.yasassri.me/cards.html</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/cards/og-cards.jpg</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://www.yasassri.me/ar.html</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
