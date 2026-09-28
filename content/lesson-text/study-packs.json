@@ -1,0 +1,92 @@
+{
+ "slug": "study-packs",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/study-packs",
+ "title": "The written study pack",
+ "pageTitle": "Study packs · MBI800 and MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 191,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "ADDITIONAL LEARNING MATERIALS"
+  },
+  {
+   "t": "p",
+   "html": "MBI800 · ACADEMIC YEAR 2026"
+  },
+  {
+   "t": "p",
+   "html": "Strategic Information Systems Planning"
+  },
+  {
+   "t": "p",
+   "html": "Dr. Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "p",
+   "html": "Student Edition · For enrolled students only"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Strategic Information Systems Planning"
+  },
+  {
+   "t": "p",
+   "html": "11 chapters · 61 pages · consolidated answer key. Typeset like a real book — worked examples, practice questions, key-concept tables and a linked table of contents. Works offline, prints beautifully on A4, and screen readers are fully supported."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Systems Thinking &amp; the Iceberg Model",
+    "SISP Foundations &amp; the Six Process Dimensions",
+    "Strategic IT Planning, Business Case &amp; the SDLC",
+    "Business Model &amp; Idea Canvases",
+    "Risk Management Standards",
+    "Global SISP Case Studies",
+    "Five Stories That Changed Everything",
+    "Immersive Realities — AR/VR",
+    "Systems Security · Platform Strategy"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Download the MBI800 pack · PDF"
+  },
+  {
+   "t": "p",
+   "html": "MBI802 · ACADEMIC YEAR 2026"
+  },
+  {
+   "t": "p",
+   "html": "Database Management Systems"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Database Management Systems"
+  },
+  {
+   "t": "p",
+   "html": "8 chapters · 56 pages · glossary + consolidated answer key. Typeset like a real book — worked examples, practice questions, key-concept tables and a linked table of contents. Works offline, prints beautifully on A4, and screen readers are fully supported."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Introduction to DBMS",
+    "SQL Programming Fundamentals",
+    "Advanced SQL Queries",
+    "ER Diagrams — Foundations &amp; Advanced",
+    "ER → Relational Mapping",
+    "Database Normalization",
+    "Consolidation &amp; Exam Preparation",
+    "Glossary of Key Terms"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Download the MBI802 pack · PDF"
+  }
+ ]
+}

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Introduction to DBMS | MBI802 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/intro-to-dbms.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Introduction to DBMS | MBI802 Lesson"/>
+<meta property="og:description" content="Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/intro-to-dbms.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/intro-to-dbms-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/intro-to-dbms.html#lesson",
+  "name": "Introduction to DBMS",
+  "description": "Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.",
+  "url": "https://www.yasassri.me/lessons/intro-to-dbms.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/intro-to-dbms-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT8M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Database Management Systems",
+      "courseCode": "MBI802",
+      "description": "From a spreadsheet that contradicts itself to a normalised database you can query.",
+      "url": "https://www.yasassri.me/lessons.html#mbi802",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/intro-to-dbms.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI802",
+      "item": "https://www.yasassri.me/lessons.html#mbi802"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Introduction to DBMS",
+      "item": "https://www.yasassri.me/lessons/intro-to-dbms.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi802">MBI802</a><span aria-hidden="true">/</span><span aria-current="page">Introduction to DBMS</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi802" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">MBI802</a><span class="lp-tag">Lesson</span></div>
+      <h1>Introduction to DBMS</h1>
+      <p class="lp-lead">Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.</p>
+      <div class="lp-facts"><span><b>Database Management Systems</b></span><span>8 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms" target="_blank" rel="noopener" aria-label="Open Introduction to DBMS on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI802 · Introduction to DBMS</span></span>
+      <img src="../assets/images/lessons/intro-to-dbms-640.webp" srcset="../assets/images/lessons/intro-to-dbms-640.webp 640w, ../assets/images/lessons/intro-to-dbms-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Introduction to DBMS" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#the-hospital-spreadsheet">The hospital spreadsheet</a></li><li><a href="#data-and-information">Data and information</a></li><li><a href="#where-the-database-actually-sits">Where the database actually sits</a></li><li><a href="#database-management-systems">Database Management Systems.</a></li><li><a href="#eight-lessons">Eight lessons</a></li><li><a href="#some-of-what-s-coming">Some of what's coming</a></li><li><a href="#activities-from-the-course">Activities from the course</a></li><li><a href="#what-else-you-get">What else you get</a></li><li><a href="#save-these-as-notes">Save these as notes.</a></li><li><a href="#see-you-in-class">See you in class.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Introduction to DBMS, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<h2 id="the-hospital-spreadsheet"><span class="lp-kicker">Section 1.2 · Why file-based systems fail</span>The hospital spreadsheet</h2>
+<p>Three sheets, one patient. Her details were typed into all three because nobody had a database. Change her address, save it, then check the other tabs.</p>
+<pre><code>Admissions.xlsx — last saved by reception, 9:14 AM</code></pre>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Patient ID</th><th>Name</th><th>Address</th><th>NHI</th><th>Ward</th></tr></thead><tbody><tr><td>P-4471</td><td>Mere Rangi</td><td>14 Queen St, Auckland</td><td>ABC1234</td><td>3B</td></tr><tr><td>P-4472</td><td>Tom Fletcher</td><td>6 Ponsonby Rd, Auckland</td><td>DEF5678</td><td>3B</td></tr><tr><td>P-4488</td><td>Sina Faleolo</td><td>22 Dominion Rd, Auckland</td><td>GHI9012</td><td>3B</td></tr></tbody></table></div>
+<p><strong>3</strong> copies of her address exist. Only the sheet you save will be right.</p>
+<p><strong>Nothing is wrong yet.</strong> All three sheets agree, because nobody has changed anything yet.</p>
+<h4>Redundancy</h4>
+<p>The same patient is re-typed in admissions, the ward sheet and pharmacy.</p>
+<p>A DBMS: One shared store. Each fact written once.</p>
+<h4>Inconsistency</h4>
+<p>She moves. Two of the three copies never get updated. Which one is true?</p>
+<p>A DBMS: Centralised updates, with constraints keeping data valid.</p>
+<h4>Security</h4>
+<p>Anyone holding the file holds all of it. Reception sees what the doctors see.</p>
+<p>A DBMS: Per-user permissions, so each role sees only its own slice.</p>
+<h4>Concurrency</h4>
+<p>Two nurses open it at once. The second save silently wins.</p>
+<p>A DBMS: Concurrency control, so many people can work at once.</p>
+<h4>No integrity rules</h4>
+<p>Nothing stops a discharge date earlier than the admission date.</p>
+<p>A DBMS: Validation and types enforced by the system itself.</p>
+<p>Redundancy, inconsistency, security, concurrency, integrity. Learn those five names — they come up in the exam more often than any definition. We do this same exercise in pairs, on paper, in class.</p>
+<h2 id="data-and-information"><span class="lp-kicker">Section 1.1 · Data vs information</span>Data and information</h2>
+<p>Data is raw. Information is data with context and processing applied to it. Add the pieces below and the difference gets obvious.</p>
+<p class="lp-label">Raw data</p>
+<p>Could be a mark, an age, a heart rate, a bus route. Nobody can decide anything with it.</p>
+<p class="lp-label">Add context</p>
+<p>Tap the pieces in any order.</p>
+<p class="lp-label">Information</p>
+<p>85</p>
+<p><strong>Accurate</strong> — Reflects reality. Wrong information is worse than none.</p>
+<p><strong>Complete</strong> — Nothing essential is missing from the picture.</p>
+<p><strong>Timely</strong> — Current, and available when the decision is made.</p>
+<p><strong>Relevant</strong> — Actually useful for the decision at hand.</p>
+<p>Context plus processing is all it takes. Keep adding.</p>
+<h3>Now tell them apart</h3>
+<p>Six things from the chapter. Some are raw, some have had enough added that you could act on them. In the exam you’ll be asked which is which, plus one sentence saying why — and the “why” is where the marks are.</p>
+<pre><code>42</code></pre>
+<pre><code>practice question 1(a)</code></pre>
+<p>Which is it?</p>
+<p>Data is raw — numbers and words on their own. It turns into information once somebody adds enough around it that you could act on it. You’ll get the reasoning either way.</p>
+<h2 id="where-the-database-actually-sits"><span class="lp-kicker">Section 1.3 · Where it all lives</span>Where the database actually sits</h2>
+<p>Nearly every app on your phone is talking to one, though you never see it. Follow a single tap all the way there and back.</p>
+<p>Think of it as a restaurant. You’re at the table, the kitchen is out the back, and a waiter goes between the two. You never walk into the kitchen yourself — and that turns out to be the whole point.</p>
+<h3><span class="lp-kicker">Step 1 of 6</span>You tap “My grades”</h3>
+<p>In the restaurant You sit down and pick something off the menu.</p>
+<p class="lp-label">On screen</p>
+<ul><li><strong>A link</strong> My grades</li></ul>
+<p>Nothing has left your phone yet, and no database anywhere has been bothered.</p>
+<p class="lp-label">So why can’t your browser just ask the database itself?</p>
+<p>Because anything your browser knows, you can go and look at. Right-click, view source, and there it is. If the database password were in there, anyone could find it and then help themselves to everybody’s grades, not only their own. Keeping the server in the middle means the only questions the database ever hears are ones the university wrote itself.</p>
+<h2 id="database-management-systems"><span class="lp-kicker">What this course is</span>Database Management Systems.</h2>
+<p>15 credits, Level 8, no prerequisites. Plenty of people arrive having never opened a database.</p>
+<p>Over the trimester you’ll design relational databases, query them with SQL, and think about who gets access to the data you’re storing. 150 learning hours: 36 in class with me, 114 on your own.</p>
+<p>By the end you should be able to decide who gets access to data and why, judge whether a design will hold up under real use, and look at someone else’s database and say what’s wrong with it. Most of your career will be spent on databases other people built, so that last one gets a lot of attention.</p>
+<ul class="lp-bits"><li><strong>15</strong> Credits, Level 8, no prerequisites</li><li><strong>150</strong> Learning hours: 36 in class, 114 yours</li><li><strong>8</strong> Lessons, in a deliberate order</li><li><strong>58</strong> Knowledge-check questions with instant feedback</li></ul>
+<h2 id="eight-lessons"><span class="lp-kicker">The lesson outline</span>Eight lessons</h2>
+<p>The same structure the study pack and the lesson plans follow. Each lesson assumes the one before it.</p>
+<ol><li>Introduction to DBMS You are here Data vs information, why file-based systems fail, the relational model, setting up MySQL. By the end You are reading this lesson right now.</li><li>SQL Programming Fundamentals The language of relational databases. Data types, CREATE, INSERT, and your first SELECT queries. By the end Write DDL statements and insert your first rows into a real table.</li><li>Advanced SQL Queries Filtering, sorting, safe UPDATE and DELETE, aggregate functions, and your first JOIN. By the end Combine two related tables with an INNER JOIN.</li><li>ER Diagrams Foundations Chen's notation. Entities, attributes, keys, relationships, and cardinality. By the end Draw a complete ER diagram from a written scenario.</li><li>Advanced ER Concepts Weak entities, composite and multivalued attributes, and total vs partial participation. By the end Apply the full Chen symbol set to a scenario you have not seen before.</li><li>ER to Relational Mapping The eight rules that turn any ER diagram into a complete set of tables. By the end Turn a diagram into a schema without guessing.</li><li>Database Normalization Functional dependencies, 1NF through BCNF, and decomposing a messy table properly. By the end Take a table that contradicts itself and split it until it doesn’t.</li><li>Consolidation &amp; Exam Preparation The full pipeline from raw data to a normalized, queryable database. Where to go next. By the end Build a small database end to end, on your own.</li></ol>
+<h2 id="some-of-what-s-coming"><span class="lp-kicker">A small preview</span>Some of what's coming</h2>
+<p>Examples from the actual lessons. There's a good deal more once we get going.</p>
+<p>Same idea as the widget at the top of the page. Learn the four quality characteristics properly — you’ll be asked to name them.</p>
+<p>From the Lesson 1 chapter: data becomes information through processing and context.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Quality information is</th><th>Meaning</th></tr></thead><tbody><tr><td>Accurate</td><td>Reflects reality. Wrong information is worse than none.</td></tr><tr><td>Complete</td><td>Nothing essential is missing from the picture.</td></tr><tr><td>Timely</td><td>Current, and available when the decision is made.</td></tr><tr><td>Relevant</td><td>Actually useful for the decision at hand.</td></tr></tbody></table></div>
+<h3>Writing SQL</h3>
+<p>A real table, real rows, and a query that returns something. This is the code from Lesson 2.</p>
+<pre><code>lesson02_sql_fundamentals.sql</code></pre>
+<pre><code>CREATE DATABASE school_db;
+USE school_db;
+
+CREATE TABLE students (
+  id     INT PRIMARY KEY,
+  name   VARCHAR(100),
+  age    INT,
+  email  VARCHAR(150),
+  gpa    DECIMAL(3,2)
+);
+
+INSERT INTO students (id, name, age, email, gpa)
+VALUES
+  (1, 'Alice', 20, 'alice@uni.edu', 3.80),
+  (2, 'Bob',   22, 'bob@uni.edu',   3.50),
+  (3, 'Carol', 21, 'carol@uni.edu', 3.90);
+
+SELECT name AS 'Student Name',
+       gpa  AS 'Grade Point'
+FROM   students;</code></pre>
+<p>A few lessons later you do the same thing again, but with a table you designed yourself, for a scenario chosen for you: a library, a hospital, a hotel, a gym. Everyone gets a different one.</p>
+<h3>Designing before building</h3>
+<p>An architect plans the rooms before anyone pours concrete. We plan the tables before anyone writes CREATE TABLE. Chen’s notation is what we use for the whole course.</p>
+<p>From the Lesson 4 chapter: the four Chen notation shapes, and what each one becomes in the database.</p>
+<h3>Cleaning up a bad table</h3>
+<p>From the normalization chapter. It records students, departments and courses in one table. The red columns are where it goes wrong.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>StudentID</th><th>Name</th><th>Dept</th><th>DeptHead</th><th>Courses</th><th>Instructor</th></tr></thead><tbody><tr><td>S1</td><td>Alice</td><td>CS</td><td>Dr. Smith</td><td>DB, OS, Networks</td><td>Lee, Ray, Kim</td></tr><tr><td>S2</td><td>Bob</td><td>CS</td><td>Dr. Smith</td><td>DB, AI</td><td>Lee, Patel</td></tr></tbody></table></div>
+<p>If Dr. Smith leaves, every CS row needs updating and it’s easy to miss one. That’s an update anomaly — one of three problems here. We name all three, then split the table until it stops contradicting itself.</p>
+<p>From the Lesson 7 chapter: the normalization ladder, 1NF through BCNF.</p>
+<h3>Recordings</h3>
+<p>Every lecture is recorded, and there are extra videos on top of that. A few thumbnails from inside the course:</p>
+<p>Normalization, Introduction</p>
+<p>Normalization, Why Normalise?</p>
+<p>Normalization, First Normal Form</p>
+<p>Advanced ER, Activity Walkthrough</p>
+<h2 id="activities-from-the-course"><span class="lp-kicker">What you'll do</span>Activities from the course</h2>
+<p>Each one has a worked answer to check yourself against.</p>
+<h3>Fix a hospital’s spreadsheet problem</h3>
+<p>The same exercise you just did at the top of this page, but in pairs and on paper. We name every failure, then name the DBMS feature that answers it.</p>
+<h3>Write your first working queries</h3>
+<p>CREATE a table, INSERT real rows, and get a real result back from SELECT. Then filter it, sort it, and join it to a second table.</p>
+<h3>Model a real system as an ER diagram</h3>
+<p>Five scenarios to choose from: a library, a university, a hospital, an online store, a hotel. You draw the diagram, then check it against a worked answer.</p>
+<h3>Get your own SQL scenario</h3>
+<p>Later in the course you get a personal, randomly assigned scenario — a library, a gym, a car rental company — and build a small working database for it from scratch.</p>
+<h3>Decompose a table that contradicts itself</h3>
+<p>Take an unnormalized table with real update and deletion problems, and split it, step by step, into a clean design.</p>
+<h2 id="what-else-you-get"><span class="lp-kicker">Beyond this page</span>What else you get</h2>
+<p>A few things that open up once you're enrolled.</p>
+<h3>The written study pack</h3>
+<p>A full study pack for MBI802, typeset as a proper book, with worked examples and answer keys for every chapter.</p>
+<h3>Two knowledge checks</h3>
+<p>A 38 question check at the end of the DBMS section and a separate 20 question ER check. Instant feedback, and a badge if you do well.</p>
+<h3>A TA verified SQL lab</h3>
+<p>You get a personal scenario, build the database, and a teaching assistant reads your actual schema. Not a marking rubric — a person.</p>
+<h3>Nine free certifications</h3>
+<p>Genuinely free database certifications you can add to your profile once you are comfortable with SQL.</p>
+<h2 id="save-these-as-notes"><span class="lp-kicker">Take it with you</span>Save these as notes.</h2>
+<p>A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out.</p>
+<p>Password to open it</p>
+<p>Built here in your browser. Nothing is uploaded and no account is needed.</p>
+<h3>Extra reading only</h3>
+<p>A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements.</p>
+<p>All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems.</p>
+<h2 id="see-you-in-class"><span class="lp-kicker">Your lecturer</span>See you in class.</h2>
+<p>That’s roughly where MBI802 starts. The rest is eight lessons of doing it properly, with someone to ask when it doesn’t work. Bring questions.</p>
+<p>Yasas Sri Wickramasinghe MBI802 lecturer</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-next" href="../lessons/mysql-setup.html"><small>Next lesson</small><b>Setting up MySQL</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms" target="_blank" rel="noopener" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI802, Database Management Systems</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/mysql-setup.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/mysql-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Video</span>
+            <span class="lp-card-title">Setting up MySQL</span>
+            <span class="lp-card-blurb">Two short guide videos — one for MacOS, one for Windows — so your MySQL client and Workbench are installed and ready before the first hands-on class.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/sql-programming.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/sql-programming-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to SQL with MySQL</span>
+            <span class="lp-card-blurb">The language databases actually speak. Create a database, build a table, insert real rows, then ask it questions — one interactive slide at a time.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/database-concepts.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/database-concepts-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Advanced database concepts</span>
+            <span class="lp-card-blurb">One table, built up step by step: add a column, change a data type, set a primary key and auto-number it, back it up and restore it, then ORDER BY and count it. Finishes with a safe look at SQL injection.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/web-architecture.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/web-architecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Client, server and databases</span>
+            <span class="lp-card-blurb">How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-diagrams.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">ER diagrams</span>
+            <span class="lp-card-blurb">Sketch the world before you build the tables. Entities, attributes and relationships in Chen's notation, and how to read cardinality at a glance.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-activities.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-activities-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Practice</span>
+            <span class="lp-card-title">ER diagrams in practice</span>
+            <span class="lp-card-blurb">Model five real systems — a library, a university, a hospital, an online store and a hotel — then check your diagram against a worked answer.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

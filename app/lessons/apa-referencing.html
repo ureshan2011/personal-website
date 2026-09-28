@@ -3,18 +3,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>APA 7 Citations — Interactive Lesson | Dr. Yasas Sri Wickramasinghe</title>
+<title>APA 7 Citations: Interactive Lesson | Dr. Yasas Sri Wickramasinghe</title>
 <meta name="author" content="Yasas Sri Wickramasinghe"/>
 <meta name="description" content="A 14-slide interactive crash course with a practice quiz."/>
 <link rel="icon" href="../../assets/images/icons/favicon.png"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="theme-color" content="#4b6bff"/>
+<meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/app/lessons/apa-referencing.html"/>
 <link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
-<!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
-<meta property="og:title" content="APA 7 Citations — Interactive Lesson | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="APA 7 Citations: Interactive Lesson | Dr. Yasas Sri Wickramasinghe"/>
 <meta property="og:description" content="A 14-slide interactive crash course with a practice quiz."/>
 <meta property="og:url" content="https://www.yasassri.me/app/lessons/apa-referencing.html"/>
 <meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
@@ -45,18 +44,14 @@
     "instruction",
     "self study"
   ],
-  "timeRequired": "PT21M",
-  "dateModified": "2026-09-21",
+  "timeRequired": "PT10M",
+  "dateModified": "2026-09-28",
   "about": "General Resources · Academic Writing Skills",
   "author": {
     "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
     "name": "Dr. Yasas Sri Wickramasinghe",
     "url": "https://www.yasassri.me/"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "Dr. Yasas Sri Wickramasinghe — Academic Platform",
-    "url": "https://www.yasassri.me/app/"
   },
   "isPartOf": {
     "@type": "WebSite",
@@ -161,7 +156,7 @@
       "@type": "ListItem",
       "position": 3,
       "name": "Lessons",
-      "item": "https://www.yasassri.me/app/#/lessons"
+      "item": "https://www.yasassri.me/lessons.html"
     },
     {
       "@type": "ListItem",
@@ -262,7 +257,9 @@
 </script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../../assets/css/fonts-newsreader.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../../assets/css/lesson-page.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -272,84 +269,76 @@
   gtag('config', 'G-N2BH0F6SNE');
 </script>
 </head>
-<body>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
 
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-logo" href="../../index.html">Yasas Sri <em>Wickramasinghe</em></a>
     <div class="nav-links">
-      <a href="../../index.html">Home</a>
       <a href="../../research.html">Research</a>
-      <a href="../../teaching.html">Teaching</a>
+      <a class="active" href="../../teaching.html">Teaching</a>
+      <a href="../../students.html">Students</a>
       <a href="../../products.html">Products</a>
       <a href="../../news.html">News</a>
       <a href="../../blogs.html">Writing</a>
-      <a href="../../app/#/">Platform</a>
+      <a href="../../about.html">About</a>
+      <a href="../../app/#/">Platform <span class="nav-badge">New</span></a>
       <a href="../../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../../work-with-me.html">Work With Me <span class="arrow">→</span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu">
+  <a href="../../index.html"><span class="idx">01</span>Home</a>
+  <a href="../../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../../students.html"><span class="idx">06</span>Students</a>
+  <a href="../../products.html"><span class="idx">07</span>Products</a>
+  <a href="../../news.html"><span class="idx">08</span>News</a>
+  <a href="../../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../../about.html"><span class="idx">10</span>About</a>
+  <a href="../../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
 
-<header class="page-hero">
-  <div class="container">
-    <div class="app-crumb" style="margin-bottom:14px;"><a href="../../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Lessons / APA 7 Citations</span></div>
+<main>
 
-    <span class="eyebrow reveal">General Resources · Academic Writing Skills</span>
-    <h1 class="reveal" style="--d:.1s">Let's make sense of <em>APA 7 Citations.</em></h1>
-    <p class="lead reveal" style="--d:.2s">Everything you need to cite correctly — from the first in-text citation to the last reference entry. A 14-slide interactive crash course with a practice quiz included.</p>
-    <div class="hero-actions reveal" style="--d:.3s">
-      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/apa-referencing">Open the Interactive Deck <span class="arrow">→</span></a>
-      <a class="btn" href="../#/lessons">All Lessons <span class="arrow">→</span></a>
+<header class="lp-hero">
+  <div class="container lp-hero-grid is-solo">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../../lessons.html">Lessons</a><span aria-hidden="true">/</span><span aria-current="page">APA 7 Citations</span></nav>
+      <div class="lp-tags"><span class="lp-tag lp-tag--course">General Resources · Academic Writing Skills</span></div>
+      <h1>APA 7 Citations</h1>
+      <p class="lp-lead">Everything you need to cite correctly — from the first in-text citation to the last reference entry. A 14-slide interactive crash course with a practice quiz included.</p>
+      <div class="lp-facts"><span>10 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions"><a class="btn btn-solid lp-go" href="https://www.yasassri.me/app/#/lessons/deck/apa-referencing">Open the interactive deck <span class="arrow">→</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a></div>
     </div>
+    
   </div>
 </header>
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="idx">01</span>
-      <h2>What you'll <em>learn</em></h2>
-    </div>
-    <ul class="feat" style="grid-template-columns:1fr 1fr;">
-      <li>In-text citations</li>
-      <li>Reference list</li>
-      <li>Common mistakes</li>
-      <li>Practice quiz</li>
-    </ul>
-    <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This is the full written version of an interactive, slide-by-slide lesson deck used in
-      teaching. Everything covered in the deck is below — open the interactive version to work
-      through it with live diagrams, worked examples and a practice quiz where included.
-    </p>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="idx">02</span>
-      <h2>Lesson <em>contents</em></h2>
-    </div>
-    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
-      <li><a href="#general-resources-academic-writing-skills">General Resources · Academic Writing Skills</a></li>
-      <li><a href="#the-foundation">The Foundation</a></li>
-      <li><a href="#real-impact">Real Impact</a></li>
-      <li><a href="#rule-1-of-2">Rule 1 of 2</a></li>
-      <li><a href="#rule-2-of-2">Rule 2 of 2</a></li>
-      <li><a href="#the-golden-rule">The Golden Rule</a></li>
-      <li><a href="#in-text-citations">In-Text Citations</a></li>
-      <li><a href="#quick-reference">Quick Reference</a></li>
-      <li><a href="#direct-quotation-part-1">Direct Quotation · Part 1</a></li>
-      <li><a href="#direct-quotation-part-2">Direct Quotation · Part 2</a></li>
-      <li><a href="#reference-construction">Reference Construction</a></li>
-      <li><a href="#reference-templates-part-1">Reference Templates · Part 1</a></li>
-      <li><a href="#reference-templates-part-2">Reference Templates · Part 2</a></li>
-      <li><a href="#common-errors-click-each-card-to-reveal-the-fix">Common Errors · Click each card to reveal the fix</a></li>
-    </ol>
-  </div>
-</section>
-<section class="section">
-  <div class="container" style="max-width:74ch;">
-    <h2 id="general-resources-academic-writing-skills">General Resources · Academic Writing Skills</h2>
+
+<div class="lp-body" id="lesson">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#general-resources-academic-writing-skills">General Resources · Academic Writing Skills</a></li><li><a href="#the-foundation">The Foundation</a></li><li><a href="#real-impact">Real Impact</a></li><li><a href="#rule-1-of-2">Rule 1 of 2</a></li><li><a href="#rule-2-of-2">Rule 2 of 2</a></li><li><a href="#the-golden-rule">The Golden Rule</a></li><li><a href="#in-text-citations">In-Text Citations</a></li><li><a href="#quick-reference">Quick Reference</a></li><li><a href="#direct-quotation-part-1">Direct Quotation · Part 1</a></li><li><a href="#direct-quotation-part-2">Direct Quotation · Part 2</a></li><li><a href="#reference-construction">Reference Construction</a></li><li><a href="#reference-templates-part-1">Reference Templates · Part 1</a></li><li><a href="#reference-templates-part-2">Reference Templates · Part 2</a></li><li><a href="#common-errors-click-each-card-to-reveal-the-fix">Common Errors · Click each card to reveal the fix</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://www.yasassri.me/app/#/lessons/deck/apa-referencing">Open the interactive deck →</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of an interactive, slide-by-slide deck. The live diagrams, worked examples and practice quiz are in <a href="https://www.yasassri.me/app/#/lessons/deck/apa-referencing">the interactive deck</a>.</span></p>
+      <div class="lp-prose"><p class="lp-label">In this lesson</p><ul class="lp-bits"><li>In-text citations</li><li>Reference list</li><li>Common mistakes</li><li>Practice quiz</li></ul></div>
+      <div class="lp-prose" style="margin-top:36px">
+<h2 id="general-resources-academic-writing-skills">General Resources · Academic Writing Skills</h2>
     <ul>
       <li>APA 7</li>
       <li>The Crash Course</li>
@@ -359,7 +348,7 @@
       <li>14 Slides Interactive Examples Reference Templates Practice Quiz Included</li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="the-foundation">The Foundation</h2>
+<h2 id="the-foundation">The Foundation</h2>
     <ul>
       <li>Why Even Bother Citing?</li>
       <li>They Protect You</li>
@@ -382,7 +371,7 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="real-impact">Real Impact</h2>
+<h2 id="real-impact">Real Impact</h2>
     <ul>
       <li>Same Sentence. Different Weight.</li>
       <li>❌ Without citation</li>
@@ -405,7 +394,7 @@
       <li>Same idea. Now it's a <strong>verifiable academic claim.</strong></li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="rule-1-of-2">Rule 1 of 2</h2>
+<h2 id="rule-1-of-2">Rule 1 of 2</h2>
     <ul>
       <li>When TO Cite — click each card to reveal why</li>
       <li>Facts, statistics &amp; findings</li>
@@ -439,7 +428,7 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="rule-2-of-2">Rule 2 of 2</h2>
+<h2 id="rule-2-of-2">Rule 2 of 2</h2>
     <ul>
       <li>When NOT to Cite</li>
     </ul>
@@ -467,7 +456,7 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="the-golden-rule">The Golden Rule</h2>
+<h2 id="the-golden-rule">The Golden Rule</h2>
     <ul>
       <li>One In-Text → One Entry. Always.</li>
       <li>Every in-text citation has exactly one matching entry in the reference list.</li>
@@ -489,7 +478,7 @@
       <li><em>Phil. Trans. R. Soc. B</em>, 364...</li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="in-text-citations">In-Text Citations</h2>
+<h2 id="in-text-citations">In-Text Citations</h2>
     <ul>
       <li>Two Flavours of In-Text Citation</li>
       <li>1 — Parenthetical</li>
@@ -512,7 +501,7 @@
       <li>Author (Year) verb... or Author and Author (Year)...</li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="quick-reference">Quick Reference</h2>
+<h2 id="quick-reference">Quick Reference</h2>
     <ul>
       <li>The Author–Year Cheat Sheet</li>
       <li>1 author</li>
@@ -547,7 +536,7 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="direct-quotation-part-1">Direct Quotation · Part 1</h2>
+<h2 id="direct-quotation-part-1">Direct Quotation · Part 1</h2>
     <ul>
       <li>Short Quotes: Under 40 Words</li>
     </ul>
@@ -568,7 +557,7 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="direct-quotation-part-2">Direct Quotation · Part 2</h2>
+<h2 id="direct-quotation-part-2">Direct Quotation · Part 2</h2>
     <ul>
       <li>Block Quotes: 40+ Words</li>
       <li>Slater (2018) argued:</li>
@@ -592,7 +581,7 @@
       <li>Indented block, no quotes, citation <em>after</em> the stop</li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="reference-construction">Reference Construction</h2>
+<h2 id="reference-construction">Reference Construction</h2>
     <ul>
       <li>Every Reference Has Four Parts</li>
       <li>Last name, Initials.</li>
@@ -613,7 +602,7 @@
       <li>🌐 WHERE (DOI)</li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="reference-templates-part-1">Reference Templates · Part 1</h2>
+<h2 id="reference-templates-part-1">Reference Templates · Part 1</h2>
     <ul>
       <li>Reference Examples</li>
       <li>Journal Article</li>
@@ -635,7 +624,7 @@
       <li>→ No "Retrieved from" in APA 7</li>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="reference-templates-part-2">Reference Templates · Part 2</h2>
+<h2 id="reference-templates-part-2">Reference Templates · Part 2</h2>
     <ul>
       <li>More Reference Types</li>
       <li>Book Chapter (Edited)</li>
@@ -662,7 +651,7 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
-    <h2 id="common-errors-click-each-card-to-reveal-the-fix">Common Errors · Click each card to reveal the fix</h2>
+<h2 id="common-errors-click-each-card-to-reveal-the-fix">Common Errors · Click each card to reveal the fix</h2>
     <ul>
       <li>Five Mistakes to Avoid</li>
       <li>Confusing et al. when names clash</li>
@@ -688,78 +677,95 @@
     <ul>
       <li>© All rights reserved · Yasas Sri Wickramasinghe</li>
     </ul>
+      </div>
+    </article>
   </div>
-</section>
-<section class="section">
-  <div class="container" style="max-width:74ch;">
-    <div class="section-head reveal">
-      <h2>Common <em>questions</em></h2>
-    </div>
-    <h3>How do you cite a source with three or more authors in APA 7?</h3>
-    <p>Use the first author's surname followed by et al. from the very first citation. This changed in APA 7 — APA 6 required listing all authors up to five on the first mention.</p>
-    <h3>What is the difference between a reference list and a bibliography?</h3>
-    <p>A reference list contains only the sources you actually cited in the text, and every in-text citation must have a matching entry. A bibliography can include background reading you consulted but never cited. APA uses a reference list.</p>
-    <h3>In APA 7, how do you cite a source with 3 or more authors for the very first time?</h3>
-    <p>APA 7 changed this from APA 6: use et al. from the very first citation for 3+ authors. APA 6 required all names up to 5 authors on first mention.</p>
-    <h3>What does &quot;n.d.&quot; stand for in a citation like (Smith, n.d.)?</h3>
-    <p>n.d. stands for &quot;no date&quot; — used when a source has no identifiable publication date. Common for some websites and unpublished works.</p>
-    <h3>What is the minimum word count that triggers a block quote in APA 7?</h3>
-    <p>40 or more words = block quote. Format: new paragraph, indented, no quotation marks, citation after the full stop.</p>
-    <h3>Which is the correct APA 7 in-text format for two authors?</h3>
-    <p>Two authors use an ampersand (&amp;) inside brackets. When authors are part of the narrative sentence, use &quot;and&quot; — e.g., Brown and Jones (2021).</p>
-    <h3>In what order do you arrange the APA 7 reference list?</h3>
-    <p>APA reference lists are always alphabetical by the first author's surname. Same-author entries are then sorted by year, oldest first.</p>
-    <h3>Which DOI format is correct in APA 7?</h3>
-    <p>Always use https://doi.org/ as the prefix. The older dx.doi.org format is no longer recommended, and a bare number is incomplete.</p>
-    <h3>Which title capitalisation is correct for a journal ARTICLE in APA 7?</h3>
-    <p>Article titles use sentence case: only the first word, proper nouns, and the first word after a colon are capitalised. Journal names stay in Title Case and are italicised.</p>
-    <h3>A paper has 5 reference list entries that are never cited in the text. What is the issue?</h3>
-    <p>An APA reference list ≠ bibliography. Only sources you actually cited go in the reference list. Remove anything uncited — it's not a &quot;further reading&quot; list.</p>
-  </div>
-</section>
-<section class="section">
+</div>
+
+<section class="lp-section soft">
   <div class="container">
-    <div class="section-head reveal">
-      <h2>Related <em>lessons</em></h2>
+    <div class="lp-section-head"><h2>Common questions</h2></div>
+    <div class="lp-faq">
+      <details><summary>How do you cite a source with three or more authors in APA 7?</summary><p>Use the first author's surname followed by et al. from the very first citation. This changed in APA 7 — APA 6 required listing all authors up to five on the first mention.</p></details>
+      <details><summary>What is the difference between a reference list and a bibliography?</summary><p>A reference list contains only the sources you actually cited in the text, and every in-text citation must have a matching entry. A bibliography can include background reading you consulted but never cited. APA uses a reference list.</p></details>
+      <details><summary>In APA 7, how do you cite a source with 3 or more authors for the very first time?</summary><p>APA 7 changed this from APA 6: use et al. from the very first citation for 3+ authors. APA 6 required all names up to 5 authors on first mention.</p></details>
+      <details><summary>What does &quot;n.d.&quot; stand for in a citation like (Smith, n.d.)?</summary><p>n.d. stands for &quot;no date&quot; — used when a source has no identifiable publication date. Common for some websites and unpublished works.</p></details>
+      <details><summary>What is the minimum word count that triggers a block quote in APA 7?</summary><p>40 or more words = block quote. Format: new paragraph, indented, no quotation marks, citation after the full stop.</p></details>
+      <details><summary>Which is the correct APA 7 in-text format for two authors?</summary><p>Two authors use an ampersand (&amp;) inside brackets. When authors are part of the narrative sentence, use &quot;and&quot; — e.g., Brown and Jones (2021).</p></details>
+      <details><summary>In what order do you arrange the APA 7 reference list?</summary><p>APA reference lists are always alphabetical by the first author's surname. Same-author entries are then sorted by year, oldest first.</p></details>
+      <details><summary>Which DOI format is correct in APA 7?</summary><p>Always use https://doi.org/ as the prefix. The older dx.doi.org format is no longer recommended, and a bare number is incomplete.</p></details>
+      <details><summary>Which title capitalisation is correct for a journal ARTICLE in APA 7?</summary><p>Article titles use sentence case: only the first word, proper nouns, and the first word after a colon are capitalised. Journal names stay in Title Case and are italicised.</p></details>
+      <details><summary>A paper has 5 reference list entries that are never cited in the text. What is the issue?</summary><p>An APA reference list ≠ bibliography. Only sources you actually cited go in the reference list. Remove anything uncited — it's not a &quot;further reading&quot; list.</p></details>
     </div>
-    <ul class="feat" style="grid-template-columns:1fr 1fr;">
-      <li><a href="er-diagrams.html">ER Diagrams</a> — Entities, attributes and relationships in Chen's notation.</li>
-      <li><a href="sql-programming.html">SQL Programming</a> — CREATE, INSERT, SELECT — one interactive slide at a time.</li>
-      <li><a href="vibe-to-production.html">From Vibe to Production</a> — Idea to live website in one sitting: Google Stitch, Claude Code, GitHub Pages.</li>
-    </ul>
   </div>
 </section>
-<section class="section">
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Work through it interactively.</h2>
+      <p>The deck adds live diagrams, step-by-step reveals and practice activities that a written page can't carry.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/apa-referencing">Open the interactive deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft">
   <div class="container">
-    <div class="section-head reveal">
-      <h2>Work through it <em>interactively</em></h2>
-    </div>
-    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
-      The interactive deck adds live diagrams, step-by-step reveals and practice activities
-      that this written version can't carry.
-    </p>
-    <div class="hero-actions reveal" style="margin-top:24px;">
-      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/apa-referencing">Open the Interactive Deck <span class="arrow">→</span></a>
-      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
-      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
+    <div class="lp-section-head"><h2>Related lessons</h2></div>
+    <div class="lp-cards">
+      <a class="lp-card" href="er-diagrams.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">ER Diagrams</span>
+          <span class="lp-card-blurb">Entities, attributes and relationships in Chen's notation.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+      <a class="lp-card" href="sql-programming.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/sql-programming-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">SQL Programming</span>
+          <span class="lp-card-title">SQL Programming</span>
+          <span class="lp-card-blurb">CREATE, INSERT, SELECT — one interactive slide at a time.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+      <a class="lp-card" href="vibe-to-production.html">
+        <span class="lp-card-media"><b>Capstone</b></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Capstone Bonus Lecture</span>
+          <span class="lp-card-title">From Vibe to Production</span>
+          <span class="lp-card-blurb">Idea to live website in one sitting: Google Stitch, Claude Code, GitHub Pages.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="container footer-inner">
     <div>
       <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
-      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
     </div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
       <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
       <a href="../../contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="../../assets/js/premium.js"></script>
 <script src="../../assets/js/hunt.js" defer></script>
+<script src="../../assets/js/lesson-page.js" defer></script>
 </body>
 </html>

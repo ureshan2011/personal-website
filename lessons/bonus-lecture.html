@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Capstone: shipping your own site | MBI800 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="The final lecture. Design a layout in Google Stitch, turn it into real code with Claude Code, and put it live on GitHub Pages. Includes a prompt generator…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/bonus-lecture.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Capstone: shipping your own site | MBI800 Lesson"/>
+<meta property="og:description" content="The final lecture. Design a layout in Google Stitch, turn it into real code with Claude Code, and put it live on GitHub Pages. Includes a prompt generator…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/bonus-lecture.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/bonus-lecture-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/bonus-lecture.html#lesson",
+  "name": "Capstone: shipping your own site",
+  "description": "The final lecture. Design a layout in Google Stitch, turn it into real code with Claude Code, and put it live on GitHub Pages. Includes a prompt generator for your own portfolio.",
+  "url": "https://www.yasassri.me/lessons/bonus-lecture.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/bonus-lecture-1280.webp",
+  "learningResourceType": "Lab",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT3M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Strategic Information Systems Planning",
+      "courseCode": "MBI800",
+      "description": "What an organisation decides to build, and why it keeps getting the decision wrong.",
+      "url": "https://www.yasassri.me/lessons.html#mbi800",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/bonus-lecture.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI800",
+      "item": "https://www.yasassri.me/lessons.html#mbi800"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Capstone: shipping your own site",
+      "item": "https://www.yasassri.me/lessons/bonus-lecture.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi800">MBI800</a><span aria-hidden="true">/</span><span aria-current="page">Capstone: shipping your own site</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi800" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">MBI800</a><span class="lp-tag">Lab</span></div>
+      <h1>Capstone: shipping your own site</h1>
+      <p class="lp-lead">The final lecture. Design a layout in Google Stitch, turn it into real code with Claude Code, and put it live on GitHub Pages. Includes a prompt generator for your own portfolio.</p>
+      <div class="lp-facts"><span><b>Strategic Information Systems Planning</b></span><span>3 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/bonus-lecture" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/bonus-lecture" target="_blank" rel="noopener" aria-label="Open Capstone: shipping your own site on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI800 · Capstone: shipping your own site</span></span>
+      <img src="../assets/images/lessons/bonus-lecture-640.webp" srcset="../assets/images/lessons/bonus-lecture-640.webp 640w, ../assets/images/lessons/bonus-lecture-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Capstone: shipping your own site" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#design-the-layout">Design the layout.</a></li><li><a href="#turn-it-into-real-code">Turn it into real code.</a></li><li><a href="#ship-it">Ship it.</a></li><li><a href="#pick-a-style-for-your-site">Pick a style for your site.</a></li><li><a href="#want-more-after-the-course">Want more, after the course?</a></li><li><a href="#that-s-the-course">That's the course.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/bonus-lecture" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Capstone: shipping your own site, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/bonus-lecture" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>How to go from an idea to a live website in one sitting, using Google Stitch, Claude Code, and GitHub Pages.</p>
+<p>🎨 Google Stitch 2.0 ⌘ Claude Code (Web) 🚀 GitHub Pages</p>
+<p>MBI800 · Capstone Bonus Lecture</p>
+<p>Three tools, one afternoon: describe what you want, one AI designs it, another AI builds it, and GitHub Pages puts it online for free. Here's each stage, in order.</p>
+<p>STAGE 01 GOOGLE STITCH 2.0</p>
+<h2 id="design-the-layout">Design the layout.</h2>
+<p>Describe the site you want in plain language — the audience, the sections, the mood. Stitch turns that into real screens: hero, nav, content blocks. Then you refine in rounds — "make the hero calmer," "give the projects section more air" — until it looks right.</p>
+<ul><li>One instruction at a time. Don't describe the whole site in one prompt.</li><li>Export the HTML/CSS once you're happy — that's your starting repo.</li><li>This stage is sketching, not shipping. It doesn't need to be production-ready.</li></ul>
+<p>STAGE 02 CLAUDE CODE ON THE WEB</p>
+<h2 id="turn-it-into-real-code">Turn it into real code.</h2>
+<p>Bring the Stitch export into Claude Code, running in your browser — no local setup needed. Ask it to add the contact form, wire up the project grid, make the nav responsive, write tests. It reads the repo, makes the changes, runs checks, and shows you the diff before anything ships.</p>
+<ul><li>Describe outcomes, not implementations: "let visitors book a call from the hero" beats "add a button."</li><li>Ask for a review pass — accessibility, broken links, mobile layout.</li><li>This is where the site stops being a mockup and becomes software.</li></ul>
+<h2 id="ship-it">Ship it.</h2>
+<p>Push the repo to GitHub and turn on Pages in the repository settings. Your site is live at yourname.github.io within minutes. Every future push republishes it. No hosting bill, no server to manage — just a URL you can put on a resume or a business card.</p>
+<ul><li>Point a custom domain at it later with a CNAME file.</li><li>Commit often — your git history is a record of the site improving.</li><li>This is the step most courses skip, and the one that makes the other two matter.</li></ul>
+<p>The Interactive Prompt Foundry</p>
+<h2 id="pick-a-style-for-your-site">Pick a style for your site.</h2>
+<p>Choose the one closest to what you want, then copy the prompt into Stitch and Claude Code.</p>
+<p>academic_portfolio.prompt.md</p>
+<pre><code># SYSTEM PROMPT — Stitch + Claude Code
+
+ROLE
+You are designing a personal academic portfolio for [YOUR NAME], a
+[FIELD] researcher. Optimize for a reader who has 20 seconds and a lot
+of judgment.
+
+VISUAL DIRECTION
+- Palette: warm paper white (#FAFAF7) background, near-black ink, one
+  restrained accent (deep forest or oxblood) used only for links and
+  a single hero rule.
+- Typography: a serif built for long-form reading, paired with a quiet
+  sans for labels and metadata. Line-height 1.6+, body measure capped
+  at ~68 characters.
+- Layout: single column, generous white space, no cards, no shadows.
+  Let whitespace and thin rules do the separating, not boxes.
+
+STRUCTURE
+1. Hero — name, title, one-line research thesis. No photo required.
+2. Selected Publications — a list, not cards: title, venue, year,
+   PDF/DOI link.
+3. Research Interests — 3-4 short paragraphs, not a bullet dump.
+4. CV download, plus contact: email, Google Scholar, ORCID.
+5. Optional: Teaching, Talks &amp; Media.
+
+BUILD NOTES FOR CLAUDE CODE
+- Static HTML/CSS, no build step — deploy straight to GitHub Pages.
+- Semantic HTML (article, section, nav) for accessibility and
+  citation crawlers.
+- Add a print stylesheet so the page exports cleanly to PDF for
+  tenure or grant packets.
+- No animation beyond a 150ms link-underline transition.
+
+# Ship something a hiring committee can read in 20 seconds
+# and trust in 20 more.</code></pre>
+<p>Alumni Resource Vault</p>
+<h2 id="want-more-after-the-course">Want more, after the course?</h2>
+<p>Leave your email if you're interested in a system-prompt library, a deployment checklist, and future alumni build sessions. No spam, and no fixed schedule — just added to the list.</p>
+<p>System prompt library Deployment checklist Alumni workshop access</p>
+<h2 id="that-s-the-course">That's the course.</h2>
+<p>This pipeline doesn't end with the course. Keep the repo, keep pushing commits, and let an agent take the first pass so you can spend your time on the parts only you can judge.</p>
+<p>— Yasas Sri Wickramasinghe MBI800 Lecturer</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/xr-explorer.html"><small>Previous lesson</small><b>Immersive realities</b></a><a class="is-next" href="../lessons/study-packs.html"><small>Next lesson</small><b>The written study pack</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/bonus-lecture" target="_blank" rel="noopener" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI800, Strategic Information Systems Planning</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-sisp.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-sisp-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Introduction and systems thinking</span>
+            <span class="lp-card-blurb">The whole of Lesson 1: what strategic planning actually decides, systems against collections, a sales loop you can run for twelve months to watch the obvious fix rebound, and the Iceberg Model taken down through a real outage. Ends with a knowledge check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/business-model-canvas.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/business-model-canvas-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">The Business Model Canvas</span>
+            <span class="lp-card-blurb">How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/threats-to-strategy.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/threats-to-strategy-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Threats to opportunities to strategy</span>
+            <span class="lp-card-blurb">How a business capitalises on its threats. Netflix, Apple, Adobe, Microsoft, NZ Post and Google each turned a threat into a strategy, Kodak and Fujifilm took the same threat two ways, then you flip six threats yourself.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/five-stories.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/five-stories-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Five stories that changed everything</span>
+            <span class="lp-card-blurb">Airbnb, Netflix, Xero, Canva and Alibaba — how each started from one frustration and built a platform that rewired its industry. IS architecture, growth figures and discussion questions for each.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/platform-strategy.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/platform-strategy-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Platform strategy</span>
+            <span class="lp-card-blurb">Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE Predix — then a group research task and a knowledge check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/systems-security.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/systems-security-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Systems security</span>
+            <span class="lp-card-blurb">What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup simulator and choose a disaster-recovery plan.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

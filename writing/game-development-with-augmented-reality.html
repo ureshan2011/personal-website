@@ -8,10 +8,9 @@
 <meta name="description" content="A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay."/>
 <link rel="icon" href="../assets/images/icons/favicon.png"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="theme-color" content="#4b6bff"/>
+<meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/writing/game-development-with-augmented-reality.html"/>
 <link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
-<!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
 <meta property="og:title" content="Game Development with Augmented Reality | Dr. Yasas Sri Wickramasinghe"/>
@@ -79,7 +78,9 @@
 </script>
 <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
 <link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -89,38 +90,65 @@
   gtag('config', 'G-N2BH0F6SNE');
 </script>
 </head>
-<body>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
 
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
     <div class="nav-links">
-      <a href="../index.html">Home</a>
       <a href="../research.html">Research</a>
       <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
       <a href="../products.html">Products</a>
       <a href="../news.html">News</a>
-      <a href="../blogs.html">Writing</a>
-      <a href="../app/#/">Platform</a>
+      <a class="active" href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
       <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a class="active" href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
 
-<header class="page-hero">
-  <div class="container">
-    <div class="app-crumb" style="margin-bottom:14px;"><a href="../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Writing / Game Development with Augmented Reality</span></div>
+<main>
 
-    <span class="eyebrow reveal">AR / Gaming</span>
-    <h1 class="reveal" style="--d:.1s">Game Development with Augmented Reality</h1>
-    <p class="lead reveal" style="--d:.2s">A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.</p>
-    <p style="color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Published 2022-10-09</p>
+<header class="lp-hero">
+  <div class="container lp-hero-grid is-solo">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blogs.html">Writing</a><span aria-hidden="true">/</span><span aria-current="page">Game Development with Augmented Reality</span></nav>
+      <div class="lp-tags"><span class="lp-tag">AR / Gaming</span></div>
+      <h1>Game Development with Augmented Reality</h1>
+      <p class="lp-lead">A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.</p>
+      <div class="lp-facts"><span>Published 2022-10-09</span></div>
+      
+    </div>
+    
   </div>
 </header>
-<section class="section">
-  <div class="container prose" style="max-width:72ch;">
-    <p>Step by step tutorial to designing state-of-the-art AR apps with Niantic Lightship ARDK for Android and iOS</p>
+
+<div class="lp-body">
+  <div class="container lp-layout is-solo">
+    <article class="lp-article">
+      <div class="lp-prose">
+<p>Step by step tutorial to designing state-of-the-art AR apps with Niantic Lightship ARDK for Android and iOS</p>
 <figure><img src="https://images.unsplash.com/photo-1590126141992-d6a613152c77?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fGF1Z21lbnRlZCUyMHJlYWxpdHl8ZW58MHx8fHwxNjY1MjQ1NzA1&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=2000" alt="Augmented Reality on UNIBOA.fr" loading="lazy" decoding="async"/></figure>
 <p><em>Photo by <a href="https://unsplash.com/@uniboa?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit" target="_blank" rel="noopener">UNIBOA</a> / <a href="https://unsplash.com/?utm_source=ghost&amp;utm_medium=referral&amp;utm_campaign=api-credit" target="_blank" rel="noopener">Unsplash</a></em></p>
 <h2>Prerequisites</h2>
@@ -207,31 +235,35 @@
 </ul>
 <figure><img src="https://readclub.me/content/images/2022/10/Screen-Recording-2022-10-11-at-9.01.33-PM-2.gif" alt="" loading="lazy" decoding="async"/></figure>
 <p>From here, you're ready to start building your own AR experience with Lightship ARDK.</p>
-    <hr/>
-    <p style="color:var(--text-dim); font-weight:300; font-size:14px;">
-      Originally published on <a href="https://readclub.me/game-development-with-augmented-reality/" target="_blank" rel="noopener">readclub.me</a>.
-    </p>
-    <div class="hero-actions reveal" style="margin-top:32px;">
-      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
-      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
-    </div>
+<hr/>
+<p class="lp-credit">Originally published on <a href="https://readclub.me/game-development-with-augmented-reality/" target="_blank" rel="noopener">readclub.me</a>.</p>
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
   </div>
-</section>
+</div>
+</main>
 
 <footer>
   <div class="container footer-inner">
     <div>
       <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
-      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
     </div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
       <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
       <a href="../contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="../assets/js/premium.js"></script>
 <script src="../assets/js/hunt.js" defer></script>
 </body>
 </html>

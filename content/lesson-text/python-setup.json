@@ -1,0 +1,237 @@
+{
+ "slug": "python-setup",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/python-setup",
+ "title": "Setting up Python",
+ "pageTitle": "Setting up Python · MBI806B",
+ "extractedAt": "2026-09-28",
+ "words": 552,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Why we start in Colab"
+  },
+  {
+   "t": "p",
+   "html": "You don't need to install anything. Not today, maybe not ever."
+  },
+  {
+   "t": "p",
+   "html": "Some of you have a Mac. Some have Windows. Installing Python is a different fight on each one, and it often breaks. Colab skips all of that. It runs on Google's computer, not yours."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Installing Python yourself"
+  },
+  {
+   "t": "p",
+   "html": "Different steps on Mac and Windows. One typo and it breaks. Can eat a whole hour."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Google Colab"
+  },
+  {
+   "t": "p",
+   "html": "One link. The same steps for everyone. Ready in under a minute."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step by step"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Open Google Colab"
+  },
+  {
+   "t": "p",
+   "html": "Four clicks. Same four clicks whether you're on a Mac or a Windows laptop."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Open your browser Chrome, Safari, Edge — any of them works.",
+    "2 Go to colab.research.google.com Type the address, or use the button below.",
+    "3 Sign in with a Google account Use one you already have. No account? Make a free one in a minute.",
+    "4 Click \"New notebook\" It’s on the welcome screen. A blank notebook opens, ready for code."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "colab.research.google.com"
+  },
+  {
+   "t": "eyebrow",
+   "html": "A blank notebook"
+  },
+  {
+   "t": "p",
+   "html": "This is what you'll see after step 4. One empty grey box, waiting for code."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your first code"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Say hello to Python"
+  },
+  {
+   "t": "p",
+   "html": "One line. One button. Try it right here first."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Click inside the empty grey box That's a code cell. It's where Python code goes.",
+    "2 Type the line below, exactly Quotes, brackets and capital letters all matter.",
+    "3 Press ▶, or Shift + Enter Python reads your line and prints the answer right below it."
+   ]
+  },
+  {
+   "t": "pre",
+   "text": "print(\"Hello, World!\")"
+  },
+  {
+   "t": "p",
+   "html": "Try it for real: in your own notebook, change the words between the quotes and run it again. Your own message appears."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Where this goes"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "From one line to real predictions"
+  },
+  {
+   "t": "p",
+   "html": "This same notebook is where we try three simple ways computers learn to predict things."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Linear regression"
+  },
+  {
+   "t": "p",
+   "html": "Draw the straightest line through your data, then use it to guess the next point."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Decision tree"
+  },
+  {
+   "t": "p",
+   "html": "A tree of yes/no questions that sorts your data into an answer."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Random forest"
+  },
+  {
+   "t": "p",
+   "html": "Many decision trees voting together, usually more accurate than just one."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Stuck?"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "When it goes wrong"
+  },
+  {
+   "t": "p",
+   "html": "These four come up every year. None of them are your fault."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "I don’t have a Google account"
+  },
+  {
+   "t": "p",
+   "html": "Make one free at accounts.google.com. Two minutes, no cost, no card needed."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Nothing happens when I press Run"
+  },
+  {
+   "t": "p",
+   "html": "Wait a few seconds. Colab is connecting you to a computer in the cloud."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "I closed the tab. Is my work gone?"
+  },
+  {
+   "t": "p",
+   "html": "No. Open Colab again, click File, then Open notebook, then Recent."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "My work laptop won’t let me sign in"
+  },
+  {
+   "t": "p",
+   "html": "Colab needs no install and no admin rights. If sign-in itself is blocked, bring it to class."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Links"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where to go from here"
+  },
+  {
+   "t": "p",
+   "html": "Bookmark the first one. You'll open it every week."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Google Colab Where every step on this page happens. Free, no install.",
+    "Make a free Google account Only needed if you don’t already have one.",
+    "Three ways to predict things The next lesson: linear regression, decision trees and random forests, explained with no maths.",
+    "scikit-learn The Python library behind all three models. Already installed in every Colab notebook."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Bring a laptop and a Google account."
+  },
+  {
+   "t": "p",
+   "html": "That's genuinely everything you need. If Colab won't open, or the sign-in step gets stuck, come and ask me. It's faster to fix in person than to fight it alone the night before class."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI806B lecturer"
+  }
+ ]
+}

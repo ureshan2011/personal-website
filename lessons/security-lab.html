@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SwiftShop security lab | MBI802 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="A deliberately insecure shop with twenty hidden vulnerabilities, from editable price tags and secrets in the page source to XSS, privilege escalation and…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/security-lab.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="SwiftShop security lab | MBI802 Lesson"/>
+<meta property="og:description" content="A deliberately insecure shop with twenty hidden vulnerabilities, from editable price tags and secrets in the page source to XSS, privilege escalation and…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/security-lab.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/security-lab-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/security-lab.html#lesson",
+  "name": "SwiftShop security lab",
+  "description": "A deliberately insecure shop with twenty hidden vulnerabilities, from editable price tags and secrets in the page source to XSS, privilege escalation and business-logic flaws. Find them, exploit them, then explain the fix.",
+  "url": "https://www.yasassri.me/lessons/security-lab.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/security-lab-1280.webp",
+  "learningResourceType": "Lab",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT3M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Database Management Systems",
+      "courseCode": "MBI802",
+      "description": "From a spreadsheet that contradicts itself to a normalised database you can query.",
+      "url": "https://www.yasassri.me/lessons.html#mbi802",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/security-lab.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI802",
+      "item": "https://www.yasassri.me/lessons.html#mbi802"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "SwiftShop security lab",
+      "item": "https://www.yasassri.me/lessons/security-lab.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi802">MBI802</a><span aria-hidden="true">/</span><span aria-current="page">SwiftShop security lab</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi802" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">MBI802</a><span class="lp-tag">Lab</span></div>
+      <h1>SwiftShop security lab</h1>
+      <p class="lp-lead">A deliberately insecure shop with twenty hidden vulnerabilities, from editable price tags and secrets in the page source to XSS, privilege escalation and business-logic flaws. Find them, exploit them, then explain the fix.</p>
+      <div class="lp-facts"><span><b>Database Management Systems</b></span><span>3 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/security-lab.html" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/security-lab.html" target="_blank" rel="noopener" aria-label="Open SwiftShop security lab on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI802 · SwiftShop security lab</span></span>
+      <img src="../assets/images/lessons/security-lab-640.webp" srcset="../assets/images/lessons/security-lab-640.webp 640w, ../assets/images/lessons/security-lab-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of SwiftShop security lab" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-layout is-solo">
+    
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of SwiftShop security lab, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/security-lab.html" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>TRAINING ENVIRONMENT — <strong>SwiftShop Security Lab</strong> — deliberately insecure — all data is fake — do not enter real credentials</p>
+<h2 id="today-at-swiftshop">Today at SwiftShop</h2>
+<p>Browse our curated selection. Add items to your cart, then head to checkout.</p>
+<p>Active noise-cancelling, 36h battery, IPX5 waterproof.</p>
+<p>Hot-swappable Cherry MX switches, per-key RGB.</p>
+<p>Warm/cool dimmable LED, auto-brightness sensor.</p>
+<p>4K HDMI, 100W PD, SD card, 3× USB-A.</p>
+<p>Auto-focus, built-in ring light, noise-cancelling mic.</p>
+<p>USB 3.2 Gen 2, 1050 MB/s read, shock-resistant.</p>
+<h2 id="product-reviews">Product reviews</h2>
+<p>See what other shoppers think — and leave your own.</p>
+<p>Earbuds are great, fast delivery.</p>
+<p>Keyboard feels premium for the price.</p>
+<p>USB-C hub works perfectly with my MacBook.</p>
+<h3>🎯 Mission Control</h3>
+<p>SwiftShop was built fast and shipped with security as an afterthought. Twenty classes of weakness are hiding in this app. Find them, exploit them, then explain how a security-first design would stop each one.</p>
+<p class="lp-label">⭐ Start here (easy wins)</p>
+<p>17. Secrets in page source</p>
+<p>Right-click → View Page Source (Ctrl+U), search "password".</p>
+<p>Account → Forgot password? shows the real password on screen.</p>
+<p>Click a product's price, change it, then add to cart.</p>
+<p>Press Ctrl+A to reveal the white-on-white admin link in the footer.</p>
+<p>Feed the system values it should never accept (negative qty, decimals).</p>
+<p>Inject HTML/JS via reviews that runs for every visitor.</p>
+<p>Craft a URL with a?promo= param that renders unsanitised HTML.</p>
+<p>4. Broken Authentication</p>
+<p>No rate limit, no lockout, plaintext passwords in the source.</p>
+<p>Edit your session role in storage to reach the admin panel.</p>
+<p>The profile update takes every field — including role and balance.</p>
+<p>Hardcoded API keys, credentials, and card numbers in the source.</p>
+<p>8. Direct Storage Tampering</p>
+<p>Edit localStorage directly — change prices, balances, roles.</p>
+<p>9. Insecure Deserialization</p>
+<p>Import a cart from base64 JSON — the app trusts whatever you send.</p>
+<p>Order IDs are sequential — view any order by changing the number.</p>
+<p>11. Information Disclosure</p>
+<p>Console.log leaks secrets; verbose errors expose internals.</p>
+<p>12. Resource Misappropriation</p>
+<p>Unlimited loyalty bonus, staff coupon in the code.</p>
+<p>Refer yourself or reuse the same referral code endlessly.</p>
+<p>Rapid-fire the bonus button — no mutex means multiple credits.</p>
+<p>Change GLOBAL_DISCOUNT or cart functions from the console.</p>
+<p>nukeStore() wipes everything — no auth, no confirmation needed.</p>
+<p>💡 <strong>Tip:</strong> Open DevTools (F12) → Console / Application / Sources. The source code IS the vulnerability surface.</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/sql-reels.html"><small>Previous lesson</small><b>UPDATE and DELETE</b></a><a class="is-next" href="../app/lessons/sql-certifications.html"><small>Next lesson</small><b>Free SQL certifications</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/security-lab.html" target="_blank" rel="noopener" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI802, Database Management Systems</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-dbms.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-dbms-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to DBMS</span>
+            <span class="lp-card-blurb">Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/mysql-setup.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/mysql-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Video</span>
+            <span class="lp-card-title">Setting up MySQL</span>
+            <span class="lp-card-blurb">Two short guide videos — one for MacOS, one for Windows — so your MySQL client and Workbench are installed and ready before the first hands-on class.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/sql-programming.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/sql-programming-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to SQL with MySQL</span>
+            <span class="lp-card-blurb">The language databases actually speak. Create a database, build a table, insert real rows, then ask it questions — one interactive slide at a time.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/database-concepts.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/database-concepts-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Advanced database concepts</span>
+            <span class="lp-card-blurb">One table, built up step by step: add a column, change a data type, set a primary key and auto-number it, back it up and restore it, then ORDER BY and count it. Finishes with a safe look at SQL injection.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/web-architecture.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/web-architecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Client, server and databases</span>
+            <span class="lp-card-blurb">How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-diagrams.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">ER diagrams</span>
+            <span class="lp-card-blurb">Sketch the world before you build the tables. Entities, attributes and relationships in Chen's notation, and how to read cardinality at a glance.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

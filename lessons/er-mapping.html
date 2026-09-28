@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ER to relational mapping | MBI802 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Turn entity-relationship diagrams into real relational tables — entities, relationships, keys, and every tricky case in between."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/er-mapping.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="ER to relational mapping | MBI802 Lesson"/>
+<meta property="og:description" content="Turn entity-relationship diagrams into real relational tables — entities, relationships, keys, and every tricky case in between."/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/er-mapping.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/er-mapping-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/er-mapping.html#lesson",
+  "name": "ER to relational mapping",
+  "description": "Turn entity-relationship diagrams into real relational tables — entities, relationships, keys, and every tricky case in between.",
+  "url": "https://www.yasassri.me/lessons/er-mapping.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/er-mapping-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT3M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Database Management Systems",
+      "courseCode": "MBI802",
+      "description": "From a spreadsheet that contradicts itself to a normalised database you can query.",
+      "url": "https://www.yasassri.me/lessons.html#mbi802",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/er-mapping.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI802",
+      "item": "https://www.yasassri.me/lessons.html#mbi802"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "ER to relational mapping",
+      "item": "https://www.yasassri.me/lessons/er-mapping.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi802">MBI802</a><span aria-hidden="true">/</span><span aria-current="page">ER to relational mapping</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi802" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">MBI802</a><span class="lp-tag">Lesson</span></div>
+      <h1>ER to relational mapping</h1>
+      <p class="lp-lead">Turn entity-relationship diagrams into real relational tables — entities, relationships, keys, and every tricky case in between.</p>
+      <div class="lp-facts"><span><b>Database Management Systems</b></span><span>3 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/er-mapping" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/er-mapping" target="_blank" rel="noopener" aria-label="Open ER to relational mapping on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI802 · ER to relational mapping</span></span>
+      <img src="../assets/images/lessons/er-mapping-640.webp" srcset="../assets/images/lessons/er-mapping-640.webp 640w, ../assets/images/lessons/er-mapping-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of ER to relational mapping" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#one-pipeline-eight-rules">One pipeline, eight rules</a></li><li><a href="#the-8-rules-explorer">The 8 Rules Explorer</a></li><li><a href="#the-cardinality-studio">The Cardinality Studio</a></li><li><a href="#build-the-table-attribute-by-attribute">Build the table, attribute by attribute</a></li><li><a href="#map-a-university-enrolment-diagram">Map a university enrolment diagram</a></li><li><a href="#four-classic-mistakes">Four classic mistakes</a></li><li><a href="#mapping-detective">Mapping Detective</a></li><li><a href="#the-8-rules-side-by-side">The 8 rules, side by side</a></li><li><a href="#five-quick-questions">Five quick questions</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/er-mapping" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of ER to relational mapping, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/er-mapping" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>Every box, ellipse and diamond in an ER diagram maps to a specific relational structure. We’ll walk through all eight mapping rules and build a real schema together — with live simulations you can play with. No sign-in, nothing collected.</p>
+<p>The big picture</p>
+<h2 id="one-pipeline-eight-rules">One pipeline, eight rules</h2>
+<p>Mapping isn’t guesswork. You read the ER diagram, apply a deterministic set of rules to each construct, and out comes a clean set of relational tables.</p>
+<h3>ER diagram</h3>
+<p>Entities, attributes and relationships, drawn in Chen’s notation.</p>
+<h3>8 mapping rules</h3>
+<p>A fixed recipe: each construct has exactly one correct relational form.</p>
+<h3>Relational tables</h3>
+<p>Clean tables with primary keys and foreign keys, ready for SQL.</p>
+<p>Interactive · the main event</p>
+<h2 id="the-8-rules-explorer">The 8 Rules Explorer</h2>
+<p>Tap a rule to see the ER construct on the left turn into the exact relational table(s) on the right. These eight cover everything you’ll meet in a diagram.</p>
+<h3>Strong entity → Table</h3>
+<p>Each strong entity becomes a table. Every simple attribute becomes a column, and the key attribute becomes the <strong>PRIMARY KEY</strong>.</p>
+<p class="lp-label">ER diagram</p>
+<p>StudentId FirstName LastName</p>
+<p class="lp-label">Relational tables</p>
+<p>💡 Entity name → table · key attribute → PRIMARY KEY.</p>
+<p>Interactive · relationships</p>
+<h2 id="the-cardinality-studio">The Cardinality Studio</h2>
+<p>The trickiest part of mapping is relationships. Flip between 1:1, 1:N and M:N and watch where the foreign key lands — and when a whole new junction table appears.</p>
+<p>One department employs many employees, but each employee belongs to one department. Add the department’s key as a <strong>foreign key on the many-side</strong> — no extra table required.</p>
+<p>🔗 One FK is added to the many-side</p>
+<p class="lp-label">Resulting schema</p>
+<p>🔗 dept_id INT FK→DEPARTMENT</p>
+<p>Interactive · attributes</p>
+<h2 id="build-the-table-attribute-by-attribute">Build the table, attribute by attribute</h2>
+<p>Attributes come in flavours — simple, composite, multivalued and derived — and each maps differently. Classify each one and watch the STUDENT schema assemble itself.</p>
+<p>For each attribute of <strong>STUDENT</strong>, choose how it maps into the schema.</p>
+<p>Name (First, Last)composite</p>
+<p class="lp-label">Schema so far</p>
+<p>Interactive · worked example</p>
+<h2 id="map-a-university-enrolment-diagram">Map a university enrolment diagram</h2>
+<p>Put the rules together on a real example. Step through entities, a composite address, a 1:N link and an M:N enrolment to reach the complete four-table schema.</p>
+<p>Three strong entities — STUDENT, MODULE and DEPARTMENT — each become a table with its key as PRIMARY KEY.</p>
+<p>Step 1 of 4</p>
+<p>Watch out</p>
+<h2 id="four-classic-mistakes">Four classic mistakes</h2>
+<p>Most mapping errors come down to these. Here’s the wrong move and the fix for each.</p>
+<p class="lp-label">❌ Wrong</p>
+<p>Storing a derived "age" column that goes stale every birthday.</p>
+<p class="lp-label">✅ Right</p>
+<p>Store date_of_birth and compute age with DATEDIFF() when needed.</p>
+<p>One "address VARCHAR(200)" column for a composite Address.</p>
+<p>Flatten into street_name, city and post_code — each queryable.</p>
+<p>Putting both FKs of an M:N inside one of the entity tables.</p>
+<p>Always create a junction table holding both foreign keys.</p>
+<p>Adding the FK on the "1" side of a 1:N relationship.</p>
+<p>The FK always lives on the many-side of a 1:N.</p>
+<p>Interactive · put it together</p>
+<h2 id="mapping-detective">Mapping Detective</h2>
+<p>Read each scenario and pick the correct mapping. This is exactly the reasoning you’ll use designing real schemas.</p>
+<p>A CUSTOMER can place many ORDERs; each ORDER is placed by exactly one CUSTOMER.</p>
+<p>How do you map it?</p>
+<p>At a glance</p>
+<h2 id="the-8-rules-side-by-side">The 8 rules, side by side</h2>
+<p>One line per rule — the construct and what it becomes.</p>
+<p>Strong entity → Table</p>
+<p>Entity name → table · key attribute → PRIMARY KEY.</p>
+<p>Composite attribute → Flatten</p>
+<p>Break the composite into one column per sub-attribute.</p>
+<p>Multivalued attribute → New table</p>
+<p>Each repeating value gets its own row in a new table.</p>
+<p>1:N relationship → FK on the N-side</p>
+<p>The FK always goes on the MANY side.</p>
+<p>M:N relationship → Junction table</p>
+<p>M:N always becomes a third, junction table.</p>
+<p>1:1 relationship → FK choice</p>
+<p>FK on the mandatory side — or merge if always together.</p>
+<p>Weak entity → Composite PK</p>
+<p>Partial key + owner key → composite primary key.</p>
+<p>Derived attribute → Do NOT store</p>
+<p>If it can be calculated, don’t store it.</p>
+<p>Check yourself</p>
+<h2 id="five-quick-questions">Five quick questions</h2>
+<p>See how much of the lesson stuck.</p>
+<p>In a 1:N relationship, the foreign key goes on the “many” side.</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../app/lessons/er-attributes.html"><small>Previous lesson</small><b>Attributes and participation</b></a><a class="is-next" href="../lessons/normalisation.html"><small>Next lesson</small><b>Database normalisation</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/er-mapping" target="_blank" rel="noopener" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI802, Database Management Systems</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-dbms.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-dbms-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to DBMS</span>
+            <span class="lp-card-blurb">Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/mysql-setup.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/mysql-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Video</span>
+            <span class="lp-card-title">Setting up MySQL</span>
+            <span class="lp-card-blurb">Two short guide videos — one for MacOS, one for Windows — so your MySQL client and Workbench are installed and ready before the first hands-on class.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/sql-programming.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/sql-programming-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to SQL with MySQL</span>
+            <span class="lp-card-blurb">The language databases actually speak. Create a database, build a table, insert real rows, then ask it questions — one interactive slide at a time.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/database-concepts.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/database-concepts-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Advanced database concepts</span>
+            <span class="lp-card-blurb">One table, built up step by step: add a column, change a data type, set a primary key and auto-number it, back it up and restore it, then ORDER BY and count it. Finishes with a safe look at SQL injection.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/web-architecture.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/web-architecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Client, server and databases</span>
+            <span class="lp-card-blurb">How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-diagrams.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">ER diagrams</span>
+            <span class="lp-card-blurb">Sketch the world before you build the tables. Entities, attributes and relationships in Chen's notation, and how to read cardinality at a glance.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

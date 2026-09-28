@@ -1,0 +1,400 @@
+{
+ "slug": "systems-security",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/systems-security",
+ "title": "Systems security",
+ "pageTitle": "Systems security · MBI800",
+ "extractedAt": "2026-09-28",
+ "words": 1293,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI800 · Strategic Information Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Systems Security."
+  },
+  {
+   "t": "p",
+   "html": "What can go wrong, how much it would cost, and how to defend and recover. A hands-on tour of protecting the information systems a business runs on."
+  },
+  {
+   "t": "p",
+   "html": "⚖️ Risk &amp; exposure 🦠 Active threats 🛡️ Layered defence 🗃️ Backups 🔥 Disaster recovery"
+  },
+  {
+   "t": "p",
+   "html": "Every organisation now runs on information systems — and every one of those systems can be interrupted, stolen, corrupted, or destroyed. <strong>Systems security</strong> is the discipline of understanding what could go wrong, deciding how much it would cost, and building the defences and recovery plans to survive it."
+  },
+  {
+   "t": "p",
+   "html": "This lesson is built to be <em>played with</em>. Calculate real risk, profile the attackers, tell the malware apart, peel back the layers of defence, run a backup simulator, and choose a disaster-recovery plan — then test yourself at the end. Start anywhere."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 1 · The stakes"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What can you actually lose?"
+  },
+  {
+   "t": "p",
+   "html": "Before defending anything, name what is at risk. A computerised information network exposes six distinct kinds of loss. Tap each to see it in the real world."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 2 · Build it like a system"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "A security system has a life cycle"
+  },
+  {
+   "t": "p",
+   "html": "A computer security system is developed like any other information system — through the same four phases. It is never 'finished'; it loops."
+  },
+  {
+   "t": "p",
+   "html": "Analyse the system's vulnerabilities in terms of the threats that are actually relevant to it, and the loss exposure each one carries. You cannot protect against a threat you have not named."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 3 · Measure the risk"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How big is the threat, really?"
+  },
+  {
+   "t": "p",
+   "html": "Two ways to size up a threat. The quantitative approach multiplies cost by likelihood; the qualitative approach simply ranks threats by judgement. Try the calculator."
+  },
+  {
+   "t": "p",
+   "html": "Put a number on it. <strong>Loss exposure = cost of one loss × how likely it is.</strong> Drag the sliders."
+  },
+  {
+   "t": "p",
+   "html": "No precise numbers? Just <strong>list the threats and rank them</strong> by how much they contribute to total loss exposure. Faster, more subjective."
+  },
+  {
+   "t": "p",
+   "html": "Ransomware encrypts customer database Critical"
+  },
+  {
+   "t": "p",
+   "html": "Disgruntled employee deletes records High"
+  },
+  {
+   "t": "p",
+   "html": "Laptop with no sensitive data stolen Medium"
+  },
+  {
+   "t": "p",
+   "html": "Printer in lobby jams Low"
+  },
+  {
+   "t": "p",
+   "html": "Used when reliable cost/probability data is hard to get — which, in real life, is most of the time."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 4 · The attackers"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Active threats: fraud and sabotage"
+  },
+  {
+   "t": "p",
+   "html": "Active threats are deliberate — someone is doing this on purpose. First, who they are; then, the six ways they strike."
+  },
+  {
+   "t": "p",
+   "html": "Maintenance staff, programmers, operators, administrators and data-control clerks. They have the deepest access — and so the greatest opportunity."
+  },
+  {
+   "t": "p",
+   "html": "People outside the data-processing function who still touch sensitive data and control important inputs. Often overlooked, frequently the entry point."
+  },
+  {
+   "t": "p",
+   "html": "Outsiders breaking in. Hackers do it for fun and challenge; others include wiretappers, eavesdroppers, impersonators and the unnoticed intruder."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Input Manipulation"
+  },
+  {
+   "t": "p",
+   "html": "<strong>What it is —</strong> Feeding deliberately wrong input to get a wrong result — misappropriating assets or hiding an embezzlement."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Why it matters —</strong> It is the most frequently used method of computer fraud, precisely because it needs the least technical skill. You do not need to be a programmer to type a fake invoice."
+  },
+  {
+   "t": "p",
+   "html": "How often this method is used Very high"
+  },
+  {
+   "t": "p",
+   "html": "Note: the white-collar criminal is notoriously hard to identify — managers often avoid public prosecution to dodge the negative publicity, so much computer crime never surfaces at all."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 5 · Malware lab"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Logic bomb, Trojan, worm, or virus?"
+  },
+  {
+   "t": "p",
+   "html": "Sabotage has a toolkit. These four get confused constantly — so let's pin them down. Read the cards, then identify each scenario."
+  },
+  {
+   "t": "p",
+   "html": "A dormant piece of code that lies in wait and is triggered by a specific later event (a date, a deletion, a name vanishing from payroll)."
+  },
+  {
+   "t": "p",
+   "html": "A destructive program disguised as a legitimate, useful one. You run it willingly — that is the trick."
+  },
+  {
+   "t": "p",
+   "html": "A virus that spreads itself across a computer network, hopping machine to machine without needing a host program."
+  },
+  {
+   "t": "p",
+   "html": "Code that spreads by attaching itself to other programs, \"infecting\" them with a copy of itself."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Identify the threat · 1/4"
+  },
+  {
+   "t": "p",
+   "html": "\"Code left by a fired developer that wipes the database exactly 90 days after their name disappears from the payroll file.\""
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 6 · Defence in depth"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Controls for active threats"
+  },
+  {
+   "t": "p",
+   "html": "The answer to a determined attacker is layers. Three rings of access control stand between a perpetrator and the data. Tap a ring."
+  },
+  {
+   "t": "p",
+   "html": "🎯"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Layer · Site-access controls"
+  },
+  {
+   "t": "p",
+   "html": "Keep the wrong people away from the hardware itself — locked server rooms, security guards, badge readers, cameras. The outermost wall."
+  },
+  {
+   "t": "p",
+   "html": "A <strong>layered approach</strong> separates a perpetrator from their target. To reach the data, an attacker must defeat <em>every</em> ring — and each one is a fresh chance to stop them."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 7 · When nobody is attacking"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Passive threats: failures, not attackers"
+  },
+  {
+   "t": "p",
+   "html": "Power cuts, dead disks, crashed processors — no villain, just entropy. Two controls keep the business running: fault tolerance and backups."
+  },
+  {
+   "t": "p",
+   "html": "A <strong>fault-tolerant system</strong> survives a failure because a redundant part takes over <em>immediately</em>, with little or no interruption. Redundancy can be built at five levels — tap each:"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "🗃️ Backup simulator"
+  },
+  {
+   "t": "p",
+   "html": "A full backup ran Sunday night. Through the week, files change. Switch the strategy and watch what each daily backup saves — and what it costs you to recover after Friday's disaster. (Watch the <strong>archive bit</strong> behaviour described in each card.)"
+  },
+  {
+   "t": "p",
+   "html": "Incremental backup — Only what changed since last backup"
+  },
+  {
+   "t": "p",
+   "html": "Backs up only files changed since the last backup (bit = 1), then sets bit to 0."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Day",
+     "Files modified",
+     "This backup saves"
+    ],
+    [
+     "Mon",
+     "A B",
+     "A B"
+    ],
+    [
+     "Tue",
+     "C",
+     "C"
+    ],
+    [
+     "Wed",
+     "A",
+     "A"
+    ],
+    [
+     "Thu",
+     "D",
+     "D"
+    ],
+    [
+     "Fri",
+     "B E",
+     "B E"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "💥 Disaster strikes Friday evening — to fully restore you need:"
+  },
+  {
+   "t": "p",
+   "html": "Sunday's full + every single daily backup (Mon→Fri). Smallest backups, slowest restore — lose one tape and the chain breaks."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 8 · Disaster risk management"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "When the whole site is gone"
+  },
+  {
+   "t": "p",
+   "html": "Prevention first — but if disaster wins, a recovery plan and an alternate processing arrangement keep you alive. Weigh the three classic options."
+  },
+  {
+   "t": "p",
+   "html": "A disaster recovery plan answers one question: <strong>where do we run when our own building is gone?</strong> Pick an alternate processing arrangement and weigh the trade-off."
+  },
+  {
+   "t": "p",
+   "html": "Partially equipped — hardware in place, but data not fully live. A balance of standing cost and recovery speed."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 9 · The human layer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "No system is infallible — so build the culture"
+  },
+  {
+   "t": "p",
+   "html": "Since no security system is perfect, you create an atmosphere where security is the default. These organisational controls do the quiet heavy lifting."
+  },
+  {
+   "t": "p",
+   "html": "✓ Separate the accounting and computing functions."
+  },
+  {
+   "t": "p",
+   "html": "✓ Separate the duties of computer users and systems personnel."
+  },
+  {
+   "t": "p",
+   "html": "✓ Cancel access privileges the instant an employee is fired."
+  },
+  {
+   "t": "p",
+   "html": "✓ The board appoints an audit committee, which approves the internal audit director."
+  },
+  {
+   "t": "p",
+   "html": "✓ Use budgets to control spending on equipment."
+  },
+  {
+   "t": "p",
+   "html": "✓ Thoroughly test all system security."
+  },
+  {
+   "t": "p",
+   "html": "✓ Keep a well-documented internal policy against software piracy."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Final challenge"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Prove it. Five scenarios."
+  },
+  {
+   "t": "p",
+   "html": "Pull it all together — risk, threats, malware, controls, backups. Answer all five, then submit for instant feedback."
+  },
+  {
+   "t": "p",
+   "html": "1. A clerk enters fake supplier invoices to divert payments to themselves. No code is changed. Which active threat is this?"
+  },
+  {
+   "t": "p",
+   "html": "2. You want the smallest possible daily backups and accept a slow, multi-tape restore. Which strategy?"
+  },
+  {
+   "t": "p",
+   "html": "3. An attacker is in the building and logged in, but cannot open the payroll file. Which control stopped them?"
+  },
+  {
+   "t": "p",
+   "html": "4. Loss costs $400,000 and has a 25% chance per year. What is the annual loss exposure (quantitative)?"
+  },
+  {
+   "t": "p",
+   "html": "5. Code planted by an insider detonates the moment their name leaves the payroll system. This is a…"
+  },
+  {
+   "t": "p",
+   "html": "Security isn't a product you buy once. It's a life cycle: name the risks, size them, build layered defences, plan for the failure you hope never comes — then do it all again as the threats evolve."
+  },
+  {
+   "t": "p",
+   "html": "MBI800 · Strategic Information Systems · Master of Business Informatics"
+  }
+ ]
+}

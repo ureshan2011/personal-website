@@ -1,0 +1,587 @@
+{
+ "slug": "intro-to-business-analytics",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-business-analytics",
+ "title": "Welcome to business data analytics",
+ "pageTitle": "Welcome to business data analytics · MBI806B",
+ "extractedAt": "2026-09-28",
+ "words": 1850,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Decision-making frameworks"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How a decision gets made"
+  },
+  {
+   "t": "p",
+   "html": "A framework is a structured way of getting from a problem to a choice you can defend. Seven steps, and AI doesn’t enter until step four."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 1 of 7"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Define the problem"
+  },
+  {
+   "t": "p",
+   "html": "Say clearly what the issue or opportunity is, and understand its context. Most bad decisions are answers to the wrong question."
+  },
+  {
+   "t": "eyebrow",
+   "html": "AI in my life"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "AI you already use"
+  },
+  {
+   "t": "p",
+   "html": "We open the course with this. Try a few, then bring one of your own to class — that’s the one we discuss."
+  },
+  {
+   "t": "p",
+   "html": "None of these were programmed rule by rule. Each learned its behaviour from examples."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this course is"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Turning data into a decision"
+  },
+  {
+   "t": "p",
+   "html": "15 credits at Level 8. No coding, statistics or prior AI experience assumed."
+  },
+  {
+   "t": "p",
+   "html": "MBI806B builds on MBI805B, which you take alongside it, and needs MBI801 underneath. 150 learning hours: 36 in class, 114 on your own. You’ll pull insight out of business data using AI and machine learning, turn it into a visual that communicates something, and use that to make a decision — including on ethical and privacy grounds."
+  },
+  {
+   "t": "p",
+   "html": "MBI805B Co-requisite, same trimester"
+  },
+  {
+   "t": "p",
+   "html": "MBI807B Business Intelligence and Data Warehousing"
+  },
+  {
+   "t": "p",
+   "html": "<strong>150</strong> Learning hours: 36 in class, 114 yours"
+  },
+  {
+   "t": "p",
+   "html": "<strong>12</strong> Topics across the whole course"
+  },
+  {
+   "t": "p",
+   "html": "<strong>4</strong> Learning outcomes you are assessed against"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of the course"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Learning outcomes"
+  },
+  {
+   "t": "p",
+   "html": "Word for word from the course descriptor. Everything you’re assessed on maps back to one of these four."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Decide with AI and ML"
+  },
+  {
+   "t": "p",
+   "html": "Evaluate advanced business data analytics techniques, including AI and ML algorithms, to make informed decisions within a business organization."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Use industry tools"
+  },
+  {
+   "t": "p",
+   "html": "Apply industry-standard business analytics tools to improve the efficiency and effectiveness of decision-making processes in a business context."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Visualise for an audience"
+  },
+  {
+   "t": "p",
+   "html": "Assess and apply different data visualization techniques to convey specific types of business information for an organization."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Judge it ethically"
+  },
+  {
+   "t": "p",
+   "html": "Critically evaluate business analytics practices from an ethical and data privacy perspective within a business context."
+  },
+  {
+   "t": "eyebrow",
+   "html": "A small preview"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Some of what this covers"
+  },
+  {
+   "t": "p",
+   "html": "From the course material, in the order it’s taught. More than fits on one page."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "What AI is"
+  },
+  {
+   "t": "p",
+   "html": "A definition that doesn’t need a computer science degree: if you’re dealing with a machine, by typing or talking, and it feels close enough to talking to a person that you can’t easily tell, that machine is behaving intelligently. The goal isn’t an all-powerful machine. It’s systems that behave in a human-like way, by communicating with us or, in robotics, by physically doing something."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "What machine learning is"
+  },
+  {
+   "t": "p",
+   "html": "A program that learns to behave a certain way without anyone programming every rule, sometimes in ways its own creator didn’t predict. Three things make that work: data the program is given, a way of measuring how wrong it currently is, and a feedback loop that uses the error to improve next time. Nobody writes “if this, then that” — it works it out from examples."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "How the two relate"
+  },
+  {
+   "t": "p",
+   "html": "Machine learning is one way of building AI: train a model on data until it can do a task. Every ML system is AI. Not every AI system uses ML."
+  },
+  {
+   "t": "p",
+   "html": "All ML is AI. Not all AI is ML."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Where data science fits"
+  },
+  {
+   "t": "p",
+   "html": "The broader discipline: statistics plus computer science, applied to pulling meaning out of data. Four steps, whatever the question."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Gather data From internal systems, public sources, or third parties.",
+    "2 Clean and structure it Make sure it’s usable, complete and consistent, before you trust it.",
+    "3 Model and analyse it Use statistics and machine learning to explore patterns and test ideas.",
+    "4 Interpret the results Communicate what you found clearly enough that someone can act on it."
+   ]
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Four ways a machine learns"
+  },
+  {
+   "t": "p",
+   "html": "These four come up constantly, so get them straight early."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Supervised learning"
+  },
+  {
+   "t": "p",
+   "html": "You give it labelled examples — emails already marked spam or not spam — and it learns the pattern between them."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Unsupervised learning"
+  },
+  {
+   "t": "p",
+   "html": "No labels at all. It finds structure on its own, like grouping customers into segments nobody defined in advance."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Semi-supervised learning"
+  },
+  {
+   "t": "p",
+   "html": "A small batch of labelled examples plus a much larger pile of unlabelled ones. Useful when labelling everything by hand is too expensive."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Reinforcement learning"
+  },
+  {
+   "t": "p",
+   "html": "It learns by trial and error, taking a reward or a penalty for each action and adjusting to earn more reward over time."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Where this shows up in a business"
+  },
+  {
+   "t": "p",
+   "html": "Five areas, across almost every industry."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Customer experience"
+  },
+  {
+   "t": "p",
+   "html": "Chatbots and virtual assistants answer routine questions any time of day. Machine learning looks at what a customer has done before to recommend what they might want next."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Operational efficiency"
+  },
+  {
+   "t": "p",
+   "html": "Repetitive tasks like data entry get automated. Machine learning can predict when a machine is about to break down, before it actually does."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Data-driven decisions"
+  },
+  {
+   "t": "p",
+   "html": "Large volumes of business data get searched for patterns a person would never spot manually, then used to forecast what happens next."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Fraud and security"
+  },
+  {
+   "t": "p",
+   "html": "Banks and finance systems watch transaction patterns for anything unusual, and the system keeps getting better at spotting it as it sees more data."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Supply chains"
+  },
+  {
+   "t": "p",
+   "html": "Inventory levels, demand and delivery routes all get optimised, so a business can react faster and spend less doing it."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "AI back in the decision"
+  },
+  {
+   "t": "p",
+   "html": "Data-driven decision-making means using analysis to find patterns instead of relying on gut feeling. The human still decides. They just decide with better information."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Predictive analysis"
+  },
+  {
+   "t": "p",
+   "html": "AI studies large datasets for patterns a person would take far too long to find, and forecasts what customers or markets are likely to do next."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Recommendation systems"
+  },
+  {
+   "t": "p",
+   "html": "The same idea that picks your next show or your next product suggestion, redirected at business decisions instead."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Decision support systems"
+  },
+  {
+   "t": "p",
+   "html": "In fields like finance, healthcare and logistics, AI surfaces the relevant data at the moment someone needs to decide something important."
+  },
+  {
+   "t": "eyebrow",
+   "html": "A caveat"
+  },
+  {
+   "t": "p",
+   "html": "None of this is automatically safe to trust. The data has to be accurate, and someone still has to interpret what the algorithm says. As AI takes a bigger part in decisions affecting real people, bias, transparency and accountability matter. LO4 assesses exactly this."
+  },
+  {
+   "t": "eyebrow",
+   "html": "LO3 · Visualisation"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Which chart answers which question"
+  },
+  {
+   "t": "p",
+   "html": "One cafe’s year, five ways of drawing it. Pick a question and a chart, and see whether that pairing answers it, works but slowly, or quietly misleads."
+  },
+  {
+   "t": "p",
+   "html": "Asking Which product brought in the most last quarter?"
+  },
+  {
+   "t": "pre",
+   "text": "Column · Four products, Q4 only · revenue in $000s"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Coffee",
+    "Tea",
+    "Juice",
+    "Pastries"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Answers it"
+  },
+  {
+   "t": "p",
+   "html": "What a column chart is for. Four bars sharing one baseline, longest wins, and you can see how far ahead Coffee is without reading a number."
+  },
+  {
+   "t": "p",
+   "html": "1 of 20 combinations tried. Every question has at least one chart that answers it cleanly, and at least one that gets it wrong."
+  },
+  {
+   "t": "p",
+   "html": "No chart is good or bad on its own, only good or bad for a question. That’s most of LO3, and it’s what gets marked: not whether the chart is pretty, but whether it answers what you claimed."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Across the whole course"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The full topic list"
+  },
+  {
+   "t": "p",
+   "html": "The indicative content from the descriptor. Twelve topics, building on each other."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "01 Business decision-making with AI and ML",
+    "02 Data visualisation for business communication",
+    "03 Advanced data analysis with AI and ML",
+    "04 Risk management in AI/ML applications",
+    "05 Addressing data privacy and security risks in business analytics",
+    "06 Decision-making frameworks",
+    "07 Advanced visualisation techniques",
+    "08 Integrating findings and visualisations into decisions",
+    "09 Industry-standard business analytics tools",
+    "10 Advanced data analysis and predictive modelling",
+    "11 Ethical considerations in business analytics",
+    "12 Future trends in business data analytics"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Our first tool"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Setting up Power BI."
+  },
+  {
+   "t": "p",
+   "html": "A business intelligence tool. You point it at your data, build reports out of it, and share those with whoever needs them."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Power BI Desktop"
+  },
+  {
+   "t": "p",
+   "html": "A free application for building and designing reports. Windows only."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Power BI Service"
+  },
+  {
+   "t": "p",
+   "html": "The online side, at app.powerbi.com, for publishing, sharing and viewing reports in a browser."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Power BI mobile"
+  },
+  {
+   "t": "p",
+   "html": "For checking your reports and dashboards on the go."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Mac, Windows, or a laptop you cannot install on"
+  },
+  {
+   "t": "p",
+   "html": "Everybody starts in the browser at app.powerbi.com. It works the same on macOS as on Windows and needs nothing installed. Power BI Desktop is a Windows-only addition for later in the course. There’s a full setup guide on its own page."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Try it yourself"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "A hello world for Power BI."
+  },
+  {
+   "t": "p",
+   "html": "No data source needed. Type in three rows by hand and build one chart from them. Works in the browser and in Power BI Desktop."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Go to My Workspace In the browser at app.powerbi.com. In Power BI Desktop, start a new report from the Home tab instead.",
+    "2 Choose New, then Semantic model A semantic model is Power BI’s name for the data a report sits on. Older guides call the same thing a dataset.",
+    "3 Pick “Paste or manually enter data” Rather than connecting to a real source. The Power BI Desktop equivalent is the Enter data button.",
+    "4 Type a small table Two columns: Item and Sales. Three rows: Coffee, 120; Tea, 90; Juice, 60.",
+    "5 Load it, then create a report Your table now exists as a semantic model. Choose Create report next to it and the editor opens.",
+    "6 Add a bar chart and fill the wells Click the bar chart icon in the Visualizations pane, then put Item on the axis and Sales on the values."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Three rows of made-up data and one chart. Everything later is the same move with real data. The setup guide has a practice version you can click through first."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Before class"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Why bother, and what to bring"
+  },
+  {
+   "t": "p",
+   "html": "Nothing here needs buying. Mainly: turn up with a laptop."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Why it’s worth learning"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Increased efficiency Automating routine work saves time and money.",
+    "Better customer experience Personalised, faster support keeps people satisfied and loyal.",
+    "Better insights You understand your own operations and customers more deeply.",
+    "A competitive edge Businesses that adopt early tend to out-innovate the ones that wait.",
+    "It scales The same tools keep working as the business and its data grow."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Come prepared"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Bring a laptop With Power BI open in a browser if you can. The setup guide covers it on any operating system. If not, we’ll sort it out in class.",
+    "No prior experience needed No coding, statistics or AI background assumed. Never opened a data tool? That’s the expected starting point.",
+    "Bring one example One place you’ve noticed AI in your own life recently. We use these in the group discussion."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Take it with you"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Save these as notes."
+  },
+  {
+   "t": "p",
+   "html": "A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out."
+  },
+  {
+   "t": "p",
+   "html": "Password to open it"
+  },
+  {
+   "t": "p",
+   "html": "Built here in your browser. Nothing is uploaded and no account is needed."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Extra reading only"
+  },
+  {
+   "t": "p",
+   "html": "A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements."
+  },
+  {
+   "t": "p",
+   "html": "All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "See you in class."
+  },
+  {
+   "t": "p",
+   "html": "None of the above needed a maths background, and neither does the course. If the Power BI setup gives you trouble, sort it out before the first class or bring it with you. Either is fine."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI806B lecturer"
+  }
+ ]
+}

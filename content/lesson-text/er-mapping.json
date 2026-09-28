@@ -1,0 +1,345 @@
+{
+ "slug": "er-mapping",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/er-mapping",
+ "title": "ER to relational mapping",
+ "pageTitle": "ER to relational mapping · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 700,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "An interactive lesson · Dr. Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let’s make sense of ER → relational mapping."
+  },
+  {
+   "t": "p",
+   "html": "Every box, ellipse and diamond in an ER diagram maps to a specific relational structure. We’ll walk through all eight mapping rules and build a real schema together — with live simulations you can play with. No sign-in, nothing collected."
+  },
+  {
+   "t": "p",
+   "html": "The big picture"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "One pipeline, eight rules"
+  },
+  {
+   "t": "p",
+   "html": "Mapping isn’t guesswork. You read the ER diagram, apply a deterministic set of rules to each construct, and out comes a clean set of relational tables."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "ER diagram"
+  },
+  {
+   "t": "p",
+   "html": "Entities, attributes and relationships, drawn in Chen’s notation."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "8 mapping rules"
+  },
+  {
+   "t": "p",
+   "html": "A fixed recipe: each construct has exactly one correct relational form."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Relational tables"
+  },
+  {
+   "t": "p",
+   "html": "Clean tables with primary keys and foreign keys, ready for SQL."
+  },
+  {
+   "t": "p",
+   "html": "Interactive · the main event"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The 8 Rules Explorer"
+  },
+  {
+   "t": "p",
+   "html": "Tap a rule to see the ER construct on the left turn into the exact relational table(s) on the right. These eight cover everything you’ll meet in a diagram."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Strong entity → Table"
+  },
+  {
+   "t": "p",
+   "html": "Each strong entity becomes a table. Every simple attribute becomes a column, and the key attribute becomes the <strong>PRIMARY KEY</strong>."
+  },
+  {
+   "t": "eyebrow",
+   "html": "ER diagram"
+  },
+  {
+   "t": "p",
+   "html": "StudentId FirstName LastName"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Relational tables"
+  },
+  {
+   "t": "p",
+   "html": "💡 Entity name → table · key attribute → PRIMARY KEY."
+  },
+  {
+   "t": "p",
+   "html": "Interactive · relationships"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Cardinality Studio"
+  },
+  {
+   "t": "p",
+   "html": "The trickiest part of mapping is relationships. Flip between 1:1, 1:N and M:N and watch where the foreign key lands — and when a whole new junction table appears."
+  },
+  {
+   "t": "p",
+   "html": "One department employs many employees, but each employee belongs to one department. Add the department’s key as a <strong>foreign key on the many-side</strong> — no extra table required."
+  },
+  {
+   "t": "p",
+   "html": "🔗 One FK is added to the many-side"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Resulting schema"
+  },
+  {
+   "t": "p",
+   "html": "🔗 dept_id INT FK→DEPARTMENT"
+  },
+  {
+   "t": "p",
+   "html": "Interactive · attributes"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Build the table, attribute by attribute"
+  },
+  {
+   "t": "p",
+   "html": "Attributes come in flavours — simple, composite, multivalued and derived — and each maps differently. Classify each one and watch the STUDENT schema assemble itself."
+  },
+  {
+   "t": "p",
+   "html": "For each attribute of <strong>STUDENT</strong>, choose how it maps into the schema."
+  },
+  {
+   "t": "p",
+   "html": "Name (First, Last)composite"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Schema so far"
+  },
+  {
+   "t": "p",
+   "html": "Interactive · worked example"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Map a university enrolment diagram"
+  },
+  {
+   "t": "p",
+   "html": "Put the rules together on a real example. Step through entities, a composite address, a 1:N link and an M:N enrolment to reach the complete four-table schema."
+  },
+  {
+   "t": "p",
+   "html": "Three strong entities — STUDENT, MODULE and DEPARTMENT — each become a table with its key as PRIMARY KEY."
+  },
+  {
+   "t": "p",
+   "html": "Step 1 of 4"
+  },
+  {
+   "t": "p",
+   "html": "Watch out"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Four classic mistakes"
+  },
+  {
+   "t": "p",
+   "html": "Most mapping errors come down to these. Here’s the wrong move and the fix for each."
+  },
+  {
+   "t": "eyebrow",
+   "html": "❌ Wrong"
+  },
+  {
+   "t": "p",
+   "html": "Storing a derived \"age\" column that goes stale every birthday."
+  },
+  {
+   "t": "eyebrow",
+   "html": "✅ Right"
+  },
+  {
+   "t": "p",
+   "html": "Store date_of_birth and compute age with DATEDIFF() when needed."
+  },
+  {
+   "t": "p",
+   "html": "One \"address VARCHAR(200)\" column for a composite Address."
+  },
+  {
+   "t": "p",
+   "html": "Flatten into street_name, city and post_code — each queryable."
+  },
+  {
+   "t": "p",
+   "html": "Putting both FKs of an M:N inside one of the entity tables."
+  },
+  {
+   "t": "p",
+   "html": "Always create a junction table holding both foreign keys."
+  },
+  {
+   "t": "p",
+   "html": "Adding the FK on the \"1\" side of a 1:N relationship."
+  },
+  {
+   "t": "p",
+   "html": "The FK always lives on the many-side of a 1:N."
+  },
+  {
+   "t": "p",
+   "html": "Interactive · put it together"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Mapping Detective"
+  },
+  {
+   "t": "p",
+   "html": "Read each scenario and pick the correct mapping. This is exactly the reasoning you’ll use designing real schemas."
+  },
+  {
+   "t": "p",
+   "html": "A CUSTOMER can place many ORDERs; each ORDER is placed by exactly one CUSTOMER."
+  },
+  {
+   "t": "p",
+   "html": "How do you map it?"
+  },
+  {
+   "t": "p",
+   "html": "At a glance"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The 8 rules, side by side"
+  },
+  {
+   "t": "p",
+   "html": "One line per rule — the construct and what it becomes."
+  },
+  {
+   "t": "p",
+   "html": "Strong entity → Table"
+  },
+  {
+   "t": "p",
+   "html": "Entity name → table · key attribute → PRIMARY KEY."
+  },
+  {
+   "t": "p",
+   "html": "Composite attribute → Flatten"
+  },
+  {
+   "t": "p",
+   "html": "Break the composite into one column per sub-attribute."
+  },
+  {
+   "t": "p",
+   "html": "Multivalued attribute → New table"
+  },
+  {
+   "t": "p",
+   "html": "Each repeating value gets its own row in a new table."
+  },
+  {
+   "t": "p",
+   "html": "1:N relationship → FK on the N-side"
+  },
+  {
+   "t": "p",
+   "html": "The FK always goes on the MANY side."
+  },
+  {
+   "t": "p",
+   "html": "M:N relationship → Junction table"
+  },
+  {
+   "t": "p",
+   "html": "M:N always becomes a third, junction table."
+  },
+  {
+   "t": "p",
+   "html": "1:1 relationship → FK choice"
+  },
+  {
+   "t": "p",
+   "html": "FK on the mandatory side — or merge if always together."
+  },
+  {
+   "t": "p",
+   "html": "Weak entity → Composite PK"
+  },
+  {
+   "t": "p",
+   "html": "Partial key + owner key → composite primary key."
+  },
+  {
+   "t": "p",
+   "html": "Derived attribute → Do NOT store"
+  },
+  {
+   "t": "p",
+   "html": "If it can be calculated, don’t store it."
+  },
+  {
+   "t": "p",
+   "html": "Check yourself"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five quick questions"
+  },
+  {
+   "t": "p",
+   "html": "See how much of the lesson stuck."
+  },
+  {
+   "t": "p",
+   "html": "In a 1:N relationship, the foreign key goes on the “many” side."
+  }
+ ]
+}

@@ -1,0 +1,627 @@
+{
+ "slug": "sql-programming",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/sql-programming",
+ "title": "Introduction to SQL with MySQL",
+ "pageTitle": "Introduction to SQL with MySQL · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 716,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database Management"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of SQL."
+  },
+  {
+   "t": "p",
+   "html": "The language databases actually speak. Create a database, build a table, drop in some rows, then ask it questions — one interactive slide at a time."
+  },
+  {
+   "t": "p",
+   "html": "🗄️ CREATE ➕ INSERT 🔍 SELECT ⌨️ Live syntax"
+  },
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database Management Systems"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Introduction to SQL with MySQL"
+  },
+  {
+   "t": "p",
+   "html": "From databases to your first queries — a beginner-friendly guide to structured data."
+  },
+  {
+   "t": "pre",
+   "text": "mysql> SELECT * FROM knowledge;█"
+  },
+  {
+   "t": "p",
+   "html": "MBI802 Database Management Systems"
+  },
+  {
+   "t": "p",
+   "html": "<strong>SQL</strong> (Structured Query Language) is the standard language for talking to relational databases."
+  },
+  {
+   "t": "p",
+   "html": "Make databases and tables"
+  },
+  {
+   "t": "eyebrow",
+   "html": "MySQL = SQL + Database Server"
+  },
+  {
+   "t": "p",
+   "html": "The world's most popular open-source database"
+  },
+  {
+   "t": "p",
+   "html": "Used by <strong>Facebook, Twitter, YouTube</strong> and thousands of other applications worldwide."
+  },
+  {
+   "t": "p",
+   "html": "SQL is not case-sensitive — <code>SELECT</code> = <code>select</code> = <code>Select</code>. But writing keywords in UPPERCASE is standard practice."
+  },
+  {
+   "t": "p",
+   "html": "Every column in a table must have a data type — it tells MySQL <strong>what kind of value</strong> to expect."
+  },
+  {
+   "t": "p",
+   "html": "Very large whole numbers"
+  },
+  {
+   "t": "p",
+   "html": "Long text (no length limit)"
+  },
+  {
+   "t": "pre",
+   "text": "e.g. '2024-09-01 09:30:00'"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Creating Databases &amp; Tables"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 1 — Create a Database"
+  },
+  {
+   "t": "pre",
+   "text": "CREATE DATABASE school_db;\nUSE school_db;"
+  },
+  {
+   "t": "pre",
+   "text": "CREATE TABLE students (\n  id      INT PRIMARY KEY,\n  name    VARCHAR(100),\n  age     INT,\n  email   VARCHAR(150),\n  gpa     DECIMAL(3,2)\n);"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "PRIMARY KEY — unique identifier for each row",
+    "VARCHAR(n) — text up to <em>n</em> characters",
+    "DECIMAL(3,2) — 3 digits, 2 after decimal (e.g. 3.75)"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Result — empty table created"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "age",
+     "email",
+     "gpa"
+    ],
+    [
+     "(no rows yet)"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "pre",
+   "text": "INSERT INTO table_name\n  (column1, column2, ...)\nVALUES\n  (value1, value2, ...);"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Example — Insert 3 students"
+  },
+  {
+   "t": "pre",
+   "text": "INSERT INTO students (id, name, age, email, gpa)\nVALUES\n  (1, 'Alice', 20, 'alice@uni.edu', 3.80),\n  (2, 'Bob',   22, 'bob@uni.edu',  3.50),\n  (3, 'Carol', 21, 'carol@uni.edu',3.90);"
+  },
+  {
+   "t": "p",
+   "html": "INSERT INTO which table to add rows to"
+  },
+  {
+   "t": "p",
+   "html": "(columns) which columns you're filling"
+  },
+  {
+   "t": "p",
+   "html": "VALUES the actual data — match column order!"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Result — students table now has rows"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "age",
+     "gpa"
+    ],
+    [
+     "1",
+     "Alice",
+     "20",
+     "3.80"
+    ],
+    [
+     "2",
+     "Bob",
+     "22",
+     "3.50"
+    ],
+    [
+     "3",
+     "Carol",
+     "21",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "💡 You must supply a value for <code>id</code> — it is the PRIMARY KEY and must be unique for every row."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Querying Data with SELECT"
+  },
+  {
+   "t": "pre",
+   "text": "SELECT name, gpa\nFROM students;"
+  },
+  {
+   "t": "pre",
+   "text": "SELECT name AS 'Student Name',\n       gpa  AS 'Grade Point'\nFROM students;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "age",
+     "email",
+     "gpa"
+    ],
+    [
+     "1",
+     "Alice",
+     "20",
+     "alice@…",
+     "3.80"
+    ],
+    [
+     "2",
+     "Bob",
+     "22",
+     "bob@…",
+     "3.50"
+    ],
+    [
+     "3",
+     "Carol",
+     "21",
+     "carol@…",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "SELECT name, gpa → 2 columns only"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "name",
+     "gpa"
+    ],
+    [
+     "Alice",
+     "3.80"
+    ],
+    [
+     "Bob",
+     "3.50"
+    ],
+    [
+     "Carol",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "⭐ Use <code>SELECT *</code> for exploration; use specific columns in real apps for speed."
+  },
+  {
+   "t": "pre",
+   "text": "SELECT columns\nFROM table\nWHERE condition;"
+  },
+  {
+   "t": "pre",
+   "text": "-- students older than 20\nSELECT * FROM students\nWHERE age > 20;\n\n-- find a specific student\nSELECT * FROM students\nWHERE name = 'Alice';\n\n-- multiple conditions\nSELECT * FROM students\nWHERE age > 20 AND gpa >= 3.70;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "age",
+     "gpa"
+    ],
+    [
+     "2",
+     "Bob",
+     "22",
+     "3.50"
+    ],
+    [
+     "3",
+     "Carol",
+     "21",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "💡 Use <code>LIKE '%term%'</code> to search text — e.g. <code>WHERE name LIKE 'A%'</code> finds all names starting with A."
+  },
+  {
+   "t": "pre",
+   "text": "SELECT columns\nFROM table\nORDER BY column ASC|DESC;"
+  },
+  {
+   "t": "pre",
+   "text": "-- highest GPA first\nSELECT * FROM students\nORDER BY gpa DESC;\n\n-- alphabetical by name\nSELECT * FROM students\nORDER BY name ASC;\n\n-- combined with WHERE + LIMIT\nSELECT * FROM students\nWHERE age > 20\nORDER BY gpa DESC LIMIT 10;"
+  },
+  {
+   "t": "p",
+   "html": "Ascending (default) smallest → largest"
+  },
+  {
+   "t": "pre",
+   "text": "1  →  2  →  3\nA  →  B  →  C"
+  },
+  {
+   "t": "p",
+   "html": "Descending largest → smallest"
+  },
+  {
+   "t": "pre",
+   "text": "3  →  2  →  1\nC  →  B  →  A"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "#",
+     "name",
+     "gpa"
+    ],
+    [
+     "1st",
+     "Carol",
+     "3.90"
+    ],
+    [
+     "2nd",
+     "Alice",
+     "3.80"
+    ],
+    [
+     "3rd",
+     "Bob",
+     "3.50"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "💡 Add <code>LIMIT 10</code> at the end to get only the top N results — great for leaderboards!"
+  },
+  {
+   "t": "pre",
+   "text": "UPDATE table\nSET column1 = new_value\nWHERE condition;"
+  },
+  {
+   "t": "pre",
+   "text": "-- Bob got a better grade!\nUPDATE students\nSET gpa = 3.75\nWHERE id = 2;\n\n-- Update multiple columns\nUPDATE students\nSET age = 23, email = 'bob.new@uni.edu'\nWHERE id = 2;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "gpa"
+    ],
+    [
+     "1",
+     "Alice",
+     "3.80"
+    ],
+    [
+     "2",
+     "Bob",
+     "3.50 ←"
+    ],
+    [
+     "3",
+     "Carol",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "gpa"
+    ],
+    [
+     "1",
+     "Alice",
+     "3.80"
+    ],
+    [
+     "2",
+     "Bob",
+     "3.75 ✓"
+    ],
+    [
+     "3",
+     "Carol",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "⚠️ <strong>Always use WHERE!</strong> Without it, every row gets updated — a common mistake!"
+  },
+  {
+   "t": "pre",
+   "text": "DELETE FROM table\nWHERE condition;"
+  },
+  {
+   "t": "pre",
+   "text": "-- remove one student\nDELETE FROM students\nWHERE id = 2;\n\n-- remove low-GPA records\nDELETE FROM students\nWHERE gpa < 3.60;"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Before DELETE WHERE id = 2"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "gpa"
+    ],
+    [
+     "1",
+     "Alice",
+     "3.80"
+    ],
+    [
+     "2",
+     "Bob",
+     "3.75"
+    ],
+    [
+     "3",
+     "Carol",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "gpa"
+    ],
+    [
+     "1",
+     "Alice",
+     "3.80"
+    ],
+    [
+     "3",
+     "Carol",
+     "3.90"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "<code>DELETE FROM t WHERE …</code> — removes specific rows <code>DELETE FROM t</code> — removes all rows (slow) <code>TRUNCATE TABLE t</code> — wipes all rows instantly, resets IDs"
+  },
+  {
+   "t": "p",
+   "html": "Perform calculations <strong>across many rows</strong> and return a single result."
+  },
+  {
+   "t": "pre",
+   "text": "-- count all students\nSELECT COUNT(*) FROM students;\n\n-- average GPA\nSELECT AVG(gpa) FROM students;\n\n-- highest and lowest GPA\nSELECT MAX(gpa), MIN(gpa)\nFROM students;\n\n-- group by + count\nSELECT age, COUNT(*) AS total\nFROM students\nGROUP BY age;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "age",
+     "total"
+    ],
+    [
+     "20",
+     "1"
+    ],
+    [
+     "21",
+     "1"
+    ],
+    [
+     "22",
+     "1"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "💡 <code>GROUP BY</code> groups rows so functions run <em>per group</em>."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name"
+    ],
+    [
+     "1",
+     "Alice"
+    ],
+    [
+     "2",
+     "Bob"
+    ],
+    [
+     "3",
+     "Carol"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "student_id",
+     "score"
+    ],
+    [
+     "1",
+     "88"
+    ],
+    [
+     "2",
+     "75"
+    ],
+    [
+     "3",
+     "95"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "pre",
+   "text": "SELECT\n  s.name,\n  g.score\nFROM students AS s\nINNER JOIN grades AS g\n  ON s.id = g.student_id;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "name",
+     "score"
+    ],
+    [
+     "Alice",
+     "88"
+    ],
+    [
+     "Bob",
+     "75"
+    ],
+    [
+     "Carol",
+     "95"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "<strong>INNER JOIN</strong> returns only matching rows from <em>both</em> tables."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Summary &amp; Quick Reference"
+  },
+  {
+   "t": "p",
+   "html": "Make a new database or table"
+  },
+  {
+   "t": "pre",
+   "text": "INSERT INTO t (…) VALUES (…);"
+  },
+  {
+   "t": "pre",
+   "text": "SELECT * FROM t WHERE …;"
+  },
+  {
+   "t": "pre",
+   "text": "UPDATE t SET col=v WHERE …;"
+  },
+  {
+   "t": "pre",
+   "text": "COUNT · AVG · MAX · MIN · SUM"
+  },
+  {
+   "t": "pre",
+   "text": "INNER JOIN t ON a.id=b.id;"
+  }
+ ]
+}

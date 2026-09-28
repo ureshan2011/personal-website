@@ -1,0 +1,647 @@
+{
+ "slug": "intro-to-dbms",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-dbms",
+ "title": "Introduction to DBMS",
+ "pageTitle": "Introduction to DBMS · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 1796,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Section 1.2 · Why file-based systems fail"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The hospital spreadsheet"
+  },
+  {
+   "t": "p",
+   "html": "Three sheets, one patient. Her details were typed into all three because nobody had a database. Change her address, save it, then check the other tabs."
+  },
+  {
+   "t": "pre",
+   "text": "Admissions.xlsx — last saved by reception, 9:14 AM"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Patient ID",
+     "Name",
+     "Address",
+     "NHI",
+     "Ward"
+    ],
+    [
+     "P-4471",
+     "Mere Rangi",
+     "14 Queen St, Auckland",
+     "ABC1234",
+     "3B"
+    ],
+    [
+     "P-4472",
+     "Tom Fletcher",
+     "6 Ponsonby Rd, Auckland",
+     "DEF5678",
+     "3B"
+    ],
+    [
+     "P-4488",
+     "Sina Faleolo",
+     "22 Dominion Rd, Auckland",
+     "GHI9012",
+     "3B"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "<strong>3</strong> copies of her address exist. Only the sheet you save will be right."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Nothing is wrong yet.</strong> All three sheets agree, because nobody has changed anything yet."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Redundancy"
+  },
+  {
+   "t": "p",
+   "html": "The same patient is re-typed in admissions, the ward sheet and pharmacy."
+  },
+  {
+   "t": "p",
+   "html": "A DBMS: One shared store. Each fact written once."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Inconsistency"
+  },
+  {
+   "t": "p",
+   "html": "She moves. Two of the three copies never get updated. Which one is true?"
+  },
+  {
+   "t": "p",
+   "html": "A DBMS: Centralised updates, with constraints keeping data valid."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Security"
+  },
+  {
+   "t": "p",
+   "html": "Anyone holding the file holds all of it. Reception sees what the doctors see."
+  },
+  {
+   "t": "p",
+   "html": "A DBMS: Per-user permissions, so each role sees only its own slice."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Concurrency"
+  },
+  {
+   "t": "p",
+   "html": "Two nurses open it at once. The second save silently wins."
+  },
+  {
+   "t": "p",
+   "html": "A DBMS: Concurrency control, so many people can work at once."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "No integrity rules"
+  },
+  {
+   "t": "p",
+   "html": "Nothing stops a discharge date earlier than the admission date."
+  },
+  {
+   "t": "p",
+   "html": "A DBMS: Validation and types enforced by the system itself."
+  },
+  {
+   "t": "p",
+   "html": "Redundancy, inconsistency, security, concurrency, integrity. Learn those five names — they come up in the exam more often than any definition. We do this same exercise in pairs, on paper, in class."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 1.1 · Data vs information"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Data and information"
+  },
+  {
+   "t": "p",
+   "html": "Data is raw. Information is data with context and processing applied to it. Add the pieces below and the difference gets obvious."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Raw data"
+  },
+  {
+   "t": "p",
+   "html": "Could be a mark, an age, a heart rate, a bus route. Nobody can decide anything with it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Add context"
+  },
+  {
+   "t": "p",
+   "html": "Tap the pieces in any order."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Information"
+  },
+  {
+   "t": "p",
+   "html": "85"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Accurate</strong> — Reflects reality. Wrong information is worse than none."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Complete</strong> — Nothing essential is missing from the picture."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Timely</strong> — Current, and available when the decision is made."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Relevant</strong> — Actually useful for the decision at hand."
+  },
+  {
+   "t": "p",
+   "html": "Context plus processing is all it takes. Keep adding."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Now tell them apart"
+  },
+  {
+   "t": "p",
+   "html": "Six things from the chapter. Some are raw, some have had enough added that you could act on them. In the exam you’ll be asked which is which, plus one sentence saying why — and the “why” is where the marks are."
+  },
+  {
+   "t": "pre",
+   "text": "42"
+  },
+  {
+   "t": "pre",
+   "text": "practice question 1(a)"
+  },
+  {
+   "t": "p",
+   "html": "Which is it?"
+  },
+  {
+   "t": "p",
+   "html": "Data is raw — numbers and words on their own. It turns into information once somebody adds enough around it that you could act on it. You’ll get the reasoning either way."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 1.3 · Where it all lives"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where the database actually sits"
+  },
+  {
+   "t": "p",
+   "html": "Nearly every app on your phone is talking to one, though you never see it. Follow a single tap all the way there and back."
+  },
+  {
+   "t": "p",
+   "html": "Think of it as a restaurant. You’re at the table, the kitchen is out the back, and a waiter goes between the two. You never walk into the kitchen yourself — and that turns out to be the whole point."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 1 of 6"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "You tap “My grades”"
+  },
+  {
+   "t": "p",
+   "html": "In the restaurant You sit down and pick something off the menu."
+  },
+  {
+   "t": "eyebrow",
+   "html": "On screen"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>A link</strong> My grades"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Nothing has left your phone yet, and no database anywhere has been bothered."
+  },
+  {
+   "t": "eyebrow",
+   "html": "So why can’t your browser just ask the database itself?"
+  },
+  {
+   "t": "p",
+   "html": "Because anything your browser knows, you can go and look at. Right-click, view source, and there it is. If the database password were in there, anyone could find it and then help themselves to everybody’s grades, not only their own. Keeping the server in the middle means the only questions the database ever hears are ones the university wrote itself."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this course is"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Database Management Systems."
+  },
+  {
+   "t": "p",
+   "html": "15 credits, Level 8, no prerequisites. Plenty of people arrive having never opened a database."
+  },
+  {
+   "t": "p",
+   "html": "Over the trimester you’ll design relational databases, query them with SQL, and think about who gets access to the data you’re storing. 150 learning hours: 36 in class with me, 114 on your own."
+  },
+  {
+   "t": "p",
+   "html": "By the end you should be able to decide who gets access to data and why, judge whether a design will hold up under real use, and look at someone else’s database and say what’s wrong with it. Most of your career will be spent on databases other people built, so that last one gets a lot of attention."
+  },
+  {
+   "t": "p",
+   "html": "<strong>15</strong> Credits, Level 8, no prerequisites"
+  },
+  {
+   "t": "p",
+   "html": "<strong>150</strong> Learning hours: 36 in class, 114 yours"
+  },
+  {
+   "t": "p",
+   "html": "<strong>8</strong> Lessons, in a deliberate order"
+  },
+  {
+   "t": "p",
+   "html": "<strong>58</strong> Knowledge-check questions with instant feedback"
+  },
+  {
+   "t": "eyebrow",
+   "html": "The lesson outline"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Eight lessons"
+  },
+  {
+   "t": "p",
+   "html": "The same structure the study pack and the lesson plans follow. Each lesson assumes the one before it."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Introduction to DBMS You are here Data vs information, why file-based systems fail, the relational model, setting up MySQL. By the end You are reading this lesson right now.",
+    "SQL Programming Fundamentals The language of relational databases. Data types, CREATE, INSERT, and your first SELECT queries. By the end Write DDL statements and insert your first rows into a real table.",
+    "Advanced SQL Queries Filtering, sorting, safe UPDATE and DELETE, aggregate functions, and your first JOIN. By the end Combine two related tables with an INNER JOIN.",
+    "ER Diagrams Foundations Chen's notation. Entities, attributes, keys, relationships, and cardinality. By the end Draw a complete ER diagram from a written scenario.",
+    "Advanced ER Concepts Weak entities, composite and multivalued attributes, and total vs partial participation. By the end Apply the full Chen symbol set to a scenario you have not seen before.",
+    "ER to Relational Mapping The eight rules that turn any ER diagram into a complete set of tables. By the end Turn a diagram into a schema without guessing.",
+    "Database Normalization Functional dependencies, 1NF through BCNF, and decomposing a messy table properly. By the end Take a table that contradicts itself and split it until it doesn’t.",
+    "Consolidation &amp; Exam Preparation The full pipeline from raw data to a normalized, queryable database. Where to go next. By the end Build a small database end to end, on your own."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "A small preview"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Some of what's coming"
+  },
+  {
+   "t": "p",
+   "html": "Examples from the actual lessons. There's a good deal more once we get going."
+  },
+  {
+   "t": "p",
+   "html": "Same idea as the widget at the top of the page. Learn the four quality characteristics properly — you’ll be asked to name them."
+  },
+  {
+   "t": "p",
+   "html": "From the Lesson 1 chapter: data becomes information through processing and context."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Quality information is",
+     "Meaning"
+    ],
+    [
+     "Accurate",
+     "Reflects reality. Wrong information is worse than none."
+    ],
+    [
+     "Complete",
+     "Nothing essential is missing from the picture."
+    ],
+    [
+     "Timely",
+     "Current, and available when the decision is made."
+    ],
+    [
+     "Relevant",
+     "Actually useful for the decision at hand."
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Writing SQL"
+  },
+  {
+   "t": "p",
+   "html": "A real table, real rows, and a query that returns something. This is the code from Lesson 2."
+  },
+  {
+   "t": "pre",
+   "text": "lesson02_sql_fundamentals.sql"
+  },
+  {
+   "t": "pre",
+   "text": "CREATE DATABASE school_db;\nUSE school_db;\n\nCREATE TABLE students (\n  id     INT PRIMARY KEY,\n  name   VARCHAR(100),\n  age    INT,\n  email  VARCHAR(150),\n  gpa    DECIMAL(3,2)\n);\n\nINSERT INTO students (id, name, age, email, gpa)\nVALUES\n  (1, 'Alice', 20, 'alice@uni.edu', 3.80),\n  (2, 'Bob',   22, 'bob@uni.edu',   3.50),\n  (3, 'Carol', 21, 'carol@uni.edu', 3.90);\n\nSELECT name AS 'Student Name',\n       gpa  AS 'Grade Point'\nFROM   students;"
+  },
+  {
+   "t": "p",
+   "html": "A few lessons later you do the same thing again, but with a table you designed yourself, for a scenario chosen for you: a library, a hospital, a hotel, a gym. Everyone gets a different one."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Designing before building"
+  },
+  {
+   "t": "p",
+   "html": "An architect plans the rooms before anyone pours concrete. We plan the tables before anyone writes CREATE TABLE. Chen’s notation is what we use for the whole course."
+  },
+  {
+   "t": "p",
+   "html": "From the Lesson 4 chapter: the four Chen notation shapes, and what each one becomes in the database."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Cleaning up a bad table"
+  },
+  {
+   "t": "p",
+   "html": "From the normalization chapter. It records students, departments and courses in one table. The red columns are where it goes wrong."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "StudentID",
+     "Name",
+     "Dept",
+     "DeptHead",
+     "Courses",
+     "Instructor"
+    ],
+    [
+     "S1",
+     "Alice",
+     "CS",
+     "Dr. Smith",
+     "DB, OS, Networks",
+     "Lee, Ray, Kim"
+    ],
+    [
+     "S2",
+     "Bob",
+     "CS",
+     "Dr. Smith",
+     "DB, AI",
+     "Lee, Patel"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "If Dr. Smith leaves, every CS row needs updating and it’s easy to miss one. That’s an update anomaly — one of three problems here. We name all three, then split the table until it stops contradicting itself."
+  },
+  {
+   "t": "p",
+   "html": "From the Lesson 7 chapter: the normalization ladder, 1NF through BCNF."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Recordings"
+  },
+  {
+   "t": "p",
+   "html": "Every lecture is recorded, and there are extra videos on top of that. A few thumbnails from inside the course:"
+  },
+  {
+   "t": "p",
+   "html": "Normalization, Introduction"
+  },
+  {
+   "t": "p",
+   "html": "Normalization, Why Normalise?"
+  },
+  {
+   "t": "p",
+   "html": "Normalization, First Normal Form"
+  },
+  {
+   "t": "p",
+   "html": "Advanced ER, Activity Walkthrough"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What you'll do"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Activities from the course"
+  },
+  {
+   "t": "p",
+   "html": "Each one has a worked answer to check yourself against."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Fix a hospital’s spreadsheet problem"
+  },
+  {
+   "t": "p",
+   "html": "The same exercise you just did at the top of this page, but in pairs and on paper. We name every failure, then name the DBMS feature that answers it."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Write your first working queries"
+  },
+  {
+   "t": "p",
+   "html": "CREATE a table, INSERT real rows, and get a real result back from SELECT. Then filter it, sort it, and join it to a second table."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Model a real system as an ER diagram"
+  },
+  {
+   "t": "p",
+   "html": "Five scenarios to choose from: a library, a university, a hospital, an online store, a hotel. You draw the diagram, then check it against a worked answer."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Get your own SQL scenario"
+  },
+  {
+   "t": "p",
+   "html": "Later in the course you get a personal, randomly assigned scenario — a library, a gym, a car rental company — and build a small working database for it from scratch."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Decompose a table that contradicts itself"
+  },
+  {
+   "t": "p",
+   "html": "Take an unnormalized table with real update and deletion problems, and split it, step by step, into a clean design."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Beyond this page"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What else you get"
+  },
+  {
+   "t": "p",
+   "html": "A few things that open up once you're enrolled."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The written study pack"
+  },
+  {
+   "t": "p",
+   "html": "A full study pack for MBI802, typeset as a proper book, with worked examples and answer keys for every chapter."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Two knowledge checks"
+  },
+  {
+   "t": "p",
+   "html": "A 38 question check at the end of the DBMS section and a separate 20 question ER check. Instant feedback, and a badge if you do well."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "A TA verified SQL lab"
+  },
+  {
+   "t": "p",
+   "html": "You get a personal scenario, build the database, and a teaching assistant reads your actual schema. Not a marking rubric — a person."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Nine free certifications"
+  },
+  {
+   "t": "p",
+   "html": "Genuinely free database certifications you can add to your profile once you are comfortable with SQL."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Take it with you"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Save these as notes."
+  },
+  {
+   "t": "p",
+   "html": "A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out."
+  },
+  {
+   "t": "p",
+   "html": "Password to open it"
+  },
+  {
+   "t": "p",
+   "html": "Built here in your browser. Nothing is uploaded and no account is needed."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Extra reading only"
+  },
+  {
+   "t": "p",
+   "html": "A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements."
+  },
+  {
+   "t": "p",
+   "html": "All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "See you in class."
+  },
+  {
+   "t": "p",
+   "html": "That’s roughly where MBI802 starts. The rest is eight lessons of doing it properly, with someone to ask when it doesn’t work. Bring questions."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI802 lecturer"
+  }
+ ]
+}

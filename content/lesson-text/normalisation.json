@@ -1,0 +1,620 @@
+{
+ "slug": "normalisation",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/normalisation",
+ "title": "Database normalisation",
+ "pageTitle": "Database normalisation · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 1386,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "Blended Teaching Content by Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "p",
+   "html": "An interactive lesson · Dr. Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let’s make sense of Database Normalisation."
+  },
+  {
+   "t": "p",
+   "html": "We’ll start with the messes that bad table design creates, then climb the ladder — 1NF, 2NF, 3NF and BCNF — one rung at a time. Along the way you can play with live simulations: trigger the anomalies, split tables apart, and test yourself. No headset, no sign-in, nothing collected."
+  },
+  {
+   "t": "p",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What goes wrong without normalisation?"
+  },
+  {
+   "t": "p",
+   "html": "When one table tries to store everything at once, the same fact gets written in many places. That redundancy quietly breeds three classic anomalies. Poke the table below to feel each one."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "StudentID",
+     "Name",
+     "Dept",
+     "DeptHead",
+     "Course",
+     "Instructor"
+    ],
+    [
+     "S1",
+     "Alice",
+     "CS",
+     "Dr. Smith",
+     "Databases",
+     "Prof. Lee"
+    ],
+    [
+     "S2",
+     "Bob",
+     "CS",
+     "Dr. Smith",
+     "Databases",
+     "Prof. Lee"
+    ],
+    [
+     "S3",
+     "Carol",
+     "Math",
+     "Dr. Jones",
+     "Statistics",
+     "Prof. Hill"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "This one table stores students, departments <em>and</em> courses all at once. Tap a button to see how that bites back."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Update anomaly"
+  },
+  {
+   "t": "p",
+   "html": "A repeated fact is changed in some rows but not others, so the database ends up contradicting itself."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Insertion anomaly"
+  },
+  {
+   "t": "p",
+   "html": "You can’t record one fact without inventing another — a department needs a student before it can exist."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Deletion anomaly"
+  },
+  {
+   "t": "p",
+   "html": "Removing one row quietly destroys unrelated information that happened to live in the same place."
+  },
+  {
+   "t": "p",
+   "html": "The core idea"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Functional dependencies"
+  },
+  {
+   "t": "p",
+   "html": "Normalisation is really about one question: which columns determine which? We write X → Y to mean “if you know X, you know exactly one Y.” Getting these right is the whole game."
+  },
+  {
+   "t": "p",
+   "html": "X is the <strong>determinant</strong> · Y is the <strong>dependent</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Does the left side really <em>determine</em> the right side? Make your guess, then tap to check."
+  },
+  {
+   "t": "p",
+   "html": "Interactive · the main event"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Normalisation Studio"
+  },
+  {
+   "t": "p",
+   "html": "Here is one messy table. Step it up the ladder and watch tables split apart, redundancy drain away and the anomalies disappear — the whole journey from un-normalised to BCNF in one place."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Un-normalised"
+  },
+  {
+   "t": "p",
+   "html": "StudentCourses PK: StudentID"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "StudentID",
+     "Name",
+     "Dept",
+     "DeptHead",
+     "Courses (id: grade)"
+    ],
+    [
+     "S1",
+     "Alice",
+     "CS",
+     "Dr. Smith",
+     "C1:A, C2:B"
+    ],
+    [
+     "S2",
+     "Bob",
+     "CS",
+     "Dr. Smith",
+     "C1:A"
+    ],
+    [
+     "S3",
+     "Carol",
+     "Math",
+     "Dr. Jones",
+     "C3:A, C4:C"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Everything lives in one table, and a single cell can hold a list of courses. Impossible to query cleanly and riddled with repetition."
+  },
+  {
+   "t": "p",
+   "html": "⚠️ Update, insert &amp; delete anomalies still possible"
+  },
+  {
+   "t": "p",
+   "html": "First Normal Form · 1NF"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Break apart the lists"
+  },
+  {
+   "t": "p",
+   "html": "1NF asks for one thing: every cell holds a single, atomic value — no comma-separated lists, no repeating groups. Flip the table below and watch a multi-valued column become tidy rows."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "OrderID",
+     "Products"
+    ],
+    [
+     "101",
+     "Laptop, Mouse, Keyboard"
+    ],
+    [
+     "102",
+     "Monitor, HDMI Cable"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Three products crammed into one cell. Counting, filtering or joining on a single product is painful."
+  },
+  {
+   "t": "p",
+   "html": "1NF · Real-world walkthrough"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Fixing a music streaming playlist table"
+  },
+  {
+   "t": "p",
+   "html": "This is the kind of table a junior dev might design for a Spotify-style app. Walk through three steps to see exactly what 1NF demands — and what gets unlocked when every cell is atomic."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "playlist_id",
+     "playlist_name",
+     "tracks"
+    ],
+    [
+     "PL01",
+     "Morning Vibes",
+     "T01 · Blinding Lights, T02 · Levitating, T03 · Stay"
+    ],
+    [
+     "PL02",
+     "Workout Mix",
+     "T04 · POWER, T05 · Lose Yourself"
+    ],
+    [
+     "PL03",
+     "Study Mode",
+     "T06 · Lo-fi Beat #1, T07 · Rain Sounds, T08 · Focus Flow"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "A music-streaming playlist table. The <em>tracks</em> column hides a comma-separated list — already violating 1NF."
+  },
+  {
+   "t": "p",
+   "html": "Climbing higher"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "2NF and 3NF, in really plain words"
+  },
+  {
+   "t": "p",
+   "html": "1NF was about tidying up the cells. 2NF and 3NF are about one thing only: making sure each column is sitting in the right table. Let’s take them one at a time — slowly."
+  },
+  {
+   "t": "p",
+   "html": "Does each column need the <em>whole</em> key, or just half of it?"
+  },
+  {
+   "t": "p",
+   "html": "2NF only matters when your table’s key is made of two columns stuck together (a “composite” key). Picture an order table where the key is {OrderID, ProductID}. Now look at <strong>ProductName</strong>. Does it care which order it was on? Nope — it only depends on <strong>ProductID</strong>. So you’d be repeating “iPhone 15” on every single order that includes it."
+  },
+  {
+   "t": "p",
+   "html": "The fix: move ProductName into its own little Products table, where ProductID alone is the key."
+  },
+  {
+   "t": "p",
+   "html": "In one line: if a column only needs <em>part</em> of the key, it’s sitting in the wrong table."
+  },
+  {
+   "t": "p",
+   "html": "Does each column point straight at the key — or sneak in through another column?"
+  },
+  {
+   "t": "p",
+   "html": "Once 2NF is sorted, 3NF asks the next question. Take an employee table. Each <strong>Employee</strong> has a <strong>DeptID</strong>, and that DeptID tells you the <strong>DeptName</strong> and <strong>DeptPhone</strong>. So DeptName doesn’t really depend on the employee — it depends on the <em>department</em>, which depends on the employee. That extra hop is a “middleman”:"
+  },
+  {
+   "t": "p",
+   "html": "Employee → DeptID → DeptName"
+  },
+  {
+   "t": "p",
+   "html": "The fix: give departments their own table, and let the employee row just keep the DeptID."
+  },
+  {
+   "t": "p",
+   "html": "In one line: every column should point straight at the key — no hopping through another column."
+  },
+  {
+   "t": "p",
+   "html": "Nice to have — but you usually don’t need it."
+  },
+  {
+   "t": "p",
+   "html": "Here’s the honest truth: most real databases stop at 3NF and are completely fine. BCNF is just a stricter, extra-tidy version of 3NF that handles a few rare edge cases. Think of it as a polish, not a box you <em>have</em> to tick. If your table is solidly in 3NF, you’re already in great shape — so feel free to treat this one as bonus reading."
+  },
+  {
+   "t": "p",
+   "html": "Self-check"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Is my table in this form?"
+  },
+  {
+   "t": "p",
+   "html": "A quick checklist for the three forms that matter. Tap a tab and run down the boxes — if they all hold true, your table has reached that form."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Tidy up the cells"
+  },
+  {
+   "t": "p",
+   "html": "One value per cell. Nothing crammed together."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "✓ Every cell holds a single value — no lists like “Maths, Science” stuffed into one box.",
+    "✓ No repeating columns like Phone1, Phone2, Phone3 to hold “more of the same thing”.",
+    "✓ Each row can be told apart from the rest (there is a key)."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Quick example"
+  },
+  {
+   "t": "p",
+   "html": "Split a cell that says “Maths, Science” into two separate rows — one per subject."
+  },
+  {
+   "t": "p",
+   "html": "Tick all the boxes on a tab? Your table is in that form. Each form builds on the one before it."
+  },
+  {
+   "t": "p",
+   "html": "2NF · Real-world walkthrough"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Fixing an e-commerce order table"
+  },
+  {
+   "t": "p",
+   "html": "This is the table a new developer builds on day one. It looks sensible — until you trace the partial dependencies and see the update anomalies hiding inside."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "order_id",
+     "product_id",
+     "qty",
+     "customer_name",
+     "product_name",
+     "unit_price"
+    ],
+    [
+     "ORD-1",
+     "P-101",
+     "3",
+     "Alice",
+     "Wireless Mouse",
+     "$29.99"
+    ],
+    [
+     "ORD-1",
+     "P-102",
+     "1",
+     "Alice",
+     "USB Hub",
+     "$19.99"
+    ],
+    [
+     "ORD-2",
+     "P-101",
+     "2",
+     "Bob",
+     "Wireless Mouse",
+     "$29.99"
+    ],
+    [
+     "ORD-3",
+     "P-103",
+     "1",
+     "Carol",
+     "Laptop Stand",
+     "$49.99"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "3NF · Real-world walkthrough"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Fixing an HR employee records table"
+  },
+  {
+   "t": "p",
+   "html": "Employee info that carries along department details creates transitive chains. Watch the chain animate, then see exactly which table gets extracted and why."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "emp_id",
+     "emp_name",
+     "dept_id",
+     "dept_name",
+     "dept_city"
+    ],
+    [
+     "E-01",
+     "Alice",
+     "D-10",
+     "Engineering",
+     "Auckland"
+    ],
+    [
+     "E-02",
+     "Bob",
+     "D-10",
+     "Engineering",
+     "Auckland"
+    ],
+    [
+     "E-03",
+     "Carol",
+     "D-20",
+     "Marketing",
+     "Wellington"
+    ],
+    [
+     "E-04",
+     "Dave",
+     "D-10",
+     "Engineering",
+     "Auckland"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "HR table for a NZ company. The Engineering team in Auckland appears three times — why is that a problem?"
+  },
+  {
+   "t": "p",
+   "html": "The fine print"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "A good split keeps two promises"
+  },
+  {
+   "t": "p",
+   "html": "Splitting a table isn’t free — a careless decomposition can invent fake rows or lose rules you cared about. Two properties tell you whether a split is safe."
+  },
+  {
+   "t": "p",
+   "html": "Joining the pieces back together must reproduce the <em>exact</em> original table — no spurious, invented rows and nothing lost."
+  },
+  {
+   "t": "pre",
+   "text": "R = R₁ ⋈ R₂"
+  },
+  {
+   "t": "p",
+   "html": "Every functional dependency from the original can still be checked on the new tables, without re-joining them first."
+  },
+  {
+   "t": "pre",
+   "text": "F ≡ F₁ ∪ F₂"
+  },
+  {
+   "t": "p",
+   "html": "<strong>The trade-off:</strong> BCNF always gives you a lossless join but may sacrifice dependency preservation. 3NF guarantees <em>both</em> — which is why it’s often the practical target in real systems."
+  },
+  {
+   "t": "p",
+   "html": "Interactive · put it together"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Normal Form Detective"
+  },
+  {
+   "t": "p",
+   "html": "Read each schema and its dependencies, then call the highest normal form it satisfies. This is exactly the reasoning you’ll use on real designs."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The schema"
+  },
+  {
+   "t": "pre",
+   "text": "Enrolment(StudentID, CourseID, StudentName, CourseName, Grade)"
+  },
+  {
+   "t": "pre",
+   "text": "PK = {StudentID, CourseID}"
+  },
+  {
+   "t": "p",
+   "html": "StudentID → StudentName CourseID → CourseName {StudentID, CourseID} → Grade"
+  },
+  {
+   "t": "p",
+   "html": "What is the <em>highest</em> normal form this table satisfies?"
+  },
+  {
+   "t": "p",
+   "html": "At a glance"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The normal forms, side by side"
+  },
+  {
+   "t": "p",
+   "html": "One card per rung of the ladder — the rule it enforces and how you fix a violation."
+  },
+  {
+   "t": "p",
+   "html": "Every cell is atomic, no repeating groups, a primary key exists."
+  },
+  {
+   "t": "p",
+   "html": "Fix: One value per cell; give multiple values their own rows."
+  },
+  {
+   "t": "p",
+   "html": "In 1NF and no non-key attribute depends on only part of a composite key."
+  },
+  {
+   "t": "p",
+   "html": "Fix: Split partial dependencies into their own table."
+  },
+  {
+   "t": "p",
+   "html": "In 2NF and no non-key attribute depends on the key through another non-key attribute."
+  },
+  {
+   "t": "p",
+   "html": "Fix: Extract the transitive chain (A → B → C) into a new table."
+  },
+  {
+   "t": "p",
+   "html": "For every dependency X → Y, X is a superkey. Stricter than 3NF."
+  },
+  {
+   "t": "p",
+   "html": "Fix: Decompose so every determinant is a key — may cost dependency preservation."
+  },
+  {
+   "t": "p",
+   "html": "Unnormalised → 1NF → 2NF → 3NF → BCNF"
+  },
+  {
+   "t": "p",
+   "html": "Check yourself"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five quick questions"
+  },
+  {
+   "t": "p",
+   "html": "See how much of the lesson stuck."
+  },
+  {
+   "t": "p",
+   "html": "A table in 1NF can still have plenty of redundant data."
+  }
+ ]
+}

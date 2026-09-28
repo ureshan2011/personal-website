@@ -1,0 +1,464 @@
+{
+ "slug": "er-diagrams",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/er-diagrams",
+ "title": "ER diagrams",
+ "pageTitle": "ER diagrams · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 1027,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Data Modelling"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of ER Diagrams."
+  },
+  {
+   "t": "p",
+   "html": "Before a single table exists, you sketch the world it describes. Meet entities, attributes and relationships in Chen's notation — and learn to read cardinality at a glance."
+  },
+  {
+   "t": "p",
+   "html": "🔷 Entities 🟡 Attributes ◇ Relationships ↔️ 1:1 · 1:N · M:N"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Database Management Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Entity-Relationship Diagrams"
+  },
+  {
+   "t": "p",
+   "html": "A visual language for designing databases — from idea to blueprint"
+  },
+  {
+   "t": "p",
+   "html": "What is an ER diagram &amp; why do we use it?"
+  },
+  {
+   "t": "p",
+   "html": "Two notations — Chen's vs. Crow's Foot"
+  },
+  {
+   "t": "p",
+   "html": "Chen's shapes — entity, attribute, key attribute, relationship"
+  },
+  {
+   "t": "p",
+   "html": "Cardinality — 1:1, 1:N, M:N"
+  },
+  {
+   "t": "p",
+   "html": "Drawing a complete ER diagram — step by step"
+  },
+  {
+   "t": "p",
+   "html": "Before we draw shapes — let's understand the purpose"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "A <strong>blueprint</strong> for a database drawn <em>before</em> any code is written",
+    "Shows real-world <strong>things</strong>, their <strong>properties</strong>, and how they <strong>connect</strong>",
+    "Invented by <strong>Peter Chen in 1976</strong>",
+    "Language-neutral — any team can read it"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Plans rooms before building a house"
+  },
+  {
+   "t": "p",
+   "html": "Plans tables before coding a database"
+  },
+  {
+   "t": "p",
+   "html": "One diagram everyone understands — developers, managers, and clients — no technical jargon needed."
+  },
+  {
+   "t": "p",
+   "html": "Developers Managers Clients"
+  },
+  {
+   "t": "p",
+   "html": "Fixing a design mistake on paper takes minutes. Fixing the same mistake in a live database can take days."
+  },
+  {
+   "t": "p",
+   "html": "Each shape maps directly to a database structure — no guesswork when building."
+  },
+  {
+   "t": "p",
+   "html": "Entity → Table"
+  },
+  {
+   "t": "p",
+   "html": "Attribute → Column"
+  },
+  {
+   "t": "p",
+   "html": "Key Attr → Primary Key"
+  },
+  {
+   "t": "p",
+   "html": "Same concept — different visual style"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Chen's vs. Crow's Foot Notation"
+  },
+  {
+   "t": "p",
+   "html": "Uses <strong>geometric shapes</strong> — rectangles, diamonds &amp; ellipses"
+  },
+  {
+   "t": "p",
+   "html": "Classic academic notation · Easy to learn"
+  },
+  {
+   "t": "p",
+   "html": "Uses <strong>line-end symbols</strong> on connecting lines to show cardinality"
+  },
+  {
+   "t": "p",
+   "html": "Common in industry tools (Lucidchart, Visio, draw.io)"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Chen's Notation — The Shapes"
+  },
+  {
+   "t": "p",
+   "html": "Four shapes. Each shape has one specific job."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "A real-world <strong>\"thing\"</strong> we want to track",
+    "Always a <strong>noun</strong>: Student, Course, Teacher, Product…",
+    "Each entity will become a <strong>table</strong> in the database",
+    "Written in <strong>UPPERCASE</strong> inside the rectangle"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Test:</strong> Can you list many of them? (Many students, many courses?) → It's an entity."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "A <strong>property</strong> of an entity",
+    "Connected to their entity by a line",
+    "STUDENT attributes: <em>Name, Email, BirthDate…</em>",
+    "Will become a <strong>column</strong> in the database table"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Rule:</strong> Does it describe a property of an entity? → it's an attribute"
+  },
+  {
+   "t": "p",
+   "html": "STUDENT entity with 4 attributes"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Chen's Shapes · 2b — Special Attribute"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Key Attribute — Underlined Ellipse"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "A <strong>unique identifier</strong> — no two rows can share the same value",
+    "Drawn as an ellipse with the attribute name <strong>underlined</strong>",
+    "Becomes the <strong>Primary Key</strong> of the table",
+    "Every entity must have one"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "🔑 Two students may share a name — but each must have a unique <strong>StudentID</strong>. Therefore StudentID is the key attribute."
+  },
+  {
+   "t": "p",
+   "html": "Key attribute (underlined)"
+  },
+  {
+   "t": "p",
+   "html": "StudentID is the key; Name is a regular attribute"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Relationship — The Diamond"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Describes <strong>how two entities connect</strong>",
+    "Written as a <strong>verb</strong> inside the diamond",
+    "Lines connect the diamond to both entities",
+    "Examples: <em>enrolls, teaches, manages, owns</em>"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Memory tip:</strong> Entity = noun · Relationship = verb \"STUDENT <em>enrolls</em> COURSE\" → diamond says <em>enrolls</em>"
+  },
+  {
+   "t": "p",
+   "html": "A real-world thing → becomes a <strong>table</strong>"
+  },
+  {
+   "t": "p",
+   "html": "A property → becomes a <strong>column</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Unique identifier → <strong>Primary Key</strong>"
+  },
+  {
+   "t": "p",
+   "html": "A verb linking two entities → <strong>relationship</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Lines connect everything — attributes to entities, entities to diamonds. <strong>No floating shapes.</strong>"
+  },
+  {
+   "t": "p",
+   "html": "The numbers on relationship lines — how many can relate to how many?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Cardinality · One-to-One"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "1: 1 — Each side has exactly one match"
+  },
+  {
+   "t": "p",
+   "html": "Each instance on side A relates to <strong>exactly one</strong> on side B, and vice versa."
+  },
+  {
+   "t": "p",
+   "html": "🧑‍💼 One <strong>Employee</strong> holds one <strong>Passport</strong> One <strong>Passport</strong> belongs to one <strong>Employee</strong>"
+  },
+  {
+   "t": "p",
+   "html": "🏫 One <strong>Principal</strong> leads one <strong>School</strong>"
+  },
+  {
+   "t": "p",
+   "html": "The \"1\" and \"1\" labels mean one-to-one"
+  },
+  {
+   "t": "p",
+   "html": "Each employee ↔ exactly one passport"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Cardinality · One-to-Many"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "1: N — One side, many on the other"
+  },
+  {
+   "t": "p",
+   "html": "One instance on side A relates to <strong>many</strong> on side B. But each B belongs to <strong>only one</strong> A."
+  },
+  {
+   "t": "p",
+   "html": "🏫 One <strong>Teacher</strong> teaches many <strong>Courses</strong> Each <strong>Course</strong> has only one <strong>Teacher</strong>"
+  },
+  {
+   "t": "p",
+   "html": "👩‍👧 One <strong>Mother</strong> has many <strong>Children</strong> Each <strong>Child</strong> has one <strong>Mother</strong>"
+  },
+  {
+   "t": "p",
+   "html": "\"1\" on teacher side, \"N\" on course side"
+  },
+  {
+   "t": "p",
+   "html": "Dr. Smith → 3 courses; Dr. Lee → 1 course"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Cardinality · Many-to-Many"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "M: N — Many on both sides"
+  },
+  {
+   "t": "p",
+   "html": "Many instances on side A relate to many instances on side B, and vice versa."
+  },
+  {
+   "t": "p",
+   "html": "📚 One <strong>Student</strong> enrolls in many <strong>Courses</strong> One <strong>Course</strong> has many <strong>Students</strong>"
+  },
+  {
+   "t": "p",
+   "html": "🎬 One <strong>Actor</strong> appears in many <strong>Movies</strong> One <strong>Movie</strong> has many <strong>Actors</strong>"
+  },
+  {
+   "t": "p",
+   "html": "\"M\" and \"N\" both mean \"many\""
+  },
+  {
+   "t": "p",
+   "html": "Students and courses are connected in many directions"
+  },
+  {
+   "t": "p",
+   "html": "Each instance matches <strong>exactly one</strong> on the other side"
+  },
+  {
+   "t": "p",
+   "html": "One on side A → <strong>many</strong> on side B; each B has only one A"
+  },
+  {
+   "t": "p",
+   "html": "Many on side A ↔ <strong>many</strong> on side B simultaneously"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Drawing a Complete ER Diagram"
+  },
+  {
+   "t": "p",
+   "html": "Let's put it all together — step by step"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How to Draw an ER Diagram"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Identify the entities</strong> — what real-world things do we store data about? (nouns)"
+  },
+  {
+   "t": "p",
+   "html": "<strong>List attributes</strong> for each entity — what properties does it have?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Mark the key attribute</strong> — which attribute uniquely identifies each instance?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Identify relationships</strong> — how do entities connect? (verbs)"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Add cardinality</strong> — 1:1, 1:N, or M:N on each relationship line"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Scenario:</strong> A university has <em>students</em> and <em>courses</em>. Students can enroll in many courses. Each course is taught by one teacher. Teachers can teach many courses."
+  },
+  {
+   "t": "p",
+   "html": "📦 <strong>Entities:</strong> STUDENT, COURSE, TEACHER"
+  },
+  {
+   "t": "p",
+   "html": "🔗 <strong>Relationships:</strong> enrolls (M:N), teaches (1:N)"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 05 — Complete Example"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "University Enrollment — Full ER Diagram"
+  },
+  {
+   "t": "p",
+   "html": "Reading the university ER diagram:"
+  },
+  {
+   "t": "p",
+   "html": "One <strong>TEACHER</strong> teaches many <strong>COURSES</strong> (1:N)"
+  },
+  {
+   "t": "p",
+   "html": "One <strong>COURSE</strong> is taught by one <strong>TEACHER</strong> (back-link of 1:N)"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>STUDENT</strong> can enroll in many <strong>COURSES</strong> (M:N)"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>COURSE</strong> can have many <strong>STUDENTS</strong> enrolled (M:N)"
+  },
+  {
+   "t": "p",
+   "html": "What becomes what in the DB?"
+  },
+  {
+   "t": "p",
+   "html": "💡 Every M:N relationship becomes a separate <em>junction table</em> (e.g., ENROLLMENT) in the relational database. 1:N relationships become a <em>foreign key</em>."
+  },
+  {
+   "t": "p",
+   "html": "ER diagrams are design tools"
+  },
+  {
+   "t": "p",
+   "html": "Draw before you code — saves enormous time &amp; effort later"
+  },
+  {
+   "t": "p",
+   "html": "Rectangle = Entity → Table"
+  },
+  {
+   "t": "p",
+   "html": "Real-world \"things\" we track; become database tables"
+  },
+  {
+   "t": "p",
+   "html": "Ellipse = Attribute → Column"
+  },
+  {
+   "t": "p",
+   "html": "Properties of entities; underlined ellipse = primary key"
+  },
+  {
+   "t": "p",
+   "html": "Diamond = Relationship → Link"
+  },
+  {
+   "t": "p",
+   "html": "Verbs connecting entities; labeled with 1:1, 1:N, or M:N"
+  },
+  {
+   "t": "p",
+   "html": "MBI802 · Database Management Systems Entity-Relationship Diagrams"
+  }
+ ]
+}

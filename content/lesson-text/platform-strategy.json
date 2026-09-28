@@ -1,0 +1,648 @@
+{
+ "slug": "platform-strategy",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/platform-strategy",
+ "title": "Platform strategy",
+ "pageTitle": "Platform strategy · MBI800",
+ "extractedAt": "2026-09-28",
+ "words": 1856,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI800 · Strategic Information Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Platform Strategy."
+  },
+  {
+   "t": "p",
+   "html": "Why Uber owns no cars, Airbnb owns no rooms, and the App Store doesn't write a single app — and what that means for how you plan information systems. Includes a group research presentation and a knowledge check."
+  },
+  {
+   "t": "p",
+   "html": "🔗 Network effects 🥚 Chicken-and-egg 🛠️ Governance 📦 Case studies 👥 Group activity"
+  },
+  {
+   "t": "p",
+   "html": "Why some of the biggest companies in the world don't make anything at all"
+  },
+  {
+   "t": "p",
+   "html": "Uber owns no cars. Airbnb owns no rooms. The App Store doesn't write a single app. This session is about how that works — and what it means for how you plan information systems."
+  },
+  {
+   "t": "p",
+   "html": "18 Slides Network Effects Case Studies 40-Min Group Activity Knowledge Check"
+  },
+  {
+   "t": "eyebrow",
+   "html": "In-Class Activity · Group of 4–6 · 40 Minutes"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Find a Platform. Present It."
+  },
+  {
+   "t": "p",
+   "html": "5 min form groups · 25 min research online and build slides · 10 min present"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Group Activity · 4–6 Members · 40 Minutes"
+  },
+  {
+   "t": "p",
+   "html": "Pick any real platform, research it online, and prepare a short presentation for the class."
+  },
+  {
+   "t": "p",
+   "html": "Timing (40 minutes total)"
+  },
+  {
+   "t": "p",
+   "html": "Form groups of 4–6, pick a platform 5 min"
+  },
+  {
+   "t": "p",
+   "html": "Research online, build simple slides 25 min"
+  },
+  {
+   "t": "p",
+   "html": "Present to the class 10 min"
+  },
+  {
+   "t": "p",
+   "html": "Stuck for an idea?"
+  },
+  {
+   "t": "p",
+   "html": "Click shuffle for a suggestion — or pick your own"
+  },
+  {
+   "t": "p",
+   "html": "Any real platform works. Use it, or something completely different — your choice."
+  },
+  {
+   "t": "p",
+   "html": "Your presentation should cover"
+  },
+  {
+   "t": "p",
+   "html": "Slide 1 — Name the platform and what it does"
+  },
+  {
+   "t": "p",
+   "html": "Slide 2 — Its sides, and one network effect example"
+  },
+  {
+   "t": "p",
+   "html": "Slide 3 — Business model and how open it is"
+  },
+  {
+   "t": "p",
+   "html": "Slide 4 — One risk, or one question for the class"
+  },
+  {
+   "t": "p",
+   "html": "Research checklist — tick as you go"
+  },
+  {
+   "t": "eyebrow",
+   "html": "After the Slides"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Test Your Understanding"
+  },
+  {
+   "t": "p",
+   "html": "8 questions · Instant feedback · No data stored"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Knowledge Check"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Platform Strategy Quiz"
+  },
+  {
+   "t": "p",
+   "html": "What is the defining feature of a platform business, compared to a pipeline business?"
+  },
+  {
+   "t": "p",
+   "html": "Where This Fits in Your Planning Toolkit"
+  },
+  {
+   "t": "p",
+   "html": "Classic SISP models assume the firm controls its whole value chain, end to end."
+  },
+  {
+   "t": "p",
+   "html": "That breaks once a firm's biggest decisions involve a network it doesn't fully own — outside sellers, developers, drivers."
+  },
+  {
+   "t": "p",
+   "html": "Platform strategy is what that shift looks like in practice."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "A traditional plan asks…",
+     "A platform-era plan also asks…"
+    ],
+    [
+     "What systems does our value chain need?",
+     "What ecosystem are we part of?"
+    ],
+    [
+     "How do we align IT with the business?",
+     "How do outsiders safely build on us?"
+    ],
+    [
+     "What's our architecture roadmap?",
+     "Is our architecture open at the edges?"
+    ],
+    [
+     "How do we govern IT risk?",
+     "How do we govern a network we don't own?"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Pipes, Products, and Platforms"
+  },
+  {
+   "t": "p",
+   "html": "Value flows one way: design → build → sell. The firm owns the whole chain."
+  },
+  {
+   "t": "p",
+   "html": "One offering, sold directly. No crowd of outside partners needed."
+  },
+  {
+   "t": "p",
+   "html": "Connects two or more groups. The owner supplies the rules and infrastructure — not always the product."
+  },
+  {
+   "t": "p",
+   "html": "Platforms <strong>orchestrate</strong> value. They don't have to <strong>own</strong> it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Core Mechanics · Click each card"
+  },
+  {
+   "t": "p",
+   "html": "Why Platforms Get Stronger With Size"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>network effect</strong>: the platform gets more valuable as more people use it. Click each card."
+  },
+  {
+   "t": "p",
+   "html": "More drivers = shorter waits for riders. More riders = more fares for drivers."
+  },
+  {
+   "t": "p",
+   "html": "More friends on a messaging app makes it more useful to you — no other side involved."
+  },
+  {
+   "t": "p",
+   "html": "Too many drivers in one area lowers earnings per driver. Growth isn't always good."
+  },
+  {
+   "t": "p",
+   "html": "Every interaction improves recommendations for everyone — even without new users."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Watch out:</strong> network effects aren't always good. Managing the negative ones matters as much as growing the positive ones."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Two-Sided Markets · Click each tactic"
+  },
+  {
+   "t": "p",
+   "html": "Solving the Chicken-and-Egg Problem"
+  },
+  {
+   "t": "p",
+   "html": "Neither side wants to join an empty platform. The fix: price the two sides differently. Click a tactic to see who used it."
+  },
+  {
+   "t": "p",
+   "html": "Uber paid early drivers to guarantee supply before riders trusted the app."
+  },
+  {
+   "t": "p",
+   "html": "Early Airbnb worked as a browsing tool even with zero hosts nearby."
+  },
+  {
+   "t": "p",
+   "html": "Amazon and Zappos listed their own inventory first, before opening to sellers."
+  },
+  {
+   "t": "p",
+   "html": "PayPal grew by riding on eBay auctions — showing up where its users already were."
+  },
+  {
+   "t": "p",
+   "html": "Facebook launched at one campus first. Food-delivery apps still launch suburb by suburb."
+  },
+  {
+   "t": "p",
+   "html": "Today's group activity: find a real platform online and work out which of these tactics it actually used."
+  },
+  {
+   "t": "p",
+   "html": "Multi-Homing: Why Some Markets Tip, Others Don't"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Single-homing:</strong> sticking to one platform. <strong>Multi-homing:</strong> using rival platforms at once — a hotel listed on Booking.com <em>and</em> Expedia."
+  },
+  {
+   "t": "p",
+   "html": "The easier it is to multi-home, the harder it is for one platform to become a monopoly."
+  },
+  {
+   "t": "p",
+   "html": "Several platforms survive side by side."
+  },
+  {
+   "t": "p",
+   "html": "High multi-homing cost →"
+  },
+  {
+   "t": "p",
+   "html": "The market tips toward one winner."
+  },
+  {
+   "t": "p",
+   "html": "Example: Alexa, Siri and Google Assistant — the winner depends on how easily people can switch between them."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Classification · Cusumano, Gawer &amp; Yoffie"
+  },
+  {
+   "t": "p",
+   "html": "Three Kinds of Platforms"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Dimension",
+     "🔁 Transaction platform",
+     "🛠️ Innovation platform"
+    ],
+    [
+     "What it does",
+     "Lets people find and transact with each other",
+     "Gives third parties a technology base to build on"
+    ],
+    [
+     "Revenue",
+     "Commission, listing fees, subscription",
+     "Licensing, revenue share, cloud/hardware sales"
+    ],
+    [
+     "Governance focus",
+     "Trust, ratings, fraud prevention",
+     "Developer relations, API stability, IP protection"
+    ],
+    [
+     "Examples",
+     "eBay, Airbnb, Uber, Stripe",
+     "Windows, Android, AWS, Salesforce Platform"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "<strong>Hybrid platforms</strong> do both. Apple's iOS lets developers build apps (innovation); the App Store sells and distributes them (transaction). Amazon's Marketplace is transaction; AWS underneath is innovation."
+  },
+  {
+   "t": "p",
+   "html": "Four Decisions Every Platform Has to Make"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Choose your sides.</strong> Which groups will you connect?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Solve chicken-and-egg.</strong> Which side do you seed first, and how?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Design the business model.</strong> Who pays, how much, on each side?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Set the governance rules.</strong> How open is it, and who shares in the value?"
+  },
+  {
+   "t": "p",
+   "html": "Source: Cusumano, Gawer &amp; Yoffie, <em>The Business of Platforms</em> (2019)."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The IS Research Lens · Ghazawneh &amp; Henfridsson"
+  },
+  {
+   "t": "p",
+   "html": "Governance: Enable, or Control?"
+  },
+  {
+   "t": "p",
+   "html": "Platform owners govern outsiders through <strong>boundary resources</strong> — APIs, SDKs, and review processes."
+  },
+  {
+   "t": "p",
+   "html": "Every boundary resource balances two things: enough capability for developers to build value, without losing control."
+  },
+  {
+   "t": "p",
+   "html": "Enable. Attract developers."
+  },
+  {
+   "t": "p",
+   "html": "Control. Protect. Review."
+  },
+  {
+   "t": "p",
+   "html": "Case in point: Apple's App Store"
+  },
+  {
+   "t": "p",
+   "html": "Apple's app review does both jobs at once: it gives developers a huge market (resourcing), while reviewing every app and taking a commission (securing)."
+  },
+  {
+   "t": "p",
+   "html": "Governance and architecture <em>co-evolve</em>. Open up the rules without redesigning the system to support it, and you create risk."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Governance Is Not Binary"
+  },
+  {
+   "t": "p",
+   "html": "How Open Should a Platform Be?"
+  },
+  {
+   "t": "p",
+   "html": "Joel West's framing still holds: openness is \"many shades of grey.\" Most successful commercial platforms sit somewhere in the middle — open enough to attract an ecosystem, controlled enough to stay trustworthy."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Closed</strong> Traditional mainframe software — single vendor, no outside development"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Curated</strong> Apple iOS / App Store — open to developers, tightly reviewed"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Open core, curated layer</strong> Android — open-source base, curated Play Store on top"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Open standard</strong> An interoperability protocol donated to a neutral foundation so no single vendor controls it"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Fully open</strong> Wikipedia — community-governed, no gatekeeping"
+  },
+  {
+   "t": "p",
+   "html": "Where you sit on this spectrum is a strategic choice, not a technical afterthought — and it's one every SISP needs to make explicit."
+  },
+  {
+   "t": "p",
+   "html": "Competitive Strategy · Eisenmann, Parker &amp; Van Alstyne · Click each card"
+  },
+  {
+   "t": "p",
+   "html": "Envelopment: Winning by Bundling, Not Building"
+  },
+  {
+   "t": "p",
+   "html": "An <strong>enveloper</strong> doesn't out-innovate a rival platform — it enters an adjacent market and bundles its own feature in, using a user base it already owns."
+  },
+  {
+   "t": "p",
+   "html": "A social platform builds native messaging in, so users no longer need a separate standalone messaging app."
+  },
+  {
+   "t": "p",
+   "html": "A cloud storage platform adds lightweight document editing — enough overlap with a standalone office suite to erode its reason to exist."
+  },
+  {
+   "t": "p",
+   "html": "3. Functionally unrelated"
+  },
+  {
+   "t": "p",
+   "html": "A hardware ecosystem cross-sells an unrelated service — say, payments — to the installed base it already has, foreclosing a rival's entry point."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Defending against it:</strong> open up your own layer to build allies, or build a comparable bundle yourself, first."
+  },
+  {
+   "t": "p",
+   "html": "Amazon: From Bookstore to Hybrid Platform"
+  },
+  {
+   "t": "p",
+   "html": "🔁 Marketplace — transaction platform"
+  },
+  {
+   "t": "p",
+   "html": "Opened to third-party sellers to fill selection gaps, without carrying inventory risk."
+  },
+  {
+   "t": "p",
+   "html": "🛠️ AWS — innovation platform"
+  },
+  {
+   "t": "p",
+   "html": "Started as Amazon's own infrastructure, then sold externally — even to Amazon's retail rivals."
+  },
+  {
+   "t": "p",
+   "html": "<strong>The Flywheel:</strong> lower prices + more selection → more traffic → more sellers → lower costs → lower prices again."
+  },
+  {
+   "t": "p",
+   "html": "<strong>SISP takeaway:</strong> internal infrastructure can become a second platform business. Who gets admitted is a governance call, not an operational one."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Case Study 2 · A Counter-Example · Click each card"
+  },
+  {
+   "t": "p",
+   "html": "GE Predix: When a Platform Strategy Fails"
+  },
+  {
+   "t": "p",
+   "html": "GE launched Predix in 2014 to become \"the Android of industry.\" It was quietly retired around 2022. Click each card."
+  },
+  {
+   "t": "p",
+   "html": "Tried to serve too many sides"
+  },
+  {
+   "t": "p",
+   "html": "Aviation, healthcare and oil &amp; gas all need different things. One platform couldn't go deep enough in any of them."
+  },
+  {
+   "t": "p",
+   "html": "Built its own cloud, alone"
+  },
+  {
+   "t": "p",
+   "html": "GE built its own data centres instead of using AWS or Azure — competing with far bigger cloud players."
+  },
+  {
+   "t": "p",
+   "html": "Hard for outsiders to build on. A platform with no developer ecosystem is just expensive custom software."
+  },
+  {
+   "t": "p",
+   "html": "GE spent roughly $4 billion over six years on Predix. Most platform teaching leans on winners — this is the counter-example worth remembering."
+  },
+  {
+   "t": "p",
+   "html": "Does Being a Platform Actually Pay Off?"
+  },
+  {
+   "t": "p",
+   "html": "A study of 43 public platform companies found they did the same revenue with <strong>half the staff</strong>, <strong>twice the profit</strong>, and <strong>twice the growth</strong> of similar non-platform firms."
+  },
+  {
+   "t": "p",
+   "html": "A separate study of 959 unicorns found platform models carry a real valuation premium — though the size varies by region."
+  },
+  {
+   "t": "p",
+   "html": "Valuation premium, platform vs. non-platform unicorns · one study, one point in time."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Don't Teach This Uncritically"
+  },
+  {
+   "t": "p",
+   "html": "Where Platform Strategy Goes Wrong"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Mispricing</strong> — subsidise the wrong side and liquidity never arrives.",
+    "<strong>Cold-start failure</strong> — most launches never solve chicken-and-egg.",
+    "<strong>Scope overreach</strong> — the Predix pattern: too many verticals at once."
+   ]
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Trust collapse</strong> — weak governance can destroy the value fast.",
+    "<strong>Dependence</strong> — once sellers rely on you, you can change the rules on them.",
+    "<strong>Regulation</strong> — antitrust scrutiny grows with platform dominance."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "This isn't \"don't build platforms.\" It's: plan for the trade-offs — don't assume a guaranteed win."
+  },
+  {
+   "t": "p",
+   "html": "Six Questions for Your Own SISP Work"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Sides:</strong> do we connect two or more groups who need each other?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Latent asset:</strong> do we have infrastructure or data others would value too?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Network effect:</strong> does one more user make it better for everyone else?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Chicken-and-egg:</strong> which side can we seed first, and how?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Governance readiness:</strong> can we build the rules and APIs responsibly?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Envelopment risk:</strong> who could bundle us out of our own market?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Before We Move to the Activity"
+  },
+  {
+   "t": "p",
+   "html": "Questions Worth Sitting With"
+  },
+  {
+   "t": "p",
+   "html": "Name something you use weekly that's a pure pipeline business. Now name one that quietly became a hybrid platform without you noticing."
+  },
+  {
+   "t": "p",
+   "html": "Pick a platform you use regularly. Which adjacent platform could envelop it — and how would you defend against that?"
+  },
+  {
+   "t": "p",
+   "html": "GE had money, engineers, and existing industrial customers. Which single decision point, if reversed, might have saved Predix?"
+  },
+  {
+   "t": "p",
+   "html": "Find a Platform. Present It."
+  },
+  {
+   "t": "p",
+   "html": "Get into groups of 4–6. Pick any real platform — one you use, or one you've heard of. Research it online, then prepare a short presentation for the class."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Who are its two or more sides?",
+    "How did it solve the chicken-and-egg problem?",
+    "How does it make money, and how open is it?"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Form groups, pick a platform 5 min"
+  },
+  {
+   "t": "p",
+   "html": "Research online, build slides 25 min"
+  }
+ ]
+}
