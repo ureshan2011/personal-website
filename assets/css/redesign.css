@@ -928,6 +928,9 @@ html.lenis, html.lenis body { height: auto; }
 .pgnz-pitch { position: sticky; top: 110px; }
 .pgnz-lede { margin-top: 18px; color: var(--ink-soft); font-size: 16.5px; }
 .pgnz-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+.pgnz-photo { margin: 26px 0 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow-sm); }
+.pgnz-photo img { width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
+.pgnz-photo figcaption { padding: 10px 14px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); }
 .pgnz-path { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
 .pgnz-path-ic { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 12px; }
 .pgnz-path h3 { font-size: 17px; }
@@ -1230,7 +1233,7 @@ html.lenis, html.lenis body { height: auto; }
 .sh-img img { width: 100%; height: 100%; object-fit: cover; object-position: var(--fp, 50% 50%); transition: transform .8s var(--ease); }
 .sh-door:hover .sh-img img { transform: scale(1.04); }
 .sh-live {
-  position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 7px;
+  position: absolute; right: 12px; top: 12px; display: inline-flex; align-items: center; gap: 7px;
   height: 28px; padding: 0 11px; border-radius: 999px; background: rgba(12, 18, 32, .84); color: #fff;
   font-size: 12px; font-weight: 600;
 }
