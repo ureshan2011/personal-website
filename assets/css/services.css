@@ -260,6 +260,7 @@
 .hero-photo img { width: 100%; height: auto; }
 .hero-photo figcaption { padding: 10px 14px; font-size: 12.5px; color: var(--muted); background: var(--card); border-top: 1px solid var(--line); }
 .hero-split { align-items: center; }
+.story-photo { margin-top: 28px; }
 .story p { color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 17.5px); line-height: 1.75; }
 .story p + p { margin-top: 18px; }
 .story p:first-child::first-letter { font-family: var(--serif); float: left; font-size: 64px; line-height: .9; padding: 6px 10px 0 0; color: var(--ink); }
