@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Hero concept B: Across Distance</title>
+<link rel="stylesheet" href="mockup-base.css"/>
+<style>
+  body { background: #060a16; color: #fff; }
+  .mnav-logo, .mnav-links a { color: rgba(255,255,255,.78); }
+  .mnav-logo em { color: #8fb2ff; }
+  .mnav-links a.btn { background: #fff; border-color: #fff; color: #0b1226; }
+  .mnav-menu { border-color: rgba(255,255,255,.25); color: #fff; background: transparent; }
+
+  .hero { position: relative; overflow: hidden; min-height: calc(100vh - 78px); display: flex; flex-direction: column; }
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 55% 60% at 72% 48%, rgba(47,107,255,.22), transparent 70%),
+                radial-gradient(ellipse 40% 40% at 10% 10%, rgba(94,234,212,.06), transparent 70%); }
+  /* star-dust */
+  .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background-image: radial-gradient(1px 1px at 12% 22%, #fff, transparent), radial-gradient(1px 1px at 34% 78%, #fff, transparent),
+      radial-gradient(1px 1px at 58% 12%, #fff, transparent), radial-gradient(1px 1px at 91% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 22% 58%, #fff, transparent), radial-gradient(1px 1px at 47% 40%, #fff, transparent),
+      radial-gradient(1px 1px at 80% 88%, #fff, transparent), radial-gradient(1px 1px at 6% 90%, #fff, transparent); }
+
+  .hero-grid { position: relative; z-index: 2; flex: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: 40px 48px 0; display: grid; grid-template-columns: minmax(0, 590px) 1fr; align-items: center; }
+  .where { font: 500 12.5px/1.4 var(--mono); letter-spacing: .06em; color: rgba(255,255,255,.62); display: flex; align-items: center; gap: 10px; }
+  .where i { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 4px rgba(52,211,153,.2); }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 6.6vw, 96px); line-height: .96; letter-spacing: -0.03em; margin: 26px 0 26px; color: #fff; }
+  h1 em { font-style: italic; background: linear-gradient(92deg, #8fb2ff 10%, #5eead4 90%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .06em; }
+  .lede { font-size: 19px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 540px; }
+  .lede strong { color: #fff; font-weight: 600; }
+  .lede .km { color: #5eead4; font-weight: 600; }
+  .ctas { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn-white { background: #fff; border-color: #fff; color: #0b1226; }
+  .btn-ghost { border-color: rgba(255,255,255,.28); color: #fff; }
+
+  .globe-wrap { position: absolute; z-index: 1; right: max(0px, calc((100vw - 1280px) / 2 - 40px)); top: 0; width: 820px; height: 100%; }
+  .globe-wrap svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .pin { position: absolute; z-index: 3; transform: translate(-50%, -50%); }
+  .pin .dotp { width: 12px; height: 12px; border-radius: 50%; background: #5eead4; box-shadow: 0 0 0 5px rgba(94,234,212,.22), 0 0 20px 4px rgba(94,234,212,.55); }
+  .pin.home { width: 58px; height: 58px; }
+  .pin.home img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; object-position: 50% 26%; border: 3px solid #fff; box-shadow: 0 0 0 8px rgba(143,178,255,.22), 0 12px 30px rgba(0,0,0,.5); }
+  .chip { position: absolute; z-index: 4; white-space: nowrap; padding: 9px 12px 10px; border-radius: 12px;
+    background: rgba(12,20,44,.72); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .chip .c { display: block; font: 600 10.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: #8fb2ff; margin-bottom: 5px; }
+  .chip b { font-size: 13.5px; font-weight: 600; }
+  .chip small { display: block; font-size: 12px; color: rgba(255,255,255,.62); margin-top: 2px; }
+
+  .itinerary { position: relative; z-index: 3; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 48px 30px; }
+  .itinerary-inner { display: grid; grid-template-columns: auto repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,.12); padding-top: 20px; }
+  .itinerary .lab { font: 600 11px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); padding-right: 36px; padding-top: 2px; }
+  .stop { padding: 0 24px; border-left: 1px solid rgba(255,255,255,.1); }
+  .stop .d { font: 600 12px/1 var(--mono); letter-spacing: .06em; color: #5eead4; }
+  .stop b { display: block; font-size: 14.5px; font-weight: 600; margin-top: 8px; }
+  .stop span { display: block; font-size: 13px; color: rgba(255,255,255,.6); margin-top: 3px; }
+
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; padding: 16px 20px 0; align-items: start; }
+    .where { font-size: 11px; }
+    h1 { font-size: 52px; margin: 18px 0 16px; }
+    .lede { font-size: 16px; }
+    .ctas { margin-top: 22px; gap: 10px; }
+    .ctas .btn { flex: 1; }
+    .globe-wrap { position: relative; right: auto; width: 100%; height: 390px; margin-top: 6px; }
+    .pin.home, .pin.home img { width: 42px; height: 42px; }
+    .chip b { font-size: 12.5px; }
+    .itinerary { display: none; }
+    .chip small { display: none; }
+    .chip { padding: 7px 10px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="mnav">
+  <div class="mnav-inner">
+    <a class="mnav-logo" href="#">Yasas Sri<br/><em>Wickramasinghe</em></a>
+    <div class="mnav-links">
+      <a href="#">Research</a><a href="#">Teaching</a><a href="#">Speaking</a><a href="#">Products</a><a href="#">Writing</a><a href="#">About</a>
+      <a class="btn btn-solid btn-sm" href="#">Work with me →</a>
+    </div>
+    <button class="mnav-menu" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div class="copy">
+      <span class="where"><i></i><span id="clock">Ōtautahi Christchurch · 43.53° S · 9:41 pm</span></span>
+      <h1>Making distance <em>feel smaller.</em></h1>
+      <p class="lede">I'm <strong>Dr. Yasas Sri Wickramasinghe</strong>. I design multiplayer augmented reality at HIT Lab NZ, teach postgraduates at Yoobee College, and run a live classroom for students <span class="km">10,760 km</span> away in Sri Lanka.</p>
+      <div class="ctas">
+        <a class="btn btn-white" href="#">Work with me →</a>
+        <a class="btn btn-ghost" href="#">Where I'm speaking</a>
+      </div>
+    </div>
+    <div class="globe-wrap" id="globe"><svg id="globeSvg" aria-hidden="true"></svg></div>
+  </div>
+
+  <div class="itinerary">
+    <div class="itinerary-inner">
+      <span class="lab">Next<br/>stops</span>
+      <a class="stop" href="#"><span class="d">01 OCT 2026</span><b>NZGDC · Auckland</b><span>Designing Shared Worlds Across Distance →</span></a>
+      <a class="stop" href="#"><span class="d">16–18 NOV 2026</span><b>ACM VRST · Sendai, Japan</b><span>Presence &amp; motion sickness in VR →</span></a>
+      <a class="stop" href="#"><span class="d">DATE TBA</span><b>ICITR · University of Moratuwa</b><span>Workshop 01 — shared worlds →</span></a>
+    </div>
+  </div>
+</header>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+(function () {
+  var mobile = matchMedia('(max-width: 760px)').matches;
+  // Live local time in Christchurch — a small human signal that this person works across time zones.
+  try {
+    var t = new Intl.DateTimeFormat('en-NZ', { timeZone: 'Pacific/Auckland', hour: 'numeric', minute: '2-digit' }).format(new Date());
+    document.getElementById('clock').textContent = (mobile ? 'Christchurch · 43.53° S · ' : 'Ōtautahi Christchurch · 43.53° S, 172.63° E · ') + t.toLowerCase() + ' here';
+  } catch (e) {}
+
+  var R2D = Math.PI / 180;
+  var center = mobile ? [128, -6] : [128, -6];           // lon, lat the globe faces
+  var places = {
+    chc: { ll: [172.63, -43.53] },
+    akl: { ll: [174.76, -36.85] },
+    cmb: { ll: [79.86, 6.93] },
+    sdj: { ll: [140.87, 38.27] }
+  };
+  var wrap = document.getElementById('globe'), svg = document.getElementById('globeSvg');
+  var W = wrap.clientWidth, H = wrap.clientHeight;
+  var R = mobile ? 158 : 330, cx = mobile ? W * 0.52 : W * 0.63, cy = mobile ? 196 : H * 0.47;
+
+  function proj(ll, k) {
+    k = k || 1;
+    var l = (ll[0] - center[0]) * R2D, p = ll[1] * R2D, p0 = center[1] * R2D;
+    var cosc = Math.sin(p0) * Math.sin(p) + Math.cos(p0) * Math.cos(p) * Math.cos(l);
+    var x = Math.cos(p) * Math.sin(l), y = Math.cos(p0) * Math.sin(p) - Math.sin(p0) * Math.cos(p) * Math.cos(l);
+    return [cx + R * k * x, cy - R * k * y, cosc];
+  }
+
+  fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json').then(function (r) { return r.json(); }).then(function (world) {
+    var land = topojson.feature(world, world.objects.land);
+    var ns = 'http://www.w3.org/2000/svg', out = [];
+    out.push('<defs>' +
+      '<radialGradient id="sea" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#14224d"/><stop offset=".7" stop-color="#0a1330"/><stop offset="1" stop-color="#060b1e"/></radialGradient>' +
+      '<radialGradient id="rim" cx="50%" cy="50%" r="50%"><stop offset=".82" stop-color="#4f7dff" stop-opacity="0"/><stop offset="1" stop-color="#6ea0ff" stop-opacity=".45"/></radialGradient>' +
+      '<linearGradient id="arcg" x1="0" x2="1"><stop offset="0" stop-color="#8fb2ff"/><stop offset="1" stop-color="#5eead4"/></linearGradient>' +
+      '<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+      '<filter id="halo" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="18"/></filter>' +
+      '</defs>');
+    out.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + (R + 6) + '" fill="none" stroke="#4f7dff" stroke-opacity=".55" stroke-width="10" filter="url(#halo)"/>');
+    out.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="url(#sea)"/>');
+
+    // graticule
+    var g = '';
+    for (var lon = -180; lon < 180; lon += 20) {
+      var d = '', pen = false;
+      for (var lat = -90; lat <= 90; lat += 3) { var q = proj([lon, lat]); if (q[2] > 0) { d += (pen ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); pen = true; } else pen = false; }
+      g += '<path d="' + d + '"/>';
+    }
+    for (var la = -80; la <= 80; la += 20) {
+      var d2 = '', pen2 = false;
+      for (var lo = -180; lo <= 180; lo += 3) { var q2 = proj([lo, la]); if (q2[2] > 0) { d2 += (pen2 ? 'L' : 'M') + q2[0].toFixed(1) + ' ' + q2[1].toFixed(1); pen2 = true; } else pen2 = false; }
+      g += '<path d="' + d2 + '"/>';
+    }
+    out.push('<g fill="none" stroke="#8fb2ff" stroke-opacity=".08" stroke-width="1">' + g + '</g>');
+
+    // dot-matrix land
+    var dots = '', step = mobile ? 2.3 : 1.75;
+    for (var lat2 = -84; lat2 <= 84; lat2 += step) {
+      var ls = step / Math.max(Math.cos(lat2 * R2D), 0.15);
+      for (var lon2 = -180; lon2 < 180; lon2 += ls) {
+        var p = proj([lon2, lat2]);
+        if (p[2] <= 0.02) continue;
+        if (!d3.geoContains(land, [lon2, lat2])) continue;
+        var o = (0.18 + 0.7 * p[2]).toFixed(2), rr = (1.1 + 0.9 * p[2]).toFixed(2);
+        dots += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + rr + '" fill-opacity="' + o + '"/>';
+      }
+    }
+    out.push('<g fill="#a9c1ff">' + dots + '</g>');
+    out.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="url(#rim)"/>');
+
+    // elevated great-circle arcs from home
+    function arc(a, b, id, lift) {
+      var interp = d3.geoInterpolate(a, b), d = '';
+      for (var i = 0; i <= 64; i++) { var t = i / 64, q = proj(interp(t), 1 + lift * Math.sin(Math.PI * t)); d += (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1); }
+      return '<path id="' + id + '" d="' + d + '" fill="none" stroke="url(#arcg)" stroke-width="2.2" stroke-linecap="round" filter="url(#glow)"/>' +
+             '<circle r="4" fill="#fff" filter="url(#glow)"><animateMotion dur="' + (3 + lift * 6) + 's" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear"><mpath href="#' + id + '"/></animateMotion></circle>';
+    }
+    out.push(arc(places.chc.ll, places.cmb.ll, 'a1', 0.22));
+    out.push(arc(places.chc.ll, places.sdj.ll, 'a2', 0.2));
+    out.push(arc(places.chc.ll, places.akl.ll, 'a3', 0.03));
+    svg.innerHTML = out.join('');
+
+    // HTML pins + label chips
+    function place(key, cls, html, dx, dy) {
+      var q = proj(places[key].ll);
+      var pin = document.createElement('div'); pin.className = 'pin ' + cls; pin.style.left = q[0] + 'px'; pin.style.top = q[1] + 'px';
+      pin.innerHTML = cls === 'home' ? '<img src="../../assets/files/speaker-kit/yasas-sri-wickramasinghe-headshot.jpg" alt=""/>' : '<div class="dotp"></div>';
+      wrap.appendChild(pin);
+      if (!html) return;
+      var chip = document.createElement('div'); chip.className = 'chip'; chip.innerHTML = html; chip.style.left = (q[0] + dx) + 'px'; chip.style.top = (q[1] + dy) + 'px';
+      wrap.appendChild(chip);
+    }
+    place('chc', 'home', mobile ? '<span class="c">Home base</span><b>Christchurch</b>' : '<span class="c">Home base · Christchurch</span><b>HIT Lab NZ</b><small>Research &amp; postgraduate teaching</small>', mobile ? -128 : -250, mobile ? 14 : 34);
+    place('akl', '', mobile ? '' : '<span class="c">Auckland · 1 Oct</span><b>NZGDC talk</b>', 22, -64);
+    place('cmb', '', mobile ? '<span class="c">Colombo</span><b>ICT Campus</b>' : '<span class="c">Colombo · 10,760 km</span><b>ICT Campus</b><small>Live A/L ICT classes, in Sinhala &amp; English</small>', mobile ? -14 : 16, mobile ? 14 : 16);
+    place('sdj', '', mobile ? '<span class="c">Japan</span><b>Sony · VRST</b>' : '<span class="c">Tokyo &amp; Sendai</span><b>Sony Interactive · Tohoku · VRST</b><small>Research partners &amp; ACM VRST 2026</small>', mobile ? 16 : 22, mobile ? -54 : -78);
+  });
+})();
+</script>
+</body>
+</html>

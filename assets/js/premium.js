@@ -142,4 +142,90 @@
     };
     requestAnimationFrame(tick);
   }
+
+  // ---- Hero depth: gentle scroll + pointer parallax on [data-depth] ----
+  // data-depth = scroll speed (negative drifts up faster than the page),
+  // data-pointer = max px shift towards the cursor. Wide screens get both;
+  // narrow screens keep only the portrait drifting inside its frame.
+  var depthEls = Array.prototype.slice.call(document.querySelectorAll("[data-depth]"));
+  var heroEl = document.querySelector(".hero");
+  if (!reduced && depthEls.length && heroEl) {
+    var layers = depthEls.map(function (el) {
+      return {
+        el: el,
+        depth: parseFloat(el.getAttribute("data-depth")) || 0,
+        pointer: parseFloat(el.getAttribute("data-pointer")) || 0,
+        always: el.classList.contains("hero-portrait-layer")
+      };
+    });
+    var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var tx = 0, ty = 0, cx = 0, cy = 0, queued = false;
+    var queue = function () { if (!queued) { queued = true; requestAnimationFrame(renderDepth); } };
+    var renderDepth = function () {
+      queued = false;
+      cx += (tx - cx) * 0.1;
+      cy += (ty - cy) * 0.1;
+      var wide = window.innerWidth > 940;
+      var sy = Math.min(window.scrollY, window.innerHeight * 1.2);
+      for (var i = 0; i < layers.length; i++) {
+        var l = layers[i];
+        if (!wide && !l.always) { l.el.style.transform = ""; continue; }
+        var x = wide ? cx * l.pointer : 0;
+        var y = sy * l.depth + (wide ? cy * l.pointer : 0);
+        l.el.style.transform = "translate3d(" + x.toFixed(2) + "px," + y.toFixed(2) + "px,0)";
+      }
+      if (Math.abs(tx - cx) > 0.002 || Math.abs(ty - cy) > 0.002) queue();
+    };
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    if (finePointer) {
+      heroEl.addEventListener("pointermove", function (e) {
+        var r = heroEl.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+        ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+        queue();
+      });
+      heroEl.addEventListener("pointerleave", function () { tx = 0; ty = 0; queue(); });
+    }
+    queue();
+  }
+
+  // ---- Hero router: "What brings you here?" (WAI-ARIA tabs pattern) ----
+  var heroTabs = Array.prototype.slice.call(document.querySelectorAll(".hero-tab"));
+  if (heroTabs.length) {
+    var selectTab = function (tab, focus) {
+      heroTabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+    };
+    heroTabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { selectTab(t); });
+      t.addEventListener("keydown", function (e) {
+        var n = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") n = heroTabs[(i + 1) % heroTabs.length];
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = heroTabs[(i - 1 + heroTabs.length) % heroTabs.length];
+        else if (e.key === "Home") n = heroTabs[0];
+        else if (e.key === "End") n = heroTabs[heroTabs.length - 1];
+        if (n) { e.preventDefault(); selectTab(n, true); }
+      });
+    });
+  }
+
+  // ---- Next talk: the markup names the next event; once it has passed, move on ----
+  // data-next-event holds [{ "end": "YYYY-MM-DD", "label": "...", "href": "..." }, ...]
+  document.querySelectorAll("[data-next-event]").forEach(function (el) {
+    var list;
+    try { list = JSON.parse(el.getAttribute("data-next-event") || "[]"); } catch (e) { return; }
+    var today = new Date().toISOString().slice(0, 10);
+    var next = list.filter(function (ev) { return ev.end >= today; })[0] ||
+      { label: "Upcoming talks & events", href: "news.html#upcoming" };
+    var label = el.querySelector("span");
+    if (label) label.textContent = next.label;
+    el.setAttribute("href", next.href);
+  });
 })();

@@ -86,7 +86,7 @@ scope agreed up front (yasassri.me/work-with-me.html).
 
 **FAQ.**
 Q: Who is Dr. Yasas Sri Wickramasinghe? A: Dr. Yasas Sri Wickramasinghe is an
-augmented reality researcher, university lecturer and software builder based
+augmented reality researcher, university lecturer and software engineer based
 in Christchurch, New Zealand. He is a Postdoctoral Researcher at HIT Lab NZ
 (University of Canterbury) and a Senior Lecturer at Yoobee College of
 Creative Innovation.
@@ -695,7 +695,7 @@ X/Twitter @sri_yasas.
 ## Work With Me — https://www.yasassri.me/work-with-me.html
 
 Research-grade thinking for teams building immersive and learning experiences.
-I'm an augmented reality researcher, a senior lecturer and a software builder.
+I'm an augmented reality researcher, a senior lecturer and a software engineer.
 Organisations bring me in when they need all three at once: to decide whether
 an immersive idea is worth building, to find out whether people actually enjoy
 using it, or to build a classroom that students don't skip. Proof points: 128
