@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Speaker one-sheet (source)</title>
+<!-- Source for assets/files/speaker-kit/yasas-sri-wickramasinghe-speaker-one-sheet.pdf
+     and speaker-one-sheet-preview.jpg. Rebuild with:
+       node scripts/speaker-one-sheet/build.mjs   (serve the repo root on :8765 first) -->
+<link rel="stylesheet" href="../../assets/css/fonts.css"/>
+<link rel="stylesheet" href="../../assets/css/fonts-newsreader.css"/>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 794px; height: 1123px; }
+  body { font-family: "Inter", sans-serif; color: #131a26; -webkit-font-smoothing: antialiased; display: grid; grid-template-columns: 262px 1fr; }
+  aside { background: #111827; color: #d7dce5; padding: 54px 30px 40px 34px; }
+  aside img { width: 192px; height: 232px; object-fit: cover; object-position: 50% 18%; border-radius: 16px; display: block; }
+  aside h4 { margin: 32px 0 10px; font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #7ea3ff; }
+  aside li { list-style: none; font-size: 12px; line-height: 1.45; margin-bottom: 8px; color: #d7dce5; }
+  aside .contact li { color: #fff; }
+  main { padding: 60px 41px 40px 49px; display: flex; flex-direction: column; }
+  .k { font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #2f6bff; }
+  h1 { margin-top: 10px; font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 37px; line-height: 1.08; letter-spacing: -.015em; }
+  .role { margin-top: 16px; font-size: 12.5px; line-height: 1.4; color: #475063; }
+  .bio { margin-top: 22px; font-size: 13px; line-height: 1.62; color: #2a3140; }
+  h2 { margin-top: 30px; padding-bottom: 10px; border-bottom: 1px solid #e4e8ef; font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 20px; }
+  .talks { margin-top: 14px; }
+  .talk { display: grid; grid-template-columns: 34px 1fr; margin-bottom: 14px; }
+  .talk .n { font-family: "Newsreader", Georgia, serif; font-size: 19px; color: #2f6bff; line-height: 1.1; }
+  .talk b { display: block; font-size: 13.5px; font-weight: 600; line-height: 1.35; }
+  .talk span { display: block; margin-top: 3px; font-size: 11.5px; line-height: 1.5; color: #475063; }
+  .venues { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 7px 6px; }
+  .venues span { height: 25px; padding: 0 12px; border: 1px solid #d3d9e3; border-radius: 999px; display: inline-flex; align-items: center; font-size: 10.5px; font-weight: 500; }
+  footer { margin-top: auto; padding-top: 18px; border-top: 1px solid #e4e8ef; display: grid; grid-template-columns: auto 1fr; gap: 30px; font-size: 11.5px; color: #475063; line-height: 1.45; }
+  footer b { display: block; color: #131a26; font-weight: 600; }
+</style>
+</head>
+<body>
+<aside>
+  <img src="../../assets/files/speaker-kit/yasas-sri-wickramasinghe-headshot.jpg" alt="Dr. Yasas Sri Wickramasinghe"/>
+  <h4>Formats</h4>
+  <ul><li>Keynotes &amp; conference talks</li><li>Half-day workshops</li><li>Panels &amp; guest lectures</li><li>Online worldwide · in person across NZ</li></ul>
+  <h4>Recent &amp; upcoming</h4>
+  <ul><li>NZGDC 2026 — Auckland</li><li>ACM VRST 2026 — Sendai, Japan</li><li>ICITR 2026 — Univ. of Moratuwa</li><li>IEEE Entrepreneurship Sri Lanka</li><li>Code Champ 2026 · IEEE WIE 2026</li></ul>
+  <h4>Contact</h4>
+  <ul class="contact"><li>yasassri.me/speaking</li><li>yasassriofficial@gmail.com</li><li>linkedin.com/in/yasassri</li></ul>
+</aside>
+<main>
+  <span class="k">Speaker</span>
+  <h1>Dr. Yasas Sri<br/>Wickramasinghe</h1>
+  <p class="role">Augmented reality researcher · Senior lecturer · Software engineer — Christchurch, New Zealand</p>
+  <p class="bio">Dr. Yasas Sri Wickramasinghe is an augmented reality researcher, educator and software engineer based in Christchurch, New Zealand. He is a Postdoctoral Researcher at HIT Lab NZ, University of Canterbury, a Senior Lecturer at Yoobee College of Creative Innovation, and the founder of ICT Campus, an online classroom for Sri Lankan students. His PhD research on multiplayer location-based AR games, conducted with Sony Interactive Entertainment and Niantic, is published at IEEE VR, ACM and Elsevier venues. Before academia he was a technical lead in industry, co-founded an AR/VR start-up under the MIT Global Startup Labs programme, and led part of a university MOOC platform that grew to more than 150,000 learners.</p>
+
+  <h2>Signature talks</h2>
+  <div class="talks">
+    <div class="talk"><span class="n">01</span><div><b>Designing Shared Worlds Across Distance</b><span>What three studies and 128 players taught me about AR that connects people in different places.</span></div></div>
+    <div class="talk"><span class="n">02</span><div><b>From Research to Reality: Where AR/VR Creates Real Value</b><span>Spatial computing without the hype — where AR and VR measurably help, and how research becomes products.</span></div></div>
+    <div class="talk"><span class="n">03</span><div><b>The Collaboration Reflex: Why Win-Win Is Usually the Wrong Answer</b><span>Forty-five real workplace conflicts, and what experienced professionals do instead of reaching for collaboration.</span></div></div>
+  </div>
+
+  <h2>Where I speak &amp; present</h2>
+  <div class="venues"><span>NZGDC</span><span>IEEE VR</span><span>ACM VRST</span><span>OzCHI</span><span>ACM SUI</span><span>Falling Walls Lab NZ</span><span>Tohoku University</span><span>IEEE WIE Sri Lanka</span><span>IEEE Computer Society SL</span><span>IEEE Entrepreneurship SL</span><span>University of Moratuwa</span></div>
+
+  <footer>
+    <div>Book a talk:<b>yasassri.me/app/#/invite</b></div>
+    <div>Bios, headshots &amp; tech rider:<b>yasassri.me/speaking.html#kit</b></div>
+  </footer>
+</main>
+</body>
+</html>

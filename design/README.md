@@ -1,6 +1,8 @@
 # Homepage UX audit and hero redesign
 
 Design working files. Nothing here is linked from the live site; every mockup page carries `noindex`.
+
+**Status (28 Sep 2026):** concept C (editorial router) is now live on `index.html`, with scroll and pointer parallax and a PhD seal in place of the "Hi" badge. The "Start here" section is live directly under the marquee. Its thumbnails show Yasas's face in all four doors.
 Open the HTML files through a local server (`python3 -m http.server`) so the relative image paths resolve.
 Rendered images are in `mockups/renders/`.
 
