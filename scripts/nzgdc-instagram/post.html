@@ -117,10 +117,14 @@ h1 em { font-style: italic; font-weight: 400; color: var(--orange); letter-spaci
 }
 .rows { display: grid; grid-template-rows: 1fr 1fr; }
 .date { display: flex; align-items: center; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+/* background-clip:text only paints inside the box, so the box is padded well past
+   the glyphs' overshoot and the padding is cancelled with negative margins. */
 .date .day {
-  font-family: var(--serif); font-weight: 460; font-size: 128px; line-height: .78; letter-spacing: -0.04em; font-variation-settings: 'opsz' 28;
-  background: linear-gradient(180deg, #fff 10%, var(--peach) 60%, var(--orange-hot) 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent; padding-top: 6px;
+  display: block; flex: none;
+  font-family: var(--serif); font-weight: 460; font-size: 128px; line-height: 1; letter-spacing: -0.04em; font-variation-settings: 'opsz' 28;
+  padding: 24px 12px 28px; margin: -30px -12px -34px;
+  background: linear-gradient(180deg, #fff 26%, var(--peach) 52%, var(--orange-hot) 76%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .date small, .venue small { display: block; font-size: 12.5px; color: var(--orange-hot); }
 .date p { margin-top: 8px; font-size: 30px; font-weight: 600; letter-spacing: -0.015em; color: #fff; line-height: 1.1; }
