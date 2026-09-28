@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Holo research cards — cards.html (the prize for finding the six crystals)
+   Holo research cards — cards.html (the prize for finding every cache)
 
    Works in layers, so every browser gets a complete page:
      · No JavaScript: every card is visible and flips with its Flip control
@@ -30,7 +30,7 @@
     var(--hc-night);
   color: #fff;
 }
-.hc-vault::before { /* faint tracking grid, echoing AR Mode */
+.hc-vault::before { /* a faint grid behind the display case */
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .5;
   background-image: linear-gradient(rgba(157, 184, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(157, 184, 255, .06) 1px, transparent 1px);
   background-size: 56px 56px;
@@ -57,9 +57,9 @@
 }
 .hc-status[hidden] { display: none; }
 .hc-status-l { display: flex; align-items: center; gap: 16px; min-width: 0; }
-.hc-gems { display: flex; gap: 5px; flex: none; }
-.hc-gems svg { width: 15px; height: 23px; }
-.hc-gems .off path { fill: #dfe4ee; }
+.hc-gems { display: flex; gap: 4px; flex: none; }
+.hc-gems svg { display: block; width: 20px; height: 18px; }
+.hc-gems .off rect { fill: #dfe4ee; }
 .hc-status p { margin: 0; font-size: 14.5px; color: var(--ink-soft); max-width: 56ch; }
 .hc-status p b { color: var(--ink); }
 .hc-acts { display: flex; gap: 10px; flex-wrap: wrap; }

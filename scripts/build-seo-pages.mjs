@@ -731,7 +731,6 @@ function pageShell({ depth, title, description, canonical, ogImage, jsonLd, body
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script>try{if(localStorage.getItem("arx")==="on"&&!/[?&]ar=off\\b/.test(location.search)){document.documentElement.classList.add("arx-on","arx-restore");addEventListener("load",function(){window.ARXL||document.documentElement.classList.remove("arx-on","arx-restore")})}}catch(e){}</script>
 <title>${esc(title)}</title>
 <meta name="author" content="Yasas Sri Wickramasinghe"/>
 <meta name="description" content="${esc(description)}"/>
@@ -800,7 +799,7 @@ ${bodyHtml}
   </div>
 </footer>
 
-<script src="${up}assets/js/ar-mode.js" defer></script>
+<script src="${up}assets/js/hunt.js" defer></script>
 </body>
 </html>
 `;
