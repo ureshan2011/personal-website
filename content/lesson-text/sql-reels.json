@@ -1,0 +1,262 @@
+{
+ "slug": "sql-reels",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/sql-reels",
+ "title": "UPDATE and DELETE",
+ "pageTitle": "UPDATE and DELETE · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 412,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "An interactive lesson · Dr. Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let’s make sense of UPDATE &amp; DELETE."
+  },
+  {
+   "t": "p",
+   "html": "One missing WHERE clause and your whole table is gone. In this lesson you’ll watch the funny reels, run a live query simulator, and play “Safe or Sus?” so you never make that mistake."
+  },
+  {
+   "t": "p",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Two statements, one little safety net"
+  },
+  {
+   "t": "p",
+   "html": "UPDATE changes rows; DELETE removes them. Both quietly hit every row in the table unless you add a WHERE clause to say which rows you mean. Here’s the difference at a glance."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Aspect",
+     "UPDATE",
+     "DELETE"
+    ],
+    [
+     "What it does",
+     "Changes values in rows",
+     "Removes rows entirely"
+    ],
+    [
+     "Needs WHERE?",
+     "Yes — or every row changes",
+     "Yes — or every row is deleted"
+    ],
+    [
+     "Keyword to set values",
+     "SET column = value",
+     "— (no SET)"
+    ],
+    [
+     "Worst-case mistake",
+     "All rows overwritten",
+     "Whole table emptied"
+    ],
+    [
+     "Safety habit",
+     "SELECT first, then UPDATE",
+     "SELECT first, then DELETE"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Without WHERE"
+  },
+  {
+   "t": "pre",
+   "text": "DELETE FROM students;\nUPDATE students SET grade = 'F';"
+  },
+  {
+   "t": "p",
+   "html": "Hits <strong>every single row</strong>. Everyone fails. Everyone is deleted."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "With WHERE"
+  },
+  {
+   "t": "pre",
+   "text": "DELETE FROM students WHERE id = 3;\nUPDATE students SET grade = 'F'\n WHERE id = 3;"
+  },
+  {
+   "t": "p",
+   "html": "Only the rows you <strong>target</strong> change. Precise, predictable, sane."
+  },
+  {
+   "t": "p",
+   "html": "Try it · live simulator"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Toggle the WHERE clause and watch"
+  },
+  {
+   "t": "p",
+   "html": "Pick UPDATE or DELETE, switch the WHERE clause on or off, then run it. See exactly what happens to the table — no real database is harmed."
+  },
+  {
+   "t": "p",
+   "html": "Operation"
+  },
+  {
+   "t": "p",
+   "html": "WHERE clause"
+  },
+  {
+   "t": "p",
+   "html": "Target row (id)"
+  },
+  {
+   "t": "p",
+   "html": "Your query"
+  },
+  {
+   "t": "pre",
+   "text": "UPDATE users\n   SET status = 'banned'\n WHERE id = 3;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "name",
+     "status"
+    ],
+    [
+     "1",
+     "Aisha",
+     "active"
+    ],
+    [
+     "2",
+     "Ben",
+     "active"
+    ],
+    [
+     "3",
+     "Chen",
+     "active"
+    ],
+    [
+     "4",
+     "Diego",
+     "active"
+    ],
+    [
+     "5",
+     "Esha",
+     "active"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Watch · learn · laugh"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "SQL pain, turned into reels"
+  },
+  {
+   "t": "p",
+   "html": "Real mistakes everyone makes once, made funny. Tap a reel to play it right here — it stays on this page."
+  },
+  {
+   "t": "p",
+   "html": "UPDATE gone wild."
+  },
+  {
+   "t": "p",
+   "html": "The whole table is gone."
+  },
+  {
+   "t": "p",
+   "html": "No backup, no problem? 😬"
+  },
+  {
+   "t": "p",
+   "html": "Always target your rows."
+  },
+  {
+   "t": "p",
+   "html": "Reels load only when you press play, to keep the page fast on phones."
+  },
+  {
+   "t": "p",
+   "html": "Keep them tame"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three habits that save your data"
+  },
+  {
+   "t": "p",
+   "html": "Do these every time and you’ll never empty a table by accident."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "SELECT before you change"
+  },
+  {
+   "t": "p",
+   "html": "Run a SELECT with the same WHERE first. If it returns the rows you expect, swap SELECT for UPDATE or DELETE."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Beware WHERE 1=1"
+  },
+  {
+   "t": "p",
+   "html": "A condition that is always true affects every row — the same as having no WHERE at all."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Wrap it in a transaction"
+  },
+  {
+   "t": "p",
+   "html": "BEGIN, run your change, check it, then COMMIT if happy or ROLLBACK to undo. Your future self says thanks."
+  },
+  {
+   "t": "p",
+   "html": "Check yourself"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Safe or Sus?"
+  },
+  {
+   "t": "p",
+   "html": "Read each query and decide: would you really run it in production?"
+  },
+  {
+   "t": "p",
+   "html": "Would you run this in production?"
+  },
+  {
+   "t": "pre",
+   "text": "DELETE FROM students;"
+  }
+ ]
+}

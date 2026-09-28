@@ -1,0 +1,588 @@
+{
+ "slug": "peer-audit",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/peer-audit",
+ "title": "The outside auditor: peer audit round",
+ "pageTitle": "The outside auditor: peer audit round · MBI804",
+ "extractedAt": "2026-09-28",
+ "words": 2711,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Activity · peer audit round"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The outside auditor"
+  },
+  {
+   "t": "p",
+   "html": "In Lesson 1 you wrote up a project you lived through. This round shuffles those write-ups: everyone audits a classmate’s project, nobody gets their own back, and each of you hands that project’s sponsor a plan they could act on. This page is the training and the brief — practise the four questions on a scenario nobody has to defend, then go and do it for real."
+  },
+  {
+   "t": "p",
+   "html": "Practice here <strong>30 minutes</strong> Then the real one <strong>500–800 words plus a one-page plan</strong> Needs <strong>the link your lecturer posts in Teams</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of this activity you can"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Take an auditor’s stance on a project you did not run and have no stake in",
+    "Test a post-mortem’s claim about what moved against the evidence in its own text",
+    "Keep or overturn a methodology verdict by arguing from the project’s attributes",
+    "Tell a risk that is still open from a defect that was already closed",
+    "Write a Corrective Action Plan a sponsor could act on, with owners and dates"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "1 · The stance"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "You did not run this project."
+  },
+  {
+   "t": "p",
+   "html": "The whole reason peer review works is that the person reading has nothing invested in the conclusion. Switch the lens and watch what changes."
+  },
+  {
+   "t": "p",
+   "html": "A post-mortem written by the person who lived through a project is the most useful document you will get and the least neutral. It is not dishonesty — it is that the version of events where the delay was somebody else’s fault is genuinely easier to remember, and the features that quietly disappeared are genuinely easier to recategorise than to mourn."
+  },
+  {
+   "t": "p",
+   "html": "Your job is not to catch them out. It is to read the same evidence without needing any particular conclusion from it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What the author is doing"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Explaining"
+  },
+  {
+   "t": "p",
+   "html": "Writing up a project they lived through, to somebody who was not there. The account has to hang together, so the parts that do not fit get smoothed."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Defending, a little"
+  },
+  {
+   "t": "p",
+   "html": "Nobody writes a post-mortem of their own project neutrally. Not dishonestly — but the version where the delay was somebody else’s fault is genuinely easier to remember."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Reclassifying"
+  },
+  {
+   "t": "p",
+   "html": "The strongest move available, and it is usually unconscious: something that was promised becomes a “nice-to-have”, and the scope never officially moved."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Fixing what they can measure"
+  },
+  {
+   "t": "p",
+   "html": "The proposed change almost always addresses the part of the project that had a number on it, because that is the part that felt like the failure."
+  },
+  {
+   "t": "eyebrow",
+   "html": "2 · The brief"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Four questions, then a plan"
+  },
+  {
+   "t": "p",
+   "html": "The same four you will get in your task PDF, and the six parts of the plan that follows them. Nothing here is a surprise on the day."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Constraint check Does the evidence support the author’s claim about what moved — scope, time, cost or quality? Would you name a different one? Justify it from specific details in the scenario, not from general theory.",
+    "2 Methodology verdict The author names what the project was run as and what it should have been. Keep or overturn that verdict, arguing from the project’s own attributes: how volatile the requirements were, what depended on what, where the knowledge sat.",
+    "3 The missed risk Is “the risk nobody named” really the biggest one a reasonable person could have caught at kick-off? Or is there a bigger one the author still has not seen?",
+    "4 Stress-test the fix Take the author’s “what I would change”. If only that had been done, would the project genuinely have turned out differently? Where does their own fix still fail?"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Then: a one-page Corrective Action Plan, in six parts"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Problem statement"
+  },
+  {
+   "t": "p",
+   "html": "One sentence. A condition that still exists, not a history of what happened."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Root cause"
+  },
+  {
+   "t": "p",
+   "html": "One sentence. A decision somebody made, not the last event before it broke."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Methodology adjustment"
+  },
+  {
+   "t": "p",
+   "html": "With a one-line reason. “None needed” is a legitimate answer if you can defend it."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "The top risk"
+  },
+  {
+   "t": "p",
+   "html": "One risk, with a named response: avoid, mitigate, transfer or accept."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Two next actions"
+  },
+  {
+   "t": "p",
+   "html": "Each with an owner and a timeframe. No owner means it is not an action yet."
+  },
+  {
+   "t": "p",
+   "html": "The report is roughly 500–800 words and answers the four questions in order. The plan is one page and is written to the assigned project’s sponsor, not to your lecturer — which is the constraint that keeps it short and committing."
+  },
+  {
+   "t": "eyebrow",
+   "html": "3 · Practice"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Audit one nobody has to defend"
+  },
+  {
+   "t": "p",
+   "html": "A made-up post-mortem in exactly the six fields a real one uses. Its author is confident, plausible and wrong about all four questions — which is the point."
+  },
+  {
+   "t": "p",
+   "html": "The scenario below is <strong>fictional</strong>. It was written for this page so that you can get the four moves wrong somewhere it costs nothing, before you do it on a classmate’s real project. Read it once, then work through the four questions one at a time — the scenario stays on screen throughout."
+  },
+  {
+   "t": "p",
+   "html": "Practice scenario Fictional"
+  },
+  {
+   "t": "p",
+   "html": "Replacing the paper sign-in sheet at a community health clinic with a tablet kiosk"
+  },
+  {
+   "t": "p",
+   "html": "We said eight weeks and it took eleven, so time is the one that gave. Scope held — every feature on the original list shipped — and we did not go over budget. The extra three weeks went on the kiosk crashing when two people tapped at once, and on waiting for the clinic’s IT person to come back from leave to open a port for us. We did drop the large-text mode and the screen-reader labels near the end, and the paper sheet stayed on the desk as a backup because we ran out of time to test what happens when the kiosk is offline, but those were not really features, they were nice-to-haves we had talked about rather than promised."
+  },
+  {
+   "t": "p",
+   "html": "The delay End date: yes, eventually"
+  },
+  {
+   "t": "p",
+   "html": "Three weeks late in total. The crash under two simultaneous taps took two weeks to find and fix because we could only reproduce it on the real device. The port took another week, and there was nothing to do while we waited — the IT person was the only one with the rights and he was away. Nothing outside the project was waiting on us. The clinic just kept using paper for three more weeks and the manager was relaxed about it."
+  },
+  {
+   "t": "p",
+   "html": "Methodology Run as Agile, called for Agile"
+  },
+  {
+   "t": "p",
+   "html": "We ran it in two-week sprints with a standup every morning and a board, so it was Agile, and I think that was right for it. The requirements did move — the manager kept thinking of things once she saw the screens. We showed the working kiosk to the clinic at the end of week ten, a week before go-live, and she asked for three changes, which we did in the last week. If we had written a specification up front we would have got it wrong, so Agile was the right call."
+  },
+  {
+   "t": "p",
+   "html": "The risk nobody named Response: Mitigate"
+  },
+  {
+   "t": "p",
+   "html": "Nobody wrote down that the clinic’s IT was one person. We should have mitigated it by getting a second person with admin rights named at the start, or by asking for the port to be opened in week one instead of week nine."
+  },
+  {
+   "t": "p",
+   "html": "What the original author would change"
+  },
+  {
+   "t": "p",
+   "html": "I would have asked for the port in week one instead of week nine. That is the three weeks, and everything else went fine. The receptionist did say in the second week that she would rather keep the paper sheet, but she came round once she saw it working."
+  },
+  {
+   "t": "pre",
+   "text": "A fictional post-mortem, written for practice in the same six fields a real one uses"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Question 1 of 4"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Constraint check"
+  },
+  {
+   "t": "p",
+   "html": "Does the evidence actually support the author’s claim about what moved? Would you name a different corner?"
+  },
+  {
+   "t": "p",
+   "html": "Read “What actually moved” twice — the second time, watch what gets reclassified."
+  },
+  {
+   "t": "p",
+   "html": "0 of 4 answered. In all four, the author’s own verdict is on the list and is never the strongest answer — which is the whole reason the audit is done by somebody else."
+  },
+  {
+   "t": "eyebrow",
+   "html": "4 · What earns marks"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Restating, asserting, auditing"
+  },
+  {
+   "t": "p",
+   "html": "Two of these three feel like work while you are writing them, and only one of them is the work. Eight sentences, three buckets."
+  },
+  {
+   "t": "p",
+   "html": "The brief says “do not simply restate the scenario, engage critically with the original author’s conclusions”. That sentence is doing a lot of work, so here it is as something you can sort. A claim, the evidence for it, and why it matters — all three in the same sentence, is what an audit reads like."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Restates"
+  },
+  {
+   "t": "p",
+   "html": "True, and already in the document. Adds nothing a marker did not have."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Asserts"
+  },
+  {
+   "t": "p",
+   "html": "A verdict with no evidence attached. Could have been written without reading."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Audits"
+  },
+  {
+   "t": "p",
+   "html": "A claim, the evidence for it, and why it matters. This is the one that earns marks."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Eight sentences from a draft audit · put each one in a bucket"
+  },
+  {
+   "t": "p",
+   "html": "“The author says the project took eleven weeks against a planned eight.”"
+  },
+  {
+   "t": "p",
+   "html": "“The methodology verdict is wrong.”"
+  },
+  {
+   "t": "p",
+   "html": "“The author calls the large-text mode a nice-to-have, but it is how a patient with low vision signs in unaided — that reclassification is where quality moved.”"
+  },
+  {
+   "t": "p",
+   "html": "“This project was clearly badly managed from the start.”"
+  },
+  {
+   "t": "p",
+   "html": "“The clinic’s IT person was on leave, and only he held the rights to open the port.”"
+  },
+  {
+   "t": "p",
+   "html": "“The receptionist’s objection in week two is recorded as a problem that resolved itself, with no evidence offered beyond her agreeing.”"
+  },
+  {
+   "t": "p",
+   "html": "“Agile would have solved this.”"
+  },
+  {
+   "t": "p",
+   "html": "“Sprints and a daily standup are named, but the first demo to the clinic was week ten of eleven, so the iteration loop never closed with a user inside it.”"
+  },
+  {
+   "t": "p",
+   "html": "0 right of 0 placed. A report made only of the first two buckets can be long, fluent and still say nothing a marker could disagree with — which is what makes it a weak audit rather than a short one."
+  },
+  {
+   "t": "eyebrow",
+   "html": "5 · The plan’s hardest line"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Naming a response, not reaching for one"
+  },
+  {
+   "t": "p",
+   "html": "Your plan asks for one risk with a named strategy. “Mitigate” is what almost everyone writes, and for one of these four it is the wrong answer."
+  },
+  {
+   "t": "p",
+   "html": "Risk Only one person at the clinic holds the rights the project needs, and he takes leave mid-project."
+  },
+  {
+   "t": "p",
+   "html": "Three of these four are best answered by mitigating or transferring. One is not, and it is the one where the consequence lands on a person rather than on a schedule or a budget — which is the test worth carrying into your own Corrective Action Plan."
+  },
+  {
+   "t": "eyebrow",
+   "html": "6 · Your deliverable"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Build the Corrective Action Plan"
+  },
+  {
+   "t": "p",
+   "html": "Six fields, one at a time, assembling into the page you attach to your report. Everything stays in this browser."
+  },
+  {
+   "t": "p",
+   "html": "Come back to this once you have your assigned scenario and write the plan for <em>that</em> project. It saves as you type, so you can leave it half-finished and return. When it is done, export the PDF and attach it behind your audit report as a single file."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Which project is this plan for?"
+  },
+  {
+   "t": "p",
+   "html": "The project you were assigned, in the author’s own words or your own. This is the plan’s header, not a finding."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your page, so far"
+  },
+  {
+   "t": "p",
+   "html": "MBI804 · Corrective Action Plan Peer audit"
+  },
+  {
+   "t": "p",
+   "html": "The project you were assigned"
+  },
+  {
+   "t": "p",
+   "html": "Not yet answered."
+  },
+  {
+   "t": "p",
+   "html": "Everything you type stays in this browser and is saved as you go. Nothing is uploaded from this page — export the PDF and attach it to the report you submit through the activity site."
+  },
+  {
+   "t": "eyebrow",
+   "html": "7 · The real round"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How to run it."
+  },
+  {
+   "t": "p",
+   "html": "Six steps, no account, and one PDF at the end. Your index number is the only thing you need."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Open the activity site Use the link your lecturer posts in Teams and enter your student index number. No account, no password.",
+    "2 Read your assigned scenario It is a classmate’s post-mortem, never your own. You will not be told whose it is, and you should not go looking.",
+    "3 Download your task PDF The same four questions you practised here, wrapped around your specific scenario, plus the submission checklist.",
+    "4 Write the audit Roughly 500–800 words, addressed to the four numbered questions in order. Engage with the author’s conclusions rather than restating their project.",
+    "5 Add the Corrective Action Plan One page, written as you would hand it to that project’s sponsor. The builder on this page exports it as a PDF.",
+    "6 Upload one PDF Report and plan in a single file, through the same site, using the same index number."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Where the site is"
+  },
+  {
+   "t": "p",
+   "html": "The activity site link is posted in Teams by your lecturer, because the assignments are built for one specific cohort. It asks for your student index number and nothing else — no account, no password."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Some ground rules"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "You will never be given your own project"
+  },
+  {
+   "t": "p",
+   "html": "The assignment list is built so that nobody audits themselves. If you recognise the scenario as yours, say so and you will be reassigned."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Do not go looking for the author"
+  },
+  {
+   "t": "p",
+   "html": "The write-ups are anonymous to you on purpose. An audit that guesses at who wrote it stops being an audit of the project."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Audit the project, not the person"
+  },
+  {
+   "t": "p",
+   "html": "“This was badly managed” is a grade, not a finding. Every criticism should point at a decision and the evidence for it."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "These are real workplaces"
+  },
+  {
+   "t": "p",
+   "html": "Somebody trusted the class with something that actually happened at their job. Keep it inside the class, and write about it the way you would want yours written about."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Submit it as your own work"
+  },
+  {
+   "t": "p",
+   "html": "The report is read as your own reasoning about a specific document. Submissions are checked, and an audit that could have been written without reading the scenario is visible from the first paragraph."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What you are marked on"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Whether the finding survives the evidence"
+  },
+  {
+   "t": "p",
+   "html": "Not whether you agree or disagree with the author. A well-argued “keep the verdict” beats a badly argued overturn."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Whether you argued from the project"
+  },
+  {
+   "t": "p",
+   "html": "This is LO1 in miniature. A methodology recommendation that comes from preference rather than from the project’s attributes loses the same marks here as it does in the 60% case study."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Whether the plan could be acted on"
+  },
+  {
+   "t": "p",
+   "html": "Owners, timeframes, a named response strategy. A sponsor should be able to read it once and know what happens on Monday."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Before you start the real one"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Check yourself"
+  },
+  {
+   "t": "p",
+   "html": "Four questions on the moves this activity is marked on. Nothing is stored and nothing is reported."
+  },
+  {
+   "t": "p",
+   "html": "A post-mortem says every feature shipped, the budget held, and the project ran three weeks late with no external deadline. Buried in the same paragraph: two accessibility features were dropped at the end and described as “nice-to-haves we had talked about rather than promised”. What moved?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five things to carry into your audit"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>An auditor has no stake in the author being right.</strong> That is the entire value of doing this on somebody else’s project instead of your own, and it is why the assignment never gives you back your own write-up.",
+    "02 <strong>Watch for the sentence where a commitment becomes a preference.</strong> That reclassification is how quality moves without anybody approving it, and finding it is often the whole audit.",
+    "03 <strong>Check a methodology against the project, not against its ceremonies.</strong> Sprints and standups are the visible half. A usable increment in front of a real user every iteration is the half that does the work.",
+    "04 <strong>A closed defect is not a risk.</strong> The register is for what has not happened yet. Filling it with what already did leaves the live exposures unnamed.",
+    "05 <strong>An action with no owner and no date is a wish.</strong> Six committing sentences beat six paragraphs of analysis, and that is what a sponsor can actually act on."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "The practice ends here. The real one is a classmate’s project, and it is waiting behind the link in Teams."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Be the reader you wanted."
+  },
+  {
+   "t": "p",
+   "html": "Somebody in this class wrote down something that genuinely went wrong at their work and handed it over. The most useful thing you can give them back is not a compliment and not a verdict — it is the one sentence in their own write-up that they read past, and what it actually means. That is what an audit is, and it is the only part of this that is hard."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI804 lecturer"
+  }
+ ]
+}

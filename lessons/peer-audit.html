@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The outside auditor: peer audit round | MBI804 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/peer-audit.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="The outside auditor: peer audit round | MBI804 Lesson"/>
+<meta property="og:description" content="The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/peer-audit.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/peer-audit-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/peer-audit.html#lesson",
+  "name": "The outside auditor: peer audit round",
+  "description": "The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional scenario whose author is confident and wrong about all of them, sort eight sentences into restating, asserting and auditing, choose a risk response where mitigating is the wrong answer, then build the one-page Corrective Action Plan and export it.",
+  "url": "https://www.yasassri.me/lessons/peer-audit.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/peer-audit-1280.webp",
+  "learningResourceType": "Practice",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT12M",
+  "teaches": [
+    "Take an auditor’s stance on a project you did not run and have no stake in",
+    "Test a post-mortem’s claim about what moved against the evidence in its own text",
+    "Keep or overturn a methodology verdict by arguing from the project’s attributes",
+    "Tell a risk that is still open from a defect that was already closed",
+    "Write a Corrective Action Plan a sponsor could act on, with owners and dates"
+  ],
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "IT Project Management",
+      "courseCode": "MBI804",
+      "description": "What is really fixed on a project, what a delay actually costs, and which method the work in front of you is asking for.",
+      "url": "https://www.yasassri.me/lessons.html#mbi804",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/peer-audit.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI804",
+      "item": "https://www.yasassri.me/lessons.html#mbi804"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "The outside auditor: peer audit round",
+      "item": "https://www.yasassri.me/lessons/peer-audit.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi804">MBI804</a><span aria-hidden="true">/</span><span aria-current="page">The outside auditor: peer audit round</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi804" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">MBI804</a><span class="lp-tag">Practice</span></div>
+      <h1>The outside auditor: peer audit round</h1>
+      <p class="lp-lead">The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional scenario whose author is confident and wrong about all of them, sort eight sentences into restating, asserting and auditing, choose a risk response where mitigating is the wrong answer, then build the one-page Corrective Action Plan and export it.</p>
+      <div class="lp-facts"><span><b>IT Project Management</b></span><span>12 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/peer-audit" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/peer-audit" target="_blank" rel="noopener" aria-label="Open The outside auditor: peer audit round on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI804 · The outside auditor: peer audit round</span></span>
+      <img src="../assets/images/lessons/peer-audit-640.webp" srcset="../assets/images/lessons/peer-audit-640.webp 640w, ../assets/images/lessons/peer-audit-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of The outside auditor: peer audit round" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#you-did-not-run-this-project">You did not run this project.</a></li><li><a href="#four-questions-then-a-plan">Four questions, then a plan</a></li><li><a href="#audit-one-nobody-has-to-defend">Audit one nobody has to defend</a></li><li><a href="#restating-asserting-auditing">Restating, asserting, auditing</a></li><li><a href="#naming-a-response-not-reaching-for-one">Naming a response, not reaching for one</a></li><li><a href="#build-the-corrective-action-plan">Build the Corrective Action Plan</a></li><li><a href="#how-to-run-it">How to run it.</a></li><li><a href="#check-yourself">Check yourself</a></li><li><a href="#five-things-to-carry-into-your-audit">Five things to carry into your audit</a></li><li><a href="#be-the-reader-you-wanted">Be the reader you wanted.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/peer-audit" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of The outside auditor: peer audit round, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/peer-audit" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>In Lesson 1 you wrote up a project you lived through. This round shuffles those write-ups: everyone audits a classmate’s project, nobody gets their own back, and each of you hands that project’s sponsor a plan they could act on. This page is the training and the brief — practise the four questions on a scenario nobody has to defend, then go and do it for real.</p>
+<p>Practice here <strong>30 minutes</strong> Then the real one <strong>500–800 words plus a one-page plan</strong> Needs <strong>the link your lecturer posts in Teams</strong></p>
+<p class="lp-label">By the end of this activity you can</p>
+<ul><li>Take an auditor’s stance on a project you did not run and have no stake in</li><li>Test a post-mortem’s claim about what moved against the evidence in its own text</li><li>Keep or overturn a methodology verdict by arguing from the project’s attributes</li><li>Tell a risk that is still open from a defect that was already closed</li><li>Write a Corrective Action Plan a sponsor could act on, with owners and dates</li></ul>
+<h2 id="you-did-not-run-this-project"><span class="lp-kicker">1 · The stance</span>You did not run this project.</h2>
+<p>The whole reason peer review works is that the person reading has nothing invested in the conclusion. Switch the lens and watch what changes.</p>
+<p>A post-mortem written by the person who lived through a project is the most useful document you will get and the least neutral. It is not dishonesty — it is that the version of events where the delay was somebody else’s fault is genuinely easier to remember, and the features that quietly disappeared are genuinely easier to recategorise than to mourn.</p>
+<p>Your job is not to catch them out. It is to read the same evidence without needing any particular conclusion from it.</p>
+<h4><span class="lp-kicker">What the author is doing</span>Explaining</h4>
+<p>Writing up a project they lived through, to somebody who was not there. The account has to hang together, so the parts that do not fit get smoothed.</p>
+<h4>Defending, a little</h4>
+<p>Nobody writes a post-mortem of their own project neutrally. Not dishonestly — but the version where the delay was somebody else’s fault is genuinely easier to remember.</p>
+<h4>Reclassifying</h4>
+<p>The strongest move available, and it is usually unconscious: something that was promised becomes a “nice-to-have”, and the scope never officially moved.</p>
+<h4>Fixing what they can measure</h4>
+<p>The proposed change almost always addresses the part of the project that had a number on it, because that is the part that felt like the failure.</p>
+<h2 id="four-questions-then-a-plan"><span class="lp-kicker">2 · The brief</span>Four questions, then a plan</h2>
+<p>The same four you will get in your task PDF, and the six parts of the plan that follows them. Nothing here is a surprise on the day.</p>
+<ol><li>1 Constraint check Does the evidence support the author’s claim about what moved — scope, time, cost or quality? Would you name a different one? Justify it from specific details in the scenario, not from general theory.</li><li>2 Methodology verdict The author names what the project was run as and what it should have been. Keep or overturn that verdict, arguing from the project’s own attributes: how volatile the requirements were, what depended on what, where the knowledge sat.</li><li>3 The missed risk Is “the risk nobody named” really the biggest one a reasonable person could have caught at kick-off? Or is there a bigger one the author still has not seen?</li><li>4 Stress-test the fix Take the author’s “what I would change”. If only that had been done, would the project genuinely have turned out differently? Where does their own fix still fail?</li></ol>
+<h4><span class="lp-kicker">Then: a one-page Corrective Action Plan, in six parts</span>Problem statement</h4>
+<p>One sentence. A condition that still exists, not a history of what happened.</p>
+<h4>Root cause</h4>
+<p>One sentence. A decision somebody made, not the last event before it broke.</p>
+<h4>Methodology adjustment</h4>
+<p>With a one-line reason. “None needed” is a legitimate answer if you can defend it.</p>
+<h4>The top risk</h4>
+<p>One risk, with a named response: avoid, mitigate, transfer or accept.</p>
+<h4>Two next actions</h4>
+<p>Each with an owner and a timeframe. No owner means it is not an action yet.</p>
+<p>The report is roughly 500–800 words and answers the four questions in order. The plan is one page and is written to the assigned project’s sponsor, not to your lecturer — which is the constraint that keeps it short and committing.</p>
+<h2 id="audit-one-nobody-has-to-defend"><span class="lp-kicker">3 · Practice</span>Audit one nobody has to defend</h2>
+<p>A made-up post-mortem in exactly the six fields a real one uses. Its author is confident, plausible and wrong about all four questions — which is the point.</p>
+<p>The scenario below is <strong>fictional</strong>. It was written for this page so that you can get the four moves wrong somewhere it costs nothing, before you do it on a classmate’s real project. Read it once, then work through the four questions one at a time — the scenario stays on screen throughout.</p>
+<p>Practice scenario Fictional</p>
+<p>Replacing the paper sign-in sheet at a community health clinic with a tablet kiosk</p>
+<p>We said eight weeks and it took eleven, so time is the one that gave. Scope held — every feature on the original list shipped — and we did not go over budget. The extra three weeks went on the kiosk crashing when two people tapped at once, and on waiting for the clinic’s IT person to come back from leave to open a port for us. We did drop the large-text mode and the screen-reader labels near the end, and the paper sheet stayed on the desk as a backup because we ran out of time to test what happens when the kiosk is offline, but those were not really features, they were nice-to-haves we had talked about rather than promised.</p>
+<p>The delay End date: yes, eventually</p>
+<p>Three weeks late in total. The crash under two simultaneous taps took two weeks to find and fix because we could only reproduce it on the real device. The port took another week, and there was nothing to do while we waited — the IT person was the only one with the rights and he was away. Nothing outside the project was waiting on us. The clinic just kept using paper for three more weeks and the manager was relaxed about it.</p>
+<p>Methodology Run as Agile, called for Agile</p>
+<p>We ran it in two-week sprints with a standup every morning and a board, so it was Agile, and I think that was right for it. The requirements did move — the manager kept thinking of things once she saw the screens. We showed the working kiosk to the clinic at the end of week ten, a week before go-live, and she asked for three changes, which we did in the last week. If we had written a specification up front we would have got it wrong, so Agile was the right call.</p>
+<p>The risk nobody named Response: Mitigate</p>
+<p>Nobody wrote down that the clinic’s IT was one person. We should have mitigated it by getting a second person with admin rights named at the start, or by asking for the port to be opened in week one instead of week nine.</p>
+<p>What the original author would change</p>
+<p>I would have asked for the port in week one instead of week nine. That is the three weeks, and everything else went fine. The receptionist did say in the second week that she would rather keep the paper sheet, but she came round once she saw it working.</p>
+<pre><code>A fictional post-mortem, written for practice in the same six fields a real one uses</code></pre>
+<h3><span class="lp-kicker">Question 1 of 4</span>Constraint check</h3>
+<p>Does the evidence actually support the author’s claim about what moved? Would you name a different corner?</p>
+<p>Read “What actually moved” twice — the second time, watch what gets reclassified.</p>
+<p>0 of 4 answered. In all four, the author’s own verdict is on the list and is never the strongest answer — which is the whole reason the audit is done by somebody else.</p>
+<h2 id="restating-asserting-auditing"><span class="lp-kicker">4 · What earns marks</span>Restating, asserting, auditing</h2>
+<p>Two of these three feel like work while you are writing them, and only one of them is the work. Eight sentences, three buckets.</p>
+<p>The brief says “do not simply restate the scenario, engage critically with the original author’s conclusions”. That sentence is doing a lot of work, so here it is as something you can sort. A claim, the evidence for it, and why it matters — all three in the same sentence, is what an audit reads like.</p>
+<h4>Restates</h4>
+<p>True, and already in the document. Adds nothing a marker did not have.</p>
+<h4>Asserts</h4>
+<p>A verdict with no evidence attached. Could have been written without reading.</p>
+<h4>Audits</h4>
+<p>A claim, the evidence for it, and why it matters. This is the one that earns marks.</p>
+<p class="lp-label">Eight sentences from a draft audit · put each one in a bucket</p>
+<p>“The author says the project took eleven weeks against a planned eight.”</p>
+<p>“The methodology verdict is wrong.”</p>
+<p>“The author calls the large-text mode a nice-to-have, but it is how a patient with low vision signs in unaided — that reclassification is where quality moved.”</p>
+<p>“This project was clearly badly managed from the start.”</p>
+<p>“The clinic’s IT person was on leave, and only he held the rights to open the port.”</p>
+<p>“The receptionist’s objection in week two is recorded as a problem that resolved itself, with no evidence offered beyond her agreeing.”</p>
+<p>“Agile would have solved this.”</p>
+<p>“Sprints and a daily standup are named, but the first demo to the clinic was week ten of eleven, so the iteration loop never closed with a user inside it.”</p>
+<p>0 right of 0 placed. A report made only of the first two buckets can be long, fluent and still say nothing a marker could disagree with — which is what makes it a weak audit rather than a short one.</p>
+<h2 id="naming-a-response-not-reaching-for-one"><span class="lp-kicker">5 · The plan’s hardest line</span>Naming a response, not reaching for one</h2>
+<p>Your plan asks for one risk with a named strategy. “Mitigate” is what almost everyone writes, and for one of these four it is the wrong answer.</p>
+<p>Risk Only one person at the clinic holds the rights the project needs, and he takes leave mid-project.</p>
+<p>Three of these four are best answered by mitigating or transferring. One is not, and it is the one where the consequence lands on a person rather than on a schedule or a budget — which is the test worth carrying into your own Corrective Action Plan.</p>
+<h2 id="build-the-corrective-action-plan"><span class="lp-kicker">6 · Your deliverable</span>Build the Corrective Action Plan</h2>
+<p>Six fields, one at a time, assembling into the page you attach to your report. Everything stays in this browser.</p>
+<p>Come back to this once you have your assigned scenario and write the plan for <em>that</em> project. It saves as you type, so you can leave it half-finished and return. When it is done, export the PDF and attach it behind your audit report as a single file.</p>
+<h3><span class="lp-kicker">Start here</span>Which project is this plan for?</h3>
+<p>The project you were assigned, in the author’s own words or your own. This is the plan’s header, not a finding.</p>
+<p class="lp-label">Your page, so far</p>
+<p>MBI804 · Corrective Action Plan Peer audit</p>
+<p>The project you were assigned</p>
+<p>Not yet answered.</p>
+<p>Everything you type stays in this browser and is saved as you go. Nothing is uploaded from this page — export the PDF and attach it to the report you submit through the activity site.</p>
+<h2 id="how-to-run-it"><span class="lp-kicker">7 · The real round</span>How to run it.</h2>
+<p>Six steps, no account, and one PDF at the end. Your index number is the only thing you need.</p>
+<ol><li>1 Open the activity site Use the link your lecturer posts in Teams and enter your student index number. No account, no password.</li><li>2 Read your assigned scenario It is a classmate’s post-mortem, never your own. You will not be told whose it is, and you should not go looking.</li><li>3 Download your task PDF The same four questions you practised here, wrapped around your specific scenario, plus the submission checklist.</li><li>4 Write the audit Roughly 500–800 words, addressed to the four numbered questions in order. Engage with the author’s conclusions rather than restating their project.</li><li>5 Add the Corrective Action Plan One page, written as you would hand it to that project’s sponsor. The builder on this page exports it as a PDF.</li><li>6 Upload one PDF Report and plan in a single file, through the same site, using the same index number.</li></ol>
+<p class="lp-label">Where the site is</p>
+<p>The activity site link is posted in Teams by your lecturer, because the assignments are built for one specific cohort. It asks for your student index number and nothing else — no account, no password.</p>
+<h4><span class="lp-kicker">Some ground rules</span>You will never be given your own project</h4>
+<p>The assignment list is built so that nobody audits themselves. If you recognise the scenario as yours, say so and you will be reassigned.</p>
+<h4>Do not go looking for the author</h4>
+<p>The write-ups are anonymous to you on purpose. An audit that guesses at who wrote it stops being an audit of the project.</p>
+<h4>Audit the project, not the person</h4>
+<p>“This was badly managed” is a grade, not a finding. Every criticism should point at a decision and the evidence for it.</p>
+<h4>These are real workplaces</h4>
+<p>Somebody trusted the class with something that actually happened at their job. Keep it inside the class, and write about it the way you would want yours written about.</p>
+<h4>Submit it as your own work</h4>
+<p>The report is read as your own reasoning about a specific document. Submissions are checked, and an audit that could have been written without reading the scenario is visible from the first paragraph.</p>
+<h4><span class="lp-kicker">What you are marked on</span>Whether the finding survives the evidence</h4>
+<p>Not whether you agree or disagree with the author. A well-argued “keep the verdict” beats a badly argued overturn.</p>
+<h4>Whether you argued from the project</h4>
+<p>This is LO1 in miniature. A methodology recommendation that comes from preference rather than from the project’s attributes loses the same marks here as it does in the 60% case study.</p>
+<h4>Whether the plan could be acted on</h4>
+<p>Owners, timeframes, a named response strategy. A sponsor should be able to read it once and know what happens on Monday.</p>
+<h2 id="check-yourself"><span class="lp-kicker">Before you start the real one</span>Check yourself</h2>
+<p>Four questions on the moves this activity is marked on. Nothing is stored and nothing is reported.</p>
+<p>A post-mortem says every feature shipped, the budget held, and the project ran three weeks late with no external deadline. Buried in the same paragraph: two accessibility features were dropped at the end and described as “nice-to-haves we had talked about rather than promised”. What moved?</p>
+<h2 id="five-things-to-carry-into-your-audit"><span class="lp-kicker">What this lesson said</span>Five things to carry into your audit</h2>
+<ul><li>01 <strong>An auditor has no stake in the author being right.</strong> That is the entire value of doing this on somebody else’s project instead of your own, and it is why the assignment never gives you back your own write-up.</li><li>02 <strong>Watch for the sentence where a commitment becomes a preference.</strong> That reclassification is how quality moves without anybody approving it, and finding it is often the whole audit.</li><li>03 <strong>Check a methodology against the project, not against its ceremonies.</strong> Sprints and standups are the visible half. A usable increment in front of a real user every iteration is the half that does the work.</li><li>04 <strong>A closed defect is not a risk.</strong> The register is for what has not happened yet. Filling it with what already did leaves the live exposures unnamed.</li><li>05 <strong>An action with no owner and no date is a wish.</strong> Six committing sentences beat six paragraphs of analysis, and that is what a sponsor can actually act on.</li></ul>
+<p>The practice ends here. The real one is a classmate’s project, and it is waiting behind the link in Teams.</p>
+<h2 id="be-the-reader-you-wanted"><span class="lp-kicker">Your lecturer</span>Be the reader you wanted.</h2>
+<p>Somebody in this class wrote down something that genuinely went wrong at their work and handed it over. The most useful thing you can give them back is not a compliment and not a verdict — it is the one sentence in their own write-up that they read past, and what it actually means. That is what an audit is, and it is the only part of this that is hard.</p>
+<p>Yasas Sri Wickramasinghe MBI804 lecturer</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/scrum-simulation.html"><small>Previous lesson</small><b>The Scrum studio: a Sprint you can watch, pause and orbit</b></a><a class="is-next" href="https://ureshan2011.github.io/thisisnotalms/#/cost-management" target="_blank" rel="noopener"><small>Next lesson</small><b>Project cost management</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/peer-audit" target="_blank" rel="noopener" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI804, IT Project Management</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-project-management.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-project-management-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">What a project is, and what decides how to run it</span>
+            <span class="lp-card-blurb">The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the launch date cares about, choose between Agile, Waterfall and PRINCE2 across four project shapes, then price a risk on the grid.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/business-model-canvas.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/business-model-canvas-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The Business Model Canvas</span>
+            <span class="lp-card-blurb">How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/project-methodologies.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/project-methodologies-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close</span>
+            <span class="lp-card-blurb">Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s spiral walked loop by loop, PRINCE2’s seven principles, themes and processes opened one at a time, then the whole Agile family — and Scrum in full: a clickable framework diagram, twelve “whose job is this?” situations, timeboxes that scale with the Sprint, and a board with a live burndown.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/scrum-simulation.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/scrum-simulation-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The Scrum studio: a Sprint you can watch, pause and orbit</span>
+            <span class="lp-card-blurb">Lesson 3. Six 3D miniatures build a parcel drone through three one-week Sprints while a caption says what is happening and a timeline marks every milestone: the Product Backlog ordered on the wall, refined and estimated with Planning Poker, Sprint Planning pulling cards into the Sprint Backlog, a fifteen-minute Daily Scrum every morning, an impediment landing and being cleared, stakeholders watching the drone lift off at the Review, one improvement from each Retrospective. Voice-narrated, it pauses after each step so you can read, then a seven-question check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="https://ureshan2011.github.io/thisisnotalms/#/cost-management" target="_blank" rel="noopener" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><b>MBI804</b></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">Project cost management</span>
+            <span class="lp-card-blurb">Plan, estimate, budget — and avoid the traps that sink most IT projects. Seven interactive sections around the SecurePay NZ scenario: PERT calculator, budget builder, live S-curve and a closing challenge.</span>
+            <span class="lp-card-cta">Open on the lessons site ↗</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/collaboration-reflex-lecture.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/collaboration-reflex-lecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The collaboration reflex</span>
+            <span class="lp-card-blurb">Conflict and communication management taught through forty-five real, anonymised classroom conflicts: six full stories, four frameworks, and the one reflex experienced professionals reach for even when it is the wrong answer.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+ "slug": "mysql-setup",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/mysql-setup",
+ "title": "Setting up MySQL",
+ "pageTitle": "Setting up MySQL · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 257,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database Management Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's get your computer ready for MySQL."
+  },
+  {
+   "t": "p",
+   "html": "Two short video walkthroughs — one for MacOS, one for Windows — so your MySQL client and Workbench are installed before the first hands-on class."
+  },
+  {
+   "t": "p",
+   "html": "🍎 MacOS path 🪟 Windows path 🎬 2 guide videos"
+  },
+  {
+   "t": "p",
+   "html": "Dear students, Ayubowan!"
+  },
+  {
+   "t": "p",
+   "html": "I have created two video tutorials to help you set up MySQL on your Windows or Mac computer. Please try the installation on your own. You will also have time in class next week to set it up with support."
+  },
+  {
+   "t": "p",
+   "html": "Recommended for MacBook and iMac users. Follow this first before class support time."
+  },
+  {
+   "t": "p",
+   "html": "Best for Windows laptops and desktops. Keep screenshots ready if any installer error appears."
+  },
+  {
+   "t": "p",
+   "html": "MacOS Guide Video Windows Guide Video"
+  },
+  {
+   "t": "p",
+   "html": "Some of you may see a popup asking to install Visual C++. If that happens, simply download the recommended file that appears on your screen, or use this link: Visual C++ Redistributable."
+  },
+  {
+   "t": "p",
+   "html": "Different computers can show different errors depending on the software versions you have. One full hour has been set aside in the next class for one-to-one in-person help from your teaching assistants. If you run into any issues, take screenshots and bring them to class."
+  },
+  {
+   "t": "p",
+   "html": "Comments and suggestions are welcome, especially if you would like more video tutorials."
+  },
+  {
+   "t": "p",
+   "html": "If your issue is still not solved by the end of the next class, a Google Form will be shared where you can submit your details. This is exactly why the database setup started early, so there is no pressure at all."
+  },
+  {
+   "t": "p",
+   "html": "Happy learning!"
+  }
+ ]
+}

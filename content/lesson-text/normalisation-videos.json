@@ -1,0 +1,33 @@
+{
+ "slug": "normalisation-videos",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/normalisation-videos",
+ "title": "Normalisation on video",
+ "pageTitle": "Normalisation on video · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 56,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database Design"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of Normalization — on video."
+  },
+  {
+   "t": "p",
+   "html": "Prefer to watch and learn? The full walkthrough series on database normalization — from why we do it and functional dependencies, climbing the normal forms one clip at a time."
+  },
+  {
+   "t": "p",
+   "html": "🤔 Why normalise? 🔗 Functional deps 1️⃣ 1NF 🪜 2NF &amp; beyond"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Video Lessons"
+  }
+ ]
+}

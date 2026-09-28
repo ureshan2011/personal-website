@@ -1,0 +1,294 @@
+{
+ "slug": "threats-to-strategy",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/threats-to-strategy",
+ "title": "Threats to opportunities to strategy",
+ "pageTitle": "Threats to opportunities to strategy · MBI800",
+ "extractedAt": "2026-09-28",
+ "words": 845,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three steps, three questions"
+  },
+  {
+   "t": "p",
+   "html": "In a SWOT, threats are the scary box. Today we treat them as the start of the plan."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "01 Threat What’s coming for us?",
+    "02 Opportunity What does this make customers need now?",
+    "03 Strategy What will we build or change to give them that?"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "The easy one first"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The campus café"
+  },
+  {
+   "t": "p",
+   "html": "Threat A big coffee chain opens right across the road from our small campus café."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity Students don’t just want coffee. They want somewhere to sit and study for three hours."
+  },
+  {
+   "t": "p",
+   "html": "Strategy Free Wi-Fi, plugs at every table, and a loyalty app with a “study deal”."
+  },
+  {
+   "t": "p",
+   "html": "See what happened? The café didn’t try to out-coffee the chain. It asked what the customers actually needed, and the answer was a desk."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Real world"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Six companies that flipped it"
+  },
+  {
+   "t": "p",
+   "html": "Read each one top to bottom. Then look at the last line. Every strategy ended up as an information system."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Netflix"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Watch now</strong> not in two days"
+  },
+  {
+   "t": "p",
+   "html": "Threat Fast home internet was going to make posting DVDs look silly."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity People wanted to watch now, not wait two days for the mail."
+  },
+  {
+   "t": "p",
+   "html": "Strategy Kill their own DVD business before someone else did. Go all in on streaming."
+  },
+  {
+   "t": "p",
+   "html": "The IS behind it A streaming platform, plus a recommendation engine built on what people actually watch."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Apple"
+  },
+  {
+   "t": "p",
+   "html": "Threat Napster. Millions of people downloading music for free."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity People clearly wanted digital music. They just had no easy, legal way to buy it."
+  },
+  {
+   "t": "p",
+   "html": "Strategy The iTunes Store. One song, 99 cents, one click, straight onto your iPod."
+  },
+  {
+   "t": "p",
+   "html": "The IS behind it An online store, digital rights management, and a payments system tied to your Apple ID."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Adobe"
+  },
+  {
+   "t": "p",
+   "html": "Threat Piracy, and customers skipping upgrades because a box cost thousands up front."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity Customers wanted the latest tools without a huge one-off bill."
+  },
+  {
+   "t": "p",
+   "html": "Strategy Stop selling boxes. Move everyone to a monthly Creative Cloud subscription."
+  },
+  {
+   "t": "p",
+   "html": "The IS behind it Cloud licensing and account sign-in. Every install now checks in, so piracy got much harder."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Microsoft"
+  },
+  {
+   "t": "p",
+   "html": "Threat Google Docs. Free, in the browser, nothing to install."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity Businesses wanted Office anywhere, on any device, always up to date."
+  },
+  {
+   "t": "p",
+   "html": "Strategy Office 365 as a subscription, then a big bet on Azure cloud."
+  },
+  {
+   "t": "p",
+   "html": "The IS behind it Cloud hosting at huge scale, and one login across every app and device."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "NZ Post"
+  },
+  {
+   "t": "p",
+   "html": "Threat Email. Fewer and fewer people post letters every year."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity Online shopping. All those orders still have to get to someone’s door."
+  },
+  {
+   "t": "p",
+   "html": "Strategy Shift the business from letters to parcels and e-commerce delivery."
+  },
+  {
+   "t": "p",
+   "html": "The IS behind it Parcel tracking, delivery apps for drivers, and systems that plug into online stores."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Google"
+  },
+  {
+   "t": "p",
+   "html": "Threat ChatGPT. People started asking an AI instead of searching."
+  },
+  {
+   "t": "p",
+   "html": "Opportunity People want answers, not ten blue links."
+  },
+  {
+   "t": "p",
+   "html": "Strategy Build its own AI (Gemini) and put AI answers right at the top of search."
+  },
+  {
+   "t": "p",
+   "html": "The IS behind it Its own AI models, running on the data centres it already had."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Same threat, two endings"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Kodak and Fujifilm"
+  },
+  {
+   "t": "p",
+   "html": "Both sold camera film. Both saw digital cameras coming. Only one of them flipped it."
+  },
+  {
+   "t": "p",
+   "html": "Kodak actually built one of the first digital cameras, back in 1975. Then it sat on it, because digital would eat into film sales. It treated the threat as something to wait out."
+  },
+  {
+   "t": "p",
+   "html": "Fujifilm asked a different question: what are we actually good at? Chemistry, coatings, imaging. So it took that into medical imaging and cosmetics. Film was the product. Chemistry was the strength."
+  },
+  {
+   "t": "p",
+   "html": "Same threat. The difference was never the technology. It was whether anyone was willing to ask <strong>“so what does this make possible?”</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Blockbuster is the other one I always bring up. In 2000 it had the chance to buy Netflix for about $50 million and said no. By 2010 it was bankrupt."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Where this sits in MBI800"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "From SWOT to your SISP report"
+  },
+  {
+   "t": "p",
+   "html": "SWOT tells you what the threats are. It doesn’t tell you what to do about them. This step does."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "For your assessment"
+  },
+  {
+   "t": "p",
+   "html": "In your SISP report, don’t just list threats and move on. For each big one, write the opportunity inside it and the strategy you’d recommend. That’s LO1 and LO3 in one move."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "The test for a good strategy"
+  },
+  {
+   "t": "p",
+   "html": "Can you name the system that delivers it? If the answer is “we’ll try harder”, it’s not a strategy yet. Netflix had a streaming platform. Apple had a store."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your turn"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Flip these six threats"
+  },
+  {
+   "t": "p",
+   "html": "In pairs, 10 minutes. Read the threat, argue out your own answer first, then tap to see mine."
+  },
+  {
+   "t": "p",
+   "html": "Mine isn’t the right answer, it’s just one answer. If yours is different and you can name the system behind it, it counts."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Every threat is hiding a need."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>Threat → opportunity → strategy.</strong> What’s coming, what customers now need, what we’ll build to give it to them.",
+    "02 <strong>Don’t fight the threat head on.</strong> The café didn’t out-coffee the chain. Kodak tried to wait it out and lost.",
+    "03 <strong>A real strategy has a system behind it.</strong> If you can’t name the IS that delivers it, keep going."
+   ]
+  }
+ ]
+}

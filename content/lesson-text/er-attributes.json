@@ -1,0 +1,142 @@
+{
+ "slug": "er-attributes",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/er-attributes",
+ "title": "Attributes and participation",
+ "pageTitle": "Attributes and participation · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 460,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Data Modelling"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of Attributes &amp; Participation."
+  },
+  {
+   "t": "p",
+   "html": "The details that decide whether a model is right or wrong. Break attributes into their parts, then read participation constraints — when every row must join in, and when it's optional — through two guided activities."
+  },
+  {
+   "t": "p",
+   "html": "🧩 Composite attrs ➖ Partial ➕ Total ✅ Activities + answers"
+  },
+  {
+   "t": "eyebrow",
+   "html": "DATABASE MANAGEMENT SYSTEMS · MBI802"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Composite Attributes &amp; Participation Constraints"
+  },
+  {
+   "t": "p",
+   "html": "ER Chen's Notation — Lesson 4 of 5"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Flashcards"
+  },
+  {
+   "t": "p",
+   "html": "What is a composite attribute?"
+  },
+  {
+   "t": "p",
+   "html": "An attribute made up of multiple sub-attributes, each holding a distinct piece of information. Example: Address = StreetNumber + StreetName + City + PostCode."
+  },
+  {
+   "t": "p",
+   "html": "How is a composite attribute drawn in Chen's notation?"
+  },
+  {
+   "t": "p",
+   "html": "An outer ellipse (the composite parent, drawn with a thicker teal border) with smaller sub-attribute ellipses connected to it by lines — like branches."
+  },
+  {
+   "t": "p",
+   "html": "Give an example of a composite attribute in a booking system."
+  },
+  {
+   "t": "p",
+   "html": "GuestName (FirstName, LastName), CheckInAddress (StreetName, Suburb, City, PostCode), or ContactDetails (PhoneNumber, Email)."
+  },
+  {
+   "t": "p",
+   "html": "Why break an attribute into composite sub-attributes?"
+  },
+  {
+   "t": "p",
+   "html": "To allow querying or processing individual parts — e.g., sorting by LastName, filtering by City, or extracting PostCode for delivery routing."
+  },
+  {
+   "t": "p",
+   "html": "What is the difference between composite and multivalued?"
+  },
+  {
+   "t": "p",
+   "html": "Composite: ONE value split into parts (Name = First + Last). Multivalued: MULTIPLE separate values ({PhoneNumber} = 021…, 09…). Different notations and SQL mappings."
+  },
+  {
+   "t": "p",
+   "html": "How does a composite attribute map to SQL?"
+  },
+  {
+   "t": "p",
+   "html": "Each sub-attribute becomes its own column. The composite parent itself does NOT become a column. E.g., Address → street_name, city, post_code columns."
+  },
+  {
+   "t": "p",
+   "html": "What is a participation constraint?"
+  },
+  {
+   "t": "p",
+   "html": "A rule specifying whether ALL entities in an entity set (total participation) or just SOME (partial participation) must participate in at least one instance of a relationship."
+  },
+  {
+   "t": "p",
+   "html": "What does total participation mean and how is it drawn?"
+  },
+  {
+   "t": "p",
+   "html": "Every entity instance MUST participate in at least one relationship instance. Drawn as a DOUBLE LINE (══) between the entity and the relationship diamond."
+  },
+  {
+   "t": "p",
+   "html": "What does partial participation mean and how is it drawn?"
+  },
+  {
+   "t": "p",
+   "html": "Some entity instances do NOT have to participate in any relationship instance. Drawn as a SINGLE LINE (──) — the default notation."
+  },
+  {
+   "t": "p",
+   "html": "A business rule says \"Every ORDER must belong to a CUSTOMER\". What participation does ORDER have?"
+  },
+  {
+   "t": "p",
+   "html": "Total participation — drawn as a double line from ORDER to the places/belongs_to relationship diamond. Maps to NOT NULL FK in SQL."
+  },
+  {
+   "t": "p",
+   "html": "A business rule says \"A CUSTOMER may or may not have placed an ORDER\". What participation does CUSTOMER have?"
+  },
+  {
+   "t": "p",
+   "html": "Partial participation — drawn as a single line (default) from CUSTOMER to the relationship diamond. The FK column in ORDER allows NULL."
+  },
+  {
+   "t": "p",
+   "html": "How do you identify total vs. partial participation from a business rule?"
+  },
+  {
+   "t": "p",
+   "html": "Total: key words are \"must\", \"every\", \"all\", \"required\", \"always\". Partial: key words are \"may\", \"can\", \"optional\", \"might\", \"not necessarily\"."
+  }
+ ]
+}

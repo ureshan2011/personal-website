@@ -1,0 +1,160 @@
+{
+ "slug": "er-activities",
+ "url": "http://localhost:8765/app/#/lessons/deck/er-activities",
+ "title": "ER Diagrams in Practice — Yasas Sri Wickramasinghe",
+ "pageTitle": "ER Diagrams in Practice — Yasas Sri Wickramasinghe",
+ "extractedAt": "2026-09-28",
+ "words": 552,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Data Modelling"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of ER Diagrams in practice."
+  },
+  {
+   "t": "p",
+   "html": "Theory only sticks when you build something. Model five real systems — a library, a university, a hospital, an online store and a hotel — and check your diagram against a worked answer."
+  },
+  {
+   "t": "p",
+   "html": "📚 Library 🎓 University 🏥 Hospital 🛒 Online Store 🏨 Hotel"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Database Design · Activity Series"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "ER Diagram Activities"
+  },
+  {
+   "t": "p",
+   "html": "Chen's Notation · 5 Real-World Scenarios"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Chen's Notation — Symbol Reference"
+  },
+  {
+   "t": "p",
+   "html": "Use this guide while completing each activity"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Library Management System"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>library</strong> lends books to its members. Each <strong>book</strong> has an ISBN, title, and genre. Each <strong>member</strong> has a member ID, name, and email address. A member can <strong>borrow</strong> multiple books over time, and the same book may be borrowed by many different members. Each borrowing transaction records a <em>borrow date</em> and a <em>return date</em>."
+  },
+  {
+   "t": "p",
+   "html": "MEMBER BOOK BORROWS"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Identify all entities and their attributes",
+    "Mark each primary key (underline it)",
+    "Draw the BORROWS relationship with correct cardinality",
+    "Add relationship attributes (BorrowDate, ReturnDate)"
+   ]
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "University Course Enrollment"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>university</strong> manages student enrollments in courses. Each <strong>student</strong> has a student ID, full name, and GPA. Each <strong>course</strong> has a course code, title, and number of credits. Students can <strong>enroll in</strong> multiple courses each semester, and each course can have many students enrolled. The enrollment records the <em>semester</em> and <em>grade</em> the student received."
+  },
+  {
+   "t": "p",
+   "html": "STUDENT COURSE ENROLLS_IN"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Identify all entities and their key attributes",
+    "Determine the cardinality of the enrollment relationship",
+    "Add Semester and Grade as relationship attributes",
+    "Underline the primary key in each entity"
+   ]
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Hospital Patient Management"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>hospital</strong> manages doctors, patients, and departments. Each <strong>doctor</strong> has a doctor ID, name, and specialization. Each <strong>patient</strong> has a patient ID, name, and date of birth. Each <strong>department</strong> has a department ID and name. Each doctor <strong>works in</strong> exactly one department (a department has many doctors). Doctors can <strong>treat</strong> many patients, and patients may be treated by many doctors. Each treatment records a <em>treatment date</em>."
+  },
+  {
+   "t": "p",
+   "html": "DOCTOR PATIENT DEPARTMENT WORKS_IN TREATS"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Draw all three entities with their attributes and PKs",
+    "Show WORKS_IN (M:1) between DOCTOR and DEPARTMENT",
+    "Show TREATS (M:N) between DOCTOR and PATIENT",
+    "Add TreatmentDate as a relationship attribute on TREATS"
+   ]
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Online Store Orders"
+  },
+  {
+   "t": "p",
+   "html": "An <strong>online store</strong> tracks customers, their orders, and products. Each <strong>customer</strong> has a customer ID, name, and address. Each <strong>product</strong> has a product ID, name, and unit price. Each <strong>order</strong> has an order ID and order date. A customer can <strong>place</strong> many orders (each order belongs to one customer). An order can <strong>contain</strong> multiple products, and a product can appear in many orders. Each order-line records the <em>quantity</em> ordered."
+  },
+  {
+   "t": "p",
+   "html": "CUSTOMER ORDER PRODUCT PLACES CONTAINS"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Draw all three entities with their key attributes",
+    "Show PLACES (1:N) between CUSTOMER and ORDER",
+    "Show CONTAINS (M:N) between ORDER and PRODUCT",
+    "Add Quantity as a relationship attribute on CONTAINS"
+   ]
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Hotel Room Booking"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>hotel</strong> manages guest reservations for its rooms. Each <strong>guest</strong> has a guest ID, full name, and phone number. Each <strong>room</strong> has a room number, room type (single/double/suite), and nightly rate. A guest can <strong>book</strong> multiple rooms over different stays, and the same room can be booked by many guests across different periods. Each booking records a <em>check-in date</em> and a <em>check-out date</em>."
+  },
+  {
+   "t": "p",
+   "html": "GUEST ROOM BOOKS"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Identify all entities and their primary keys",
+    "Determine the correct cardinality for BOOKS",
+    "Add CheckInDate and CheckOutDate as relationship attributes",
+    "Ensure all attributes connect to the correct entity or relationship"
+   ]
+  }
+ ]
+}

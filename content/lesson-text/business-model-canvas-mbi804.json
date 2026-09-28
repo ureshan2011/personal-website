@@ -1,0 +1,349 @@
+{
+ "slug": "business-model-canvas-mbi804",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/business-model-canvas-mbi804",
+ "title": "The Business Model Canvas",
+ "pageTitle": "The Business Model Canvas · MBI804",
+ "extractedAt": "2026-09-28",
+ "words": 1168,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Shared with MBI800"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Business Model Canvas"
+  },
+  {
+   "t": "p",
+   "html": "A business model is how an idea creates value. Before anyone commits to running it, testing it, or funding it, the whole thing fits on one page. That's what the canvas is for."
+  },
+  {
+   "t": "p",
+   "html": "Reading <strong>15 minutes</strong> Assumes <strong>nothing</strong> Then <strong>a 90-minute group activity</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of this lesson you can"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Say what a business model is, in one sentence",
+    "Name five common ways businesses make money",
+    "Explain what each of the nine blocks on the canvas asks",
+    "Read the canvas from cost, to value, to revenue",
+    "Fill in a canvas for an IT business idea, working as a team",
+    "Present a short slide deck clearly, in about five minutes"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What a business model actually is"
+  },
+  {
+   "t": "p",
+   "html": "Five patterns cover most of the businesses you already know."
+  },
+  {
+   "t": "p",
+   "html": "A business model describes how an idea will create value. That definition is deliberately broad — it applies just as well to a company as it does to a class project. Most revenue models fall into a small number of recognisable patterns, and naming the pattern is often the fastest way to understand an unfamiliar business."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Model",
+     "How it works",
+     "Example"
+    ],
+    [
+     "Product &amp; service sales",
+     "The customer pays directly for a good or a service",
+     "Automotive manufacturers"
+    ],
+    [
+     "Subscription",
+     "The customer pays a recurring fee for ongoing access",
+     "Mobile carriers, streaming services"
+    ],
+    [
+     "Ad revenue",
+     "Advertisers pay for access to the platform’s audience",
+     "Facebook"
+    ],
+    [
+     "Commission",
+     "The platform takes a cut of the transactions it facilitates",
+     "Kickstarter"
+    ],
+    [
+     "Freemium",
+     "Basic use is free; advanced features are paid",
+     "Skype"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Worth asking"
+  },
+  {
+   "t": "p",
+   "html": "When you meet an unfamiliar company, ask which of these five patterns it's actually running — and whether it could be running more than one at once. A lot of platforms blend two, like a freemium product that also carries ads."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The tool"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Nine blocks, one page"
+  },
+  {
+   "t": "p",
+   "html": "Cost on the left. Revenue on the right. Value in the middle."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "1. Key Partners"
+  },
+  {
+   "t": "p",
+   "html": "Who do you need on your side?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "2. Key Activities"
+  },
+  {
+   "t": "p",
+   "html": "What will you spend most of your time doing?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "3. Key Resources"
+  },
+  {
+   "t": "p",
+   "html": "What do you need to make it work?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "4. Value Proposition"
+  },
+  {
+   "t": "p",
+   "html": "What value does this create, and for whom?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "5. Customer Relationships"
+  },
+  {
+   "t": "p",
+   "html": "What kind of relationship do customers expect?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "6. Channels"
+  },
+  {
+   "t": "p",
+   "html": "How do people hear about you, and buy?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "7. Customer Segments"
+  },
+  {
+   "t": "p",
+   "html": "Who is actually paying you?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "8. Cost Structure"
+  },
+  {
+   "t": "p",
+   "html": "What does this cost to run?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "9. Revenue Streams"
+  },
+  {
+   "t": "p",
+   "html": "How do you make money — and is there value beyond money?"
+  },
+  {
+   "t": "p",
+   "html": "Read it left to right: the left-hand blocks and Cost Structure describe what the model costs to run. The right-hand blocks and Revenue Streams describe what it earns, and from whom. Value Proposition sits in the middle because everything else on the page exists to support it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Seeing it filled in"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "A worked example: a bill-splitting app"
+  },
+  {
+   "t": "p",
+   "html": "Before you fill one in yourselves, here's what a completed canvas actually looks like."
+  },
+  {
+   "t": "p",
+   "html": "Not every canvas needs a billion-dollar company behind it. Here's one for a small, ordinary app — easy to check against your own experience, and the same kind of IT idea your team will pick."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Block",
+     "Filled in"
+    ],
+    [
+     "Value Proposition",
+     "Split a shared bill in seconds, then get everyone reminded automatically until they’ve paid."
+    ],
+    [
+     "Customer Segments",
+     "Groups of friends, flatmates, and people who travel together."
+    ],
+    [
+     "Channels",
+     "The app itself, word of mouth, a listing in the App Store and Google Play."
+    ],
+    [
+     "Customer Relationships",
+     "Self-service — no support needed once it works. A help page for the rare question."
+    ],
+    [
+     "Revenue Streams",
+     "Free for small groups. A small monthly subscription for unlimited groups and spreadsheet export."
+    ],
+    [
+     "Key Activities",
+     "Building and maintaining the app, fixing bugs, adding the features people actually ask for."
+    ],
+    [
+     "Key Resources",
+     "Two developers, a designer, a small cloud hosting bill, the app store accounts."
+    ],
+    [
+     "Key Partners",
+     "A payment processor, the app stores that distribute it."
+    ],
+    [
+     "Cost Structure",
+     "Developer time, cloud hosting, app store fees, a bit of marketing."
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Notice the order it was actually filled in: value proposition and customers first, then how they'd find out about it, then what it costs to run. Most teams find it easier to work outward from the centre block rather than straight across."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Now it's your turn"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Group activity: build a canvas"
+  },
+  {
+   "t": "p",
+   "html": "Six people. One IT business idea. 90 minutes, start to finish."
+  },
+  {
+   "t": "p",
+   "html": "Download the blank canvas template and fill it in together as a team, then turn it into a short slide deck to present."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "What you need"
+  },
+  {
+   "t": "p",
+   "html": "One laptop per team, the canvas template above, and a way to build a short slide deck — Google Slides, PowerPoint, Canva, whatever's fastest. A timer, visible to everyone."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Group and idea"
+  },
+  {
+   "t": "p",
+   "html": "Groups of six. Each team picks one IT business idea — software, an app, a platform, or a digital service. An existing one you know, or one you invent. IT ideas only, not any other field."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The agenda — 90 minutes, timed"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Form groups and pick an IT idea · 10 min Groups of six. Pick one IT business idea — software, an app, a platform, or a digital service. Appoint a scribe to keep the canvas organised.",
+    "2 Divide the nine blocks · 5 min Read the nine blocks again as a group. Spread them across the six of you — most people end up owning one or two.",
+    "3 Fill in the canvas · 30 min Download the template and work through it block by block. Say your idea out loud before anyone types it in — the discussion is the point, not the document.",
+    "4 Create presentations (2–3 slides) · 15 min Turn your filled canvas into a short slide deck — just the highlights, two or three slides. This is what you’ll actually present from.",
+    "5 Present to the class · 25 min About five minutes per team, for roughly five teams. Keep to your two or three slides.",
+    "6 Wrap-up · 5 min The lecturer highlights a couple of strong presentations and closes the session."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "On dividing nine blocks among six people"
+  },
+  {
+   "t": "p",
+   "html": "There's no single right split. Two pairs can each take two related blocks — Key Partners with Key Activities, say, or Cost Structure with Revenue Streams — while the rest take one each. The one rule: every block gets an owner, and nobody sits out the discussion just because their name isn't attached to that block."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Cost, value, revenue — on one page."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>A business model is how an idea creates value.</strong> Broad enough to cover a company, a class project, or a business idea you just invented.",
+    "02 <strong>The canvas puts cost on the left, revenue on the right.</strong> Value Proposition sits in the middle, because everything else on the page exists to support it.",
+    "03 <strong>Filling one in together, fast, surfaces disagreements a rehearsed pitch would hide.</strong> Say the idea out loud before anyone types it into the template.",
+    "04 <strong>A canvas is a draft, not a business plan.</strong> The moment one block turns out to be wrong, the whole thing is meant to be redone."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "The Business Model Canvas concept originates with Alexander Osterwalder. The canvas layout used on this page is adapted from \"Business Model &amp; Idea Canvasses\" (MaRS Discovery District / Ontario Network of Entrepreneurs), licensed under Creative Commons Attribution–ShareAlike 4.0 International."
+  }
+ ]
+}

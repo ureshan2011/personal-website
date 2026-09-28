@@ -1,0 +1,393 @@
+{
+ "slug": "normalisation-activities",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/normalisation-activities",
+ "title": "Normalisation activities",
+ "pageTitle": "Normalisation activities · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 472,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "Blended Teaching Content by Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "p",
+   "html": "Practice activities · Dr. Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Normalise it yourself. 1NF · 2NF · 3NF"
+  },
+  {
+   "t": "p",
+   "html": "Seven short tables, mixed up — they are not in order, and we don’t tell you which form each one is in. For each table, work out the highest normal form it is in, then normalise it. Try it yourself first. Each answer has its own password, which your lecturer will share."
+  },
+  {
+   "t": "p",
+   "html": "Need a refresher? ›"
+  },
+  {
+   "t": "p",
+   "html": "How to use this"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Read, decide, normalise, check"
+  },
+  {
+   "t": "p",
+   "html": "Each activity works the same way. Do your own answer first, then unlock the one here to check it."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Find the problem"
+  },
+  {
+   "t": "p",
+   "html": "Read the table. Where is the same value repeated, or where is a cell holding a list?"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Name the form"
+  },
+  {
+   "t": "p",
+   "html": "Decide the highest normal form it is in now — 1NF, 2NF or 3NF. Some are already fine."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Split and check"
+  },
+  {
+   "t": "p",
+   "html": "Break it into clean tables, then unlock the answer to check your work."
+  },
+  {
+   "t": "p",
+   "html": "Activity 1 · Online shop"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The order lines table"
+  },
+  {
+   "t": "p",
+   "html": "An online shop keeps its order lines in one table. The key is made of two columns, {OrderID, ProductID}. Look at what each column depends on."
+  },
+  {
+   "t": "p",
+   "html": "Order_Items PK: {OrderID, ProductID}"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "OrderID",
+     "ProductID",
+     "ProductName",
+     "Quantity"
+    ],
+    [
+     "O1",
+     "P1",
+     "Keyboard",
+     "2"
+    ],
+    [
+     "O1",
+     "P2",
+     "Mouse",
+     "1"
+    ],
+    [
+     "O2",
+     "P1",
+     "Keyboard",
+     "3"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your task"
+  },
+  {
+   "t": "p",
+   "html": "Work out the highest normal form this table is in right now — then normalise it."
+  },
+  {
+   "t": "p",
+   "html": "The answer is locked"
+  },
+  {
+   "t": "p",
+   "html": "Try the table on your own first. Each activity has its own password — your lecturer will give you the one for this table to see the full answer."
+  },
+  {
+   "t": "p",
+   "html": "Activity 2 · Streaming service"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The movies table"
+  },
+  {
+   "t": "p",
+   "html": "A streaming app stores each movie with its cast in one column, separated by commas. Look at the table and decide what to do."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "MovieID",
+     "Title",
+     "Actors"
+    ],
+    [
+     "M1",
+     "Inception",
+     "DiCaprio, Hardy"
+    ],
+    [
+     "M2",
+     "Titanic",
+     "DiCaprio, Winslet"
+    ],
+    [
+     "M3",
+     "Joker",
+     "Phoenix"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Activity 3 · Library"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The books table"
+  },
+  {
+   "t": "p",
+   "html": "A library lists its books in one table. The key is a single column, BookID. Look at how the city is linked to the book."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "BookID",
+     "Title",
+     "PublisherID",
+     "PublisherCity"
+    ],
+    [
+     "B1",
+     "SQL Basics",
+     "PUB1",
+     "London"
+    ],
+    [
+     "B2",
+     "Data 101",
+     "PUB1",
+     "London"
+    ],
+    [
+     "B3",
+     "Web Dev",
+     "PUB2",
+     "Paris"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Activity 4 · Customer records"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The customers table"
+  },
+  {
+   "t": "p",
+   "html": "A shop keeps its customers in this table. The key is a single column, CustomerID. Read it carefully — not every table needs changing."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "CustomerID",
+     "CustomerName",
+     "Email"
+    ],
+    [
+     "C1",
+     "Ravi",
+     "ravi@mail.com"
+    ],
+    [
+     "C2",
+     "Mary",
+     "mary@mail.com"
+    ],
+    [
+     "C3",
+     "Sara",
+     "sara@mail.com"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Activity 5 · Student clubs"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The student clubs table"
+  },
+  {
+   "t": "p",
+   "html": "A coordinator keeps each student’s clubs in one column, separated by commas. Look at the table and decide what to do."
+  },
+  {
+   "t": "p",
+   "html": "Student_Clubs PK: StudentID"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "StudentID",
+     "StudentName",
+     "Clubs"
+    ],
+    [
+     "S1",
+     "Amal",
+     "Chess, Drama"
+    ],
+    [
+     "S2",
+     "Nimal",
+     "Cricket"
+    ],
+    [
+     "S3",
+     "Kamala",
+     "Art, Music, Dance"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Activity 6 · Health clinic"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The appointments table"
+  },
+  {
+   "t": "p",
+   "html": "A small clinic books appointments in one table. The key is the pair {PatientID, DoctorID}. This one has two repeated facts — find them both."
+  },
+  {
+   "t": "p",
+   "html": "Appointments PK: {PatientID, DoctorID}"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "PatientID",
+     "PatientName",
+     "DoctorID",
+     "DoctorName",
+     "Fee"
+    ],
+    [
+     "PT1",
+     "Ravi",
+     "DR1",
+     "Dr. Perera",
+     "$40"
+    ],
+    [
+     "PT1",
+     "Ravi",
+     "DR2",
+     "Dr. Silva",
+     "$55"
+    ],
+    [
+     "PT2",
+     "Mary",
+     "DR1",
+     "Dr. Perera",
+     "$40"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Activity 7 · HR system"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The employees table"
+  },
+  {
+   "t": "p",
+   "html": "This HR table lists employees and the department each one works in. The key is a single column, EmpID. Look at how DeptName is linked to the key."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "EmpID",
+     "EmpName",
+     "DeptID",
+     "DeptName"
+    ],
+    [
+     "E1",
+     "Sara",
+     "D1",
+     "Sales"
+    ],
+    [
+     "E2",
+     "John",
+     "D1",
+     "Sales"
+    ],
+    [
+     "E3",
+     "Lisa",
+     "D2",
+     "IT"
+    ]
+   ],
+   "head": true
+  }
+ ]
+}

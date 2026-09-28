@@ -1,0 +1,209 @@
+{
+ "slug": "er-advanced",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/er-advanced",
+ "title": "Advanced ER concepts",
+ "pageTitle": "Advanced ER concepts · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 753,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Data Modelling"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of Advanced ER Concepts."
+  },
+  {
+   "t": "p",
+   "html": "Real data is messier than the textbook. Tackle the entities that can't stand on their own, the relationships that identify them, and attributes that are multivalued or derived — with two exercises to test yourself."
+  },
+  {
+   "t": "p",
+   "html": "🪶 Weak entities 🔗 Identifying rels 📦 Multivalued 🧮 Derived"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Database Management Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Advanced ER Concepts"
+  },
+  {
+   "t": "p",
+   "html": "Chen's Notation · Weak Entities · Special Attributes"
+  },
+  {
+   "t": "p",
+   "html": "Prerequisite: Basic ER Diagram knowledge"
+  },
+  {
+   "t": "eyebrow",
+   "html": "This lesson covers"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Four New Concepts to Master"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Weak Entity"
+  },
+  {
+   "t": "p",
+   "html": "An entity that cannot be uniquely identified on its own — it depends on a stronger entity for its very existence."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Identifying Relationship"
+  },
+  {
+   "t": "p",
+   "html": "The special double-diamond that links a weak entity to its owner, providing the missing identity context."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Multivalued Attribute"
+  },
+  {
+   "t": "p",
+   "html": "An attribute that holds multiple values for one entity — like a list of phone numbers or email addresses."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Derived Attribute"
+  },
+  {
+   "t": "p",
+   "html": "An attribute computed from other data — like calculating Age from DateOfBirth. Never stored directly."
+  },
+  {
+   "t": "p",
+   "html": "A <strong>weak entity</strong> cannot be uniquely identified by its own attributes alone. It <strong>depends entirely on another entity</strong> — called the <em>strong entity</em> or <em>owner</em> — for both existence and identity."
+  },
+  {
+   "t": "p",
+   "html": "Drawn as a <strong>double rectangle</strong> — two concentric boxes. The outer border signals \"this entity cannot stand alone.\""
+  },
+  {
+   "t": "p",
+   "html": "ROOM depends on BUILDING ORDER_ITEM depends on ORDER DEPENDENT depends on EMPLOYEE"
+  },
+  {
+   "t": "p",
+   "html": "The <strong>special relationship</strong> connecting a weak entity to its owner. It provides the ownership context needed to uniquely identify each weak entity instance."
+  },
+  {
+   "t": "p",
+   "html": "Drawn as a <strong>double diamond</strong> — two concentric diamonds. It <strong>always</strong> connects a weak entity to its strong entity."
+  },
+  {
+   "t": "p",
+   "html": "If you draw a double diamond, one side <em>must</em> be a weak entity (double rectangle). They always appear together."
+  },
+  {
+   "t": "p",
+   "html": "Cardinality: 1 (strong) to N (weak) Weak side: total participation"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>multivalued attribute</strong> can hold <strong>more than one value</strong> for a single entity instance. Rather than one phone number per employee, you can store many."
+  },
+  {
+   "t": "p",
+   "html": "Drawn as a <strong>double ellipse</strong> — two concentric ovals. In text notation, written with curly braces: <strong>{PhoneNumbers}</strong>."
+  },
+  {
+   "t": "p",
+   "html": "{PhoneNumbers} {EmailAddresses} {Skills} {Languages}"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Why not just add 3 phone attributes?"
+  },
+  {
+   "t": "p",
+   "html": "Because we don't know in advance how many values a given instance will have. Double ellipse = flexible, open-ended list."
+  },
+  {
+   "t": "p",
+   "html": "A <strong>derived attribute</strong> is <strong>calculated from other stored data</strong> — it doesn't need to be saved in the database because you can always compute it on demand."
+  },
+  {
+   "t": "p",
+   "html": "Drawn as a <strong>dashed ellipse</strong> — the broken border signals \"this value isn't stored directly.\" In text: written as <strong>(Age)</strong> with parentheses."
+  },
+  {
+   "t": "p",
+   "html": "(Age) from DateOfBirth (TotalPrice) from UnitPrice × Qty (YearsOfService) from HireDate"
+  },
+  {
+   "t": "p",
+   "html": "Storing derived data risks <strong>inconsistency</strong>. If DateOfBirth changes, a stored Age becomes wrong. Compute it instead — always accurate."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Advanced Symbol Reference — Quick Guide"
+  },
+  {
+   "t": "p",
+   "html": "All four new symbols at a glance. Use this slide as your reference."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "University Building &amp; Rooms"
+  },
+  {
+   "t": "p",
+   "html": "A <strong>university</strong> manages its campus facilities. Each <strong>building</strong> has a building ID, name, and location. Each building has many <strong>rooms</strong>, but a room number (like \"101\") only makes sense within a specific building — Room 101 could exist in <em>every</em> building. Each room has a room number and a room type (lecture hall, lab, office). A room <strong>cannot exist</strong> without its building. Additionally, each room has a <strong>seating capacity</strong> and a <em>utilisation rate</em> which is <strong>automatically calculated</strong> from bookings data. Buildings can have <strong>multiple contact phone numbers</strong> on record."
+  },
+  {
+   "t": "p",
+   "html": "BUILDING (strong) ROOM (weak) HAS (identifying)"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Draw BUILDING as a strong entity with its key attribute",
+    "Draw ROOM as a weak entity with its partial key (RoomNo)",
+    "Connect them with an identifying relationship (double diamond)",
+    "Show PhoneNumbers as a multivalued attribute on BUILDING",
+    "Show UtilisationRate as a derived attribute on ROOM"
+   ]
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Employee &amp; Dependants"
+  },
+  {
+   "t": "p",
+   "html": "A company tracks its <strong>employees</strong> and their <strong>dependants</strong> (family members covered by insurance). Each employee has an employee ID, name, hire date, and date of birth. A <strong>dependant</strong> has only a name and relationship (e.g. \"spouse\", \"child\") — and <strong>cannot exist in the system without their employee</strong>. A dependant named \"Emma\" only makes sense in the context of a specific employee. Employees may speak <strong>multiple languages</strong>. The company also needs to display each employee's <em>years of service</em> on their profile — but this should <strong>never be stored</strong> directly in the database."
+  },
+  {
+   "t": "p",
+   "html": "EMPLOYEE (strong) DEPENDANT (weak) HAS_DEPENDANT (identifying)"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Identify and draw EMPLOYEE as a strong entity with EmpID as key",
+    "Draw DEPENDANT as a weak entity; DepName is the partial key",
+    "Connect them with HAS_DEPENDANT as an identifying relationship",
+    "Add Languages as a multivalued attribute on EMPLOYEE",
+    "Add YearsOfService as a derived attribute on EMPLOYEE"
+   ]
+  }
+ ]
+}

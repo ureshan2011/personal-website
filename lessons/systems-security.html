@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Systems security | MBI800 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/systems-security.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Systems security | MBI800 Lesson"/>
+<meta property="og:description" content="What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/systems-security.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/systems-security-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/systems-security.html#lesson",
+  "name": "Systems security",
+  "description": "What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup simulator and choose a disaster-recovery plan.",
+  "url": "https://www.yasassri.me/lessons/systems-security.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/systems-security-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT6M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Strategic Information Systems Planning",
+      "courseCode": "MBI800",
+      "description": "What an organisation decides to build, and why it keeps getting the decision wrong.",
+      "url": "https://www.yasassri.me/lessons.html#mbi800",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/systems-security.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI800",
+      "item": "https://www.yasassri.me/lessons.html#mbi800"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Systems security",
+      "item": "https://www.yasassri.me/lessons/systems-security.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi800">MBI800</a><span aria-hidden="true">/</span><span aria-current="page">Systems security</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi800" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">MBI800</a><span class="lp-tag">Lesson</span></div>
+      <h1>Systems security</h1>
+      <p class="lp-lead">What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup simulator and choose a disaster-recovery plan.</p>
+      <div class="lp-facts"><span><b>Strategic Information Systems Planning</b></span><span>6 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/systems-security" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/systems-security" target="_blank" rel="noopener" aria-label="Open Systems security on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI800 · Systems security</span></span>
+      <img src="../assets/images/lessons/systems-security-640.webp" srcset="../assets/images/lessons/systems-security-640.webp 640w, ../assets/images/lessons/systems-security-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Systems security" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#what-can-you-actually-lose">What can you actually lose?</a></li><li><a href="#a-security-system-has-a-life-cycle">A security system has a life cycle</a></li><li><a href="#how-big-is-the-threat-really">How big is the threat, really?</a></li><li><a href="#active-threats-fraud-and-sabotage">Active threats: fraud and sabotage</a></li><li><a href="#logic-bomb-trojan-worm-or-virus">Logic bomb, Trojan, worm, or virus?</a></li><li><a href="#controls-for-active-threats">Controls for active threats</a></li><li><a href="#passive-threats-failures-not-attackers">Passive threats: failures, not attackers</a></li><li><a href="#when-the-whole-site-is-gone">When the whole site is gone</a></li><li><a href="#no-system-is-infallible-so-build-the-culture">No system is infallible — so build the culture</a></li><li><a href="#prove-it-five-scenarios">Prove it. Five scenarios.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/systems-security" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Systems security, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/systems-security" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>What can go wrong, how much it would cost, and how to defend and recover. A hands-on tour of protecting the information systems a business runs on.</p>
+<p>⚖️ Risk &amp; exposure 🦠 Active threats 🛡️ Layered defence 🗃️ Backups 🔥 Disaster recovery</p>
+<p>Every organisation now runs on information systems — and every one of those systems can be interrupted, stolen, corrupted, or destroyed. <strong>Systems security</strong> is the discipline of understanding what could go wrong, deciding how much it would cost, and building the defences and recovery plans to survive it.</p>
+<p>This lesson is built to be <em>played with</em>. Calculate real risk, profile the attackers, tell the malware apart, peel back the layers of defence, run a backup simulator, and choose a disaster-recovery plan — then test yourself at the end. Start anywhere.</p>
+<h2 id="what-can-you-actually-lose"><span class="lp-kicker">Part 1 · The stakes</span>What can you actually lose?</h2>
+<p>Before defending anything, name what is at risk. A computerised information network exposes six distinct kinds of loss. Tap each to see it in the real world.</p>
+<h2 id="a-security-system-has-a-life-cycle"><span class="lp-kicker">Part 2 · Build it like a system</span>A security system has a life cycle</h2>
+<p>A computer security system is developed like any other information system — through the same four phases. It is never 'finished'; it loops.</p>
+<p>Analyse the system's vulnerabilities in terms of the threats that are actually relevant to it, and the loss exposure each one carries. You cannot protect against a threat you have not named.</p>
+<h2 id="how-big-is-the-threat-really"><span class="lp-kicker">Part 3 · Measure the risk</span>How big is the threat, really?</h2>
+<p>Two ways to size up a threat. The quantitative approach multiplies cost by likelihood; the qualitative approach simply ranks threats by judgement. Try the calculator.</p>
+<p>Put a number on it. <strong>Loss exposure = cost of one loss × how likely it is.</strong> Drag the sliders.</p>
+<p>No precise numbers? Just <strong>list the threats and rank them</strong> by how much they contribute to total loss exposure. Faster, more subjective.</p>
+<ul class="lp-bits"><li>Ransomware encrypts customer database Critical</li><li>Disgruntled employee deletes records High</li><li>Laptop with no sensitive data stolen Medium</li><li>Printer in lobby jams Low</li></ul>
+<p>Used when reliable cost/probability data is hard to get — which, in real life, is most of the time.</p>
+<h2 id="active-threats-fraud-and-sabotage"><span class="lp-kicker">Part 4 · The attackers</span>Active threats: fraud and sabotage</h2>
+<p>Active threats are deliberate — someone is doing this on purpose. First, who they are; then, the six ways they strike.</p>
+<p>Maintenance staff, programmers, operators, administrators and data-control clerks. They have the deepest access — and so the greatest opportunity.</p>
+<p>People outside the data-processing function who still touch sensitive data and control important inputs. Often overlooked, frequently the entry point.</p>
+<p>Outsiders breaking in. Hackers do it for fun and challenge; others include wiretappers, eavesdroppers, impersonators and the unnoticed intruder.</p>
+<h3>Input Manipulation</h3>
+<p><strong>What it is —</strong> Feeding deliberately wrong input to get a wrong result — misappropriating assets or hiding an embezzlement.</p>
+<p><strong>Why it matters —</strong> It is the most frequently used method of computer fraud, precisely because it needs the least technical skill. You do not need to be a programmer to type a fake invoice.</p>
+<p>How often this method is used Very high</p>
+<p>Note: the white-collar criminal is notoriously hard to identify — managers often avoid public prosecution to dodge the negative publicity, so much computer crime never surfaces at all.</p>
+<h2 id="logic-bomb-trojan-worm-or-virus"><span class="lp-kicker">Part 5 · Malware lab</span>Logic bomb, Trojan, worm, or virus?</h2>
+<p>Sabotage has a toolkit. These four get confused constantly — so let's pin them down. Read the cards, then identify each scenario.</p>
+<p>A dormant piece of code that lies in wait and is triggered by a specific later event (a date, a deletion, a name vanishing from payroll).</p>
+<p>A destructive program disguised as a legitimate, useful one. You run it willingly — that is the trick.</p>
+<p>A virus that spreads itself across a computer network, hopping machine to machine without needing a host program.</p>
+<p>Code that spreads by attaching itself to other programs, "infecting" them with a copy of itself.</p>
+<p class="lp-label">Identify the threat · 1/4</p>
+<p>"Code left by a fired developer that wipes the database exactly 90 days after their name disappears from the payroll file."</p>
+<h2 id="controls-for-active-threats"><span class="lp-kicker">Part 6 · Defence in depth</span>Controls for active threats</h2>
+<p>The answer to a determined attacker is layers. Three rings of access control stand between a perpetrator and the data. Tap a ring.</p>
+<p>🎯</p>
+<p class="lp-label">Layer · Site-access controls</p>
+<p>Keep the wrong people away from the hardware itself — locked server rooms, security guards, badge readers, cameras. The outermost wall.</p>
+<p>A <strong>layered approach</strong> separates a perpetrator from their target. To reach the data, an attacker must defeat <em>every</em> ring — and each one is a fresh chance to stop them.</p>
+<h2 id="passive-threats-failures-not-attackers"><span class="lp-kicker">Part 7 · When nobody is attacking</span>Passive threats: failures, not attackers</h2>
+<p>Power cuts, dead disks, crashed processors — no villain, just entropy. Two controls keep the business running: fault tolerance and backups.</p>
+<p>A <strong>fault-tolerant system</strong> survives a failure because a redundant part takes over <em>immediately</em>, with little or no interruption. Redundancy can be built at five levels — tap each:</p>
+<h3>🗃️ Backup simulator</h3>
+<p>A full backup ran Sunday night. Through the week, files change. Switch the strategy and watch what each daily backup saves — and what it costs you to recover after Friday's disaster. (Watch the <strong>archive bit</strong> behaviour described in each card.)</p>
+<p>Incremental backup — Only what changed since last backup</p>
+<p>Backs up only files changed since the last backup (bit = 1), then sets bit to 0.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Day</th><th>Files modified</th><th>This backup saves</th></tr></thead><tbody><tr><td>Mon</td><td>A B</td><td>A B</td></tr><tr><td>Tue</td><td>C</td><td>C</td></tr><tr><td>Wed</td><td>A</td><td>A</td></tr><tr><td>Thu</td><td>D</td><td>D</td></tr><tr><td>Fri</td><td>B E</td><td>B E</td></tr></tbody></table></div>
+<p class="lp-label">💥 Disaster strikes Friday evening — to fully restore you need:</p>
+<p>Sunday's full + every single daily backup (Mon→Fri). Smallest backups, slowest restore — lose one tape and the chain breaks.</p>
+<h2 id="when-the-whole-site-is-gone"><span class="lp-kicker">Part 8 · Disaster risk management</span>When the whole site is gone</h2>
+<p>Prevention first — but if disaster wins, a recovery plan and an alternate processing arrangement keep you alive. Weigh the three classic options.</p>
+<p>A disaster recovery plan answers one question: <strong>where do we run when our own building is gone?</strong> Pick an alternate processing arrangement and weigh the trade-off.</p>
+<p>Partially equipped — hardware in place, but data not fully live. A balance of standing cost and recovery speed.</p>
+<h2 id="no-system-is-infallible-so-build-the-culture"><span class="lp-kicker">Part 9 · The human layer</span>No system is infallible — so build the culture</h2>
+<p>Since no security system is perfect, you create an atmosphere where security is the default. These organisational controls do the quiet heavy lifting.</p>
+<p>✓ Separate the accounting and computing functions.</p>
+<p>✓ Separate the duties of computer users and systems personnel.</p>
+<p>✓ Cancel access privileges the instant an employee is fired.</p>
+<p>✓ The board appoints an audit committee, which approves the internal audit director.</p>
+<p>✓ Use budgets to control spending on equipment.</p>
+<p>✓ Thoroughly test all system security.</p>
+<p>✓ Keep a well-documented internal policy against software piracy.</p>
+<h2 id="prove-it-five-scenarios"><span class="lp-kicker">Final challenge</span>Prove it. Five scenarios.</h2>
+<p>Pull it all together — risk, threats, malware, controls, backups. Answer all five, then submit for instant feedback.</p>
+<p>1. A clerk enters fake supplier invoices to divert payments to themselves. No code is changed. Which active threat is this?</p>
+<p>2. You want the smallest possible daily backups and accept a slow, multi-tape restore. Which strategy?</p>
+<p>3. An attacker is in the building and logged in, but cannot open the payroll file. Which control stopped them?</p>
+<p>4. Loss costs $400,000 and has a 25% chance per year. What is the annual loss exposure (quantitative)?</p>
+<p>5. Code planted by an insider detonates the moment their name leaves the payroll system. This is a…</p>
+<p>Security isn't a product you buy once. It's a life cycle: name the risks, size them, build layered defences, plan for the failure you hope never comes — then do it all again as the threats evolve.</p>
+<p>MBI800 · Strategic Information Systems · Master of Business Informatics</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/platform-strategy.html"><small>Previous lesson</small><b>Platform strategy</b></a><a class="is-next" href="../lessons/xr-explorer.html"><small>Next lesson</small><b>Immersive realities</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/systems-security" target="_blank" rel="noopener" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI800, Strategic Information Systems Planning</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-sisp.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-sisp-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Introduction and systems thinking</span>
+            <span class="lp-card-blurb">The whole of Lesson 1: what strategic planning actually decides, systems against collections, a sales loop you can run for twelve months to watch the obvious fix rebound, and the Iceberg Model taken down through a real outage. Ends with a knowledge check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/business-model-canvas.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/business-model-canvas-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">The Business Model Canvas</span>
+            <span class="lp-card-blurb">How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/threats-to-strategy.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/threats-to-strategy-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Threats to opportunities to strategy</span>
+            <span class="lp-card-blurb">How a business capitalises on its threats. Netflix, Apple, Adobe, Microsoft, NZ Post and Google each turned a threat into a strategy, Kodak and Fujifilm took the same threat two ways, then you flip six threats yourself.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/five-stories.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/five-stories-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Five stories that changed everything</span>
+            <span class="lp-card-blurb">Airbnb, Netflix, Xero, Canva and Alibaba — how each started from one frustration and built a platform that rewired its industry. IS architecture, growth figures and discussion questions for each.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/platform-strategy.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/platform-strategy-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Platform strategy</span>
+            <span class="lp-card-blurb">Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE Predix — then a group research task and a knowledge check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/xr-explorer.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/xr-explorer-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Immersive realities</span>
+            <span class="lp-card-blurb">A walk through AR, VR and mixed reality, with two demos that run in the browser. No headset needed, and no prior graphics knowledge assumed.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

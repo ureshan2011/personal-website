@@ -1,0 +1,666 @@
+{
+ "slug": "intro-to-sisp",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-sisp",
+ "title": "Introduction and systems thinking",
+ "pageTitle": "Introduction and systems thinking · MBI800",
+ "extractedAt": "2026-09-28",
+ "words": 2723,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Lesson 1 of 11"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Introduction and systems thinking"
+  },
+  {
+   "t": "p",
+   "html": "Before any planning framework arrives, two things have to be in place: a clear idea of what Strategic Information Systems Planning is for, and the habit of looking at an organisation as a system rather than a list of separate problems. This lesson builds both, and ends with the model the rest of the course leans on."
+  },
+  {
+   "t": "p",
+   "html": "Reading <strong>25 minutes</strong> Assumes <strong>nothing</strong> Bring <strong>one system that annoys you</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of this lesson you can"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Say what Strategic Information Systems Planning is, and what problem it solves",
+    "Explain how SISP differs from planning a single IT project",
+    "Tell a system from a collection, and say why that distinction decides how you plan",
+    "Use the Iceberg Model to get from an observed failure down to the belief that produced it",
+    "Name the layer an improvement is operating at, and predict whether it will hold"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.1 · The question this course answers"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Deciding what to build"
+  },
+  {
+   "t": "p",
+   "html": "Which systems should we build, buy or retire, and in what order? Answering it badly is the most expensive thing an organisation does quietly."
+  },
+  {
+   "t": "p",
+   "html": "Every organisation eventually faces the same question, and most answer it by accident. The results are familiar: systems that duplicate capability the business already owns, systems nobody asked for, and technology spending that drifts a little further from what the organisation needs every year."
+  },
+  {
+   "t": "p",
+   "html": "Strategic Information Systems Planning is the discipline that answers it deliberately."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Definition"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Strategic Information Systems Planning</strong> is the process of identifying and prioritising information systems investments so that they support an organisation’s business strategy, rather than being pursued independently of it."
+  },
+  {
+   "t": "p",
+   "html": "It is not the same activity as running an IT project. A project plan answers <em>how do we build this on time and on budget?</em> SISP answers the question before it: <em>should this system exist at all, and why, before any budget is committed?</em> Get that wrong and the best-executed project in the world still fails, because it solves a problem the organisation did not have."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "",
+     "Project planning",
+     "SISP"
+    ],
+    [
+     "Asks",
+     "How do we deliver this?",
+     "Should this exist, and before what else?"
+    ],
+    [
+     "Owned by",
+     "A project manager",
+     "Upper management, across the organisation"
+    ],
+    [
+     "Horizon",
+     "The length of the project",
+     "Long range, past any one delivery"
+    ],
+    [
+     "Detail",
+     "Specification, schedule, budget",
+     "Conceptual: capability, sequence, priority"
+    ],
+    [
+     "Fails when",
+     "Delivery slips",
+     "Everything is delivered and none of it was needed"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Three forces that make it hard"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Systems shape strategy as much as strategy shapes systems"
+  },
+  {
+   "t": "p",
+   "html": "A retailer that adopts real-time inventory data does not merely automate an existing process. It opens strategic options — dynamic pricing, drop-shipping, personalised marketing — that did not exist before the system did. Plan in one direction only and you keep building systems that support last year’s strategy."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Planning happens under uncertainty and constraint"
+  },
+  {
+   "t": "p",
+   "html": "Technology moves faster than most planning cycles, budgets are finite, and the people who understand the business rarely share a time horizon with the people who understand the technology. A good process reconciles that without freezing the organisation in permanent analysis."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "It is a human process before it is a technical one"
+  },
+  {
+   "t": "p",
+   "html": "The frameworks in this course exist because organisations are made of people with competing incentives, incomplete information and legitimate disagreement about priorities. A plan that ignores this does not survive contact with the organisation it was written for."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.2 · Before any framework"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "A system, or just a pile"
+  },
+  {
+   "t": "p",
+   "html": "A system is a set of interacting parts producing behaviour no part produces alone. The test is cheap: change one part and see whether the rest cares."
+  },
+  {
+   "t": "p",
+   "html": "This distinction looks like a warm-up exercise and is not. Everything later in this course — process dimensions, risk registers, feasibility studies — assumes you can look at an organisation and see interacting parts rather than a list of separate problems. Without that habit, planning collapses into fixing one visible symptom at a time, and the same problem returns in a different shape a year later."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Activity · sort these six"
+  },
+  {
+   "t": "p",
+   "html": "Decide for each one before you turn it over. Remove a part: if nothing else changes, it was a collection."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.3 · Why a sensible fix rebounds"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Run the loop for a year."
+  },
+  {
+   "t": "p",
+   "html": "A company reports poor sales. The obvious response is to tell the sales team to work harder. Pick an intervention and watch twelve months of it."
+  },
+  {
+   "t": "p",
+   "html": "Systems thinking replaces two habits of ordinary problem-solving. It looks for interrelationships between parts rather than a single linear cause, and it looks at change over time rather than a snapshot. Both show up in the same example, and neither is persuasive as a sentence."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Choose one intervention"
+  },
+  {
+   "t": "p",
+   "html": "<strong>78</strong> Sales performance after twelve months, against 100 at the start. No intervention."
+  },
+  {
+   "t": "pre",
+   "text": "The loop · nothing is being changed, so nothing is marked"
+  },
+  {
+   "t": "pre",
+   "text": "Sales performance, indexed to 100 at the start · the two grey lines are the options you did not pick"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Down 22 points in a year</strong> Nothing here is anybody’s fault in particular, which is what makes it a system problem. Each part is behaving reasonably given what it is told, and the loop still runs downhill."
+  },
+  {
+   "t": "p",
+   "html": "Nobody in this loop is behaving unreasonably. Management acts on the information it is given, and that information is produced by the very performance it is meant to explain. That is what a feedback loop is, and it is why the intervention point matters more than the effort spent."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.4 · The Iceberg Model"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Take one outage apart"
+  },
+  {
+   "t": "p",
+   "html": "Senge's four layers, from what happened down to the belief that made it likely. Learning runs downward, and so does leverage."
+  },
+  {
+   "t": "p",
+   "html": "The Iceberg Model is systems thinking’s most practical export: a way of asking why a single observed event is happening by moving down through progressively less visible layers. Click your way down through a documented one."
+  },
+  {
+   "t": "pre",
+   "text": "Above the dashed line is what you get without looking. Everything below it has to be looked for."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Layer 1 of 4"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Events"
+  },
+  {
+   "t": "p",
+   "html": "What is happening?"
+  },
+  {
+   "t": "p",
+   "html": "On 19 July 2024 a faulty content update from a security vendor crashed Windows machines worldwide. Flights were grounded, hospital systems went dark, payment terminals stopped. This is the layer that gets reported, and the only one visible without going looking for the rest."
+  },
+  {
+   "t": "p",
+   "html": "Leverage of a fix at this layer 1 / 4"
+  },
+  {
+   "t": "p",
+   "html": "React here and you restore service. Nothing about the next one has changed."
+  },
+  {
+   "t": "p",
+   "html": "Most organisations spend nearly all their improvement effort on the Events layer, because it is the only layer visible without deliberate investigation. That is exactly why the same problem returns in a new shape a year later."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.5 · Your turn"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Now do it with yours."
+  },
+  {
+   "t": "p",
+   "html": "Six short questions on an incident you actually watched happen. The page builds as you answer, and you take it away at the end."
+  },
+  {
+   "t": "p",
+   "html": "This is the thing to bring to the first class. Not because it is marked, but because a room full of real incidents is a far better lesson than one of mine, and because the fourth layer is much harder on an organisation you actually know."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "What are you taking apart?"
+  },
+  {
+   "t": "p",
+   "html": "Something you actually watched happen. An outage, a breach, a rollout nobody adopted, a process everybody works around."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your page, so far"
+  },
+  {
+   "t": "p",
+   "html": "MBI800 · The Iceberg Model Lesson 1"
+  },
+  {
+   "t": "p",
+   "html": "Your incident goes here"
+  },
+  {
+   "t": "p",
+   "html": "Not yet answered."
+  },
+  {
+   "t": "p",
+   "html": "Everything you type stays in this browser and is saved as you go. Nothing is uploaded, and I cannot see it — bring the printed page to class instead."
+  },
+  {
+   "t": "eyebrow",
+   "html": "End of the lesson"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Check yourself"
+  },
+  {
+   "t": "p",
+   "html": "Five questions on what this lesson claimed. Nothing is stored and nothing is reported — this is for you, now, while there is still time to reread."
+  },
+  {
+   "t": "p",
+   "html": "A company’s IT plan is thorough, formally documented, and signed off by the executive. It covers only the finance department’s systems. Which test in the SISP definition does it fail?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five things to carry forward"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>SISP asks whether a system should exist at all.</strong> A project plan answers how to build it on time and on budget. Answer the prior question badly and flawless delivery still fails.",
+    "02 <strong>Four tests, and all four have to pass.</strong> Broad scope, an upper-management perspective, a long-range horizon, and a conceptual level of abstraction. Fail one and it is not SISP, however much analysis went in.",
+    "03 <strong>A system is not a list.</strong> Change one part and see whether the rest cares. Organisations are systems, which is why a fix applied to one visible part so often rebounds.",
+    "04 <strong>Events are the cheap layer.</strong> Patterns, structures and mental models carry the leverage, and none of them appear without somebody deliberately going to look for them.",
+    "05 <strong>Balance beats maximum.</strong> Rational Adaptation is a shape, not a score. Discipline without breadth goes stale; breadth without discipline is motion without a plan."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Everything below this line is what the course does next, and the practical detail on how it runs. The lesson itself ends here."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Lessons 2 onward"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where this goes next"
+  },
+  {
+   "t": "p",
+   "html": "A short look at the frameworks the rest of the course builds on top of what you just did, with one of them ready to try."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "A definition you can test something against"
+  },
+  {
+   "t": "p",
+   "html": "Segars, Grover and Teng give SISP a testable shape: a formal process, conducted at a broad scope, from an upper-management perspective, over a long-range time frame, at a conceptual rather than operational level of abstraction. Four properties, each ruling something out."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Broad scope Rules out a planning exercise confined to one department’s systems.",
+    "2 Upper-management perspective Rules out planning that never leaves the IT department. SISP has to be owned where organisation-wide resources can be committed.",
+    "3 Long-range time frame Rules out a horizon measured in one project’s duration.",
+    "4 Conceptual abstraction Rules out jumping to technical specification before the business question is settled."
+   ]
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The six process dimensions, and the shape that works"
+  },
+  {
+   "t": "p",
+   "html": "Any planning process can be described along six dimensions, and — this is the part people get wrong — the best one is not the process scoring highest on all six. It is a specific balanced profile called Rational Adaptation. You can try it now: this is Lesson 3’s framework, set to the worked example the course opens that lesson with."
+  },
+  {
+   "t": "p",
+   "html": "Alternatives canvassed widely, evaluation data sought out, risks weighed, contingencies set in advance."
+  },
+  {
+   "t": "p",
+   "html": "Explicit policies and recognised pathways for collecting information. A process that survives a change of staff."
+  },
+  {
+   "t": "p",
+   "html": "Budgetary control, cost performance and asset protection lead. Discipline over novelty."
+  },
+  {
+   "t": "p",
+   "html": "Centralised, initiated by upper management, able to commit organisation-wide resources."
+  },
+  {
+   "t": "p",
+   "html": "An isolated planning team decides and everyone else is informed. Surveying staff afterwards does not count."
+  },
+  {
+   "t": "p",
+   "html": "Sporadic and largely ad hoc, often a single annual event."
+  },
+  {
+   "t": "p",
+   "html": "The small ring marks where Rational Adaptation sits on each scale."
+  },
+  {
+   "t": "p",
+   "html": "Rational Tendencies 4 / 4"
+  },
+  {
+   "t": "p",
+   "html": "Comprehensiveness, formalization, integrative focus, top-down flow. This half supplies discipline and accountability."
+  },
+  {
+   "t": "p",
+   "html": "Adaptive Tendencies 0 / 2"
+  },
+  {
+   "t": "p",
+   "html": "Broad participation, continuous cycle. This half stops the discipline hardening into a plan nobody updates."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Rational, but not adaptive</strong> Every Rational Tendency is in place and both Adaptive Tendencies are missing — participation, consistency. This produces a thorough, well-documented plan that is out of date within a year, because nothing in the process notices the organisation changing. The prescription is not to abandon the discipline: it is to widen participation earlier in the cycle and shorten the interval between reviews."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Risk, as part of the plan"
+  },
+  {
+   "t": "p",
+   "html": "The descriptor names three risks explicitly — technological failure, data breaches and misalignment with organisational objectives — and the course treats them as planning inputs rather than a compliance exercise run after the decision. A risk found during planning is a decision. The same risk found during implementation is an incident. The only difference is when somebody looked."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Culturally responsive planning, assessed on its own"
+  },
+  {
+   "t": "p",
+   "html": "LO2 carries 40% of this course, which tells you how seriously it is meant. Systems handling personal or culturally sensitive data — health records above all — carry obligations beyond cost and schedule. The course works through the design of information services for Māori and Pasifika health providers as a case: data sovereignty, cultural protocols and community consent, not just technical privacy controls."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Real implementations, named"
+  },
+  {
+   "t": "p",
+   "html": "Frameworks are easier to apply once you have watched them succeed and fail in organisations you can name, under constraints somebody actually had. The course uses documented case studies from telecommunications, government and several national contexts, plus five founding stories of companies whose information-systems choices created an advantage competitors could not copy."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The full topic list, from the descriptor"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "01 Understanding information systems and their role in organisations",
+    "02 Critical understanding of how information systems shape and influence organisational strategy",
+    "03 Strategic Information Systems Planning (SISP)",
+    "04 Methods and tools for conducting SISP",
+    "05 Challenges and risks in SISP",
+    "06 Risk management strategies in IS planning: technological failure, data breaches, resource constraints",
+    "07 Case studies of successful SISP implementations",
+    "08 Case studies of implementations respecting cultural protocols and data privacy",
+    "09 Designing culturally appropriate information services",
+    "10 IT trends and emerging technologies",
+    "11 Future trends in SISP and its impact on business analytics and healthcare informatics"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "The practical detail"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How this course runs"
+  },
+  {
+   "t": "p",
+   "html": "15 credits at Level 8, no prerequisites. The first course of the programme, and the one MBI804 later builds on."
+  },
+  {
+   "t": "p",
+   "html": "MBI801 Systems analysis and design"
+  },
+  {
+   "t": "p",
+   "html": "MBI802 Database management systems"
+  },
+  {
+   "t": "p",
+   "html": "MBI804 Needs MBI800 underneath it"
+  },
+  {
+   "t": "p",
+   "html": "<strong>150</strong> Learning hours: 36 in class, 114 yours"
+  },
+  {
+   "t": "p",
+   "html": "<strong>11</strong> Topics across the whole course"
+  },
+  {
+   "t": "p",
+   "html": "<strong>3</strong> Learning outcomes you are assessed against"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Read the system you have"
+  },
+  {
+   "t": "p",
+   "html": "Assess current information systems to identify strategic opportunities and associated risks for improvement in a business context."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Weigh culture and privacy"
+  },
+  {
+   "t": "p",
+   "html": "Evaluate the impact of cultural protocols and data privacy on the successful implementation of information systems in diverse cultural settings."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Write the plan"
+  },
+  {
+   "t": "p",
+   "html": "Develop strategic plans to align information systems with organisational goals in a business context."
+  },
+  {
+   "t": "p",
+   "html": "Word for word from the course descriptor. Everything you are assessed on maps back to one of these three."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Weighting",
+     "Assessment",
+     "Detail"
+    ],
+    [
+     "60%",
+     "Strategic Information Systems Planning report",
+     "Individual · assesses LO1 and LO3"
+    ],
+    [
+     "40%",
+     "Case study analysis: cultural and ethical analysis in information systems implementation",
+     "Individual · assesses LO2"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Two pieces of work, both individual. Neither is a memory test: the report asks you to plan for a real organisation, and the case study asks you to judge an implementation you did not run."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Before the first class"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What to bring"
+  },
+  {
+   "t": "p",
+   "html": "Nothing here needs buying, and no prior IT background is assumed. Mainly: bring one example of your own."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What the course actually builds"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Translating a business goal into a requirement Stated precisely enough that success or failure can be judged against it later.",
+    "Telling a capability gap from a technology gap Some gaps close with process change, some with better use of a system already paid for, and only some need something new.",
+    "Naming risk while there are still options Technological, operational, financial and reputational, weighed as part of the plan.",
+    "Planning that respects the people in the data Cultural protocols, data sovereignty and consent, examined as design constraints rather than paperwork.",
+    "Reading a real implementation Judging what an organisation did, from documented evidence, rather than from a hypothetical."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Come prepared"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Bring one system that annoys you From work, from study, from a government website. We take it down through the four Iceberg layers together, and it works better when the example is yours.",
+    "No prior IT background assumed There are no prerequisites on this course by design. If you have never written a line of code, you are at the expected starting point.",
+    "A laptop helps, and is not essential Most of the first class is discussion and diagramming. Paper is genuinely fine."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Take it with you"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Save these as notes."
+  },
+  {
+   "t": "p",
+   "html": "A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out."
+  },
+  {
+   "t": "p",
+   "html": "Password to open it"
+  },
+  {
+   "t": "p",
+   "html": "Built here in your browser. Nothing is uploaded and no account is needed."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Extra reading only"
+  },
+  {
+   "t": "p",
+   "html": "A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements."
+  },
+  {
+   "t": "p",
+   "html": "All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "See you in class."
+  },
+  {
+   "t": "p",
+   "html": "None of the above needed a technical background, and neither does the course. Come with one system you think is badly planned and an argument for why. That is the whole of the first class, and most of the first assessment."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI800 lecturer"
+  }
+ ]
+}

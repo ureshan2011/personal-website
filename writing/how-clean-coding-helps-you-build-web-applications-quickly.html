@@ -8,10 +8,9 @@
 <meta name="description" content="Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable."/>
 <link rel="icon" href="../assets/images/icons/favicon.png"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="theme-color" content="#4b6bff"/>
+<meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html"/>
 <link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
-<!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
 <meta property="og:title" content="How Clean Coding Helps You Build Web Applications Quickly | Dr. Yasas Sri Wickramasinghe"/>
@@ -79,7 +78,9 @@
 </script>
 <link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
 <link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -89,38 +90,65 @@
   gtag('config', 'G-N2BH0F6SNE');
 </script>
 </head>
-<body>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
 
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
     <div class="nav-links">
-      <a href="../index.html">Home</a>
       <a href="../research.html">Research</a>
       <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
       <a href="../products.html">Products</a>
       <a href="../news.html">News</a>
-      <a href="../blogs.html">Writing</a>
-      <a href="../app/#/">Platform</a>
+      <a class="active" href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
       <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a class="active" href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
 
-<header class="page-hero">
-  <div class="container">
-    <div class="app-crumb" style="margin-bottom:14px;"><a href="../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Writing / How Clean Coding Helps You Build Web Applications Quickly</span></div>
+<main>
 
-    <span class="eyebrow reveal">Software</span>
-    <h1 class="reveal" style="--d:.1s">How Clean Coding Helps You Build Web Applications Quickly</h1>
-    <p class="lead reveal" style="--d:.2s">Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.</p>
-    <p style="color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Published 2022-10-09</p>
+<header class="lp-hero">
+  <div class="container lp-hero-grid is-solo">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blogs.html">Writing</a><span aria-hidden="true">/</span><span aria-current="page">How Clean Coding Helps You Build Web Applications Quickly</span></nav>
+      <div class="lp-tags"><span class="lp-tag">Software</span></div>
+      <h1>How Clean Coding Helps You Build Web Applications Quickly</h1>
+      <p class="lp-lead">Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.</p>
+      <div class="lp-facts"><span>Published 2022-10-09</span></div>
+      
+    </div>
+    
   </div>
 </header>
-<section class="section">
-  <div class="container prose" style="max-width:72ch;">
-    <p>As newbies to the software engineering field, most of us focuses a lot on building web apps that are ‘working’ or at least ‘demo-able’, which is somewhat understandable. But I have seen most of the newbies into software engineering are having various problems when they are supposed to complete a project within a certain time period. If you are a software engineering undergraduate, I guess you have experienced some issues related to your code such as,</p>
+
+<div class="lp-body">
+  <div class="container lp-layout is-solo">
+    <article class="lp-article">
+      <div class="lp-prose">
+<p>As newbies to the software engineering field, most of us focuses a lot on building web apps that are ‘working’ or at least ‘demo-able’, which is somewhat understandable. But I have seen most of the newbies into software engineering are having various problems when they are supposed to complete a project within a certain time period. If you are a software engineering undergraduate, I guess you have experienced some issues related to your code such as,</p>
 <ul>
 <li>Your code is giving a lot of compile errors.</li>
 <li>Your IDE (integrated development environment — simply the tool you use to code) shows so many red markings, alerts and you can’t run your code.</li>
@@ -231,31 +259,35 @@
 <p>Clean Coding is a skill every developer should practice more often. This article presented some basic steps that you can think of when you are coding next time. Clean Coding is not just about naming conventions, but I believe this is a very good starting point for anyone who is new to this topic. In the next article, I will write further details and aspects of clean coding.</p>
 <p>Do you know that you can automate most of the above practices using some plugins? You can configure your IDE to ensure Clean Coding standards and check the compliance of your coding style with official style guides very easily. Let me know if you are interested to learn how to do it, So I’ll write further covering those aspects as well.</p>
 <p>Please leave your feedback as a comment and <strong>don’t forget to subscribe to my Newsletter below.</strong></p>
-    <hr/>
-    <p style="color:var(--text-dim); font-weight:300; font-size:14px;">
-      Originally published on <a href="https://yasassri.medium.com/how-clean-coding-helps-you-to-build-web-applications-quickly-91c5669fe097" target="_blank" rel="noopener">Medium</a>.
-    </p>
-    <div class="hero-actions reveal" style="margin-top:32px;">
-      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
-      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
-    </div>
+<hr/>
+<p class="lp-credit">Originally published on <a href="https://yasassri.medium.com/how-clean-coding-helps-you-to-build-web-applications-quickly-91c5669fe097" target="_blank" rel="noopener">Medium</a>.</p>
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
   </div>
-</section>
+</div>
+</main>
 
 <footer>
   <div class="container footer-inner">
     <div>
       <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
-      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
     </div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
       <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
       <a href="../contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="../assets/js/premium.js"></script>
 <script src="../assets/js/hunt.js" defer></script>
 </body>
 </html>

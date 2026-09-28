@@ -3,21 +3,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Advanced ER Concepts — Interactive Lesson | Dr. Yasas Sri Wickramasinghe</title>
+<title>Advanced ER Concepts: Interactive Lesson | Dr. Yasas Sri Wickramasinghe</title>
 <meta name="author" content="Yasas Sri Wickramasinghe"/>
 <meta name="description" content="Weak entities, identifying relationships, multivalued &amp; derived attributes."/>
 <link rel="icon" href="../../assets/images/icons/favicon.png"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="theme-color" content="#4b6bff"/>
+<meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/app/lessons/er-advanced.html"/>
 <link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
-<!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
-<meta property="og:title" content="Advanced ER Concepts — Interactive Lesson | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Advanced ER Concepts: Interactive Lesson | Dr. Yasas Sri Wickramasinghe"/>
 <meta property="og:description" content="Weak entities, identifying relationships, multivalued &amp; derived attributes."/>
 <meta property="og:url" content="https://www.yasassri.me/app/lessons/er-advanced.html"/>
-<meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/er-advanced-1280.webp"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@sri_yasas"/>
 <script type="application/ld+json">
@@ -27,6 +26,7 @@
   "name": "Advanced ER Concepts",
   "description": "Real data is messier than the textbook. Tackle the entities that can't stand on their own, the relationships that identify them, and attributes that are multivalued or derived — with two exercises to test yourself.",
   "url": "https://www.yasassri.me/app/lessons/er-advanced.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/er-advanced-1280.webp",
   "learningResourceType": [
     "Lesson",
     "Presentation",
@@ -45,18 +45,14 @@
     "instruction",
     "self study"
   ],
-  "timeRequired": "PT15M",
-  "dateModified": "2026-07-29",
+  "timeRequired": "PT5M",
+  "dateModified": "2026-09-28",
   "about": "Data Modelling",
   "author": {
     "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
     "name": "Dr. Yasas Sri Wickramasinghe",
     "url": "https://www.yasassri.me/"
-  },
-  "provider": {
-    "@type": "Organization",
-    "name": "Dr. Yasas Sri Wickramasinghe — Academic Platform",
-    "url": "https://www.yasassri.me/app/"
   },
   "isPartOf": {
     "@type": "WebSite",
@@ -69,28 +65,13 @@
   "hasPart": [
     {
       "@type": "LearningResource",
-      "name": "This lesson covers",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#this-lesson-covers"
+      "name": "Advanced ER Concepts",
+      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#advanced-er-concepts"
     },
     {
       "@type": "LearningResource",
-      "name": "Concept 01",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#concept-01"
-    },
-    {
-      "@type": "LearningResource",
-      "name": "Concept 02",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#concept-02"
-    },
-    {
-      "@type": "LearningResource",
-      "name": "Concept 03",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#concept-03"
-    },
-    {
-      "@type": "LearningResource",
-      "name": "Concept 04",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#concept-04"
+      "name": "Four New Concepts to Master",
+      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#four-new-concepts-to-master"
     },
     {
       "@type": "LearningResource",
@@ -99,23 +80,13 @@
     },
     {
       "@type": "LearningResource",
-      "name": "Exercise 01",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#exercise-01"
+      "name": "University Building & Rooms",
+      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#university-building-rooms"
     },
     {
       "@type": "LearningResource",
-      "name": "Answer 01",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#answer-01"
-    },
-    {
-      "@type": "LearningResource",
-      "name": "Exercise 02",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#exercise-02"
-    },
-    {
-      "@type": "LearningResource",
-      "name": "Answer 02",
-      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#answer-02"
+      "name": "Employee & Dependants",
+      "url": "https://www.yasassri.me/app/lessons/er-advanced.html#employee-dependants"
     }
   ]
 }
@@ -141,7 +112,7 @@
       "@type": "ListItem",
       "position": 3,
       "name": "Lessons",
-      "item": "https://www.yasassri.me/app/#/lessons"
+      "item": "https://www.yasassri.me/lessons.html"
     },
     {
       "@type": "ListItem",
@@ -178,7 +149,9 @@
 </script>
 <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
 <link href="../../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../../assets/css/fonts-newsreader.css" rel="stylesheet"/>
 <link href="../../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../../assets/css/lesson-page.css" rel="stylesheet"/>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
 <script>
@@ -188,274 +161,197 @@
   gtag('config', 'G-N2BH0F6SNE');
 </script>
 </head>
-<body>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
 
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-logo" href="../../index.html">Yasas Sri <em>Wickramasinghe</em></a>
     <div class="nav-links">
-      <a href="../../index.html">Home</a>
       <a href="../../research.html">Research</a>
-      <a href="../../teaching.html">Teaching</a>
+      <a class="active" href="../../teaching.html">Teaching</a>
+      <a href="../../students.html">Students</a>
       <a href="../../products.html">Products</a>
       <a href="../../news.html">News</a>
       <a href="../../blogs.html">Writing</a>
-      <a href="../../app/#/">Platform</a>
+      <a href="../../about.html">About</a>
+      <a href="../../app/#/">Platform <span class="nav-badge">New</span></a>
       <a href="../../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../../work-with-me.html">Work With Me <span class="arrow">→</span></a>
     </div>
     <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-menu">
+  <a href="../../index.html"><span class="idx">01</span>Home</a>
+  <a href="../../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../../students.html"><span class="idx">06</span>Students</a>
+  <a href="../../products.html"><span class="idx">07</span>Products</a>
+  <a href="../../news.html"><span class="idx">08</span>News</a>
+  <a href="../../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../../about.html"><span class="idx">10</span>About</a>
+  <a href="../../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
 
-<header class="page-hero">
-  <div class="container">
-    <div class="app-crumb" style="margin-bottom:14px;"><a href="../../app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">Lessons / Advanced ER Concepts</span></div>
+<main>
 
-    <span class="eyebrow reveal">Data Modelling</span>
-    <h1 class="reveal" style="--d:.1s">Let's make sense of <em>Advanced ER Concepts.</em></h1>
-    <p class="lead reveal" style="--d:.2s">Real data is messier than the textbook. Tackle the entities that can't stand on their own, the relationships that identify them, and attributes that are multivalued or derived — with two exercises to test yourself.</p>
-    <div class="hero-actions reveal" style="--d:.3s">
-      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">Open the Interactive Deck <span class="arrow">→</span></a>
-      <a class="btn" href="../#/lessons">All Lessons <span class="arrow">→</span></a>
+<header class="lp-hero">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../../lessons.html">Lessons</a><span aria-hidden="true">/</span><span aria-current="page">Advanced ER Concepts</span></nav>
+      <div class="lp-tags"><span class="lp-tag lp-tag--course">Data Modelling</span></div>
+      <h1>Advanced ER Concepts</h1>
+      <p class="lp-lead">Real data is messier than the textbook. Tackle the entities that can't stand on their own, the relationships that identify them, and attributes that are multivalued or derived — with two exercises to test yourself.</p>
+      <div class="lp-facts"><span>3 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions"><a class="btn btn-solid lp-go" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">Open the interactive deck <span class="arrow">→</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a></div>
     </div>
+    <a class="lp-window" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced" aria-label="Open the interactive Advanced ER Concepts deck">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>Data Modelling</span></span>
+      <img src="../../assets/images/lessons/er-advanced-640.webp" srcset="../../assets/images/lessons/er-advanced-640.webp 640w, ../../assets/images/lessons/er-advanced-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first slide of Advanced ER Concepts" fetchpriority="high" decoding="async"/>
+    </a>
   </div>
 </header>
-<section class="section">
+
+<div class="lp-body" id="lesson">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#advanced-er-concepts">Advanced ER Concepts</a></li><li><a href="#four-new-concepts-to-master">Four New Concepts to Master</a></li><li><a href="#advanced-symbol-reference-quick-guide">Advanced Symbol Reference — Quick Guide</a></li><li><a href="#university-building-rooms">University Building &amp; Rooms</a></li><li><a href="#employee-dependants">Employee &amp; Dependants</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">Open the interactive deck →</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of an interactive, slide-by-slide deck. The live diagrams, worked examples and practice quiz are in <a href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">the interactive deck</a>.</span></p>
+      <div class="lp-prose"><p class="lp-label">In this lesson</p><ul class="lp-bits"><li>Weak entities</li><li>Identifying rels</li><li>Multivalued</li><li>Derived</li></ul></div>
+      <div class="lp-prose" style="margin-top:36px">
+<h2 id="advanced-er-concepts">Advanced ER Concepts</h2>
+<p>Chen's Notation · Weak Entities · Special Attributes</p>
+<p>Prerequisite: Basic ER Diagram knowledge</p>
+<h2 id="four-new-concepts-to-master"><span class="lp-kicker">This lesson covers</span>Four New Concepts to Master</h2>
+<h3>Weak Entity</h3>
+<p>An entity that cannot be uniquely identified on its own — it depends on a stronger entity for its very existence.</p>
+<h3>Identifying Relationship</h3>
+<p>The special double-diamond that links a weak entity to its owner, providing the missing identity context.</p>
+<h3>Multivalued Attribute</h3>
+<p>An attribute that holds multiple values for one entity — like a list of phone numbers or email addresses.</p>
+<h3>Derived Attribute</h3>
+<p>An attribute computed from other data — like calculating Age from DateOfBirth. Never stored directly.</p>
+<p>A <strong>weak entity</strong> cannot be uniquely identified by its own attributes alone. It <strong>depends entirely on another entity</strong> — called the <em>strong entity</em> or <em>owner</em> — for both existence and identity.</p>
+<p>Drawn as a <strong>double rectangle</strong> — two concentric boxes. The outer border signals "this entity cannot stand alone."</p>
+<p>ROOM depends on BUILDING ORDER_ITEM depends on ORDER DEPENDENT depends on EMPLOYEE</p>
+<p>The <strong>special relationship</strong> connecting a weak entity to its owner. It provides the ownership context needed to uniquely identify each weak entity instance.</p>
+<p>Drawn as a <strong>double diamond</strong> — two concentric diamonds. It <strong>always</strong> connects a weak entity to its strong entity.</p>
+<p>If you draw a double diamond, one side <em>must</em> be a weak entity (double rectangle). They always appear together.</p>
+<p>Cardinality: 1 (strong) to N (weak) Weak side: total participation</p>
+<p>A <strong>multivalued attribute</strong> can hold <strong>more than one value</strong> for a single entity instance. Rather than one phone number per employee, you can store many.</p>
+<p>Drawn as a <strong>double ellipse</strong> — two concentric ovals. In text notation, written with curly braces: <strong>{PhoneNumbers}</strong>.</p>
+<p>{PhoneNumbers} {EmailAddresses} {Skills} {Languages}</p>
+<p class="lp-label">Why not just add 3 phone attributes?</p>
+<p>Because we don't know in advance how many values a given instance will have. Double ellipse = flexible, open-ended list.</p>
+<p>A <strong>derived attribute</strong> is <strong>calculated from other stored data</strong> — it doesn't need to be saved in the database because you can always compute it on demand.</p>
+<p>Drawn as a <strong>dashed ellipse</strong> — the broken border signals "this value isn't stored directly." In text: written as <strong>(Age)</strong> with parentheses.</p>
+<p>(Age) from DateOfBirth (TotalPrice) from UnitPrice × Qty (YearsOfService) from HireDate</p>
+<p>Storing derived data risks <strong>inconsistency</strong>. If DateOfBirth changes, a stored Age becomes wrong. Compute it instead — always accurate.</p>
+<h2 id="advanced-symbol-reference-quick-guide">Advanced Symbol Reference — Quick Guide</h2>
+<p>All four new symbols at a glance. Use this slide as your reference.</p>
+<h2 id="university-building-rooms">University Building &amp; Rooms</h2>
+<p>A <strong>university</strong> manages its campus facilities. Each <strong>building</strong> has a building ID, name, and location. Each building has many <strong>rooms</strong>, but a room number (like "101") only makes sense within a specific building — Room 101 could exist in <em>every</em> building. Each room has a room number and a room type (lecture hall, lab, office). A room <strong>cannot exist</strong> without its building. Additionally, each room has a <strong>seating capacity</strong> and a <em>utilisation rate</em> which is <strong>automatically calculated</strong> from bookings data. Buildings can have <strong>multiple contact phone numbers</strong> on record.</p>
+<p>BUILDING (strong) ROOM (weak) HAS (identifying)</p>
+<ul><li>Draw BUILDING as a strong entity with its key attribute</li><li>Draw ROOM as a weak entity with its partial key (RoomNo)</li><li>Connect them with an identifying relationship (double diamond)</li><li>Show PhoneNumbers as a multivalued attribute on BUILDING</li><li>Show UtilisationRate as a derived attribute on ROOM</li></ul>
+<h2 id="employee-dependants">Employee &amp; Dependants</h2>
+<p>A company tracks its <strong>employees</strong> and their <strong>dependants</strong> (family members covered by insurance). Each employee has an employee ID, name, hire date, and date of birth. A <strong>dependant</strong> has only a name and relationship (e.g. "spouse", "child") — and <strong>cannot exist in the system without their employee</strong>. A dependant named "Emma" only makes sense in the context of a specific employee. Employees may speak <strong>multiple languages</strong>. The company also needs to display each employee's <em>years of service</em> on their profile — but this should <strong>never be stored</strong> directly in the database.</p>
+<p>EMPLOYEE (strong) DEPENDANT (weak) HAS_DEPENDANT (identifying)</p>
+<ul><li>Identify and draw EMPLOYEE as a strong entity with EmpID as key</li><li>Draw DEPENDANT as a weak entity; DepName is the partial key</li><li>Connect them with HAS_DEPENDANT as an identifying relationship</li><li>Add Languages as a multivalued attribute on EMPLOYEE</li><li>Add YearsOfService as a derived attribute on EMPLOYEE</li></ul>
+      </div>
+    </article>
+  </div>
+</div>
+
+<section class="lp-section soft">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="idx">01</span>
-      <h2>What you'll <em>learn</em></h2>
+    <div class="lp-section-head"><h2>Common questions</h2></div>
+    <div class="lp-faq">
+      <details><summary>What is a weak entity?</summary><p>An entity that cannot be identified by its own attributes alone and depends on another entity to exist. A hotel room number only makes sense alongside the hotel it belongs to. It is drawn with a double rectangle and connects to its owner through an identifying relationship, drawn as a double diamond.</p></details>
+      <details><summary>When do you need a ternary relationship?</summary><p>When three entities genuinely participate in one relationship at the same time and splitting it into separate binary relationships would lose meaning — for example a supplier supplying a specific part to a specific project. If the fact only holds when all three are considered together, it is genuinely ternary.</p></details>
     </div>
-    <ul class="feat" style="grid-template-columns:1fr 1fr;">
-      <li>Weak entities</li>
-      <li>Identifying rels</li>
-      <li>Multivalued</li>
-      <li>Derived</li>
-    </ul>
-    <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This is the full written version of an interactive, slide-by-slide lesson deck used in
-      teaching. Everything covered in the deck is below — open the interactive version to work
-      through it with live diagrams, worked examples and a practice quiz where included.
-    </p>
   </div>
 </section>
-<section class="section">
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Work through it interactively.</h2>
+      <p>The deck adds live diagrams, step-by-step reveals and practice activities that a written page can't carry.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">Open the interactive deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="idx">02</span>
-      <h2>Lesson <em>contents</em></h2>
-    </div>
-    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
-      <li><a href="#this-lesson-covers">This lesson covers</a></li>
-      <li><a href="#concept-01">Concept 01</a></li>
-      <li><a href="#concept-02">Concept 02</a></li>
-      <li><a href="#concept-03">Concept 03</a></li>
-      <li><a href="#concept-04">Concept 04</a></li>
-      <li><a href="#advanced-symbol-reference-quick-guide">Advanced Symbol Reference — Quick Guide</a></li>
-      <li><a href="#exercise-01">Exercise 01</a></li>
-      <li><a href="#answer-01">Answer 01</a></li>
-      <li><a href="#exercise-02">Exercise 02</a></li>
-      <li><a href="#answer-02">Answer 02</a></li>
-    </ol>
-  </div>
-</section>
-<section class="section">
-  <div class="container" style="max-width:74ch;">
-    <h2 id="this-lesson-covers">This lesson covers</h2>
-    <ul>
-      <li>Four New Concepts to Master</li>
-      <li>01 — Concept</li>
-      <li>Weak Entity</li>
-    </ul>
-    <p>An entity that cannot be uniquely identified on its own — it depends on a stronger entity for its very existence.</p>
-    <ul>
-      <li>02 — Concept</li>
-      <li>Identifying Relationship</li>
-    </ul>
-    <p>The special double-diamond that links a weak entity to its owner, providing the missing identity context.</p>
-    <ul>
-      <li>03 — Concept</li>
-      <li>Multivalued Attribute</li>
-    </ul>
-    <p>An attribute that holds multiple values for one entity — like a list of phone numbers or email addresses.</p>
-    <ul>
-      <li>04 — Concept</li>
-      <li>Derived Attribute</li>
-    </ul>
-    <p>An attribute computed from other data — like calculating Age from DateOfBirth. Never stored directly.</p>
-    <ul>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="concept-01">Concept 01</h2>
-    <ul>
-      <li>Weak Entity</li>
-    </ul>
-    <p>A <strong>weak entity</strong> cannot be uniquely identified by its own attributes alone. It <strong>depends entirely on another entity</strong> — called the <em>strong entity</em> or <em>owner</em> — for both existence and identity.</p>
-    <ul>
-      <li>Chen's Notation Symbol</li>
-    </ul>
-    <p>Drawn as a <strong>double rectangle</strong> — two concentric boxes. The outer border signals "this entity cannot stand alone."</p>
-    <ul>
-      <li>ROOM depends on BUILDING ORDER_ITEM depends on ORDER DEPENDENT depends on EMPLOYEE</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="concept-02">Concept 02</h2>
-    <ul>
-      <li>Identifying Relationship</li>
-    </ul>
-    <p>The <strong>special relationship</strong> connecting a weak entity to its owner. It provides the ownership context needed to uniquely identify each weak entity instance.</p>
-    <ul>
-      <li>Chen's Notation Symbol</li>
-    </ul>
-    <p>Drawn as a <strong>double diamond</strong> — two concentric diamonds. It <strong>always</strong> connects a weak entity to its strong entity.</p>
-    <p>If you draw a double diamond, one side <em>must</em> be a weak entity (double rectangle). They always appear together.</p>
-    <ul>
-      <li>Cardinality: 1 (strong) to N (weak) Weak side: total participation</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="concept-03">Concept 03</h2>
-    <ul>
-      <li>Multivalued Attribute</li>
-    </ul>
-    <p>A <strong>multivalued attribute</strong> can hold <strong>more than one value</strong> for a single entity instance. Rather than one phone number per employee, you can store many.</p>
-    <ul>
-      <li>Chen's Notation Symbol</li>
-    </ul>
-    <p>Drawn as a <strong>double ellipse</strong> — two concentric ovals. In text notation, written with curly braces: <strong>{PhoneNumbers}</strong>.</p>
-    <ul>
-      <li>{PhoneNumbers} {EmailAddresses} {Skills} {Languages}</li>
-      <li>Why not just add 3 phone attributes?</li>
-    </ul>
-    <p>Because we don't know in advance how many values a given instance will have. Double ellipse = flexible, open-ended list.</p>
-    <ul>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="concept-04">Concept 04</h2>
-    <ul>
-      <li>Derived Attribute</li>
-    </ul>
-    <p>A <strong>derived attribute</strong> is <strong>calculated from other stored data</strong> — it doesn't need to be saved in the database because you can always compute it on demand.</p>
-    <ul>
-      <li>Chen's Notation Symbol</li>
-    </ul>
-    <p>Drawn as a <strong>dashed ellipse</strong> — the broken border signals "this value isn't stored directly." In text: written as <strong>(Age)</strong> with parentheses.</p>
-    <ul>
-      <li>(Age) from DateOfBirth (TotalPrice) from UnitPrice × Qty (YearsOfService) from HireDate</li>
-      <li>Why not just store it?</li>
-    </ul>
-    <p>Storing derived data risks <strong>inconsistency</strong>. If DateOfBirth changes, a stored Age becomes wrong. Compute it instead — always accurate.</p>
-    <ul>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="advanced-symbol-reference-quick-guide">Advanced Symbol Reference — Quick Guide</h2>
-    <ul>
-      <li>All four new symbols at a glance. Use this slide as your reference.</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="exercise-01">Exercise 01</h2>
-    <ul>
-      <li>University Building &amp; Rooms</li>
-    </ul>
-    <p>A <strong>university</strong> manages its campus facilities. Each <strong>building</strong> has a building ID, name, and location. Each building has many <strong>rooms</strong>, but a room number (like "101") only makes sense within a specific building — Room 101 could exist in <em>every</em> building.</p>
-    <p>Each room has a room number and a room type (lecture hall, lab, office). A room <strong>cannot exist</strong> without its building. Additionally, each room has a <strong>seating capacity</strong> and a <em>utilisation rate</em> which is <strong>automatically calculated</strong> from bookings data. Buildings can have <strong>multiple contact phone numbers</strong> on record.</p>
-    <ul>
-      <li>BUILDING (strong) ROOM (weak) HAS (identifying)</li>
-      <li>Your Task</li>
-      <li>Draw BUILDING as a strong entity with its key attribute</li>
-      <li>Draw ROOM as a weak entity with its partial key (RoomNo)</li>
-      <li>Connect them with an identifying relationship (double diamond)</li>
-      <li>Show PhoneNumbers as a multivalued attribute on BUILDING</li>
-      <li>Show UtilisationRate as a derived attribute on ROOM</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="answer-01">Answer 01</h2>
-    <ul>
-      <li>University Building &amp; Rooms</li>
-      <li>Strong Entity</li>
-      <li>Weak Entity</li>
-      <li>Identifying Rel.</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="exercise-02">Exercise 02</h2>
-    <ul>
-      <li>Employee &amp; Dependants</li>
-    </ul>
-    <p>A company tracks its <strong>employees</strong> and their <strong>dependants</strong> (family members covered by insurance). Each employee has an employee ID, name, hire date, and date of birth. A <strong>dependant</strong> has only a name and relationship (e.g. "spouse", "child") — and <strong>cannot exist in the system without their employee</strong>. A dependant named "Emma" only makes sense in the context of a specific employee.</p>
-    <p>Employees may speak <strong>multiple languages</strong>. The company also needs to display each employee's <em>years of service</em> on their profile — but this should <strong>never be stored</strong> directly in the database.</p>
-    <ul>
-      <li>EMPLOYEE (strong) DEPENDANT (weak) HAS_DEPENDANT (identifying)</li>
-      <li>Your Task</li>
-      <li>Identify and draw EMPLOYEE as a strong entity with EmpID as key</li>
-      <li>Draw DEPENDANT as a weak entity; DepName is the partial key</li>
-      <li>Connect them with HAS_DEPENDANT as an identifying relationship</li>
-      <li>Add Languages as a multivalued attribute on EMPLOYEE</li>
-      <li>Add YearsOfService as a derived attribute on EMPLOYEE</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-    <h2 id="answer-02">Answer 02</h2>
-    <ul>
-      <li>Employee &amp; Dependants</li>
-      <li>Strong Entity</li>
-      <li>Weak Entity</li>
-      <li>Identifying Rel.</li>
-      <li>© All Rights Reserved by Yasas Sri Wickramasinghe</li>
-    </ul>
-  </div>
-</section>
-<section class="section">
-  <div class="container" style="max-width:74ch;">
-    <div class="section-head reveal">
-      <h2>Common <em>questions</em></h2>
-    </div>
-    <h3>What is a weak entity?</h3>
-    <p>An entity that cannot be identified by its own attributes alone and depends on another entity to exist. A hotel room number only makes sense alongside the hotel it belongs to. It is drawn with a double rectangle and connects to its owner through an identifying relationship, drawn as a double diamond.</p>
-    <h3>When do you need a ternary relationship?</h3>
-    <p>When three entities genuinely participate in one relationship at the same time and splitting it into separate binary relationships would lose meaning — for example a supplier supplying a specific part to a specific project. If the fact only holds when all three are considered together, it is genuinely ternary.</p>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2>Related <em>lessons</em></h2>
-    </div>
-    <ul class="feat" style="grid-template-columns:1fr 1fr;">
-      <li><a href="er-diagrams.html">ER Diagrams</a> — Entities, attributes and relationships in Chen's notation.</li>
-      <li><a href="er-attributes.html">Attributes &amp; Participation</a> — Composite/derived attributes and participation constraints, guided.</li>
-      <li><a href="er-activities.html">ER Diagrams in Practice</a> — Model five real systems and check your diagram against a worked answer.</li>
-    </ul>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2>Work through it <em>interactively</em></h2>
-    </div>
-    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
-      The interactive deck adds live diagrams, step-by-step reveals and practice activities
-      that this written version can't carry.
-    </p>
-    <div class="hero-actions reveal" style="margin-top:24px;">
-      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-advanced">Open the Interactive Deck <span class="arrow">→</span></a>
-      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
-      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
+    <div class="lp-section-head"><h2>Related lessons</h2></div>
+    <div class="lp-cards">
+      <a class="lp-card" href="er-diagrams.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">ER Diagrams</span>
+          <span class="lp-card-blurb">Entities, attributes and relationships in Chen's notation.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+      <a class="lp-card" href="er-attributes.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-attributes-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">Attributes &amp; Participation</span>
+          <span class="lp-card-blurb">Composite/derived attributes and participation constraints, guided.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+      <a class="lp-card" href="er-activities.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-activities-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">ER Diagrams in Practice</span>
+          <span class="lp-card-blurb">Model five real systems and check your diagram against a worked answer.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="container footer-inner">
     <div>
       <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
-      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
     </div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
       <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
       <a href="../../contact.html">Contact</a>
     </div>
   </div>
 </footer>
 
+<script src="../../assets/js/premium.js"></script>
 <script src="../../assets/js/hunt.js" defer></script>
+<script src="../../assets/js/lesson-page.js" defer></script>
 </body>
 </html>
