@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close | MBI804 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/project-methodologies.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close | MBI804 Lesson"/>
+<meta property="og:description" content="Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/project-methodologies.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/project-methodologies-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/project-methodologies.html#lesson",
+  "name": "Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close",
+  "description": "Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s spiral walked loop by loop, PRINCE2’s seven principles, themes and processes opened one at a time, then the whole Agile family — and Scrum in full: a clickable framework diagram, twelve “whose job is this?” situations, timeboxes that scale with the Sprint, and a board with a live burndown.",
+  "url": "https://www.yasassri.me/lessons/project-methodologies.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/project-methodologies-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT18M",
+  "teaches": [
+    "Draw the shape of Waterfall, Spiral, PRINCE2 and Agile, and say what each one optimises for",
+    "Explain why the cost of a change rises with the phase it arrives in, and what each method does about it",
+    "Place Scrum, XP, Kanban, Crystal, Lean, FDD and DSDM inside the Agile family without conflating them",
+    "Name Scrum’s three accountabilities, three artefacts and five events, with the right timebox on each",
+    "Say who owns each Scrum decision, and recognise the common ways teams get that wrong"
+  ],
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "IT Project Management",
+      "courseCode": "MBI804",
+      "description": "What is really fixed on a project, what a delay actually costs, and which method the work in front of you is asking for.",
+      "url": "https://www.yasassri.me/lessons.html#mbi804",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/project-methodologies.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI804",
+      "item": "https://www.yasassri.me/lessons.html#mbi804"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close",
+      "item": "https://www.yasassri.me/lessons/project-methodologies.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi804">MBI804</a><span aria-hidden="true">/</span><span aria-current="page">Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi804" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">MBI804</a><span class="lp-tag">Lesson</span></div>
+      <h1>Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close</h1>
+      <p class="lp-lead">Lesson 2, and the one the 60% case study leans on. Four lifecycles drawn rather than described, a change dragged along the cost-of-change curve, Boehm’s spiral walked loop by loop, PRINCE2’s seven principles, themes and processes opened one at a time, then the whole Agile family — and Scrum in full: a clickable framework diagram, twelve “whose job is this?” situations, timeboxes that scale with the Sprint, and a board with a live burndown.</p>
+      <div class="lp-facts"><span><b>IT Project Management</b></span><span>18 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/project-methodologies" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/project-methodologies" target="_blank" rel="noopener" aria-label="Open Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI804 · Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close</span></span>
+      <img src="../assets/images/lessons/project-methodologies-640.webp" srcset="../assets/images/lessons/project-methodologies-640.webp 640w, ../assets/images/lessons/project-methodologies-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#start-with-the-picture">Start with the picture</a></li><li><a href="#be-right-the-first-time">Be right the first time.</a></li><li><a href="#buy-the-scariest-answer-first">Buy the scariest answer first</a></li><li><a href="#who-is-allowed-to-decide-what">Who is allowed to decide what</a></li><li><a href="#a-family-not-a-framework">A family, not a framework</a></li><li><a href="#the-framework-you-will-actually-be-handed">The framework you will actually be handed.</a></li><li><a href="#all-four-one-table">All four, one table</a></li><li><a href="#check-yourself">Check yourself</a></li><li><a href="#five-things-to-carry-forward">Five things to carry forward</a></li><li><a href="#where-this-goes">Where this goes</a></li><li><a href="#bring-me-a-bad-sprint">Bring me a bad Sprint.</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/project-methodologies" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Waterfall, Spiral, PRINCE2 and Agile — and Scrum up close, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/project-methodologies" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>Lesson 1 finished on a question: which methodology do this project's attributes call for? This lesson is what sits behind the answer. Four ways of shaping the work, drawn rather than described, and then the one you are most likely to walk into — Scrum — at the depth an interview will ask about.</p>
+<p>Reading <strong>45 minutes</strong> Follows <strong>Lesson 1</strong> Bring <strong>nothing — everything runs here</strong></p>
+<p class="lp-label">By the end of this lesson you can</p>
+<ul><li>Draw the shape of Waterfall, Spiral, PRINCE2 and Agile, and say what each one optimises for</li><li>Explain why the cost of a change rises with the phase it arrives in, and what each method does about it</li><li>Place Scrum, XP, Kanban, Crystal, Lean, FDD and DSDM inside the Agile family without conflating them</li><li>Name Scrum’s three accountabilities, three artefacts and five events, with the right timebox on each</li><li>Say who owns each Scrum decision, and recognise the common ways teams get that wrong</li></ul>
+<h2 id="start-with-the-picture"><span class="lp-kicker">2.1 · The four shapes</span>Start with the picture</h2>
+<p>Before any of the vocabulary: what each method looks like when you draw it, and the four trades every one of them is making.</p>
+<p>A methodology is not a rulebook a team obeys. It is a shape imposed on the work — where the decisions sit, how often the outside world gets to look, and what happens when somebody changes their mind. Four shapes, one drawing each. The meters underneath are the same four every time, so switching between them is a comparison rather than four unrelated pictures.</p>
+<p>Royce, 1970 One pass through requirements, design, build, test and deploy — each phase signed off before the next begins.</p>
+<pre><code>Waterfall · five sequential phases, one release, and change priced as a variation</code></pre>
+<p>How often the outside world sees the real thing</p>
+<p>What it costs to change your mind in week twelve</p>
+<ul class="lp-bits"><li>How much formal decision-making the method carries</li><li>Up-front documentation 95</li><li>How much is written down before anybody builds</li></ul>
+<p><strong>Waterfall</strong> Everything is decided while the team knows least, and proved while there is least time left to act on it. In exchange you get a plan somebody can audit from day one.</p>
+<p>1 of 4 seen. No bar here is a mark out of a hundred — they are the trades each method makes, and a project decides which trade it can afford.</p>
+<h2 id="be-right-the-first-time"><span class="lp-kicker">2.2 · Waterfall</span>Be right the first time.</h2>
+<p>Sequential phases with a sign-off between each. Its defining property is not the order — it is that going back re-opens something already signed.</p>
+<p>Royce described this sequence in 1970, in a paper that also said running it in a single pass was risky. The diagram outlived the warning. Its logic is sound where it applies: if the requirements genuinely cannot move — a regulated migration, a certification, a contract with a fixed deliverable — then deciding everything up front and proving it against a specification is the cheapest honest way to work.</p>
+<p>Everything hangs on that “if”. Drag the same change along the sequence and watch what it costs.</p>
+<p class="lp-label">When the change arrives</p>
+<p><strong>1×</strong> What the same change costs here — about 4 hours of work, against four hours at the start.</p>
+<pre><code>One change: payments over $10,000 need a second approver</code></pre>
+<p><strong>Requirements · 1× · 4 hours</strong> Nothing has been built on top of the assumption yet, so the only cost is the conversation and the paperwork. This is the cheapest hour any project will ever spend.</p>
+<p>This curve is the entire argument between the methodologies. Waterfall answers it by trying to be right the first time; Spiral answers it by attacking the riskiest unknown first; Agile answers it by never letting a decision get more than a fortnight old.</p>
+<h4>When it is the right answer</h4>
+<p>Fixed, signed requirements. An auditor who needs each requirement traced to the test that proves it. A supplier contract with a defined deliverable. Hardware, construction, or anything where the cost of a late change is physical rather than editable.</p>
+<h4>When it is not</h4>
+<p>Anything where the customer will only know what they want once they see it working. A new product. A platform whose users have not been asked yet. In those cases the specification is fiction with a signature on it, and every later phase inherits the error.</p>
+<p>The V-model is Waterfall with the testing folded up: each phase on the way down is paired with the level of testing that will verify it on the way back up. Same sequence, same sign-offs, with the verification planned at the point the requirement is written rather than months later.</p>
+<h2 id="buy-the-scariest-answer-first"><span class="lp-kicker">2.3 · Spiral</span>Buy the scariest answer first</h2>
+<p>Boehm, 1986. The same four activities in widening loops, with a risk analysis choosing what each loop is spent on — and a funding decision at the end of every one.</p>
+<p>The spiral is usually mistaken for “Waterfall, but round”. What makes it different is the second quadrant: before anything is built in a loop, the largest remaining risk is identified and attacked, usually with a prototype whose only job is to make an unknown measurable. Then the loop ends with the sponsor deciding whether to fund another.</p>
+<p>Walk one project through three loops. Two numbers move as you go, and the second one is the model’s own standing criticism.</p>
+<pre><code>The radius is money already spent. Every loop is wider than the one before, which is why the decision to fund another one sits at the end of each.</code></pre>
+<h3><span class="lp-kicker">Cycle 1 · Determine objectives</span>What the first loop is for</h3>
+<p>Objectives: prove a payment can clear in under five seconds without breaking settlement. Constraints: the bank’s certification window opens twice a year, and the existing ledger is batch-only. Alternatives: extend the ledger, buy a rails provider, or build alongside and cut over. Nothing is committed yet — this quadrant produces a question, not a plan.</p>
+<p>Risk still unresolved 100%</p>
+<p>Share of what nobody could answer on day one.</p>
+<p>Risk analysis is not free. This is the model’s standing criticism.</p>
+<h2 id="who-is-allowed-to-decide-what"><span class="lp-kicker">2.4 · PRINCE2</span>Who is allowed to decide what</h2>
+<p>PRojects IN Controlled Environments. Seven principles, seven themes, seven processes — and a deliberate silence about how the work is actually built.</p>
+<p>PRINCE2 answers a different question from the other three. Waterfall, Spiral and Agile are about how work is sequenced. PRINCE2 is about who is entitled to make which decision, with what evidence, and at which moment — which is why it appears <em>with</em> one of the others rather than instead of one.</p>
+<p>Taught as three lists it sounds like bureaucracy. Each item here opens into what it stops going wrong, which is the only way any of it is memorable.</p>
+<p>7 principles Non-negotiable. A project that drops one of these is not being run under PRINCE2, whatever the documents say.</p>
+<p class="lp-label">Continued business justification</p>
+<p>There has to be a reason, and it has to still be true</p>
+<p>A documented business case exists before the project is authorised, and it is re-checked at every stage boundary rather than filed. If the justification disappears — the market moved, the regulation changed, the benefit was already captured elsewhere — the project is stopped.</p>
+<p><strong>What a project without it looks like</strong> Projects that nobody can defend keep running because stopping them is somebody’s awkward conversation. This principle is what makes stopping a normal outcome instead of a failure.</p>
+<p>1 of 7 in this list. PRINCE2 7, published in 2023, renames the themes to practices and folds Change into Issues — the same material under newer labels, and worth recognising in both forms because workplaces and certifications are split across the two.</p>
+<h2 id="a-family-not-a-framework"><span class="lp-kicker">2.5 · Agile</span>A family, not a framework</h2>
+<p>Four values, twelve principles, no instructions. Everything people mean by “doing Agile” is one of the frameworks that grew underneath it.</p>
+<p>Seventeen practitioners wrote the Agile Manifesto in Snowbird, Utah, in 2001. It contains no process, no roles and no ceremonies — four value statements of the form “A over B”, and twelve principles behind them. Each value keeps the right-hand item on the scale. That is the half most often dropped, and most arguments that begin “we’re Agile, so we don’t…” are it going missing.</p>
+<p class="lp-label">Four values · drag each beam</p>
+<p><strong>Individuals and interactions</strong> over processes and tools</p>
+<p><strong>The intended reading.</strong> A daily conversation resolves in five minutes what a workflow tool escalates for three days. The process still exists — it is just not the thing being served.</p>
+<p><strong>Working software</strong> over comprehensive documentation</p>
+<p><strong>The intended reading.</strong> Progress is measured by something that runs, not by a design document that has been approved. This is the value the cost-of-change curve pays for.</p>
+<p><strong>Customer collaboration</strong> over contract negotiation</p>
+<p><strong>The intended reading.</strong> A customer in the room every fortnight beats a specification argued over by two legal teams. The contract still exists — it just is not the mechanism for deciding what to build.</p>
+<p><strong>Responding to change</strong> over following a plan</p>
+<p><strong>The intended reading.</strong> A plan is a forecast, and a forecast made with new information beats one defended because it was signed. Re-planning is the work, not an admission of failure.</p>
+<p><strong>“While there is value in the items on the right, we value the items on the left more.”</strong> That is the Manifesto’s own closing line, and it is the sentence most often left off the slide. Nothing on the right is abolished. Agile is a statement about which one wins when the two conflict — which is why an undocumented, uncontracted, unplanned project is not an Agile project. It is just an undisciplined one.</p>
+<p>Because the Manifesto says nothing about how to work, frameworks filled the gap — several of them predating the document they now sit under. Tap any branch. These are short on purpose: one of them gets the rest of this lesson.</p>
+<pre><code>Tap any branch · none of these is “Agile”, and all of them are</code></pre>
+<p>Schwaber &amp; Sutherland, 1995 A lightweight framework of three accountabilities, three artefacts and five timeboxed events, repeating in sprints of one to four weeks.</p>
+<h4>The idea it contributed</h4>
+<p>The timebox. A sprint is a fixed length that the work is fitted into, rather than a length that expands to fit the work.</p>
+<h4>Where you meet it</h4>
+<p>The default in commercial software, and the one you are most likely to be interviewed about.</p>
+<p>Scrum · share of Agile teams 87%</p>
+<p>87% of Agile teams use Scrum or a Scrum hybrid — 17th State of Agile Report. Shares add to well over a hundred because most teams run more than one. Only Scrum’s figure is quoted from the report; the rest are indicative orders of magnitude, not measured shares.</p>
+<p>Only one of these gets a full section in this lesson, and it is the one on the left of the fan. That is a statement about what you are likely to walk into, not about which framework is best.</p>
+<h2 id="the-framework-you-will-actually-be-handed"><span class="lp-kicker">2.6 · Scrum · the long section</span>The framework you will actually be handed.</h2>
+<p>Three accountabilities, three artefacts, five events. Easy to recite, and almost every team that struggles with it is getting the ownership wrong rather than the vocabulary.</p>
+<p>Scrum is a lightweight framework for delivering complex products, built on three pillars: <strong>transparency</strong> — everything that matters is visible to everybody accountable for the outcome; <strong>inspection</strong> — progress toward the goal is checked frequently; and <strong>adaptation</strong> — when inspection shows a deviation, something changes immediately. Every event below exists to make one of those three happen on a schedule rather than when somebody remembers.</p>
+<p>Start with the whole thing as one object. Tap any part of it.</p>
+<pre><code>Tap any part of the diagram · 1 of 8 opened</code></pre>
+<p>Artefact Product Backlog</p>
+<h4>Who</h4>
+<p>Owned by the Product Owner</p>
+<h4>How long</h4>
+<p>Never finished</p>
+<h4>What it produces</h4>
+<p>An ordered list</p>
+<p class="lp-label">What it is</p>
+<p>The single ordered list of everything that might be needed in the product. One list, one owner, and it is the only source of work for the team. It is refined continuously rather than written once — around a tenth of the team’s capacity typically goes on refinement.</p>
+<p><strong>The part teams get wrong</strong> It is ordered, not prioritised into buckets. “High priority” with fourteen items in it is not an order, and the moment two things are equally first, somebody outside the team is choosing.</p>
+<p>1 of 8 opened. Every timebox here is a maximum for a one-month Sprint, and every one of them is part of the framework rather than a suggestion.</p>
+<h3><span class="lp-kicker">2.6.1 · Accountabilities</span>Three roles, and no manager</h3>
+<p>Scrum calls them accountabilities rather than job titles, which matters: one person can hold two of them on a small team, and none of them is a line-management position. There is no project manager inside a Scrum Team, and the work of one is distributed across all three.</p>
+<h4>Product Owner</h4>
+<p class="lp-label">One person, never a committee</p>
+<p>Accountable for maximising the value of the product. Owns and orders the Product Backlog, develops and communicates the Product Goal, makes backlog items clear, and decides what is released. Their decisions are visible in the order of the list, and the organisation has to respect them for the role to mean anything.</p>
+<h4>Scrum Master</h4>
+<p class="lp-label">A servant-leader, not a manager</p>
+<p>Accountable for the team’s effectiveness and for Scrum being understood and enacted. Serves the Developers by coaching self-management and removing impediments, the Product Owner by helping with backlog techniques and stakeholders, and the organisation by leading its adoption of Scrum.</p>
+<h4>Developers</h4>
+<p class="lp-label">Typically three to nine, cross-functional</p>
+<p>Accountable for creating a usable Increment every Sprint. They hold all the skills needed between them, plan the Sprint Backlog, adapt it daily toward the Sprint Goal, and own the Definition of Done. No sub-teams and no internal hierarchy — anyone doing the work is a Developer, whatever their job title says. The 2017 Guide set the range at three to nine; the 2020 Guide frames it as a whole Scrum Team of ten or fewer.</p>
+<p class="lp-label">Activity · twelve situations, three buttons</p>
+<p>Deciding which of two features is built first</p>
+<p>0 right of 0 answered. Nothing is stored, and the wrong answers are the useful ones.</p>
+<p>Almost every Scrum dysfunction in the wild is one of these decisions being made by the wrong person. Reciting the roles is easy; placing a live decision under one of them is the skill.</p>
+<h3><span class="lp-kicker">2.6.2 · Artefacts</span>Three artefacts, each with a commitment</h3>
+<p>The 2020 Scrum Guide pairs every artefact with a commitment — the thing that makes it measurable rather than a list. An artefact without its commitment is where transparency quietly goes: a backlog with no Product Goal is a wish list, and an increment with no Definition of Done is an opinion.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Artefact</th><th>Its commitment</th><th>What it is</th></tr></thead><tbody><tr><td>Product Backlog</td><td>Product Goal</td><td>The single ordered list of everything that might be needed. Owned by the Product Owner, refined continuously, never complete.</td></tr><tr><td>Sprint Backlog</td><td>Sprint Goal</td><td>The Sprint Goal, the items selected for the Sprint, and the plan for delivering them. Owned by the Developers and updated daily.</td></tr><tr><td>Increment</td><td>Definition of Done</td><td>A usable stepping stone toward the Product Goal. Several may exist in one Sprint, and it counts only once it meets the Definition of Done.</td></tr></tbody></table></div>
+<p class="lp-label">A real Definition of Done</p>
+<ul><li>Code peer-reviewed and merged</li><li>Unit tests written and passing</li><li>Tested in a staging environment</li><li>Accessibility checked to WCAG 2.1 AA</li><li>API docs and README updated</li><li>Accepted by the Product Owner</li></ul>
+<p>Six lines, agreed once, applied to everything. Its whole value is that it is decided before anybody is under pressure to bend it.</p>
+<h4><span class="lp-kicker">Why it is the load-bearing one</span>It makes “done” a fact rather than a negotiation</h4>
+<p>Without it, whether a story is finished depends on who is asking and how close the deadline is.</p>
+<h4>It is the only defence against invisible debt</h4>
+<p>Every skipped test and undone migration is a loan taken out by a team against its own future Sprints, and the Definition of Done is what stops one being taken quietly.</p>
+<h4>It is owned by the Developers</h4>
+<p>Not the Product Owner and not a manager. It changes in the Retrospective, deliberately, for future work — never to absorb a story that has already missed it.</p>
+<h3><span class="lp-kicker">2.6.3 · Events</span>Five events, and the timebox nobody scales</h3>
+<p>The numbers everybody memorises — eight hours, fifteen minutes, four hours, three hours — are maxima for a one-month Sprint, and every one of them moves when the Sprint does. Move the slider and watch them. Then look at the share of capacity the five events consume, which does something most people do not predict.</p>
+<ul><li>Sprint Planning · max 4 hrs</li><li>Daily Scrum · 15 min × 10 days = 2.5 hrs</li><li>Sprint Review · max 2 hrs</li><li>Retrospective · max 1.5 hrs</li></ul>
+<p><strong>23×</strong> a year that stakeholders see something working, at 2 weeks a Sprint across about 46 working weeks.</p>
+<p>Total event time is 10 hrs across 10 working days of about 6 usable hours — <strong>16.7% of capacity, at every Sprint length</strong>. The scaling events scale and the Daily Scrum is per day, so the proportion never moves.</p>
+<pre><code>Timeboxes are maxima, not targets — a Sprint Review that takes ninety minutes has not broken anything</code></pre>
+<p><strong>Two weeks · the length most teams settle on</strong> Ten working days and about 23 Reviews a year: long enough to finish a real piece of work, short enough that a wrong turn is caught inside a fortnight. This is where most teams land, and it is why "two weeks" is the answer people assume the framework specifies. It does not — the Guide says one month or less.</p>
+<h3><span class="lp-kicker">2.6.4 · User stories</span>What goes in the backlog</h3>
+<p>Scrum does not require user stories — the Guide says “Product Backlog item” and stops there. They are borrowed from XP, and they have survived because the third clause forces somebody to say why the work is worth anything before it is scheduled.</p>
+<pre><code>The standard template, filled from the attendance product this site runs on</code></pre>
+<p class="lp-label">A usable story</p>
+<p>A person, an action and a reason. The reason is what lets a developer suggest a cheaper way to get the same outcome, and it is the clause most often missing.</p>
+<h4><span class="lp-kicker">INVEST · six tests for a story</span>Independent</h4>
+<p>It can be built without waiting on another story, so the order can change.</p>
+<h4>Negotiable</h4>
+<p>It is a placeholder for a conversation, not a contract clause.</p>
+<h4>Valuable</h4>
+<p>Somebody outside the team would notice it arriving.</p>
+<h4>Estimable</h4>
+<p>The team can size it. If they cannot, they do not understand it yet.</p>
+<h4>Small</h4>
+<p>It fits comfortably inside one Sprint. Thirteen points usually means split it.</p>
+<h4>Testable</h4>
+<p>There is an observable way to tell whether it is done.</p>
+<p class="lp-label">Acceptance criteria for the first story</p>
+<ul><li>Attendance percentage is shown for every enrolled paper</li><li>Absence dates are listed in chronological order</li><li>A warning appears when attendance falls below 80%</li><li>The page loads in under two seconds on the campus network</li><li>It works on a phone and on a desktop</li></ul>
+<p>Written by the Product Owner, verified by the team, and agreed before the story enters a Sprint. Acceptance criteria are per story; the Definition of Done applies to every story. Teams that confuse the two end up with either a bloated Definition of Done or stories nobody can accept.</p>
+<p>Story points are relative size, not hours — the Fibonacci-ish 1, 2, 3, 5, 8, 13 scale exists to stop false precision. Total points completed per Sprint is the team’s <strong>velocity</strong>, useful for forecasting that team’s next few Sprints and useless for comparing one team with another.</p>
+<h3><span class="lp-kicker">2.6.5 · The board</span>Move the work and watch the numbers</h3>
+<p>The board and the burndown are not in the Scrum Guide. Every team uses them anyway, because transparency needs somewhere to happen. Eight real stories from this platform’s own attendance product: tap a card to move it right, and set which day of the Sprint it is.</p>
+<p>Tap a card to move it one column right · from Done it returns to To do</p>
+<p><strong>28</strong> points still to burn, of 36 committed. The ideal line sits at 14.4 on day 6.</p>
+<pre><code>Burndown · committed points remaining, against an even burn</code></pre>
+<p><strong>About 14 points behind the line</strong> Being behind is information, not a verdict. The response is to look at why — usually work sitting in review, or items that were larger than they were sized — and to talk to the Product Owner about the Sprint Goal while there is still time to change something. Working later is the one response that fixes nothing.</p>
+<p>Jira, Trello, Linear, GitHub Projects, Azure DevOps — or a wall and some sticky notes, which is where all of them came from. The tool is not the method, and a team whose board is accurate on a wall is in better shape than one whose Jira is tidy and lies.</p>
+<h2 id="all-four-one-table"><span class="lp-kicker">2.7 · Side by side</span>All four, one table</h2>
+<p>Worth a screenshot before the 60% case study. Every row here is a question you can ask about a real project.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th></th><th>Waterfall</th><th>Spiral</th><th>PRINCE2</th><th>Agile / Scrum</th></tr></thead><tbody><tr><td>Shape of the work</td><td>One pass, five phases</td><td>Widening loops</td><td>Authorised stages</td><td>Repeating short iterations</td></tr><tr><td>What drives the plan</td><td>The specification</td><td>The largest remaining risk</td><td>The business case</td><td>The ordered backlog</td></tr><tr><td>Requirements</td><td>Fixed and signed up front</td><td>Re-set each loop</td><td>Baselined per stage</td><td>Expected to move</td></tr><tr><td>Customer sees it</td><td>At the end</td><td>Each prototype</td><td>At each stage boundary</td><td>Every iteration</td></tr><tr><td>Risk surfaces</td><td>Late, in testing</td><td>First, by design</td><td>At every boundary</td><td>Early and continuously</td></tr><tr><td>Stopping the project</td><td>Awkward and late</td><td>A normal option each loop</td><td>A normal option each stage</td><td>A normal option each iteration</td></tr><tr><td>Costs most when</td><td>The scope was never stable</td><td>The unknowns were small</td><td>The project was small</td><td>Nobody turns up to the review</td></tr></tbody></table></div>
+<p>The last row is the one the case study is marked on. Naming the method is worth almost nothing; naming the conditions under which your chosen method fails, and saying why this project does not meet them, is the argument.</p>
+<h2 id="check-yourself"><span class="lp-kicker">End of the lesson</span>Check yourself</h2>
+<p>Six questions on what this lesson claimed. Nothing is stored and nothing is reported — this is for you, now, while there is still time to reread.</p>
+<p>A requirement changes while the system is already in production. Under a Waterfall lifecycle, why is that change so much more expensive than the same change during requirements?</p>
+<h2 id="five-things-to-carry-forward"><span class="lp-kicker">What this lesson said</span>Five things to carry forward</h2>
+<ul><li>01 <strong>A methodology is a bet about when you find things out.</strong> Waterfall bets you can be right first time. Spiral buys the answer to the worst unknown first. Agile refuses to let any decision get more than a fortnight old.</li><li>02 <strong>The cost-of-change curve is the argument underneath all of it.</strong> The same change is roughly sixty times dearer in production than in requirements. Every framework on this page is a different response to that one fact.</li><li>03 <strong>PRINCE2 governs; it does not build.</strong> Seven principles, seven themes, seven processes — and a Managing Product Delivery seam where Waterfall or Scrum still has to go.</li><li>04 <strong>Agile is a family, not a framework.</strong> Scrum, XP, Kanban, Crystal, Lean, FDD and DSDM all sit under the Manifesto, and the Manifesto values the right-hand items too — just less.</li><li>05 <strong>Scrum is three accountabilities, three artefacts and five events, and the ownership is the hard part.</strong> Only the Developers decide how much. Only the Product Owner orders the backlog and cancels a Sprint. Only a Done Increment counts.</li></ul>
+<p>Everything below this line is where the course goes next. The lesson itself ends here.</p>
+<h2 id="where-this-goes"><span class="lp-kicker">Next</span>Where this goes</h2>
+<p>Scope and money come next, and both of them behave differently depending on which of these methods you chose.</p>
+<h3>Scope, and the sentence that costs the most money</h3>
+<p>The work breakdown structure, the scope baseline, and why “while you’re in there, could you also…” is free to say and expensive to absorb. Under Scrum the same request has a place to go — the Product Backlog — which is most of why the framework survives contact with real stakeholders.</p>
+<h3>Estimating and cost management</h3>
+<p>Three-point estimates, PERT, reserves and the S-curve, worked through the SecurePay NZ scenario that runs through this course. Story points and velocity are the same problem answered by a team rather than by a spreadsheet, and the lesson covers where each one is appropriate.</p>
+<h3>Certify what you have just read</h3>
+<p>Atlassian’s own Jira path, a LinkedIn Agile Professional Certificate and a free completion certificate. None of them costs anything, and all three name Scrum vocabulary that job listings ask for by name.</p>
+<h2 id="bring-me-a-bad-sprint"><span class="lp-kicker">Your lecturer</span>Bring me a bad Sprint.</h2>
+<p>The most useful thing you can bring to the next class is a team you have watched run one of these badly — a standup that became a status report, a Definition of Done that moved, a stage gate nobody could fail. Naming which part of the framework was missing is exactly the skill the 60% case study is marked on.</p>
+<p>Yasas Sri Wickramasinghe MBI804 lecturer</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/business-model-canvas.html"><small>Previous lesson</small><b>The Business Model Canvas</b></a><a class="is-next" href="../lessons/scrum-simulation.html"><small>Next lesson</small><b>The Scrum studio: a Sprint you can watch, pause and orbit</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/project-methodologies" target="_blank" rel="noopener" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI804, IT Project Management</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-project-management.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-project-management-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">What a project is, and what decides how to run it</span>
+            <span class="lp-card-blurb">The whole of Lesson 1: pin two corners of the constraint triangle and watch the third move, slide a delay along a real schedule to find which tasks the launch date cares about, choose between Agile, Waterfall and PRINCE2 across four project shapes, then price a risk on the grid.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/business-model-canvas.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/business-model-canvas-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The Business Model Canvas</span>
+            <span class="lp-card-blurb">How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/scrum-simulation.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/scrum-simulation-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The Scrum studio: a Sprint you can watch, pause and orbit</span>
+            <span class="lp-card-blurb">Lesson 3. Six 3D miniatures build a parcel drone through three one-week Sprints while a caption says what is happening and a timeline marks every milestone: the Product Backlog ordered on the wall, refined and estimated with Planning Poker, Sprint Planning pulling cards into the Sprint Backlog, a fifteen-minute Daily Scrum every morning, an impediment landing and being cleared, stakeholders watching the drone lift off at the Review, one improvement from each Retrospective. Voice-narrated, it pauses after each step so you can read, then a seven-question check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/peer-audit.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/peer-audit-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Practice</span>
+            <span class="lp-card-title">The outside auditor: peer audit round</span>
+            <span class="lp-card-blurb">The class swaps post-mortems — you audit a project you did not run, and nobody gets their own back. Practise the four audit questions on a fictional scenario whose author is confident and wrong about all of them, sort eight sentences into restating, asserting and auditing, choose a risk response where mitigating is the wrong answer, then build the one-page Corrective Action Plan and export it.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="https://ureshan2011.github.io/thisisnotalms/#/cost-management" target="_blank" rel="noopener" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><b>MBI804</b></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">Project cost management</span>
+            <span class="lp-card-blurb">Plan, estimate, budget — and avoid the traps that sink most IT projects. Seven interactive sections around the SecurePay NZ scenario: PERT calculator, budget builder, live S-curve and a closing challenge.</span>
+            <span class="lp-card-cta">Open on the lessons site ↗</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/collaboration-reflex-lecture.html" style="--c:#ab355c;--c-soft:#fceef2;--c-on:#e889a6">
+          <span class="lp-card-media"><img src="../assets/images/lessons/collaboration-reflex-lecture-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI804 · Lesson</span>
+            <span class="lp-card-title">The collaboration reflex</span>
+            <span class="lp-card-blurb">Conflict and communication management taught through forty-five real, anonymised classroom conflicts: six full stories, four frameworks, and the one reflex experienced professionals reach for even when it is the wrong answer.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

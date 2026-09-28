@@ -1,0 +1,376 @@
+{
+ "slug": "five-stories",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/five-stories",
+ "title": "Five stories that changed everything",
+ "pageTitle": "Five stories that changed everything · MBI800",
+ "extractedAt": "2026-09-28",
+ "words": 2057,
+ "videos": [
+  {
+   "id": "FvN1TuMgBBo",
+   "title": "Here's to the Crazy Ones — Think Different (Apple, 1997)"
+  }
+ ],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI800 · Strategic Information Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Five Stories That Changed Everything."
+  },
+  {
+   "t": "p",
+   "html": "Five companies. Five moments where someone noticed something broken and decided to fix it. Each one has an information system underneath it that made it work."
+  },
+  {
+   "t": "p",
+   "html": "🏠 Airbnb 🎬 Netflix 📊 Xero 🎨 Canva 🌏 Alibaba"
+  },
+  {
+   "t": "p",
+   "html": "The biggest companies in the digital economy didn't start with market research. They started with a specific frustration — and the information system that turned it into something much bigger."
+  },
+  {
+   "t": "p",
+   "html": "This lesson traces five companies — Airbnb, Netflix, Xero, Canva, and Alibaba — from their founding moments through to global scale. Each story has a breakthrough. Each breakthrough has an information system underneath it. And each one has something to teach you about how digital business actually works."
+  },
+  {
+   "t": "p",
+   "html": "📚 How to use this lesson"
+  },
+  {
+   "t": "p",
+   "html": "Each story is divided into six sections — click each section to expand it. Work through them in order for the full narrative arc, or jump to the sections most relevant to your discussion. The <strong>Discussion Questions</strong> at the end of each story are designed for individual reflection or group debate. The embedded videos give you founder perspectives in their own words."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story 1 · 2007"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Airbnb"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Trust Can Be Designed"
+  },
+  {
+   "t": "p",
+   "html": "Two broke designers. Three air mattresses. A $1,150 rent bill due on Friday. And the idea that became a $75 billion company."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The Problem — 2007"
+  },
+  {
+   "t": "p",
+   "html": "October 2007. San Francisco. Brian Chesky and Joe Gebbia had just moved from New York with big dreams and nearly empty bank accounts. The rent was $1,150 a month. They didn't have it."
+  },
+  {
+   "t": "p",
+   "html": "A design conference was arriving that weekend. Every hotel in the city was sold out. Attendees were considering sleeping in parks."
+  },
+  {
+   "t": "p",
+   "html": "They looked at the air mattresses piled in their living room and asked a question nobody had seriously asked before: \"What if we rented out space in our apartment to strangers?\""
+  },
+  {
+   "t": "p",
+   "html": "They built a simple website over the weekend. Three people showed up — a 30-year-old from Utah, a 35-year-old from Boston, a 45-year-old father from India. Each paid $80. The rent got paid."
+  },
+  {
+   "t": "p",
+   "html": "Here is what's easy to miss in that story: the spare mattress was just the vehicle. The actual problem they were solving was something far older and far harder — how do you get a complete stranger to trust you enough to sleep in their home? Banks have tried for centuries. Governments have built entire legal systems around it. Airbnb found a way to engineer it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story 2 · 1997"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Netflix"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Disrupt Yourself Before Someone Else Does"
+  },
+  {
+   "t": "p",
+   "html": "A $40 late fee for a forgotten copy of Apollo 13. One irritated drive to the gym. The end of an entire industry."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The Problem — 1997"
+  },
+  {
+   "t": "p",
+   "html": "The late fee was Blockbuster's real business model. In some years, late-return penalties accounted for over 16% of their total revenue. Their entire operation — the due dates, the reminder calls, the penalty counters — was a machine designed to extract money from human forgetfulness."
+  },
+  {
+   "t": "p",
+   "html": "Reed Hastings returned a video weeks overdue in 1997, paid $40, and on the drive home did the kind of arithmetic that changes industries: \"What if you just paid a monthly fee and kept movies as long as you wanted?\""
+  },
+  {
+   "t": "p",
+   "html": "He co-founded Netflix with Marc Randolph that same year. They started by mailing DVDs — physical discs, in red envelopes, through the post. It was slow and clunky and nothing like the on-demand future Hastings was imagining. But it was different in one crucial way: no due dates, no late fees."
+  },
+  {
+   "t": "p",
+   "html": "The constraint he was removing wasn't inconvenience. It was psychological tax. Every video rental carried a background anxiety: return it on time or pay the penalty. Netflix removed that anxiety entirely — and customers noticed."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story 3 · 2006"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Xero"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Empower the Middleman"
+  },
+  {
+   "t": "p",
+   "html": "The internet had transformed everything. Except the ledger — still trapped on one desktop and emailed around town like a parcel."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The Problem — 2006"
+  },
+  {
+   "t": "p",
+   "html": "Picture this: it's 2006. A small business owner finishes her Tuesday morning by emailing a spreadsheet to her accountant. The accountant downloads it, opens it in a different version of Excel, fixes a formula that broke in transit, does the work, and emails it back. The business owner opens the file, realises it's an older version, and the whole process starts again."
+  },
+  {
+   "t": "p",
+   "html": "Google is eight years old. The internet has existed for fifteen years. And the humble accounting ledger — arguably the most important document a small business produces — is still being passed around like a hot potato, getting corrupted and duplicated with every handoff."
+  },
+  {
+   "t": "p",
+   "html": "Rod Drury had been building software his whole career. He looked at this and thought: this is absurd. The ledger should live in the cloud, belong to no single machine, and be visible to everyone who needs it — the business owner on their phone, the accountant in their office, the bank in its data centre — simultaneously, in real time."
+  },
+  {
+   "t": "p",
+   "html": "He co-founded Xero in Wellington, New Zealand in 2006, alongside a chartered accountant named Hamish Edwards. That pairing was crucial: a technologist who understood cloud architecture, and an accountant who understood exactly what small business owners actually needed from their numbers."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story 4 · 2007"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Canva"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Open the Gate"
+  },
+  {
+   "t": "p",
+   "html": "A nineteen-year-old in Perth, watching classmates spend a whole semester learning design software, thinking: this should not be that hard for anyone."
+  },
+  {
+   "t": "p",
+   "html": "She was nineteen, sitting in her mother's living room in Perth, Western Australia — one of the most geographically isolated cities on the planet — and she was watching university classmates struggle with design software."
+  },
+  {
+   "t": "p",
+   "html": "Melanie Perkins wasn't struggling herself. She was frustrated on behalf of everyone else. Tools like Photoshop and InDesign were extraordinarily powerful. They were also extraordinarily hostile to anyone who wasn't already an expert. The learning curve was a cliff. Most people gave up before they produced anything they'd want to share."
+  },
+  {
+   "t": "p",
+   "html": "She thought: what if design were like typing? Everyone can type. You don't need a degree. You just sit down and start. What if anyone could create something beautiful in the time it takes to make a coffee?"
+  },
+  {
+   "t": "p",
+   "html": "In 2007, she started testing the idea with Fusion Books — a platform for high-school students to design their own yearbooks. It was small. It was local. It was entirely unsexy. But every yearbook was a data point: proof that ordinary people, given the right tools, could design things they were genuinely proud of. The market that \"didn't exist\" was real, and she could see it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story 5 · 1999"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Alibaba"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Build the Rails No One Else Will"
+  },
+  {
+   "t": "p",
+   "html": "A former English teacher in a cramped Hangzhou apartment, telling seventeen friends that one day Chinese companies would sell to the entire world."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The Problem — 1999"
+  },
+  {
+   "t": "p",
+   "html": "Hangzhou, 1999. Jack Ma gathers seventeen friends in a small apartment and gives a speech that lasts two hours. The vision: Chinese manufacturers — the factories and workshops that make most of the world's physical goods — should be able to sell directly to global buyers, without middlemen, without language barriers, without needing a physical presence abroad."
+  },
+  {
+   "t": "p",
+   "html": "It was an audacious idea. China's internet penetration was under 2%. Most of the factories he was imagining didn't have computers. E-commerce barely existed in the West. In China, it didn't exist at all."
+  },
+  {
+   "t": "p",
+   "html": "Ma had failed his university entrance exams twice. He'd been rejected by 23 of the 24 jobs he applied for at a single KFC hiring event. Harvard turned him down ten times. An earlier internet venture had collapsed completely. Every objective indicator suggested this was not the person who would build the world's largest e-commerce platform."
+  },
+  {
+   "t": "p",
+   "html": "But Ma had seen the internet on a trip to Seattle in 1995. He'd searched for \"beer\" and found no results from China. He'd searched for \"China\" and found almost nothing. An entire nation — a billion people, the factory of the world — was completely invisible to the global digital economy."
+  },
+  {
+   "t": "p",
+   "html": "He thought: I can fix that."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The Pattern"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Every platform that changed the world started with <em>one person noticing something broken.</em>"
+  },
+  {
+   "t": "p",
+   "html": "None of them started with a market opportunity. None of them started with a deck. Each started with a specific frustration — a $40 late fee, an empty ledger in someone else's hands, a room of university students struggling with a tool that shouldn't be that hard. The information system turned that frustration into infrastructure. The infrastructure became the business."
+  },
+  {
+   "t": "p",
+   "html": "🏠 Airbnb Trust can be designed."
+  },
+  {
+   "t": "p",
+   "html": "🎬 Netflix Disrupt yourself first."
+  },
+  {
+   "t": "p",
+   "html": "📊 Xero Empower the middleman."
+  },
+  {
+   "t": "p",
+   "html": "🎨 Canva \"No\" measures their vision."
+  },
+  {
+   "t": "p",
+   "html": "🌏 Alibaba Build the rails no one will."
+  },
+  {
+   "t": "p",
+   "html": "What problem in your industry is waiting for its information system?"
+  },
+  {
+   "t": "p",
+   "html": "Your turn."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The Closing Scene"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "\"Here's to the crazy ones.\""
+  },
+  {
+   "t": "eyebrow",
+   "html": "What happened before this played"
+  },
+  {
+   "t": "p",
+   "html": "September 1997. Apple Computer was 90 days from bankruptcy. Steve Jobs had just come back — twelve years after being pushed out by the very board he assembled. He had been fired from his own company."
+  },
+  {
+   "t": "p",
+   "html": "During those twelve years, Apple drifted. Product lines multiplied without direction. The company lost focus, then lost customers, then nearly lost everything. Jobs had spent those years building NeXT and turning Pixar into the studio that made Toy Story. But Apple — his original creation — was dying."
+  },
+  {
+   "t": "p",
+   "html": "When he returned as interim CEO, his first moves were brutal: he cancelled 70% of Apple's product line overnight. He negotiated a $150 million investment from Microsoft — the company Apple had spent a decade at war with. And then he did something unexpected. Before launching a single new product, he called the whole team together — and instead of announcing a product, he announced a belief."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What Jobs said before pressing play"
+  },
+  {
+   "t": "p",
+   "html": "He told his team: <em>\"Marketing is about values. This is a very complicated world — it's a very noisy world — and we're not going to get a chance to get people to remember much about us. No company is. So we have to be very clear about what we want them to know about us.\"</em>"
+  },
+  {
+   "t": "p",
+   "html": "Then he said Apple's core value wasn't about making computers. It was about the belief that <em>people with passion can change the world for the better.</em> And the people who do that, he said, are the people Apple has always made tools for. Then he played the ad."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Why this mattered — and why it was personal"
+  },
+  {
+   "t": "p",
+   "html": "The ad celebrates the misfits. The rebels. The troublemakers. The round pegs in the square holes. Einstein, Gandhi, Picasso, Amelia Earhart, Muhammad Ali — people who were told no, called dangerous, misunderstood. And then the world changed around them."
+  },
+  {
+   "t": "p",
+   "html": "Jobs wasn't just describing icons from history. He was describing himself. He was a round peg. He had been fired. He had spent twelve years being told his ideas were too extreme, that he needed to compromise, that the market didn't want what he was building. The \"Think Different\" campaign was his answer to all of it — not loud, not angry. Just quiet, and absolutely certain."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Why this ends our lesson"
+  },
+  {
+   "t": "p",
+   "html": "We've spent this session with five founders who were, each in their own way, the crazy ones."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Airbnb.</strong> Two broke designers who thought strangers would pay to sleep on air mattresses in someone else's living room. Everyone said no."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Netflix.</strong> A DVD-by-mail company that bet everything on streaming — a technology that barely worked and a market that didn't exist. Everyone said no."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Xero.</strong> A New Zealand accountant who wanted businesses to trust their financial records to a cloud server. Nobody trusted the cloud yet. Everyone said no."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Canva.</strong> A nineteen-year-old in Perth who believed anyone could design anything — when the entire industry said design was a professional skill that took years to learn. Everyone said no."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Alibaba.</strong> An English teacher with no technical background who thought Chinese factories could sell directly to buyers in 200 countries — when China's internet penetration was under 2%. Everyone said no."
+  },
+  {
+   "t": "p",
+   "html": "Every one of them built it anyway. The world changed around them — because they were crazy enough to think it could."
+  },
+  {
+   "t": "p",
+   "html": "Now watch the ad Jobs played to his team in September 1997 — the moment Apple decided what it stood for again."
+  },
+  {
+   "t": "p",
+   "html": "Here's to the Crazy Ones — Think Different (Apple, 1997)"
+  },
+  {
+   "t": "pre",
+   "text": "MBI800 · STRATEGIC INFORMATION SYSTEMS · MASTER OF BUSINESS INFORMATICS"
+  }
+ ]
+}

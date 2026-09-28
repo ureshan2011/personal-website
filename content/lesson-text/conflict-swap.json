@@ -1,0 +1,214 @@
+{
+ "slug": "conflict-swap",
+ "url": "https://ureshan2011.github.io/thisisnotalms/conflict-swap.html",
+ "title": "Conflict swap",
+ "pageTitle": "Conflict Swap — MBI804 Classroom Activity",
+ "extractedAt": "2026-09-28",
+ "words": 494,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Conflict Swap"
+  },
+  {
+   "t": "p",
+   "html": "MBI804 · Communication &amp; Conflict Management"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Join a session"
+  },
+  {
+   "t": "p",
+   "html": "Enter the class code your instructor wrote on the board."
+  },
+  {
+   "t": "p",
+   "html": "Open the shared class dashboard →"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Teacher panel"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Class dashboard"
+  },
+  {
+   "t": "p",
+   "html": "A read-only live view of this session — keep it on the projector or share the link in the webinar chat. It shows the timer, class progress, and the cold-call display. It never shows any student text, so it needs no password."
+  },
+  {
+   "t": "p",
+   "html": "Copied"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Session timer"
+  },
+  {
+   "t": "p",
+   "html": "The countdown also appears on the class dashboard. It does not lock submissions."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Live progress"
+  },
+  {
+   "t": "p",
+   "html": "Needs at least 2 submissions. Every student gets someone else's conflict — never their own."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Assignments"
+  },
+  {
+   "t": "p",
+   "html": "Nothing to show yet — assignments appear here once you shuffle."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Conflict ticket",
+     "Assigned to (ticket)",
+     "Analysis"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Tickets, not names — students stay anonymous to each other, but you can track who has what."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Export session data"
+  },
+  {
+   "t": "p",
+   "html": "Downloads every submitted conflict, who it was swapped to, all five analysis answers, and any feedback you've sent — one row per conflict. Handy for handing the whole session to an LLM for further analysis."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Review analyses &amp; give feedback"
+  },
+  {
+   "t": "p",
+   "html": "Submitted analyses appear here as students finish. Open one to read the full conflict and all five answers, then send written feedback — it appears on that student's screen immediately."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Roster &amp; cold-calling"
+  },
+  {
+   "t": "p",
+   "html": "0 names saved"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Danger zone"
+  },
+  {
+   "t": "p",
+   "html": "Wipes all submissions and analyses, resets the phase to \"writing\", and clears the roster/called list for this class code. Use this between class sections so the code can be reused."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Class code:"
+  },
+  {
+   "t": "p",
+   "html": "Your responses are anonymous. Nobody can trace this back to you."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Step 1 of 2 · Describe a real conflict you've experienced"
+  },
+  {
+   "t": "p",
+   "html": "Work, university, a team project, family — anything real. A strong write-up covers all four of these: (1) the background and the people involved (no real names), (2) what triggered the conflict, (3) how each side actually responded, and (4) how it ended, or where it stands now. Minimum 400 characters — a classmate has to be able to analyze this without asking you anything."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Submission received"
+  },
+  {
+   "t": "p",
+   "html": "Your ticket:"
+  },
+  {
+   "t": "p",
+   "html": "When everyone has submitted, your instructor will assign you a classmate's conflict to analyze. This screen updates automatically — keep it open."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Step 2 of 2 · Analyze this conflict"
+  },
+  {
+   "t": "p",
+   "html": "Read the conflict below carefully — you may be asked to walk the class through it. Each answer needs at least 80 characters; specific beats general."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Analysis submitted"
+  },
+  {
+   "t": "p",
+   "html": "Here is a recap of what you wrote. Be ready to walk the class through this scenario if your name is called — it isn't your own story, so you can speak freely."
+  },
+  {
+   "t": "p",
+   "html": "Your instructor may send written feedback on this analysis — it will appear here automatically."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "No conflict assigned to you"
+  },
+  {
+   "t": "p",
+   "html": "The instructor has already shuffled, but no conflict is assigned to you — usually because you joined after the shuffle. Let your instructor know; they can pair you up manually."
+  },
+  {
+   "t": "p",
+   "html": "Class dashboard"
+  },
+  {
+   "t": "p",
+   "html": "Class code"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Time remaining"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Class progress"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Now presenting"
+  }
+ ]
+}

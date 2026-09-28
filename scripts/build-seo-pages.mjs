@@ -129,6 +129,8 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { pageShell as shell, crumbs, breadcrumbLd } from "./lib/site-shell.mjs";
+import { renderBlocks } from "./lib/lesson-blocks.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, "..");
@@ -716,230 +718,181 @@ async function fetchFromFirestore(serviceAccountPath) {
 
 /* ---------- HTML templates ---------------------------------------------- */
 
-function siteChrome({ depth }) {
-  // depth = number of directory levels below repo root (app/blog/ and
-  // app/lessons/ are both depth 2), used to build relative asset paths.
-  const up = "../".repeat(depth);
-  return { up };
+/* Every page takes its nav, footer and scripts from scripts/lib/site-shell.mjs
+   and its layout from assets/css/lesson-page.css, the same as the /lessons/
+   pages. Nothing here uses `.reveal`: generated pages are read by crawlers
+   and must not depend on a scroll script to become visible. */
+
+const INFO_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>';
+
+const hasLessonShot = slug => fs.existsSync(path.join(REPO_ROOT, "assets", "images", "lessons", `${slug}-640.webp`));
+
+function hero({ depth, crumbPairs, tags = [], title, lead, facts = [], actions = "", media = "" }) {
+  return `
+<header class="lp-hero">
+  <div class="container lp-hero-grid${media ? "" : " is-solo"}">
+    <div>
+      ${crumbs(depth, crumbPairs)}
+      ${tags.length ? `<div class="lp-tags">${tags.join("")}</div>` : ""}
+      <h1>${title}</h1>
+      ${lead ? `<p class="lp-lead">${esc(lead)}</p>` : ""}
+      ${facts.length ? `<div class="lp-facts">${facts.map(f => `<span>${f}</span>`).join("")}</div>` : ""}
+      ${actions ? `<div class="lp-actions">${actions}</div>` : ""}
+    </div>
+    ${media}
+  </div>
+</header>`;
 }
 
-function pageShell({ depth, title, description, canonical, ogImage, jsonLd, bodyHtml, breadcrumbLabel }) {
-  const { up } = siteChrome({ depth });
-  const ldBlocks = jsonLd.map(obj => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n</script>`).join("\n");
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>${esc(title)}</title>
-<meta name="author" content="Yasas Sri Wickramasinghe"/>
-<meta name="description" content="${esc(description)}"/>
-<link rel="icon" href="${up}assets/images/icons/favicon.png"/>
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
-<meta name="theme-color" content="#4b6bff"/>
-<link rel="canonical" href="${esc(canonical)}"/>
-<link rel="alternate" type="application/rss+xml" href="${SITE_URL}/feed.xml"/>
-<!-- Open Graph -->
-<meta property="og:type" content="article"/>
-<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
-<meta property="og:title" content="${esc(title)}"/>
-<meta property="og:description" content="${esc(description)}"/>
-<meta property="og:url" content="${esc(canonical)}"/>
-<meta property="og:image" content="${esc(ogImage)}"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@sri_yasas"/>
-${ldBlocks}
-<link rel="preload" href="${up}assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
-<link href="${up}assets/css/fonts.css" rel="stylesheet"/>
-<link href="${up}assets/css/redesign.css" rel="stylesheet"/>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-N2BH0F6SNE');
-</script>
-</head>
-<body>
+function tocAside(toc, extra = "") {
+  if (toc.length < 3) return "";
+  return `<aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol>${toc.map(t => `<li><a href="#${esc(t.id)}">${esc(t.text)}</a></li>`).join("")}</ol>
+      </details>${extra}
+    </aside>`;
+}
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="nav-logo" href="${up}index.html">Yasas Sri <em>Wickramasinghe</em></a>
-    <div class="nav-links">
-      <a href="${up}index.html">Home</a>
-      <a href="${up}research.html">Research</a>
-      <a href="${up}teaching.html">Teaching</a>
-      <a href="${up}products.html">Products</a>
-      <a href="${up}news.html">News</a>
-      <a href="${up}blogs.html">Writing</a>
-      <a href="${up}app/#/">Platform</a>
-      <a href="${up}contact.html">Contact</a>
-    </div>
-    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<header class="page-hero">
-  <div class="container">
-    <div class="app-crumb" style="margin-bottom:14px;"><a href="${up}app/#/" style="color:var(--muted)">Platform</a> / <span style="color:var(--muted)">${esc(breadcrumbLabel)}</span></div>
-${bodyHtml}
-
-<footer>
-  <div class="container footer-inner">
-    <div>
-      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
-      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
-      <a href="${up}contact.html">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<script src="${up}assets/js/hunt.js" defer></script>
-</body>
-</html>
-`;
+/* Text read from the rendered deck (scripts/extract-lesson-text.mjs --decks),
+   when there is a snapshot. It keeps code as code and tables as tables, which
+   the source-level extraction below cannot. */
+function deckTextSnapshot(slug) {
+  const p = path.join(REPO_ROOT, "content", "lesson-text", "decks", `${slug}.json`);
+  if (!fs.existsSync(p)) return null;
+  try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; }
 }
 
 function renderLessonDeckPage(deck) {
   const canonical = `${SITE_URL}/app/lessons/${deck.slug}.html`;
   const spaUrl = `${SITE_URL}/app/#/lessons/deck/${deck.slug}`;
-  const title = `${deck.title} — Interactive Lesson | Dr. Yasas Sri Wickramasinghe`;
+  const title = `${deck.title}: Interactive Lesson | Dr. Yasas Sri Wickramasinghe`;
   const description = deck.shortSubtitle || deck.subtitle;
   const topics = deck.pills.map(p => p.name);
 
-  const sections = deck.sections || [];
+  const snapshot = deckTextSnapshot(deck.slug);
+  let article, toc;
+  if (snapshot && snapshot.blocks.length) {
+    ({ html: article, toc } = renderBlocks(snapshot.blocks, { title: deck.title, lead: deck.subtitle }));
+  } else {
+    const sections = deck.sections || [];
+    toc = sections.map(s => ({ id: s.id, text: s.heading }));
+    article = sections.map(s => renderSection(s)).join("\n");
+  }
+
   // Hand-written questions lead — they target real search queries. Deck-derived
   // quiz and flashcard entries follow, de-duplicated by question text.
   const seen = new Set();
   const faq = [...(DECK_FAQ[deck.slug] || []), ...(deck.faq || [])]
     .filter(item => { const k = norm(item.q); if (seen.has(k)) return false; seen.add(k); return true; });
-  const related = relatedSlugs(deck.slug)
-    .map(s => deckIndex.get(s))
-    .filter(Boolean);
+  const related = relatedSlugs(deck.slug).map(s => deckIndex.get(s)).filter(Boolean);
+  const words = countWords(article);
 
+  const crumbPairs = [["Home", "index.html"], ["Teaching", "teaching.html"], ["Lessons", "lessons.html"], [deck.title, ""]];
   const jsonLd = [{
     "@context": "https://schema.org",
     "@type": "LearningResource",
     "name": deck.title,
     "description": deck.subtitle || deck.shortSubtitle,
     "url": canonical,
+    ...(hasLessonShot(deck.slug) ? { "image": `${SITE_URL}/assets/images/lessons/${deck.slug}-1280.webp` } : {}),
     "learningResourceType": ["Lesson", "Presentation", "Interactive Resource"],
     "teaches": topics,
     "keywords": topics.join(", "),
     "isAccessibleForFree": true,
     "inLanguage": "en",
     "educationalUse": ["instruction", "self study"],
-    "timeRequired": `PT${Math.max(5, Math.round(sections.length * 1.5))}M`,
+    "timeRequired": `PT${Math.max(5, Math.round(words / 210))}M`,
     "dateModified": today,
     "about": deck.eyebrow || undefined,
-    "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
-    "provider": { "@type": "Organization", "name": "Dr. Yasas Sri Wickramasinghe — Academic Platform", "url": SITE_URL + "/app/" },
+    "author": { "@type": "Person", "@id": `${SITE_URL}/#yasas`, "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
     "isPartOf": { "@type": "WebSite", "@id": SITE_URL + "/#website" },
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
-    "hasPart": sections.map(s => ({
-      "@type": "LearningResource", "name": s.heading, "url": `${canonical}#${s.id}`
-    }))
-  }, breadcrumbLd([
-    ["Home", `${SITE_URL}/`],
-    ["Teaching", `${SITE_URL}/teaching.html`],
-    ["Lessons", `${SITE_URL}/app/#/lessons`],
-    [deck.title, canonical]
-  ])];
-
+    "hasPart": toc.map(s => ({ "@type": "LearningResource", "name": s.text, "url": `${canonical}#${s.id}` }))
+  }, breadcrumbLd(crumbPairs.map(([n, h], i) => [n, i === crumbPairs.length - 1 ? canonical : `${SITE_URL}/${h}`.replace(/\/index\.html$/, "/")]))];
   if (faq.length >= 2) jsonLd.push(faqLd(faq));
 
-  const bodyHtml = `
-    <span class="eyebrow reveal">${esc(deck.eyebrow || "Interactive Lesson")}</span>
-    <h1 class="reveal" style="--d:.1s">${esc(deck.titleLead || "Let's make sense of")} <em>${esc(deck.titleAccent || deck.title)}</em></h1>
-    <p class="lead reveal" style="--d:.2s">${esc(deck.subtitle || deck.shortSubtitle)}</p>
-    <div class="hero-actions reveal" style="--d:.3s">
-      <a class="btn btn-solid" href="${esc(spaUrl)}">Open the Interactive Deck <span class="arrow">→</span></a>
-      <a class="btn" href="../#/lessons">All Lessons <span class="arrow">→</span></a>
-    </div>
-  </div>
-</header>
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="idx">01</span>
-      <h2>What you'll <em>learn</em></h2>
-    </div>
-    <ul class="feat" style="grid-template-columns:1fr 1fr;">
-      ${topics.map(t => `<li>${esc(t)}</li>`).join("\n      ")}
-    </ul>
-    <p style="color:var(--text-dim); font-weight:300; margin-top:24px; max-width:70ch;">
-      This is the full written version of an interactive, slide-by-slide lesson deck used in
-      teaching. Everything covered in the deck is below — open the interactive version to work
-      through it with live diagrams, worked examples and a practice quiz where included.
-    </p>
-  </div>
-</section>
-${sections.length ? `<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="idx">02</span>
-      <h2>Lesson <em>contents</em></h2>
-    </div>
-    <ol style="max-width:70ch; line-height:1.9; color:var(--text-dim);">
-      ${sections.map(s => `<li><a href="#${esc(s.id)}">${esc(s.heading)}</a></li>`).join("\n      ")}
-    </ol>
-  </div>
-</section>
-<section class="section">
-  <div class="container" style="max-width:74ch;">
-    ${sections.map(s => renderSection(s)).join("\n    ")}
-  </div>
-</section>` : ""}
-${faq.length ? `<section class="section">
-  <div class="container" style="max-width:74ch;">
-    <div class="section-head reveal">
-      <h2>Common <em>questions</em></h2>
-    </div>
-    ${faq.map(f => `<h3>${esc(f.q)}</h3>\n    <p>${esc(f.a)}</p>`).join("\n    ")}
-  </div>
-</section>` : ""}
-${related.length ? `<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2>Related <em>lessons</em></h2>
-    </div>
-    <ul class="feat" style="grid-template-columns:1fr 1fr;">
-      ${related.map(r => `<li><a href="${esc(r.slug)}.html">${esc(r.title)}</a> — ${esc(r.shortSubtitle || r.subtitle)}</li>`).join("\n      ")}
-    </ul>
-  </div>
-</section>` : ""}
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2>Work through it <em>interactively</em></h2>
-    </div>
-    <p style="color:var(--text-dim); font-weight:300; max-width:70ch;">
-      The interactive deck adds live diagrams, step-by-step reveals and practice activities
-      that this written version can't carry.
-    </p>
-    <div class="hero-actions reveal" style="margin-top:24px;">
-      <a class="btn btn-solid" href="${esc(spaUrl)}">Open the Interactive Deck <span class="arrow">→</span></a>
-      <a class="btn" href="../../teaching.html">See how I teach <span class="arrow">→</span></a>
-      <a class="btn" href="../#/newsletter">Get new lessons by email <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>`;
+  const media = hasLessonShot(deck.slug)
+    ? `<a class="lp-window" href="${esc(spaUrl)}" aria-label="Open the interactive ${esc(deck.title)} deck">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>${esc(deck.eyebrow || deck.title)}</span></span>
+      <img src="../../assets/images/lessons/${deck.slug}-640.webp" srcset="../../assets/images/lessons/${deck.slug}-640.webp 640w, ../../assets/images/lessons/${deck.slug}-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first slide of ${esc(deck.title)}" fetchpriority="high" decoding="async"/>
+    </a>`
+    : "";
 
-  return pageShell({
+  const body = `${hero({
     depth: 2,
-    title,
-    description,
-    canonical,
-    ogImage: `${SITE_URL}/assets/images/og-card.png`,
-    jsonLd,
-    bodyHtml,
-    breadcrumbLabel: `Lessons / ${deck.title}`
-  });
+    crumbPairs,
+    tags: [`<span class="lp-tag lp-tag--course">${esc(deck.eyebrow || "Interactive lesson")}</span>`],
+    title: esc(deck.title),
+    lead: deck.subtitle || deck.shortSubtitle,
+    facts: [`${Math.max(3, Math.round(words / 210))} min read`, "Free, no login"],
+    actions: `<a class="btn btn-solid lp-go" href="${esc(spaUrl)}">Open the interactive deck <span class="arrow">→</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>`,
+    media
+  })}
+
+<div class="lp-body" id="lesson">
+  <div class="container lp-layout${toc.length >= 3 ? "" : " is-solo"}">
+    ${tocAside(toc, `\n      <a class="lp-toc-go" href="${esc(spaUrl)}">Open the interactive deck →</a>`)}
+    <article class="lp-article">
+      <p class="lp-note">${INFO_ICON}<span>This is the written version of an interactive, slide-by-slide deck. The live diagrams, worked examples and practice quiz are in <a href="${esc(spaUrl)}">the interactive deck</a>.</span></p>
+      ${topics.length ? `<div class="lp-prose"><p class="lp-label">In this lesson</p><ul class="lp-bits">${topics.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>` : ""}
+      <div class="lp-prose" style="margin-top:36px">
+${article}
+      </div>
+    </article>
+  </div>
+</div>
+${faq.length ? `
+<section class="lp-section soft">
+  <div class="container">
+    <div class="lp-section-head"><h2>Common questions</h2></div>
+    <div class="lp-faq">
+      ${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n      ")}
+    </div>
+  </div>
+</section>` : ""}
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Work through it interactively.</h2>
+      <p>The deck adds live diagrams, step-by-step reveals and practice activities that a written page can't carry.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid" href="${esc(spaUrl)}">Open the interactive deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+${related.length ? `
+<section class="lp-section soft">
+  <div class="container">
+    <div class="lp-section-head"><h2>Related lessons</h2></div>
+    <div class="lp-cards">${related.map(r => `
+      <a class="lp-card" href="${esc(r.slug)}.html">
+        <span class="lp-card-media">${hasLessonShot(r.slug) ? `<img src="../../assets/images/lessons/${r.slug}-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/>` : `<b>${esc((r.eyebrow || "").split(" ")[0] || "Lesson")}</b>`}</span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">${esc(r.eyebrow || "Interactive lesson")}</span>
+          <span class="lp-card-title">${esc(r.title)}</span>
+          <span class="lp-card-blurb">${esc(r.shortSubtitle || r.subtitle)}</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>`).join("")}
+    </div>
+  </div>
+</section>` : ""}`;
+
+  return {
+    html: shell({
+      depth: 2, title, description, canonical,
+      ogImage: hasLessonShot(deck.slug) ? `${SITE_URL}/assets/images/lessons/${deck.slug}-1280.webp` : `${SITE_URL}/assets/images/og-card.png`,
+      jsonLd, active: "teaching", body,
+      foot: `<script src="../../assets/js/lesson-page.js" defer></script>\n`
+    }),
+    sectionCount: toc.length
+  };
 }
 
 function faqLd(faq) {
@@ -954,19 +907,10 @@ function faqLd(faq) {
   };
 }
 
-function breadcrumbLd(pairs) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": pairs.map(([name, item], i) => ({
-      "@type": "ListItem", "position": i + 1, "name": name, "item": item
-    }))
-  };
-}
-
-/* Renders one extracted section. Short blocks read as list items, longer ones
-   as paragraphs — the decks mix both and forcing either alone reads badly.
-   Blocks already carry only whitelisted inline tags, so they are not re-escaped. */
+/* Fallback for a deck with no rendered-text snapshot (the APA deck, which is
+   behind a class password in the app). Short blocks read as list items,
+   longer ones as paragraphs. Blocks already carry only whitelisted inline
+   tags, so they are not re-escaped. */
 function renderSection(s) {
   const out = [`<h2 id="${esc(s.id)}">${esc(s.heading)}</h2>`];
   let list = [];
@@ -984,11 +928,33 @@ function renderSection(s) {
   return out.join("\n    ");
 }
 
+function articlePage({ depth, crumbPairs, canonical, title, pageTitle, description, tag, dateLine, articleHtml, after = "", jsonLd, active }) {
+  const body = `${hero({
+    depth,
+    crumbPairs,
+    tags: tag ? [`<span class="lp-tag">${esc(tag)}</span>`] : [],
+    title: esc(title),
+    lead: description,
+    facts: dateLine ? [dateLine] : []
+  })}
+
+<div class="lp-body">
+  <div class="container lp-layout is-solo">
+    <article class="lp-article">
+      <div class="lp-prose">
+${articleHtml}
+      </div>
+      ${after}
+    </article>
+  </div>
+</div>`;
+  return shell({ depth, title: pageTitle, description, canonical, jsonLd, active, body });
+}
+
 function renderBlogPostPage(post) {
   const slug = post.slug || slugify(post.title);
   const canonical = `${SITE_URL}/app/blog/${slug}.html`;
   const spaUrl = `${SITE_URL}/app/#/blog/${slug}`;
-  const title = `${post.title} | Dr. Yasas Sri Wickramasinghe`;
   const description = post.description || post.excerpt || "";
   const published = post.publishedAt || today;
   const updated = post.updatedAt || published;
@@ -1008,31 +974,15 @@ function renderBlogPostPage(post) {
     "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
   }];
 
-  const bodyHtml = `
-    <span class="eyebrow reveal">Blog</span>
-    <h1 class="reveal" style="--d:.1s">${esc(post.title)}</h1>
-    <p class="lead reveal" style="--d:.2s">${esc(description)}</p>
-    <p style="color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Published ${esc(published)}${updated !== published ? ` · Updated ${esc(updated)}` : ""}</p>
-  </div>
-</header>
-<section class="section">
-  <div class="container" style="max-width:72ch;">
-    ${mdToHtml(post.contentMarkdown || post.content || "")}
-    <div class="reveal" style="margin-top:32px;">
-      <a class="btn btn-solid" href="${esc(spaUrl)}">Discuss in the Forum / View in App <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>`;
-
-  return pageShell({
+  return articlePage({
     depth: 2,
-    title,
-    description,
-    canonical,
-    ogImage: `${SITE_URL}/assets/images/og-card.png`,
-    jsonLd,
-    bodyHtml,
-    breadcrumbLabel: `Blog / ${post.title}`
+    crumbPairs: [["Home", "index.html"], ["Writing", "blogs.html"], [post.title, ""]],
+    canonical, title: post.title, pageTitle: `${post.title} | Dr. Yasas Sri Wickramasinghe`, description,
+    tag: "Blog",
+    dateLine: `Published ${esc(published)}${updated !== published ? ` · Updated ${esc(updated)}` : ""}`,
+    articleHtml: mdToHtml(post.contentMarkdown || post.content || ""),
+    after: `<div class="lp-actions"><a class="btn btn-solid" href="${esc(spaUrl)}">Discuss in the forum <span class="arrow">→</span></a></div>`,
+    jsonLd, active: "writing"
   });
 }
 
@@ -1045,7 +995,6 @@ function renderBlogPostPage(post) {
 function renderWritingArticlePage(article) {
   const { slug, title, summary, category, originalUrl, originalSource, originalDate, body } = article;
   const canonical = `${SITE_URL}/writing/${slug}.html`;
-  const pageTitle = `${title} | Dr. Yasas Sri Wickramasinghe`;
 
   const jsonLd = [{
     "@context": "https://schema.org",
@@ -1067,36 +1016,20 @@ function renderWritingArticlePage(article) {
     [title, canonical]
   ])];
 
-  const bodyHtml = `
-    <span class="eyebrow reveal">${esc(category || "Writing")}</span>
-    <h1 class="reveal" style="--d:.1s">${esc(title)}</h1>
-    <p class="lead reveal" style="--d:.2s">${esc(summary)}</p>
-    ${originalDate ? `<p style="color:var(--muted); font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;">Published ${esc(originalDate)}</p>` : ""}
-  </div>
-</header>
-<section class="section">
-  <div class="container prose" style="max-width:72ch;">
-    ${mdToHtml(body)}
-    ${originalUrl ? `<hr/>
-    <p style="color:var(--text-dim); font-weight:300; font-size:14px;">
-      Originally published on <a href="${esc(originalUrl)}" target="_blank" rel="noopener">${esc(originalSource || "another site")}</a>.
-    </p>` : ""}
-    <div class="hero-actions reveal" style="margin-top:32px;">
-      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
-      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>`;
-
-  return pageShell({
+  return articlePage({
     depth: 1,
-    title: pageTitle,
-    description: summary,
-    canonical,
-    ogImage: `${SITE_URL}/assets/images/og-card.png`,
-    jsonLd,
-    bodyHtml,
-    breadcrumbLabel: `Writing / ${title}`
+    crumbPairs: [["Home", "index.html"], ["Writing", "blogs.html"], [title, ""]],
+    canonical, title, pageTitle: `${title} | Dr. Yasas Sri Wickramasinghe`, description: summary,
+    tag: category || "Writing",
+    dateLine: originalDate ? `Published ${esc(originalDate)}` : "",
+    articleHtml: mdToHtml(body) + (originalUrl ? `
+<hr/>
+<p class="lp-credit">Originally published on <a href="${esc(originalUrl)}" target="_blank" rel="noopener">${esc(originalSource || "another site")}</a>.</p>` : ""),
+    after: `<div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>`,
+    jsonLd, active: "writing"
   });
 }
 
@@ -1118,7 +1051,6 @@ function renderLessonArticlePage(article) {
   const slug = article.slug || slugify(article.title);
   const canonical = `${SITE_URL}/app/lessons/${slug}.html`;
   const spaUrl = `${SITE_URL}/app/#/lessons/article/${slug}`;
-  const title = `${article.title} — Lesson | Dr. Yasas Sri Wickramasinghe`;
   const description = article.subtitle || "";
   const objectives = article.objectives || [];
 
@@ -1136,31 +1068,14 @@ function renderLessonArticlePage(article) {
     "provider": { "@type": "Organization", "name": "Dr. Yasas Sri Wickramasinghe — Academic Platform", "url": SITE_URL + "/app/" }
   }];
 
-  const bodyHtml = `
-    <span class="eyebrow reveal">Lesson</span>
-    <h1 class="reveal" style="--d:.1s">${esc(article.title)}</h1>
-    <p class="lead reveal" style="--d:.2s">${esc(description)}</p>
-  </div>
-</header>
-<section class="section">
-  <div class="container" style="max-width:72ch;">
-    ${objectives.length ? `<h2>Objectives</h2>\n<ul>${objectives.map(o => `<li>${esc(o)}</li>`).join("")}</ul>` : ""}
-    ${mdToHtml(article.content || "")}
-    <div class="reveal" style="margin-top:32px;">
-      <a class="btn btn-solid" href="${esc(spaUrl)}">Open in App <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>`;
-
-  return pageShell({
+  return articlePage({
     depth: 2,
-    title,
-    description,
-    canonical,
-    ogImage: `${SITE_URL}/assets/images/og-card.png`,
-    jsonLd,
-    bodyHtml,
-    breadcrumbLabel: `Lessons / ${article.title}`
+    crumbPairs: [["Home", "index.html"], ["Teaching", "teaching.html"], ["Lessons", "lessons.html"], [article.title, ""]],
+    canonical, title: article.title, pageTitle: `${article.title}: Lesson | Dr. Yasas Sri Wickramasinghe`, description,
+    tag: "Lesson",
+    articleHtml: (objectives.length ? `<h2>Objectives</h2>\n<ul>${objectives.map(o => `<li>${esc(o)}</li>`).join("")}</ul>\n` : "") + mdToHtml(article.content || ""),
+    after: `<div class="lp-actions" style="margin-top:40px"><a class="btn btn-solid" href="${esc(spaUrl)}">Open in the app <span class="arrow">→</span></a></div>`,
+    jsonLd, active: "teaching"
   });
 }
 
@@ -1296,12 +1211,12 @@ async function main() {
   const thin = [];
   for (const deck of decks) {
     const outPath = path.join(lessonsOutDir, `${deck.slug}.html`);
-    const html = renderLessonDeckPage(deck);
+    const { html, sectionCount } = renderLessonDeckPage(deck);
     const words = countWords(html);
     if (words < MIN_DECK_WORDS) thin.push(`${deck.slug} (${words} words, from ${deck.sourceFile})`);
     if (!dryRun) fs.writeFileSync(outPath, html);
     console.log(`  ${dryRun ? "(dry-run) would write" : "wrote"} app/lessons/${deck.slug}.html` +
-      `  — ${deck.sections.length} section(s), ${words} words`);
+      `  — ${sectionCount} section(s), ${words} words`);
     newUrls.push(`${SITE_URL}/app/lessons/${deck.slug}.html`);
   }
   if (thin.length) {

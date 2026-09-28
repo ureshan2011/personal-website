@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Platform strategy | MBI800 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/platform-strategy.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Platform strategy | MBI800 Lesson"/>
+<meta property="og:description" content="Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/platform-strategy.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/platform-strategy-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/platform-strategy.html#lesson",
+  "name": "Platform strategy",
+  "description": "Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE Predix — then a group research task and a knowledge check.",
+  "url": "https://www.yasassri.me/lessons/platform-strategy.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/platform-strategy-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT8M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Strategic Information Systems Planning",
+      "courseCode": "MBI800",
+      "description": "What an organisation decides to build, and why it keeps getting the decision wrong.",
+      "url": "https://www.yasassri.me/lessons.html#mbi800",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/platform-strategy.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI800",
+      "item": "https://www.yasassri.me/lessons.html#mbi800"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Platform strategy",
+      "item": "https://www.yasassri.me/lessons/platform-strategy.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi800">MBI800</a><span aria-hidden="true">/</span><span aria-current="page">Platform strategy</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi800" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">MBI800</a><span class="lp-tag">Lesson</span></div>
+      <h1>Platform strategy</h1>
+      <p class="lp-lead">Why Uber owns no cars and the App Store writes no apps. Network effects, the chicken-and-egg problem, governance and boundary resources, Amazon against GE Predix — then a group research task and a knowledge check.</p>
+      <div class="lp-facts"><span><b>Strategic Information Systems Planning</b></span><span>8 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/platform-strategy" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/platform-strategy" target="_blank" rel="noopener" aria-label="Open Platform strategy on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI800 · Platform strategy</span></span>
+      <img src="../assets/images/lessons/platform-strategy-640.webp" srcset="../assets/images/lessons/platform-strategy-640.webp 640w, ../assets/images/lessons/platform-strategy-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Platform strategy" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#find-a-platform-present-it">Find a Platform. Present It.</a></li><li><a href="#test-your-understanding">Test Your Understanding</a></li><li><a href="#platform-strategy-quiz">Platform Strategy Quiz</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/platform-strategy" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Platform strategy, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/platform-strategy" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>Why Uber owns no cars, Airbnb owns no rooms, and the App Store doesn't write a single app — and what that means for how you plan information systems. Includes a group research presentation and a knowledge check.</p>
+<p>🔗 Network effects 🥚 Chicken-and-egg 🛠️ Governance 📦 Case studies 👥 Group activity</p>
+<p>Why some of the biggest companies in the world don't make anything at all</p>
+<p>Uber owns no cars. Airbnb owns no rooms. The App Store doesn't write a single app. This session is about how that works — and what it means for how you plan information systems.</p>
+<p>18 Slides Network Effects Case Studies 40-Min Group Activity Knowledge Check</p>
+<h2 id="find-a-platform-present-it"><span class="lp-kicker">In-Class Activity · Group of 4–6 · 40 Minutes</span>Find a Platform. Present It.</h2>
+<p>5 min form groups · 25 min research online and build slides · 10 min present</p>
+<p class="lp-label">Group Activity · 4–6 Members · 40 Minutes</p>
+<p>Pick any real platform, research it online, and prepare a short presentation for the class.</p>
+<ul class="lp-bits"><li>Timing (40 minutes total)</li><li>Form groups of 4–6, pick a platform 5 min</li><li>Research online, build simple slides 25 min</li><li>Present to the class 10 min</li></ul>
+<p>Stuck for an idea?</p>
+<p>Click shuffle for a suggestion — or pick your own</p>
+<p>Any real platform works. Use it, or something completely different — your choice.</p>
+<p>Your presentation should cover</p>
+<p>Slide 1 — Name the platform and what it does</p>
+<p>Slide 2 — Its sides, and one network effect example</p>
+<p>Slide 3 — Business model and how open it is</p>
+<p>Slide 4 — One risk, or one question for the class</p>
+<p>Research checklist — tick as you go</p>
+<h2 id="test-your-understanding"><span class="lp-kicker">After the Slides</span>Test Your Understanding</h2>
+<p>8 questions · Instant feedback · No data stored</p>
+<h2 id="platform-strategy-quiz"><span class="lp-kicker">Knowledge Check</span>Platform Strategy Quiz</h2>
+<p>What is the defining feature of a platform business, compared to a pipeline business?</p>
+<p>Where This Fits in Your Planning Toolkit</p>
+<p>Classic SISP models assume the firm controls its whole value chain, end to end.</p>
+<p>That breaks once a firm's biggest decisions involve a network it doesn't fully own — outside sellers, developers, drivers.</p>
+<p>Platform strategy is what that shift looks like in practice.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>A traditional plan asks…</th><th>A platform-era plan also asks…</th></tr></thead><tbody><tr><td>What systems does our value chain need?</td><td>What ecosystem are we part of?</td></tr><tr><td>How do we align IT with the business?</td><td>How do outsiders safely build on us?</td></tr><tr><td>What's our architecture roadmap?</td><td>Is our architecture open at the edges?</td></tr><tr><td>How do we govern IT risk?</td><td>How do we govern a network we don't own?</td></tr></tbody></table></div>
+<p>Pipes, Products, and Platforms</p>
+<p>Value flows one way: design → build → sell. The firm owns the whole chain.</p>
+<p>One offering, sold directly. No crowd of outside partners needed.</p>
+<p>Connects two or more groups. The owner supplies the rules and infrastructure — not always the product.</p>
+<p>Platforms <strong>orchestrate</strong> value. They don't have to <strong>own</strong> it.</p>
+<p class="lp-label">Core Mechanics · Click each card</p>
+<p>Why Platforms Get Stronger With Size</p>
+<p>A <strong>network effect</strong>: the platform gets more valuable as more people use it. Click each card.</p>
+<p>More drivers = shorter waits for riders. More riders = more fares for drivers.</p>
+<p>More friends on a messaging app makes it more useful to you — no other side involved.</p>
+<p>Too many drivers in one area lowers earnings per driver. Growth isn't always good.</p>
+<p>Every interaction improves recommendations for everyone — even without new users.</p>
+<p><strong>Watch out:</strong> network effects aren't always good. Managing the negative ones matters as much as growing the positive ones.</p>
+<p class="lp-label">Two-Sided Markets · Click each tactic</p>
+<p>Solving the Chicken-and-Egg Problem</p>
+<p>Neither side wants to join an empty platform. The fix: price the two sides differently. Click a tactic to see who used it.</p>
+<p>Uber paid early drivers to guarantee supply before riders trusted the app.</p>
+<p>Early Airbnb worked as a browsing tool even with zero hosts nearby.</p>
+<p>Amazon and Zappos listed their own inventory first, before opening to sellers.</p>
+<p>PayPal grew by riding on eBay auctions — showing up where its users already were.</p>
+<p>Facebook launched at one campus first. Food-delivery apps still launch suburb by suburb.</p>
+<p>Today's group activity: find a real platform online and work out which of these tactics it actually used.</p>
+<p>Multi-Homing: Why Some Markets Tip, Others Don't</p>
+<p><strong>Single-homing:</strong> sticking to one platform. <strong>Multi-homing:</strong> using rival platforms at once — a hotel listed on Booking.com <em>and</em> Expedia.</p>
+<p>The easier it is to multi-home, the harder it is for one platform to become a monopoly.</p>
+<p>Several platforms survive side by side.</p>
+<p>High multi-homing cost →</p>
+<p>The market tips toward one winner.</p>
+<p>Example: Alexa, Siri and Google Assistant — the winner depends on how easily people can switch between them.</p>
+<p class="lp-label">Classification · Cusumano, Gawer &amp; Yoffie</p>
+<p>Three Kinds of Platforms</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Dimension</th><th>🔁 Transaction platform</th><th>🛠️ Innovation platform</th></tr></thead><tbody><tr><td>What it does</td><td>Lets people find and transact with each other</td><td>Gives third parties a technology base to build on</td></tr><tr><td>Revenue</td><td>Commission, listing fees, subscription</td><td>Licensing, revenue share, cloud/hardware sales</td></tr><tr><td>Governance focus</td><td>Trust, ratings, fraud prevention</td><td>Developer relations, API stability, IP protection</td></tr><tr><td>Examples</td><td>eBay, Airbnb, Uber, Stripe</td><td>Windows, Android, AWS, Salesforce Platform</td></tr></tbody></table></div>
+<p><strong>Hybrid platforms</strong> do both. Apple's iOS lets developers build apps (innovation); the App Store sells and distributes them (transaction). Amazon's Marketplace is transaction; AWS underneath is innovation.</p>
+<p>Four Decisions Every Platform Has to Make</p>
+<p><strong>Choose your sides.</strong> Which groups will you connect?</p>
+<p><strong>Solve chicken-and-egg.</strong> Which side do you seed first, and how?</p>
+<p><strong>Design the business model.</strong> Who pays, how much, on each side?</p>
+<p><strong>Set the governance rules.</strong> How open is it, and who shares in the value?</p>
+<p>Source: Cusumano, Gawer &amp; Yoffie, <em>The Business of Platforms</em> (2019).</p>
+<p class="lp-label">The IS Research Lens · Ghazawneh &amp; Henfridsson</p>
+<p>Governance: Enable, or Control?</p>
+<p>Platform owners govern outsiders through <strong>boundary resources</strong> — APIs, SDKs, and review processes.</p>
+<p>Every boundary resource balances two things: enough capability for developers to build value, without losing control.</p>
+<p>Enable. Attract developers.</p>
+<p>Control. Protect. Review.</p>
+<p>Case in point: Apple's App Store</p>
+<p>Apple's app review does both jobs at once: it gives developers a huge market (resourcing), while reviewing every app and taking a commission (securing).</p>
+<p>Governance and architecture <em>co-evolve</em>. Open up the rules without redesigning the system to support it, and you create risk.</p>
+<p class="lp-label">Governance Is Not Binary</p>
+<p>How Open Should a Platform Be?</p>
+<p>Joel West's framing still holds: openness is "many shades of grey." Most successful commercial platforms sit somewhere in the middle — open enough to attract an ecosystem, controlled enough to stay trustworthy.</p>
+<p><strong>Closed</strong> Traditional mainframe software — single vendor, no outside development</p>
+<p><strong>Curated</strong> Apple iOS / App Store — open to developers, tightly reviewed</p>
+<p><strong>Open core, curated layer</strong> Android — open-source base, curated Play Store on top</p>
+<p><strong>Open standard</strong> An interoperability protocol donated to a neutral foundation so no single vendor controls it</p>
+<p><strong>Fully open</strong> Wikipedia — community-governed, no gatekeeping</p>
+<p>Where you sit on this spectrum is a strategic choice, not a technical afterthought — and it's one every SISP needs to make explicit.</p>
+<p>Competitive Strategy · Eisenmann, Parker &amp; Van Alstyne · Click each card</p>
+<p>Envelopment: Winning by Bundling, Not Building</p>
+<p>An <strong>enveloper</strong> doesn't out-innovate a rival platform — it enters an adjacent market and bundles its own feature in, using a user base it already owns.</p>
+<p>A social platform builds native messaging in, so users no longer need a separate standalone messaging app.</p>
+<p>A cloud storage platform adds lightweight document editing — enough overlap with a standalone office suite to erode its reason to exist.</p>
+<p>3. Functionally unrelated</p>
+<p>A hardware ecosystem cross-sells an unrelated service — say, payments — to the installed base it already has, foreclosing a rival's entry point.</p>
+<p><strong>Defending against it:</strong> open up your own layer to build allies, or build a comparable bundle yourself, first.</p>
+<p>Amazon: From Bookstore to Hybrid Platform</p>
+<p>🔁 Marketplace — transaction platform</p>
+<p>Opened to third-party sellers to fill selection gaps, without carrying inventory risk.</p>
+<p>🛠️ AWS — innovation platform</p>
+<p>Started as Amazon's own infrastructure, then sold externally — even to Amazon's retail rivals.</p>
+<p><strong>The Flywheel:</strong> lower prices + more selection → more traffic → more sellers → lower costs → lower prices again.</p>
+<p><strong>SISP takeaway:</strong> internal infrastructure can become a second platform business. Who gets admitted is a governance call, not an operational one.</p>
+<p class="lp-label">Case Study 2 · A Counter-Example · Click each card</p>
+<p>GE Predix: When a Platform Strategy Fails</p>
+<p>GE launched Predix in 2014 to become "the Android of industry." It was quietly retired around 2022. Click each card.</p>
+<p>Tried to serve too many sides</p>
+<p>Aviation, healthcare and oil &amp; gas all need different things. One platform couldn't go deep enough in any of them.</p>
+<p>Built its own cloud, alone</p>
+<p>GE built its own data centres instead of using AWS or Azure — competing with far bigger cloud players.</p>
+<p>Hard for outsiders to build on. A platform with no developer ecosystem is just expensive custom software.</p>
+<p>GE spent roughly $4 billion over six years on Predix. Most platform teaching leans on winners — this is the counter-example worth remembering.</p>
+<p>Does Being a Platform Actually Pay Off?</p>
+<p>A study of 43 public platform companies found they did the same revenue with <strong>half the staff</strong>, <strong>twice the profit</strong>, and <strong>twice the growth</strong> of similar non-platform firms.</p>
+<p>A separate study of 959 unicorns found platform models carry a real valuation premium — though the size varies by region.</p>
+<p>Valuation premium, platform vs. non-platform unicorns · one study, one point in time.</p>
+<p class="lp-label">Don't Teach This Uncritically</p>
+<p>Where Platform Strategy Goes Wrong</p>
+<ul><li><strong>Mispricing</strong> — subsidise the wrong side and liquidity never arrives.</li><li><strong>Cold-start failure</strong> — most launches never solve chicken-and-egg.</li><li><strong>Scope overreach</strong> — the Predix pattern: too many verticals at once.</li></ul>
+<ul><li><strong>Trust collapse</strong> — weak governance can destroy the value fast.</li><li><strong>Dependence</strong> — once sellers rely on you, you can change the rules on them.</li><li><strong>Regulation</strong> — antitrust scrutiny grows with platform dominance.</li></ul>
+<p>This isn't "don't build platforms." It's: plan for the trade-offs — don't assume a guaranteed win.</p>
+<p>Six Questions for Your Own SISP Work</p>
+<p><strong>Sides:</strong> do we connect two or more groups who need each other?</p>
+<p><strong>Latent asset:</strong> do we have infrastructure or data others would value too?</p>
+<p><strong>Network effect:</strong> does one more user make it better for everyone else?</p>
+<p><strong>Chicken-and-egg:</strong> which side can we seed first, and how?</p>
+<p><strong>Governance readiness:</strong> can we build the rules and APIs responsibly?</p>
+<p><strong>Envelopment risk:</strong> who could bundle us out of our own market?</p>
+<p class="lp-label">Before We Move to the Activity</p>
+<p>Questions Worth Sitting With</p>
+<p>Name something you use weekly that's a pure pipeline business. Now name one that quietly became a hybrid platform without you noticing.</p>
+<p>Pick a platform you use regularly. Which adjacent platform could envelop it — and how would you defend against that?</p>
+<p>GE had money, engineers, and existing industrial customers. Which single decision point, if reversed, might have saved Predix?</p>
+<p>Find a Platform. Present It.</p>
+<p>Get into groups of 4–6. Pick any real platform — one you use, or one you've heard of. Research it online, then prepare a short presentation for the class.</p>
+<ul><li>Who are its two or more sides?</li><li>How did it solve the chicken-and-egg problem?</li><li>How does it make money, and how open is it?</li></ul>
+<p>Form groups, pick a platform 5 min</p>
+<p>Research online, build slides 25 min</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/five-stories.html"><small>Previous lesson</small><b>Five stories that changed everything</b></a><a class="is-next" href="../lessons/systems-security.html"><small>Next lesson</small><b>Systems security</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/platform-strategy" target="_blank" rel="noopener" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI800, Strategic Information Systems Planning</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-sisp.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-sisp-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Introduction and systems thinking</span>
+            <span class="lp-card-blurb">The whole of Lesson 1: what strategic planning actually decides, systems against collections, a sales loop you can run for twelve months to watch the obvious fix rebound, and the Iceberg Model taken down through a real outage. Ends with a knowledge check.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/business-model-canvas.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/business-model-canvas-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">The Business Model Canvas</span>
+            <span class="lp-card-blurb">How a business model works, laid out on one page in nine blocks. Then a 90-minute group activity: six people, one IT business idea, a canvas filled in digitally and presented as a short slide deck.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/threats-to-strategy.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/threats-to-strategy-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Threats to opportunities to strategy</span>
+            <span class="lp-card-blurb">How a business capitalises on its threats. Netflix, Apple, Adobe, Microsoft, NZ Post and Google each turned a threat into a strategy, Kodak and Fujifilm took the same threat two ways, then you flip six threats yourself.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/five-stories.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/five-stories-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Five stories that changed everything</span>
+            <span class="lp-card-blurb">Airbnb, Netflix, Xero, Canva and Alibaba — how each started from one frustration and built a platform that rewired its industry. IS architecture, growth figures and discussion questions for each.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/systems-security.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/systems-security-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Systems security</span>
+            <span class="lp-card-blurb">What can go wrong, what it would cost, and how to defend and recover. Calculate real risk exposure, profile the attackers, tell malware apart, run a backup simulator and choose a disaster-recovery plan.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/xr-explorer.html" style="--c:#514ca8;--c-soft:#eeeefb;--c-on:#a9a6ec">
+          <span class="lp-card-media"><img src="../assets/images/lessons/xr-explorer-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI800 · Lesson</span>
+            <span class="lp-card-title">Immersive realities</span>
+            <span class="lp-card-blurb">A walk through AR, VR and mixed reality, with two demos that run in the browser. No headset needed, and no prior graphics knowledge assumed.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

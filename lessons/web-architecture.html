@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client, server and databases | MBI802 Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back —…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/web-architecture.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Client, server and databases | MBI802 Lesson"/>
+<meta property="og:description" content="How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back —…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/web-architecture.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/web-architecture-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/web-architecture.html#lesson",
+  "name": "Client, server and databases",
+  "description": "How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.",
+  "url": "https://www.yasassri.me/lessons/web-architecture.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/web-architecture-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT6M",
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Database Management Systems",
+      "courseCode": "MBI802",
+      "description": "From a spreadsheet that contradicts itself to a normalised database you can query.",
+      "url": "https://www.yasassri.me/lessons.html#mbi802",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/web-architecture.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI802",
+      "item": "https://www.yasassri.me/lessons.html#mbi802"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Client, server and databases",
+      "item": "https://www.yasassri.me/lessons/web-architecture.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi802">MBI802</a><span aria-hidden="true">/</span><span aria-current="page">Client, server and databases</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi802" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">MBI802</a><span class="lp-tag">Lesson</span></div>
+      <h1>Client, server and databases</h1>
+      <p class="lp-lead">How a website actually works, for absolute beginners. Sort jobs between the two computers, then follow one search all the way to the database and back — watching the server run the SQL as it goes. Ends in a safe attack lab.</p>
+      <div class="lp-facts"><span><b>Database Management Systems</b></span><span>6 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/web-architecture" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/web-architecture" target="_blank" rel="noopener" aria-label="Open Client, server and databases on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI802 · Client, server and databases</span></span>
+      <img src="../assets/images/lessons/web-architecture-640.webp" srcset="../assets/images/lessons/web-architecture-640.webp 640w, ../assets/images/lessons/web-architecture-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Client, server and databases" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#client-server-databases">Client, Server &amp; Databases.</a></li><li><a href="#client-and-server-who-does-what">Client and server — who does what?</a></li><li><a href="#what-happens-when-you-press-search">What happens when you press Search</a></li><li><a href="#why-data-validation-matters-try-to-break-it">Why data validation matters — try to break it</a></li><li><a href="#prove-it-five-quick-questions">Prove it. Five quick questions.</a></li><li><a href="#where-to-go-next">Where to go next</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/web-architecture" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Client, server and databases, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/web-architecture" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<h2 id="client-server-databases"><span class="lp-kicker">MBI802 · Database &amp; Web Systems</span>Client, Server &amp; Databases.</h2>
+<p>How a website actually works — and why validating data is the security habit that matters most. A hands-on tour for absolute beginners.</p>
+<p>💻 Client vs server 🌐 The round trip 🗄️ Databases 🛡️ Data validation 🧪 Attack lab</p>
+<p>Every website you've ever used is really <strong>two computers having a conversation</strong>: the one in your hand (the <strong>client</strong>) and one in a data centre far away (the <strong>server</strong>), with a <strong>database</strong> behind it remembering everything.</p>
+<p>This lesson is built to be <em>played with</em>. You'll sort jobs between the two computers, follow one search all the way to the database and back, then step into a safe "attack lab" where you break a careless app with your own hands and find out why <strong>checking what people type</strong> matters so much. No setup, no logins. Start anywhere.</p>
+<h2 id="client-and-server-who-does-what"><span class="lp-kicker">Part 1 · The two computers</span>Client and server — who does what?</h2>
+<p>Two computers, and each has its own job. Tap each one to see what it does, then try sorting a few jobs between them.</p>
+<h3>The CLIENT — your device</h3>
+<p>The browser on your phone or laptop</p>
+<ul><li>• Shows the page (HTML, colours, layout)</li><li>• Reacts instantly to clicks &amp; typing</li><li>• Plays animations and validates the form for a friendly feel</li><li>• Sends requests to the server when it needs real data</li></ul>
+<p><strong>Key idea —</strong> It can NOT be trusted with secrets. Anyone can open it and change what it does.</p>
+<p>Tap <strong>Client</strong> or <strong>Server</strong> for each job — then check your answers. A handy rule: <em>anything to do with looks &amp; feel is the client; anything to do with truth, money or storage is the server.</em></p>
+<ul class="lp-bits"><li>Animate a button when you hover it</li><li>Check your password is correct</li><li>Store your order forever</li><li>Show a red outline on an empty box</li><li>Decide if you are allowed to see admin pages</li><li>Scroll the page smoothly</li><li>Charge your credit card</li><li>Hide a menu until you tap it</li></ul>
+<h2 id="what-happens-when-you-press-search"><span class="lp-kicker">Part 2 · The round trip</span>What happens when you press Search</h2>
+<p>Type a name, press play, and follow it the whole way — out of your browser, into the server, down to the database and back. Keep an eye on the server's code: the line that runs the SQL lights up as it runs.</p>
+<p>Runs on your laptop. Holds no data of its own.</p>
+<p>What you see on the page</p>
+<p>Someone else’s computer, running the app’s code.</p>
+<pre><code>app.get(&quot;/staff&quot;, (req, res) =&gt; {
+  const name = req.query.name
+ 
+  const rows = db.query(
+    &quot;SELECT * FROM users
+     WHERE first_name = ?&quot;,
+    [name]  // filled in safely
+  )
+  res.json(rows)
+})</code></pre>
+<p>One table, called <strong>users</strong>. It only answers the server.</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>id</th><th>first_name</th><th>last_name</th><th>city</th></tr></thead><tbody><tr><td>1</td><td>Ava</td><td>Perera</td><td>Auckland</td></tr><tr><td>2</td><td>Ben</td><td>Silva</td><td>Wellington</td></tr><tr><td>3</td><td>Chloe</td><td>Fonseka</td><td>Christchurch</td></tr><tr><td>4</td><td>Ava</td><td>Jayasuriya</td><td>Hamilton</td></tr><tr><td>5</td><td>Dilan</td><td>Mendis</td><td>Dunedin</td></tr></tbody></table></div>
+<h3>You press Search</h3>
+<p>Nothing has left your laptop yet. The browser just has a name typed into a box.</p>
+<p>Try a name that is not in the table — Zoe, say. The trip happens exactly the same way and comes back empty. That is worth seeing once: an empty result is an answer, not a failure.</p>
+<h2 id="why-data-validation-matters-try-to-break-it"><span class="lp-kicker">Part 3 · The security lab</span>Why data validation matters — try to break it</h2>
+<p>Most web hacks start with something a person typed into a box. In these three demos you break a careless app yourself, then watch the same attack bounce off one that checks what it is given.</p>
+<h3>3a · Client checks can be bypassed</h3>
+<p>Why a check in the browser is never enough on its own.</p>
+<p>This form is "18 or older only". The <strong>client</strong> checks your age for a nice experience — but a determined user can open the browser tools and <strong>switch that check off</strong>. Watch what happens when only the client validates.</p>
+<p>("Tamper" simulates a user editing your client-side code in the browser — something you can never stop them doing.)</p>
+<p>🚫 Blocked on your screen</p>
+<p>Looks fine… until someone tampers with it.</p>
+<p>🚫 Rejected by the server</p>
+<p>Even with the client tampered, the server re-checked the real value and refused. Safe.</p>
+<p><strong>The golden rule —</strong> validate on the client for a <em>friendly</em> experience, but <strong>always validate again on the server for safety</strong>. Never trust data coming from the browser.</p>
+<h3>3b · SQL injection</h3>
+<p>What happens when user text is glued straight into a database query — and the one-line fix that stops it cold.</p>
+<p class="lp-label">What the database receives</p>
+<pre><code>SELECT * FROM users
+WHERE user = 'admin' --' AND pass = '•••••';</code></pre>
+<p>🔓 Logged in as admin — with NO password!</p>
+<p>Your text closed the quote and commented out the password check (-- ). The database obeyed it as a command. This is SQL injection, the #1 web vulnerability for years.</p>
+<h3>3c · Cross-site scripting (XSS)</h3>
+<p>When a page prints user input as HTML instead of text, attackers can run code in other people's browsers.</p>
+<p>A comment box on a website. If the server stores your text and the page later prints it <em>as HTML</em>, an attacker can sneak in code that runs in <strong>other people's</strong> browsers — stealing their session. That's <strong>Cross-Site Scripting (XSS)</strong>. The fix is to <strong>escape</strong> the text so it's shown as plain characters.</p>
+<p>How the comment appears on the page:</p>
+<p>💥 The browser would try to RUN this as code. In a real naive site, "stealCookies()" could now run in every visitor's browser and hijack their account.</p>
+<p>(We're describing what would happen — nothing is actually executed here.)</p>
+<h3>3d · The validation checklist</h3>
+<p>The browser can be edited by anyone. The server is the only place a check truly counts.</p>
+<p>Allow-list, don't deny-list</p>
+<p>Say exactly what good looks like ("digits only, 1–3 of them"), instead of trying to ban every bad thing.</p>
+<p>Use parameterised queries</p>
+<p>Never glue user text into SQL. Use placeholders (?) so input is always data, never commands.</p>
+<p>When showing user text on a page, escape it so &lt; &gt; &amp; become harmless characters.</p>
+<p>Check type, length &amp; range</p>
+<p>An age is a number 0–120; an email has a shape; a name has a sensible length. Reject the rest.</p>
+<p>When in doubt, reject. A blocked honest user is annoying; an allowed attacker is a breach.</p>
+<h2 id="prove-it-five-quick-questions"><span class="lp-kicker">Final challenge</span>Prove it. Five quick questions.</h2>
+<p>Five questions covering the whole lesson. Answer them all, then submit and see how you went.</p>
+<p>1. A smooth hover animation on a button — where does it run?</p>
+<p>2. Your website needs to show a list of users. Who actually fetches them from storage?</p>
+<p>3. You added an "age must be 18+" check in the browser only. Is that safe?</p>
+<p>4. Typing admin' -- into a login box logs you in with no password. What flaw is this?</p>
+<p>5. A comment box lets people post &lt;script&gt; tags that then run for other visitors. The fix is to…</p>
+<h2 id="where-to-go-next"><span class="lp-kicker">Keep going</span>Where to go next</h2>
+<p>Things to watch, read and play with if you want to keep going. All free, and all written for beginners.</p>
+<p>Watch How the Internet Works in 5 min Aaron Titus · YouTube A friendly animated overview of clients, servers and requests. Open ↗ Read How the Web works MDN Web Docs The classic beginner explainer of client, server, DNS and HTTP. Open ↗ Read Client-Server model, explained simply freeCodeCamp Clear words and diagrams for the two-computer model. Open ↗ Play SQL Murder Mystery Knight Lab Learn to write real database queries by solving a crime. Genuinely fun. Open ↗ Play SQLBolt — interactive SQL sqlbolt.com Write queries in your browser, lesson by lesson. No setup. Open ↗ Hack (legally) Web Security Academy PortSwigger Free, world-class labs on SQL injection, XSS &amp; more — in a safe sandbox. Open ↗ Reference Input Validation Cheat Sheet OWASP The professional checklist for validating data the right way. Open ↗ Reference OWASP Top 10 owasp.org The ten most critical web security risks — injection and validation lead the list. Open ↗</p>
+<p>A website is a conversation between a client and a server, with a database remembering it all. The client makes it friendly — but the server makes it <em>true and safe</em>. Validate everything, trust nothing from the browser, and you've already avoided most of the web's worst bugs.</p>
+<p>MBI802 · Database &amp; Web Systems · Master of Business Informatics</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../app/lessons/database-concepts.html"><small>Previous lesson</small><b>Advanced database concepts</b></a><a class="is-next" href="../app/lessons/er-diagrams.html"><small>Next lesson</small><b>ER diagrams</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/web-architecture" target="_blank" rel="noopener" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI802, Database Management Systems</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-dbms.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-dbms-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to DBMS</span>
+            <span class="lp-card-blurb">Break a hospital's spreadsheet and watch it contradict itself, turn a bare number into information, then read the full eight-lesson outline with a preview of the material. Nothing to install.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/mysql-setup.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/mysql-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Video</span>
+            <span class="lp-card-title">Setting up MySQL</span>
+            <span class="lp-card-blurb">Two short guide videos — one for MacOS, one for Windows — so your MySQL client and Workbench are installed and ready before the first hands-on class.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/sql-programming.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/sql-programming-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Introduction to SQL with MySQL</span>
+            <span class="lp-card-blurb">The language databases actually speak. Create a database, build a table, insert real rows, then ask it questions — one interactive slide at a time.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/database-concepts.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/database-concepts-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">Advanced database concepts</span>
+            <span class="lp-card-blurb">One table, built up step by step: add a column, change a data type, set a primary key and auto-number it, back it up and restore it, then ORDER BY and count it. Finishes with a safe look at SQL injection.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-diagrams.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Lesson</span>
+            <span class="lp-card-title">ER diagrams</span>
+            <span class="lp-card-blurb">Sketch the world before you build the tables. Entities, attributes and relationships in Chen's notation, and how to read cardinality at a glance.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../app/lessons/er-activities.html" style="--c:#f4551e;--c-soft:#fff1ea;--c-on:#ff9a6b">
+          <span class="lp-card-media"><img src="../assets/images/lessons/er-activities-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI802 · Practice</span>
+            <span class="lp-card-title">ER diagrams in practice</span>
+            <span class="lp-card-blurb">Model five real systems — a library, a university, a hospital, an online store and a hotel — then check your diagram against a worked answer.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

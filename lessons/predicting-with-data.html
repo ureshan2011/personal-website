@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Three ways to predict things | MBI806B Lesson</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Linear regression, decision trees and random forests, explained with no maths. Move a line until it fits, grow a tree until it cheats, watch nine trees…"/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/lessons/predicting-with-data.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Three ways to predict things | MBI806B Lesson"/>
+<meta property="og:description" content="Linear regression, decision trees and random forests, explained with no maths. Move a line until it fits, grow a tree until it cheats, watch nine trees…"/>
+<meta property="og:url" content="https://www.yasassri.me/lessons/predicting-with-data.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/predicting-with-data-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": "https://www.yasassri.me/lessons/predicting-with-data.html#lesson",
+  "name": "Three ways to predict things",
+  "description": "Linear regression, decision trees and random forests, explained with no maths. Move a line until it fits, grow a tree until it cheats, watch nine trees outvote the best one — then run real Python in the page.",
+  "url": "https://www.yasassri.me/lessons/predicting-with-data.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/predicting-with-data-1280.webp",
+  "learningResourceType": "Lesson",
+  "educationalLevel": "Postgraduate (NZQF Level 8)",
+  "inLanguage": "en",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT16M",
+  "teaches": [
+    "Explain all three models to a friend, in your own words",
+    "Pick the right one for a job",
+    "Run all three in Python"
+  ],
+  "dateModified": "2026-09-28",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": [
+    {
+      "@type": "Course",
+      "name": "Business Data Analytics with AI and ML",
+      "courseCode": "MBI806B",
+      "description": "What AI and ML actually mean, where you already rely on them without noticing, and how a real decision gets made step by step.",
+      "url": "https://www.yasassri.me/lessons.html#mbi806b",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://www.yasassri.me/#yasas",
+        "name": "Dr. Yasas Sri Wickramasinghe"
+      }
+    }
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/lessons/predicting-with-data.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "MBI806B",
+      "item": "https://www.yasassri.me/lessons.html#mbi806b"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Three ways to predict things",
+      "item": "https://www.yasassri.me/lessons/predicting-with-data.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a class="active" href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../lessons.html">Lessons</a><span aria-hidden="true">/</span><a href="../lessons.html#mbi806b">MBI806B</a><span aria-hidden="true">/</span><span aria-current="page">Three ways to predict things</span></nav>
+      <div class="lp-tags"><a class="lp-tag lp-tag--course" href="../lessons.html#mbi806b" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">MBI806B</a><span class="lp-tag">Lesson</span></div>
+      <h1>Three ways to predict things</h1>
+      <p class="lp-lead">Linear regression, decision trees and random forests, explained with no maths. Move a line until it fits, grow a tree until it cheats, watch nine trees outvote the best one — then run real Python in the page.</p>
+      <div class="lp-facts"><span><b>Business Data Analytics with AI and ML</b></span><span>16 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions">
+        <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data" target="_blank" rel="noopener">Open the interactive lesson <span class="arrow">↗</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a>
+      </div>
+    </div>
+    <a class="lp-window" href="https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data" target="_blank" rel="noopener" aria-label="Open Three ways to predict things on the lessons site">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>MBI806B · Three ways to predict things</span></span>
+      <img src="../assets/images/lessons/predicting-with-data-640.webp" srcset="../assets/images/lessons/predicting-with-data-640.webp 640w, ../assets/images/lessons/predicting-with-data-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first screen of Three ways to predict things" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#what-is-a-model">What is a model?</a></li><li><a href="#linear-regression">Linear regression.</a></li><li><a href="#decision-tree">Decision tree</a></li><li><a href="#random-forest">Random forest</a></li><li><a href="#which-one-do-i-use">Which one do I use?</a></li><li><a href="#six-lines-of-python">Six lines of Python</a></li><li><a href="#three-questions">Three questions</a></li><li><a href="#five-things-to-remember">Five things to remember</a></li></ol>
+      </details>
+      <a class="lp-toc-go" href="https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data" target="_blank" rel="noopener">Open the interactive lesson ↗</a>
+    </aside>
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of Three ways to predict things, taken from the lesson itself. The simulations, drag-and-drop activities and quizzes only work in <a href="https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data" target="_blank" rel="noopener">the interactive lesson</a>.</span></p>
+      <div class="lp-prose">
+<p>Linear regression, decision trees and random forests. These three do most of the work in business analytics. You will use all three without writing a single formula.</p>
+<p>Reading <strong>about 25 minutes</strong> Assumes <strong>nothing</strong> Needs <strong>a browser</strong></p>
+<p class="lp-label">By the end of this lesson you can</p>
+<ul><li>Explain all three models to a friend, in your own words</li><li>Pick the right one for a job</li><li>Run all three in Python</li></ul>
+<h2 id="what-is-a-model"><span class="lp-kicker">First</span>What is a model?</h2>
+<p>Two minutes on the one idea all three share. Then we get to the models.</p>
+<p>Normally, a person writes the rule. Someone at a bank decides: approve the loan if income is over $50,000. They typed that in. They can change it tomorrow.</p>
+<p>A model works the other way round. You give it examples. It works out the rule itself.</p>
+<p>Same three boxes, and the coloured one has swapped ends. That is the difference.</p>
+<p>Why bother? Because some rules are too hard to write. Nobody can explain what makes a squiggle a 7 and not a 1. You just know. Show a computer a million squiggles and it works it out.</p>
+<p>Two words you will keep seeing. The facts you have — size, visits, age — are the <strong>inputs</strong>. The thing you want to know is the <strong>answer</strong>. That is it.</p>
+<p class="lp-label">Worth knowing</p>
+<p>A model copies the past. If your old decisions were unfair, it learns to be unfair too — just faster. Nothing in this lesson fixes that.</p>
+<h2 id="linear-regression"><span class="lp-kicker">Model 1 of 3</span>Linear regression.</h2>
+<p>Use it when the answer is a number. How much will this flat rent for? How many will we sell?</p>
+<p>Put your data on a chart. Draw one straight line through the dots. That is the whole model.</p>
+<p>The line is the rule. Give it a new flat size, read the rent off the line.</p>
+<h3>Your turn</h3>
+<p>Twelve flats. Move the two sliders and get the line as close to all of them as you can.</p>
+<p class="lp-label">Move the line</p>
+<p>Get it as close to all twelve dots as you can.</p>
+<p>How wrong the line is, in total <strong>$1,367</strong></p>
+<p>The best possible is $164. You are $1203 away.</p>
+<pre><code>Each dotted line is how wrong the line is about that flat.</code></pre>
+<p>That was hard work. The computer does the same thing in a fraction of a second: it tries thousands of lines and keeps the one that misses least.</p>
+<p>And look at what it found. About <strong>$6.70 for every extra square metre</strong>. That is not just a prediction — it is a sentence you can say in a meeting. That is why people still use this model.</p>
+<h4>It goes wrong when the dots make a curve</h4>
+<p>Ice cream sales climb with heat, then drop when it is too hot to go out. A straight line cannot do that.</p>
+<h4>And when you ask about something it has never seen</h4>
+<p>These flats are 28 to 98 square metres. Ask about a 400 square metre penthouse and it will still give you a number. It should not be trusted.</p>
+<p>Where the name comes from: an 1886 study of how tall children turn out. It tells you nothing about what the model does. Everyone just calls it regression.</p>
+<h2 id="decision-tree"><span class="lp-kicker">Model 2 of 3</span>Decision tree</h2>
+<p>Use it when the answer is a choice. Will this customer cancel — yes or no?</p>
+<p>Twist your ankle badly and you used to get an X-ray, almost automatically. Then some doctors in Ottawa wrote a short flowchart. Can you walk on it? Does this bone hurt? Answer those and you know if the X-ray is worth doing.</p>
+<p>Hospitals that use it do far fewer X-rays and still catch the breaks. It is still on the wall today.</p>
+<p>A decision tree is that flowchart, except the computer writes it.</p>
+<p><strong>How it picks the questions.</strong> It tries all of them and keeps whichever one splits the group best. Then it does the same again on each half.</p>
+<p>A gym wants to ring people before they cancel. Here are fourteen members it already knows about. Which question should the tree ask first?</p>
+<p class="lp-label">Which question should the tree ask first?</p>
+<pre><code>Filled square = cancelled · hollow circle = stayed</code></pre>
+<h4>Good: you can print it</h4>
+<p>Hand it to a nurse or a loan officer and every decision has a reason you can read out loud. In medicine and lending that is often the law, not a nice-to-have.</p>
+<h4>Bad: it memorises</h4>
+<p>You just saw this. Let it keep asking questions and it ends up with one branch per person.</p>
+<h4>The fix is one word</h4>
+<p>Stop it early. Three questions deep is plenty. In Python that is <code>max_depth=3</code>.</p>
+<h2 id="random-forest"><span class="lp-kicker">Model 3 of 3</span>Random forest</h2>
+<p>Many small trees. Each one votes. The answer with the most votes wins.</p>
+<p>One decision tree can be wrong.</p>
+<p>So make lots of small trees. Ask every one of them. Go with the answer most of them give. That is a random forest.</p>
+<h4>Grow lots of small trees</h4>
+<p>Each tree asks its own question.</p>
+<h4>Ask every tree</h4>
+<p>Each tree says <strong>quit</strong> or <strong>stay</strong>.</p>
+<h4>Count the votes</h4>
+<p>Most votes wins: <strong>quit</strong>.</p>
+<h3>Your turn: ask the trees</h3>
+<p>The same gym. We want to know who will quit. Here are five tiny trees — each asks just one question, so you can read them. Pick a member and watch each tree vote.</p>
+<p class="lp-label">Step 1 · Pick a gym member</p>
+<p><strong>Fay</strong> comes <strong>3×</strong> a month joined <strong>7 months</strong> ago</p>
+<p class="lp-label">Step 2 · Each tree answers its one question</p>
+<ul class="lp-bits"><li>Fay comes 3× a month → <strong>no</strong></li><li>Fay comes 3× a month → <strong>yes</strong></li><li>Fay joined 7 months ago → <strong>no</strong></li><li>Fay joined 7 months ago → <strong>yes</strong></li></ul>
+<p class="lp-label">Step 3 · Count the votes</p>
+<p>The forest says <strong>Fay will quit</strong></p>
+<h3>Now check all 20 at once</h3>
+<p>We already know who really quit. So we can mark every tree, and the forest, on every member.</p>
+<p class="lp-label">All 20 members · ✓ = the tree got them right · ✗ = wrong</p>
+<div class="lp-table" tabindex="0" role="region" aria-label="Table"><table><thead><tr><th>Member</th><th>Tree 1</th><th>Tree 2</th><th>Tree 3</th><th>Tree 4</th><th>Tree 5</th><th>Forest vote</th></tr></thead><tbody><tr><td>Amy</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Ben</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Cal</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Dan</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Eva</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Fay</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Gus</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Hana</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Ivy</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Jay</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Kim</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Leo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Mia</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Ned</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Oli</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Pia</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Raj</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Sam</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Tia</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Zoe</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Got right</td><td>13/20</td><td>15/20</td><td>15/20</td><td>15/20</td><td>16/20</td><td>19/20</td></tr></tbody></table></div>
+<h4>Look down a column</h4>
+<p>Every tree has crosses. The best single tree gets 16 out of 20. The worst gets 13.</p>
+<h4>Now look across a row</h4>
+<p>The crosses land on different people. Most rows have more ticks than crosses, so the ticks win the vote. The forest gets 19 out of 20.</p>
+<p>Find Dan’s row. 3 of the 5 trees got Dan wrong, so the vote went wrong too. When most trees are fooled, the forest is fooled.</p>
+<p><strong>The big idea:</strong> each tree makes mistakes, but on different people. When they vote, the right answers outnumber the wrong ones.</p>
+<h3>Why is it called a random forest?</h3>
+<h4>Forest</h4>
+<p>Because it is lots of trees.</p>
+<h4>Random</h4>
+<p>Because each tree learns from a random handful of the data. So every tree comes out a little different — and makes different mistakes.</p>
+<p>Above, we wrote the five questions by hand so you could read them. A real random forest does it for you:</p>
+<p class="lp-label">Each tree learns from a random 12 of the 20 members</p>
+<pre><code>Filled dot = this tree gets to see that member · empty = it never sees them</code></pre>
+<h4>Good: it is right more often</h4>
+<p>One tree is easy to fool. It is much harder to fool most of them at the same time.</p>
+<h4>Not so good: it is hard to explain</h4>
+<p>You can read one tree. You cannot read 300. If you have to tell someone why, use one decision tree instead.</p>
+<h4>In Python you only choose how many trees</h4>
+<p><code>n_estimators=300</code> just means 300 trees. The computer grows them and counts the votes.</p>
+<h2 id="which-one-do-i-use"><span class="lp-kicker">All three, side by side</span>Which one do I use?</h2>
+<p>Usually decided by what you have to explain afterwards, not by which one scores highest.</p>
+<h4>Linear regression</h4>
+<p>One straight line through your data.</p>
+<p>Can you explain it Yes — in one sentence</p>
+<p>How accurate Fine, if the dots are roughly straight</p>
+<p>Watch out for Curves. And questions outside your data.</p>
+<p>Use it when The answer is a number and you want to know what drives it.</p>
+<p>A flowchart of yes/no questions.</p>
+<p>Can you explain it Yes — print the chart</p>
+<p>How accurate Fine, if you stop it early</p>
+<p>Watch out for Memorising your data instead of learning from it.</p>
+<p>Use it when Someone will ask you to justify every decision.</p>
+<p>Hundreds of trees. They vote.</p>
+<p>What it answers A choice, or a number</p>
+<p>Can you explain it No — 300 trees is not a chart</p>
+<p>How accurate Usually the best of the three</p>
+<p>Watch out for You cannot show anyone your working.</p>
+<p>Use it when It mostly just has to be right.</p>
+<p>Same twelve dots in all three pictures. Only the shape of the rule changes. “Usually the best” means exactly that — on a problem where the answer really is a straight line, the line wins.</p>
+<p><strong>Always try the simple one first.</strong> A line takes ten minutes and tells you whether there is anything in your data at all. If there is not, no forest will save you.</p>
+<h2 id="six-lines-of-python"><span class="lp-kicker">The code</span>Six lines of Python</h2>
+<p>You do not need to be a programmer. Every model is the same few lines, and we will read them together.</p>
+<p>Here is a whole, real program. It trains a random forest on the 20 gym members you just met, then asks about two new people.</p>
+<p>Press <strong>Next line</strong> to walk through it. Watch the picture underneath change as you go.</p>
+<pre><code>gym.py · a real program
+Copy
+Open Colab ↗</code></pre>
+<ol><li>1 <code>from sklearn.ensemble import RandomForestClassifier</code></li><li>2</li><li>3 <code># Inputs: [visits a month, months a member]</code></li><li>4 <code>X = [[1, 2], [1, 9], [2, 3], [2, 18], [3, 1],</code></li><li>5 <code>[3, 7], [3, 26], [4, 4], [4, 11], [4, 30],</code></li><li>6 <code>[5, 2], [5, 13], [6, 5], [6, 20], [7, 3],</code></li><li>7 <code>[8, 10], [9, 2], [9, 22], [11, 6], [12, 15]]</code></li><li>8</li><li>9 <code># Answers: 1 = quit, 0 = stayed</code></li><li>10 <code>y = [1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]</code></li><li>11</li><li>12 <code>model = RandomForestClassifier(n_estimators=300)</code></li><li>13 <code>model.fit(X, y)</code></li><li>14</li><li>15 <code>new_members = [[2, 4], [10, 20]]</code></li><li>16 <code>print(model.predict(new_members))</code></li></ol>
+<h4><span class="lp-kicker">Step 1 of 7</span>Bring in the tool</h4>
+<p>scikit-learn is a free box of ready-made models. This line takes one model out of the box so the program can use it.</p>
+<p class="lp-label">Word by word</p>
+<ul><li><strong><code>from sklearn.ensemble</code></strong> from the part of scikit-learn that keeps the forests</li><li><strong><code>import</code></strong> bring in</li><li><strong><code>RandomForestClassifier</code></strong> the random forest. <em>Classifier</em> means it picks between answers, like quit or stay.</li></ul>
+<p>Want to run it? Press <strong>Copy</strong>, then open a free Colab notebook, paste it into the box and press ▶. Colab already has scikit-learn, so there is nothing to install.</p>
+<h3>Swap one word, get a different model</h3>
+<p>Pick a model. Only the highlighted words change. The last two lines are the same for all three.</p>
+<ul class="lp-bits"><li><code>from sklearn.ensemble import RandomForestClassifier</code> changes</li><li><code>model = RandomForestClassifier(n_estimators=300)</code> changes</li><li><code>model.fit(X, y)</code> never changes</li><li><code>model.predict(new)</code> never changes</li></ul>
+<p class="lp-label">Use it when</p>
+<p>The answer is a choice, and being right matters more than explaining.</p>
+<p class="lp-label">The setting <code>n_estimators=300</code></p>
+<p>Grow 300 trees. More trees, steadier votes.</p>
+<ol><li><strong>1</strong> import the model</li><li><strong>2</strong> make it</li><li><strong>3</strong> <code>fit</code> — learn from examples</li><li><strong>4</strong> <code>predict</code> — ask about someone new</li></ol>
+<h3>Look inside: run it right here</h3>
+<p>scikit-learn hides the work inside <code>fit</code>. The three boxes below do that work by hand, in plain Python, so you can see it. They run in your browser — nothing to install.</p>
+<p>Read each one line by line first. Then switch to <strong>Edit and run</strong>, change a number, and press Run.</p>
+<h4>The only Python you need for them</h4>
+<ul><li><code># a note</code> A note for people. Python skips everything after the #.</li><li><code>size = 52</code> Store a value under a name. Read = as “is now”.</li><li><code>[28, 35, 41]</code> A list: several values in order, inside square brackets.</li><li><code>size[0]</code> Pick one item from a list. Counting starts at 0, so this is the first.</li><li><code>print("hello")</code> Show something on the screen.</li><li><code>f"Rent is {rent}"</code> Text with a value dropped in. The f in front lets you put a name inside { }.</li><li><code>for i in range(12):</code> Repeat the lines under it 12 times, with i = 0, 1, 2 … 11.</li><li><code>if visits &lt; 4:</code> Only run the lines under it when this is true. else: is what happens otherwise.</li><li><code>def total_miss(…):</code> Make your own command. return hands the answer back.</li><li><code>(four spaces)</code> The spaces at the start of a line matter. They show which lines belong together.</li></ul>
+<p>1 — finding the best line</p>
+<ol><li><code># Twelve flats: how big they are (m²) and their rent ($ a month).</code></li><li><code>size = [28, 35, 41, 46, 52, 58, 63, 70, 76, 84, 91, 98]</code> A list of 12 flat sizes, in square metres.</li><li><code>rent = [410, 430, 505, 520, 585, 600, 665, 690, 760, 780, 870, 880]</code> Their rents, in the same order. The first flat is 28 m² and rents for $410.</li><li><code># How far does a line miss? Add up the gap for every flat.</code></li><li><code>def total_miss(start, per_m2):</code> Our own command. Give it a line — a starting price and a price per m² — and it adds up how far that line misses all 12 flats.</li><li><code>miss = 0</code> Start the total at zero.</li><li><code>for i in range(12):</code> Go through the flats one by one: i is 0, then 1, … up to 11.</li><li><code>guess = start + per_m2 * size[i]</code> What the line says this flat should rent for. * means “times”.</li><li><code>miss = miss + abs(rent[i] - guess)</code> How far off was that? abs drops any minus sign, so too high and too low both count.</li><li><code>return miss</code> Hand the total back.</li><li><code># 1. Try a line yourself. Change these two numbers.</code></li><li><code>my_start = 200</code> Your line: start at $200 …</li><li><code>my_per_m2 = 7</code> … and add $7 for every square metre. Change these two, press Run, and try to get the miss down.</li><li><code>print(f"My line misses by ${total_miss(my_start, my_per_m2):.0f}")</code> Show how far your line misses. The first $ is just a dollar sign; {…} drops the number in;:.0f means “no decimals”.</li><li><code># 2. Let the computer try 60,000 lines and keep the best one.</code></li><li><code>best_miss = total_miss(my_start, my_per_m2)</code> The best line so far. We start with yours.</li><li><code>best_start = my_start</code></li><li><code>best_per_m2 = my_per_m2</code></li><li><code>for start in range(150, 300):</code> Try every starting price from $150 to $299 …</li><li><code>for cents in range(500, 900):</code> … and for each one, every price per m² from $5.00 to $8.99. 150 × 400 = 60,000 lines.</li><li><code>per_m2 = cents / 100</code> range only counts in whole numbers, so we count in cents and divide by 100.</li><li><code>miss = total_miss(start, per_m2)</code></li><li><code>if miss &lt; best_miss:</code> Does this line miss by less than the best so far?</li><li><code>best_miss = miss</code> Then it is the new best. Remember it.</li><li><code>best_start = start</code></li><li><code>best_per_m2 = per_m2</code></li><li><code>print(f"Best line: ${best_start} + ${best_per_m2} per m²")</code> This is what LinearRegression finds. It just uses maths to get there instead of trying every line.</li><li><code>print(f"It misses by ${best_miss:.0f} in total")</code></li><li><code># 3. Use the best line to predict a new flat.</code></li><li><code>print(f"A 65 m² flat -&gt; about ${best_start + best_per_m2 * 65:.0f} a month")</code> Predicting is just using the line: start + price per m² × 65.</li></ol>
+<p>Runs in your browser. Nothing is installed and nothing is sent anywhere.</p>
+<p>Try this: change my_start and my_per_m2 and get your miss as low as you can. Can you beat the computer's $164?</p>
+<p>2 — a tree picking its first question</p>
+<ol><li><code># Fourteen gym members.</code></li><li><code># How often each one comes (visits a month)...</code></li><li><code>visits = [1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 9, 11, 12]</code> A list of 14 numbers, one per member. The first member comes once a month.</li><li><code>#... and what really happened: 1 = cancelled, 0 = stayed.</code></li><li><code>cancelled = [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]</code> The answers, in the same order. The first six cancelled.</li><li><code># Ask "visits less than cut_off?" and count the mistakes.</code></li><li><code>def count_wrong(cut_off):</code> Our own command. Give it a cut-off and it tells you how many members that question gets wrong.</li><li><code>wrong = 0</code> Start the mistake counter at zero.</li><li><code>for i in range(14):</code> Go through the members one at a time: i is 0 for the first, up to 13 for the last.</li><li><code>if visits[i] &lt; cut_off:</code> The tree’s question. visits[i] is how often member number i comes.</li><li><code>guess = 1 # yes -&gt; guess "cancels"</code> Yes side of the tree: we guess they cancel.</li><li><code>else:</code></li><li><code>guess = 0 # no -&gt; guess "stays"</code> No side: we guess they stay.</li><li><code>if guess!= cancelled[i]:</code>!= means “is not equal to”. Our guess does not match what really happened …</li><li><code>wrong = wrong + 1</code> … so add one mistake.</li><li><code>return wrong</code> Hand the count back.</li><li><code># Try every cut-off. Keep the one with the fewest mistakes.</code></li><li><code>best = 2</code> The best cut-off so far. We start with the first one we will try.</li><li><code>for cut_off in range(2, 10):</code> Try cut-offs 2, 3, 4 … 9. range stops just before 10.</li><li><code>print(f"visits &lt; {cut_off} -&gt; {count_wrong(cut_off)} of 14 wrong")</code> Show the score for this cut-off. The f lets us drop numbers into the text with { }.</li><li><code>if count_wrong(cut_off) &lt; count_wrong(best):</code> Fewer mistakes than the best so far? Then this one is the new best.</li><li><code>best = cut_off</code></li><li><code>print(f"The tree's first question: visits less than {best}?")</code> This is what DecisionTreeClassifier does for its first question — for every column, very fast.</li></ol>
+<p>Try this: does the winning cut-off match the question you picked in the tree widget above?</p>
+<p>3 — five tiny trees, then a vote</p>
+<ol><li><code># The same 20 gym members as the widget above.</code></li><li><code>visits = [1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 7, 8, 9, 9, 11, 12]</code> Three lists, all in the same order. The first number in each belongs to Amy.</li><li><code>months = [2, 9, 3, 18, 1, 7, 26, 4, 11, 30, 2, 13, 5, 20, 3, 10, 2, 22, 6, 15]</code></li><li><code>answers = [1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0] # 1 = quit</code> What really happened: 1 = quit, 0 = stayed.</li><li><code># Five tiny trees. Each asks ONE question. True means "will quit".</code></li><li><code>def tree1(i): return visits[i] &lt; 3</code> A tiny tree. For member number i it answers True (will quit) or False (will stay).</li><li><code>def tree2(i): return visits[i] &lt; 5</code></li><li><code>def tree3(i): return visits[i] &lt; 7</code></li><li><code>def tree4(i): return months[i] &lt; 6</code></li><li><code>def tree5(i): return months[i] &lt; 12</code> Five trees, five different questions — the same five as Tree 1 to Tree 5 above.</li><li><code>trees = [tree1, tree2, tree3, tree4, tree5]</code> Put all five trees in one list, so we can go through them.</li><li><code># The forest: ask all five trees and count the "quit" votes.</code></li><li><code>def forest(i):</code> The forest is a command too. It answers for member number i.</li><li><code>votes = 0</code> Start the quit votes at zero.</li><li><code>for tree in trees:</code> Ask each tree in turn.</li><li><code>if tree(i):</code> Does this tree say quit?</li><li><code>votes = votes + 1</code> Then add one vote.</li><li><code>return votes &gt;= 3 # 3 or more of 5 say quit -&gt; quit</code> Most votes wins: 3 or more of the 5 means quit.</li><li><code># How many of the 20 does a model get right?</code></li><li><code>def score(model):</code> Give it any model — one tree, or the whole forest — and it counts how many of the 20 it gets right.</li><li><code>right = 0</code></li><li><code>for i in range(20):</code></li><li><code>if model(i) == answers[i]:</code> == asks “are these equal?”. Did the model guess what really happened?</li><li><code>right = right + 1</code></li><li><code>return right</code></li><li><code>for n in range(5):</code> Score each tree on its own …</li><li><code>print(f"Tree {n + 1} on its own: {score(trees[n])} / 20 right")</code></li><li><code>print(f"All five voting: {score(forest)} / 20 right")</code> … then the forest. Compare the numbers.</li></ol>
+<p>Try this: change a cut-off in one of the trees, or change votes &gt;= 3 to votes &gt;= 2. The vote is hard to make worse — that is the useful part.</p>
+<p>Stuck? Press Reset to get the original back. And <code>while True:</code> will freeze the page, because Python is running in this tab — just reload.</p>
+<h2 id="three-questions"><span class="lp-kicker">Quick quiz</span>Three questions</h2>
+<p>Nothing is saved and nobody sees it. Read why the wrong ones are wrong — that is the useful bit.</p>
+<p>You want to predict how much a flat will rent for. Which model?</p>
+<h2 id="five-things-to-remember"><span class="lp-kicker">What this lesson said</span>Five things to remember</h2>
+<ul><li>01 <strong>A model finds the rule for you.</strong> You give it examples. It gives you back a rule. Nobody types the rule in.</li><li>02 <strong>Linear regression draws one line.</strong> Use it when the answer is a number. It also tells you things like "about $6.70 per square metre".</li><li>03 <strong>A decision tree is a flowchart.</strong> Use it when the answer is a choice, and when you have to explain yourself. Stop it early or it just memorises.</li><li>04 <strong>A random forest is lots of trees voting.</strong> More accurate, but you cannot print it. Good when being right matters more than explaining.</li><li>05 <strong>Try the simple one first.</strong> A line takes ten minutes and tells you if there is anything there at all.</li></ul>
+<p>Sources: Galton's height study (1886); the Ottawa ankle rules (Stiell and colleagues, early 1990s).</p>
+      </div>
+      <nav class="lp-pager" aria-label="More in this course"><a class="is-prev" href="../lessons/python-setup.html"><small>Previous lesson</small><b>Setting up Python</b></a><a class="is-next" href="../lessons/power-bi-setup.html"><small>Next lesson</small><b>Setting up Power BI</b></a></nav>
+    </article>
+  </div>
+</div>
+
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Now try the real thing.</h2>
+      <p>Everything above is on one page so you can read it anywhere. The lesson itself runs in your browser: no login, no install.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid lp-go" href="https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data" target="_blank" rel="noopener" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">Open the interactive lesson <span class="arrow">↗</span></a>
+      <a class="btn" href="../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+  <div class="container">
+    <div class="lp-section-head"><h2>More from MBI806B, Business Data Analytics with AI and ML</h2></div>
+    <div class="lp-cards">
+        <a class="lp-card" href="../lessons/intro-to-business-analytics.html" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+          <span class="lp-card-media"><img src="../assets/images/lessons/intro-to-business-analytics-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI806B · Lesson</span>
+            <span class="lp-card-title">Welcome to business data analytics</span>
+            <span class="lp-card-blurb">For absolute beginners: what AI and ML actually mean, where you already use them without noticing, how real decisions get made step by step, and a first look at Power BI.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/python-setup.html" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+          <span class="lp-card-media"><img src="../assets/images/lessons/python-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI806B · Lab</span>
+            <span class="lp-card-title">Setting up Python</span>
+            <span class="lp-card-blurb">No installing, no downloads. Open Google Colab in your browser — identical on Mac and Windows — and write your first line of Python in two minutes.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+        <a class="lp-card" href="../lessons/power-bi-setup.html" style="--c:#0f766e;--c-soft:#eaf7f4;--c-on:#5fcfbd">
+          <span class="lp-card-media"><img src="../assets/images/lessons/power-bi-setup-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+          <span class="lp-card-body">
+            <span class="lp-card-meta">MBI806B · Lab</span>
+            <span class="lp-card-title">Setting up Power BI</span>
+            <span class="lp-card-blurb">From nothing to your first chart. Everybody starts in the browser, which works the same on a Mac as on a PC — nobody should spend the first class watching a download bar.</span>
+            <span class="lp-card-cta">Read the lesson →</span>
+          </span>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved. Not an official Yoobee College page.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

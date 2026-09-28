@@ -1,0 +1,812 @@
+{
+ "slug": "intro-to-project-management",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/intro-to-project-management",
+ "title": "What a project is, and what decides how to run it",
+ "pageTitle": "What a project is, and what decides how to run it · MBI804",
+ "extractedAt": "2026-09-28",
+ "words": 3182,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Lesson 1 of 9"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What a project is, and what decides how to run it"
+  },
+  {
+   "t": "p",
+   "html": "MBI800 asked whether a system should exist. This course starts once that is settled and something has to be delivered. The first lesson covers the three things a project manager decides before any work begins: what is actually fixed, what a delay really costs, and which methodology the project's own attributes call for."
+  },
+  {
+   "t": "p",
+   "html": "Reading <strong>30 minutes</strong> Assumes <strong>MBI800 and MBI801</strong> Bring <strong>a project you watched go wrong</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of this lesson you can"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Say what makes something a project rather than the work an organisation already does",
+    "Name which of scope, time and cost is actually free to move on a given project",
+    "Explain why two tasks can slip by the same amount and only one of them costs the launch",
+    "Match a project’s attributes to Agile, Waterfall or PRINCE2, and defend the match",
+    "Turn a risk into an exposure figure, and choose a response that costs less than it removes"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.1 · Principles and practices"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What makes it a project"
+  },
+  {
+   "t": "p",
+   "html": "Three tests, and then the harder question underneath them: what it would mean for this one to have succeeded."
+  },
+  {
+   "t": "p",
+   "html": "Most of what an organisation does is not a project. Serving customers, closing the month, keeping the network up — that is operations: ongoing, repetitive, and judged on consistency. A project is the other thing, and it is judged on entirely different terms."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Temporary"
+  },
+  {
+   "t": "p",
+   "html": "It has a definite start and a definite end. Not short — temporary. A five-year infrastructure programme is a project; running the service it delivers is not."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Unique"
+  },
+  {
+   "t": "p",
+   "html": "It produces a result that did not exist before. The hundredth store fit-out is still a project, because this store, this site and this landlord have never been done."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Progressively elaborated"
+  },
+  {
+   "t": "p",
+   "html": "You know least on the first day and are expected to commit anyway. Detail arrives as the work does, which is why an estimate has a maturity and a plan has versions."
+  },
+  {
+   "t": "p",
+   "html": "That last property is the awkward one. A project commits to a date and a budget on the day it understands least about the work, and everything this course teaches is a way of making that commitment honestly rather than optimistically."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Three levels of success, and only one gets reported"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Delivered"
+  },
+  {
+   "t": "p",
+   "html": "On time, inside budget, matching the agreed scope. This is what gets reported, and it is the only one of the three most projects measure."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Adopted"
+  },
+  {
+   "t": "p",
+   "html": "The people it was built for actually use it. A system delivered perfectly and used by nobody has consumed the whole budget and returned nothing."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Worth it"
+  },
+  {
+   "t": "p",
+   "html": "The benefit the business case promised turned up. This is measured months after the project closes, usually by somebody else, and it is the only level that pays for the other two."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Where this course sits"
+  },
+  {
+   "t": "p",
+   "html": "A project can pass the first level and fail the other two. That is the headline at the top of this page, and it is why MBI800 is a prerequisite: choosing the right project is a planning problem, and running it well is this one."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.2 · Initiation"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Something has to give"
+  },
+  {
+   "t": "p",
+   "html": "Scope, time and cost, with quality in the middle. Pin two and the third is absorbing every surprise the project meets."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Pin the corners the sponsor will not move"
+  },
+  {
+   "t": "p",
+   "html": "Only two can be pinned. Pin a third and the one you pinned first is released — which is the constraint, not a limitation of the drawing."
+  },
+  {
+   "t": "pre",
+   "text": "Dashed edges are the elastic ones · the filled dots are pinned"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Scope is what moves</strong> A fixed date and a fixed budget mean the feature list is the variable, whether anybody says so or not. Handled openly this is exactly how an Agile backlog works: the sponsor gets the most valuable slice by the date. Handled quietly, it becomes features silently dropped in the last fortnight, which is the same outcome with the trust removed."
+  },
+  {
+   "t": "p",
+   "html": "Nothing here lets you pin all three. When a sponsor insists on all three, quality becomes the undeclared variable — testing gets compressed, review gets skipped, and the cost arrives later as defects. Naming which corner moves is most of what a project manager does on day one."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.3 · Planning"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Not every delay costs the same."
+  },
+  {
+   "t": "p",
+   "html": "Two tasks lose the same three weeks. One moves the launch date and one costs nothing at all. Knowing which is which is where a schedule earns its keep."
+  },
+  {
+   "t": "p",
+   "html": "A schedule is not a list of dates. It is a network of dependencies, and somewhere in that network runs the longest chain with no slack in it — the <strong>critical path</strong>. Tasks on it have nothing to give. Tasks off it have <strong>float</strong>: time they can lose before anything downstream notices."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Which task slips"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Week 14</strong> Launch date. Unmoved from the plan."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "On the critical path",
+    "Has float",
+    "Float remaining"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Nothing has slipped yet</strong> Discovery, integration, security review and user acceptance test form a chain with no slack anywhere in it — the critical path. Onboarding documentation runs alongside it and finishes four weeks before anything needs it. Slide the weeks and watch which one the launch date cares about."
+  },
+  {
+   "t": "p",
+   "html": "This is why a project manager who treats every delay as equally urgent spends their attention in the wrong place, and why the first question about any slipped task is not how late it is, but what is waiting on it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.4 · LO1 · Methodology selection"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three ways to shape the work"
+  },
+  {
+   "t": "p",
+   "html": "Agile, Waterfall and PRINCE2 are not competing answers to one question. They answer different questions, and the project decides which question is being asked."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "",
+     "Agile (Scrum)",
+     "Waterfall",
+     "PRINCE2"
+    ],
+    [
+     "Delivery",
+     "Incremental, every sprint",
+     "One delivery at the end",
+     "Staged, board-approved"
+    ],
+    [
+     "Requirements",
+     "Evolving, change welcomed",
+     "Fixed up front, change is costly",
+     "Fixed per stage, re-justified between"
+    ],
+    [
+     "Customer",
+     "Continuous involvement",
+     "Start and end only",
+     "Represented on the project board"
+    ],
+    [
+     "Testing",
+     "Continuous, every sprint",
+     "A phase after development",
+     "Per stage, with stage assurance"
+    ],
+    [
+     "Risk",
+     "Surfaced early and often",
+     "Discovered late, expensively",
+     "Reviewed at every boundary"
+    ],
+    [
+     "Best suited to",
+     "Complex, evolving software",
+     "Fixed scope, stable requirements",
+     "Governance-heavy, publicly funded work"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "The row that decides most arguments is <strong>risk</strong>. Every project starts with a pile of things nobody knows yet, and a methodology is largely a choice about when you find them out."
+  },
+  {
+   "t": "p",
+   "html": "Both curves end at the same place. The difference is when you find out — and a surprise discovered during testing costs several times what the same surprise costs in week three."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Activity · pick a method for each project"
+  },
+  {
+   "t": "p",
+   "html": "Running A payment gateway integration for one retail client, who will change their mind once they see it working."
+  },
+  {
+   "t": "pre",
+   "text": "Agile (Scrum) · Repeating sprints, each ending in a usable increment"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Requirements</strong> will move",
+    "<strong>Customer</strong> available weekly",
+    "<strong>Governance</strong> one account manager"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Fits"
+  },
+  {
+   "t": "p",
+   "html": "Requirements that move as the client sees the product working is the case Scrum was built for. Short sprints, a review the client attends, and a backlog they help re-order. Changing their mind stops being a crisis, because the framework already has a place to put it."
+  },
+  {
+   "t": "p",
+   "html": "1 of 12 combinations tried. Every project here has a method that fits it and a method that would wreck it, and no method fits all four."
+  },
+  {
+   "t": "p",
+   "html": "No methodology is good or bad on its own, only fit or unfit for a project’s attributes. That sentence is the whole of LO1, and the 60% case study is marked on the argument rather than on the choice."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.5 · LO2 · Risk and mitigation"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Put a number on a risk"
+  },
+  {
+   "t": "p",
+   "html": "A risk you cannot compare to another risk cannot be prioritised, funded or argued about. Probability times impact is what makes it comparable."
+  },
+  {
+   "t": "p",
+   "html": "Risk arrives in Lesson 1 rather than Lesson 4 for the same reason the methodology does: both decisions are made at the point where they are cheapest, and both are routinely left until they are not. Place one real risk on the grid, then choose what to do about it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The register row"
+  },
+  {
+   "t": "p",
+   "html": "<strong>R-04 · The payment vendor’s sandbox does not match production.</strong> Found in week two of the SecurePay NZ integration. Click the grid to place it."
+  },
+  {
+   "t": "p",
+   "html": "<strong>$75,000</strong> Expected monetary value: 50% × $150,000. Owner, response and review date in the register, checked every reporting cycle."
+  },
+  {
+   "t": "p",
+   "html": "The number is not a prediction. It is what lets two risks be compared, and what makes a mitigation costing more than the exposure visible as the bad trade it is."
+  },
+  {
+   "t": "pre",
+   "text": "Each cell is likelihood × impact · click to place the risk"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Now choose a response"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Mitigate</strong> Reduce probability, impact, or both: a spike to de-risk the unknown integration, a staged rollout, an earlier load test. The most common response, and the one that needs a number attached — spending $60k to reduce a $20k exposure is a decision, usually the wrong one."
+  },
+  {
+   "t": "p",
+   "html": "A register row is not finished until it has an owner, a response, a trigger to watch for and a review date. The 40% assessment on this course is a risk management plan, and that is what it is marked against."
+  },
+  {
+   "t": "eyebrow",
+   "html": "1.6 · Your turn"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Write up one of your own."
+  },
+  {
+   "t": "p",
+   "html": "Six questions on a project you watched, in the order this lesson covered them. The page builds as you answer, and you take it away at the end."
+  },
+  {
+   "t": "p",
+   "html": "This is deliberately a small version of the 60% case study: a project’s attributes, the methodology those attributes called for, and an argument about the gap between that and what actually happened. Finish it now, on a project you already know, and the assessment stops being a research exercise four months from now."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Which project are you writing up?"
+  },
+  {
+   "t": "p",
+   "html": "Work, university, a group assignment, a house renovation. It does not have to be IT, and it does not have to have failed — only to have surprised somebody."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your page, so far"
+  },
+  {
+   "t": "p",
+   "html": "MBI804 · Project post-mortem Lesson 1"
+  },
+  {
+   "t": "p",
+   "html": "Your project goes here"
+  },
+  {
+   "t": "p",
+   "html": "Not yet answered."
+  },
+  {
+   "t": "p",
+   "html": "Everything you type stays in this browser and is saved as you go. Nothing is uploaded, so you can name what really happened — bring the printed page to class instead."
+  },
+  {
+   "t": "eyebrow",
+   "html": "End of the lesson"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Check yourself"
+  },
+  {
+   "t": "p",
+   "html": "Five questions on what this lesson claimed. Nothing is stored and nothing is reported — this is for you, now, while there is still time to reread."
+  },
+  {
+   "t": "p",
+   "html": "A client fixes the launch date, signs off a budget that will not grow, and insists every feature in the specification ships. What actually becomes the variable?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five things to carry forward"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>A project is temporary and produces something unique.</strong> That is what separates it from the operations it will eventually hand over to, and it is why you commit on the day you know least.",
+    "02 <strong>Two corners, never three.</strong> Pin scope, time and cost all at once and quality becomes the variable nobody declared. Naming which corner moves is most of the first week.",
+    "03 <strong>Not every slip costs the same.</strong> Float is a task’s budget for going wrong. A slip on the critical path has no budget, so it spends the launch date instead.",
+    "04 <strong>Methodology is a judgement about the project, not a preference.</strong> Moving requirements want Agile. Signed and audited ones want Waterfall. Public money and stage funding want PRINCE2, with one of the other two underneath it.",
+    "05 <strong>A risk is not named until it has a number, an owner and a date.</strong> Everything before that is a worry, and worries do not get compared, funded or reviewed."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Everything below this line is what the course does next, and the practical detail on how it runs. The lesson itself ends here."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Lessons 2 onward"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where this goes next"
+  },
+  {
+   "t": "p",
+   "html": "Scope, money, the framework you are most likely to meet in industry, and the part of the job that is people rather than plans."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Scope, and the sentence that costs the most money"
+  },
+  {
+   "t": "p",
+   "html": "The work breakdown structure decomposes the deliverable until every piece is small enough to estimate and assign. The scope baseline records what is in — which is also the only way to recognise scope creep when it arrives, one reasonable request at a time."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The sentence"
+  },
+  {
+   "t": "p",
+   "html": "“While you’re in there, could you also…”. Every one of these is individually reasonable and free to ask for. Without a baseline to compare against, nobody can say what they have collectively cost."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Estimating, and the honesty of a range"
+  },
+  {
+   "t": "p",
+   "html": "An estimate has a maturity. Asking for a definitive number before the scope exists does not make it accurate — it hides the uncertainty that is still there."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Rough order of magnitude"
+  },
+  {
+   "t": "p",
+   "html": "Very early, before requirements settle. Typically −25% to +75%. Useful to decide whether to look further, not to sign anything."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Budgetary"
+  },
+  {
+   "t": "p",
+   "html": "Once scope is roughly known, for allocating money into a budget. Typically −10% to +25%."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Definitive"
+  },
+  {
+   "t": "p",
+   "html": "Late, from a decomposed work breakdown structure. Typically −5% to +10%, and the only one worth committing to a contract."
+  },
+  {
+   "t": "p",
+   "html": "PERT weights the most likely case four to one and still lets the tails count. The pessimistic tail alone moved this estimate a week to the right of the number the team would have said out loud."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Two reserves, two different owners"
+  },
+  {
+   "t": "p",
+   "html": "Contingency reserve covers the risks you identified and wrote down — the known unknowns — and the project manager spends it. Management reserve covers what nobody saw coming, sits outside the cost baseline, and needs the sponsor’s approval to touch. Collapsing the two into one pot is how a project quietly spends its safety margin before the risks it was set aside for have happened."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Scrum, in one page"
+  },
+  {
+   "t": "p",
+   "html": "The Agile framework you are most likely to meet in industry, and the one with the most confidently misremembered rules. Three roles, three artifacts, five events, each with a timebox that is part of the definition rather than a suggestion."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Three roles"
+  },
+  {
+   "t": "p",
+   "html": "Product Owner, one person, maximises product value and owns the backlog. Scrum Master, a servant-leader who removes impediments. Developers, 3–9 cross-functional people who own the increment."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Three artifacts"
+  },
+  {
+   "t": "p",
+   "html": "Product Backlog, committed to a Product Goal. Sprint Backlog, committed to a Sprint Goal and owned by the developers. Increment, held to the Definition of Done."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Five events"
+  },
+  {
+   "t": "p",
+   "html": "The Sprint, 1–4 weeks, containing the rest. Sprint Planning, up to 8 hours. Daily Scrum, 15 minutes. Sprint Review, up to 4 hours. Retrospective, up to 3 hours. Timeboxes shown for a four-week sprint; scale down proportionally."
+  },
+  {
+   "t": "p",
+   "html": "Agile is not the absence of a plan. It is a plan re-made every fortnight against what the last fortnight actually taught you."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The part of the job that is people"
+  },
+  {
+   "t": "p",
+   "html": "Communication, stakeholder management and conflict are named on the descriptor as key aspects of project success, and they are where most delivery problems actually begin. The five Thomas-Kilmann modes describe how people handle a disagreement. There is no best one — only a best one for this situation, and a strong bias in most teams toward naming the second."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Competing"
+  },
+  {
+   "t": "p",
+   "html": "Assertive, uncooperative. Right when a decision is urgent and unpopular, or safety is at stake."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Collaborating"
+  },
+  {
+   "t": "p",
+   "html": "Assertive and cooperative. The mode everybody names first, and the most expensive: it needs time and trust both sides have to spend."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Compromising"
+  },
+  {
+   "t": "p",
+   "html": "Moderate on both. Fast and fair-looking, and it can leave both sides equally unhappy with a solution neither believes in."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Avoiding"
+  },
+  {
+   "t": "p",
+   "html": "Unassertive, uncooperative. Occasionally correct — when the issue is trivial, or tempers need to cool — and corrosive as a habit."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Accommodating"
+  },
+  {
+   "t": "p",
+   "html": "Unassertive, cooperative. Right when you are wrong, or when the relationship matters more than this particular point."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The full topic list, from the descriptor"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "01 Overview of project management principles and practices",
+    "02 Project initiation and planning",
+    "03 Scope management in IT projects",
+    "04 Risk management in IT projects",
+    "05 Quality management in informatics projects",
+    "06 Project monitoring, control and closure",
+    "07 Agile, Waterfall and PRINCE2 project management",
+    "08 Case studies and best practices in IT project management",
+    "09 Ethical and legal considerations in IT project management"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "The practical detail"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How this course runs"
+  },
+  {
+   "t": "p",
+   "html": "15 credits at Level 8, in trimester two. MBI800 and MBI801 are prerequisites, and the course assumes both."
+  },
+  {
+   "t": "p",
+   "html": "Strand Business Analytics or Healthcare Informatics"
+  },
+  {
+   "t": "p",
+   "html": "<strong>150</strong> Learning hours: 36 in class, 114 yours"
+  },
+  {
+   "t": "p",
+   "html": "<strong>9</strong> Topics across the whole course"
+  },
+  {
+   "t": "p",
+   "html": "<strong>3</strong> Learning outcomes you are assessed against"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Choose the method"
+  },
+  {
+   "t": "p",
+   "html": "Critically analyse the attributes of an IT project to recommend the most suitable project management methodologies in an organisation."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Name the risks"
+  },
+  {
+   "t": "p",
+   "html": "Assess potential risks associated with IT projects to propose mitigation strategies for an organisation."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Run it in your field"
+  },
+  {
+   "t": "p",
+   "html": "Apply IT project management approaches and practices within specialised domains in a professional context."
+  },
+  {
+   "t": "p",
+   "html": "Word for word from the course descriptor. Everything you are assessed on maps back to one of these three."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Weighting",
+     "Assessment",
+     "Detail"
+    ],
+    [
+     "60%",
+     "Project methodology selection: case study",
+     "Individual · assesses LO1 and LO3"
+    ],
+    [
+     "40%",
+     "Risk management plan: report",
+     "Individual · assesses LO2 and LO3"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Both assessments are individual, and neither is a memory test. One asks you to recommend a methodology and defend it against a real case; the other asks you to write a risk management plan somebody could actually run."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Before the first class"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What to bring"
+  },
+  {
+   "t": "p",
+   "html": "Nothing here needs buying. Mainly: a project you watched go wrong, and a laptop."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Why it is worth learning"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "It is the most portable skill on the programme Every sector runs projects. The methodology vocabulary travels between industries in a way a specific technology stack does not.",
+    "It is how technical people become senior The step from doing the work to being accountable for it is mostly scope, estimates, risk and communication.",
+    "The certifications are recognised Scrum and Jira credentials are asked for by name in job listings, and several useful ones are free. There is a page on this site listing them.",
+    "It makes you harder to mislead Once you can read a budget baseline and a risk register, an optimistic status report stops being persuasive."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Come prepared"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Bring a project that went wrong Work, university, a group assignment, a house renovation. We diagnose it against the constraint triangle in the first class, and it works better when the example is yours.",
+    "Bring a laptop A free Jira or Trello account is useful from early on. If you cannot install anything, the browser version does everything this course needs.",
+    "No management experience assumed Never run a project? That is the expected starting point. What the course does assume is MBI800 and MBI801, which you will already have."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Take it with you"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Save these as notes."
+  },
+  {
+   "t": "p",
+   "html": "A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out."
+  },
+  {
+   "t": "p",
+   "html": "Password to open it"
+  },
+  {
+   "t": "p",
+   "html": "Built here in your browser. Nothing is uploaded and no account is needed."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Extra reading only"
+  },
+  {
+   "t": "p",
+   "html": "A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements."
+  },
+  {
+   "t": "p",
+   "html": "All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "See you in class."
+  },
+  {
+   "t": "p",
+   "html": "Most of this course is judgement rather than technique, and judgement is built from examples. Bring one project you watched go badly and an argument about why. That conversation is the first class, and most of the first assessment."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI804 lecturer"
+  }
+ ]
+}

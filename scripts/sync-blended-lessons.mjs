@@ -25,6 +25,10 @@
       teaching.html and llms-full.txt — everything between <!-- bt:NAME:start --> and
       <!-- bt:NAME:end -->. Hand-written copy outside the markers is never
       touched. A missing marker THROWS rather than silently skipping a page.
+   5. Rebuilds /lessons/<slug>.html (build-lesson-pages.mjs) from the text
+      snapshots in content/lesson-text/, and points every card at the
+      lesson's page on this site when it has one. Refresh the text with
+      scripts/extract-lesson-text.mjs after a lesson changes.
 
    Usage:
      node scripts/sync-blended-lessons.mjs                 # fetch + render
@@ -44,6 +48,8 @@ import { tmpdir } from 'node:os';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { accentVars } from './lib/blended.mjs';
+import { planPages, buildLessonPages } from './build-lesson-pages.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SNAPSHOT = join(ROOT, 'content/blended-teaching.json');
@@ -56,17 +62,6 @@ const SHOT_WIDTHS = [640, 1280];
 const LMS_BASE = 'https://ureshan2011.github.io/thisisnotalms/';
 const RAW_REGISTRY =
   'https://raw.githubusercontent.com/ureshan2011/thisisnotalms/main/src/content/courses.ts';
-
-/* Each course keeps the hue it has on the lessons site (src/styles/blend.css)
-   so a reader crossing between the two sites never sees a course change
-   colour. `on` is the 300 step, for text and dots on the dark surfaces. */
-const ACCENTS = {
-  planning: { c: '#514ca8', soft: '#eeeefb', on: '#a9a6ec' },
-  default: { c: '#f4551e', soft: '#fff1ea', on: '#ff9a6b' },
-  project: { c: '#ab355c', soft: '#fceef2', on: '#e889a6' },
-  analytics: { c: '#0f766e', soft: '#eaf7f4', on: '#5fcfbd' },
-  shared: { c: '#2f6bff', soft: '#e9f0ff', on: '#8fb0ff' },
-};
 
 /* One lesson per course for the "where to start" spotlight, each with a
    short hook. The hooks are the only lesson descriptions here that aren't
@@ -323,10 +318,9 @@ const WORDS = ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eig
 let PAGE_STATE = new Map(); // slug → 'offline' | 'gated', from blended-status.json
 const stateOf = (slug) => PAGE_STATE.get(slug) || 'ok';
 const hasShot = (slug) => existsSync(join(SHOT_DIR, `${slug}-640.webp`));
-const accentVars = (a) => {
-  const x = ACCENTS[a] || ACCENTS.shared;
-  return `--c:${x.c};--c-soft:${x.soft};--c-on:${x.on}`;
-};
+// slug → this site's page for the lesson (lessons/…, app/lessons/…), when it has one.
+let ON_SITE = new Map();
+const onSite = (slug) => ON_SITE.get(slug) || null;
 
 function allLessons(snap) {
   // A lesson listed under two courses (the study pack) is one lesson.
@@ -436,7 +430,7 @@ function renderFeatured(snap) {
     if (stateOf(slug) !== 'ok') throw new Error(`featured lesson "${slug}" is ${stateOf(slug)} — pick another in FEATURED`);
     const c = l.course;
     return `
-      <a class="bl-feature${i === 0 ? ' bl-feature--lead' : ''} reveal" style="${accentVars(c?.accent || 'shared')};--d:${(i * 0.06).toFixed(2)}s" href="${esc(l.url)}" target="_blank" rel="noopener">
+      <a class="bl-feature${i === 0 ? ' bl-feature--lead' : ''} reveal" style="${accentVars(c?.accent || 'shared')};--d:${(i * 0.06).toFixed(2)}s" ${onSite(slug) ? `href="${esc(onSite(slug))}"` : `href="${esc(l.url)}" target="_blank" rel="noopener"`}>
         <span class="bl-feature-media">${shot(slug, {
           code: c?.code,
           sizes: i === 0 ? '(max-width: 940px) 92vw, 700px' : '(max-width: 940px) 92vw, 460px',
@@ -445,7 +439,7 @@ function renderFeatured(snap) {
           <span class="bl-feature-meta"><span class="bl-code">${esc(c?.code || 'Shared')}</span><span class="bl-kind">${esc(l.kind)}</span></span>
           <span class="bl-feature-title">${esc(l.title)}</span>
           <span class="bl-feature-hook">${esc(hook)}</span>
-          <span class="bl-feature-cta">Open the lesson ${ARROW_OUT}</span>
+          <span class="bl-feature-cta">Open the lesson ${onSite(slug) ? '<span class="bl-arrow" aria-hidden="true">→</span>' : ARROW_OUT}</span>
         </span>
       </a>`;
   }).join('');
@@ -487,17 +481,22 @@ function lessonCard(l, code, accent) {
   // An offline lesson stays listed — it is part of the course — but is not a
   // link, because the lessons site would only show its platform notice.
   const tag = state === 'offline' ? 'div' : 'a';
+  // The card opens this site's page for the lesson when there is one — it
+  // carries the lesson's text and a button into the interactive version.
+  const local = onSite(l.slug);
   const attrs =
     state === 'offline'
       ? 'aria-disabled="true"'
-      : `href="${esc(l.url)}" target="_blank" rel="noopener"`;
+      : local
+        ? `href="${esc(local)}"`
+        : `href="${esc(l.url)}" target="_blank" rel="noopener"`;
   const badge =
     state === 'offline'
       ? '<span class="bl-badge bl-badge--offline">Offline for now</span>'
       : state === 'gated'
         ? '<span class="bl-badge bl-badge--gated" title="Opens on a class password">Class password</span>'
         : '';
-  const cta = state === 'offline' ? 'Not available right now' : `Open lesson ${ARROW_OUT}`;
+  const cta = state === 'offline' ? 'Not available right now' : local ? 'Open lesson <span class="bl-arrow" aria-hidden="true">→</span>' : `Open lesson ${ARROW_OUT}`;
   return `
           <${tag} class="bl-card${state === 'offline' ? ' is-offline' : ''}" ${attrs} data-course="${code === 'Shared' ? 'shared' : code}" data-kind="${esc(l.kind)}" data-search="${esc(search)}" style="${accentVars(accent)}">
             <span class="bl-card-media">${shot(l.slug, { code, uid: `-${code}`, sizes: '(max-width: 640px) 92vw, (max-width: 1040px) 46vw, 372px' })}</span>
@@ -564,7 +563,7 @@ function renderJsonLd(snap) {
         hasPart: c.lessons.map((l) => ({
           '@type': 'LearningResource',
           name: l.title,
-          url: l.url,
+          url: onSite(l.slug) ? `https://www.yasassri.me/${onSite(l.slug)}` : l.url,
           learningResourceType: l.kind,
           description: l.blurb,
           isAccessibleForFree: true,
@@ -625,7 +624,8 @@ function renderLlms(snap) {
   const line = (l) => {
     const st = stateOf(l.slug);
     const note = st === 'offline' ? ' (currently offline on the lessons site)' : st === 'gated' ? ' (opens with a class password)' : '';
-    return `- ${l.title} (${l.kind})${note}: ${l.url} — ${l.blurb}`;
+    const page = onSite(l.slug) ? `https://www.yasassri.me/${onSite(l.slug)} (interactive: ${l.url})` : l.url;
+    return `- ${l.title} (${l.kind})${note}: ${page} — ${l.blurb}`;
   };
   const courses = snap.courses
     .map(
@@ -664,6 +664,7 @@ async function render(snap) {
     ...status.offline.map((slug) => [slug, 'offline']),
     ...status.gated.map((slug) => [slug, 'gated']),
   ]);
+  ON_SITE = new Map([...planPages(snap, status).href].filter(([, h]) => h));
   const s = stats(snap);
   const pages = {
     'lessons.html': {
@@ -695,6 +696,7 @@ async function render(snap) {
     await writeFile(path, html);
     log('rendered', file);
   }
+  buildLessonPages(snap, { log: (...m) => log(...m) });
 }
 
 /* ------------------------------------------------------------------ main */

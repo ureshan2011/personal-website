@@ -1,0 +1,448 @@
+{
+ "slug": "power-bi-setup",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/power-bi-setup",
+ "title": "Setting up Power BI",
+ "pageTitle": "Setting up Power BI · MBI806B",
+ "extractedAt": "2026-09-28",
+ "words": 1413,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The three parts of Power BI"
+  },
+  {
+   "t": "p",
+   "html": "Instructions you find online rarely say which of the three they mean. Worth knowing the difference before you start."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Power BI Service"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Where</strong> app.powerbi.com, in any browser",
+    "<strong>Who</strong> Everyone, on any operating system"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "The online half. Sign in, build reports, share them. Where the course starts, and where a Mac stays."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Power BI Desktop"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Where</strong> An application you install",
+    "<strong>Who</strong> Windows only. No Mac version"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "The heavy end: full Power Query for reshaping messy data, deeper modelling, more connectors. Free. You publish finished work up to the Service."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Power BI mobile"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Where</strong> iOS and Android app",
+    "<strong>Who</strong> Anyone, once a report exists"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "For reading reports somebody has already shared with you. You don’t author in it, so skip it for now."
+  },
+  {
+   "t": "p",
+   "html": "Both routes end in the same place. A report you build in the browser is a real report, sitting in the same workspace Desktop would publish to."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your setup"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Pick your machine"
+  },
+  {
+   "t": "p",
+   "html": "Whichever you bring to class. Everyone works in the browser; Windows users have one extra thing to install."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Mac, Chromebook, iPad or Linux"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "You’ll work in the browser."
+  },
+  {
+   "t": "p",
+   "html": "Power BI Desktop is a Windows application. Microsoft has never shipped a Mac version and hasn’t announced one. The service itself runs as a web application, though, and works on your machine today with nothing to install — type in data, build reports, save them, reopen them anywhere. Every exercise in this guide works for you."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Open app.powerbi.com Any modern browser on any operating system. Safari, Chrome, Edge and Firefox all work. There is nothing to download.",
+    "2 Sign in with your student email The address your institution gave you. A personal Gmail or Hotmail won’t work — see the warning below.",
+    "3 Accept the free licence if prompted You may see \"Start free\" or a trial prompt. The free licence covers everything here — you get My Workspace and can build and save reports in it.",
+    "4 Find My Workspace In the left-hand navigation. It’s private to you until you deliberately share something."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "A note on virtual machines"
+  },
+  {
+   "t": "p",
+   "html": "Other guides will tell you to run Windows on your Mac through Parallels or Boot Camp. Don’t bother. You’d be paying for and maintaining a second operating system to open one application. If you hit a point where the browser isn’t enough, come and ask me."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Read this before you sign in"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Power BI sign-up needs a work or school email address.</strong> A personal Gmail, Hotmail or Outlook.com address gets refused, and the error doesn’t explain why. Use the address your institution issued you. If you’ve already tried with a personal one, sign out completely, close the tab, and start again."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your first chart"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Hello world"
+  },
+  {
+   "t": "p",
+   "html": "Three rows of made-up data and one chart. Try it here first, then do it for real in seven steps."
+  },
+  {
+   "t": "p",
+   "html": "A mock-up of the report canvas, not Microsoft software. The panes sit roughly where Power BI puts them."
+  },
+  {
+   "t": "p",
+   "html": "An empty visual, waiting for fields."
+  },
+  {
+   "t": "p",
+   "html": "Power BI shows you this before you fill the wells."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Visualizations"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Wells"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Data"
+  },
+  {
+   "t": "pre",
+   "text": "sales_by_item"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your table"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Item",
+     "Sales"
+    ],
+    [
+     "Coffee",
+     "120"
+    ],
+    [
+     "Tea",
+     "90"
+    ],
+    [
+     "Juice",
+     "60"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Pick a field, then pick a well to put it in. Two fields is all it takes."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The real thing."
+  },
+  {
+   "t": "p",
+   "html": "Same exercise in Power BI itself. Menu names below are the browser’s; where Desktop differs, it says so."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 Go to My Workspace In the left navigation of app.powerbi.com. In Power BI Desktop, start a new report from the Home tab instead.",
+    "2 Choose New, then Semantic model Power BI’s name for the data a report sits on. Older menus call it a dataset.",
+    "3 Pick \"Paste or manually enter data\" Rather than connecting to a real source. In Desktop the button is called Enter data, on the Home tab.",
+    "4 Type two columns and three rows Item and Sales. Coffee 120, Tea 90, Juice 60. If you paste a header row, tick \"Use first row as headers\".",
+    "5 Load it, then create a report Your table now exists as a semantic model. Choose Create report next to it and the editor opens.",
+    "6 Add a bar chart and fill the two wells Click the bar chart icon in the Visualizations pane. Drag Item onto the axis and Sales onto the values. The chart draws itself.",
+    "7 Save it It lives in My Workspace, private to you, and reopens from any machine you sign in on."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "About pasted data"
+  },
+  {
+   "t": "p",
+   "html": "Data you type in by hand is a snapshot, not a connection. There’s no way to refresh it, so to change it you re-paste or move to a file. It also caps out around 512 KB, with table names up to 80 characters and column names up to 512. Three rows won’t trouble any of that, but it’s why real work starts from a file or a database."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Browser vs Desktop"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What the browser can't do"
+  },
+  {
+   "t": "p",
+   "html": "It covers most of the course. Here's where it stops, so it isn't a surprise later."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "What you want to do",
+     "Browser",
+     "Desktop",
+     "Notes"
+    ],
+    [
+     "Type or paste a small table and build from it",
+     "Yes",
+     "Yes",
+     "The exercise below. Same on both."
+    ],
+    [
+     "Upload an Excel or CSV file",
+     "Yes",
+     "Yes",
+     "Straight from your machine, either way."
+    ],
+    [
+     "Build reports, charts, slicers and pages",
+     "Yes",
+     "Yes",
+     "The report editor in the browser is the same editor."
+    ],
+    [
+     "Edit the data model, relationships and measures",
+     "Partly",
+     "Yes",
+     "The browser can edit models in a workspace; Desktop is more complete."
+    ],
+    [
+     "Reshape messy data with Power Query",
+     "No",
+     "Yes",
+     "The real gap. Merging, splitting, unpivoting, cleaning columns."
+    ],
+    [
+     "Connect to databases and the wider connector list",
+     "Partly",
+     "Yes",
+     "Desktop reaches far more sources, including a local SQL Server."
+    ],
+    [
+     "Refresh data you pasted by hand",
+     "No",
+     "No",
+     "Pasted data is a snapshot. Re-paste, or move to a file."
+    ],
+    [
+     "Share a report with somebody else",
+     "Partly",
+     "No",
+     "Sharing needs Power BI Pro. Building on your own is free."
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Power Query is the row that matters. If you’re on a Mac and we reach a point where we’re reshaping genuinely messy data, come and talk to me rather than buying anything."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Troubleshooting"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "When it goes wrong"
+  },
+  {
+   "t": "p",
+   "html": "These six come up every year. Most of them aren't anything you did."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "“We can’t find an account with that email”"
+  },
+  {
+   "t": "p",
+   "html": "You used a personal address. Sign out completely, then try your institution’s email."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "“Your organisation doesn’t allow self-service sign-up”"
+  },
+  {
+   "t": "p",
+   "html": "An administrator switched it off. Email IT and ask for a licence. Nothing on your machine will fix it."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Signed in, but I can’t find My Workspace"
+  },
+  {
+   "t": "p",
+   "html": "Open the left navigation with the menu icon at the top. My Workspace is near the bottom of that list."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "The Store says Power BI Desktop isn’t available"
+  },
+  {
+   "t": "p",
+   "html": "Your Windows build may be too old, or the Store is managed. Use the direct download, or work in the browser."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Power BI Desktop opens with big black areas"
+  },
+  {
+   "t": "p",
+   "html": "A Windows display-scaling problem. Search Windows for “blurry”, turn on “Let Windows fix apps that are blurry”, then restart it."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "I’m stuck and class is tomorrow"
+  },
+  {
+   "t": "p",
+   "html": "Come anyway. It’s faster to fix in person."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Links"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where to look things up"
+  },
+  {
+   "t": "p",
+   "html": "Microsoft changes the interface regularly. If a menu name here stops matching what you see, trust their documentation."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Power BI Service The browser version. Start here, whatever you’re running.",
+    "Power BI Desktop on the Microsoft Store The Windows install to prefer. Updates itself, no admin rights.",
+    "Power BI Desktop direct download Windows, for when the Store is blocked. Choose 64-bit.",
+    "Microsoft: download and install Power BI Desktop The official page, including the full system requirements.",
+    "Microsoft: sign up for the Power BI service What each licence covers, and why sign-up sometimes fails.",
+    "Microsoft: create a report in the service The same walkthrough in Microsoft’s words.",
+    "Microsoft: getting started with Power BI Desktop For once you’re on Windows and past the basics.",
+    "Power BI Essential Training, LinkedIn Learning A full video course, free through most institutional logins."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Take it with you"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Save these as notes."
+  },
+  {
+   "t": "p",
+   "html": "A written summary of this page as a PDF: the explanations, tables and steps, without the interactive parts. Handy on a phone, or printed out."
+  },
+  {
+   "t": "p",
+   "html": "Password to open it"
+  },
+  {
+   "t": "p",
+   "html": "Built here in your browser. Nothing is uploaded and no account is needed."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Extra reading only"
+  },
+  {
+   "t": "p",
+   "html": "A summary, not the primary lesson content. Your LMS holds the authoritative material, assessments, deadlines and announcements."
+  },
+  {
+   "t": "p",
+   "html": "All rights reserved. For enrolled students, for personal study. Not for redistribution, re-upload to study-notes services, or training automated systems."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Bring what you’ve got."
+  },
+  {
+   "t": "p",
+   "html": "If you’ve got as far as a chart of three drinks, you’re set. If you haven’t, come anyway. An unsolved setup problem takes about five minutes in person, and I’d rather that than somebody sitting at the back unable to follow along."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI806B lecturer"
+  }
+ ]
+}

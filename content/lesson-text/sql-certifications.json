@@ -1,0 +1,228 @@
+{
+ "slug": "sql-certifications",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/sql-certifications",
+ "title": "Free SQL certifications",
+ "pageTitle": "Free SQL certifications · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 1112,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database Management"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of free SQL certifications."
+  },
+  {
+   "t": "p",
+   "html": "Nine genuinely free credentials — from Oracle vendor badges to IBM digital badges to project-based certs. Earn one, put it on LinkedIn, and let your skills speak for themselves."
+  },
+  {
+   "t": "p",
+   "html": "🏅 Oracle badge ✅ HackerRank cert 🎓 IBM badge 🆓 All 100% free"
+  },
+  {
+   "t": "p",
+   "html": "MBI802 · Database Management Systems"
+  },
+  {
+   "t": "p",
+   "html": "📖 Quick Terminology"
+  },
+  {
+   "t": "p",
+   "html": "Badge / digital credential — Shareable, verifiable credential you can post directly to LinkedIn."
+  },
+  {
+   "t": "p",
+   "html": "Certificate of completion — Downloadable PDF awarded after finishing course materials."
+  },
+  {
+   "t": "p",
+   "html": "Skill certification exam — Assessment-based credential you can claim by passing a test, even without a course."
+  },
+  {
+   "t": "p",
+   "html": "Nine genuinely free MySQL, SQL, and database-design credentials — from vendor badges to skill exams and project-based certifications. Every option below is completely free to earn (no credit card required). Recommended to complement your MBI802 coursework and strengthen your CV and LinkedIn profile."
+  },
+  {
+   "t": "eyebrow",
+   "html": "VENDOR BADGE · BEGINNER · ≈5–7 hrs"
+  },
+  {
+   "t": "p",
+   "html": "Oracle MyLearn — MySQL Explorer"
+  },
+  {
+   "t": "p",
+   "html": "The most credible free MySQL credential available — issued directly by Oracle, the company that owns MySQL. Complete the self-paced learning path covering the client/server model, MySQL Workbench, basic and complex queries, and troubleshooting. Earn an official \"MySQL Explorer\" digital badge from Oracle after passing a free online assessment. Free Oracle account only; no credit card."
+  },
+  {
+   "t": "eyebrow",
+   "html": "SKILL EXAM · BEGINNER · 30 min"
+  },
+  {
+   "t": "p",
+   "html": "HackerRank — SQL (Basic) Skills Certification"
+  },
+  {
+   "t": "p",
+   "html": "A 30-minute online assessment — no course required, just study and sit it. Tests simple queries, relationships, and aggregators on relational databases including MySQL. You earn a verified Skills Certificate with a unique public URL, widely recognised by technical recruiters. Scores are private if you fail; retake after a waiting period. Intermediate (35 min) and Advanced (60 min) exams also free."
+  },
+  {
+   "t": "eyebrow",
+   "html": "DIGITAL BADGE + CERT · BEGINNER · ≈30 hrs"
+  },
+  {
+   "t": "p",
+   "html": "Cisco NetAcad — Data Analytics Essentials"
+  },
+  {
+   "t": "p",
+   "html": "One of the most generous truly-free programs online — 660,000+ learners enrolled. Covers Excel, an introduction to relational databases and SQL (Modules 6 &amp; 7), Tableau, data visualisation, and data ethics across 10 modules and 29 hands-on labs. Earns a free Credly-verified digital badge and certificate of completion from Cisco. Free NetAcad account; no credit card."
+  },
+  {
+   "t": "eyebrow",
+   "html": "COMPLETION CERT · BEGINNER · ≈42 hrs"
+  },
+  {
+   "t": "p",
+   "html": "Saylor Academy — CS403: Intro to Modern Database Systems"
+  },
+  {
+   "t": "p",
+   "html": "The best single free option for database theory — one of the very few truly-free courses that covers both ER diagrams AND SQL in depth. Topics include database architecture, the Entity-Relationship model, relational algebra, data normalisation, SQL SELECT and JOINs, and database design. A free proctored final exam (≥70% to pass) earns an ACE-recommended completion certificate."
+  },
+  {
+   "t": "eyebrow",
+   "html": "PDF CERTIFICATE · BEGINNER · ≈3 hrs"
+  },
+  {
+   "t": "p",
+   "html": "Kaggle Learn — Intro to SQL (Google)"
+  },
+  {
+   "t": "p",
+   "html": "A practical browser-based course by Kaggle (a Google company) using BigQuery — covering SELECT, FROM, WHERE, GROUP BY, ORDER BY, AS, and WITH. A free downloadable PDF certificate is issued automatically when all module exercises are complete. Kaggle also offers a free \"Advanced SQL\" certificate (≈4 hrs) covering JOINs, analytic functions, nested data, and query efficiency."
+  },
+  {
+   "t": "eyebrow",
+   "html": "CERTIFICATE · BEGINNER · MOBILE-FRIENDLY"
+  },
+  {
+   "t": "p",
+   "html": "SoloLearn — Introduction to SQL"
+  },
+  {
+   "t": "p",
+   "html": "A mobile-friendly ≈5–10-hour course covering SQL CRUD operations, filtering, sorting, joins, and basic relational concepts that apply directly to MySQL. A free completion certificate is issued after finishing all lessons and Code Coach problems. A free SQL Intermediate course is also available. Free SoloLearn account on web or mobile app; no credit card."
+  },
+  {
+   "t": "eyebrow",
+   "html": "IBM DIGITAL BADGE · BEGINNER · ≈5–6 hrs"
+  },
+  {
+   "t": "p",
+   "html": "IBM / Cognitive Class — SQL and Relational Databases 101"
+  },
+  {
+   "t": "p",
+   "html": "An IBM-backed course covering relational model concepts, the five basic SQL statements, advanced SQL syntax, and JOIN statements — with hands-on exercises and a final exam. Passing the exam earns both a free completion certificate and an IBM digital badge issued via Credly. Free Cognitive Class / IBM ID account; no credit card required."
+  },
+  {
+   "t": "eyebrow",
+   "html": "PUBLIC CERT · PROJECT-BASED · ≈300 hrs"
+  },
+  {
+   "t": "p",
+   "html": "freeCodeCamp — Relational Database Certification"
+  },
+  {
+   "t": "p",
+   "html": "One of the most respected truly-free programming certifications. Project-based work covering Bash, PostgreSQL/relational databases, Git, and building relational databases from scratch — with SQL skills that transfer directly to MySQL. Complete five required projects to earn a publicly verifiable certification on your freeCodeCamp profile. 100% open-source and free."
+  },
+  {
+   "t": "eyebrow",
+   "html": "FREE CERT BUNDLE · BEGINNER · 1–9 hrs each"
+  },
+  {
+   "t": "p",
+   "html": "Simplilearn SkillUp — SQL &amp; Database Course Bundle"
+  },
+  {
+   "t": "p",
+   "html": "Multiple free SQL/database tracks on Simplilearn's SkillUp platform — covering Introduction to Databases, SQL Fundamentals, SQL for Data Analysis, SQL for Data Science, and SQL Projects. Each course issues a free downloadable PDF completion certificate automatically. All self-paced; free SkillUp account; no credit card required."
+  },
+  {
+   "t": "p",
+   "html": "🔗 Useful Free Learning Resources — No Certificate, But Great for Practice"
+  },
+  {
+   "t": "p",
+   "html": "W3Schools MySQL Tutorial Free study material (cert exam is paid) MySQL Official Documentation Free vendor reference Kaggle — Advanced SQL Free cert · JOINs, analytic functions, nested data HackerRank — SQL Intermediate Free 35-min skill cert HackerRank — SQL Advanced Free 60-min skill cert Oracle SQL Explorer Path Free vendor-neutral SQL badge (search \"Oracle SQL Explorer\") IBM SkillsBuild — Data Catalog Free DB learning paths with completion certs SoloLearn — SQL Intermediate Free completion cert SQLZoo / SQLBolt / Mode SQL Free interactive practice (no certificate)"
+  },
+  {
+   "t": "p",
+   "html": "Share Your Achievement!"
+  },
+  {
+   "t": "p",
+   "html": "Let the world know you levelled up 🌍"
+  },
+  {
+   "t": "p",
+   "html": "I am genuinely excited to see your certification! Database skills are among the most in-demand competencies in the industry right now. Earning a free credential shows initiative, dedication, and a growth mindset — exactly the qualities that stand out to employers. Please post your achievement on LinkedIn and tag me — I personally celebrate every single one of my students who levels up! 🎓"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Why your LinkedIn post matters"
+  },
+  {
+   "t": "p",
+   "html": "Recruiter Visibility"
+  },
+  {
+   "t": "p",
+   "html": "Database and SQL skills are in high demand — hiring managers actively search LinkedIn for certified candidates every single day."
+  },
+  {
+   "t": "p",
+   "html": "Grow Your Network"
+  },
+  {
+   "t": "p",
+   "html": "Your post reaches your connections, their connections, and beyond — compounding your professional presence."
+  },
+  {
+   "t": "p",
+   "html": "Instant Credibility"
+  },
+  {
+   "t": "p",
+   "html": "A vendor-issued or verifiable certificate signals initiative and drive — the exact qualities employers look for in graduates."
+  },
+  {
+   "t": "p",
+   "html": "Career Momentum"
+  },
+  {
+   "t": "p",
+   "html": "Every credential you post builds a public track record that speaks for you before any interview begins."
+  },
+  {
+   "t": "p",
+   "html": "💡 What to write in your post"
+  },
+  {
+   "t": "p",
+   "html": "Share what you learned, which certification you earned, and how database skills connect to your career goals. Tag @YasasSriWickramasinghe so I can celebrate with you!"
+  },
+  {
+   "t": "p",
+   "html": "A note before you enrol: These platforms may update their pricing, enrolment processes, or certificate availability at any time — always read the course page carefully before signing up to confirm it is still free. These are independent suggestions only. This course has no affiliation with, sponsorship from, or endorsement by any of the platforms listed above. All trademarks and certifications belong to their respective owners."
+  }
+ ]
+}

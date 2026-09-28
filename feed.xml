@@ -5,23 +5,15 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Mon, 21 Sep 2026 20:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 27 Sep 2026 12:00:00 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title><![CDATA[Code Champ 2026 — Workshop 07: Augmented Reality and Game Development]]></title>
-    <link>https://www.yasassri.me/news.html#recent</link>
-    <guid isPermaLink="true">yasassri-event-code-champ-2026-workshop-07</guid>
-    <pubDate>Wed, 19 Aug 2026 12:00:00 +0000</pubDate>
+    <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
+    <link>https://vrst.acm.org/vrst2026/</link>
+    <guid isPermaLink="true">yasassri-event-vrst-2026</guid>
+    <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
     <category><![CDATA[Event]]></category>
-    <description><![CDATA[I led Workshop 07 of Code Champ 2026 — "Code Your World" — organised by E3 (Computer Science) with the Committee for Popularization of Science (CPS), SLAAS and the IEEE Computer Society Sri Lanka Chapter. The session covered augmented reality and game development. Delivered 20 August 2026, 8:00–9:30 PM (Sri Lanka time), online via Zoom. The browser-based AR demo built for it is still online at yasassri.me/ar.html.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[From Research to Reality — AR/VR Entrepreneurship Opportunities for Sri Lankans]]></title>
-    <link>https://www.yasassri.me/news.html#upcoming</link>
-    <guid isPermaLink="true">yasassri-event-ieee-entrepreneurship-arvr-2026</guid>
-    <pubDate>Tue, 22 Sep 2026 15:30:00 +0530</pubDate>
-    <category><![CDATA[Event]]></category>
-    <description><![CDATA[I'm speaking at an IEEE Entrepreneurship, Sri Lanka Section session exploring how AR/VR research can become real-world entrepreneurial opportunities, covering the AR/VR startup landscape and opportunities for Sri Lankan innovators. Open to anyone interested in entrepreneurship in AR/VR. 22 September 2026, 3.30 PM onwards, via Zoom; the Zoom link is shared with registered participants.]]></description>
+    <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
   </item>
   <item>
     <title><![CDATA[NZGDC 2026 — Designing Shared Worlds Across Distance]]></title>
@@ -32,12 +24,12 @@
     <description><![CDATA[I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland.]]></description>
   </item>
   <item>
-    <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
-    <link>https://vrst.acm.org/vrst2026/</link>
-    <guid isPermaLink="true">yasassri-event-vrst-2026</guid>
-    <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
+    <title><![CDATA[From Research to Reality — AR/VR Entrepreneurship Opportunities for Sri Lankans]]></title>
+    <link>https://www.yasassri.me/news.html#upcoming</link>
+    <guid isPermaLink="true">yasassri-event-ieee-entrepreneurship-arvr-2026</guid>
+    <pubDate>Tue, 22 Sep 2026 15:30:00 +0530</pubDate>
     <category><![CDATA[Event]]></category>
-    <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
+    <description><![CDATA[I'm speaking at an IEEE Entrepreneurship, Sri Lanka Section session exploring how AR/VR research can become real-world entrepreneurial opportunities, covering the AR/VR startup landscape and opportunities for Sri Lankan innovators. Open to anyone interested in entrepreneurship in AR/VR. 22 September 2026, 3.30 PM onwards, via Zoom; the Zoom link is shared with registered participants.]]></description>
   </item>
   <item>
     <title><![CDATA[ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance]]></title>
@@ -254,13 +246,6 @@
     <pubDate>Tue, 04 May 2021 12:00:00 +0000</pubDate>
     <category><![CDATA[VR]]></category>
     <description><![CDATA[Explores how virtual reality can improve training, layout planning and operational efficiency in warehouse environments. Argues that VR offers a low-risk way to rehearse and refine warehouse processes before rollout.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Talking AR Game Design on the National Stage — NZGDC 2023]]></title>
-    <link>https://www.yasassri.me/news.html</link>
-    <guid isPermaLink="true">yasassri-event-nzgdc-2023-panel</guid>
-    <category><![CDATA[Panel]]></category>
-    <description><![CDATA[New Zealand Game Developers Conference, 2023. A panel of New Zealand augmented reality developers for the first-ever AR Game Dev Rant at NZGDC — a candid, fast-paced conversation about what it really takes to design and ship location-based AR experiences, alongside Evie, Melanie and Devi. (Exact date not published on-site; year only.)]]></description>
   </item>
 </channel>
 </rss>

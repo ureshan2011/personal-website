@@ -1,0 +1,1043 @@
+{
+ "slug": "predicting-with-data",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/predicting-with-data",
+ "title": "Three ways to predict things",
+ "pageTitle": "Three ways to predict things · MBI806B",
+ "extractedAt": "2026-09-28",
+ "words": 3622,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Lesson 3 of 3"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three ways to predict things"
+  },
+  {
+   "t": "p",
+   "html": "Linear regression, decision trees and random forests. These three do most of the work in business analytics. You will use all three without writing a single formula."
+  },
+  {
+   "t": "p",
+   "html": "Reading <strong>about 25 minutes</strong> Assumes <strong>nothing</strong> Needs <strong>a browser</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of this lesson you can"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Explain all three models to a friend, in your own words",
+    "Pick the right one for a job",
+    "Run all three in Python"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "First"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What is a model?"
+  },
+  {
+   "t": "p",
+   "html": "Two minutes on the one idea all three share. Then we get to the models."
+  },
+  {
+   "t": "p",
+   "html": "Normally, a person writes the rule. Someone at a bank decides: approve the loan if income is over $50,000. They typed that in. They can change it tomorrow."
+  },
+  {
+   "t": "p",
+   "html": "A model works the other way round. You give it examples. It works out the rule itself."
+  },
+  {
+   "t": "p",
+   "html": "Same three boxes, and the coloured one has swapped ends. That is the difference."
+  },
+  {
+   "t": "p",
+   "html": "Why bother? Because some rules are too hard to write. Nobody can explain what makes a squiggle a 7 and not a 1. You just know. Show a computer a million squiggles and it works it out."
+  },
+  {
+   "t": "p",
+   "html": "Two words you will keep seeing. The facts you have — size, visits, age — are the <strong>inputs</strong>. The thing you want to know is the <strong>answer</strong>. That is it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Worth knowing"
+  },
+  {
+   "t": "p",
+   "html": "A model copies the past. If your old decisions were unfair, it learns to be unfair too — just faster. Nothing in this lesson fixes that."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Model 1 of 3"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Linear regression."
+  },
+  {
+   "t": "p",
+   "html": "Use it when the answer is a number. How much will this flat rent for? How many will we sell?"
+  },
+  {
+   "t": "p",
+   "html": "Put your data on a chart. Draw one straight line through the dots. That is the whole model."
+  },
+  {
+   "t": "p",
+   "html": "The line is the rule. Give it a new flat size, read the rent off the line."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Your turn"
+  },
+  {
+   "t": "p",
+   "html": "Twelve flats. Move the two sliders and get the line as close to all of them as you can."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Move the line"
+  },
+  {
+   "t": "p",
+   "html": "Get it as close to all twelve dots as you can."
+  },
+  {
+   "t": "p",
+   "html": "How wrong the line is, in total <strong>$1,367</strong>"
+  },
+  {
+   "t": "p",
+   "html": "The best possible is $164. You are $1203 away."
+  },
+  {
+   "t": "pre",
+   "text": "Each dotted line is how wrong the line is about that flat."
+  },
+  {
+   "t": "p",
+   "html": "That was hard work. The computer does the same thing in a fraction of a second: it tries thousands of lines and keeps the one that misses least."
+  },
+  {
+   "t": "p",
+   "html": "And look at what it found. About <strong>$6.70 for every extra square metre</strong>. That is not just a prediction — it is a sentence you can say in a meeting. That is why people still use this model."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "It goes wrong when the dots make a curve"
+  },
+  {
+   "t": "p",
+   "html": "Ice cream sales climb with heat, then drop when it is too hot to go out. A straight line cannot do that."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "And when you ask about something it has never seen"
+  },
+  {
+   "t": "p",
+   "html": "These flats are 28 to 98 square metres. Ask about a 400 square metre penthouse and it will still give you a number. It should not be trusted."
+  },
+  {
+   "t": "p",
+   "html": "Where the name comes from: an 1886 study of how tall children turn out. It tells you nothing about what the model does. Everyone just calls it regression."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Model 2 of 3"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Decision tree"
+  },
+  {
+   "t": "p",
+   "html": "Use it when the answer is a choice. Will this customer cancel — yes or no?"
+  },
+  {
+   "t": "p",
+   "html": "Twist your ankle badly and you used to get an X-ray, almost automatically. Then some doctors in Ottawa wrote a short flowchart. Can you walk on it? Does this bone hurt? Answer those and you know if the X-ray is worth doing."
+  },
+  {
+   "t": "p",
+   "html": "Hospitals that use it do far fewer X-rays and still catch the breaks. It is still on the wall today."
+  },
+  {
+   "t": "p",
+   "html": "A decision tree is that flowchart, except the computer writes it."
+  },
+  {
+   "t": "p",
+   "html": "<strong>How it picks the questions.</strong> It tries all of them and keeps whichever one splits the group best. Then it does the same again on each half."
+  },
+  {
+   "t": "p",
+   "html": "A gym wants to ring people before they cancel. Here are fourteen members it already knows about. Which question should the tree ask first?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Which question should the tree ask first?"
+  },
+  {
+   "t": "pre",
+   "text": "Filled square = cancelled · hollow circle = stayed"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Good: you can print it"
+  },
+  {
+   "t": "p",
+   "html": "Hand it to a nurse or a loan officer and every decision has a reason you can read out loud. In medicine and lending that is often the law, not a nice-to-have."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Bad: it memorises"
+  },
+  {
+   "t": "p",
+   "html": "You just saw this. Let it keep asking questions and it ends up with one branch per person."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "The fix is one word"
+  },
+  {
+   "t": "p",
+   "html": "Stop it early. Three questions deep is plenty. In Python that is <code>max_depth=3</code>."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Model 3 of 3"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Random forest"
+  },
+  {
+   "t": "p",
+   "html": "Many small trees. Each one votes. The answer with the most votes wins."
+  },
+  {
+   "t": "p",
+   "html": "One decision tree can be wrong."
+  },
+  {
+   "t": "p",
+   "html": "So make lots of small trees. Ask every one of them. Go with the answer most of them give. That is a random forest."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Grow lots of small trees"
+  },
+  {
+   "t": "p",
+   "html": "Each tree asks its own question."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Ask every tree"
+  },
+  {
+   "t": "p",
+   "html": "Each tree says <strong>quit</strong> or <strong>stay</strong>."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Count the votes"
+  },
+  {
+   "t": "p",
+   "html": "Most votes wins: <strong>quit</strong>."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Your turn: ask the trees"
+  },
+  {
+   "t": "p",
+   "html": "The same gym. We want to know who will quit. Here are five tiny trees — each asks just one question, so you can read them. Pick a member and watch each tree vote."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 1 · Pick a gym member"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Fay</strong> comes <strong>3×</strong> a month joined <strong>7 months</strong> ago"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 2 · Each tree answers its one question"
+  },
+  {
+   "t": "p",
+   "html": "Fay comes 3× a month → <strong>no</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Fay comes 3× a month → <strong>yes</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Fay joined 7 months ago → <strong>no</strong>"
+  },
+  {
+   "t": "p",
+   "html": "Fay joined 7 months ago → <strong>yes</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 3 · Count the votes"
+  },
+  {
+   "t": "p",
+   "html": "The forest says <strong>Fay will quit</strong>"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Now check all 20 at once"
+  },
+  {
+   "t": "p",
+   "html": "We already know who really quit. So we can mark every tree, and the forest, on every member."
+  },
+  {
+   "t": "eyebrow",
+   "html": "All 20 members · ✓ = the tree got them right · ✗ = wrong"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Member",
+     "Tree 1",
+     "Tree 2",
+     "Tree 3",
+     "Tree 4",
+     "Tree 5",
+     "Forest vote"
+    ],
+    [
+     "Amy",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Ben",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Cal",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Dan",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Eva",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Fay",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Gus",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Hana",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Ivy",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Jay",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Kim",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Leo",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Mia",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Ned",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Oli",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Pia",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Raj",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Sam",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Tia",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Zoe",
+     "",
+     "",
+     "",
+     "",
+     "",
+     ""
+    ],
+    [
+     "Got right",
+     "13/20",
+     "15/20",
+     "15/20",
+     "15/20",
+     "16/20",
+     "19/20"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Look down a column"
+  },
+  {
+   "t": "p",
+   "html": "Every tree has crosses. The best single tree gets 16 out of 20. The worst gets 13."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Now look across a row"
+  },
+  {
+   "t": "p",
+   "html": "The crosses land on different people. Most rows have more ticks than crosses, so the ticks win the vote. The forest gets 19 out of 20."
+  },
+  {
+   "t": "p",
+   "html": "Find Dan’s row. 3 of the 5 trees got Dan wrong, so the vote went wrong too. When most trees are fooled, the forest is fooled."
+  },
+  {
+   "t": "p",
+   "html": "<strong>The big idea:</strong> each tree makes mistakes, but on different people. When they vote, the right answers outnumber the wrong ones."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Why is it called a random forest?"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Forest"
+  },
+  {
+   "t": "p",
+   "html": "Because it is lots of trees."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Random"
+  },
+  {
+   "t": "p",
+   "html": "Because each tree learns from a random handful of the data. So every tree comes out a little different — and makes different mistakes."
+  },
+  {
+   "t": "p",
+   "html": "Above, we wrote the five questions by hand so you could read them. A real random forest does it for you:"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Each tree learns from a random 12 of the 20 members"
+  },
+  {
+   "t": "pre",
+   "text": "Filled dot = this tree gets to see that member · empty = it never sees them"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Good: it is right more often"
+  },
+  {
+   "t": "p",
+   "html": "One tree is easy to fool. It is much harder to fool most of them at the same time."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Not so good: it is hard to explain"
+  },
+  {
+   "t": "p",
+   "html": "You can read one tree. You cannot read 300. If you have to tell someone why, use one decision tree instead."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "In Python you only choose how many trees"
+  },
+  {
+   "t": "p",
+   "html": "<code>n_estimators=300</code> just means 300 trees. The computer grows them and counts the votes."
+  },
+  {
+   "t": "eyebrow",
+   "html": "All three, side by side"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Which one do I use?"
+  },
+  {
+   "t": "p",
+   "html": "Usually decided by what you have to explain afterwards, not by which one scores highest."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Linear regression"
+  },
+  {
+   "t": "p",
+   "html": "One straight line through your data."
+  },
+  {
+   "t": "p",
+   "html": "Can you explain it Yes — in one sentence"
+  },
+  {
+   "t": "p",
+   "html": "How accurate Fine, if the dots are roughly straight"
+  },
+  {
+   "t": "p",
+   "html": "Watch out for Curves. And questions outside your data."
+  },
+  {
+   "t": "p",
+   "html": "Use it when The answer is a number and you want to know what drives it."
+  },
+  {
+   "t": "p",
+   "html": "A flowchart of yes/no questions."
+  },
+  {
+   "t": "p",
+   "html": "Can you explain it Yes — print the chart"
+  },
+  {
+   "t": "p",
+   "html": "How accurate Fine, if you stop it early"
+  },
+  {
+   "t": "p",
+   "html": "Watch out for Memorising your data instead of learning from it."
+  },
+  {
+   "t": "p",
+   "html": "Use it when Someone will ask you to justify every decision."
+  },
+  {
+   "t": "p",
+   "html": "Hundreds of trees. They vote."
+  },
+  {
+   "t": "p",
+   "html": "What it answers A choice, or a number"
+  },
+  {
+   "t": "p",
+   "html": "Can you explain it No — 300 trees is not a chart"
+  },
+  {
+   "t": "p",
+   "html": "How accurate Usually the best of the three"
+  },
+  {
+   "t": "p",
+   "html": "Watch out for You cannot show anyone your working."
+  },
+  {
+   "t": "p",
+   "html": "Use it when It mostly just has to be right."
+  },
+  {
+   "t": "p",
+   "html": "Same twelve dots in all three pictures. Only the shape of the rule changes. “Usually the best” means exactly that — on a problem where the answer really is a straight line, the line wins."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Always try the simple one first.</strong> A line takes ten minutes and tells you whether there is anything in your data at all. If there is not, no forest will save you."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The code"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Six lines of Python"
+  },
+  {
+   "t": "p",
+   "html": "You do not need to be a programmer. Every model is the same few lines, and we will read them together."
+  },
+  {
+   "t": "p",
+   "html": "Here is a whole, real program. It trains a random forest on the 20 gym members you just met, then asks about two new people."
+  },
+  {
+   "t": "p",
+   "html": "Press <strong>Next line</strong> to walk through it. Watch the picture underneath change as you go."
+  },
+  {
+   "t": "pre",
+   "text": "gym.py · a real program\nCopy\nOpen Colab ↗"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 <code>from sklearn.ensemble import RandomForestClassifier</code>",
+    "2",
+    "3 <code># Inputs: [visits a month, months a member]</code>",
+    "4 <code>X = [[1, 2], [1, 9], [2, 3], [2, 18], [3, 1],</code>",
+    "5 <code>[3, 7], [3, 26], [4, 4], [4, 11], [4, 30],</code>",
+    "6 <code>[5, 2], [5, 13], [6, 5], [6, 20], [7, 3],</code>",
+    "7 <code>[8, 10], [9, 2], [9, 22], [11, 6], [12, 15]]</code>",
+    "8",
+    "9 <code># Answers: 1 = quit, 0 = stayed</code>",
+    "10 <code>y = [1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]</code>",
+    "11",
+    "12 <code>model = RandomForestClassifier(n_estimators=300)</code>",
+    "13 <code>model.fit(X, y)</code>",
+    "14",
+    "15 <code>new_members = [[2, 4], [10, 20]]</code>",
+    "16 <code>print(model.predict(new_members))</code>"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Step 1 of 7"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Bring in the tool"
+  },
+  {
+   "t": "p",
+   "html": "scikit-learn is a free box of ready-made models. This line takes one model out of the box so the program can use it."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Word by word"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong><code>from sklearn.ensemble</code></strong> from the part of scikit-learn that keeps the forests",
+    "<strong><code>import</code></strong> bring in",
+    "<strong><code>RandomForestClassifier</code></strong> the random forest. <em>Classifier</em> means it picks between answers, like quit or stay."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Want to run it? Press <strong>Copy</strong>, then open a free Colab notebook, paste it into the box and press ▶. Colab already has scikit-learn, so there is nothing to install."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Swap one word, get a different model"
+  },
+  {
+   "t": "p",
+   "html": "Pick a model. Only the highlighted words change. The last two lines are the same for all three."
+  },
+  {
+   "t": "p",
+   "html": "<code>from sklearn.ensemble import RandomForestClassifier</code> changes"
+  },
+  {
+   "t": "p",
+   "html": "<code>model = RandomForestClassifier(n_estimators=300)</code> changes"
+  },
+  {
+   "t": "p",
+   "html": "<code>model.fit(X, y)</code> never changes"
+  },
+  {
+   "t": "p",
+   "html": "<code>model.predict(new)</code> never changes"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Use it when"
+  },
+  {
+   "t": "p",
+   "html": "The answer is a choice, and being right matters more than explaining."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The setting <code>n_estimators=300</code>"
+  },
+  {
+   "t": "p",
+   "html": "Grow 300 trees. More trees, steadier votes."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "<strong>1</strong> import the model",
+    "<strong>2</strong> make it",
+    "<strong>3</strong> <code>fit</code> — learn from examples",
+    "<strong>4</strong> <code>predict</code> — ask about someone new"
+   ]
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Look inside: run it right here"
+  },
+  {
+   "t": "p",
+   "html": "scikit-learn hides the work inside <code>fit</code>. The three boxes below do that work by hand, in plain Python, so you can see it. They run in your browser — nothing to install."
+  },
+  {
+   "t": "p",
+   "html": "Read each one line by line first. Then switch to <strong>Edit and run</strong>, change a number, and press Run."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "The only Python you need for them"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<code># a note</code> A note for people. Python skips everything after the #.",
+    "<code>size = 52</code> Store a value under a name. Read = as “is now”.",
+    "<code>[28, 35, 41]</code> A list: several values in order, inside square brackets.",
+    "<code>size[0]</code> Pick one item from a list. Counting starts at 0, so this is the first.",
+    "<code>print(\"hello\")</code> Show something on the screen.",
+    "<code>f\"Rent is {rent}\"</code> Text with a value dropped in. The f in front lets you put a name inside { }.",
+    "<code>for i in range(12):</code> Repeat the lines under it 12 times, with i = 0, 1, 2 … 11.",
+    "<code>if visits &lt; 4:</code> Only run the lines under it when this is true. else: is what happens otherwise.",
+    "<code>def total_miss(…):</code> Make your own command. return hands the answer back.",
+    "<code>(four spaces)</code> The spaces at the start of a line matter. They show which lines belong together."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "1 — finding the best line"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "<code># Twelve flats: how big they are (m²) and their rent ($ a month).</code>",
+    "<code>size = [28, 35, 41, 46, 52, 58, 63, 70, 76, 84, 91, 98]</code> A list of 12 flat sizes, in square metres.",
+    "<code>rent = [410, 430, 505, 520, 585, 600, 665, 690, 760, 780, 870, 880]</code> Their rents, in the same order. The first flat is 28 m² and rents for $410.",
+    "<code># How far does a line miss? Add up the gap for every flat.</code>",
+    "<code>def total_miss(start, per_m2):</code> Our own command. Give it a line — a starting price and a price per m² — and it adds up how far that line misses all 12 flats.",
+    "<code>miss = 0</code> Start the total at zero.",
+    "<code>for i in range(12):</code> Go through the flats one by one: i is 0, then 1, … up to 11.",
+    "<code>guess = start + per_m2 * size[i]</code> What the line says this flat should rent for. * means “times”.",
+    "<code>miss = miss + abs(rent[i] - guess)</code> How far off was that? abs drops any minus sign, so too high and too low both count.",
+    "<code>return miss</code> Hand the total back.",
+    "<code># 1. Try a line yourself. Change these two numbers.</code>",
+    "<code>my_start = 200</code> Your line: start at $200 …",
+    "<code>my_per_m2 = 7</code> … and add $7 for every square metre. Change these two, press Run, and try to get the miss down.",
+    "<code>print(f\"My line misses by ${total_miss(my_start, my_per_m2):.0f}\")</code> Show how far your line misses. The first $ is just a dollar sign; {…} drops the number in;:.0f means “no decimals”.",
+    "<code># 2. Let the computer try 60,000 lines and keep the best one.</code>",
+    "<code>best_miss = total_miss(my_start, my_per_m2)</code> The best line so far. We start with yours.",
+    "<code>best_start = my_start</code>",
+    "<code>best_per_m2 = my_per_m2</code>",
+    "<code>for start in range(150, 300):</code> Try every starting price from $150 to $299 …",
+    "<code>for cents in range(500, 900):</code> … and for each one, every price per m² from $5.00 to $8.99. 150 × 400 = 60,000 lines.",
+    "<code>per_m2 = cents / 100</code> range only counts in whole numbers, so we count in cents and divide by 100.",
+    "<code>miss = total_miss(start, per_m2)</code>",
+    "<code>if miss &lt; best_miss:</code> Does this line miss by less than the best so far?",
+    "<code>best_miss = miss</code> Then it is the new best. Remember it.",
+    "<code>best_start = start</code>",
+    "<code>best_per_m2 = per_m2</code>",
+    "<code>print(f\"Best line: ${best_start} + ${best_per_m2} per m²\")</code> This is what LinearRegression finds. It just uses maths to get there instead of trying every line.",
+    "<code>print(f\"It misses by ${best_miss:.0f} in total\")</code>",
+    "<code># 3. Use the best line to predict a new flat.</code>",
+    "<code>print(f\"A 65 m² flat -&gt; about ${best_start + best_per_m2 * 65:.0f} a month\")</code> Predicting is just using the line: start + price per m² × 65."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Runs in your browser. Nothing is installed and nothing is sent anywhere."
+  },
+  {
+   "t": "p",
+   "html": "Try this: change my_start and my_per_m2 and get your miss as low as you can. Can you beat the computer's $164?"
+  },
+  {
+   "t": "p",
+   "html": "2 — a tree picking its first question"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "<code># Fourteen gym members.</code>",
+    "<code># How often each one comes (visits a month)...</code>",
+    "<code>visits = [1, 2, 2, 3, 3, 4, 4, 5, 6, 7, 8, 9, 11, 12]</code> A list of 14 numbers, one per member. The first member comes once a month.",
+    "<code>#... and what really happened: 1 = cancelled, 0 = stayed.</code>",
+    "<code>cancelled = [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]</code> The answers, in the same order. The first six cancelled.",
+    "<code># Ask \"visits less than cut_off?\" and count the mistakes.</code>",
+    "<code>def count_wrong(cut_off):</code> Our own command. Give it a cut-off and it tells you how many members that question gets wrong.",
+    "<code>wrong = 0</code> Start the mistake counter at zero.",
+    "<code>for i in range(14):</code> Go through the members one at a time: i is 0 for the first, up to 13 for the last.",
+    "<code>if visits[i] &lt; cut_off:</code> The tree’s question. visits[i] is how often member number i comes.",
+    "<code>guess = 1 # yes -&gt; guess \"cancels\"</code> Yes side of the tree: we guess they cancel.",
+    "<code>else:</code>",
+    "<code>guess = 0 # no -&gt; guess \"stays\"</code> No side: we guess they stay.",
+    "<code>if guess!= cancelled[i]:</code>!= means “is not equal to”. Our guess does not match what really happened …",
+    "<code>wrong = wrong + 1</code> … so add one mistake.",
+    "<code>return wrong</code> Hand the count back.",
+    "<code># Try every cut-off. Keep the one with the fewest mistakes.</code>",
+    "<code>best = 2</code> The best cut-off so far. We start with the first one we will try.",
+    "<code>for cut_off in range(2, 10):</code> Try cut-offs 2, 3, 4 … 9. range stops just before 10.",
+    "<code>print(f\"visits &lt; {cut_off} -&gt; {count_wrong(cut_off)} of 14 wrong\")</code> Show the score for this cut-off. The f lets us drop numbers into the text with { }.",
+    "<code>if count_wrong(cut_off) &lt; count_wrong(best):</code> Fewer mistakes than the best so far? Then this one is the new best.",
+    "<code>best = cut_off</code>",
+    "<code>print(f\"The tree's first question: visits less than {best}?\")</code> This is what DecisionTreeClassifier does for its first question — for every column, very fast."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Try this: does the winning cut-off match the question you picked in the tree widget above?"
+  },
+  {
+   "t": "p",
+   "html": "3 — five tiny trees, then a vote"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "<code># The same 20 gym members as the widget above.</code>",
+    "<code>visits = [1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 6, 6, 7, 8, 9, 9, 11, 12]</code> Three lists, all in the same order. The first number in each belongs to Amy.",
+    "<code>months = [2, 9, 3, 18, 1, 7, 26, 4, 11, 30, 2, 13, 5, 20, 3, 10, 2, 22, 6, 15]</code>",
+    "<code>answers = [1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0] # 1 = quit</code> What really happened: 1 = quit, 0 = stayed.",
+    "<code># Five tiny trees. Each asks ONE question. True means \"will quit\".</code>",
+    "<code>def tree1(i): return visits[i] &lt; 3</code> A tiny tree. For member number i it answers True (will quit) or False (will stay).",
+    "<code>def tree2(i): return visits[i] &lt; 5</code>",
+    "<code>def tree3(i): return visits[i] &lt; 7</code>",
+    "<code>def tree4(i): return months[i] &lt; 6</code>",
+    "<code>def tree5(i): return months[i] &lt; 12</code> Five trees, five different questions — the same five as Tree 1 to Tree 5 above.",
+    "<code>trees = [tree1, tree2, tree3, tree4, tree5]</code> Put all five trees in one list, so we can go through them.",
+    "<code># The forest: ask all five trees and count the \"quit\" votes.</code>",
+    "<code>def forest(i):</code> The forest is a command too. It answers for member number i.",
+    "<code>votes = 0</code> Start the quit votes at zero.",
+    "<code>for tree in trees:</code> Ask each tree in turn.",
+    "<code>if tree(i):</code> Does this tree say quit?",
+    "<code>votes = votes + 1</code> Then add one vote.",
+    "<code>return votes &gt;= 3 # 3 or more of 5 say quit -&gt; quit</code> Most votes wins: 3 or more of the 5 means quit.",
+    "<code># How many of the 20 does a model get right?</code>",
+    "<code>def score(model):</code> Give it any model — one tree, or the whole forest — and it counts how many of the 20 it gets right.",
+    "<code>right = 0</code>",
+    "<code>for i in range(20):</code>",
+    "<code>if model(i) == answers[i]:</code> == asks “are these equal?”. Did the model guess what really happened?",
+    "<code>right = right + 1</code>",
+    "<code>return right</code>",
+    "<code>for n in range(5):</code> Score each tree on its own …",
+    "<code>print(f\"Tree {n + 1} on its own: {score(trees[n])} / 20 right\")</code>",
+    "<code>print(f\"All five voting: {score(forest)} / 20 right\")</code> … then the forest. Compare the numbers."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Try this: change a cut-off in one of the trees, or change votes &gt;= 3 to votes &gt;= 2. The vote is hard to make worse — that is the useful part."
+  },
+  {
+   "t": "p",
+   "html": "Stuck? Press Reset to get the original back. And <code>while True:</code> will freeze the page, because Python is running in this tab — just reload."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Quick quiz"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three questions"
+  },
+  {
+   "t": "p",
+   "html": "Nothing is saved and nobody sees it. Read why the wrong ones are wrong — that is the useful bit."
+  },
+  {
+   "t": "p",
+   "html": "You want to predict how much a flat will rent for. Which model?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five things to remember"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>A model finds the rule for you.</strong> You give it examples. It gives you back a rule. Nobody types the rule in.",
+    "02 <strong>Linear regression draws one line.</strong> Use it when the answer is a number. It also tells you things like \"about $6.70 per square metre\".",
+    "03 <strong>A decision tree is a flowchart.</strong> Use it when the answer is a choice, and when you have to explain yourself. Stop it early or it just memorises.",
+    "04 <strong>A random forest is lots of trees voting.</strong> More accurate, but you cannot print it. Good when being right matters more than explaining.",
+    "05 <strong>Try the simple one first.</strong> A line takes ten minutes and tells you if there is anything there at all."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Sources: Galton's height study (1886); the Ottawa ankle rules (Stiell and colleagues, early 1990s)."
+  }
+ ]
+}

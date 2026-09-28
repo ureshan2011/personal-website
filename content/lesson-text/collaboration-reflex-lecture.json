@@ -1,0 +1,876 @@
+{
+ "slug": "collaboration-reflex-lecture",
+ "url": "https://ureshan2011.github.io/thisisnotalms/collaboration-reflex-lecture.html",
+ "title": "The collaboration reflex",
+ "pageTitle": "The Collaboration Reflex — Lecture",
+ "extractedAt": "2026-09-28",
+ "words": 3705,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "→ advance · ← back · N notes"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Speaker notes — slide 1:</strong> Welcome. Tell them: nothing in today's session is hypothetical. Every story happened to someone — possibly someone in this room's shoes."
+  },
+  {
+   "t": "p",
+   "html": "The Collaboration Reflex"
+  },
+  {
+   "t": "p",
+   "html": "Conflict &amp; communication management — taught through forty-five real conflicts."
+  },
+  {
+   "t": "p",
+   "html": "Every story in this lecture actually happened. All names are invented."
+  },
+  {
+   "t": "eyebrow",
+   "html": "How this lecture was made"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Once, I asked a class like this one to do something unusual."
+  },
+  {
+   "t": "p",
+   "html": "Write down a <em>real conflict</em> you lived through. Not a case study. Not \"Company X.\" A real one, with real stakes — told anonymously, so you could be honest."
+  },
+  {
+   "t": "p",
+   "html": "Then each story went to a stranger in the class, who had to analyse it cold: what really caused this? Who stood to lose what? How was it handled — and how should it have been?"
+  },
+  {
+   "t": "p",
+   "html": "Forty-five stories came back. Today you get the best of what they taught us."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Not just group assignments."
+  },
+  {
+   "t": "p",
+   "html": "An audit room where a CEO shouted \"false allegations.\" A warehouse roster war. A fried-chicken kitchen at peak hour. A bank days before a risky release. A construction site with an idle crew. A German supplier refusing to show evidence. Two couples sharing a flat. One family ultimatum."
+  },
+  {
+   "t": "p",
+   "html": "Same patterns. Every time. That's why this matters beyond any classroom."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Six stories. Four theories. One reflex to unlearn."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The theories"
+  },
+  {
+   "t": "p",
+   "html": "Why projects breed conflict · The five conflict modes · Positions vs. interests · Communication as a system"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The stories"
+  },
+  {
+   "t": "p",
+   "html": "The silent rescuer · the deleted group chat · \"voluntary\" overtime · the intern and the gatekeeper · the receptionist's log · the bank release"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The reflex"
+  },
+  {
+   "t": "p",
+   "html": "When my students analysed each other's conflicts, 75% prescribed the same answer — whatever the question. We'll unlearn that today."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The goal"
+  },
+  {
+   "t": "p",
+   "html": "You leave with two questions that tell you whether any conflict is truly over — and eight habits that prevent most of them."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Silent Rescuer"
+  },
+  {
+   "t": "p",
+   "html": "Wei was the experienced professional in a four-person postgraduate group project — years of marketing and project management behind him — so the others naturally expected him to coordinate. Week one: everyone agrees to split the work equally."
+  },
+  {
+   "t": "p",
+   "html": "Week two: two teammates miss their commitments. A third goes quiet in the group chat. The deadline creeps closer, and Wei watches the quality of the assignment sinking."
+  },
+  {
+   "t": "p",
+   "html": "So he makes the decision so many capable people make: <em>rather than wait, he quietly starts doing their work himself.</em>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story one · how it ended"
+  },
+  {
+   "t": "p",
+   "html": "When Wei reminded the group about deadlines, one member pushed back: <em>you're pressuring us — people have different schedules.</em> A real disagreement, in the open, for one moment."
+  },
+  {
+   "t": "p",
+   "html": "Wei looked at that tension and chose: <em>stop arguing.</em> He put his head down, finished everyone's work, and quietly logged who contributed what — insurance, in case the lecturer asked."
+  },
+  {
+   "t": "p",
+   "html": "The project was submitted on time. It got a good grade. And months later, Wei wrote this about his team:"
+  },
+  {
+   "t": "p",
+   "html": "\"Everyone remained polite, but there was little trust or collaboration afterwards.\""
+  },
+  {
+   "t": "eyebrow",
+   "html": "Talk to your neighbour · 2 minutes"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Wei got the grade. Was he right?"
+  },
+  {
+   "t": "p",
+   "html": "What would <em>you</em> have done — specifically — in week one?"
+  },
+  {
+   "t": "p",
+   "html": "Be honest. \"I'd communicate better\" is not an answer. What would you say, to whom, and when?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Theory 1 · The nature of project conflict"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Conflict is a feature, not a malfunction."
+  },
+  {
+   "t": "p",
+   "html": "Projects force people with <em>different goals, calendars and KPIs</em> to share one deadline. Research since the 1970s (Thamhain &amp; Wilemon) says conflict peaks over <em>schedules, priorities and resources</em> — personality sits far down the list."
+  },
+  {
+   "t": "p",
+   "html": "And Tuckman's team stages remind us: <em>storming</em> is a phase every real team passes through. Teams that never push back on each other aren't peaceful. They just haven't started being honest."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "In our 45 stories"
+  },
+  {
+   "t": "p",
+   "html": "Deadlines &amp; delays — trigger #1. Whose goal wins — trigger #2. Pure personality clashes — rare."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Thamhain, H. J., &amp; Wilemon, D. L. (1975).</strong> Conflict management in project life cycles. <em>Sloan Management Review, 16</em> (3), 31–50. · <strong>Tuckman, B. W. (1965).</strong> Developmental sequence in small groups. <em>Psychological Bulletin, 63</em> (6), 384–399."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The same fight can build the system — or burn it."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Functional — Priya's factory"
+  },
+  {
+   "t": "p",
+   "html": "A materials shortage put orders at risk. Planning, procurement, production, sales — each defending its own KPI, each <em>right by its own scoreboard</em>. The ops manager stopped the blame hunt and asked: given where we are, what do we do? Urgent order, re-sequenced schedule, honest calls to customers — then they fixed the forecasting system itself. The conflict left the company running <em>better</em>."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Dysfunctional — Marcus's report"
+  },
+  {
+   "t": "p",
+   "html": "An employee kept falling asleep at his desk. Quiet word. Brief improvement. Relapse. Then the formal performance plan — which the employee read as <em>the exit door</em>, and resigned. Task closed. Person, knowledge and trust: gone. Nobody ever found out what the sleeping was about."
+  },
+  {
+   "t": "p",
+   "html": "Functional conflict surfaces information. Dysfunctional conflict destroys it."
+  },
+  {
+   "t": "p",
+   "html": "\"The conflict was scheduled before we ever met.\""
+  },
+  {
+   "t": "p",
+   "html": "— one of the forty-five students. The deadline, the KPIs, the unwritten ownership: the collision was on the calendar. Only the ending was still open."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Theory 2 · Thomas–Kilmann conflict modes"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five ways humans handle a clash."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Thomas, K. W., &amp; Kilmann, R. H. (1974).</strong> <em>Thomas-Kilmann Conflict Mode Instrument.</em> Xicom."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The modes, as real people lived them"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The auditor and the furious CEO"
+  },
+  {
+   "t": "p",
+   "html": "Sanjay's job as an internal auditor was to find control weaknesses. He found them. In the review meeting, the CEO's response was to call every finding a <em>\"false allegation\"</em> — in front of both teams."
+  },
+  {
+   "t": "p",
+   "html": "Sanjay didn't soften the report. He didn't offer to meet in the middle. He walked the room through the analysis — built entirely from <em>the management's own reports</em> — and let the documents speak. The CEO conceded. The controls got fixed."
+  },
+  {
+   "t": "p",
+   "html": "Splitting the difference on the truth is not a virtue. Some things you stand on — if you hold the evidence."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The midnight slide swap"
+  },
+  {
+   "t": "p",
+   "html": "The night before a draft deadline, Maya opened the team's deck and found her work <em>replaced</em> — Josh had rewritten it in his own bolder style, without asking anyone. Messages flew. Josh got defensive. Two teammates kept their heads down."
+  },
+  {
+   "t": "p",
+   "html": "Then someone suggested a call instead of a text war. On the call, Maya said the thing that ended the fight in minutes: her issue was never the design. It was <em>being cut out of a decision that affected her work.</em> Josh admitted he should have asked."
+  },
+  {
+   "t": "p",
+   "html": "They blended the two designs — and the blend was better than either original."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Fifty-fifty with the German supplier"
+  },
+  {
+   "t": "p",
+   "html": "Chen's company received goods from a two-year supplier with contract-violating defects. He asked for inspection reports. The supplier refused everything — <em>our products are flawless, your warehouse damaged them, pay us compensation.</em>"
+  },
+  {
+   "t": "p",
+   "html": "Three weeks of argument by email and video call went nowhere, because there was no agreed way to establish the facts. In the end: split all costs fifty-fifty, resume business. Nobody proved anything. The relationship survived."
+  },
+  {
+   "t": "p",
+   "html": "Good enough, on time, is a legitimate outcome. But notice — the real question was never answered. It waits in the next shipment."
+  },
+  {
+   "t": "p",
+   "html": "You've met it: Wei, the silent rescuer. Avoiding is right when the issue is trivial — or as a deliberate cooling-off. The test: <em>avoiding is a strategy when it has a return date.</em> \"Not now, but Thursday\" is timing. \"Not now,\" forever, is a slow goodbye."
+  },
+  {
+   "t": "p",
+   "html": "Lin wanted to leave her degree — she'd lost all interest. Someone she loved threatened to end their relationship over it. Lin yielded, finished, graduated. Years later she's genuinely grateful for the doors it opened… <em>and calls it \"an unresolved emotional issue\" in the same breath.</em> Yielding is right when you're wrong, or the person matters more than the issue. It is never free."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The point most people miss"
+  },
+  {
+   "t": "p",
+   "html": "The five modes are a menu, not a ladder."
+  },
+  {
+   "t": "p",
+   "html": "No mode is \"best.\" Ask three questions: What are the stakes — for the task and the relationship? Does the other side have any reason to engage? How much time do we really have?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What actually worked — 45 stories, honestly coded"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The scoreboard."
+  },
+  {
+   "t": "p",
+   "html": "Every damaged or broken ending sits in the competing or avoiding rows. Small sample, self-reported — but that pattern is hard to ignore."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Deleted Group Chat"
+  },
+  {
+   "t": "p",
+   "html": "Dev led a retail team, and by his own account he was a generous boss — approved leave freely, covered a sick teammate's early shift himself, even wrote performance reports nobody asked for."
+  },
+  {
+   "t": "p",
+   "html": "One of his staff was underperforming: customer complaints, mistakes he wouldn't own, CCTV showing he wasn't greeting customers. Dev cut the man's paid hours. The team's group chat lit up with anger."
+  },
+  {
+   "t": "p",
+   "html": "Dev's response, in his own written words: <em>\"I was completely silent, because the team was not in good shape to understand my efforts.\"</em> Then — advised from above — he <em>deleted the group chat entirely</em>, leaving only the official channel where senior management sat, and nobody dared complain."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story two · how it \"ended\""
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The numbers held. The room went quiet."
+  },
+  {
+   "t": "p",
+   "html": "Hours were now set by performance. Sales stayed strong. The noise stopped. In Dev's telling, the conflict \"ended smoothly.\" And then, at the very end of his story, one sentence of stunning honesty:"
+  },
+  {
+   "t": "p",
+   "html": "\"One thing I have ignored — whether they are working with satisfaction or not.\""
+  },
+  {
+   "t": "p",
+   "html": "The anonymous classmate who analysed his story needed five words for the diagnosis. You're about to see them."
+  },
+  {
+   "t": "eyebrow",
+   "html": "A classmate's five-word diagnosis"
+  },
+  {
+   "t": "p",
+   "html": "\"Silence was mistaken for resolution.\""
+  },
+  {
+   "t": "p",
+   "html": "Avoiding doesn't resolve conflict. It hides the evidence of it. People who can no longer complain to you don't stop complaining — they relocate."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "\"Voluntary\" Overtime"
+  },
+  {
+   "t": "p",
+   "html": "Nadia worked on a delivery team at a large IT company. Written policy: overtime is voluntary. Her team leader — under heavy deadline pressure from above — began treating it as anything but: extra tasks late in the day, hints that staying was expected."
+  },
+  {
+   "t": "p",
+   "html": "The evening Nadia said no — she had a personal commitment, and the policy was on her side — the digs began. Comments in meetings, in front of colleagues, questioning how serious she was about her work."
+  },
+  {
+   "t": "p",
+   "html": "Nadia tried the direct conversation first, one on one. The boss reframed it: <em>everyone else stays. Deadlines will slip. Are you a team player or not?</em> A policy question, converted into a loyalty test."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story three · the win and the bill"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "She won. Read the ending anyway."
+  },
+  {
+   "t": "p",
+   "html": "Nadia went to HR with dates and specific examples. The boss defended herself smoothly — <em>I never ordered anyone to stay; my words were meant to motivate.</em> Hard to prove on paper. HR acted anyway: a written reminder to the whole team. The pressure stopped."
+  },
+  {
+   "t": "p",
+   "html": "\"It was never the same as before. More formal, less friendly… a quieter, more distant working relationship that continued until I left that team.\""
+  },
+  {
+   "t": "p",
+   "html": "Escalating was right — you cannot collaborate someone into obeying policy. But competing spends relationship capital, win or lose. Expect the invoice."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Now — the finding this lecture is named after"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Forty strangers analysed forty conflicts. Then they all gave the same answer."
+  },
+  {
+   "t": "p",
+   "html": "prescribed <em>collaborating</em> as the better mode — whatever the conflict was."
+  },
+  {
+   "t": "p",
+   "html": "Recommended competing: <strong>zero</strong>. Recommended avoiding: one."
+  },
+  {
+   "t": "p",
+   "html": "A boss violating written policy? <em>Collaborate.</em>"
+  },
+  {
+   "t": "p",
+   "html": "A department with zero incentive to bend? <em>Collaborate.</em>"
+  },
+  {
+   "t": "p",
+   "html": "A dispute already settled sensibly at 50/50? <em>Should have collaborated.</em>"
+  },
+  {
+   "t": "p",
+   "html": "These were experienced professionals. The reflex lives in all of us."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Four situations where \"let's collaborate\" is bad advice."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "No shared incentive"
+  },
+  {
+   "t": "p",
+   "html": "Finance blocks deliveries over unpaid invoices; sales fumes. Finance <em>wins by ignoring you</em>. The fix was rules — credit thresholds, a shared dashboard — not a workshop."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "A rule is being broken"
+  },
+  {
+   "t": "p",
+   "html": "Nadia's overtime. Collaborating over a violation converts compliance into a negotiation — and hands the powerful party a discount. Escalate, with evidence."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The other side refuses the table"
+  },
+  {
+   "t": "p",
+   "html": "Sanjay's CEO opened with \"false allegations.\" Collaboration is an offer the other side can decline. Know your next move when the table gets flipped."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Good enough already happened"
+  },
+  {
+   "t": "p",
+   "html": "Chen's 50/50 saved a two-year relationship in one meeting. A perfect joint investigation would have cost weeks and maybe the partnership. Perfection has a price."
+  },
+  {
+   "t": "p",
+   "html": "An answer that fits every question has stopped being an answer."
+  },
+  {
+   "t": "p",
+   "html": "Collaboration has entry conditions: overlapping interests, willingness on both sides, and time. All three present? Nothing beats it. Missing one? Say which — and choose the mode that fits."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "\"Resolved\" is not the same as \"repaired.\""
+  },
+  {
+   "t": "p",
+   "html": "One student's painful family compromise was graded \"resolved perfectly\" by her reviewer — while she called it \"still unresolved inside me.\" Score both axes. Always."
+  },
+  {
+   "t": "p",
+   "html": "A ceasefire is not a peace."
+  },
+  {
+   "t": "p",
+   "html": "Ask two questions after every conflict: Is the task truly sorted? And would these people willingly work together again? \"Resolved\" means both."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The apology that saved a team"
+  },
+  {
+   "t": "p",
+   "html": "Forty-eight hours to a major deadline. Tan's teammate had delivered half a dataset and gone silent. Tan did what stressed people do: called her out in the group chat — publicly, sharply. She went defensive, refused all help, then stopped replying entirely."
+  },
+  {
+   "t": "p",
+   "html": "A few hours later Tan did what almost nobody in our forty-five stories did: he cooled down and sent a <em>private</em> message — apologising for his tone. Not for the concern. For the tone, and the venue."
+  },
+  {
+   "t": "p",
+   "html": "Everything turned on that message. Out came the truth: two hidden deadlines. They split the remaining work, stayed online all night, and submitted with an hour to spare. Then — after the adrenaline — they rebuilt their working agreement: check-ins every two days, problems reported the moment they're visible. <em>No conflicts on any project after that.</em>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Theory 3 · Fisher &amp; Ury, Getting to Yes"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Argue interests, not positions."
+  },
+  {
+   "t": "p",
+   "html": "<em>A position</em> is what someone says they want: \"put my design back.\""
+  },
+  {
+   "t": "p",
+   "html": "<em>An interest</em> is why they want it: respected, consulted, not blindsided at midnight."
+  },
+  {
+   "t": "p",
+   "html": "Positions are usually incompatible by construction — my design <em>or</em> yours. Interests are very often compatible even when positions are not. Maya's interest (be consulted) and Josh's (contribute boldly) were both fully satisfiable. And were."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Fisher, R., &amp; Ury, W. (1981).</strong> <em>Getting to yes: Negotiating agreement without giving in.</em> Houghton Mifflin."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Intern and the Gatekeeper"
+  },
+  {
+   "t": "p",
+   "html": "Ravi joined a product team as a developer intern. Another intern — three months his senior, which made him the unofficial code reviewer — kept sending Ravi's working code back over things written in no team standard: variable names, where to split a function. A one-day task stretched across a week."
+  },
+  {
+   "t": "p",
+   "html": "The breaking point was almost comic: the same block of code, rejected twice, <em>for opposite reasons</em>."
+  },
+  {
+   "t": "p",
+   "html": "Read this fight at position level and it's unwinnable — \"your code needs changing\" vs \"my code is fine.\" Ravi went underneath instead. His interest: predictable rules. The senior intern's interest: his standing, which rested entirely on that three-month head start. Attack the comments publicly and you attack the standing — defensiveness guaranteed."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story four · two masterstrokes"
+  },
+  {
+   "t": "p",
+   "html": "<strong>Masterstroke one.</strong> Ravi asked for ten minutes offline and laid out the pattern without accusing anyone: the requests were inconsistent, and he couldn't tell which rules were real. Defensiveness first — then the admission: most of it was personal habit, not team standard."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Masterstroke two.</strong> They still needed a real standard. So they went to the supervisor <em>together</em>, and asked: <em>\"Can we get a written style guide?\"</em> Not \"he's blocking my work\" — a request that would have produced a referee, a winner, a loser, and a grudge. A process request. It produced a document."
+  },
+  {
+   "t": "p",
+   "html": "Reviews stopped feeling personal. The gatekeeper became something closer to a mentor."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Escalating without burning"
+  },
+  {
+   "t": "p",
+   "html": "Escalate the problem, not the person."
+  },
+  {
+   "t": "p",
+   "html": "Same facts, different container. Before you escalate, rewrite the complaint once — as a missing rule instead of a guilty colleague. If the rewrite is honest, send that version."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Receptionist's Log"
+  },
+  {
+   "t": "p",
+   "html": "Sofia's job included passing phone messages to staff. A coworker from another department began accusing her — increasingly loudly, in an open office — of failing to forward his messages. He'd missed client calls and wanted a culprit. In reality, the messages were sitting ignored in his own queue."
+  },
+  {
+   "t": "p",
+   "html": "Feel how losing every obvious move is from her chair: argue back publicly, and onlookers remember heat, not facts. Absorb it quietly, and the accusation stands. Escalate with no proof — her word against his."
+  },
+  {
+   "t": "p",
+   "html": "Sofia did something better. She proposed, calmly, to his face: a <em>shared message log</em> — every message she forwarded, written down with the time. Framed not as a weapon but as a system that protects everyone."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story five · how paper beats argument"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "She never once argued her innocence."
+  },
+  {
+   "t": "p",
+   "html": "The log ran quietly through days of awkward distance. Then the supervisor reviewed it — timestamps against outcomes — and the question answered itself. The coworker apologised <em>privately, by his own choice</em>, and admitted the pressure he'd been under had gone looking for a target."
+  },
+  {
+   "t": "p",
+   "html": "Six of our forty-five conflicts ended exactly this way — a message log, shuttle-timing data that stopped unfair warnings, a saved two-day-old delay warning that ended a blame meeting in seconds."
+  },
+  {
+   "t": "p",
+   "html": "A record doesn't accuse anyone. It just sits there being true — so the other side can back down without surrendering to <em>you</em>."
+  },
+  {
+   "t": "p",
+   "html": "The person with timestamps wins without raising their voice."
+  },
+  {
+   "t": "p",
+   "html": "Log decisions where they can be found. Confirm verbal agreements in writing that day. And deliver receipts to fix the process — never to humiliate the person."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Theory 4 · Communication management (PMBOK)"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Communication is a system, not a talent."
+  },
+  {
+   "t": "p",
+   "html": "Most of our forty-five conflicts were <em>communication failures first</em>: a transfer promise that lived only in the air. Two client-ownership rules nobody reconciled. A construction schedule confirmed over a chat app, against a written warning."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Plan</strong> — who needs what information, when, in what form, from whom. Decided <em>before</em> work starts.",
+    "<strong>Manage</strong> — actually produce and distribute it, in the agreed channel, at the agreed rhythm.",
+    "<strong>Monitor</strong> — check it landed. Sent is not understood. Silence is never consent."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Project Management Institute. (2021).</strong> <em>A guide to the project management body of knowledge (PMBOK® guide)</em> (7th ed.). Project Management Institute."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Bank Release"
+  },
+  {
+   "t": "p",
+   "html": "Days before a major core-system release at a bank. The digital banking team needs it shipped — customer commitments hang on the date. IT support wants it postponed — user-acceptance testing has surfaced defects, and they're the ones who'll field a production disaster at 2 a.m. The vendor insists it's stable. Business operations stands in the middle."
+  },
+  {
+   "t": "p",
+   "html": "Four parties. Four legitimate scoreboards. One binary decision. In most organisations this resolves by volume or by rank — and the losing team quietly roots for disaster, so they can say <em>told you</em>."
+  },
+  {
+   "t": "p",
+   "html": "This group did something almost boring. They changed the question — from <em>\"should we release?\"</em> to <em>\"what exactly is unresolved, and how bad is each item, really?\"</em>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Story six · the binary dissolves"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Everyone was right. It still almost went wrong."
+  },
+  {
+   "t": "p",
+   "html": "They walked the defect list one item at a time, scoring business impact and technical risk together. High-risk defects: fixed before release. Low-risk: documented into the next update. Regression tests on the fixes. And a rollback plan — humility, written down."
+  },
+  {
+   "t": "p",
+   "html": "The release shipped. No major incidents. Deadline credibility <em>and</em> operational safety — both interests served, because the machinery for talking about risk existed before the crisis did."
+  },
+  {
+   "t": "p",
+   "html": "When a binary decision splits two legitimate interests, don't fight the binary. Itemise it, score it together, and the either/or usually dissolves into \"both.\""
+  },
+  {
+   "t": "eyebrow",
+   "html": "The prevention playbook — written by the people who lived it"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Eight habits that prevent most conflicts."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Scheduled check-ins"
+  },
+  {
+   "t": "p",
+   "html": "Problems found early cost hours, not relationships."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "A shared, visible tracker"
+  },
+  {
+   "t": "p",
+   "html": "Visible progress needs no accusations."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Written agreements first"
+  },
+  {
+   "t": "p",
+   "html": "A verbal agreement is a future conflict with a start date."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Timestamped records"
+  },
+  {
+   "t": "p",
+   "html": "Receipts end blame disputes quietly."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Private before public"
+  },
+  {
+   "t": "p",
+   "html": "Audiences turn corrections into combat."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Escalate the problem"
+  },
+  {
+   "t": "p",
+   "html": "Same facts, different container."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Early-warning norms"
+  },
+  {
+   "t": "p",
+   "html": "\"I'm going to be late\" is the cheapest sentence."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Change control"
+  },
+  {
+   "t": "p",
+   "html": "If changing the plan is free, the plan is fiction."
+  },
+  {
+   "t": "p",
+   "html": "Start with 1 and 3 this week. They quietly install the other six."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your turn · 20 minutes, in pairs"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Defend an unpopular mode."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Pick one story from today — or a real conflict of your own.",
+    "Name the <em>position</em> each side stated. Then the <em>interest</em> hiding under it.",
+    "Choose the best-fit conflict mode. <strong>Rule: you may not choose collaborating unless you can show both sides had incentive, willingness, and time.</strong>",
+    "Design one habit from the playbook that would have prevented the conflict entirely."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "After every conflict you touch — including the ones you only witness"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Ask two questions."
+  },
+  {
+   "t": "p",
+   "html": "<strong>1.</strong> Is the task truly sorted — or just quiet?"
+  },
+  {
+   "t": "p",
+   "html": "<strong>2.</strong> Would these people willingly work together again?"
+  },
+  {
+   "t": "p",
+   "html": "If either answer is no, the conflict is still open — whatever the paperwork says. The gap between \"the fighting stopped\" and \"it's over\" is where people keep their resignation letters."
+  },
+  {
+   "t": "eyebrow",
+   "html": "If you remember one thing"
+  },
+  {
+   "t": "p",
+   "html": "Almost none of the forty-five conflicts demanded brilliance. They demanded a tracker, a page, a rhythm — and one honest conversation, held about two weeks earlier than anyone wanted to have it. That's nearly always the whole trick."
+  },
+  {
+   "t": "p",
+   "html": "Frameworks: Thomas &amp; Kilmann (1974) · Fisher &amp; Ury, Getting to Yes (1981) · Tuckman (1965) · Thamhain &amp; Wilemon (1975) · PMI, PMBOK® Guide — Communications Management. All stories real; all names invented."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Frameworks cited in this lecture."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Fisher, R., &amp; Ury, W. (1981). <em>Getting to yes: Negotiating agreement without giving in.</em> Houghton Mifflin.",
+    "Project Management Institute. (2021). <em>A guide to the project management body of knowledge (PMBOK® guide)</em> (7th ed.). Project Management Institute.",
+    "Thamhain, H. J., &amp; Wilemon, D. L. (1975). Conflict management in project life cycles. <em>Sloan Management Review, 16</em> (3), 31–50.",
+    "Thomas, K. W., &amp; Kilmann, R. H. (1974). <em>Thomas-Kilmann Conflict Mode Instrument.</em> Xicom.",
+    "Tuckman, B. W. (1965). Developmental sequence in small groups. <em>Psychological Bulletin, 63</em> (6), 384–399."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "All forty-five conflict stories are real, anonymised classroom submissions. All names used in this lecture are invented."
+  },
+  {
+   "t": "p",
+   "html": "Blended Teaching Content"
+  },
+  {
+   "t": "p",
+   "html": "by Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "p",
+   "html": "The Collaboration Reflex — a lecture built from forty-five real conflicts."
+  }
+ ]
+}
