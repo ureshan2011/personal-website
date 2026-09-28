@@ -7,8 +7,8 @@
 User-agent: *
 Allow: /
 
-# Note: orphaned template demos (about.html, home-agency.html,
-# single-portfolio.html, "index original.html") carry an on-page
+# Note: orphaned template demos (home-agency.html, single-portfolio.html,
+# "index original.html") carry an on-page
 # <meta name="robots" content="noindex, nofollow"> so they are read but
 # never indexed.
 

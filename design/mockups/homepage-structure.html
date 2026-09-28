@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Homepage Restructure</title>
+<link rel="stylesheet" href="mockup-base.css"/>
+<style>
+  body { background: #fff; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 56px 48px 64px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: 46px; letter-spacing: -.02em; line-height: 1.05; margin: 12px 0 10px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .sub { color: var(--ink-soft); font-size: 16px; max-width: 760px; }
+
+  .navs { margin: 34px 0 40px; display: grid; gap: 12px; }
+  .navrow { display: grid; grid-template-columns: 120px 1fr; align-items: center; gap: 18px; }
+  .navrow > b { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .navbar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-soft); }
+  .navbar span { font-size: 13.5px; font-weight: 500; padding: 5px 10px; border-radius: 8px; background: #fff; border: 1px solid var(--line); }
+  .navbar span.cta { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+  .navbar span.x { text-decoration: line-through; color: var(--muted); background: transparent; border-style: dashed; }
+  .navbar span.up { border-color: #067647; color: #067647; background: #dcfae6; }
+  .navbar .note { margin-left: auto; font-size: 12.5px; color: var(--ink-soft); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .colhead { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 14px; }
+  .colhead h2 { font-family: var(--serif); font-weight: 500; font-size: 26px; }
+  .colhead span { font-size: 13px; color: var(--ink-soft); }
+  .colhead span b { font-size: 20px; font-family: var(--serif); color: var(--ink); font-weight: 500; }
+
+  .row { display: grid; grid-template-columns: 1fr 190px; gap: 12px; margin-bottom: 4px; align-items: stretch; }
+  .bar { border-radius: 8px; padding: 0 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; font-weight: 600; background: var(--bg); border-left: 4px solid var(--c); background: var(--s); color: var(--ink); overflow: hidden; }
+  .bar small { font-weight: 500; color: var(--ink-soft); font-size: 12px; white-space: nowrap; }
+  .fate { font-size: 12.5px; line-height: 1.3; color: var(--c); font-weight: 600; display: flex; align-items: center; }
+  .keep { --c: #2f6bff; --s: #e9f0ff; }
+  .merge { --c: #b45309; --s: #fef3c7; }
+  .move { --c: #475063; --s: #eef2f7; }
+  .remove { --c: #b42318; --s: #fee4e2; }
+  .new { --c: #067647; --s: #dcfae6; }
+
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 26px; font-size: 13px; color: var(--ink-soft); }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 12px; height: 12px; border-radius: 3px; background: var(--s); border-left: 3px solid var(--c); }
+  .scale { font-size: 12px; color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="eyebrow">Homepage information architecture</span>
+  <h1>From 16 sections to 9: <em>a homepage that routes people.</em></h1>
+  <p class="sub">Bar heights are the real rendered heights of today's homepage at 1440px wide (proposed heights are estimates). Nothing is deleted from the site. Sections either stay, merge, or move to the page that already covers them.</p>
+
+  <div class="navs">
+    <div class="navrow"><b>Nav today</b>
+      <div class="navbar"><span>Research</span><span>Teaching</span><span>Students</span><span>Products</span><span>News</span><span>Writing</span><span>About</span><span>Platform · New</span><span>Contact</span><span class="cta">Work With Me</span>
+        <span class="note">10 items · collapses to a hamburger below 1140px · no Speaking</span></div></div>
+    <div class="navrow"><b>Proposed</b>
+      <div class="navbar"><span>Research</span><span>Teaching</span><span class="up">Speaking ↑</span><span>Products</span><span>Writing</span><span>About</span><span class="cta">Work with me</span>
+        <span class="note">Students → Teaching · News → Speaking &amp; About · Platform → folded into pages · Contact → footer + CTA</span></div></div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="colhead"><h2>Today</h2><span><b id="tTotal"></b> px tall · 16 sections + footer</span></div>
+      <div id="today"></div>
+    </div>
+    <div>
+      <div class="colhead"><h2>Proposed</h2><span><b id="pTotal"></b> px tall · 9 sections + footer</span></div>
+      <div id="proposed"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="new"><i></i>New or redesigned</span>
+    <span class="keep"><i></i>Keep</span>
+    <span class="merge"><i></i>Condense or merge</span>
+    <span class="move"><i></i>Move to its own page</span>
+    <span class="remove"><i></i>Remove (duplicate)</span>
+  </div>
+  <p class="scale">Scale: 1px here ≈ 12px of page. Mobile today is 23,125px tall (about 27 phone screens).</p>
+</div>
+
+<script>
+  var S = 12;
+  var today = [
+    ['Hero (name behind photo)', 860, 'new', 'Redesign: one message, one CTA'],
+    ['Marquee', 60, 'remove', 'Remove'],
+    ['About intro + logos', 1050, 'merge', 'Bio → hero line; logos → proof bar'],
+    ['Founder: ICT Campus', 1291, 'merge', 'Keep, condense to one band'],
+    ['Lessons teaser', 812, 'merge', 'Merge → Free resources'],
+    ['Study in NZ, 3-step form', 1012, 'move', 'Move → Students page'],
+    ['Platform promo', 760, 'remove', 'Remove → Start here doors'],
+    ['Research frontiers + newsletter', 864, 'merge', 'Merge → Research door'],
+    ['Selected work (1 case)', 1247, 'keep', 'Keep, show 3 case studies'],
+    ['Book', 723, 'merge', 'Merge → Free resources'],
+    ['Upcoming + Just wrapped (6 flyers)', 2998, 'merge', 'Replace with one “Now” row'],
+    ['In the news', 939, 'move', 'Move → News / Speaking'],
+    ['Instagram (6 embeds)', 731, 'move', 'Move → About'],
+    ['What I do (4 services)', 1017, 'remove', 'Remove, repeats the doors'],
+    ['Big CTA', 660, 'keep', 'Keep as contact band'],
+    ['FAQ', 887, 'keep', 'Keep (SEO)'],
+    ['Footer', 580, 'keep', 'Keep, group by audience']
+  ];
+  var proposed = [
+    ['Hero: concept A, B or C', 820, 'new', 'One promise, one primary CTA'],
+    ['Proof bar: logos + 3 numbers', 150, 'new', 'HIT Lab NZ · Sony · Niantic'],
+    ['Start here: 4 audience doors', 950, 'new', 'Surfaces Speaking, Workshops, Case studies, Media, Lessons, Study NZ'],
+    ['Now: next talk · latest paper · new lessons', 720, 'merge', '3 cards, replaces 9'],
+    ['Selected work: 3 case studies', 820, 'keep', 'Real links, no fake arrows'],
+    ['Founder: ICT Campus & Campus Ready', 720, 'merge', 'One band'],
+    ['Free resources: lessons · playbook · book', 640, 'merge', 'Three lead magnets together'],
+    ['Contact band + newsletter', 480, 'keep', 'One newsletter form, not two'],
+    ['FAQ', 890, 'keep', ''],
+    ['Footer', 580, 'keep', '']
+  ];
+  function render(id, rows, totalId) {
+    var el = document.getElementById(id), total = 0, html = '';
+    rows.forEach(function (r) {
+      total += r[1];
+      var h = Math.max(Math.round(r[1] / S), 26);
+      html += '<div class="row"><div class="bar ' + r[2] + '" style="height:' + h + 'px"><span>' + r[0] + '</span><small>' + r[1].toLocaleString() + '</small></div><div class="fate ' + r[2] + '">' + r[3] + '</div></div>';
+    });
+    el.innerHTML = html;
+    document.getElementById(totalId).textContent = '~' + total.toLocaleString();
+  }
+  render('today', today, 'tTotal');
+  render('proposed', proposed, 'pTotal');
+</script>
+</body>
+</html>

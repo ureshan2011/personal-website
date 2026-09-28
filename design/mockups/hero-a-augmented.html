@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Hero concept A: Augmented</title>
+<link rel="stylesheet" href="mockup-base.css"/>
+<style>
+  body { background: #fff; }
+  .hero { position: relative; overflow: hidden; min-height: calc(100vh - 78px); }
+  /* faint spatial grid that fades out, a nod to AR plane tracking */
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(47,107,255,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(47,107,255,.07) 1px, transparent 1px);
+    background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 60% 70% at 30% 45%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 60% 70% at 30% 45%, #000 20%, transparent 75%); }
+  .hero::after { content: ""; position: absolute; width: 820px; height: 820px; right: -180px; top: -60px; pointer-events: none;
+    background: radial-gradient(circle, rgba(47,107,255,.16), transparent 62%); }
+
+  .hero-grid { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 36px 48px 48px;
+    display: grid; grid-template-columns: minmax(0, 610px) minmax(0, 1fr); gap: 72px; align-items: center; min-height: calc(100vh - 78px); }
+
+  .status { display: inline-flex; align-items: center; gap: 10px; height: 34px; padding: 0 14px 0 12px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--line); box-shadow: 0 6px 18px -12px rgba(19,26,38,.3); font-size: 13.5px; font-weight: 500; color: var(--ink-soft); }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 4px rgba(22,163,74,.16); }
+  .status b { color: var(--ink); font-weight: 600; }
+
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 6vw, 86px); line-height: .98; letter-spacing: -0.028em; margin: 26px 0 26px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { font-size: 19px; line-height: 1.6; color: var(--ink-soft); max-width: 560px; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .ctas { display: flex; align-items: center; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .ctas .link-arrow { margin-left: 8px; }
+
+  .proof { display: flex; align-items: center; gap: 28px; margin-top: 56px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .proof small { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .proof .logos { display: flex; align-items: center; gap: 26px; }
+  .proof .logos img { height: 26px; width: auto; filter: grayscale(1); opacity: .72; }
+  .proof .logos img.sony { height: 22px; }
+  .proof .stat { margin-left: auto; text-align: right; line-height: 1.25; }
+  .proof .stat b { display: block; font-family: var(--serif); font-size: 30px; font-weight: 500; letter-spacing: -.02em; }
+  .proof .stat span { font-size: 12.5px; color: var(--muted); }
+
+  /* ---------- the AR stage ---------- */
+  .stage { position: relative; width: 100%; max-width: 540px; justify-self: end; aspect-ratio: 520 / 720; }
+  .photo { position: absolute; inset: 0; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 80px -40px rgba(19,26,38,.55); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.28)); }
+  svg.links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; z-index: 2; pointer-events: none; }
+  svg.links line { stroke: #fff; stroke-width: 1.4; stroke-dasharray: 3 4; }
+  svg.links .dot { fill: #fff; }
+  svg.links .ring { fill: none; stroke: #fff; stroke-opacity: .7; stroke-width: 1.4; transform-box: fill-box; transform-origin: center; animation: ping 2.4s var(--ease) infinite; }
+  @keyframes ping { 0% { transform: scale(.6); opacity: 1; } 100% { transform: scale(1.9); opacity: 0; } }
+
+  .brackets { position: absolute; left: 57.5%; top: 9%; width: 39%; height: 40%; z-index: 2; pointer-events: none; }
+  .brackets i { position: absolute; width: 26px; height: 26px; border: 2px solid #fff; }
+  .brackets i:nth-of-type(1) { left: 0; top: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 8px; }
+  .brackets i:nth-of-type(2) { right: 0; top: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 8px; }
+  .brackets i:nth-of-type(3) { left: 0; bottom: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 8px; }
+  .brackets i:nth-of-type(4) { right: 0; bottom: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 8px; }
+  .brackets span { position: absolute; right: 0; top: -24px; font: 600 10.5px/1 var(--mono); letter-spacing: .08em; color: #fff; background: rgba(12,18,32,.55); padding: 4px 7px; border-radius: 5px; white-space: nowrap; }
+
+  .surface { position: absolute; left: 12%; top: 8%; z-index: 2; text-align: center; }
+  .surface .ring2 { width: 124px; height: 36px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,.9); position: relative; }
+  .surface .ring2::after { content: ""; position: absolute; inset: 9px 34px; border-radius: 50%; border: 1.5px dashed rgba(255,255,255,.75); }
+  .surface span { display: inline-block; margin-top: 6px; font: 600 10px/1 var(--mono); letter-spacing: .08em; color: #fff; text-transform: uppercase; }
+
+  .ar-card { position: absolute; z-index: 3; width: 232px; padding: 12px 14px 13px; border-radius: 14px;
+    background: rgba(255,255,255,.84); backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255,255,255,.75); box-shadow: 0 22px 44px -20px rgba(0,0,0,.5); }
+  .ar-card .k { display: block; font: 600 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+  .ar-card b { display: block; font-size: 14px; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; }
+  .ar-card small { display: block; font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; line-height: 1.4; }
+  .ar-card.c1 { left: -9%; top: 22%; width: 264px; }
+  .ar-card.c2 { left: -12%; top: 44%; width: 268px; }
+  .ar-card.c3 { right: -4%; bottom: 5%; width: 292px; background: rgba(12,18,32,.8); border-color: rgba(255,255,255,.14); color: #fff; }
+  .ar-card.c3 .k { color: #7ee2a8; display: flex; align-items: center; gap: 8px; }
+  .ar-card.c3 .k i { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 4px rgba(52,211,153,.22); }
+  .ar-card.c3 small { color: rgba(255,255,255,.72); }
+  .ar-card.c3 .go { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 600; color: #fff; border-bottom: 1px solid rgba(255,255,255,.4); }
+
+  .only-mobile { display: none; }
+  @media (max-width: 760px) {
+    .hero, .hero-grid { min-height: 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 0; padding: 10px 20px 28px; }
+    .status { font-size: 12.5px; height: 30px; }
+    h1 { font-size: 46px; margin: 20px 0 16px; }
+    .lede { font-size: 16px; }
+    .only-desktop { display: none; }
+    .only-mobile { display: inline; }
+    .ctas { margin-top: 22px; gap: 10px; }
+    .ctas .btn { flex: 1; }
+    .ctas .link-arrow, .proof { display: none; }
+    .stage { max-width: none; margin-top: 30px; }
+    .ar-card { width: 210px; }
+    .ar-card.c1 { left: 4%; top: 36%; width: 230px; }
+    .brackets span { font-size: 9.5px; }
+    .ar-card.c2, .surface { display: none; }
+    .ar-card.c3 { left: 4%; right: 4%; bottom: 4%; width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="mnav">
+  <div class="mnav-inner">
+    <a class="mnav-logo" href="#">Yasas Sri<br/><em>Wickramasinghe</em></a>
+    <div class="mnav-links">
+      <a href="#">Research</a><a href="#">Teaching</a><a href="#">Speaking</a><a href="#">Products</a><a href="#">Writing</a><a href="#">About</a>
+      <a class="btn btn-solid btn-sm" href="#">Work with me →</a>
+    </div>
+    <button class="mnav-menu" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div class="copy">
+      <span class="status"><i></i><span><b>Booking now</b><span class="only-desktop"> · talks, workshops &amp; consulting for 2027</span><span class="only-mobile"> · talks &amp; workshops, 2027</span></span></span>
+      <h1>Designing shared worlds <em>across distance.</em></h1>
+      <p class="lede">
+        <span class="only-desktop">I'm <strong>Dr. Yasas Sri Wickramasinghe</strong> — an augmented reality researcher at HIT Lab NZ, a senior lecturer, and the founder of ICT Campus. I study how AR brings people together when they're far apart, then I teach it and build it.</span>
+        <span class="only-mobile">I'm <strong>Dr. Yasas Sri Wickramasinghe</strong> — AR researcher at HIT Lab NZ, senior lecturer and founder of ICT Campus. I research it, teach it and build it.</span>
+      </p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="#">Work with me →</a>
+        <a class="btn" href="#">Book a talk</a>
+        <a class="link-arrow" href="#">or try 40 free lessons</a>
+      </div>
+      <div class="proof">
+        <small>Research with</small>
+        <div class="logos">
+          <img src="../../assets/images/logo-hitlabnz.png" alt="HIT Lab NZ"/>
+          <img class="sony" src="../../assets/images/logo-sony.svg" alt="Sony Interactive Entertainment"/>
+          <img src="../../assets/images/logo-niantic-spatial.png" alt="Niantic Spatial"/>
+        </div>
+        <div class="stat"><b>150K+</b><span>learners on platforms I've led</span></div>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="photo"><img src="../../assets/images/yasas-ar-glasses.jpg" alt="Yasas wearing AR eye-tracking glasses, holding a tablet running a location-based AR scene"/></div>
+      <svg class="links" aria-hidden="true"></svg>
+      <div class="brackets" aria-hidden="true"><span>ANCHOR 01 · 43.53°S 172.63°E</span><i></i><i></i><i></i><i></i></div>
+      <div class="surface" aria-hidden="true"><div class="ring2"></div><span>Surface detected</span></div>
+
+      <div class="ar-card c1" data-ax="56" data-ay="27.5">
+        <span class="k">Credentials</span>
+        <b>PhD, Human Interface Technology</b>
+        <small>HIT Lab NZ · University of Canterbury</small>
+      </div>
+      <div class="ar-card c2" data-ax="19" data-ay="69">
+        <span class="k">Published · 2025</span>
+        <b>Multiplayer AR, designed with Sony Interactive Entertainment</b>
+        <small>Entertainment Computing (Elsevier) →</small>
+      </div>
+      <a class="ar-card c3" href="#">
+        <span class="k"><i></i>Next talk · 1 Oct 2026</span>
+        <b>NZGDC, Auckland — Designing Shared Worlds Across Distance</b>
+        <span class="go">Talk page, slides &amp; the six rules →</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Draws the leader lines from each anchor point (% of the photo) to the nearest edge of its card.
+  function drawLinks() {
+    var stage = document.getElementById('stage'), svg = stage.querySelector('svg.links');
+    var r = stage.getBoundingClientRect(), out = '';
+    svg.setAttribute('viewBox', '0 0 ' + r.width + ' ' + r.height);
+    stage.querySelectorAll('[data-ax]').forEach(function (card) {
+      if (getComputedStyle(card).display === 'none') return;
+      var ax = card.dataset.ax / 100 * r.width, ay = card.dataset.ay / 100 * r.height;
+      var c = card.getBoundingClientRect();
+      var x0 = c.left - r.left, y0 = c.top - r.top, x1 = x0 + c.width, y1 = y0 + c.height;
+      var px = Math.max(x0 + 14, Math.min(ax, x1 - 14)), py = Math.max(y0, Math.min(ay, y1));
+      out += '<line x1="' + ax + '" y1="' + ay + '" x2="' + px + '" y2="' + py + '"/>' +
+             '<circle class="ring" cx="' + ax + '" cy="' + ay + '" r="10"/><circle class="dot" cx="' + ax + '" cy="' + ay + '" r="4.5"/>';
+    });
+    svg.innerHTML = out;
+  }
+  window.addEventListener('load', drawLinks);
+  window.addEventListener('resize', drawLinks);
+</script>
+</body>
+</html>
