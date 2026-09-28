@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Cache hunt — styles. Loaded only when someone turns the hunt on.
+
+   Plain, in the site's own style: white surfaces, ink text, the blue
+   accent kept for the caches themselves.
+
+   · Base styles are the FINAL state; keyframes only say where things come
+     from, so with reduced motion everything simply appears.
+   · A cache's position is set inline through `transform`, so its entrance
+     and opening animate the SVG inside it, never the button itself.
+   · Nothing that contains the clue list may be transformed or filtered:
+     that would re-anchor the fixed list to the bar instead of the screen.
+   ========================================================================== */
+
+.hunt-layer, .hunt-dialog {
+  --hunt-blue: #2f6bff;
+  --hunt-ink: #1f4fd1;       /* blue for small text and filled buttons (6.3:1 on white) */
+  --hunt-night: #0b1220;
+  --hunt-green: #0f7a4a;
+  --hunt-ease: cubic-bezier(.22, 1, .36, 1);
+  --hunt-sans: var(--sans, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  --hunt-serif: var(--serif, "Newsreader", Georgia, serif);
+}
+
+.hunt-layer {
+  position: absolute; left: 0; top: 0; width: 100%; height: 0; z-index: 940;
+  pointer-events: none; font-family: var(--hunt-sans); text-align: left;
+  transition: opacity .2s ease;
+}
+html.hunt-exit .hunt-layer { opacity: 0; }
+/* Nothing in the layer may ever widen the page (a phone would start to pan). */
+@supports (overflow: clip) { .hunt-layer { overflow-x: clip; overflow-y: visible; } }
+.hunt-layer [hidden] { display: none !important; }
+.hunt-layer button { font: inherit; margin: 0; -webkit-tap-highlight-color: transparent; }
+
+/* ---------- The cache tin (drawn in hunt-engine.js; also used in the note) */
+.hunt-box { overflow: visible; }
+.hunt-box-body { fill: var(--hunt-blue, #2f6bff); }
+.hunt-box-band { fill: none; stroke: rgba(255, 255, 255, .35); stroke-width: 1.2; }
+.hunt-box-latch { fill: #dbe6ff; }
+.hunt-box-lid rect { fill: #5b8bff; }
+.hunt-box-lid path { stroke: #1f4fd1; stroke-width: 2; stroke-linecap: round; }
+.hunt-box-star { fill: #ffd36e; }
+.hunt-box-lid { transform-box: fill-box; transform-origin: 0% 100%; transition: transform .35s var(--hunt-ease, ease); }
+
+/* ---------- A cache hidden on the page */
+.hunt-cache {
+  position: absolute; left: -22px; top: -22px; width: 44px; height: 44px; padding: 0;
+  border: 0; border-radius: 12px; background: none; cursor: pointer; pointer-events: none;
+  opacity: 0;
+}
+/* Unseen until it has been on screen, but never hidden from the keyboard or
+   a screen reader: Tab reaches it, scrolls to it and shows it. */
+.hunt-cache.is-seen, .hunt-cache:focus { opacity: 1; pointer-events: auto; }
+.hunt-cache.is-off { visibility: hidden; }
+.hunt-cache .hunt-box { position: absolute; left: 4px; top: 6px; width: 36px; height: 33px; filter: drop-shadow(0 6px 10px rgba(47, 107, 255, .35)); }
+.hunt-cache.is-seen .hunt-box { animation: huntIn .6s cubic-bezier(.2, 1.4, .35, 1) both; }
+@keyframes huntIn { from { opacity: 0; transform: translateY(8px) scale(.6); } }
+.hunt-cache:hover .hunt-box-lid { transform: rotate(-12deg) translateY(-1px); }
+.hunt-cache:focus-visible { outline: 2px solid var(--hunt-blue); outline-offset: 2px; }
+.hunt-ping {
+  position: absolute; left: 50%; top: 55%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%;
+  border: 2px solid rgba(47, 107, 255, .55); opacity: 0; pointer-events: none;
+}
+.hunt-cache.is-seen:not(.is-found) .hunt-ping { animation: huntPing 2.6s ease-out 1s infinite; }
+.hunt-cache.is-near:not(.is-found) .hunt-ping { animation-duration: 1.5s; animation-delay: 0s; }
+@keyframes huntPing { 0% { opacity: .85; transform: scale(.6); } 70%, 100% { opacity: 0; transform: scale(1.8); } }
+
+.hunt-cache.is-opening .hunt-box-lid { animation: huntLid .6s var(--hunt-ease) both; }
+@keyframes huntLid { 0% { transform: none; } 45% { transform: rotate(-40deg) translate(-2px, -6px); } 100% { transform: rotate(-28deg) translate(-1px, -3px); } }
+.hunt-cache.is-found .hunt-box-lid { transform: rotate(-28deg) translate(-1px, -3px); }
+.hunt-cache.is-found .hunt-box { opacity: .55; filter: grayscale(.25); }
+.hunt-got {
+  position: absolute; right: -1px; top: 0; width: 20px; height: 20px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--hunt-green); color: #fff; box-shadow: 0 0 0 2px #fff;
+  opacity: 0; transform: scale(.5); transition: opacity .25s ease, transform .3s var(--hunt-ease);
+}
+.hunt-cache.is-found .hunt-got { opacity: 1; transform: none; }
+
+/* ---------- Status bar */
+.hunt-bar {
+  position: fixed; z-index: 10; display: flex; align-items: center; gap: 12px;
+  left: max(20px, env(safe-area-inset-left)); bottom: max(20px, env(safe-area-inset-bottom));
+  height: 50px; max-width: calc(100vw - 40px); padding: 0 6px 0 14px; border-radius: 999px;
+  background: #fff; color: var(--ink, #131a26); border: 1px solid var(--line-strong, #d3d9e3);
+  box-shadow: 0 18px 40px -22px rgba(11, 18, 32, .45); pointer-events: auto; font-size: 13.5px;
+  animation: huntFade .4s ease both;
+}
+@keyframes huntFade { from { opacity: 0; } }
+.hunt-count { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.hunt-count b { font-weight: 700; }
+.hunt-cmp { flex: none; width: 20px; height: 20px; }
+.hunt-cmp circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.hunt-cmp .hunt-n { fill: var(--hunt-blue); }
+.hunt-cmp .hunt-s { fill: currentColor; opacity: .5; }
+.hunt-cmp g { transform-origin: 12px 12px; transform: rotate(35deg); }
+.hunt-gps {
+  padding-left: 12px; border-left: 1px solid var(--line, #e4e8ef); white-space: nowrap;
+  color: var(--ink-soft, #475063); font-variant-numeric: tabular-nums;
+}
+.hunt-gps.is-hot { color: var(--hunt-ink); font-weight: 600; }
+.hunt-bar.is-hello .hunt-gps { animation: huntHello 1.1s ease 2; }
+@keyframes huntHello { 50% { color: var(--hunt-ink); } }
+.hunt-acts { display: inline-flex; align-items: center; gap: 6px; margin-left: 2px; }
+.hunt-cluebtn {
+  height: 38px; padding: 0 16px; border: 0; border-radius: 999px; cursor: pointer;
+  background: var(--hunt-night); color: #fff; font-weight: 600;
+}
+.hunt-cluebtn[aria-expanded="true"] { background: var(--hunt-ink); }
+.hunt-exit {
+  display: grid; place-items: center; width: 38px; height: 38px; border: 0; border-radius: 50%; cursor: pointer;
+  background: var(--bg-soft, #f4f6f9); color: var(--ink, #131a26);
+}
+.hunt-cluebtn:hover { background: #1b2640; }
+.hunt-exit:hover { background: #e7ebf1; }
+.hunt-cluebtn:focus-visible, .hunt-exit:focus-visible { outline: 2px solid var(--hunt-blue); outline-offset: 2px; }
+
+/* ---------- The cache list */
+.hunt-panel {
+  position: fixed; left: max(20px, env(safe-area-inset-left)); bottom: calc(max(20px, env(safe-area-inset-bottom)) + 60px);
+  width: min(400px, calc(100vw - 40px)); max-height: calc(100vh - 160px); overflow: auto; overscroll-behavior: contain;
+  padding: 18px 18px 14px; border-radius: 20px; pointer-events: auto; text-align: left;
+  background: #fff; color: var(--ink, #131a26); border: 1px solid var(--line, #e4e8ef);
+  box-shadow: 0 30px 70px -30px rgba(11, 18, 32, .5);
+  animation: huntFade .25s ease both;
+}
+.hunt-ph { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.hunt-pt { margin: 0; font: 500 22px/1.2 var(--hunt-serif); letter-spacing: -.01em; color: var(--ink, #131a26); }
+.hunt-px {
+  display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 10px; cursor: pointer;
+  background: var(--bg-soft, #f4f6f9); color: var(--ink, #131a26);
+}
+.hunt-pp { margin: 8px 0 12px; font-size: 13.5px; line-height: 1.5; color: var(--ink-soft, #475063); }
+.hunt-prog { height: 6px; margin-bottom: 6px; border-radius: 99px; overflow: hidden; background: #e4e8ef; }
+.hunt-prog span { display: block; height: 100%; border-radius: inherit; background: var(--hunt-blue); }
+.hunt-items { list-style: none; margin: 0 0 14px; padding: 0; }
+.hunt-item { padding: 12px 6px; border-bottom: 1px solid var(--line, #e4e8ef); border-radius: 0; }
+.hunt-item.is-focus { background: #f3f6ff; border-radius: 12px; }
+.hunt-item-top { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; align-items: center; gap: 2px 10px; }
+/* number · name · difficulty, with the status on its own line under the name */
+.hunt-item-n {
+  flex: none; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--bg-soft, #f4f6f9); color: var(--ink-soft, #475063); font-size: 11.5px; font-weight: 700;
+}
+.hunt-item.is-found .hunt-item-n { background: #e7f5ee; color: var(--hunt-green); }
+.hunt-item-name { min-width: 0; font-size: 14.5px; font-weight: 600; }
+.hunt-level { display: inline-flex; gap: 3px; }
+.hunt-level i { width: 6px; height: 6px; border-radius: 50%; background: #d3d9e3; }
+.hunt-level i.on { background: var(--ink-soft, #475063); }
+.hunt-item-s { grid-column: 2 / -1; justify-self: start; display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted, #636d7e); }
+.hunt-item.is-found .hunt-item-s { color: var(--hunt-green); font-weight: 600; }
+.hunt-item.is-here:not(.is-found) .hunt-item-s { color: var(--hunt-ink); font-weight: 600; }
+.hunt-item-clue, .hunt-item-find { margin: 6px 0 0 32px; font-size: 13.5px; line-height: 1.5; color: var(--ink, #131a26); }
+.hunt-item-find { color: var(--ink-soft, #475063); }
+.hunt-item-hint { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 6px 0 0 32px; }
+.hunt-rot { font: 12px/1.45 ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace; color: var(--muted, #636d7e); }
+.hunt-decode {
+  padding: 2px 0; border: 0; background: none; cursor: pointer; color: var(--hunt-ink);
+  font-size: 12.5px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px;
+}
+.hunt-hint-t { flex-basis: 100%; margin: 2px 0 0; font-size: 13px; line-height: 1.5; color: var(--ink-soft, #475063); }
+.hunt-hint-t a { color: var(--hunt-ink); font-weight: 600; white-space: nowrap; }
+.hunt-prize {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-radius: 14px;
+  background: var(--hunt-night); color: #fff; font-size: 13.5px; font-weight: 600; text-decoration: none;
+}
+.hunt-prize:hover { background: #16213a; }
+.hunt-reset {
+  display: block; margin: 10px auto 0; padding: 6px; border: 0; background: none; cursor: pointer;
+  color: var(--ink-soft, #475063); font-size: 12.5px; text-decoration: underline; text-underline-offset: 3px;
+}
+.hunt-reset.is-armed { color: #b42318; }
+.hunt-panel a:focus-visible, .hunt-panel button:focus-visible { outline: 2px solid var(--hunt-blue); outline-offset: 2px; border-radius: 8px; }
+
+/* ---------- "Found it" note */
+.hunt-dialog {
+  margin: auto;  /* the site's global reset zeroes the browser's centring */
+  width: min(420px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto;
+  padding: 28px 26px 24px; border: 0; border-radius: 24px; text-align: center;
+  background: #fff; color: var(--ink, #131a26); font-family: var(--hunt-sans);
+  box-shadow: 0 40px 100px -30px rgba(11, 18, 32, .55);
+}
+.hunt-dialog::backdrop { background: rgba(11, 18, 32, .45); }
+.hunt-dialog.is-fallback { position: fixed; inset: 0; z-index: 1001; height: fit-content; }
+.hunt-dialog[open] { animation: huntFade .3s ease both; }
+.hunt-dlg-art { width: 84px; height: 76px; margin: 0 auto 12px; }
+.hunt-dlg-art .hunt-box { display: block; width: 84px; height: 76px; filter: drop-shadow(0 12px 18px rgba(47, 107, 255, .35)); }
+.hunt-dlg-art .hunt-box-lid { transform: rotate(-28deg) translate(-2px, -6px); }
+.hunt-dlg-art.is-fresh .hunt-box-lid { animation: huntLid .8s var(--hunt-ease) .1s both; }
+.hunt-dlg-k { margin: 0; font-size: 13px; color: var(--muted, #636d7e); }
+.hunt-dlg-t { margin: 4px 0 10px; font: 500 30px/1.15 var(--hunt-serif); letter-spacing: -.015em; color: var(--ink, #131a26); }
+.hunt-dlg-p { max-width: 36ch; margin: 0 auto 12px; font-size: 15px; line-height: 1.6; color: var(--ink-soft, #475063); }
+.hunt-dlg-log {
+  display: inline-flex; align-items: center; gap: 6px; margin: 4px 0 20px; padding: 6px 12px; border-radius: 999px;
+  background: #e7f5ee; color: var(--hunt-green); font-size: 12.5px; font-weight: 600;
+}
+.hunt-dlg-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.hunt-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 20px;
+  border: 1px solid var(--line-strong, #d3d9e3); border-radius: 999px; background: #fff; color: var(--ink, #131a26);
+  font: 600 14px/1 var(--hunt-sans); text-decoration: none; cursor: pointer; transition: transform .2s var(--hunt-ease);
+}
+.hunt-btn--solid { background: var(--hunt-ink); border-color: var(--hunt-ink); color: #fff; }
+.hunt-btn:hover { transform: translateY(-1px); }
+.hunt-btn:focus-visible { outline: 2px solid var(--hunt-blue); outline-offset: 3px; }
+
+/* ---------- Small screens */
+@media (max-width: 640px) {
+  .hunt-bar { left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); max-width: none; gap: 10px; padding-left: 12px; font-size: 13px; }
+  .hunt-word { display: none; }
+  .hunt-gps { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; padding-left: 10px; }
+  .hunt-acts { margin-left: auto; }
+  .hunt-panel { left: 12px; right: 12px; width: auto; bottom: calc(max(12px, env(safe-area-inset-bottom)) + 60px); }
+}
+
+/* ---------- Motion, contrast, print */
+@media (prefers-reduced-motion: reduce) {
+  .hunt-layer *, .hunt-layer *::before, .hunt-layer *::after,
+  .hunt-dialog, .hunt-dialog * { animation: none !important; transition-duration: .01ms !important; }
+}
+@media (forced-colors: active) {
+  .hunt-bar, .hunt-panel, .hunt-dialog { border: 1px solid CanvasText; }
+  .hunt-cluebtn, .hunt-exit, .hunt-btn, .hunt-px { border: 1px solid ButtonText; }
+  .hunt-box-body, .hunt-box-lid rect { fill: CanvasText; }
+  .hunt-ping { display: none; }
+}
+@media print { .hunt-layer, .hunt-dialog { display: none !important; } }
