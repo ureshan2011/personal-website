@@ -5,8 +5,8 @@
    with its Flip control (a native checkbox). This adds:
      · foil and tilt that follow the mouse (mouse/pen only, motion allowed)
      · click anywhere on a card to flip it
-     · the sealed state until the six AR Mode crystals are found, with an
-       "Unseal them now" button for anyone who would rather not hunt
+     · the sealed state until every cache in the cache hunt is found, with
+       an "Unseal them now" button for anyone who would rather not hunt
      · the unseal animation, played once, when the collection comes into view
      · Save → the phone's share sheet where supported, otherwise a download
      · Share the collection
@@ -20,22 +20,19 @@
 
   var mq = function (q) { return !!(window.matchMedia && window.matchMedia(q).matches); };
   var reduced = mq("(prefers-reduced-motion: reduce)");
-  var KEY_FOUND = "arx-crystals", KEY_CARDS = "arx-cards", KEY_SEEN = "arx-cards-seen";
-  // The six crystals — ids and pages must match assets/js/ar-notes.js.
-  var HUNT = [
-    { id: "speaking", page: "speaking.html" }, { id: "workshops", page: "workshops.html" },
-    { id: "cases", page: "case-studies.html" }, { id: "media", page: "media.html" },
-    { id: "playbook", page: "playbook.html" }, { id: "lessons", page: "lessons.html" }
-  ];
-  var MINI = '<svg viewBox="0 0 16 24" aria-hidden="true" focusable="false"><path d="M8 .5 1 10l7 2.5 7-2.5z" fill="#c9d7ff"/><path d="M1 10l7 2.5v11z" fill="#7189ff"/><path d="M15 10l-7 2.5v11z" fill="#4549d8"/></svg>';
+  var KEY_FOUND = "hunt-found", KEY_CARDS = "hunt-cards", KEY_SEEN = "hunt-cards-seen";
+  // The caches come from assets/js/hunt-caches.js, loaded on this page too.
+  var HUNT = (window.HUNT_CACHES || []).map(function (c) { return { id: c.id, page: c.page }; });
+  if (!HUNT.length) HUNT = [{ id: "start", page: "index.html" }];
+  var TIN = '<svg viewBox="0 0 40 36" aria-hidden="true" focusable="false"><rect x="4" y="14" width="32" height="19" rx="4" fill="#2f6bff"/><rect x="3" y="7" width="34" height="9" rx="3.5" fill="#5b8bff"/><rect x="17" y="17" width="6" height="7" rx="1.5" fill="#dbe6ff"/></svg>';
 
   function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function found() {
-    var ids = HUNT.map(function (h) { return h.id; });
     try {
-      var a = JSON.parse(get(KEY_FOUND) || "[]");
-      return Array.isArray(a) ? a.filter(function (id) { return ids.indexOf(id) > -1; }) : [];
+      var m = JSON.parse(get(KEY_FOUND) || "{}");
+      if (!m || typeof m !== "object") return [];
+      return HUNT.map(function (h) { return h.id; }).filter(function (id) { return !!m[id]; });
     } catch (e) { return []; }
   }
   function isOpen() { return get(KEY_CARDS) === "open" || found().length >= HUNT.length; }
@@ -103,24 +100,24 @@
 
   function renderStatus(message) {
     if (!status) return;
-    var n = found().length, open = isOpen();
-    var gems = "";
-    for (var i = 0; i < HUNT.length; i++) gems += '<span class="' + (i < n ? "on" : "off") + '">' + MINI + "</span>";
-    status.querySelector(".hc-gems").innerHTML = gems;
+    var n = found().length, open = isOpen(), total = HUNT.length;
+    var tins = "";
+    for (var i = 0; i < total; i++) tins += '<span class="' + (i < n ? "on" : "off") + '">' + TIN + "</span>";
+    status.querySelector(".hc-gems").innerHTML = tins;
     var text = status.querySelector(".hc-status-t");
     var acts = status.querySelector(".hc-acts");
     if (open) {
-      text.innerHTML = "<b>Unsealed.</b> " + (n >= HUNT.length ? "You found all six crystals. " : "") +
-        "Tilt a card to catch the foil, flip it for the finding, and save the ones you like." +
+      text.innerHTML = "<b>Unsealed.</b> " + (n >= total ? "You found all " + total + " caches. " : "") +
+        "Flip a card for the finding and save the ones you like." +
         (message ? ' <span class="hc-share-msg">' + message + "</span>" : "");
       acts.innerHTML = '<button type="button" class="btn btn-solid hc-share">Share the collection <span class="arrow">↗</span></button>';
     } else {
       var got = found();
       var next = HUNT.filter(function (h) { return got.indexOf(h.id) < 0; })[0] || HUNT[0];
-      text.innerHTML = "<b>Sealed.</b> Six crystals hide across this site, visible only in AR Mode. " +
-        (n ? "You’ve found " + n + " of 6." : "Find all six to open the holo edition.");
+      text.innerHTML = "<b>Sealed.</b> " + total + " caches are hidden around this site. Turn on the cache hunt (the compass in the menu) and go looking. " +
+        (n ? "You’ve found " + n + " of " + total + "." : "Find them all to open the holo edition.");
       acts.innerHTML =
-        '<a class="btn btn-solid" href="' + next.page + '?ar=on">' + (n ? "Continue the hunt" : "Start the hunt") + ' <span class="arrow">→</span></a>' +
+        '<a class="btn btn-solid" href="' + next.page + '?hunt=on">' + (n ? "Continue the hunt" : "Start the hunt") + ' <span class="arrow">→</span></a>' +
         '<button type="button" class="btn hc-unseal">Unseal them now</button>';
     }
     status.hidden = false;
@@ -157,12 +154,14 @@
       // view, then open them in front of the visitor.
       setSealed(true);
       renderStatus();
+      // Watch the first card, not the grid: on a phone the whole grid is
+      // many screens tall and never gets far enough into view.
       var io = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting) return;
+        if (!entries[0].isIntersecting || entries[0].intersectionRatio < 0.3) return;
         io.disconnect();
         setTimeout(function () { unseal(true); }, 280);
-      }, { threshold: 0.18 });
-      io.observe(grid);
+      }, { threshold: [0.3, 0.6] });
+      io.observe(items[0] || grid);
     } else {
       set(KEY_SEEN, "1");
       renderStatus();
