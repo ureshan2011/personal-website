@@ -44,7 +44,7 @@ Today at 3 PM I'm on stage at #NZGDC 🎤 Designing Shared Worlds Across Distanc
 ## Alt text (Advanced settings → Accessibility → Write alt text)
 
 ```
-Event poster on a dark navy background. Headline: "Designing shared worlds across distance", with "across distance" in orange italics. On the right, Dr. Yasas Sri Wickramasinghe, in a blue shirt, stands inside an open window frame, his head rising above it. Badges read "NZGDC 2026" and "I'm speaking". Stats: 3 AR games, 128 players, 6 design rules. Details: Thursday 1 October 2026, 3:00 to 3:30 PM NZDT, NZ International Convention Centre, Auckland. A QR code links to yasassri.me/nzgdc.
+Event poster on a dark navy background. Across the top, "I'm speaking in" and "Tāmaki Makaurau" frame the word "Auckland" in huge serif letters with a white-to-orange sunset gradient. Dr. Yasas Sri Wickramasinghe, in a blue shirt, stands inside an open window frame below it, his head rising in front of the word. Talk title: "Designing shared worlds across distance", with "across distance" in orange italics. Stats: 3 AR games, 128 players, 6 design rules. Details: NZGDC 2026, Thursday 1 October 2026, 3:00 to 3:30 PM NZDT, NZ International Convention Centre, Auckland. A QR code links to yasassri.me/nzgdc.
 ```
 
 ## Before posting

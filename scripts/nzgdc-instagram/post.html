@@ -5,8 +5,10 @@
 <meta name="robots" content="noindex"/>
 <title>NZGDC 2026 Instagram post</title>
 <style>
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; src: url('../../assets/fonts/inter-latin.woff2') format('woff2'); }
-@font-face { font-family: 'Newsreader'; font-style: normal; font-weight: 200 800; src: url('../../assets/fonts/newsreader-latin.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; src: url('../../assets/fonts/inter-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; src: url('../../assets/fonts/inter-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+2000-206F, U+2190-21FF; }
+@font-face { font-family: 'Newsreader'; font-style: normal; font-weight: 200 800; src: url('../../assets/fonts/newsreader-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+@font-face { font-family: 'Newsreader'; font-style: normal; font-weight: 200 800; src: url('../../assets/fonts/newsreader-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+2000-206F; }
 @font-face { font-family: 'Newsreader'; font-style: italic; font-weight: 400; src: url('../../assets/fonts/newsreader-italic-latin.woff2') format('woff2'); }
 
 :root {
@@ -14,123 +16,149 @@
   --navy-deep: #0a101d;
   --orange: #f26b3a;
   --orange-hot: #ff8a57;
+  --peach: #ffd2bd;
   --yellow: #ffc933;
   --cream: #efe7da;
-  --cream-shade: #d8cdbb;
   --ink: #eef0f6;
-  --dim: rgba(238, 240, 246, 0.68);
-  --line: rgba(255, 255, 255, 0.10);
+  --dim: rgba(238, 240, 246, 0.66);
+  --faint: rgba(238, 240, 246, 0.42);
+  --line: rgba(255, 255, 255, 0.12);
   --serif: 'Newsreader', Georgia, serif;
   --sans: 'Inter', system-ui, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { background: #000; }
-body { width: 1080px; height: 1350px; overflow: hidden; }
+body { width: 1080px; height: 1350px; overflow: hidden; text-rendering: geometricPrecision; -webkit-font-smoothing: antialiased; }
 
 .post {
   position: relative; width: 1080px; height: 1350px; overflow: hidden;
-  font-family: var(--sans); color: var(--ink);
+  font-family: var(--sans); color: var(--ink); font-kerning: normal; font-optical-sizing: auto;
   background:
-    radial-gradient(620px 520px at 80% 34%, rgba(242, 107, 58, 0.26), transparent 70%),
-    radial-gradient(760px 560px at -6% -8%, rgba(47, 107, 255, 0.22), transparent 62%),
-    radial-gradient(900px 500px at 50% 112%, rgba(242, 107, 58, 0.14), transparent 70%),
-    linear-gradient(180deg, #131c31 0%, var(--navy) 42%, var(--navy-deep) 100%);
+    radial-gradient(640px 420px at 50% 16%, rgba(242, 107, 58, 0.20), transparent 70%),
+    radial-gradient(560px 520px at 82% 46%, rgba(242, 107, 58, 0.22), transparent 70%),
+    radial-gradient(760px 560px at -6% 30%, rgba(47, 107, 255, 0.20), transparent 62%),
+    radial-gradient(900px 500px at 50% 112%, rgba(242, 107, 58, 0.12), transparent 70%),
+    linear-gradient(180deg, #141d33 0%, var(--navy) 44%, var(--navy-deep) 100%);
 }
 .dots {
-  position: absolute; inset: 0; pointer-events: none; opacity: .55;
+  position: absolute; inset: 0; pointer-events: none; opacity: .5;
   background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1.2px, transparent 1.5px);
   background-size: 26px 26px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 35% 40%, #000 20%, transparent 78%);
-          mask-image: radial-gradient(ellipse 70% 55% at 35% 40%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 45% at 30% 52%, #000 20%, transparent 78%);
+          mask-image: radial-gradient(ellipse 70% 45% at 30% 52%, #000 20%, transparent 78%);
 }
 .layer { position: absolute; inset: 0; width: 1080px; height: 1350px; }
 .grain { position: absolute; inset: 0; opacity: .07; mix-blend-mode: overlay; pointer-events: none; }
+.caps { font-family: var(--sans); font-weight: 700; text-transform: uppercase; letter-spacing: .2em; }
 
 /* ---------- top bar ---------- */
-.top { position: absolute; left: 64px; right: 64px; top: 58px; display: flex; align-items: center; gap: 14px; }
+.top { position: absolute; left: 64px; right: 64px; top: 56px; display: flex; align-items: center; gap: 16px; }
 .badge {
-  display: inline-flex; align-items: center; height: 46px; padding: 0 18px; border-radius: 9px;
-  background: var(--orange); color: #fff; font-size: 19px; font-weight: 800; letter-spacing: .16em;
+  display: inline-flex; align-items: center; height: 44px; padding: 0 17px; border-radius: 9px;
+  background: var(--orange); color: #fff; font-size: 18px; font-weight: 800; letter-spacing: .16em;
   box-shadow: 0 10px 30px -8px rgba(242, 107, 58, .7);
 }
-.pill {
-  display: inline-flex; align-items: center; gap: 11px; height: 46px; padding: 0 20px; border-radius: 999px;
-  border: 1.5px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .05);
-  font-size: 17px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+.top-r { margin-left: auto; font-size: 13.5px; color: var(--dim); }
+
+/* ---------- Auckland masthead ---------- */
+.mast { position: absolute; left: 64px; right: 64px; top: 128px; }
+.mast-lead { display: flex; align-items: center; gap: 18px; font-size: 15px; }
+.mast-lead .lead { display: inline-flex; align-items: center; gap: 12px; color: #fff; }
+.mast-lead .lead i { width: 10px; height: 10px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 5px rgba(255, 201, 51, .16), 0 0 16px rgba(255, 201, 51, .8); }
+.mast-lead .rule { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,.08)); }
+.mast-lead .reo { color: var(--peach); }
+.mast h2 {
+  display: inline-block; margin-top: 18px; margin-left: -9px;
+  font-family: var(--serif); font-weight: 380; font-size: 248px; line-height: .9; letter-spacing: -0.045em;
+  white-space: nowrap;
+  background: linear-gradient(176deg, #ffffff 18%, var(--peach) 52%, var(--orange-hot) 78%, var(--orange) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 18px 40px rgba(242, 107, 58, .28));
 }
-.pill i { width: 11px; height: 11px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 5px rgba(255, 201, 51, .18), 0 0 18px rgba(255, 201, 51, .8); }
-.top-r { margin-left: auto; text-align: right; font-size: 15px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); line-height: 1.5; }
-.top-r b { color: var(--ink); font-weight: 700; }
 
 /* ---------- left copy ---------- */
-.copy { position: absolute; left: 64px; top: 170px; width: 440px; }
-.kicker { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--orange-hot); }
-.kicker::before { content: ""; width: 34px; height: 2px; background: var(--orange); }
+.copy { position: absolute; left: 64px; top: 424px; width: 452px; }
 h1 {
-  margin-top: 22px; font-family: var(--serif); font-weight: 500; color: #fff;
-  font-size: 82px; line-height: .95; letter-spacing: -0.028em;
+  font-family: var(--serif); font-weight: 480; color: #fff;
+  font-size: 70px; line-height: .98; letter-spacing: -0.03em;
 }
-h1 em { display: block; font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.02em; }
-.sub { margin-top: 26px; font-size: 22px; line-height: 1.45; color: var(--dim); }
-.sub b { color: #fff; font-weight: 600; }
+h1 em { font-style: italic; font-weight: 400; color: var(--orange); letter-spacing: -0.02em; }
+.sub { margin-top: 24px; font-family: var(--serif); font-style: italic; font-size: 25px; line-height: 1.35; color: var(--dim); letter-spacing: -0.005em; }
 
-.stats { display: flex; gap: 0; margin-top: 30px; border-top: 1.5px solid var(--line); }
+.stats { display: flex; margin-top: 30px; border-top: 1px solid var(--line); }
 .stats div { flex: 1; padding: 18px 0 0; }
-.stats div + div { padding-left: 22px; border-left: 1.5px solid var(--line); }
-.stats b { display: block; font-family: var(--serif); font-weight: 500; font-size: 54px; line-height: 1; color: #fff; font-variant-numeric: lining-nums; }
-.stats span { display: block; margin-top: 8px; font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+.stats div + div { padding-left: 22px; border-left: 1px solid var(--line); }
+.stats b { display: block; font-family: var(--serif); font-weight: 400; font-size: 56px; line-height: 1; color: #fff; letter-spacing: -0.03em; font-variant-numeric: lining-nums; }
+.stats span { display: block; margin-top: 9px; font-size: 12.5px; color: var(--dim); }
 
 /* ---------- portrait in the window ---------- */
-.person-clip { clip-path: polygon(600px 0, 988px 0, 988px 826px, 600px 826px); }
+.person-clip { clip-path: polygon(600px 0, 988px 0, 988px 866px, 600px 866px); }
 .person {
-  position: absolute; left: 520px; top: 118px; width: 520px; height: auto;
-  filter: drop-shadow(0 0 26px rgba(242, 107, 58, .38)) drop-shadow(0 24px 30px rgba(0, 0, 0, .45));
+  position: absolute; left: 520px; top: 194px; width: 520px; height: auto;
+  filter: drop-shadow(0 0 26px rgba(242, 107, 58, .40)) drop-shadow(0 24px 30px rgba(0, 0, 0, .45));
 }
 .nametag {
-  position: absolute; left: 616px; top: 716px; padding: 16px 22px 17px; border-radius: 16px;
-  background: rgba(12, 18, 32, .72); border: 1.5px solid rgba(255, 255, 255, .14);
+  position: absolute; left: 616px; top: 756px; padding: 15px 22px 16px; border-radius: 16px;
+  background: rgba(12, 18, 32, .74); border: 1px solid rgba(255, 255, 255, .16);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .6);
 }
-.nametag small { display: block; font-size: 12.5px; font-weight: 800; letter-spacing: .2em; color: var(--orange-hot); }
-.nametag b { display: block; margin-top: 5px; font-size: 23px; font-weight: 700; letter-spacing: -0.01em; color: #fff; }
-.nametag span { display: block; margin-top: 3px; font-size: 15.5px; color: var(--dim); }
+.nametag small { display: block; font-size: 11.5px; color: var(--orange-hot); }
+.nametag b { display: block; margin-top: 6px; font-family: var(--serif); font-size: 27px; font-weight: 500; letter-spacing: -0.015em; color: #fff; line-height: 1.05; }
+.nametag span { display: block; margin-top: 5px; font-size: 15px; color: var(--dim); }
 
 /* ---------- info card ---------- */
 .info {
-  position: absolute; left: 64px; right: 64px; top: 908px; height: 378px;
-  display: grid; grid-template-columns: 1fr 300px; gap: 36px; padding: 34px 34px 34px 40px;
+  position: absolute; left: 64px; right: 64px; top: 944px; bottom: 60px;
+  display: grid; grid-template-columns: 1fr 262px; gap: 34px; padding: 30px 34px 30px 38px;
   border-radius: 30px; background: linear-gradient(160deg, rgba(255, 255, 255, .085), rgba(255, 255, 255, .03));
-  border: 1.5px solid rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .14);
   box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .08);
 }
-.rows { display: grid; align-content: space-between; }
-.row { display: grid; grid-template-columns: 58px 1fr; gap: 18px; align-items: center; }
-.row + .row { padding-top: 22px; border-top: 1.5px solid var(--line); }
-.ic {
-  width: 58px; height: 58px; border-radius: 16px; display: grid; place-items: center;
-  background: rgba(242, 107, 58, .14); border: 1.5px solid rgba(242, 107, 58, .35);
+.rows { display: grid; grid-template-rows: 1fr 1fr; }
+.date { display: flex; align-items: center; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.date .day {
+  font-family: var(--serif); font-weight: 460; font-size: 128px; line-height: .78; letter-spacing: -0.04em; font-variation-settings: 'opsz' 28;
+  background: linear-gradient(180deg, #fff 10%, var(--peach) 60%, var(--orange-hot) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; padding-top: 6px;
 }
-.ic svg { width: 28px; height: 28px; }
-.row small { display: block; font-size: 13px; font-weight: 800; letter-spacing: .2em; color: var(--dim); }
-.row p { margin-top: 5px; font-size: 22px; line-height: 1.3; font-weight: 600; color: #fff; }
-.row p span { color: var(--dim); font-weight: 500; }
-.row p .hot { color: var(--orange-hot); font-weight: 700; }
+.date small, .venue small { display: block; font-size: 12.5px; color: var(--orange-hot); }
+.date p { margin-top: 8px; font-size: 30px; font-weight: 600; letter-spacing: -0.015em; color: #fff; line-height: 1.1; }
+.date p span { font-weight: 500; color: var(--dim); font-size: 22px; letter-spacing: 0; }
+.venue { display: flex; align-items: center; gap: 20px; padding-top: 22px; }
+.pin {
+  flex: none; width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(242, 107, 58, .14); border: 1px solid rgba(242, 107, 58, .4);
+}
+.pin svg { width: 28px; height: 28px; }
+.venue p { margin-top: 7px; font-size: 23px; font-weight: 600; line-height: 1.25; color: #fff; letter-spacing: -0.01em; }
+.venue p span { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 23px; color: var(--peach); letter-spacing: 0; }
 
 .qr { display: grid; justify-items: center; align-content: center; text-align: center; }
 .qr-card {
-  position: relative; width: 236px; height: 236px; padding: 10px; border-radius: 22px; background: #fff;
+  width: 218px; height: 218px; padding: 9px; border-radius: 20px; background: #fff;
   box-shadow: 0 0 0 6px rgba(242, 107, 58, .22), 0 22px 44px -14px rgba(0, 0, 0, .7);
 }
 .qr-card img { display: block; width: 100%; height: 100%; }
-.qr-label { margin-top: 18px; font-size: 13px; font-weight: 800; letter-spacing: .2em; color: var(--orange-hot); }
-.qr-url { margin-top: 5px; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: -0.005em; }
-.scan-arrow { position: absolute; left: -64px; top: 84px; width: 58px; }
+.qr-label { margin-top: 16px; font-size: 11.5px; line-height: 1.6; color: var(--orange-hot); }
+.qr-url { margin-top: 3px; font-size: 19px; font-weight: 700; color: #fff; letter-spacing: -0.005em; }
 </style>
 </head>
 <body>
 <div class="post" id="post">
   <div class="dots"></div>
+
+  <!-- top bar -->
+  <header class="top">
+    <span class="badge">NZGDC 2026</span>
+    <span class="top-r caps">NZ Game Developers Conference</span>
+  </header>
+
+  <!-- the key highlight: Auckland, set as a masthead the portrait breaks in front of -->
+  <section class="mast">
+    <div class="mast-lead caps"><span class="lead"><i></i>I'm speaking in</span><span class="rule"></span><span class="reo">Tāmaki Makaurau</span></div>
+    <h2 id="mastWord">Auckland</h2>
+  </section>
 
   <!-- Window, back half: the "remote room" and the frame's top bar (the portrait breaks out over it) -->
   <svg class="layer" viewBox="0 0 1080 1350" aria-hidden="true">
@@ -138,35 +166,32 @@ h1 em { display: block; font-style: italic; font-weight: 400; color: var(--orang
       <linearGradient id="roomBg" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#1b2745"/><stop offset="1" stop-color="#0c1322"/>
       </linearGradient>
-      <radialGradient id="roomGlow" cx="794" cy="400" r="300" gradientUnits="userSpaceOnUse">
+      <radialGradient id="roomGlow" cx="794" cy="480" r="300" gradientUnits="userSpaceOnUse">
         <stop offset="0" stop-color="#f26b3a" stop-opacity=".55"/>
         <stop offset=".55" stop-color="#f26b3a" stop-opacity=".12"/>
         <stop offset="1" stop-color="#f26b3a" stop-opacity="0"/>
       </radialGradient>
       <radialGradient id="orb"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#cfe0ff" stop-opacity=".8"/><stop offset="1" stop-color="#9fb8ff" stop-opacity="0"/></radialGradient>
       <radialGradient id="orbY"><stop offset="0" stop-color="#fff6d6"/><stop offset=".35" stop-color="#ffc933" stop-opacity=".9"/><stop offset="1" stop-color="#ffc933" stop-opacity="0"/></radialGradient>
-      <clipPath id="interior"><rect x="600" y="284" width="388" height="542"/></clipPath>
+      <clipPath id="interior"><rect x="600" y="366" width="388" height="500"/></clipPath>
       <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
     </defs>
-    <!-- window shadow on the wall -->
-    <rect x="560" y="262" width="470" height="618" rx="14" fill="#000" opacity=".45" filter="url(#soft)"/>
+    <rect x="560" y="344" width="470" height="590" rx="14" fill="#000" opacity=".45" filter="url(#soft)"/>
     <g clip-path="url(#interior)">
-      <rect x="600" y="284" width="388" height="542" fill="url(#roomBg)"/>
-      <!-- wireframe room: back wall + perspective edges -->
+      <rect x="600" y="366" width="388" height="500" fill="url(#roomBg)"/>
       <g stroke="rgba(170,190,255,.30)" stroke-width="1.5" fill="none">
-        <path d="M688 360H900V640H688Z"/>
-        <path d="M600 284L688 360M988 284L900 360M600 826L688 640M988 826L900 640"/>
-        <path d="M912 700v-58h42v58M612 610h64v40h-64z"/>
+        <path d="M688 440H900V700H688Z"/>
+        <path d="M600 366L688 440M988 366L900 440M600 866L688 700M988 866L900 700"/>
+        <path d="M912 760v-58h42v58M612 668h64v40h-64z"/>
       </g>
       <g id="cloud"></g>
-      <rect x="600" y="284" width="388" height="542" fill="url(#roomGlow)"/>
-      <circle cx="642" cy="330" r="16" fill="url(#orb)"/>
-      <circle cx="950" cy="600" r="14" fill="url(#orbY)"/>
-      <circle cx="648" cy="560" r="12" fill="url(#orb)"/>
+      <rect x="600" y="366" width="388" height="500" fill="url(#roomGlow)"/>
+      <circle cx="642" cy="412" r="16" fill="url(#orb)"/>
+      <circle cx="950" cy="650" r="14" fill="url(#orbY)"/>
+      <circle cx="648" cy="620" r="12" fill="url(#orb)"/>
     </g>
-    <!-- frame top bar (sits behind the portrait) -->
-    <rect x="584" y="268" width="420" height="16" fill="#efe7da"/>
-    <rect x="600" y="282" width="388" height="2" fill="#0a101d" opacity=".5"/>
+    <rect x="584" y="350" width="420" height="16" fill="#efe7da"/>
+    <rect x="600" y="364" width="388" height="2" fill="#0a101d" opacity=".5"/>
   </svg>
 
   <!-- Portrait, clipped to the window opening but free to rise above it -->
@@ -181,49 +206,37 @@ h1 em { display: block; font-style: italic; font-weight: 400; color: var(--orang
       <linearGradient id="shutR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#f6f0e6"/><stop offset="1" stop-color="#cfc3b0"/></linearGradient>
       <linearGradient id="pane" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26335a"/><stop offset="1" stop-color="#141d33"/></linearGradient>
     </defs>
-    <!-- sides + bottom of the frame -->
-    <rect x="584" y="268" width="16" height="574" fill="#efe7da"/>
-    <rect x="988" y="268" width="16" height="574" fill="#efe7da"/>
-    <rect x="584" y="826" width="420" height="16" fill="#efe7da"/>
-    <rect x="600" y="284" width="2" height="542" fill="#0a101d" opacity=".35"/>
-    <!-- sill -->
-    <path d="M566 842H1022L1032 866H556Z" fill="#e4dac9"/>
-    <rect x="556" y="866" width="476" height="6" fill="#b9ab94"/>
-    <!-- left shutter (hinged at the frame, swung open towards us) -->
+    <rect x="584" y="350" width="16" height="532" fill="#efe7da"/>
+    <rect x="988" y="350" width="16" height="532" fill="#efe7da"/>
+    <rect x="584" y="866" width="420" height="16" fill="#efe7da"/>
+    <rect x="600" y="366" width="2" height="500" fill="#0a101d" opacity=".35"/>
+    <path d="M566 882H1022L1032 906H556Z" fill="#e4dac9"/>
+    <rect x="556" y="906" width="476" height="6" fill="#b9ab94"/>
     <g>
-      <path d="M584 270L528 244V868L584 840Z" fill="url(#shutL)"/>
-      <path d="M576 290L537 272V440L576 450Z M576 470L537 460V640L576 646Z M576 666L537 660V840L576 822Z" fill="url(#pane)"/>
-      <path d="M584 270L528 244V868L584 840Z" fill="none" stroke="#b5a78f" stroke-width="1.5"/>
+      <path d="M584 352L528 326V908L584 880Z" fill="url(#shutL)"/>
+      <path d="M576 372L537 354V512L576 522Z M576 542L537 532V694L576 700Z M576 720L537 714V884L576 862Z" fill="url(#pane)"/>
+      <path d="M584 352L528 326V908L584 880Z" fill="none" stroke="#b5a78f" stroke-width="1.5"/>
     </g>
-    <!-- right shutter -->
     <g>
-      <path d="M1004 270L1060 244V868L1004 840Z" fill="url(#shutR)"/>
-      <path d="M1012 290L1051 272V440L1012 450Z M1012 470L1051 460V640L1012 646Z M1012 666L1051 660V840L1012 822Z" fill="url(#pane)"/>
-      <path d="M1004 270L1060 244V868L1004 840Z" fill="none" stroke="#b5a78f" stroke-width="1.5"/>
+      <path d="M1004 352L1060 326V908L1004 880Z" fill="url(#shutR)"/>
+      <path d="M1012 372L1051 354V512L1012 522Z M1012 542L1051 532V694L1012 700Z M1012 720L1051 714V884L1012 862Z" fill="url(#pane)"/>
+      <path d="M1004 352L1060 326V908L1004 880Z" fill="none" stroke="#b5a78f" stroke-width="1.5"/>
     </g>
   </svg>
 
-  <!-- top bar -->
-  <header class="top">
-    <span class="badge">NZGDC 2026</span>
-    <span class="pill"><i></i>I'm speaking</span>
-    <span class="top-r"><b>Auckland</b><br/>30 Sep – 3 Oct</span>
-  </header>
-
-  <!-- headline -->
+  <!-- the talk -->
   <section class="copy">
-    <p class="kicker">30-minute talk</p>
-    <h1>Designing shared worlds <em>across distance</em></h1>
-    <p class="sub">Lessons from multiplayer AR game research on <b>playing together from apart</b>.</p>
+    <h1>Designing shared&nbsp;worlds <em>across distance</em></h1>
+    <p class="sub">Lessons from multiplayer AR game research.</p>
     <div class="stats">
-      <div><b>3</b><span>AR games</span></div>
-      <div><b>128</b><span>Players</span></div>
-      <div><b>6</b><span>Design rules</span></div>
+      <div><b>3</b><span class="caps">AR games</span></div>
+      <div><b>128</b><span class="caps">Players</span></div>
+      <div><b>6</b><span class="caps">Design rules</span></div>
     </div>
   </section>
 
   <div class="nametag">
-    <small>SPEAKER</small>
+    <small class="caps">Speaker</small>
     <b>Dr. Yasas Sri Wickramasinghe</b>
     <span>HIT Lab NZ · University of Canterbury</span>
   </div>
@@ -231,24 +244,20 @@ h1 em { display: block; font-style: italic; font-weight: 400; color: var(--orang
   <!-- details + QR -->
   <section class="info">
     <div class="rows">
-      <div class="row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
-        <div><small>WHEN</small><p>Thursday 1 October 2026<br/><span class="hot">3:00 – 3:30 PM</span> <span>NZDT</span></p></div>
+      <div class="date">
+        <span class="day">01</span>
+        <div><small class="caps">Thursday · October 2026</small><p>3:00 – 3:30 PM <span>NZDT</span></p></div>
       </div>
-      <div class="row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></span>
-        <div><small>WHERE</small><p>NZ International Convention Centre<br/><span>Auckland, Aotearoa New Zealand</span></p></div>
-      </div>
-      <div class="row">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M16 15l3 3 3-3M19 18v-7"/></svg></span>
-        <div><small>ON THE TALK PAGE</small><p>The six rules, slides, papers<br/><span>&amp; an interactive demo to play</span></p></div>
+      <div class="venue">
+        <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></span>
+        <div><small class="caps">Venue</small><p>NZ International Convention Centre<span>Auckland, Aotearoa New Zealand</span></p></div>
       </div>
     </div>
     <div class="qr">
       <div class="qr-card">
         <img src="../../assets/files/nzgdc-2026/qr-nzgdc-2026-instagram.svg" alt="QR code to yasassri.me/nzgdc"/>
       </div>
-      <p class="qr-label">SCAN FOR THE TALK PAGE</p>
+      <p class="qr-label caps">Scan for slides, papers<br/>&amp; the six rules</p>
       <p class="qr-url">yasassri.me/nzgdc</p>
     </div>
   </section>
@@ -265,8 +274,8 @@ h1 em { display: block; font-style: italic; font-weight: 400; color: var(--orang
   var s = 7;
   function r() { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }
   var g = document.getElementById('cloud'), out = '';
-  for (var i = 0; i < 260; i++) {
-    var x = 600 + r() * 388, y = 284 + Math.pow(r(), 1.6) * 542;
+  for (var i = 0; i < 240; i++) {
+    var x = 600 + r() * 388, y = 366 + Math.pow(r(), 1.6) * 500;
     var a = (0.25 + r() * 0.6).toFixed(2), rad = (0.7 + r() * 1.3).toFixed(2);
     var c = r() < 0.18 ? '#ffb892' : '#dfe8ff';
     out += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + rad + '" fill="' + c + '" opacity="' + a + '"/>';
@@ -274,6 +283,10 @@ h1 em { display: block; font-style: italic; font-weight: 400; color: var(--orang
   g.innerHTML = out;
   var img = document.querySelector('.person');
   Promise.all([document.fonts.ready, img.decode ? img.decode() : Promise.resolve()]).then(function () {
+    // Fit the masthead to the full content width.
+    var h = document.getElementById('mastWord'), target = 936;
+    var size = parseFloat(getComputedStyle(h).fontSize);
+    h.style.fontSize = (size * target / h.scrollWidth).toFixed(1) + 'px';
     document.documentElement.dataset.ready = '1';
   });
 })();
