@@ -23,7 +23,7 @@
   <circle cx="60" cy="32" r="5" fill="#e0a252" opacity="0.8"/>
   <circle cx="76" cy="32" r="5" fill="#52b052" opacity="0.8"/>
   <!-- App name in title bar -->
-  <text x="320" y="37" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="0.12em" font-weight="600">YOOBEES · LECTURER DASHBOARD</text>
+  <text x="320" y="37" font-family="Inter, sans-serif" font-size="11" fill="white" text-anchor="middle" letter-spacing="0.12em" font-weight="600">LMS · LECTURER DASHBOARD</text>
 
   <!-- Left sidebar -->
   <rect x="24" y="48" width="120" height="328" fill="#051625" opacity="0.04"/>
@@ -167,5 +167,5 @@
 
   <!-- Bottom label bar -->
   <rect x="0" y="370" width="640" height="30" fill="#051625" opacity="0.05"/>
-  <text x="320" y="389" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.08em">YOOBEES LEARNING PLATFORM · MASTERS OF BUSINESS INFORMATICS · YOOBEE COLLEGES NZ</text>
+  <text x="320" y="389" font-family="Inter, sans-serif" font-size="9" fill="#43474c" text-anchor="middle" letter-spacing="0.08em">LEARNING MANAGEMENT SYSTEM · MASTER OF BUSINESS INFORMATICS</text>
 </svg>

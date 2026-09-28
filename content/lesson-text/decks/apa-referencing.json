@@ -1,0 +1,559 @@
+{
+ "slug": "apa-referencing",
+ "url": "http://localhost:8765/app/#/lessons/deck/apa-referencing",
+ "title": "APA 7 Citations — Yasas Sri Wickramasinghe",
+ "pageTitle": "APA 7 Citations — Yasas Sri Wickramasinghe",
+ "extractedAt": "2026-09-28",
+ "words": 1724,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "General Resources · Academic Writing Skills"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of APA 7 Citations."
+  },
+  {
+   "t": "p",
+   "html": "Everything you need to cite correctly — from the first in-text citation to the last reference entry. A 14-slide interactive crash course with a practice quiz included."
+  },
+  {
+   "t": "p",
+   "html": "📝 In-text citations 📚 Reference list ⚠️ Common mistakes ✅ Practice quiz"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Crash Course"
+  },
+  {
+   "t": "p",
+   "html": "Everything you need to cite correctly — from the first in-text citation to the last reference entry. Built for your assignments. No textbooks required."
+  },
+  {
+   "t": "p",
+   "html": "14 Slides Interactive Examples Reference Templates Practice Quiz Included"
+  },
+  {
+   "t": "eyebrow",
+   "html": "After the Slides"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Test Your APA 7 Knowledge"
+  },
+  {
+   "t": "p",
+   "html": "8 questions · Click through each question · Instant feedback · No data stored"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Knowledge Check"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "APA 7 Citation Quiz"
+  },
+  {
+   "t": "p",
+   "html": "In APA 7, how do you cite a source with 3 or more authors for the very first time?"
+  },
+  {
+   "t": "p",
+   "html": "Using someone's idea without credit is <strong>plagiarism</strong> — even accidentally. A citation is your proof you know the difference between your thinking and someone else's. No citation = no defence."
+  },
+  {
+   "t": "p",
+   "html": "Academic integrity shield"
+  },
+  {
+   "t": "p",
+   "html": "<em>\"Immersion increases presence\"</em> — opinion. <em>\"Immersion increases presence (Slater, 2009)\"</em> — claim backed by a decade of VR research. Same sentence. <strong>Completely different weight.</strong>"
+  },
+  {
+   "t": "p",
+   "html": "They Invite Conversation"
+  },
+  {
+   "t": "p",
+   "html": "Academic writing isn't a monologue — it's you <strong>positioning your ideas</strong> within an ongoing scholarly debate. Citations show you've been listening, and you know who said what first."
+  },
+  {
+   "t": "p",
+   "html": "Join the scholarly conversation"
+  },
+  {
+   "t": "p",
+   "html": "<strong>The \"says who?\" test:</strong> Imagine your examiner asking <em>\"says who?\"</em> after every claim you make. Citations are your answer. Without them, you're just asserting things into the void."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Same Sentence. Different Weight."
+  },
+  {
+   "t": "p",
+   "html": "\"Scientists say coffee makes you smarter.\""
+  },
+  {
+   "t": "p",
+   "html": "What happens:"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "⚠️ Examiner asks: <em>\"Which scientists? Where? When?\"</em>",
+    "⚠️ Sounds like an unverified social media claim",
+    "⚠️ Could be penalised for unsupported assertion",
+    "⚠️ If it's someone else's idea — this is plagiarism"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Your friend (the examiner) is far less forgiving."
+  },
+  {
+   "t": "p",
+   "html": "\"Caffeine consumption has been associated with enhanced cognitive performance in controlled studies (Smith et al., 2021, p. 14).\""
+  },
+  {
+   "t": "ul",
+   "items": [
+    "✅ Reader can verify the source independently",
+    "✅ Shows engagement with academic literature",
+    "✅ Demonstrates scholarly credibility",
+    "✅ You are protected against plagiarism accusation"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Same idea. Now it's a <strong>verifiable academic claim.</strong>"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "When TO Cite — click each card to reveal why"
+  },
+  {
+   "t": "p",
+   "html": "Facts, statistics &amp; findings"
+  },
+  {
+   "t": "p",
+   "html": "Any fact that came from a specific study, dataset, or report. Even if widely known <em>within your field</em>, if it has a source — cite it. E.g. \"87% of Agile teams use Scrum\" needs the State of Agile report."
+  },
+  {
+   "t": "p",
+   "html": "Someone else's argument, model, or framework. Even if you're paraphrasing it — you're using their intellectual work. Presence theory (Witmer &amp; Singer), Agile Manifesto, TAM model — all need citations."
+  },
+  {
+   "t": "p",
+   "html": "Especially contested or field-specific definitions. \"Presence is defined as...\" is someone's definition — whose? Even for widely agreed terms, citing the first/key theorist shows depth and awareness."
+  },
+  {
+   "t": "p",
+   "html": "Obviously. Any word-for-word text from a source requires quote marks + author + year + page number. Even a single distinctive phrase taken verbatim needs a page-level citation."
+  },
+  {
+   "t": "p",
+   "html": "Surveys, questionnaires, measurement scales, or research instruments designed by others. The Presence Questionnaire, SUS, TAM scales — all have original authors who must be credited."
+  },
+  {
+   "t": "p",
+   "html": "Yes — even your own previously published work. Reusing your own ideas without citing yourself is called <strong>self-plagiarism</strong>. If you published it elsewhere, treat it like any other source."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Over-citing</strong> clutters your writing and actually signals <em>low confidence</em> — it looks like you can't tell what's common knowledge and what isn't."
+  },
+  {
+   "t": "p",
+   "html": "\"The internet is widely used\" — no citation needed. Any reasonably educated person already knows this."
+  },
+  {
+   "t": "p",
+   "html": "Mathematical or logical facts"
+  },
+  {
+   "t": "p",
+   "html": "\"The sample had 24 participants split into 4 groups of 6\" — this is your own arithmetic. No source needed."
+  },
+  {
+   "t": "p",
+   "html": "Your own original analysis"
+  },
+  {
+   "t": "p",
+   "html": "Your interpretation, argument, and conclusions are <em>your contribution</em>. Don't undercut it by citing someone else — own it."
+  },
+  {
+   "t": "p",
+   "html": "Your own firsthand observations"
+  },
+  {
+   "t": "p",
+   "html": "Things you observed, measured, or found in your own study. \"Participants reported feeling dizzy\" — this is your data."
+  },
+  {
+   "t": "p",
+   "html": "Would a <strong>reasonable person in your field</strong> consider this general knowledge? If yes → no citation. If there's any doubt → cite it. When in doubt, cite."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "One In-Text → One Entry. Always."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Every in-text citation has exactly one matching entry in the reference list."
+  },
+  {
+   "t": "p",
+   "html": "Every reference list entry is cited somewhere in the text. No orphans. No extras."
+  },
+  {
+   "t": "p",
+   "html": "A reference list entry with no matching in-text citation. You read it, but never cited it. Remove it — APA is not a bibliography."
+  },
+  {
+   "t": "p",
+   "html": "An in-text citation (Brown, 2021) with no matching reference list entry. Always fatal — the reader can't find the source."
+  },
+  {
+   "t": "p",
+   "html": "(Slater, 2009, p. 12) Smith and Jones (2021)"
+  },
+  {
+   "t": "p",
+   "html": "Slater, M. (2009). Place illusion... <em>Phil. Trans. R. Soc. B</em>, 364..."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Two Flavours of In-Text Citation"
+  },
+  {
+   "t": "p",
+   "html": "Citation lives in brackets at the end"
+  },
+  {
+   "t": "p",
+   "html": "The <strong>idea</strong> matters more than the person who said it. You're reporting a finding, not engaging with a specific author's argument."
+  },
+  {
+   "t": "pre",
+   "text": "(Author, Year) or (Author, Year, p. N)"
+  },
+  {
+   "t": "p",
+   "html": "Author is part of your sentence, year follows in brackets"
+  },
+  {
+   "t": "p",
+   "html": "You're specifically engaging with <strong>who</strong> said something. You're introducing their argument, critiquing it, or contrasting it with another author's view."
+  },
+  {
+   "t": "pre",
+   "text": "Author (Year) verb... or Author and Author (Year)..."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Author–Year Cheat Sheet"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Situation",
+     "Format",
+     "Example"
+    ],
+    [
+     "1 author",
+     "(Author, Year)",
+     "(Slater, 2009)"
+    ],
+    [
+     "2 authors",
+     "(Author &amp; Author, Year)",
+     "(Slater &amp; Sanchez-Vives, 2016)"
+    ],
+    [
+     "⭐ 3+ authors APA 7 change!",
+     "First author + et al., from first use",
+     "(Cummings et al., 2020)"
+    ],
+    [
+     "Organisation (first mention)",
+     "(Full Name [ABBR], Year)",
+     "(World Health Organization [WHO], 2022)"
+    ],
+    [
+     "Organisation (subsequent)",
+     "(Abbreviation, Year)",
+     "(WHO, 2022)"
+    ],
+    [
+     "No date available",
+     "(Author, n.d.)",
+     "(Smith, n.d.)"
+    ],
+    [
+     "Same author, same year",
+     "(Author, Yeara, Yearb)",
+     "(Brown, 2021a, 2021b)"
+    ],
+    [
+     "Multiple sources together",
+     "(Auth1 &amp; Auth2, Year; Auth3, Year)",
+     "(Milgram &amp; Kishino, 1994; Witmer &amp; Singer, 1998)"
+    ],
+    [
+     "Direct quote",
+     "(Author, Year, p. N)",
+     "(Witmer &amp; Singer, 1998, p. 225)"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "⭐ APA 7 key change: Three or more authors → use <strong>et al.</strong> from the very FIRST citation. APA 6 made you write all names up to 5 authors first. That rule is gone."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Direct Quotation · Part 1"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Short Quotes: Under 40 Words"
+  },
+  {
+   "t": "p",
+   "html": "\"Presence is defined as the subjective experience of being in one place or environment, even when one is physically situated in another \" (Witmer &amp; Singer, 1998, p. 225)."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Quotation marks around the exact words",
+    "Inline — <em>do not</em> break to a new paragraph",
+    "Page number is required (p. 225)",
+    "Citation at end, before the full stop"
+   ]
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Missing page number on a direct quote",
+    "Using a block quote format for under 40 words",
+    "Altering words inside the quote without [brackets]",
+    "Overusing quotes — paraphrase instead"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Honest advice:</strong> Your examiner wants to see you <em>synthesise</em> ideas, not collect them. Use direct quotes only when the exact wording matters — definitions, key terms, pivotal statements. A paraphrase that cites correctly shows more skill."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Direct Quotation · Part 2"
+  },
+  {
+   "t": "p",
+   "html": "The concept of presence is not simply about visual fidelity but rather about the degree to which the virtual environment responds to the actions of the participant. A high-fidelity environment that does not react to user input will produce lower presence than a lower-fidelity, richly interactive one. (p. 431)"
+  },
+  {
+   "t": "p",
+   "html": "The author + year introduce the quote (narrative style), then the page number appears in brackets <em>after</em> the final full stop — not before it. This is reversed from short quotes."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "New paragraph for the quote",
+    "Indent the entire block (0.5 inch / ~1.27 cm)",
+    "No quotation marks",
+    "Page number in brackets after the final stop",
+    "Introduce with a colon or \"X argued:\" or \"According to X (Year):\""
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Short vs Block at a glance"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Under 40 words",
+     "Inline, quotation marks, citation before the stop"
+    ],
+    [
+     "40+ words",
+     "Indented block, no quotes, citation <em>after</em> the stop"
+    ]
+   ],
+   "head": false
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Every Reference Has Four Parts"
+  },
+  {
+   "t": "p",
+   "html": "Last name, Initials. For multiple: Last, I., &amp; Last, I."
+  },
+  {
+   "t": "p",
+   "html": "Publication year in brackets. Use n.d. if no date."
+  },
+  {
+   "t": "p",
+   "html": "Title in sentence case. Book/journal titles in italics."
+  },
+  {
+   "t": "p",
+   "html": "Publisher, journal, DOI, or URL. Always prefer DOI."
+  },
+  {
+   "t": "pre",
+   "text": "Slater, M. (2009). Place illusion and plausibility can lead to realistic behaviour in immersive virtual environments. Philosophical Transactions of the Royal Society B, 364(1535), 3549–3557. https://doi.org/10.1098/rstb.2009.0138"
+  },
+  {
+   "t": "p",
+   "html": "📄 WHAT (title + journal)"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Reference Templates · Part 1"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "→ Article title: sentence case, no italics",
+    "→ Journal name: Title Case, italicised",
+    "→ Always use https://doi.org/ prefix"
+   ]
+  },
+  {
+   "t": "pre",
+   "text": "Sherman, W. R., & Craig, A. B. (2018). Understanding virtual reality: Interface, application, and design (2nd ed.). Morgan Kaufmann."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "→ Book title: italicised, sentence case",
+    "→ Edition in brackets if not first ed.",
+    "→ Publisher name only (no location in APA 7)"
+   ]
+  },
+  {
+   "t": "pre",
+   "text": "University of Canterbury. (2023, August 1). HIT Lab NZ research overview. https://www.hitlabnz.org"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "→ Include the specific date if shown on page",
+    "→ Page title in italics, sentence case",
+    "→ No \"Retrieved from\" in APA 7"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Reference Templates · Part 2"
+  },
+  {
+   "t": "pre",
+   "text": "McMahan, R. P. (2017). Exploring the effects of higher-fidelity display and interaction. In F. R. Nack & A. S. Gordon (Eds.), Interactive storytelling (pp. 59–68). Springer."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "→ Chapter author is first; editors after \"In\"",
+    "→ Only the <em>book title</em> is italicised",
+    "→ Page range in (pp. x–x) format"
+   ]
+  },
+  {
+   "t": "pre",
+   "text": "Bowman, D. A., & Hodges, L. F. (1997). An evaluation of techniques for grabbing and manipulating remote objects in immersive virtual environments. In Proceedings of the 1997 Symposium on Interactive 3D Graphics (pp. 35–38). ACM. https://doi.org/10.1145/253284.253301"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "→ Proceedings title italicised (like a book)",
+    "→ Include publisher (ACM, IEEE, Springer…)",
+    "→ DOI strongly preferred over URL"
+   ]
+  },
+  {
+   "t": "pre",
+   "text": "Unity Technologies. (2023). Unity (Version 2022.3 LTS) [Computer software]. https://unity.com"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "→ Software name italicised",
+    "→ Version number in regular brackets",
+    "→ [Computer software] descriptor after title"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Based on:</strong> American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7th ed.). https://doi.org/10.1037/0000165-000"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Common Errors · Click each card to reveal the fix"
+  },
+  {
+   "t": "p",
+   "html": "Confusing et al. when names clash"
+  },
+  {
+   "t": "p",
+   "html": "Two papers share first authors + year. APA says write enough names to distinguish them — then et al. Don't assume the first name is enough."
+  },
+  {
+   "t": "p",
+   "html": "These footnote shorthand terms belong to Chicago/Oxford style. APA never uses them. Ever. Just repeat the full author–year citation each time."
+  },
+  {
+   "t": "p",
+   "html": "Citing only the abstract"
+  },
+  {
+   "t": "p",
+   "html": "If you only read the abstract, you only read part of the paper. Don't cite findings from sections you haven't read. Read the paper. Then cite it."
+  },
+  {
+   "t": "p",
+   "html": "Padding the reference list"
+  },
+  {
+   "t": "p",
+   "html": "APA reference list = only sources cited in the text. Nothing extra. A bibliography includes background reading — APA doesn't. Remove anything you didn't cite."
+  },
+  {
+   "t": "p",
+   "html": "Missing DOIs / using raw URLs"
+  },
+  {
+   "t": "p",
+   "html": "Always search for a DOI before using a plain URL. DOIs are permanent — URLs rot. Always prefix: https://doi.org/ not dx.doi.org or just the number."
+  },
+  {
+   "t": "p",
+   "html": "📚 Reference: American Psychological Association. (2020). <em>Publication manual of the APA</em> (7th ed.) · Scroll to the quiz below to test your knowledge"
+  }
+ ]
+}
