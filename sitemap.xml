@@ -7,9 +7,11 @@
     <priority>1.0</priority>
     <image:image><image:loc>https://www.yasassri.me/assets/files/speaker-kit/yasas-sri-wickramasinghe-headshot.jpg</image:loc></image:image>
     <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-organisations.webp</image:loc></image:image>
-    <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-speaking.webp</image:loc></image:image>
-    <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-students.webp</image:loc></image:image>
-    <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-research.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-speaking-uc-lecture.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-students-graduation.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/home/door-research-certificate.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/home/intro-graduation-banners.webp</image:loc></image:image>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/home/study-nz-uc-sign.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.yasassri.me/nzgdc/</loc>
@@ -58,12 +60,15 @@
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://www.yasassri.me/assets/files/speaker-kit/yasas-sri-wickramasinghe-headshot.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/about-graduation-quad.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.yasassri.me/research.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://www.yasassri.me/assets/images/phd-certificate-arch-900.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://www.yasassri.me/ar.html</loc>
