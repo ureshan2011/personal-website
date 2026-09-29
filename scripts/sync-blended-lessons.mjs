@@ -640,7 +640,7 @@ ${c.lessons.map(line).join('\n')}`,
   return `
 ## Lessons — https://www.yasassri.me/lessons.html
 
-Blended Teaching Content is the set of ${s.lessons} interactive lessons Dr. Yasas Sri Wickramasinghe built for the ${WORDS[s.courses] || s.courses} Master of Business Informatics (MBI) courses he teaches at Yoobee College: MBI800, MBI802, MBI804 and MBI806B. The lessons are hosted on his lessons site (${snap.base}) and open free in any browser, with no login and nothing to install; the lessons page on this site showcases and links to every one. Lessons are simulations, labs, practice sets and knowledge checks in which every wrong answer is explained. Synced from the lessons site's course registry on ${snap.syncedAt}.
+Blended Teaching Content is the set of ${s.lessons} interactive lessons Dr. Yasas Sri Wickramasinghe built for the ${WORDS[s.courses] || s.courses} Master of Business Informatics (MBI) courses he teaches: MBI800, MBI802, MBI804 and MBI806B. The lessons are hosted on his lessons site (${snap.base}) and open free in any browser, with no login and nothing to install; the lessons page on this site showcases and links to every one. Lessons are simulations, labs, practice sets and knowledge checks in which every wrong answer is explained. Synced from the lessons site's course registry on ${snap.syncedAt}.
 
 ${courses}
 
@@ -665,6 +665,9 @@ async function render(snap) {
     ...status.gated.map((slug) => [slug, 'gated']),
   ]);
   ON_SITE = new Map([...planPages(snap, status).href].filter(([, h]) => h));
+  // A lesson with a public page here isn't gated for readers of this site,
+  // whatever the lessons site does with its own copy (the APA deck).
+  for (const slug of ON_SITE.keys()) if (PAGE_STATE.get(slug) === 'gated') PAGE_STATE.delete(slug);
   const s = stats(snap);
   const pages = {
     'lessons.html': {

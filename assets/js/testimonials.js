@@ -9,7 +9,7 @@
 
    Each entry:
      name    – the person's name as they agreed to be credited
-     program – real course / event context, e.g. "MBI802 · Yoobee College"
+     program – real course / event context, e.g. "MBI802 · Master's programme"
                or "Organiser, CODE with WIE 2026 · IEEE WIE Sri Lanka"
      country – display name, e.g. "Sri Lanka"
      code    – two-letter country code shown on the globe, e.g. "LK"
