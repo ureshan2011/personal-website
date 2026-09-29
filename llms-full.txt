@@ -262,20 +262,16 @@ https://www.yoobee.ac.nz/our-research-profile/yasas-sri-wickramasinghe
 ## Teaching — https://www.yasassri.me/teaching.html
 
 Building the future of learning. I design experiential, technology-forward
-classrooms — and build the platforms that power them. My teaching practice at
-Yoobee Colleges is inseparable from YooBees, a real-time learning platform I
-created to bring attendance, live coding, competitive SQL, and AI-assisted
+classrooms — and build the platforms that power them. My Master's programme teaching is inseparable from the state-of-the-art learning management system I built to bring attendance, live coding, competitive SQL, and AI-assisted
 reasoning into every session.
 
-**YooBees — the platform I built.** A Real-Time Learning Platform: YooBees is
-a full-stack web application I designed and built from scratch to serve the
-Masters of Business Informatics (MBI) programme at Yoobee Colleges. It
+**A state-of-the-art learning management system — the platform I built.** A real-time learning platform: a full-stack web application I designed and built from scratch for the Master of Business Informatics (MBI) courses I teach. It
 replaces static slide decks and paper registers with a live, interactive,
 data-driven classroom experience. Every feature was shaped by a real
 classroom problem — from fraudulent attendance submissions caught by three
 detection algorithms, to students competing on SQL queries in real time.
 Stack: React 18, TypeScript 5, Vite 5, Tailwind CSS 3, Firebase Auth,
-Firestore, Firebase Storage. Open-source: github.com/ureshan2011/yoobees.
+Firestore, Firebase Storage. Open-source on GitHub (github.com/ureshan2011).
 Snapshot stats: 228 students across 3 courses, 24 countries in cohorts,
 2,500+ attendance records logged, 100+ quiz MCQs and 16 lecture videos.
 
@@ -306,12 +302,12 @@ Checkpoints: 01 Select (basic column retrieval), 02 Where (row-level
 filtering), 03 Join (multi-table relationships), 04 Group By (aggregation
 logic), 05 Order By (result sorting), 06 Having (post-aggregation filter).
 
-**MBI course catalog** (Masters of Business Informatics, Yoobee Colleges NZ).
+**MBI course catalog** (Master of Business Informatics, New Zealand).
 MBI800 — Business Information Systems (Strategy & Systems Planning): the
 strategic role of information systems in organisations — IS alignment and
 SISP (Strategic Information Systems Planning), digital transformation
 frameworks, Porter's competitive models. Platform feature: SISP Prompt Lab —
-an AI-assisted tool embedded in YooBees that walks students through strategic
+an AI-assisted tool embedded in the LMS that walks students through strategic
 IS planning exercises using guided prompts and real case data.
 MBI802 — Database Management Systems (SQL, ER Modelling, NoSQL): a hands-on
 deep-dive into relational database design, SQL from basics to advanced joins
@@ -323,13 +319,13 @@ MBI804 — IT Project Management (Agile, Scrum, Risk): the full project
 lifecycle — initiation, planning, execution, monitoring, and closure — with a
 strong practical emphasis on Agile methodologies, Scrum ceremonies,
 stakeholder management, and risk frameworks. Platform feature: Case Study
-Labs — students manage a simulated IT project via YooBees, tracking sprints,
+Labs — students manage a simulated IT project via the LMS, tracking sprints,
 updating risk registers, and submitting deliverables with structured peer
 review.
 
 **Teaching philosophy.** My approach to education is grounded in experiential
 and constructivist learning — I believe students learn best by building,
-failing, iterating, and reflecting. Every feature in YooBees was designed
+failing, iterating, and reflecting. Every feature in the LMS was designed
 around this principle: the Live Playground lowers the barrier to trying, SQL
 Race makes failure feel like just one more lap, and badge tiers reward
 persistence over perfection. I prioritise purpose-driven education: helping
@@ -338,7 +334,7 @@ initiative to use them meaningfully. In a classroom spanning 24 countries,
 that also means building cultural fluency and collaborative communication
 into every assignment. "If we can change the way we see the world, we can
 change the world we see." Availability: Mon–Sat, 10:00–17:00, in-person /
-virtual, at Yoobee Colleges, Christchurch, NZ, for mentoring, supervision, and
+virtual, at Christchurch, NZ, for mentoring, supervision, and
 industry talks.
 
 **Previous teaching.** 2021–2022 — Computer Architecture & Enterprise
@@ -349,16 +345,13 @@ Human-Computer Interaction, University of Moratuwa & SLIIT, Sri Lanka.
 Lanka.
 
 "The classroom is not a place where knowledge is delivered — it's a space
-where thinking is provoked." — Dr. Yasas Sri Wickramasinghe, Lecturer, MBI,
-Yoobee Colleges NZ.
+where thinking is provoked." — Dr. Yasas Sri Wickramasinghe, Lecturer, Master of Business Informatics.
 
-**FAQ.** Q: What master's programme does he teach at Yoobee College? A: The
+**FAQ.** Q: What master's programme does he teach? A: The
 Master of Business Informatics (MBI) — MBI800 Business Information Systems,
 MBI802 Database Management Systems, and MBI804 IT Project Management, across
-the Auckland and Christchurch campuses. Q: Is this an official Yoobee College
-page? A: No — this page is his own account of the courses he teaches, not an
-official Yoobee College page; for admissions, fees or enrolment, contact
-Yoobee College (yoobee.ac.nz) directly. Q: I'm considering applying — where
+the Auckland and Christchurch campuses. Q: Is this an official college page? A: No — this page is his own account of the courses he teaches, not an
+official college page; for admissions, fees or enrolment, contact the college directly. Q: I'm considering applying — where
 can I learn more? A: See his guide for prospective students
 (yasassri.me/students.html) for programme facts, his teaching approach, and a
 free consultation link.
@@ -392,7 +385,7 @@ https://ictcampus.lk/dr-yasas
 <!-- bt:llms-lessons:start -->
 ## Lessons — https://www.yasassri.me/lessons.html
 
-Blended Teaching Content is the set of 40 interactive lessons Dr. Yasas Sri Wickramasinghe built for the four Master of Business Informatics (MBI) courses he teaches at Yoobee College: MBI800, MBI802, MBI804 and MBI806B. The lessons are hosted on his lessons site (https://ureshan2011.github.io/thisisnotalms/) and open free in any browser, with no login and nothing to install; the lessons page on this site showcases and links to every one. Lessons are simulations, labs, practice sets and knowledge checks in which every wrong answer is explained. Synced from the lessons site's course registry on 2026-09-28.
+Blended Teaching Content is the set of 40 interactive lessons Dr. Yasas Sri Wickramasinghe built for the four Master of Business Informatics (MBI) courses he teaches: MBI800, MBI802, MBI804 and MBI806B. The lessons are hosted on his lessons site (https://ureshan2011.github.io/thisisnotalms/) and open free in any browser, with no login and nothing to install; the lessons page on this site showcases and links to every one. Lessons are simulations, labs, practice sets and knowledge checks in which every wrong answer is explained. Synced from the lessons site's course registry on 2026-09-28.
 
 ### MBI800 — Strategic Information Systems Planning (9 lessons)
 
@@ -459,54 +452,36 @@ Getting a number out is the easy half. Being able to defend the number, and say 
 
 ### Shared across every course
 
-- APA 7 citations: the crash course (Reference) (opens with a class password): https://www.yasassri.me/app/lessons/apa-referencing.html (interactive: https://ureshan2011.github.io/thisisnotalms/#/apa-referencing) — Everything needed to cite correctly, from the first in-text citation to the last reference entry. Fourteen interactive slides and a practice quiz.
+- APA 7 citations: the crash course (Reference): https://www.yasassri.me/app/lessons/apa-referencing.html (interactive: https://ureshan2011.github.io/thisisnotalms/#/apa-referencing) — Everything needed to cite correctly, from the first in-text citation to the last reference entry. Fourteen interactive slides and a practice quiz.
 - The pre-class idea swarm (Reference) (opens with a class password): https://ureshan2011.github.io/thisisnotalms/#/pre-class — A full-screen countdown for the minutes before class. Key concepts drift like a galaxy, then swarm together to reveal the course code right as we begin.
 <!-- bt:llms-lessons:end -->
 ---
 
-## For Prospective Students — https://www.yasassri.me/students.html
+## Studying a master's in New Zealand — https://www.yasassri.me/students.html
 
-Yoobee College MBI — a lecturer's guide. Whether you're weighing a Master of
-Business Informatics in New Zealand, or you found this page while checking on
-a lecturer at Yoobee College of Creative Innovation — this is what he can say
-directly: the MBI programme he teaches, how he runs his classroom, and how to
-get free guidance before applying.
+"Studying a master's in New Zealand: what I tell my students." A long-form
+guide by Dr. Yasas Sri Wickramasinghe, written as experience sharing from a
+lecturer who teaches master's students in New Zealand (information systems
+strategy, database management, IT project management and business analytics
+in a Master of Business Informatics programme, Christchurch and Auckland) and
+who came to New Zealand from Sri Lanka as a postgraduate student himself. It is
+not official advice and gives no visa or immigration advice; it points readers
+to Immigration New Zealand or a licensed adviser for that, and to the
+institution they apply to for admissions and fees.
 
-**Disclosure (appears twice on the page — hero and FAQ).** This is Dr. Yasas
-Sri Wickramasinghe's personal website — an independent account from a staff
-member, not an official Yoobee College page. For admissions, fees or
-enrolment, contact Yoobee College (yoobee.ac.nz) directly.
-
-**Who he is, in this context.** Senior Lecturer at Yoobee College of Creative
-Innovation, teaching the Master of Business Informatics (MBI) programme, and
-Postdoctoral Researcher at HIT Lab NZ, University of Canterbury.
-
-**The MBI programme, as he teaches it.** Auckland and Christchurch campuses.
-MBI800 Business Information Systems (IS strategy, SISP, digital
-transformation, Porter's models). MBI802 Database Management Systems (SQL,
-ER modelling, normalisation, NoSQL). MBI804 IT Project Management (Agile,
-Scrum, risk, stakeholder management). For full programme structure, entry
-requirements and fees, Yoobee College's own site is the authoritative
-source.
-
-**His teaching methods & approach.** Grounded in experiential and
-constructivist learning — project-based assessment (a strategic plan, a
-working database, a managed project) rather than exam-heavy testing, iterative
-feedback through the term, and hands-on exercises (guided strategic-planning
-work, competitive SQL practice, a simulated end-to-end project with peer
-review) rather than platform-metric-driven claims.
-
-**Free guidance before applying.** A free 30-minute "Educational Guidance"
-consultation — study paths, postgraduate options, and choosing between
-programmes. Book at yasassri.me/app/#/consult?type=education. Availability:
-Mon–Sat, 10:00–17:00, in-person/virtual, Yoobee Colleges, Christchurch NZ.
-
-**FAQ (9 questions, all first-person, scoped to what he can personally
-confirm).** Covers: whether he's a Yoobee College lecturer, what he teaches,
-which campuses, what the MBI programme is, what studying under him is like,
-how to get advice before applying, thesis/capstone supervision, how to
-contact him directly, and whether this is an official Yoobee College page
-(no — see disclosure above).
+Covers: taught vs research master's (Level 9 on the NZQF); what a week
+looks like (one NZ credit is designed around ten learning hours, so a
+15-credit course expects about 150 hours, most of it independent study);
+project-based assessment (a strategic plan, a working database, a simulated
+project) and reading the rubric first; the classroom culture shift
+(discussion, first names, critical thinking); academic writing and APA 7,
+with the common referencing mistakes; academic integrity and generative AI
+(follow each course's rules, never submit AI text as your own, declare use,
+be able to explain everything); group work in international classes (students
+from more than twenty countries across his cohorts); eight habits of students
+who do well; questions to ask when choosing a programme; and free lessons to
+try before applying. Ends with a nine-question FAQ and a free 30-minute
+educational guidance chat (yasassri.me/app/#/consult?type=education).
 
 ---
 
@@ -615,7 +590,7 @@ New Zealand.
 Q: Where can prospective MBI students learn more? A: See his guide for
 prospective students (yasassri.me/students.html) for MBI programme facts,
 his teaching approach, and a free consultation link — his own account as the
-lecturer who teaches the programme, not an official Yoobee College page.
+lecturer who teaches the programme, not an official college page.
 
 ---
 
@@ -796,8 +771,7 @@ with clear feedback and calibrated constraints. Published across five
 peer-reviewed articles including IEEE VR, OzCHI and Elsevier's Entertainment
 Computing.
 
-**YooBees: a classroom students don't want to skip.** A learning platform he
-designed and built for the Master of Business Informatics at Yoobee College:
+**A state-of-the-art learning management system: a classroom students don't want to skip.** A learning platform he designed and built for the Master of Business Informatics courses he teaches:
 one-tap attendance with three fraud checks (shared-IP clustering, GPS outliers
 more than 500 m from campus, check-ins within 30 seconds of opening), a live
 SQL/Python playground, SQL Race, quiz badges, daily cross-cohort matches and
