@@ -61,9 +61,9 @@ window.HUNT_CACHES = [
   {
     id: "proof", page: "case-studies.html", key: "case-studies", pageName: "Case Studies",
     name: "The proof", level: 2,
-    clue: "Three studies, 128 participants and an industry partner from Japan.",
+    clue: "Three studies and 128 participants.",
     hint: "It's the first case study, on multiplayer AR research.",
-    find: "That research with Sony Interactive Entertainment ran three studies with 128 participants.",
+    find: "That research ran three studies with 128 participants.",
     at: "#sony-multiplayer-ar", u: 0.96, v: 0.08
   },
   {
