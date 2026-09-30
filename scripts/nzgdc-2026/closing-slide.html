@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Closing slide — NZGDC 2026</title>
+<!-- Source for assets/files/nzgdc-2026/closing-slide-nzgdc-2026.png (1920×1080), the Q&A slide.
+     The QR is qr-nzgdc-2026.png, which encodes https://www.yasassri.me/nzgdc/?qr. Rebuild with build.mjs. -->
+<link href="../../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: "Inter", sans-serif; color: #eef0f6; position: relative;
+    background:
+      radial-gradient(900px 600px at 78% 52%, rgba(242, 107, 58, .16), transparent 62%),
+      radial-gradient(800px 500px at 0% 0%, rgba(47, 107, 255, .16), transparent 60%),
+      linear-gradient(180deg, #151d31 0%, #0f1628 100%);
+  }
+  body::before { content: ""; position: absolute; inset: 0; opacity: .35; background-image: radial-gradient(rgba(255,255,255,.16) 1px, transparent 1.2px); background-size: 26px 26px; }
+  .left { position: absolute; left: 120px; top: 96px; width: 900px; }
+  .badge { display: inline-block; background: #f26b3a; color: #fff; border-radius: 8px; padding: 14px 20px; font-size: 22px; font-weight: 800; letter-spacing: .16em; }
+  .eyebrow { margin-top: 34px; font-size: 22px; font-weight: 700; letter-spacing: .2em; color: #9aa3b5; }
+  h1 { margin-top: 36px; font-family: "Newsreader", serif; font-weight: 500; font-size: 150px; line-height: .92; letter-spacing: -0.03em; color: #fff; }
+  h1 em { display: block; font-style: italic; color: #f26b3a; font-size: 118px; margin-top: 6px; }
+  .rule { width: 120px; height: 4px; background: #f26b3a; margin: 40px 0 30px; }
+  .get { font-size: 30px; line-height: 1.4; color: #b9c2d3; }
+  .url { margin-top: 8px; font-size: 64px; font-weight: 800; letter-spacing: -0.02em; color: #fff; }
+  .url span { color: #f26b3a; }
+  .rate { margin-top: 30px; display: inline-flex; align-items: center; gap: 18px; padding: 16px 24px 16px 18px; border-radius: 14px; border: 2px solid rgba(242, 107, 58, .6); background: rgba(242, 107, 58, .1); font-size: 27px; color: #eef0f6; }
+  .rate b { color: #fff; }
+  .rate .tag { padding: 7px 12px; border-radius: 7px; background: #f26b3a; color: #fff; font-size: 17px; font-weight: 800; letter-spacing: .14em; }
+  .rate code { font: 700 27px ui-monospace, Menlo, Consolas, monospace; color: #fff; padding: 2px 10px; border: 2px dashed rgba(255,255,255,.4); border-radius: 8px; }
+  .foot { position: absolute; left: 120px; bottom: 70px; font-size: 26px; line-height: 1.6; color: #9aa3b5; }
+  .foot b { color: #fff; }
+  .win { position: absolute; right: 110px; top: 200px; width: 680px; height: 680px; }
+  .shutter { position: absolute; top: 30px; bottom: 30px; width: 70px; background: linear-gradient(180deg, #2a3656, #1b2440); border: 6px solid #e9e2d6; }
+  .shutter.l { left: 0; transform: perspective(900px) rotateY(38deg); transform-origin: left; }
+  .shutter.r { right: 0; transform: perspective(900px) rotateY(-38deg); transform-origin: right; }
+  .shutter::after { content: ""; position: absolute; inset: 33% -6px; border-top: 6px solid #e9e2d6; border-bottom: 6px solid #e9e2d6; }
+  .frame { position: absolute; left: 60px; right: 60px; top: 0; bottom: 0; border-radius: 12px; background: #f4efe6; padding: 22px; box-shadow: 0 40px 120px rgba(0,0,0,.45), 0 0 120px rgba(242,107,58,.18); }
+  .qr { height: 100%; border-radius: 6px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+  .qr img { width: 470px; height: 470px; image-rendering: pixelated; }
+  .qr p { font-size: 28px; font-weight: 700; color: #121a2c; letter-spacing: .01em; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <span class="badge">NZGDC 2026</span>
+    <p class="eyebrow">DESIGNING SHARED WORLDS ACROSS DISTANCE</p>
+    <h1>Ngā mihi.<em>Questions?</em></h1>
+    <div class="rule"></div>
+    <p class="get">Slides, papers, videos and the six rules:</p>
+    <p class="url">yasassri.me<span>/nzgdc</span></p>
+    <p class="rate"><span class="tag">RATE THIS SESSION</span> <span><b>NZGDC app</b> · access code <code>NZgame26</code></span></p>
+  </div>
+  <div class="win">
+    <span class="shutter l"></span><span class="shutter r"></span>
+    <div class="frame"><div class="qr"><img src="../../assets/files/nzgdc-2026/qr-nzgdc-2026.png" alt=""/><p>Scan for everything from this talk</p></div></div>
+  </div>
+  <p class="foot"><b>Yasas Sri Wickramasinghe</b> · HIT Lab NZ, University of Canterbury<br/>linkedin.com/in/yasassri · Papers: IEEE VR 2025 · OzCHI 2025 · MTI 2025 · Entertainment Computing 2025</p>
+</body>
+</html>

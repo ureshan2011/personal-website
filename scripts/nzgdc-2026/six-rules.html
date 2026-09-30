@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Six rules image — NZGDC 2026</title>
+<!-- Source for assets/files/nzgdc-2026/six-rules-shared-worlds.png (1080×1350). Rebuild with build.mjs.
+     The rule wording matches slide 22 of the deck and the rules on /nzgdc/. -->
+<link href="../../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1350px; }
+  body { background: #f26b3a; color: #fff; font-family: "Inter", sans-serif; padding: 70px 70px 0; position: relative; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .badge { background: #121a2c; border-radius: 8px; padding: 12px 16px; font-size: 18px; font-weight: 800; letter-spacing: .14em; }
+  .kick { font-size: 18px; font-weight: 700; letter-spacing: .16em; color: #ffe1d3; }
+  h1 { margin-top: 30px; font-family: "Newsreader", serif; font-weight: 500; font-size: 76px; line-height: 1.0; letter-spacing: -0.025em; }
+  h1 em { color: #121a2c; }
+  .sub { margin-top: 26px; font-size: 22px; color: #ffe8dd; }
+  ol { list-style: none; margin-top: 34px; display: grid; gap: 16px; counter-reset: r; }
+  li { counter-increment: r; display: grid; grid-template-columns: 90px 1fr; align-items: center; min-height: 126px; padding: 18px 30px 18px 26px; border-radius: 18px; background: #121a2c; }
+  li::before { content: counter(r); font-family: "Newsreader", serif; font-size: 56px; color: #f26b3a; padding-left: 6px; }
+  li b { display: block; font-family: "Newsreader", serif; font-weight: 500; font-size: 33px; line-height: 1.12; letter-spacing: -0.01em; }
+  li span { display: block; margin-top: 8px; font-size: 20px; color: #aab3c5; }
+  .foot { position: absolute; left: 70px; right: 70px; bottom: 56px; display: flex; justify-content: space-between; font-size: 22px; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="top"><span class="badge">NZGDC 2026</span><span class="kick">TALK TAKEAWAYS</span></div>
+  <h1>Six rules for designing shared worlds <em>across distance</em></h1>
+  <p class="sub">From three multiplayer AR games and 128 players at HIT Lab NZ.</p>
+  <ol>
+    <li><div><b>If players can switch the AR off, it isn't a mechanic yet.</b><span>Make something the game needs that only AR can do.</span></div></li>
+    <li><div><b>Scale changes presence.</b><span>Life-size to feel there. A window to get things done.</span></div></li>
+    <li><div><b>Break physics on purpose.</b><span>Players hid objects on the ceiling and in mid-air.</span></div></li>
+    <li><div><b>A view-cone and voice go a long way.</b><span>Try those before building full avatars.</span></div></li>
+    <li><div><b>Players adapt to your controls first.</b><span>Watch what they choose, not just how they score.</span></div></li>
+    <li><div><b>Let players choose the pacing.</b><span>An optional timer, toggles and a practice round.</span></div></li>
+  </ol>
+  <div class="foot"><span>Dr. Yasas Sri Wickramasinghe</span><span>yasassri.me/nzgdc</span></div>
+</body>
+</html>
