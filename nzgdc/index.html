@@ -248,6 +248,21 @@
         <div class="u"><b data-u="s">–</b><small>sec</small></div>
         <span class="lbl">until I'm on stage in Auckland</span>
       </div>
+      <!-- Rate this session: shown from the start of the talk until RATE_UNTIL in talk-nzgdc.js.
+           Preview it any time with …/nzgdc/?talk=live -->
+      <aside class="t-rate-app" id="rate" aria-labelledby="rateTitle" hidden>
+        <h2 id="rateTitle">Were you in the room? <em>Rate this session.</em></h2>
+        <p>NZGDC collects session feedback in its event app. Honest feedback helps the organisers plan next year's programme, and helps me make this talk better. It takes ten seconds.</p>
+        <ol>
+          <li>Open the <b>NZGDC 2026 app</b> on your phone.</li>
+          <li>Access code <button type="button" class="t-code" id="rateCode" aria-label="Copy the access code NZgame26">NZgame26 <span>Copy</span></button></li>
+          <li>Find <b>Designing Shared Worlds Across Distance</b> (Thu, 3:00 PM) in the programme and leave your feedback.</li>
+        </ol>
+        <div class="t-rate-acts">
+          <a class="btn t-btn-primary" href="https://NZgame26.entegy.app" target="_blank" rel="noopener" data-rate-link="web">Open the NZGDC web app <span class="arrow">↗</span></a>
+          <span>No app yet? <a href="https://itunes.apple.com/app/id6529529470" target="_blank" rel="noopener" data-rate-link="ios">App Store</a> · <a href="https://play.google.com/store/apps/details?id=au.com.entegy.events" target="_blank" rel="noopener" data-rate-link="android">Google Play</a></span>
+        </div>
+      </aside>
       <div class="t-actions reveal" style="--d:.34s">
         <a class="btn t-btn-primary" href="#rules">The six rules <span class="arrow">↓</span></a>
         <a class="btn t-btn-ghost" href="#resources">Slides &amp; papers <span class="arrow">↓</span></a>
@@ -303,9 +318,9 @@
     <p class="t-lede reveal">Pokémon GO has grossed around <b>US$9 billion</b> in ten years. The AR camera is the part players switch off in the settings. Niantic eventually retired the basic AR mode altogether.</p>
 
     <div class="t-stats">
-      <div class="t-stat hot reveal"><b>~7<small>%</small></b><span>of Pokémon GO players say they regularly use the AR camera.</span><cite>Laato et al., 2021</cite></div>
-      <div class="t-stat reveal" style="--d:.06s"><b>#1</b><span>reason for turning it off: <em style="font-family:var(--serif);font-size:1.15em">“It slows me down.”</em></span></div>
-      <div class="t-stat reveal" style="--d:.12s"><b>US$1.4<small>B</small></b><span>Pokémon GO's best year ever — Jul 2020 to Jun 2021, the year remote play arrived.</span></div>
+      <div class="t-stat hot reveal"><b>~7<small>%</small></b><span>of surveyed location-based game players regularly used the AR camera.</span><cite>Laato, Inaba &amp; Hamari, 2021</cite></div>
+      <div class="t-stat reveal" style="--d:.06s"><b>#1</b><span>reason for switching it off: <em style="font-family:var(--serif);font-size:1.15em">“As it is slower to use, I prefer not to.”</em></span><cite>Laato, Inaba &amp; Hamari, 2021</cite></div>
+      <div class="t-stat reveal" style="--d:.12s"><b>US$1<small>B+</small></b><span>Pokémon GO player spending in the first ten months of 2020 — its best year to that point, the year remote play arrived.</span><cite>Sensor Tower, Nov 2020</cite></div>
     </div>
 
     <blockquote class="t-pull reveal">AR is usually “a technical gimmick or marketing tool” that could be removed “without substantially altering the experience.”<cite>Alha et al., on location-based AR games</cite></blockquote>
@@ -323,7 +338,7 @@
       </div>
       <div>
         <p class="t-study-q">How can AR make meaningful use of the real world for synchronous remote multiplayer play?</p>
-        <div class="t-tags"><span>Unity</span><span>Niantic Lightship ARDK</span><span>LiDAR iPads</span><span>Rooms scanned with Scaniverse</span><span>Tobii eye-tracking glasses</span><span>Ceiling cameras</span><span>Co-designed with Niantic Aotearoa, Wellington</span></div>
+        <div class="t-tags"><span>Unity</span><span>Niantic Lightship ARDK</span><span>LiDAR iPads</span><span>Rooms scanned with Scaniverse</span><span>Tobii eye-tracking glasses</span><span>Ceiling cameras</span><span>With input from Niantic's Wellington studio</span></div>
         <p class="t-study-note">So when I say players looked up, they didn't just tell me — I watched their eyes do it.</p>
       </div>
     </div>
@@ -364,7 +379,7 @@
 
     <div class="t-rule reveal">
       <span class="n">2</span>
-      <div><small>Rule two</small><p>Scale is presence. <span>Life-size to be there; a window to get things done.</span></p></div>
+      <div><small>Rule two</small><p>Scale changes presence. <span>Life-size to feel there. A window to get things done.</span></p></div>
     </div>
 
     <figure class="t-figure reveal">
@@ -381,7 +396,7 @@
       <span class="t-cnum" aria-hidden="true">02</span>
       <div>
         <span class="eyebrow reveal">Chapter two · Play</span>
-        <h2 class="reveal" style="--d:.06s">Hide-and-seek, <em>1,000 km apart</em></h2>
+        <h2 class="reveal" style="--d:.06s">Hide-and-seek <em>from another room</em></h2>
         <div class="meta reveal" style="--d:.1s"><span class="t-chip dark">Game 2</span><span class="t-chip">60 players</span><span class="t-chip">IEEE VR 2025 · MTI 2025</span></div>
       </div>
     </div>
@@ -399,13 +414,13 @@
     <div class="t-compare">
       <div class="t-panel reveal">
         <h3>The room grew a third dimension</h3>
-        <p>AR against real-world hide-and-seek — same 60 players, same room.</p>
+        <p>AR against real-world hide-and-seek — same 60 players, same two rooms.</p>
         <div class="t-legend"><span><i></i>AR</span><span><i class="real"></i>Real world</span></div>
         <div class="t-bars">
           <div class="t-bar">
             <h4>Time to hide</h4>
-            <div class="row"><span>AR</span><span class="t-track"><span class="fill" style="--w:86%"></span></span><span class="val">69s</span></div>
-            <div class="row"><span>Real</span><span class="t-track"><span class="fill real" style="--w:61%"></span></span><span class="val">49s</span></div>
+            <div class="row"><span>AR</span><span class="t-track"><span class="fill" style="--w:90%"></span></span><span class="val">72s</span></div>
+            <div class="row"><span>Real</span><span class="t-track"><span class="fill real" style="--w:65%"></span></span><span class="val">52s</span></div>
           </div>
           <div class="t-bar diverge">
             <h4>“Fun” (hedonic) score, −3 to +3</h4>
@@ -417,9 +432,9 @@
         <blockquote class="t-quote" style="margin-top:22px">I had to look above me, behind me, basically everywhere. It was exhausting but fun.<cite>Study 2 player</cite></blockquote>
       </div>
       <div class="t-bigstat reveal" style="--d:.08s">
-        <div><b>~40%</b><span>longer to hide in AR — not slow controls, just far more places to hide.</span></div>
+        <div><b>~40%</b><span>longer to hide in AR (72s vs 52s) — more places to consider, and placing objects in 3D took work.</span></div>
         <div><b><span class="count" data-target="32">32</span> <em>of</em> 60</b><span>players “lost track of time” — with a countdown on screen the whole round.</span></div>
-        <div><b>Same</b><span>finding time. Seekers rewired their search strategy within a single five-minute round.</span></div>
+        <div><b>Similar</b><span>finding time — no significant difference. Seekers' gaze spread wider and higher in AR.</span></div>
       </div>
     </div>
 
@@ -469,7 +484,7 @@
         <p>In real hide-and-seek, the most-hidden object was a dull grey koala; the bright yellow Minion was picked once. In AR it flipped — the Minion was picked fifteen times. In a game about concealment, players chose the most visible object in the pool.</p>
         <blockquote>“It stood out more, so it was easier to place where I wanted.”</blockquote>
         <p>Placement used fiddly on-screen thumbsticks, so players optimised for the controls — even when it made their strategy worse.</p>
-        <span class="pill">Rule five · Players optimise for your controls before your game</span>
+        <span class="pill">Rule five · Players adapt to your controls first</span>
       </div>
     </div>
 
@@ -486,7 +501,7 @@
       <div style="display:grid;gap:18px">
         <blockquote class="t-quote reveal">I live abroad, so it was such a cool way to feel connected to my sister back home.<cite>Study 2 player</cite></blockquote>
         <blockquote class="t-quote reveal" style="--d:.06s">It felt like we were kids again.<cite>Study 2 player</cite></blockquote>
-        <div class="t-rule reveal" style="margin-top:0"><span class="n">4</span><div><small>Rule four</small><p>Ship the cone first. <span>A view-cone and a voice channel buy most of “together”.</span></p></div></div>
+        <div class="t-rule reveal" style="margin-top:0"><span class="n">4</span><div><small>Rule four</small><p>A view-cone and voice go a long way. <span>Try those before building full avatars.</span></p></div></div>
       </div>
     </div>
   </div>
@@ -528,10 +543,10 @@
     </div>
     <div class="t-5050 reveal">
       <blockquote class="t-quote">Makes it competitive, so it won't take an eternity.<cite>A “give me the clock” player</cite></blockquote>
-      <div class="mid">50/50<small>preference split</small></div>
+      <div class="mid">9 vs 8<small>an almost even split</small></div>
       <blockquote class="t-quote">If I'm playing with friends I'd rather not have that stress — we just laugh and hide things.<cite>A “let me chill” player</cite></blockquote>
     </div>
-    <div class="t-rule reveal" style="background:var(--navy-2)"><span class="n">6</span><div><small>Rule six</small><p>Don't choose the pacing. Expose the dial. <span>It's cheap, and it doubled the audience the game worked for.</span></p></div></div>
+    <div class="t-rule reveal" style="background:var(--navy-2)"><span class="n">6</span><div><small>Rule six</small><p>Let players choose the pacing. <span>An optional timer, toggles and a practice round.</span></p></div></div>
 
     <div class="t-honest reveal">
       <span class="eyebrow" style="color:var(--yellow)">The honest list</span>
@@ -567,32 +582,32 @@
       </article>
       <article class="t-rcard reveal" id="rule-2" style="--d:0.06s">
         <span class="n">2</span>
-        <h3>Scale is presence.</h3>
-        <p>Life-size when you want players there. A window when you want them to get things done.</p>
+        <h3>Scale changes presence.</h3>
+        <p>Life-size to feel there. A window to get things done.</p>
         <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
       </article>
       <article class="t-rcard reveal" id="rule-3" style="--d:0.12s">
         <span class="n">3</span>
         <h3>Break physics on purpose.</h3>
-        <p>The ceiling is the best hiding spot. Mid-air and ceilings were the most-loved thing we built — and the cheapest.</p>
+        <p>Players hid objects on the ceiling and in mid-air — spots the real game doesn't have.</p>
         <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
       </article>
       <article class="t-rcard reveal" id="rule-4" style="--d:0.00s">
         <span class="n">4</span>
-        <h3>A view-cone and a voice channel buy most of “together”.</h3>
-        <p>Sixteen players said the cone was already enough. Ship the cone before you build avatars.</p>
+        <h3>A view-cone and voice go a long way.</h3>
+        <p>Try those before building full avatars. In Game 3, sixteen players said the cone was enough; ten wanted a fuller avatar.</p>
         <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
       </article>
       <article class="t-rcard reveal" id="rule-5" style="--d:0.06s">
         <span class="n">5</span>
-        <h3>Players optimise for your controls before your game.</h3>
-        <p>Watch what they choose to hide, not just how they score. Fiddly input turned a concealment game into a visibility game.</p>
+        <h3>Players adapt to your controls first.</h3>
+        <p>Watch what they choose, not just how they score. Fiddly input turned a concealment game into a visibility game.</p>
         <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
       </article>
       <article class="t-rcard reveal" id="rule-6" style="--d:0.12s">
         <span class="n">6</span>
-        <h3>Don't choose the pacing. Expose the dial.</h3>
-        <p>Players split almost 50/50 between “give me the clock” and “let me chill”. An optional timer is cheap, and it doubles who the game works for.</p>
+        <h3>Let players choose the pacing.</h3>
+        <p>An optional timer, toggles and a practice round. Players split almost evenly (9 vs 8) between “give me the clock” and “let me chill”.</p>
         <button class="share" type="button">Share this rule <span aria-hidden="true">↗</span></button>
       </article>
     </div>
@@ -725,6 +740,7 @@
           <a class="btn" href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
           <a class="btn" id="fbNotesLink" href="../app/#/newsletter" hidden>Confirm research notes →</a>
         </div>
+        <p class="t-rate-nudge">Were you in the room? <a href="#rate">Rate the session in the NZGDC app</a> (access code NZgame26) — it takes ten seconds.</p>
       </div>
     </div>
     <div class="panel reveal" style="--d:.08s">
