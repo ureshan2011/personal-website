@@ -5,6 +5,7 @@
    3. Chapter bar scroll-spy               8. Share a rule
    4. Tabletop / Window / Overlay tabs     9. Slides + recording slots
    5. QR welcome                          10. Feedback form hand-off
+                                          11. Rate this session (NZGDC app)
    ========================================================================== */
 (function () {
   "use strict";
@@ -22,11 +23,15 @@
 
   var START = Date.UTC(2026, 9, 1, 2, 0, 0);   // 1 Oct 2026, 3:00 PM NZDT (UTC+13)
   var END = START + 30 * 60 * 1000;             // 3:30 PM NZDT
+  var RATE_UNTIL = END + 14 * 864e5;            // "Rate this session" card shows from START until then
+  // ?talk=before|live|after previews a state, e.g. …/nzgdc/?talk=live shows the rating card now.
+  var FORCE = (/[?&]talk=(before|live|after)\b/.exec(location.search) || [])[1];
 
   /* ---------------------------------------------------------------- 1 */
   var statusEl = $("#talkStatus");
   var cd = $("#countdown");
-  function state(now) { return now < START ? "before" : now < END ? "live" : "after"; }
+  var rateEl = $("#rate");
+  function state(now) { return FORCE || (now < START ? "before" : now < END ? "live" : "after"); }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function tick() {
     var now = Date.now(), s = state(now);
@@ -37,6 +42,9 @@
         s === "before" ? "On stage Thursday 1 October, 3:00 PM NZDT" :
         s === "live" ? "On stage right now at NZICC" : "Delivered 1 October 2026 — thank you";
     }
+    var rateOpen = FORCE ? FORCE !== "before" : now >= START && now < RATE_UNTIL;
+    document.documentElement.setAttribute("data-rate", rateOpen ? "open" : "closed");
+    if (rateEl && rateEl.hidden === rateOpen) rateEl.hidden = !rateOpen;
     if (cd) {
       if (s !== "before") { cd.hidden = true; return; }
       var ms = START - now, d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24,
@@ -433,7 +441,7 @@
     out.innerHTML = o
       ? '<p class="mode">' + o.mode + '</p><h3>' + o.h + '</h3><p class="win">' + o.win + '</p><p class="q">' + o.q + '</p><div class="meta" style="margin-top:18px;display:flex;flex-wrap:wrap;gap:8px">' +
         o.chips.map(function (c) { return '<span class="t-chip">' + c + "</span>"; }).join("") + "</div>"
-      : '<p class="mode">Not one of our three study modes</p><h3>Untested — that\'s your playtest</h3><p class="win">We tested one object with no clock, three objects with no clock, and three objects with swapping and a timer. This combination is yours to find out.</p><p class="q">Which is the point: expose the dial, and let players pick.</p>';
+      : '<p class="mode">Not one of our three study modes</p><h3>Untested — that\'s your playtest</h3><p class="win">We tested one object with no clock, three objects with no clock, and three objects with swapping and a timer. This combination is yours to find out.</p><p class="q">Which is the point: let players choose the pacing.</p>';
   }
   $$("#dialObjects button").forEach(function (b) {
     b.addEventListener("click", function () {
@@ -514,4 +522,18 @@
       var th = $(".t-thanks"); if (th) th.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
     });
   }
+
+  /* ---------------------------------------------------------------- 11 */
+  var codeBtn = $("#rateCode");
+  if (codeBtn) codeBtn.addEventListener("click", function () {
+    var lbl = codeBtn.querySelector("span");
+    var done = function () { lbl.textContent = "Copied ✓"; setTimeout(function () { lbl.textContent = "Copy"; }, 1800); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText("NZgame26").then(done, function () {});
+    if (window.gtag) window.gtag("event", "rate_copy_code", { event_category: "nzgdc2026" });
+  });
+  $$("[data-rate-link]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (window.gtag) window.gtag("event", "rate_session_click", { event_category: "nzgdc2026", target: a.getAttribute("data-rate-link") });
+    });
+  });
 })();

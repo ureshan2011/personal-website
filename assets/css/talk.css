@@ -78,6 +78,32 @@
 .t-countdown .u small { display: block; margin-top: 6px; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--on-navy-dim); }
 .t-countdown .lbl { align-self: center; font-size: 13px; color: var(--on-navy-dim); margin-left: 4px; max-width: 120px; line-height: 1.35; }
 
+/* Rate this session — takes the countdown's place once the talk starts (talk-nzgdc.js §1, §11) */
+.t-rate-app { margin-top: 22px; max-width: 560px; padding: 20px 22px; border-radius: 16px; background: rgba(242, 107, 58, 0.09); border: 1px solid rgba(242, 107, 58, 0.45); }
+.t-rate-app[hidden] { display: none; }
+.t-rate-app h2 { font-family: var(--serif); font-weight: 500; font-size: 24px; line-height: 1.15; letter-spacing: -0.01em; color: #fff; }
+.t-rate-app h2 em { font-style: italic; color: var(--orange); }
+.t-rate-app > p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--on-navy-dim); }
+.t-rate-app ol { margin: 14px 0 0; padding: 0; list-style: none; counter-reset: rate; display: grid; gap: 10px; }
+.t-rate-app li { counter-increment: rate; position: relative; padding-left: 34px; min-height: 24px; font-size: 14.5px; line-height: 1.6; color: var(--on-navy); }
+.t-rate-app li::before {
+  content: counter(rate); position: absolute; left: 0; top: 0; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--orange); color: #fff; font-size: 12px; font-weight: 800; line-height: 24px; text-align: center;
+}
+.t-code {
+  display: inline-flex; align-items: center; gap: 10px; height: 30px; margin-left: 4px; padding: 0 5px 0 12px; vertical-align: middle;
+  border-radius: 8px; border: 1px dashed rgba(255, 255, 255, .4); background: rgba(255, 255, 255, .06); color: #fff; cursor: pointer;
+  font: 700 15px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .04em;
+}
+.t-code span { padding: 5px 7px; border-radius: 5px; background: var(--orange); font: 800 10.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+.t-code:hover { border-color: var(--orange); }
+.t-code:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+.t-rate-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 18px; font-size: 13.5px; color: var(--on-navy-dim); }
+.t-rate-acts a:not(.btn) { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.t-thanks .t-rate-nudge { display: none; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--navy-line); }
+[data-rate="open"] .t-thanks .t-rate-nudge { display: block; }
+.t-rate-nudge a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---------- The Window (hero centrepiece) ---------- */
 .t-window { margin: 0; position: relative; }
 .t-window-stage { position: relative; perspective: 1600px; padding: 0 9%; }
@@ -487,6 +513,7 @@
 .t-thanks p { margin-top: 8px; }
 .t-thanks .acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .t-thanks .btn { color: #fff; border-color: rgba(255,255,255,.3); }
+.t-thanks .btn[hidden] { display: none; }
 .t-fb.is-done form { display: none; }
 .t-fb.is-done .t-thanks { display: block; }
 .t-qr-hello { display: none; margin-top: 18px; padding: 14px 16px; border-radius: 14px; background: var(--orange-soft); font-size: 14.5px; color: var(--ink); }
