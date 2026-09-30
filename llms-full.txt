@@ -676,8 +676,8 @@ an immersive idea is worth building, to find out whether people actually enjoy
 using it, or to build a classroom that students don't skip. Proof points: 128
 participants across my three published AR user studies; 150,000+ learners on
 the MOOC platform I led at the University of Moratuwa; four years as Technical
-Lead and Senior Software Engineer at 99X; Sony Interactive Entertainment and
-Niantic as industry partners on my AR research at HIT Lab NZ.
+Lead and Senior Software Engineer at 99X; three years designing and evaluating
+multiplayer AR at HIT Lab NZ.
 
 **Offer 01 — XR Opportunity Sprint (2–3 weeks).** For tourism operators,
 museums and cultural sites, retailers, training providers and game studios
@@ -759,9 +759,8 @@ New Zealand or online worldwide; paid engagements with fees agreed up front.
 
 ## Case Studies — https://www.yasassri.me/case-studies.html
 
-**Connecting remote players through multiplayer AR (2022–2025).** With Sony
-Interactive Entertainment and Niantic as industry partners, at HIT Lab NZ. Three
-studies: Study 1 (30 participants) compared Overlay, Window and Tabletop views
+**Connecting remote players through multiplayer AR (2022–2025).** At HIT
+Lab NZ, University of Canterbury. Three studies: Study 1 (30 participants) compared Overlay, Window and Tabletop views
 of a remote room — Overlay gave the strongest sense of being there; Study 2 (60
 participants) ran a remote multiplayer AR hide-and-seek game — a lightweight
 view-frustum cue strengthened social connection without avatars or video, and
@@ -789,7 +788,7 @@ programme for students waiting to start university.
 
 A free playbook of four evidence-based principles for location-based AR that
 connects people across distance, from three user studies with 128 participants
-at HIT Lab NZ with Sony Interactive Entertainment as industry partner.
+at HIT Lab NZ.
 (1) Make the place feel present — use a real-world-scale Overlay for presence
 and self-location, Window portals for passing resources between locations, and
 high-fidelity 3D scans of the remote space (Study 1, Entertainment Computing
