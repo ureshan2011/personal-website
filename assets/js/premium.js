@@ -221,7 +221,10 @@
   document.querySelectorAll("[data-next-event]").forEach(function (el) {
     var list;
     try { list = JSON.parse(el.getAttribute("data-next-event") || "[]"); } catch (e) { return; }
-    var today = new Date().toISOString().slice(0, 10);
+    // Local date, not UTC: in New Zealand toISOString() is still "yesterday"
+    // until 1 PM, which kept a finished event on the badge half a day too long.
+    var d = new Date(), p2 = function (n) { return (n < 10 ? "0" : "") + n; };
+    var today = d.getFullYear() + "-" + p2(d.getMonth() + 1) + "-" + p2(d.getDate());
     var next = list.filter(function (ev) { return ev.end >= today; })[0] ||
       { label: "Upcoming talks & events", href: "news.html#upcoming" };
     var label = el.querySelector("span");

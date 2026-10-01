@@ -5,36 +5,44 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Sun, 27 Sep 2026 12:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 01 Oct 2026 21:35:13 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
     <link>https://vrst.acm.org/vrst2026/</link>
-    <guid isPermaLink="true">yasassri-event-vrst-2026</guid>
+    <guid isPermaLink="false">yasassri-event-vrst-2026</guid>
     <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
   </item>
   <item>
+    <title><![CDATA[Slides: Designing Shared Worlds Across Distance (NZGDC 2026)]]></title>
+    <link>https://www.yasassri.me/nzgdc/#resources</link>
+    <guid isPermaLink="false">yasassri-nzgdc-2026-slides</guid>
+    <pubDate>Thu, 01 Oct 2026 15:30:00 +1300</pubDate>
+    <category><![CDATA[Talk]]></category>
+    <description><![CDATA[The slides from my NZGDC 2026 talk are online as a free PDF — all 30, covering the three multiplayer AR games, the numbers from 128 players and the six rules I'd now build any remote AR game around. The talk page also has the papers behind each study, an interactive view-cone demo and the Q&A.]]></description>
+  </item>
+  <item>
     <title><![CDATA[NZGDC 2026 — Designing Shared Worlds Across Distance]]></title>
     <link>https://www.yasassri.me/nzgdc/</link>
-    <guid isPermaLink="true">yasassri-event-nzgdc-2026</guid>
+    <guid isPermaLink="false">yasassri-event-nzgdc-2026</guid>
     <pubDate>Thu, 01 Oct 2026 15:00:00 +1300</pubDate>
     <category><![CDATA[Event]]></category>
-    <description><![CDATA[I'm speaking at NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — real-time connections across distance, bridging places and people, and designing for presence, engagement and trust in multiplayer AR. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland.]]></description>
+    <description><![CDATA[I spoke at NZGDC 2026 in Auckland on "Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game Research" — what three multiplayer AR games and 128 players taught me about playing together from apart, and six rules for designing remote AR games. 1 October 2026, 3:00–3:30 PM, NZ International Convention Centre, Auckland. The slides, the six rules and the papers are on the talk page.]]></description>
   </item>
   <item>
     <title><![CDATA[From Research to Reality — AR/VR Entrepreneurship Opportunities for Sri Lankans]]></title>
-    <link>https://www.yasassri.me/news.html#upcoming</link>
-    <guid isPermaLink="true">yasassri-event-ieee-entrepreneurship-arvr-2026</guid>
+    <link>https://www.yasassri.me/news.html#recent</link>
+    <guid isPermaLink="false">yasassri-event-ieee-entrepreneurship-arvr-2026</guid>
     <pubDate>Tue, 22 Sep 2026 15:30:00 +0530</pubDate>
     <category><![CDATA[Event]]></category>
-    <description><![CDATA[I'm speaking at an IEEE Entrepreneurship, Sri Lanka Section session exploring how AR/VR research can become real-world entrepreneurial opportunities, covering the AR/VR startup landscape and opportunities for Sri Lankan innovators. Open to anyone interested in entrepreneurship in AR/VR. 22 September 2026, 3.30 PM onwards, via Zoom; the Zoom link is shared with registered participants.]]></description>
+    <description><![CDATA[I spoke at an IEEE Entrepreneurship, Sri Lanka Section session on how AR/VR research can become real-world entrepreneurial opportunities, covering the AR/VR startup landscape and the opportunities open to Sri Lankan innovators. 22 September 2026, 3:30 PM (Sri Lanka time), online via Zoom.]]></description>
   </item>
   <item>
     <title><![CDATA[ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance]]></title>
     <link>https://www.yasassri.me/news.html#upcoming</link>
-    <guid isPermaLink="true">yasassri-event-icitr-2026-workshop-01</guid>
+    <guid isPermaLink="false">yasassri-event-icitr-2026-workshop-01</guid>
     <pubDate>Fri, 14 Aug 2026 12:00:00 +1200</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm leading Workshop 01 of ICITR 2026 — the 11th International Conference on Information Technology Research (1–2 December 2026), organised by the Information Technology Research Unit at the University of Moratuwa, Sri Lanka. "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me" explores the design and development of location-based multiplayer AR games, and how augmented reality becomes a core gameplay mechanic that connects remote players. Planned as an online session; date and time to be announced by the organisers.]]></description>
@@ -121,8 +129,8 @@
   </item>
   <item>
     <title><![CDATA[CODE with WIE 2026 — Workshop 01: Architecting the Augmented Tomorrow]]></title>
-    <link>https://www.yasassri.me/news.html#upcoming</link>
-    <guid isPermaLink="true">yasassri-event-code-with-wie-2026</guid>
+    <link>https://www.yasassri.me/news.html#recent</link>
+    <guid isPermaLink="false">yasassri-event-code-with-wie-2026</guid>
     <pubDate>Sat, 11 Jul 2026 09:00:00 +0530</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[Workshop 01 of CODE with WIE 2026, hosted by IEEE Women in Engineering Sri Lanka — exploring the technologies shaping the future and how innovation is transforming tomorrow's world, drawn from research in immersive technologies, software product engineering and game design. Online via Google Meet.]]></description>
@@ -138,7 +146,7 @@
   <item>
     <title><![CDATA[Research Visit to Tohoku University — Building an NZ–Japan AR Collaboration]]></title>
     <link>https://www.yasassri.me/news.html</link>
-    <guid isPermaLink="true">yasassri-event-tohoku-visit-2025</guid>
+    <guid isPermaLink="false">yasassri-event-tohoku-visit-2025</guid>
     <pubDate>Mon, 08 Dec 2025 00:00:00 +1300</pubDate>
     <category><![CDATA[Collaboration]]></category>
     <description><![CDATA[Prof. Rob Lindeman and I (HIT Lab NZ, University of Canterbury) visited the Interactive Content Design Lab at the Research Institute of Electrical Communication (RIEC), Tohoku University, Sendai, Japan. We presented our research on location-based augmented reality and immersive interaction, and explored a joint research project bridging New Zealand and Japan.]]></description>
@@ -146,7 +154,7 @@
   <item>
     <title><![CDATA[Selected for Falling Walls Lab Aotearoa New Zealand 2024]]></title>
     <link>https://www.yasassri.me/news.html</link>
-    <guid isPermaLink="true">yasassri-event-falling-walls-2024</guid>
+    <guid isPermaLink="false">yasassri-event-falling-walls-2024</guid>
     <pubDate>Wed, 11 Sep 2024 00:00:00 +1200</pubDate>
     <category><![CDATA[Talk]]></category>
     <description><![CDATA[One of nineteen researchers and innovators chosen from across Aotearoa New Zealand and the Pacific to pitch a breakthrough idea in three minutes at Falling Walls Lab Aotearoa New Zealand 2024, organised by Royal Society Te Apārangi. Pitch: "Breaking the Wall of Loneliness through Play" — how location-based augmented reality games can bring people together and ease loneliness through shared experiences.]]></description>
@@ -238,14 +246,6 @@
     <pubDate>Tue, 04 May 2021 12:00:00 +0000</pubDate>
     <category><![CDATA[Innovation]]></category>
     <description><![CDATA[Introduces a free virtual queueing tool built to help small businesses manage customer queues without hardware. Explains the problem it solves and how businesses can start using it.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Virtual Reality: A Secret Weapon to Boost Warehouse Efficiency]]></title>
-    <link>https://www.yasassri.me/writing/virtual-reality-a-secret-weapon-to-boost-warehouse-efficiency.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/virtual-reality-a-secret-weapon-to-boost-warehouse-efficiency.html</guid>
-    <pubDate>Tue, 04 May 2021 12:00:00 +0000</pubDate>
-    <category><![CDATA[VR]]></category>
-    <description><![CDATA[Explores how virtual reality can improve training, layout planning and operational efficiency in warehouse environments. Argues that VR offers a low-risk way to rehearse and refine warehouse processes before rollout.]]></description>
   </item>
 </channel>
 </rss>
