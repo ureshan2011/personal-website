@@ -55,18 +55,20 @@ forty-five real, anonymised workplace conflicts to show when collaboration
 works, when it backfires, and what to do instead. Free download at
 yasassri.me/app/#/book; sign-in required, takes under a minute.
 
-**Upcoming talks & workshops.** Three engagements on the calendar, or invite
-me for something similar: Designing Shared Worlds Across Distance (NZGDC,
-1 October 2026) — Presenting on VR Presence & Motion Sickness (VRST 2026,
-Sendai, Japan, 16–18 November 2026) — ICITR 2026 Workshop 01: Designing Shared Worlds Across
-Distance (University of Moratuwa, date to be announced). Full details at
-yasassri.me/news.html.
+**Upcoming talks & workshops.** Two engagements on the calendar, or invite
+me for something similar: Presenting on VR Presence & Motion Sickness (VRST
+2026, Sendai, Japan, 16–18 November 2026) — ICITR 2026 Workshop 01: Designing
+Shared Worlds Across Distance (University of Moratuwa, date to be announced).
+Full details at yasassri.me/news.html.
 
 **Just wrapped.** Talks and workshops delivered this year, with the material
-and demos still online: From Research to Reality — AR/VR Entrepreneurship
-Opportunities (IEEE Entrepreneurship, Sri Lanka, 22 September 2026) — Code Champ 2026 Workshop 07: Augmented Reality and Game
-Development (20 August 2026) — CODE with WIE 2026 Workshop 01: Architecting
-the Augmented Tomorrow (IEEE WIE Sri Lanka, 11 July 2026).
+and demos still online: Designing Shared Worlds Across Distance (NZGDC 2026,
+Auckland, 1 October 2026; slides, the six rules and papers at
+yasassri.me/nzgdc/) — From Research to Reality — AR/VR Entrepreneurship
+Opportunities (IEEE Entrepreneurship, Sri Lanka, 22 September 2026) — Code
+Champ 2026 Workshop 07: Augmented Reality and Game Development (20 August
+2026) — CODE with WIE 2026 Workshop 01: Architecting the Augmented Tomorrow
+(IEEE WIE Sri Lanka, 11 July 2026).
 
 **In the news.** Invited talks, international collaborations and outreach —
 where the research meets people and places: Research Visit to Tohoku
@@ -602,12 +604,12 @@ community outreach — moments where augmented reality research meets real
 people and places.
 
 **Upcoming events.**
-NZGDC 2026 — Designing Shared Worlds Across Distance. 1 October 2026,
-3:00–3:30 PM, NZ International Convention Centre, Auckland. I'm speaking at
-NZGDC 2026 (30 Sep – 3 Oct, Auckland) on "Designing Shared Worlds Across
-Distance: Lessons from Multiplayer AR Game Research" — covering real-time
-connections across distance, bridging places and people, and designing for
-presence, engagement and trust in multiplayer AR.
+VRST 2026 — Presenting on VR Presence and Motion Sickness. 16–18 November
+2026, talk time TBC, RIEC, Tohoku University, Sendai, Japan. I'm presenting
+my paper "The Role of Display Type and Camera Perspective in Shaping VR
+Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality
+Software and Technology (VRST 2026). My presentation slot is still to be
+confirmed by the organisers. Conference site: https://vrst.acm.org/vrst2026/
 ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance. Date and
 time to be announced, online session, ICITR 2026, University of Moratuwa.
 I'm leading Workshop 01 of ICITR 2026 — the 11th International Conference on
@@ -620,7 +622,15 @@ connects remote players through shared immersive experiences. The date and
 time are still to be confirmed by the organisers. Official programme:
 https://icitr.uom.lk/workshops/
 
-**Recently delivered.** From Research to Reality — AR/VR Entrepreneurship
+**Recently delivered.** NZGDC 2026 — Designing Shared Worlds Across Distance.
+1 October 2026, 3:00–3:30 PM (NZDT), NZ International Convention Centre,
+Auckland. I spoke at NZGDC 2026 in Auckland on "Designing Shared Worlds Across
+Distance: Lessons from Multiplayer AR Game Research" — what three multiplayer
+AR games and 128 players taught me about playing together from apart, and the
+six rules I'd now build any remote AR game around. The slides, the six rules,
+the papers behind each study and an interactive version of the hide-and-seek
+view-cone are on the talk page: https://www.yasassri.me/nzgdc/
+From Research to Reality — AR/VR Entrepreneurship
 Opportunities for Sri Lankans. 22 September 2026, 3:30 PM (Sri Lanka time),
 online via Zoom. I spoke at an IEEE Entrepreneurship, Sri Lanka Section
 session on the AR/VR startup landscape and the entrepreneurship opportunities
@@ -814,7 +824,8 @@ EdTech and interactive, bilingual classrooms; technology careers in New Zealand
 and Sri Lanka; and workplace conflict (from The Collaboration Reflex). Credit as
 Dr. Yasas Sri Wickramasinghe, AR researcher, HIT Lab NZ, University of
 Canterbury; he comments in a personal capacity. Recent appearances: PSR Vlog
-podcast on NZ software jobs; Falling Walls Lab Aotearoa NZ 2024; NZGDC 2023 AR
+podcast on NZ software jobs; NZGDC 2026 talk "Designing Shared Worlds Across
+Distance" (slides online); Falling Walls Lab Aotearoa NZ 2024; NZGDC 2023 AR
 Game Dev Rant panel; Tohoku University research visit (Dec 2025). Bio, photos
 and a media-request form are on the page.
 
@@ -838,9 +849,11 @@ build, test, repeat; and good teaching shouldn't depend on where you live.
 ## NZGDC 2026 talk — https://www.yasassri.me/nzgdc/
 
 Designing Shared Worlds Across Distance: Lessons from Multiplayer AR Game
-Research. NZGDC 2026, Thursday 1 October 2026, 3:00–3:30 PM NZDT, NZ
-International Convention Centre, Auckland. What three multiplayer AR games and
-128 players taught him about playing together from apart.
+Research. Delivered at NZGDC 2026 on Thursday 1 October 2026, 3:00–3:30 PM
+NZDT, NZ International Convention Centre, Auckland. What three multiplayer AR
+games and 128 players taught him about playing together from apart. The 30
+slides are a free PDF download:
+https://www.yasassri.me/assets/files/nzgdc-2026/shared-worlds-across-distance-slides.pdf
 
 **The problem.** Pokémon GO has grossed around US$9 billion in ten years, yet
 only about 7% of surveyed location-based game players regularly used the AR
