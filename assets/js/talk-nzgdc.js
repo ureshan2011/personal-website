@@ -1,9 +1,9 @@
 /* ==========================================================================
    NZGDC 2026 talk companion — "Designing Shared Worlds Across Distance"
-   1. Talk status + countdown (NZDT)       6. Where-people-hid toggle
+   1. Talk status + rating window (NZDT)   6. Where-people-hid toggle
    2. The Window: scanned room + cone      7. "Expose the dial" settings
    3. Chapter bar scroll-spy               8. Share a rule
-   4. Tabletop / Window / Overlay tabs     9. Slides + recording slots
+   4. Tabletop / Window / Overlay tabs     9. Slide downloads + recording slot
    5. QR welcome                          10. Feedback form hand-off
                                           11. Rate this session (NZGDC app)
    ========================================================================== */
@@ -14,10 +14,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  // ---- Edit these two after the talk -------------------------------------
-  // Drop the PDF at this path and the download button switches on by itself.
-  var SLIDES_URL = "../assets/files/nzgdc-2026/shared-worlds-across-distance-slides.pdf";
-  // Paste the YouTube video ID once NZGDC publishes the recording.
+  // ---- Paste the YouTube video ID if NZGDC publishes the recording --------
   var RECORDING_YT = "";
   // -------------------------------------------------------------------------
 
@@ -29,10 +26,8 @@
 
   /* ---------------------------------------------------------------- 1 */
   var statusEl = $("#talkStatus");
-  var cd = $("#countdown");
   var rateEl = $("#rate");
   function state(now) { return FORCE || (now < START ? "before" : now < END ? "live" : "after"); }
-  function pad(n) { return (n < 10 ? "0" : "") + n; }
   function tick() {
     var now = Date.now(), s = state(now);
     document.documentElement.setAttribute("data-talk", s);
@@ -40,21 +35,14 @@
       statusEl.setAttribute("data-state", s);
       statusEl.lastElementChild.textContent =
         s === "before" ? "On stage Thursday 1 October, 3:00 PM NZDT" :
-        s === "live" ? "On stage right now at NZICC" : "Delivered 1 October 2026 — thank you";
+        s === "live" ? "On stage right now at NZICC" : "Delivered 1 October 2026 · thank you, Auckland";
     }
     var rateOpen = FORCE ? FORCE !== "before" : now >= START && now < RATE_UNTIL;
     document.documentElement.setAttribute("data-rate", rateOpen ? "open" : "closed");
     if (rateEl && rateEl.hidden === rateOpen) rateEl.hidden = !rateOpen;
-    if (cd) {
-      if (s !== "before") { cd.hidden = true; return; }
-      var ms = START - now, d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24,
-          m = Math.floor(ms / 6e4) % 60, sec = Math.floor(ms / 1e3) % 60;
-      var set = function (k, v) { var el = cd.querySelector('[data-u="' + k + '"]'); if (el) el.textContent = v; };
-      set("d", d); set("h", pad(h)); set("m", pad(m)); set("s", pad(sec));
-    }
   }
   tick();
-  setInterval(tick, 1000);
+  setInterval(tick, 60 * 1000);
 
   /* ---------------------------------------------------------------- 2 */
   var win = $("#talkWindow");
@@ -474,22 +462,12 @@
   });
 
   /* ---------------------------------------------------------------- 9 */
-  var slidesBtn = $("#slidesBtn"), slidesState = $("#slidesState");
-  function slidesText(s) {
-    return s === "after"
-      ? "The slides are on their way. Leave your email below and I'll send them the moment they're up."
-      : "The slides go live here straight after the talk on 1 October — this button switches on by itself.";
-  }
-  if (slidesState) slidesState.textContent = slidesText(state(Date.now()));
-  if (slidesBtn && window.fetch && location.protocol.indexOf("http") === 0) {
-    fetch(SLIDES_URL, { method: "HEAD", cache: "no-store" }).then(function (r) {
-      if (!r.ok) return;
-      slidesBtn.href = SLIDES_URL; slidesBtn.removeAttribute("aria-disabled"); slidesBtn.setAttribute("download", "");
-      slidesBtn.innerHTML = 'Download the slides (PDF) <span class="arrow">↓</span>';
-      if (slidesState) slidesState.textContent = "Every slide from the talk, with the speaker notes' key points.";
-      $$(".js-slides-link").forEach(function (a) { a.href = SLIDES_URL; a.hidden = false; });
-    }).catch(function () {});
-  }
+  // Which link people use to get the slides: hero, meta, resources, view, feedback, thanks.
+  $$("[data-slides]").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (window.gtag) window.gtag("event", "slides_download", { event_category: "nzgdc2026", link: a.getAttribute("data-slides") });
+    });
+  });
   if (RECORDING_YT) {
     var soon = $("#recordingSlot");
     if (soon) {

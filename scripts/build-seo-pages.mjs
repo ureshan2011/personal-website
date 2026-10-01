@@ -1179,12 +1179,12 @@ function syncFeed(decks, writing) {
   <link>${SITE_URL}/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>${toRfc822(today)}</lastBuildDate>
+  <lastBuildDate>${new Date().toUTCString().replace("GMT", "+0000")}</lastBuildDate>
   <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
 ${capped.map(i => `  <item>
     <title>${cdata(i.title)}</title>
     <link>${esc(i.link)}</link>
-    <guid isPermaLink="true">${esc(i.guid)}</guid>${i.pubDate ? `
+    <guid isPermaLink="${/^https?:\/\//.test(i.guid)}">${esc(i.guid)}</guid>${i.pubDate ? `
     <pubDate>${i.pubDate}</pubDate>` : ""}${i.category ? `
     <category>${cdata(i.category)}</category>` : ""}
     <description>${cdata(i.description)}</description>
