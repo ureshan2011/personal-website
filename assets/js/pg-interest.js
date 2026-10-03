@@ -4,6 +4,11 @@
    1. Formspree  → the enquiry lands in the inbox (the must-have).
    2. Firestore  → a copy appears in the Admin Dashboard
       (app/#/admin → PG enquiries), written anonymously through the REST API.
+      It goes into the same `messages` collection as the contact form, tagged
+      kind: "pg" with the answers in a `pg` map, so it rides on the security
+      rule that is already published rather than needing a new one (a
+      dedicated pgEnquiries rule was never published, so every copy written
+      there was rejected and the dashboard stayed empty).
    Without JavaScript all three steps show at once and the form posts
    straight to Formspree.
    ========================================================================== */
@@ -93,13 +98,33 @@
     return data;
   }
 
+  // Plain-text version of the answers, so the record still reads properly
+  // anywhere that only shows a message's subject and body.
+  function summary(data) {
+    var lines = [];
+    KEYS.forEach(function (k) {
+      if (k !== "name" && k !== "email" && data[k]) lines.push(k + ": " + data[k]);
+    });
+    return lines.join("\n").slice(0, 5000);
+  }
+
   function mirrorToDashboard(data) {
     if (!canMirror) return Promise.resolve();
-    var fields = { status: { stringValue: "new" }, website: { stringValue: "" },
-                   createdAt: { timestampValue: new Date().toISOString() } };
-    KEYS.forEach(function (k) { fields[k] = { stringValue: data[k] }; });
+    var pg = {};
+    KEYS.forEach(function (k) { pg[k] = { stringValue: data[k] }; });
+    var fields = {
+      kind: { stringValue: "pg" },
+      name: { stringValue: data.name },
+      email: { stringValue: data.email },
+      subject: { stringValue: "Postgraduate study in NZ — " + data.level },
+      message: { stringValue: summary(data) || "(no details given)" },
+      pg: { mapValue: { fields: pg } },
+      status: { stringValue: "new" },
+      website: { stringValue: "" },
+      createdAt: { timestampValue: new Date().toISOString() }
+    };
     return fetch("https://firestore.googleapis.com/v1/projects/" + CFG.projectId +
-                 "/databases/(default)/documents/pgEnquiries?key=" + CFG.apiKey, {
+                 "/databases/(default)/documents/messages?key=" + CFG.apiKey, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fields: fields })

@@ -258,7 +258,7 @@ trigger. Recommended free/cheap upgrades when you want them:
 
 | Want | Add |
 |---|---|
-| Email notifications on new requests | Firebase **Trigger Email** extension, or a Zapier/Make watch on Firestore |
+| Email notifications on new requests | **Already on.** Consultations, speaking invitations, book requests and forum reports each post a summary to the Formspree form the contact page uses (`PLATFORM_NOTIFY_ENDPOINT` in `app/js/firebase-config.js`), which emails it to you; reply to the email to answer the requester. Formspree's free plan is 50 submissions a month across all forms; paste a second form's URL there if that runs short. |
 | Calendar invites (ICS) + reminders | Create the Google Calendar event when approving (its invite email covers both) |
 | Newsletter sending + double opt-in | Import CSV into Buttondown/Mailchimp — keep the platform as the signup source of truth |
 | File attachments on requests | Firebase Storage, if the Blaze plan is acceptable — or the same chunked-Firestore pattern used for the book, for small files |
