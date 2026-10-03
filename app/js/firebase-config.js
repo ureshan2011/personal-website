@@ -51,13 +51,14 @@ window.PLATFORM_ADMINS = ["yasassriofficial@gmail.com"];
 /* Email notifications for platform submissions.
    -------------------------------------------------------------------------
    There is no backend here, so consultation requests, speaking invitations,
-   newsletter signups and book requests land in Firestore and notify nobody
-   until this is set. Paste a form-to-email endpoint (Formspree, Web3Forms or
-   similar) below and every submission also posts a summary to your inbox.
+   book requests and forum reports would land in Firestore and notify nobody.
+   Each one also posts a summary here, which emails it to the site owner.
 
-   Use a DIFFERENT form from the one in contact.html (f/xleookvv). Keeping
-   them separate means platform mail stays distinguishable from contact-page
-   mail, and one form hitting its monthly cap can't silence the other.
+   This is the same Formspree form the contact page and the postgraduate form
+   already use, so it needed no new account or setup and the mail goes to the
+   inbox those already reach. Formspree's free plan allows 50 submissions a
+   month across all of them; if that ever runs short, create a second form at
+   formspree.io and paste its URL here to give the platform its own quota.
 
-   Left empty, notifications are simply skipped — nothing else changes. */
-window.PLATFORM_NOTIFY_ENDPOINT = "";
+   Set to "" to turn notifications off — nothing else changes. */
+window.PLATFORM_NOTIFY_ENDPOINT = "https://formspree.io/f/xleookvv";

@@ -372,8 +372,11 @@ function fbError(e) {
    time this runs, so a failed or blocked notification must never surface to
    the visitor or undo their request. Failures go to the console only.
 
-   No-ops until PLATFORM_NOTIFY_ENDPOINT is set in firebase-config.js, so the
-   platform behaves exactly as before if it is left unconfigured. */
+   Posted as form data, exactly like the contact page's Formspree submission.
+   The requester's address goes in `email`, which Formspree uses as Reply-To,
+   so replying to the notification answers them directly.
+
+   No-ops if PLATFORM_NOTIFY_ENDPOINT in firebase-config.js is empty. */
 function notifyOwner(subject, fields) {
   const endpoint = window.PLATFORM_NOTIFY_ENDPOINT;
   if (!endpoint) return;
@@ -382,11 +385,13 @@ function notifyOwner(subject, fields) {
       .filter(([, v]) => v !== undefined && v !== null && String(v).trim() !== "")
       .map(([k, v]) => `${k}: ${v}`)
       .join("\n");
-    fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ _subject: subject, subject, message: body })
-    }).catch(e => console.warn("notify failed:", e));
+    const fd = new FormData();
+    fd.append("_subject", subject);
+    fd.append("subject", subject);
+    if (fields.Email) fd.append("email", fields.Email);
+    fd.append("message", body);
+    fetch(endpoint, { method: "POST", headers: { Accept: "application/json" }, body: fd })
+      .catch(e => console.warn("notify failed:", e));
   } catch (e) {
     console.warn("notify failed:", e);
   }
@@ -1302,11 +1307,6 @@ function viewNewsletter(params) {
         website: "",
         createdAt: serverTimestamp()
       });
-      notifyOwner("New newsletter subscriber", {
-        Email: email,
-        Name: String(f.get("name") || "").trim(),
-        Segment: f.get("segment")
-      });
       form.reset();
       msg.className = "form-msg ok"; msg.textContent = "You're on the list — welcome!";
       toast("Subscribed ✓");
@@ -1632,7 +1632,11 @@ async function viewForumThread(_, threadId) {
 
   const reportThreadBtn = view.querySelector("[data-report-thread]");
   if (reportThreadBtn) reportThreadBtn.onclick = async () => {
-    try { await updateDoc(doc(db, "threads", t.id), { reported: true }); toast("Reported — a moderator will take a look."); }
+    try {
+      await updateDoc(doc(db, "threads", t.id), { reported: true });
+      notifyOwner("Forum thread reported", { Thread: t.title, "Reported by": currentUser?.email, Review: location.href });
+      toast("Reported — a moderator will take a look.");
+    }
     catch (e) { toast(fbError(e)); }
   };
 
@@ -1646,7 +1650,12 @@ async function viewForumThread(_, threadId) {
         ? replies.map(r => postHtml(r, false)).join("")
         : `<div class="empty" style="padding:28px">No replies yet.</div>`;
       box.querySelectorAll("[data-report-reply]").forEach(b => b.onclick = async () => {
-        try { await updateDoc(doc(db, "threads", t.id, "replies", b.dataset.reportReply), { reported: true }); toast("Reported ✓"); }
+        try {
+          await updateDoc(doc(db, "threads", t.id, "replies", b.dataset.reportReply), { reported: true });
+          const r = replies.find(x => x.id === b.dataset.reportReply) || {};
+          notifyOwner("Forum reply reported", { Thread: t.title, Reply: String(r.body || "").slice(0, 500), "Reported by": currentUser?.email, Review: location.href });
+          toast("Reported ✓");
+        }
         catch (e) { toast(fbError(e)); }
       });
       box.querySelectorAll("[data-del-reply]").forEach(b => b.onclick = async () => {
@@ -1899,21 +1908,21 @@ async function viewAdmin() {
   // Stats
   (async () => {
     try {
-      const [c, i, m, pg, bk, s, r] = await Promise.all([
+      const [c, i, m, bk, s, r] = await Promise.all([
         getDocs(collection(db, "consultations")),
         getDocs(collection(db, "invitations")),
         getDocs(collection(db, "messages")),
-        getDocs(collection(db, "pgEnquiries")).catch(() => ({ docs: [] })),
         getDocs(collection(db, "bookDownloads")),
         getDocs(collection(db, "subscribers")),
         getDocs(query(collection(db, "threads"), where("reported", "==", true)))
       ]);
       const pend = arr => arr.docs.filter(d => d.data().status === "pending").length;
+      const newMsgs = m.docs.map(d => d.data()).filter(x => x.status === "new");
       document.getElementById("adminStats").innerHTML = `
         <div class="stat"><b>${pend(c)}</b><span>pending consultations</span></div>
         <div class="stat"><b>${pend(i)}</b><span>pending invitations</span></div>
-        <div class="stat"><b>${m.docs.filter(d => d.data().status === "new").length}</b><span>new messages</span></div>
-        <div class="stat"><b>${pg.docs.filter(d => d.data().status === "new").length}</b><span>new PG enquiries</span></div>
+        <div class="stat"><b>${newMsgs.filter(x => !isPg(x)).length}</b><span>new messages</span></div>
+        <div class="stat"><b>${newMsgs.filter(isPg).length}</b><span>new PG enquiries</span></div>
         <div class="stat"><b>${bk.size}</b><span>readers who've requested the book</span></div>
         <div class="stat"><b>${s.docs.filter(d => d.data().status === "subscribed").length}</b><span>newsletter subscribers</span></div>
         <div class="stat"><b>${r.size}</b><span>reported threads</span></div>`;
@@ -1923,6 +1932,10 @@ async function viewAdmin() {
   setTab("consult");
 }
 
+/* PG enquiries share the `messages` collection (see assets/js/pg-interest.js)
+   and get their own tab, so each tab filters on this. */
+const isPg = m => m.kind === "pg";
+
 /* Contact-page messages (written by assets/js/contact-form.js via the
    Firestore REST API; the sender also gets a copy emailed via Formspree). */
 async function adminMessages(body) {
@@ -1930,6 +1943,7 @@ async function adminMessages(body) {
   const snap = await getDocs(collection(db, "messages"));
   const rank = s => (s === "new" ? 0 : s === "read" ? 1 : 2);
   const items = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .filter(m => !isPg(m))
     .sort((a, b) => rank(a.status) - rank(b.status) ||
                     ((tsDate(b.createdAt) || 0) - (tsDate(a.createdAt) || 0)));
   if (!items.length) {
@@ -1987,12 +2001,15 @@ async function adminMessages(body) {
 }
 
 /* Postgraduate-in-NZ enquiries (written by assets/js/pg-interest.js via the
-   Firestore REST API; each one is also emailed via Formspree). */
+   Firestore REST API into `messages`, answers in a `pg` map; each one is also
+   emailed via Formspree). */
 async function adminPgEnquiries(body) {
   body.innerHTML = `<div class="loading"><div class="spinner"></div></div>`;
-  const snap = await getDocs(collection(db, "pgEnquiries"));
+  const snap = await getDocs(collection(db, "messages"));
   const rank = s => (s === "new" ? 0 : s === "read" ? 1 : 2);
   const items = snap.docs.map(d => ({ id: d.id, ...d.data() }))
+    .filter(isPg)
+    .map(m => ({ ...m.pg, id: m.id, name: m.name, email: m.email, status: m.status, createdAt: m.createdAt }))
     .sort((a, b) => rank(a.status) - rank(b.status) ||
                     ((tsDate(b.createdAt) || 0) - (tsDate(a.createdAt) || 0)));
   if (!items.length) {
@@ -2049,17 +2066,17 @@ async function adminPgEnquiries(body) {
     d.style.display = d.style.display === "none" ? "" : "none";
     const item = items.find(x => x.id === b.dataset.open);
     if (item && item.status === "new" && d.style.display !== "none") {
-      updateDoc(doc(db, "pgEnquiries", item.id), { status: "read" }).then(() => { item.status = "read"; }).catch(() => {});
+      updateDoc(doc(db, "messages", item.id), { status: "read" }).then(() => { item.status = "read"; }).catch(() => {});
     }
   });
   body.querySelectorAll("[data-pgset]").forEach(b => b.onclick = async () => {
     const [status, id] = b.dataset.pgset.split(":");
-    try { await updateDoc(doc(db, "pgEnquiries", id), { status }); adminPgEnquiries(body); }
+    try { await updateDoc(doc(db, "messages", id), { status }); adminPgEnquiries(body); }
     catch (e) { toast(fbError(e)); }
   });
   body.querySelectorAll("[data-pgdelete]").forEach(b => b.onclick = async () => {
     if (!confirm("Permanently delete this enquiry?")) return;
-    try { await deleteDoc(doc(db, "pgEnquiries", b.dataset.pgdelete)); adminPgEnquiries(body); }
+    try { await deleteDoc(doc(db, "messages", b.dataset.pgdelete)); adminPgEnquiries(body); }
     catch (e) { toast(fbError(e)); }
   });
 }
