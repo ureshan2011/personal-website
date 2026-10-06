@@ -58,7 +58,7 @@ yasassri.me/app/#/book; sign-in required, takes under a minute.
 **Upcoming talks & workshops.** Two engagements on the calendar, or invite
 me for something similar: Presenting on VR Presence & Motion Sickness (VRST
 2026, Sendai, Japan, 16–18 November 2026) — ICITR 2026 Workshop 01: Designing
-Shared Worlds Across Distance (University of Moratuwa, 27 November 2026, 1:00–4:00 PM (Sri Lanka time)).
+Shared Worlds Across Distance (University of Moratuwa, online, 27 November 2026, 1:00–4:00 PM Sri Lanka time).
 Full details at yasassri.me/news.html.
 
 **Just wrapped.** Talks and workshops delivered this year, with the material
@@ -617,8 +617,8 @@ Information Technology Research Unit at the University of Moratuwa, Sri
 Lanka. "Designing Shared Worlds Across Distance: What Multiplayer AR Research
 Taught Me" explores the design and development of location-based multiplayer
 AR games, and how augmented reality becomes a core gameplay mechanic that
-connects remote players through shared immersive experiences. The date and
-time are still to be confirmed by the organisers. Official programme:
+connects remote players through shared immersive experiences. The workshop
+runs on 27 November 2026, 1:00–4:00 PM Sri Lanka time. Official programme:
 https://icitr.uom.lk/workshops/
 
 **Recently delivered.** NZGDC 2026 — Designing Shared Worlds Across Distance.
