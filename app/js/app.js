@@ -227,7 +227,7 @@ const SPEAKER_TOPICS = [
 // `ends` is the last day of each engagement (ISO date). The "Upcoming" badge
 // is worked out from it at render time, so the list never goes stale.
 const PAST_ENGAGEMENTS = [
-  { when: "Dec 2026", ends: "2026-12-02", title: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me", detail: "ICITR 2026, University of Moratuwa · Workshop 01 · Online · date TBA" },
+  { when: "Nov 2026", ends: "2026-11-27", title: "Designing Shared Worlds Across Distance: What Multiplayer AR Research Taught Me", detail: "ICITR 2026, University of Moratuwa · Workshop 01 · Online · 1:00–4:00 PM" },
   { when: "Nov 2026", ends: "2026-11-18", title: "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness", detail: "ACM VRST 2026 · Paper presentation · Tohoku University, Sendai, Japan" },
   { when: "Oct 2026", ends: "2026-10-01", title: "Designing Shared Worlds Across Distance", detail: "NZGDC 2026 · Conference talk · NZ International Convention Centre, Auckland" },
   { when: "Sep 2026", ends: "2026-09-22", title: "From Research to Reality: AR/VR Entrepreneurship Opportunities for Sri Lankans", detail: "IEEE Entrepreneurship, Sri Lanka Section · Talk · Online" },
