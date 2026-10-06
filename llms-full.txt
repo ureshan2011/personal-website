@@ -58,7 +58,7 @@ yasassri.me/app/#/book; sign-in required, takes under a minute.
 **Upcoming talks & workshops.** Two engagements on the calendar, or invite
 me for something similar: Presenting on VR Presence & Motion Sickness (VRST
 2026, Sendai, Japan, 16–18 November 2026) — ICITR 2026 Workshop 01: Designing
-Shared Worlds Across Distance (University of Moratuwa, 27 November 2026, 1:00–4:00 PM).
+Shared Worlds Across Distance (University of Moratuwa, 27 November 2026, 1:00–4:00 PM (Sri Lanka time)).
 Full details at yasassri.me/news.html.
 
 **Just wrapped.** Talks and workshops delivered this year, with the material
@@ -610,7 +610,7 @@ my paper "The Role of Display Type and Camera Perspective in Shaping VR
 Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality
 Software and Technology (VRST 2026). My presentation slot is still to be
 confirmed by the organisers. Conference site: https://vrst.acm.org/vrst2026/
-ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance. 27 November 2026, 1:00–4:00 PM, online session, ICITR 2026, University of Moratuwa.
+ICITR 2026 — Workshop 01: Designing Shared Worlds Across Distance. 27 November 2026, 1:00–4:00 PM (Sri Lanka time), online session, ICITR 2026, University of Moratuwa.
 I'm leading Workshop 01 of ICITR 2026 — the 11th International Conference on
 Information Technology Research (1–2 December 2026), organised by the
 Information Technology Research Unit at the University of Moratuwa, Sri
