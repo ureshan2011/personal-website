@@ -1,0 +1,7 @@
+{
+  "mimeTypes": {
+    ".usdz": "model/vnd.usdz+zip",
+    ".glb": "model/gltf-binary",
+    ".mp4": "video/mp4"
+  }
+}

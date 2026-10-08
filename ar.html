@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Try AR on Your Phone — Code Champ 2026 Workshop 07</title>
-<meta name="description" content="A beginner-friendly AR playground: place a virtual object with your phone's camera, no app needed, then watch research clips on meshing and shared AR."/>
+<meta name="description" content="Put a life-size virtual crystal on your floor with your phone's built-in AR viewer — no app to download — then watch research clips on meshing and shared AR."/>
 <link rel="icon" href="assets/images/icons/favicon.png"/>
 <meta name="author" content="Yasas Sri Wickramasinghe"/>
-<meta name="keywords" content="augmented reality for beginners, try AR in browser, no-app AR demo, gyroscope AR, AR workshop, Code Champ 2026, AR game development, plane detection, occlusion, location-based AR, shared AR, Yasas Sri Wickramasinghe, HIT Lab NZ"/>
+<meta name="keywords" content="augmented reality for beginners, try AR in browser, no-app AR demo, AR Quick Look, Scene Viewer, ARCore, AR workshop, Code Champ 2026, AR game development, plane detection, occlusion, location-based AR, shared AR, Yasas Sri Wickramasinghe, HIT Lab NZ"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
 <meta name="theme-color" content="#2f6bff"/>
 <link rel="canonical" href="https://www.yasassri.me/ar.html"/>
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:title" content="Try AR on Your Phone — Code Champ 2026 Workshop 07"/>
-<meta property="og:description" content="Open this on your phone and hang a virtual object in the air. Then watch how real AR research works — meshing, occlusion, location-based AR and shared AR."/>
+<meta property="og:description" content="Open this on your phone and put a life-size crystal on your floor. Then watch how real AR research works — meshing, occlusion, location-based AR and shared AR."/>
 <meta property="og:url" content="https://www.yasassri.me/ar.html"/>
 <meta property="og:image" content="https://www.yasassri.me/assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"/>
 <meta property="og:image:width" content="1045"/>
@@ -28,7 +28,7 @@
 <meta name="twitter:site" content="@sri_yasas"/>
 <meta name="twitter:creator" content="@sri_yasas"/>
 <meta name="twitter:title" content="Try AR on Your Phone — Code Champ 2026 Workshop 07"/>
-<meta name="twitter:description" content="Open this on your phone and hang a virtual object in the air. No app, no download."/>
+<meta name="twitter:description" content="Open this on your phone and put a life-size crystal on your floor. No app to download."/>
 <meta name="twitter:image" content="https://www.yasassri.me/assets/images/events/code-champ-2026-workshop-07-ar-game-development.png"/>
 
 <script type="application/ld+json">
@@ -40,7 +40,7 @@
       "@id": "https://www.yasassri.me/ar.html#page",
       "url": "https://www.yasassri.me/ar.html",
       "name": "Try AR on Your Phone — Code Champ 2026 Workshop 07",
-      "description": "A hands-on augmented reality playground for complete beginners, built to run on low-end phones and slow connections.",
+      "description": "A hands-on augmented reality demo for complete beginners: one life-size 3D crystal, opened in the AR viewer built into iPhone and Android, with an honest compatibility check for every other device.",
       "inLanguage": "en",
       "isPartOf": { "@type": "WebSite", "name": "Dr. Yasas Sri Wickramasinghe", "url": "https://www.yasassri.me/" },
       "author": { "@id": "https://www.yasassri.me/#yasas" }
@@ -56,7 +56,7 @@
     {
       "@type": "LearningResource",
       "name": "Augmented Reality for Complete Beginners — interactive companion",
-      "description": "An in-browser AR demo plus annotated research clips covering scene meshing, plane detection, occlusion, location-based AR and shared AR.",
+      "description": "A phone AR demo launched from the browser, plus annotated research clips covering scene meshing, plane detection, occlusion, location-based AR and shared AR.",
       "learningResourceType": "Interactive demonstration",
       "educationalLevel": "Beginner",
       "teaches": ["Augmented reality basics", "Plane detection", "Occlusion", "Location-based AR", "Shared AR"],
@@ -128,49 +128,58 @@
   .spotlight-grid .req i { font-size: 16px; line-height: 1; }
 
   /* ---- AR stage --------------------------------------------------------- */
-  .ar-shell { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow: hidden; box-shadow: var(--shadow-sm); }
-  .ar-stage { position: relative; width: 100%; aspect-ratio: 3/4; max-height: 78vh; background: #0d1220; overflow: hidden; }
-  /* the no-camera tier has no video behind it, so give it a sky */
-  [data-tier="demo"] .ar-stage { background: radial-gradient(120% 95% at 50% 6%, #1c2a54 0%, #0d1220 64%); }
-  @media (min-width: 760px) { .ar-stage { aspect-ratio: 16/10; } }
-  .ar-stage video, .ar-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-  .ar-stage video { object-fit: cover; opacity: 0; transition: opacity .4s var(--ease); }
-  [data-camera="on"] .ar-stage video { opacity: 1; }
-  .ar-stage canvas { touch-action: none; z-index: 2; }
+  .ar-shell { display: grid; grid-template-columns: 1fr; border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--card); overflow: hidden; box-shadow: var(--shadow-sm); }
+  @media (min-width: 820px) { .ar-shell { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
 
-  /* Idle poster: a CSS-only scene so the box is never a dead black rectangle. */
-  .ar-idle { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; text-align: center; padding: 28px;
-    background: radial-gradient(120% 90% at 50% 8%, #1c2a54 0%, #0d1220 62%); color: #fff; }
-  [data-active="true"] .ar-idle { display: none; }
-  .ar-idle-orb { width: 74px; height: 74px; margin: 0 auto 20px; border-radius: 18px; transform: rotate(45deg);
-    background: linear-gradient(150deg, #6ea0ff, #2f6bff 55%, #1636a8);
-    box-shadow: 0 0 0 1px rgba(255,255,255,.16), 0 18px 44px -12px rgba(47,107,255,.75);
-    animation: arFloat 3.6s var(--ease) infinite; }
-  @keyframes arFloat { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(-12px); } }
-  @media (prefers-reduced-motion: reduce) { .ar-idle-orb { animation: none; } }
-  .ar-idle h3 { color: #fff; font-size: 20px; }
-  .ar-idle p { color: rgba(255,255,255,.72); font-size: 14.5px; margin-top: 8px; max-width: 42ch; }
+  /* The object itself, on a soft studio backdrop. A still image on purpose:
+     the real thing is in the AR viewer, and the page stays light. */
+  .ar-visual { position: relative; display: grid; place-items: center; min-height: 300px; padding: 34px 24px 26px;
+    background: radial-gradient(90% 70% at 50% 34%, #ffffff 0%, #e9f0ff 58%, #dfe7f6 100%); }
+  .ar-visual::after { content: ""; position: absolute; left: 50%; bottom: 13%; width: 58%; height: 9%; transform: translateX(-50%);
+    border-radius: 50%; background: radial-gradient(closest-side, rgba(19,26,38,.16), rgba(19,26,38,0)); }
+  .ar-visual img { position: relative; z-index: 1; width: auto; height: auto; max-height: 340px; max-width: 72%; }
+  .ar-size { position: absolute; z-index: 2; left: 16px; top: 16px; font-size: 12px; font-weight: 600; color: var(--ink-soft);
+    background: rgba(255,255,255,.85); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
 
-  /* dom-overlay root: the HUD the headless AR session draws over the camera. */
-  .ar-overlay { position: absolute; inset: 0; z-index: 4; pointer-events: none; display: flex; flex-direction: column; justify-content: space-between; padding: 14px; }
-  .ar-hud { display: flex; gap: 8px; flex-wrap: wrap; }
-  .ar-chip { pointer-events: none; font-size: 12px; font-weight: 600; letter-spacing: .01em; color: #fff;
-    background: rgba(13,18,32,.72); border: 1px solid rgba(255,255,255,.16); border-radius: 999px; padding: 7px 13px; backdrop-filter: blur(6px); }
-  .ar-chip[hidden] { display: none; }
-  .ar-hint { align-self: center; text-align: center; font-size: 13.5px; line-height: 1.45; color: #fff; max-width: 34ch;
-    background: rgba(13,18,32,.72); border: 1px solid rgba(255,255,255,.16); border-radius: 12px; padding: 10px 14px; backdrop-filter: blur(6px); }
-  /* the HUD belongs to a running session — keep it off the idle poster */
-  .ar-overlay { opacity: 0; transition: opacity .3s var(--ease); }
-  [data-active="true"] .ar-overlay { opacity: 1; }
+  .ar-panel { display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: clamp(24px, 4vw, 40px);
+    border-top: 1px solid var(--line); }
+  @media (min-width: 820px) { .ar-panel { border-top: 0; border-left: 1px solid var(--line); } }
+  .ar-chip { display: inline-flex; align-items: center; gap: 8px; width: fit-content; font-size: 12px; font-weight: 600;
+    letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 6px 12px 6px 10px;
+    background: var(--bg-panel); color: var(--ink-soft); }
+  .ar-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  .ar-chip[data-tone="good"] { background: #e6f5ec; color: #1b6e43; }
+  .ar-chip[data-tone="warn"] { background: #fdf1e1; color: #8a5300; }
+  .ar-chip[data-tone="info"]::before { animation: arPulse 1.2s ease-in-out infinite; }
+  @keyframes arPulse { 50% { opacity: .25; } }
+  .ar-panel h3 { font-size: clamp(21px, 2.4vw, 26px); line-height: 1.25; }
+  .ar-panel h3:focus { outline: none; }
+  .ar-panel p { font-size: 15px; color: var(--ink-soft); line-height: 1.6; }
+  .ar-panel p b { color: var(--ink); font-weight: 600; }
+  .ar-panel p a { color: var(--accent); font-weight: 600; white-space: nowrap; }
+  .ar-panel p a:hover { text-decoration: underline; }
+  .ar-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ar-actions:empty { display: none; }
+  .ar-launch { height: 52px; padding: 0 26px; font-size: 15px; }
+  .ar-launch svg { width: 20px; height: 20px; flex: none; }
+  .ar-launch[hidden], .ar-tips[hidden], .ar-qr[hidden] { display: none; }
 
-  .ar-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 18px; border-top: 1px solid var(--line); background: var(--bg-soft); }
-  .ar-controls .btn { flex: 0 0 auto; }
-  [data-active="true"] [data-ar-start] { display: none; }
-  :not([data-active="true"]) > .ar-controls [data-ar-stop],
-  :not([data-active="true"]) > .ar-controls [data-ar-reset] { display: none; }
-  .ar-status { flex: 1 1 220px; font-size: 13px; color: var(--ink-soft); line-height: 1.45; }
-  .ar-status[data-tone="good"] { color: #1b7f4d; }
-  .ar-status[data-tone="warn"] { color: #9a6200; }
+  .ar-tips { list-style: none; display: grid; gap: 10px; padding-top: 16px; border-top: 1px dashed var(--line-strong); }
+  .ar-tips li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+  .ar-tips li span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--accent-soft);
+    color: var(--accent); font-size: 12.5px; font-weight: 700; }
+  .ar-tips b { color: var(--ink); font-weight: 600; }
+
+  .ar-qr { display: flex; align-items: center; gap: 18px; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+    background: var(--bg-soft); }
+  .ar-qr img { width: 120px; height: 120px; border-radius: 8px; flex: none; }
+  .ar-qr p { font-size: 13.5px; margin: 0; }
+  .ar-qr code { font-size: 13px; color: var(--ink); }
+
+  .ar-privacy { font-size: 13px !important; color: var(--muted) !important; }
+
+  @media (prefers-reduced-motion: reduce) { .ar-chip[data-tone="info"]::before { animation: none; } }
 
   /* ---- requirements ----------------------------------------------------- */
   .req-list { display: grid; gap: 12px; margin-top: 18px; }
@@ -288,108 +297,115 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="idx">01</span>
-      <h2>Leave something <em>floating in your room</em>.</h2>
+      <h2>Put a crystal <em>on your floor</em>.</h2>
       <p>
-        Tap to hang a crystal in the air, turn away, then turn back and find it again.
-        It runs entirely inside your browser — your camera feed never leaves your phone,
-        there is no server, no upload, and nothing is recorded.
+        One object, done properly. Your phone finds the floor, places a life-size crystal on it,
+        and keeps it there while you walk around, crouch down and look at it from every side.
+        If your phone or browser can't do that well, this box tells you so instead of faking it.
       </p>
     </div>
 
     <div class="ar-shell reveal" data-ar-root>
-      <div class="ar-stage" data-ar-stage>
-        <video data-ar-video playsinline muted autoplay disablepictureinpicture aria-hidden="true"></video>
-        <canvas data-ar-canvas aria-label="Augmented reality view"></canvas>
-
-        <div class="ar-overlay" data-ar-overlay>
-          <div class="ar-hud">
-            <span class="ar-chip" data-ar-badge hidden></span>
-          </div>
-          <p class="ar-hint" data-ar-hint>Tap anywhere to leave a crystal in the air.</p>
-        </div>
-
-        <div class="ar-idle" data-ar-intro>
-          <div>
-            <div class="ar-idle-orb" aria-hidden="true"></div>
-            <h3>Ready when you are</h3>
-            <p>Best on a phone. You'll be asked for motion access and then camera access — say yes to both. Nothing is uploaded or recorded.</p>
-          </div>
-        </div>
+      <div class="ar-visual">
+        <span class="ar-size">Life-size · about 33&nbsp;cm tall</span>
+        <img src="assets/images/ar-workshop/crystal-poster.webp" width="640" height="893" decoding="async"
+             alt="The AR object: a cluster of seven blue crystals growing out of a small grey rock."/>
       </div>
 
-      <div class="ar-controls">
-        <button class="btn btn-solid" type="button" data-ar-start>Start</button>
-        <button class="btn" type="button" data-ar-stop>Stop</button>
-        <button class="btn" type="button" data-ar-reset>Clear</button>
-        <p class="ar-status" data-ar-status data-tone="info">Checking what your phone can do…</p>
+      <div class="ar-panel">
+        <span class="ar-chip" data-ar-state data-tone="info">Checking</span>
+        <div role="status" aria-live="polite" aria-atomic="true">
+          <h3 data-ar-title tabindex="-1">Checking your device…</h3>
+          <p data-ar-body style="margin-top:10px;">This takes a moment.</p>
+        </div>
+        <noscript><p><b>JavaScript is off,</b> so this page can't check your device. Turn it on and reload to try AR.</p></noscript>
+
+        <button class="btn btn-solid ar-launch" type="button" data-ar-launch hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2.5 20.5 7v10L12 21.5 3.5 17V7z"/><path d="M3.5 7 12 11.5 20.5 7M12 11.5v10"/>
+          </svg>
+          View in your room
+        </button>
+        <div class="ar-actions" data-ar-actions></div>
+
+        <div class="ar-qr" data-ar-qr hidden>
+          <img src="assets/images/ar-workshop/ar-qr.svg" width="120" height="120" loading="lazy" decoding="async"
+               alt="QR code that opens www.yasassri.me/ar.html"/>
+          <p>Point your phone's camera at the code, or type <code>yasassri.me/ar.html</code> into its browser.</p>
+        </div>
+
+        <ol class="ar-tips" data-ar-tips hidden aria-label="How to use it">
+          <li><span aria-hidden="true">1</span><div><b>Scan slowly.</b> Sweep the camera across the floor until the crystal drops into place. Good light helps.</div></li>
+          <li><span aria-hidden="true">2</span><div><b>Walk around it.</b> Crouch down, look from above, step away and come back — it stays put.</div></li>
+          <li><span aria-hidden="true">3</span><div><b>Move it.</b> Drag to slide it, pinch to resize, twist with two fingers to rotate.</div></li>
+        </ol>
+
+        <p class="ar-privacy">This page never touches your camera. The AR viewer is part of your phone's operating system, and the picture stays on your phone.</p>
       </div>
     </div>
 
     <div class="grid-2 reveal" style="margin-top:44px; gap:32px;">
       <div>
-        <h3 style="font-size:20px;">What am I looking at?</h3>
+        <h3 style="font-size:20px;">What is your phone doing?</h3>
         <div class="step-list">
           <div class="step">
-            <b>Your camera becomes the background</b>
+            <b>The camera becomes the background</b>
             <span>AR always starts here. The “reality” half of augmented reality is just a live camera picture.</span>
           </div>
           <div class="step">
-            <b>The gyroscope tracks which way you're facing</b>
-            <span>Every phone has one. It reports the phone's tilt and turn hundreds of times a second — the same sensor that rotates your photos.</span>
+            <b>It finds the floor</b>
+            <span>While you sweep the camera around, the phone looks for flat, textured surfaces and works out where they are in 3D. That's <em>plane detection</em> — and it's why a plain white floor or a dark room makes it struggle.</span>
           </div>
           <div class="step">
-            <b>The crystal is pinned to a direction, not to the screen</b>
-            <span>When you tap, the crystal is stored as a point in the world around you. As you turn, the maths works out where that point should now appear on screen — so it stays put while everything else moves.</span>
+            <b>It tracks itself, not just its angle</b>
+            <span>The phone combines the camera picture with its motion sensors to know where it is in the room as well as which way it's facing. That's what lets you walk around the crystal instead of only turning on the spot.</span>
           </div>
           <div class="step">
-            <b>Turn away, turn back, collect it</b>
-            <span>That tiny loop — place it, lose it, find it again — is the seed of every location-based AR game, including the hide-and-seek one further down this page.</span>
+            <b>It matches the room's light</b>
+            <span>The crystal is shaded by an estimate of the light around you and casts a soft shadow on the floor. Small detail, huge difference: without a shadow, things look pasted on.</span>
           </div>
         </div>
         <div class="note" style="margin-top:22px;">
-          <b>What this demo deliberately doesn't do:</b> it has no idea where your floor is,
-          and virtual things won't hide behind real furniture. Those need depth sensing and
-          ARCore-class hardware. Everything you see here is a camera, a gyroscope and about
-          20&nbsp;KB of code — which is exactly the point.
+          <b>Why hand over to the phone?</b> Apple and Google have spent years tuning the AR viewers
+          built into iPhone and Android, so they track better than anything a web page can do on its own.
+          This page's whole job is to check your device and pass over one small 3D file
+          (about 18&nbsp;KB) — which is exactly how most shops show products in AR.
         </div>
       </div>
 
       <div>
         <h3 style="font-size:20px;">Will it work on my phone?</h3>
         <p style="color:var(--ink-soft); font-size:14.5px; margin-top:10px;">
-          The page checks your device and gives you the best mode it can run. You will always get
-          <em>something</em> — nobody is left with a blank screen.
+          The box above checks for you. Here is what it's looking for — and if your device falls short,
+          you'll be told why rather than given a half-working version.
         </p>
         <div class="req-list">
           <div class="req">
-            <i>1</i>
+            <i aria-hidden="true">✓</i>
             <div>
-              <b>AR with motion tracking</b>
-              <span>Any phone with a rear camera and a gyroscope — iPhone on iOS 13+, or essentially any Android from the last decade. No ARCore, no app, no install. This is what almost everyone gets.</span>
+              <b>iPhone or iPad</b>
+              <span>iPhone 6s or newer, or any recent iPad, on iOS 12 or later. Opens in Apple's AR Quick Look from Safari, or from Chrome, Edge or Firefox on iOS.</span>
             </div>
           </div>
           <div class="req">
-            <i>2</i>
+            <i aria-hidden="true">✓</i>
             <div>
-              <b>AR with drag to look</b>
-              <span>If motion access is declined or the sensor stays silent, the camera still works — you swipe across the picture to look around instead. Same crystals, same game.</span>
+              <b>Android phone</b>
+              <span>A phone certified for Google's ARCore, which covers most mid-range and flagship phones of recent years. Open the page in Chrome. <a href="https://developers.google.com/ar/devices" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600;">Supported phones ↗</a></span>
             </div>
           </div>
           <div class="req">
-            <i>3</i>
+            <i aria-hidden="true">✕</i>
             <div>
-              <b>3D demo — no camera needed</b>
-              <span>No camera, or permission declined? The same scene runs as an animation you can drag to look around. Works on a laptop too.</span>
+              <b>Laptops, desktops and headsets</b>
+              <span>Not supported — this demo is about a phone camera looking at a real floor. On a computer you'll get a QR code to open the page on your phone.</span>
             </div>
           </div>
         </div>
         <div class="note" style="margin-top:18px;">
-          <b>Two things that trip people up.</b> Your phone will ask twice — once for motion, once
-          for the camera. Say yes to both; neither leaves your device. And on iPhone, motion access
-          has a master switch: if you're never asked, turn it on at
-          <b>Settings → Apps → Safari → Motion &amp; Orientation Access</b>, then reload this page.
-          Open the link in Safari or Chrome directly — camera access is blocked inside in-app
-          browsers like Facebook, Instagram or WhatsApp.
+          <b>Two things that trip people up.</b> Open the link in Safari or Chrome directly — AR is blocked
+          inside in-app browsers like Instagram, Facebook or WhatsApp. And on Android, the viewer runs on
+          <b>Google Play Services for AR</b>; if your phone asks you to install or update it, say yes.
         </div>
       </div>
     </div>
@@ -403,7 +419,7 @@
       <span class="idx">02</span>
       <h2>How a phone turns a camera into <em>a window</em>.</h2>
       <p>
-        Nothing is really floating in your room. The phone is drawing a 3D object into
+        Nothing is really standing on your floor. The phone is drawing a 3D object into
         a live photo, sixty times a second, from exactly the right angle. Here is the trick,
         drawn to scale.
       </p>
@@ -444,7 +460,7 @@
           </div>
           <div class="step">
             <b>The sensors say which way you're pointing</b>
-            <span>The gyroscope reports the phone's tilt and turn. Better AR systems also watch the picture itself to work out where you have <em>walked</em>, not just where you have turned.</span>
+            <span>The gyroscope reports the phone's tilt and turn. Proper AR systems — like the viewer the crystal opens in — also watch the picture itself to work out where you have <em>walked</em>, not just where you have turned.</span>
           </div>
           <div class="step">
             <b>The object is stored as a place, not a pixel</b>
@@ -460,8 +476,8 @@
 
     <h3 style="font-size:20px; margin-top:56px;" class="reveal">Two tricks that make it convincing</h3>
     <p class="reveal" style="color:var(--ink-soft); font-size:14.5px; max-width:62ch; margin-top:8px;">
-      The demo at the top of this page skips both of these — they need more capable hardware.
-      Tap the buttons to see what each one actually does.
+      The crystal at the top of this page leaves these to your phone's own AR viewer, and how much of
+      them you get depends on your phone's hardware. Tap the buttons to see what each one actually does.
     </p>
 
     <div class="fig-grid reveal" style="margin-top:22px;">
@@ -503,7 +519,7 @@
       <span class="idx">03</span>
       <h2>Five ideas that make AR <em>feel real</em>.</h2>
       <p>
-        The demo above is deliberately simple. Five more layers sit between it and a real AR game —
+        The crystal above is one object on one floor. Five more layers sit between it and a real AR game —
         and the first four each have a clip from my research further down, recorded on an ordinary phone.
       </p>
     </div>
@@ -839,7 +855,7 @@
       <a class="card" href="https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API" target="_blank" rel="noopener">
         <span class="kicker">Under the hood · Web</span>
         <h3>WebXR Device API</h3>
-        <p>The next step up from the demo at the top of this page: real plane detection and depth in the browser, no plugins — on Android phones that support it.</p>
+        <p>The next step after the crystal at the top of this page: build the AR scene inside the browser yourself, with plane detection and depth, no plugins — on Android phones that support it.</p>
       </a>
       <a class="card" href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@6.0/manual/index.html" target="_blank" rel="noopener">
         <span class="kicker">Going further · Apps</span>
@@ -969,7 +985,7 @@
 
 <script src="assets/js/premium.js" defer></script>
 <script src="assets/js/hunt.js" defer></script>
-<script src="assets/js/ar-lab.js" defer></script>
+<script src="assets/js/ar-view.js" defer></script>
 <script>
   /* Click-to-load media. Nothing heavy touches the network until it is asked for. */
   (function () {
