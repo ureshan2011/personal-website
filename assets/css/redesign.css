@@ -243,6 +243,44 @@ h1 em, h2 em, h3 em { font-style: italic; color: inherit; }
 }
 .hero-portrait-layer { position: absolute; left: 0; right: 0; top: 0; bottom: -18%; will-change: transform; }
 .hero-portrait { width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%; }
+
+/* Welcome video: sits exactly over the still and cross-fades in while talking */
+.hero-welcome { position: absolute; inset: 0; opacity: 0; transition: opacity .5s var(--ease); pointer-events: none; }
+.hero-arch.is-talking .hero-welcome { opacity: 1; }
+.hero-welcome-cc {
+  position: absolute; left: 50%; bottom: 74px; z-index: 2; width: max-content; max-width: 84%; margin: 0;
+  transform: translateX(-50%); padding: 7px 12px; border-radius: 10px; text-align: center;
+  background: rgba(19, 26, 38, .72); color: #fff; font-size: 14px; line-height: 1.4; text-wrap: balance;
+}
+.hero-welcome-cc:empty { display: none; }
+.hero-welcome-btn {
+  position: absolute; right: 22px; bottom: 22px; z-index: 3; display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 18px 10px 10px; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; cursor: pointer;
+  background: rgba(255,255,255,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px -22px rgba(19,26,38,.55); font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1; color: var(--ink);
+  transition: transform .3s var(--ease), background .3s;
+}
+.hero-welcome-btn[hidden] { display: none; }
+.hero-welcome-btn:hover { transform: translateY(-2px); background: #fff; }
+.hero-welcome-ico { position: relative; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); flex: none; }
+.hero-welcome-ico::before { /* play triangle */
+  content: ""; position: absolute; left: 11px; top: 9px;
+  border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent #fff;
+}
+.hero-welcome-ico::after { /* soft "talk to me" pulse */
+  content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--accent); opacity: 0;
+  animation: welcomePulse 2.6s ease-out infinite;
+}
+@keyframes welcomePulse { 0% { transform: scale(.85); opacity: .55; } 100% { transform: scale(1.45); opacity: 0; } }
+.hero-welcome-btn[aria-pressed="true"] .hero-welcome-ico::before { /* stop square */
+  left: 10px; top: 10px; width: 10px; height: 10px; border: 0; border-radius: 2px; background: #fff;
+}
+.hero-welcome-btn[aria-pressed="true"] .hero-welcome-ico::after { animation: none; }
+.hero-welcome-note {
+  position: absolute; left: 0; right: 0; top: calc(100% + 10px); text-align: center;
+  font-size: 12px; color: var(--ink-soft);
+}
+.hero-welcome-note[hidden] { display: none; }
 .hero-tag {
   position: absolute; right: -24px; bottom: 7%; z-index: 2; padding: 11px 15px 12px;
   background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -282,6 +320,9 @@ h1 em, h2 em, h3 em { font-style: italic; color: inherit; }
   .hero-arch { border-radius: 999px 999px 24px 24px; }
   .hero-seal { left: -4px; top: 1%; bottom: auto; width: 116px; height: 116px; }
   .hero-tag { right: 12px; bottom: 16px; }
+  .hero-welcome-btn { right: 50%; bottom: 16px; transform: translateX(50%); }
+  .hero-welcome-btn:hover { transform: translateX(50%) translateY(-2px); }
+  .hero-welcome-cc { bottom: 66px; font-size: 13px; }
 }
 @media (max-width: 640px) {
   .hero-byline { align-items: flex-start; font-size: 13.5px; margin-bottom: 16px; }

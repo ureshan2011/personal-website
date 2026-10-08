@@ -351,8 +351,19 @@
       <div class="hero-arch" data-depth="0.035" data-pointer="6">
         <div class="hero-portrait-layer" data-depth="-0.09">
           <img class="hero-portrait" src="assets/images/home/hero-portrait-900.webp" srcset="assets/images/home/hero-portrait-600.webp 600w, assets/images/home/hero-portrait-900.webp 900w" sizes="(max-width: 940px) 92vw, 440px" alt="Portrait of Dr. Yasas Sri Wickramasinghe, augmented reality researcher, lecturer and engineer" width="900" height="1260" fetchpriority="high" decoding="async"/>
+          <!-- Welcome video: generated from this same portrait (scripts/welcome-video), so it fades in over the still without a jump -->
+          <video class="hero-portrait hero-welcome" id="heroWelcome" playsinline preload="none" disablepictureinpicture aria-label="Welcome message from Yasas">
+            <source src="assets/video/welcome.webm" type="video/webm"/>
+            <source src="assets/video/welcome.mp4" type="video/mp4"/>
+            <track kind="captions" src="assets/video/welcome.en.vtt" srclang="en" label="English" default/>
+          </video>
         </div>
+        <p class="hero-welcome-cc" id="heroWelcomeCc" aria-hidden="true"></p>
       </div>
+      <button class="hero-welcome-btn" id="heroWelcomeBtn" type="button" aria-controls="heroWelcome" aria-pressed="false" hidden>
+        <span class="hero-welcome-ico" aria-hidden="true"></span><span class="hero-welcome-label">Say hello</span>
+      </button>
+      <span class="hero-welcome-note" id="heroWelcomeNote" hidden>AI-generated from my photo · my own voice</span>
       <div class="hero-seal" data-depth="-0.14" data-pointer="16" role="img" aria-label="PhD in Human Interface Technology, University of Canterbury">
         <svg class="hero-seal-svg" viewBox="0 0 160 160" aria-hidden="true">
           <defs>
@@ -1329,6 +1340,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
 <script src="assets/js/premium.js"></script>
+<script src="assets/js/hero-welcome.js" defer></script>
 <script src="assets/js/hunt.js" defer></script>
 <script src="app/js/firebase-config.js"></script>
 <script src="assets/js/pg-interest.js"></script>

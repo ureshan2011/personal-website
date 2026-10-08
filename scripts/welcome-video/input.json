@@ -1,0 +1,7 @@
+{
+    "prompt": "A South Asian man in his thirties with short dark hair and light stubble, wearing a royal-blue corduroy button-down shirt, sits facing the camera against a plain soft pink studio backdrop. He is speaking warmly and naturally to the camera, with a calm friendly expression, subtle head movements, natural blinking and relaxed shoulders. Soft even studio lighting, sharp focus, realistic skin texture, static camera, professional portrait video.",
+    "cond_image": "work/cond-portrait.png",
+    "cond_audio": {
+        "person1": "work/voice.wav"
+    }
+}
