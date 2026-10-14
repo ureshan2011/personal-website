@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Invisible Keyboard Hiding Under Your iPhone Keyboard | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Your fingertip covers about three iPhone keys, yet you type the right letter. Inside Apple's hidden hit regions, touch research, and lessons for designers."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="The Invisible Keyboard Hiding Under Your iPhone Keyboard | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Your fingertip covers about three iPhone keys, yet you type the right letter. Inside Apple's hidden hit regions, touch research, and lessons for designers."/>
+<meta property="og:url" content="https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/blog/keys-you-never-see/cover-og.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Invisible Keyboard Hiding Under Your iPhone Keyboard",
+  "description": "Your fingertip covers about three iPhone keys, yet you type the right letter. Inside Apple's hidden hit regions, touch research, and lessons for designers.",
+  "url": "https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html",
+  "inLanguage": "en",
+  "datePublished": "2026-10-13",
+  "dateModified": "2026-10-13",
+  "articleSection": "HCI",
+  "keywords": "iPhone keyboard, touch accuracy, fat finger problem, hidden hit regions, Apple patent US 8,232,973, soft keyboard, language model, HCI",
+  "wordCount": 2419,
+  "image": [
+    "https://www.yasassri.me/assets/images/blog/keys-you-never-see/cover-og.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://www.yasassri.me/blogs.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The Invisible Keyboard Hiding Under Your iPhone Keyboard",
+      "item": "https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does the iPhone keyboard know which key I meant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It combines where your touch landed with which letters are likely next. Apple's patent US 8,232,973 describes hidden hit regions that grow for likely letters while the visible keyboard stays the same."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How wide is an iPhone keyboard key?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On an iPhone 15, each key in the top row gets about 6.5 mm of width including the gap, by my calculation from Apple's published screen specs. That is about 39 points, below Apple's 44-point guideline for buttons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the fat finger problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's the difficulty of hitting small touchscreen targets with a finger that is wider than them. Research by Holz and Baudisch showed much of the error is systematic, caused by finger angle and differences between people, so software can correct for it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the keyboard ever make a key harder to press?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the method Apple's patent describes, no. A key's touch area never shrinks below the key you can see, so aiming precisely at a key still gives you that key."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a class="active" href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a class="active" href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blogs.html">Writing</a><span aria-hidden="true">/</span><span aria-current="page">The Invisible Keyboard Hiding Under Your iPhone Keyboard</span></nav>
+      <div class="lp-tags"><span class="lp-tag">HCI</span></div>
+      <h1>The Invisible Keyboard Hiding Under Your iPhone Keyboard</h1>
+      <p class="lp-lead">Your fingertip covers about three iPhone keys, yet you type the right letter. Inside Apple's hidden hit regions, touch research, and lessons for designers.</p>
+      <div class="lp-facts"><span>By <b>Dr. Yasas Sri Wickramasinghe</b></span><span>Published 2026-10-13</span><span>11 min read</span></div>
+      
+    </div>
+    
+    <figure class="lp-cover">
+      <img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/cover.webp" alt="Cover: The keys you never see, beside Dr. Yasas Sri Wickramasinghe, with an iPhone-style keyboard where a fingertip covers three keys and D's hidden hit area grows" width="1920" height="1080" fetchpriority="high" decoding="async"/>
+    </figure>
+  </div>
+</header>
+
+<div class="lp-body">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#why-i-care-about-this">Why I care about this</a></li><li><a href="#the-problem-apple-had-in-2005">The problem Apple had in 2005</a></li><li><a href="#problem-one-you-aim-with-one-part-of-your-finger-and-touch-with-another">Problem one: you aim with one part of your finger and touch with another</a></li><li><a href="#problem-two-the-key-you-touched-isn-t-always-the-key-you-meant">Problem two: the key you touched isn't always the key you meant</a></li><li><a href="#two-clues-one-letter">Two clues, one letter</a></li><li><a href="#your-hands-are-not-my-hands">Your hands are not my hands</a></li><li><a href="#what-this-teaches-us-beyond-phones">What this teaches us beyond phones</a></li><li><a href="#a-closing-thought">A closing thought</a></li><li><a href="#sources">Sources</a></li></ol>
+      </details>
+    </aside>
+    <article class="lp-article">
+      <div class="lp-prose lp-feature">
+        <aside class="lp-brief" aria-label="In brief">
+          <p class="lp-label">In brief</p>
+          <ul><li>Each iPhone 15 key gets about 6.5 mm of width; a fingertip is 16–20 mm wide.</li><li>If the phone trusted only the key under your finger, about 1 in 12 taps would miss in one lab dataset.</li><li>You aim with the top of your finger, but the screen senses the pad, so touches land a few millimetres off.</li><li>Apple's patent US 8,232,973 gives each key a hidden hit region that grows for likely next letters.</li><li>Combining a touch model with a language model is how modern keyboards pick the letter you meant.</li></ul>
+        </aside>
+<p>Try this the next time you pick up your phone. Rest your thumb on the keyboard and look at how many keys disappear under it.</p>
+<p>Here are a few facts that changed how I see that little keyboard:</p>
+<ul>
+<li><strong>Each key on an iPhone 15 gets about 6.5 mm of width</strong>, gap included. That's my estimate from Apple's own specs: a screen 1179 pixels wide at 460 pixels per inch is about 65 mm across, and the top row holds 10 keys.</li>
+<li><strong>A typical adult fingertip is 16 to 20 mm wide.</strong> One touch covers roughly three keys.</li>
+<li><strong>The keys are below Apple's own minimum.</strong> Apple's design guidelines say a button needs a hit region of at least 44 × 44 points. A key on that iPhone gets about 39 points of width.</li>
+<li><strong>Research on one-handed thumb typing recommended targets of about 9.6 mm.</strong> The keyboard gives you about two thirds of that.</li>
+<li><strong>In one lab dataset, about 1 in 12 taps landed outside the key the person meant.</strong> With two thumbs it was closer to 1 in 9. That's the error rate you'd get if the phone simply trusted the key under your finger.</li>
+</ul>
+<p>And yet most of us type all day without thinking about it.</p>
+<p>So what's going on? The short answer: <strong>the keyboard you see isn't the keyboard you type on.</strong> There's a second, invisible keyboard underneath, and it changes shape with every letter you type.</p>
+<p>I find this one of the most beautiful pieces of everyday interaction design. Let me explain why.</p>
+<h2 id="why-i-care-about-this">Why I care about this</h2>
+<p>I'm an AR researcher. My work is about how people interact with digital things that live in the physical world: multiplayer location-based AR games, presence in VR, and why some people feel sick in virtual environments. Before research, I spent years building software as a technical lead.</p>
+<p>Across all of that, one question keeps coming back: <strong>what did the person actually mean to do?</strong></p>
+<p>In AR and VR there's often no surface to press. You point with a hand, a controller or your eyes, and every one of those signals is noisy. The phone keyboard is where this problem was first solved for almost everyone, in everyday life. If you design interactive systems of any kind, I think it's worth understanding how.</p>
+<h2 id="the-problem-apple-had-in-2005">The problem Apple had in 2005</h2>
+<p>Ken Kocienda, one of the engineers who built the original iPhone keyboard, tells this story in his book <em>Creative Selection</em> (2018).</p>
+<p>In late 2005, Scott Forstall paused other work on the iPhone software team so everyone could try to solve one problem: typing on glass. Kocienda calls it a &quot;keyboard derby&quot;. Early in the project the team had found that buttons needed to be about 44 pixels wide to be easy to tap. A full QWERTY layout on that small screen simply didn't fit at that size.</p>
+<p>The derby winner grouped several letters onto each big key and guessed the word you meant. It didn't survive contact with executives. According to the excerpt published by 9to5Mac, Phil Schiller's demo lasted about two minutes. Tony Fadell's was shorter.</p>
+<p>What finally shipped in 2007 looked ordinary: a plain QWERTY keyboard. The magic was invisible. As 9to5Mac's write-up of the book puts it, the keyboard &quot;intelligently adjusted the invisible touch targets on-the-fly.&quot;</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/fig-1-smaller-than-your-finger.webp" alt="Keyboard keys drawn to scale under an 18 mm fingertip, with stats on key width and tap errors" loading="lazy" decoding="async"/><figcaption>Each iPhone 15 key gets about 6.5 mm; a fingertip is 16–20 mm wide. Key width is my estimate from Apple’s specs.</figcaption></figure>
+<h2 id="problem-one-you-aim-with-one-part-of-your-finger-and-touch-with-another">Problem one: you aim with one part of your finger and touch with another</h2>
+<p>Here's something most of us never notice. When you aim at a key, you line up the <em>top</em> of your finger, roughly the nail, with the target. But the screen doesn't see your nail. It senses the soft pad underneath, which sits a few millimetres away from where you think you pressed.</p>
+<p>Christian Holz and Patrick Baudisch studied this in detail. In a 2011 paper, <em>Understanding Touch</em>, they showed that users align visual features on the top of the finger. When they modelled touch that way instead of using the contact area, the average error offset dropped from about <strong>4 mm to 1.6 mm</strong>.</p>
+<p>A year earlier, they had shown that <strong>67%</strong> of the inaccuracy blamed on the &quot;fat finger&quot; problem could be explained by two things: the angle of the finger, and differences between people.</p>
+<p>The key word here is <em>systematic</em>. Niels Henze and colleagues released a simple Android game that asked people to tap circles. It collected over <strong>120 million touches</strong> from more than 91,000 installations. Touches were skewed in a consistent, predictable way. When they shifted touches to compensate, errors fell by <strong>7.79%</strong> for real players.</p>
+<p>That's good news. If your mistakes are random, there's little a computer can do. If they follow a pattern, it can learn the pattern.</p>
+<p>Apple seems to have been thinking along these lines very early. A patent filed in 2006 (US 7,843,427, by Bas Ording, Scott Forstall and Greg Christie) describes taking the centre of a finger's contact area and then shifting it toward nearby buttons, weighted by how likely each one is to be the target. Its soft keyboard example raises the weight of &quot;D&quot; after you've typed &quot;Go&quot;.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/fig-2-aim-vs-touch.webp" alt="Side view of a finger on glass: you aim with the top of the finger, the screen senses the pad, creating an offset" loading="lazy" decoding="async"/><figcaption>Why touches miss: you aim with the top of your finger, but the screen feels the pad underneath (Holz &amp; Baudisch; Henze et al.).</figcaption></figure>
+<h2 id="problem-two-the-key-you-touched-isn-t-always-the-key-you-meant">Problem two: the key you touched isn't always the key you meant</h2>
+<p>Fixing the offset helps, but a 6.5 mm key under an 18 mm finger is still ambiguous. Your touch might land right between D and F. Which one did you mean?</p>
+<p>This is where the invisible keyboard comes in.</p>
+<p>Apple's patent US 8,232,973 (filed 2008, granted 2012; inventors include Ken Kocienda, Bas Ording, Greg Christie, Scott Forstall, Richard Williamson and Jerome Bellegarda) describes it clearly. Every key has a <strong>hidden hit region</strong>. The keyboard looks the same, but the hidden regions grow and return to normal as you type.</p>
+<p>The patent uses an example I love:</p>
+<ul>
+<li>You type <strong>&quot;go&quot;</strong>. Words like <em>god</em>, <em>goal</em> and <em>good</em> are common, so the hidden areas of <strong>D</strong>, <strong>A</strong> and <strong>O</strong> grow.</li>
+<li><strong>K</strong> is unlikely, because few common words start with &quot;gok&quot;. But its area doesn't shrink. It stays the size of the key you can see.</li>
+<li>You type an <strong>&quot;a&quot;</strong>. Now <em>goal</em> is likely, so <strong>L</strong> grows. <strong>O</strong> goes back to normal, because no common word starts with &quot;goao&quot;.</li>
+</ul>
+<p>Two design rules sit inside that example, and they matter:</p>
+<ol>
+<li><strong>A key's touch area is never smaller than the key you see.</strong> If you aim precisely at a key, you get that key.</li>
+<li><strong>Unlikely keys are never punished.</strong> The keyboard helps you, but it doesn't block you.</li>
+</ol>
+<p>How much does each area grow? The patent ties it to the probability of the next letter and a tuning constant that, in its own words, is found by trial and error. I find that refreshingly honest.</p>
+<p>One caution: a patent describes a method, not necessarily what ships today. Apple doesn't publish the exact algorithm in your current keyboard. Kocienda's account confirms that the 2007 keyboard adjusted invisible touch targets. The details have surely evolved since.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/fig-3-keys-that-grow-in-secret.webp" alt="Two keyboards showing hidden hit areas growing for likely next letters after typing go and goa" loading="lazy" decoding="async"/><figcaption>Hidden hit regions from Apple patent US 8,232,973: after “go”, D, A and O grow; after “goa”, L grows.</figcaption></figure>
+<h2 id="two-clues-one-letter">Two clues, one letter</h2>
+<p>Step back and the idea is simple. Every tap gives the keyboard two clues:</p>
+<ol>
+<li><strong>Where your touch landed.</strong> Not as a single point, but as a &quot;probably somewhere around here&quot; cloud. Researchers call this a <em>touch model</em> or <em>spatial model</em>.</li>
+<li><strong>What you seem to be spelling.</strong> Given the letters so far, some next letters are far more likely than others. That's a <em>language model</em>.</li>
+</ol>
+<p>Multiply the two together and one letter usually wins clearly.</p>
+<p>Apple wasn't the first to see this. In 2001, Joshua Goodman and colleagues at Microsoft Research combined a language model with a key-press model on PDA keyboards. They reduced errors by a factor of <strong>1.67 to 1.87</strong>.</p>
+<p>Others have pushed it further since. In 2010, a team at Microsoft Research (Gunawardana, Paek and Meek) warned that resizing keys too aggressively can stop people typing what they actually intend. They proposed an &quot;anchored&quot; approach that keeps each key's core reachable, the same spirit as Apple's &quot;never smaller than the visible key&quot; rule. In 2017 Google explained that Gboard had replaced its older Gaussian key model with a neural network (an LSTM). It reported about <strong>15% fewer bad autocorrects</strong> in offline tests.</p>
+<p>In 2023 Apple announced that iOS 17's autocorrect uses an on-device <strong>transformer language model</strong>, the same family of AI models behind today's chatbots, running inside your keyboard.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/fig-4-two-clues-one-letter.webp" alt="A touch model multiplied by a language model picks the letter D" loading="lazy" decoding="async"/><figcaption>Every tap gives two clues: where you touched and what you seem to be spelling. Bar lengths are illustrative.</figcaption></figure>
+<figure><img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/fig-5-two-decades-of-guessing.webp" alt="Timeline from 2001 to 2023 of soft keyboard research and patents" loading="lazy" decoding="async"/><figcaption>Two decades of guessing: from Microsoft Research in 2001 to iOS 17’s transformer model.</figcaption></figure>
+<h2 id="your-hands-are-not-my-hands">Your hands are not my hands</h2>
+<p>There's one more layer that I find fascinating as an HCI researcher: everyone touches differently.</p>
+<p>Holz and Baudisch found that finger angle and the individual explain much of the error. Daryl Weir and colleagues (UIST 2012) trained a model on one person's own touches. It worked better than a model pooled across people, and needed only about 200 examples to make a meaningful difference. Ying Yin and colleagues at Google (CHI 2013) built a keyboard that adapts to the key, your hand posture and you as an individual. It cut errors by 13.2% in their prototype.</p>
+<p>The best interfaces don't just understand people in general. They understand <em>this</em> person, holding the phone <em>this</em> way, right now.</p>
+<h2 id="what-this-teaches-us-beyond-phones">What this teaches us beyond phones</h2>
+<p>I think about this keyboard a lot in my own field, because AR and VR are facing the same problem again, only harder.</p>
+<p>On a phone, at least your finger touches glass. In spatial computing there may be no surface at all. You pinch the air, look at a button, or point a hand that's being tracked by a camera. Apple's own guidelines reflect this: the minimum target size grows from <strong>44 × 44 points on iPhone to 60 × 60 points in visionOS</strong>.</p>
+<p>We can't make people more precise. Bodies are what they are. What we can do is build systems that understand intent. The keyboard gives us four lessons that I believe carry over to any interface:</p>
+<ol>
+<li><strong>Treat input as a guess.</strong> A tap, a gaze or a gesture is evidence, not an order.</li>
+<li><strong>Help quietly.</strong> Grow what's likely. Never shrink what people can see.</li>
+<li><strong>Let people overrule you.</strong> iOS 17 briefly underlines autocorrected words so you can tap to undo them. Undoing a wrong guess should take one tap.</li>
+<li><strong>Remember that every hand is different.</strong> Design for the person, not the average.</li>
+</ol>
+<figure><img src="https://www.yasassri.me/assets/images/blog/keys-you-never-see/fig-6-design-for-intent.webp" alt="Four design lessons and a comparison of 44 point iPhone and 60 point visionOS targets" loading="lazy" decoding="async"/><figcaption>Four lessons from the keyboard that carry over to AR, VR and any interface.</figcaption></figure>
+<h2 id="a-closing-thought">A closing thought</h2>
+<p>Next time your phone types exactly the word you meant, even though your thumb clearly landed somewhere else, take a second to appreciate what just happened. Two invisible models agreed on what you meant, in the time it took your thumb to lift.</p>
+<p>The keys you see are only the surface. The keys that do the work are the ones you never see.</p>
+<p>A few lines I keep coming back to:</p>
+<blockquote>
+<p><strong>The best interface doesn't demand precision. It understands intent.</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>A tap isn't a command. It's a clue.</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Good design helps quietly and steps aside when you know better.</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>We can't make fingers smaller. We can make software wiser.</strong></p>
+</blockquote>
+<p>If you build anything people touch, point at or look at, that's the job. Not bigger buttons. Better guesses.</p>
+<p><em>What's an interface you use every day that seems to &quot;just know&quot; what you meant? I'd love to hear it in the comments.</em></p>
+<h2 id="sources">Sources</h2>
+<ol>
+<li>Apple: <a href="https://support.apple.com/en-us/111831" target="_blank" rel="noopener">iPhone 15 technical specifications</a> (2556 × 1179 px at 460 ppi).</li>
+<li>Apple Human Interface Guidelines: <a href="https://developer.apple.com/design/human-interface-guidelines/buttons" target="_blank" rel="noopener">Buttons</a> (44 × 44 pt; 60 × 60 pt in visionOS).</li>
+<li>Nielsen Norman Group: <a href="https://www.nngroup.com/articles/touch-target-size/" target="_blank" rel="noopener">Touch targets on touchscreens</a> (fingertip width 1.6–2 cm, MIT Touch Lab).</li>
+<li>Parhi, P., Karlson, A. K., &amp; Bederson, B. B. (2006). <a href="https://dx.doi.org/10.1145/1152215.1152260" target="_blank" rel="noopener">Target size study for one-handed thumb use on small touchscreen devices</a>. MobileHCI.</li>
+<li>Yin, Y., Ouyang, T., Partridge, K., &amp; Zhai, S. (2013). <a href="https://research.google.com/pubs/archive/41930.pdf" target="_blank" rel="noopener">Making touchscreen keyboards adaptive to keys, hand postures, and individuals</a>. CHI.</li>
+<li>Azenkot, S., &amp; Zhai, S. (2012). <a href="https://research.google/pubs/touch-behavior-with-different-postures-on-soft-smartphone-keyboards/" target="_blank" rel="noopener">Touch behavior with different postures on soft smartphone keyboards</a>. MobileHCI.</li>
+<li>Kocienda, K. (2018). <em>Creative Selection</em>. <a href="https://9to5mac.com/2018/08/08/excerpt-iphone-software-keyboard-design/" target="_blank" rel="noopener">Excerpt via 9to5Mac</a>.</li>
+<li>Holz, C., &amp; Baudisch, P. (2010). <a href="https://siplab.org/projects/Generalized_Perceived_Input_Point_Model" target="_blank" rel="noopener">The generalized perceived input point model</a>. CHI.</li>
+<li>Holz, C., &amp; Baudisch, P. (2011). <a href="https://siplab.org/projects/Understanding_Touch" target="_blank" rel="noopener">Understanding touch</a>. CHI.</li>
+<li>Henze, N., Rukzio, E., &amp; Boll, S. (2011). <a href="https://eprints.lancs.ac.uk/id/eprint/57576" target="_blank" rel="noopener">100,000,000 taps: analysis and improvement of touch performance in the large</a>. MobileHCI.</li>
+<li>Ording, B., Forstall, S., &amp; Christie, G. <a href="https://patents.google.com/patent/US7843427B2/en" target="_blank" rel="noopener">Methods for determining a cursor position from a finger contact with a touch screen display</a>. US 7,843,427.</li>
+<li>Kocienda, K., et al. <a href="https://patents.google.com/patent/US8232973B2/en" target="_blank" rel="noopener">Method, device, and graphical user interface providing word recommendations for text input</a>. US 8,232,973.</li>
+<li>Goodman, J., Venolia, G., Steury, K., &amp; Parker, C. <a href="https://www.microsoft.com/en-us/research/?p=152579" target="_blank" rel="noopener">Language modeling for soft keyboards</a>. Microsoft Research.</li>
+<li>Gunawardana, A., Paek, T., &amp; Meek, C. (2010). <a href="https://doi.org/10.1145/1719970.1719986" target="_blank" rel="noopener">Usability guided key-target resizing for soft keyboards</a>. IUI.</li>
+<li>Beaufays, F., &amp; Riley, M. (2017). <a href="https://research.google/blog/the-machine-intelligence-behind-gboard/" target="_blank" rel="noopener">The machine intelligence behind Gboard</a>. Google Research Blog.</li>
+<li>Weir, D., Rogers, S., Murray-Smith, R., &amp; Löchtefeld, M. (2012). <a href="https://eprints.gla.ac.uk/68064" target="_blank" rel="noopener">A user-specific machine learning approach for improving touch accuracy on mobile devices</a>. UIST.</li>
+<li>Apple Newsroom (June 2023): <a href="https://www.apple.com/newsroom/2023/06/ios-17-makes-iphone-more-personal-and-intuitive/" target="_blank" rel="noopener">iOS 17 makes iPhone more personal and intuitive</a>.</li>
+<li>9to5Mac (June 2023): <a href="https://9to5mac.com/2023/06/05/ios-17-iphone-autocorrect/" target="_blank" rel="noopener">iOS 17 autocorrect</a> (underlined corrections, tap to revert).</li>
+</ol>
+<p><em>Note on the 6.5 mm and 39 pt figures: these are my own calculations from Apple's published iPhone 15 specs (1179 px ÷ 3 = 393 pt wide, 10 keys in the top row). Actual key caps are a little narrower than the slot, because of the gaps.</em></p>
+<p class="lp-credit">Also published on <a href="https://www.linkedin.com/pulse/invisible-keyboard-hiding-under-your-iphone-wickramasinghe-phd-2tjce" target="_blank" rel="noopener">LinkedIn</a>.</p>
+
+        <aside class="lp-author" aria-label="About the author">
+          <p class="lp-label">About the author</p>
+          <p><strong>Dr. Yasas Sri Wickramasinghe</strong> is an augmented reality researcher and senior lecturer in Christchurch, New Zealand. His research covers multiplayer location-based AR games, presence in virtual reality and cybersickness. <a href="../about.html">More about Yasas</a>.</p>
+        </aside>
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </div>
+</div>
+<section class="lp-section soft" aria-labelledby="faq">
+  <div class="container">
+    <div class="lp-section-head"><h2 id="faq">Frequently asked questions</h2></div>
+    <div class="lp-faq">
+      <details><summary>How does the iPhone keyboard know which key I meant?</summary><p>It combines where your touch landed with which letters are likely next. Apple's patent US 8,232,973 describes hidden hit regions that grow for likely letters while the visible keyboard stays the same.</p></details>
+      <details><summary>How wide is an iPhone keyboard key?</summary><p>On an iPhone 15, each key in the top row gets about 6.5 mm of width including the gap, by my calculation from Apple's published screen specs. That is about 39 points, below Apple's 44-point guideline for buttons.</p></details>
+      <details><summary>What is the fat finger problem?</summary><p>It's the difficulty of hitting small touchscreen targets with a finger that is wider than them. Research by Holz and Baudisch showed much of the error is systematic, caused by finger angle and differences between people, so software can correct for it.</p></details>
+      <details><summary>Does the keyboard ever make a key harder to press?</summary><p>In the method Apple's patent describes, no. A key's touch area never shrinks below the key you can see, so aiming precisely at a key still gives you that key.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>
