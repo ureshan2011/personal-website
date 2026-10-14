@@ -826,33 +826,43 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 640px) { .venue-grid { grid-template-columns: 1fr; } }
 
 /* ==========================================================================
-   Founder — ICT Campus & Campus Ready (index.html#ventures)
-   Built from the site's own tokens: light cards, blue accent, serif display.
+   Founder — ICT Campus (index.html#ventures)
+   One compact band: framing copy beside the flagship products as link rows.
    ========================================================================== */
-.venture-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: stretch; }
-.vcard {
-  display: flex; flex-direction: column; gap: 18px;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 32px);
-  transition: border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+.venture.section { padding-block: clamp(56px, 7vw, 88px); }
+.venture-band { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.venture-copy h2 { font-size: clamp(28px, 3.4vw, 40px); }
+.venture-copy p { margin-top: 14px; color: var(--ink-soft); max-width: 52ch; }
+.venture-copy p a { color: var(--accent); font-weight: 600; }
+.venture-meta { font-size: 13px; font-weight: 600; color: var(--muted) !important; }
+
+.venture-rows { border-top: 1px solid var(--line); }
+.venture-rows a {
+  display: grid; grid-template-columns: 86px minmax(0, 1fr) 16px; align-items: center; gap: 14px;
+  padding: 15px 6px; border-bottom: 1px solid var(--line);
+  transition: padding .35s var(--ease), background-color .35s var(--ease);
 }
-.vcard:hover { transform: translateY(-2px); border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
-.vcard .tags { margin-top: 0; }
-.vcard-top { display: flex; align-items: center; gap: 14px; }
-.vcard-top > div { flex: 1; min-width: 0; }
-.vcard-top .kicker { margin-bottom: 2px; }
-.vlogo {
-  flex: none; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
-  background: var(--accent-soft); color: var(--accent); transition: background .3s var(--ease), color .3s var(--ease);
+.vr-tag {
+  justify-self: start; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-soft); border: 1px solid var(--line-strong); padding: 4px 9px; border-radius: 999px; white-space: nowrap;
 }
-.vcard:hover .vlogo { background: var(--accent); color: #fff; }
-.vcard h3 { font-size: 22px; }
-.vcard-url { font-size: 13px; font-weight: 600; color: var(--ink-soft); border: 1px solid var(--line-strong); padding: 6px 12px; border-radius: 999px; white-space: nowrap; transition: color .25s, border-color .25s; }
-.vcard-url:hover { color: var(--accent); border-color: var(--accent); }
-.vpill { white-space: nowrap; }
-.vcard-lede { color: var(--ink-soft); font-size: 15px; }
-.vcard-quote { font-family: var(--serif); font-size: clamp(21px, 2.2vw, 26px); line-height: 1.25; color: var(--ink); }
-.vcard-quote em { font-style: italic; color: var(--accent); }
+.vr-tag--lead { color: #fff; background: var(--accent); border-color: var(--accent); }
+.vr-tag--free { color: #0f766e; border-color: rgba(15, 118, 110, .35); }
+.vr-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.vr-body b { font-size: 15.5px; font-weight: 600; color: var(--ink); }
+.vr-body small { font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
+.vr-go { color: var(--accent); opacity: .35; transition: opacity .3s var(--ease), transform .3s var(--ease); }
+.venture-rows a:hover { padding-left: 14px; background: color-mix(in srgb, var(--accent) 5%, transparent); }
+.venture-rows a:hover .vr-go { opacity: 1; transform: translate(2px, -2px); }
+.venture-rows a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 940px) {
+  .venture-band { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .venture-rows a { grid-template-columns: minmax(0, 1fr) 16px; gap: 6px 12px; }
+  .vr-tag { grid-column: 1 / -1; }
+}
 
 /* CSS-drawn product preview */
 .vmock { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); background: var(--bg-soft); }
@@ -877,47 +887,14 @@ html.lenis, html.lenis body { height: auto; }
 .vmock-lines { display: flex; flex-direction: column; gap: 7px; }
 .vmock-lines span { height: 7px; border-radius: 999px; background: var(--bg-panel); }
 
-.vstats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); padding-top: 18px; gap: 12px; }
-.vstats b { display: block; font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--ink); letter-spacing: -.01em; }
-.vstats span { font-size: 12.5px; color: var(--ink-soft); }
-
-/* 12-week timeline */
-.vtimeline { display: flex; gap: 6px; }
-.vt-seg {
-  flex: var(--w) 1 0; min-width: 0; position: relative;
-  background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius-sm);
-  padding: 14px 12px 12px; display: flex; flex-direction: column; gap: 4px;
-}
-.vt-seg::before { content: ""; position: absolute; left: 12px; right: 12px; top: 0; height: 3px; border-radius: 0 0 3px 3px; background: var(--accent-soft); }
-.vt-seg:nth-child(2)::before { background: rgba(47,107,255,.45); }
-.vt-seg:last-child::before { background: var(--accent); }
-.vt-wk { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
-.vt-seg b { font-size: 14px; color: var(--ink); line-height: 1.3; }
-.vt-seg small { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
-.vlist { display: flex; flex-direction: column; gap: 9px; }
-.vlist li { position: relative; padding-left: 28px; font-size: 14.5px; color: var(--ink); }
-.vlist li::before {
-  content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%;
-  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat;
-}
-.vcta { margin-top: auto; align-self: flex-start; }
-
-@media (max-width: 940px) {
-  .venture-grid { grid-template-columns: 1fr; }
-}
 @media (max-width: 560px) {
-  .vcard-top { flex-wrap: wrap; }
-  .vcard-top > div { flex: 1 1 calc(100% - 62px); }
-  .vcard-url, .vpill { order: 3; margin-left: 62px; }
-  .vtimeline { flex-direction: column; }
-  .vstats b { font-size: 21px; }
   .vmock-row { grid-template-columns: 1fr; }
   .vmock-row .vmock-tile:nth-child(2) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .vbar span { transform: none; transition: none; }
   .vmock-live .dot { animation: none; }
-  .vcard:hover { transform: none; }
+  .venture-rows a, .vr-go { transition: none; }
 }
 
 /* ==========================================================================
