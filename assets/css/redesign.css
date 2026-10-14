@@ -826,42 +826,91 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 640px) { .venue-grid { grid-template-columns: 1fr; } }
 
 /* ==========================================================================
-   Founder — ICT Campus (index.html#ventures)
-   One compact band: framing copy beside the flagship products as link rows.
+   Founder — ICT Campus and Campus Ready (index.html#ventures)
+   Two brand cards. ICT Campus wears its own warm near-black and orange;
+   Campus Ready is the light twin. Logos drawn inline, no image requests.
    ========================================================================== */
 .venture.section { padding-block: clamp(56px, 7vw, 88px); }
-.venture-band { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
-.venture-copy h2 { font-size: clamp(28px, 3.4vw, 40px); }
-.venture-copy p { margin-top: 14px; color: var(--ink-soft); max-width: 52ch; }
-.venture-copy p a { color: var(--accent); font-weight: 600; }
-.venture-meta { font-size: 13px; font-weight: 600; color: var(--muted) !important; }
+.venture-head { margin-bottom: 26px; }
+.venture-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
+.vb-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 18px; }
+.vb {
+  --ict-orange: #f4551e;
+  position: relative; display: flex; flex-direction: column; gap: 14px; overflow: hidden;
+  border-radius: var(--radius); padding: clamp(22px, 2.6vw, 30px);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.vb-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.vb-logo { display: inline-flex; align-items: center; gap: 10px; }
+.vb-word { font-family: Inter, system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+.vb-line { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.25; }
 
-.venture-rows { border-top: 1px solid var(--line); }
-.venture-rows a {
-  display: grid; grid-template-columns: 86px minmax(0, 1fr) 16px; align-items: center; gap: 14px;
-  padding: 15px 6px; border-bottom: 1px solid var(--line);
-  transition: padding .35s var(--ease), background-color .35s var(--ease);
+/* ICT Campus */
+.vb--ict { background: #17120f; color: #f6efe8; }
+.vb--ict::before {
+  content: ""; position: absolute; right: -120px; top: -140px; width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(244, 85, 30, .22), transparent); pointer-events: none;
 }
-.vr-tag {
-  justify-self: start; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--ink-soft); border: 1px solid var(--line-strong); padding: 4px 9px; border-radius: 999px; white-space: nowrap;
+.vb-ict-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--ict-orange); }
+.vb--ict .vb-word { color: #fff; }
+.vb--ict .vb-word b { color: var(--ict-orange); font-weight: 800; }
+.vb-url { font-size: 12.5px; font-weight: 600; color: rgba(246, 239, 232, .55); }
+.vb--ict .vb-line { color: rgba(246, 239, 232, .82); }
+
+.vb-tiles { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 10px; margin-top: 6px; flex: 1; }
+.vt {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  padding: 16px 14px 14px; border-radius: 14px; min-height: 150px;
+  background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .09);
+  transition: transform .3s var(--ease), background-color .3s var(--ease), border-color .3s var(--ease);
 }
-.vr-tag--lead { color: #fff; background: var(--accent); border-color: var(--accent); }
-.vr-tag--free { color: #0f766e; border-color: rgba(15, 118, 110, .35); }
-.vr-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.vr-body b { font-size: 15.5px; font-weight: 600; color: var(--ink); }
-.vr-body small { font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
-.vr-go { color: var(--accent); opacity: .35; transition: opacity .3s var(--ease), transform .3s var(--ease); }
-.venture-rows a:hover { padding-left: 14px; background: color-mix(in srgb, var(--accent) 5%, transparent); }
-.venture-rows a:hover .vr-go { opacity: 1; transform: translate(2px, -2px); }
-.venture-rows a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.vt:hover { transform: translateY(-3px); background: rgba(255, 255, 255, .09); border-color: rgba(244, 85, 30, .5); }
+.vt-ico { color: var(--ict-orange); margin-bottom: auto; }
+.vt b { margin-top: 12px; font-size: 15px; font-weight: 700; color: #fff; }
+.vt small { font-size: 12.5px; color: rgba(246, 239, 232, .6); display: inline-flex; align-items: center; gap: 6px; }
+.vt--lead { background: rgba(244, 85, 30, .12); border-color: rgba(244, 85, 30, .45); }
+.vt-chip {
+  position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--ict-orange); padding: 3px 8px; border-radius: 999px;
+}
+.vt-ring { width: 52px; height: 52px; margin-bottom: auto; }
+.vt-ring circle:last-of-type { transition: stroke-dashoffset 1.2s var(--ease) .3s; }
+.reveal:not(.in) .vt-ring circle:last-of-type { stroke-dashoffset: 163; }
+.vt-free { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #6ee7b7; border: 1px solid rgba(110, 231, 183, .4); padding: 1px 6px; border-radius: 999px; }
+
+/* Campus Ready */
+.vb--cr { background: var(--card); border: 1px solid var(--line); color: var(--ink); }
+.vb--cr:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); border-color: var(--line-strong); }
+.vb--cr .vb-logo { color: var(--ink); }
+.vb-pill { font-size: 11.5px; font-weight: 700; color: #b8400f; background: #fff1ea; padding: 5px 11px; border-radius: 999px; white-space: nowrap; }
+.cr-weeks { display: flex; align-items: flex-end; gap: 5px; height: 84px; margin-top: auto; padding-top: 8px; }
+.cr-weeks span {
+  flex: 1; height: var(--h); border-radius: 5px 5px 2px 2px; background: var(--bg-panel);
+  transform-origin: bottom; transition: transform .8s var(--ease);
+}
+.cr-weeks span.hi { background: #f4551e; }
+.reveal:not(.in) .cr-weeks span { transform: scaleY(.15); }
+.cr-weeks span:nth-child(n+5) { transition-delay: .08s; }
+.cr-weeks span:nth-child(n+10) { transition-delay: .16s; }
+.cr-legend { display: grid; grid-template-columns: 4fr 5fr 3fr; gap: 5px; font-size: 11.5px; font-weight: 600; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.vb-more { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.vb-more b { color: #f4551e; display: inline-block; transition: transform .3s var(--ease); }
+.vb--cr:hover .vb-more b { transform: translateX(4px); }
+
+.vb a:focus-visible, .vb--cr:focus-visible { outline: 2px solid #f4551e; outline-offset: 3px; }
 
 @media (max-width: 940px) {
-  .venture-band { grid-template-columns: 1fr; }
+  .vb-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 480px) {
-  .venture-rows a { grid-template-columns: minmax(0, 1fr) 16px; gap: 6px 12px; }
-  .vr-tag { grid-column: 1 / -1; }
+@media (max-width: 560px) {
+  .vb-tiles { grid-template-columns: 1fr 1fr; }
+  .vb-tiles { flex: none; }
+  .vt--lead { grid-column: 1 / -1; min-height: 0; flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 14px; }
+  .vt--lead .vt-ring { margin: 0; }
+  .vt--lead b { margin-top: 0; }
+  .vt--lead small { flex-basis: 100%; }
+  .vt { min-height: 128px; }
+  .vb-url { display: none; }
 }
 
 /* CSS-drawn product preview */
@@ -894,7 +943,8 @@ html.lenis, html.lenis body { height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .vbar span { transform: none; transition: none; }
   .vmock-live .dot { animation: none; }
-  .venture-rows a, .vr-go { transition: none; }
+  .vt, .vb, .cr-weeks span, .vt-ring circle { transition: none !important; }
+  .reveal:not(.in) .cr-weeks span { transform: none; }
 }
 
 /* ==========================================================================
