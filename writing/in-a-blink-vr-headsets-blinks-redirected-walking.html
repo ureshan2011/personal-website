@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>In a Blink: VR Researchers Turned the World and Nobody Noticed | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Researchers rotated virtual worlds 2–5° during people's blinks and nobody noticed. How it works, Apple's blink patent, and why eye data needs care."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="In a Blink: VR Researchers Turned the World and Nobody Noticed | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Researchers rotated virtual worlds 2–5° during people's blinks and nobody noticed. How it works, Apple's blink patent, and why eye data needs care."/>
+<meta property="og:url" content="https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/blog/in-a-blink/cover-og.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "In a Blink: VR Researchers Turned the World and Nobody Noticed",
+  "description": "Researchers rotated virtual worlds 2–5° during people's blinks and nobody noticed. How it works, Apple's blink patent, and why eye data needs care.",
+  "url": "https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html",
+  "inLanguage": "en",
+  "datePublished": "2026-10-14",
+  "dateModified": "2026-10-14",
+  "articleSection": "AR / VR",
+  "keywords": "blink suppression, redirected walking, virtual reality, eye tracking, Apple patent US 10,802,585, saccades, Vision Pro, HCI",
+  "wordCount": 2304,
+  "image": [
+    "https://www.yasassri.me/assets/images/blog/in-a-blink/cover-og.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://www.yasassri.me/blogs.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "In a Blink: VR Researchers Turned the World and Nobody Noticed",
+      "item": "https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much of the day are we blind because of blinking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We blink about 15 to 20 times a minute, and each blink interrupts vision for roughly a third of a second. Researchers estimate that blinks and saccades together leave us functionally blind about 10% of the time we're awake."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a VR headset change the scene while you blink without you noticing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. In a 2018 study by Langbehn and colleagues, presented at SIGGRAPH, rotations of about 2 to 5 degrees and viewpoint shifts of about 4 to 9 cm made during natural blinks went unnoticed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is redirected walking in VR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Redirected walking slowly rotates or shifts the virtual world as you move, so you walk along curves in a small real room while feeling that you are walking straight through a much larger virtual space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Apple's patent US 10,802,585 describe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It describes a head-mounted display that detects blinks and saccades with an eye tracker, then uses those moments of suppressed vision to change the display, for example dimming it, pausing frames, lowering the refresh rate or shifting pixels to reduce burn-in. A patent describes a method, not a shipped product."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is eye-tracking data shared with apps on Apple Vision Pro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Apple states that eye input on Vision Pro is not shared with apps, websites or Apple."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a class="active" href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a class="active" href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blogs.html">Writing</a><span aria-hidden="true">/</span><span aria-current="page">In a Blink: VR Researchers Turned the World and Nobody Noticed</span></nav>
+      <div class="lp-tags"><span class="lp-tag">AR / VR</span></div>
+      <h1>In a Blink: VR Researchers Turned the World and Nobody Noticed</h1>
+      <p class="lp-lead">Researchers rotated virtual worlds 2–5° during people's blinks and nobody noticed. How it works, Apple's blink patent, and why eye data needs care.</p>
+      <div class="lp-facts"><span>By <b>Dr. Yasas Sri Wickramasinghe</b></span><span>Published 2026-10-14</span><span>10 min read</span></div>
+      
+    </div>
+    
+    <figure class="lp-cover">
+      <img src="https://www.yasassri.me/assets/images/blog/in-a-blink/cover.webp" alt="Cover: the words Don't blink behind Dr. Yasas Sri Wickramasinghe, with eye-tracking brackets on his eyes and a stylised sheet of Apple patent US 10,802,585" width="1920" height="1080" fetchpriority="high" decoding="async"/>
+    </figure>
+  </div>
+</header>
+
+<div class="lp-body">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#why-this-matters-to-me">Why this matters to me</a></li><li><a href="#the-world-turned-and-nobody-noticed">The world turned, and nobody noticed</a></li><li><a href="#the-blink-you-never-see">The blink you never see</a></li><li><a href="#inside-apple-s-blink-patent">Inside Apple's blink patent</a></li><li><a href="#walk-forever-in-a-small-room">Walk forever in a small room</a></li><li><a href="#the-uncomfortable-question">The uncomfortable question</a></li><li><a href="#what-i-take-from-this">What I take from this</a></li><li><a href="#a-closing-thought">A closing thought</a></li><li><a href="#sources">Sources</a></li></ol>
+      </details>
+    </aside>
+    <article class="lp-article">
+      <div class="lp-prose lp-feature">
+        <aside class="lp-brief" aria-label="In brief">
+          <p class="lp-label">In brief</p>
+          <ul><li>In a 2018 VR study, rotating the virtual world 2–5° during natural blinks went unnoticed.</li><li>We blink 15–20 times a minute; with eye jumps, we are functionally blind about 10% of waking time.</li><li>Apple's patent US 10,802,585 describes dimming, pausing, shifting or warping a display during blinks.</li><li>Blink-timed redirection lets people walk long virtual paths inside small rooms.</li><li>Eye data reveals attention, so it deserves privacy and transparency.</li></ul>
+        </aside>
+<p>You blinked several times while reading that headline. You didn't see any of them.</p>
+<p>In 2018, a team of VR researchers used that fact in a remarkable way. They put people in a virtual world, waited for them to blink, and <strong>rotated the entire world by 2 to 5 degrees in the instant their eyes were shut.</strong> When people's eyes opened, the world had turned. Nobody noticed.</p>
+<p>Here's why that's possible:</p>
+<ul>
+<li><strong>You blink 15 to 20 times a minute.</strong></li>
+<li><strong>Each blink cuts your vision for about a third of a second.</strong></li>
+<li><strong>Researchers estimate we are functionally blind about 10% of the time we're awake</strong>, once blinks and fast eye jumps (saccades) are added together. Over a 16-hour day, that comes to roughly an hour and a half. That last figure is my arithmetic, but the 10% is theirs.</li>
+<li><strong>Staring at a screen cuts your blink rate by a third to a half</strong>, according to the American Academy of Ophthalmology.</li>
+<li><strong>Apple holds a patent on using exactly these moments.</strong> It was granted in 2020, and Apple has been granted two follow-ups in the same family since.</li>
+</ul>
+<p>Your brain stitches over every gap so smoothly that you experience one continuous view of the world. Engineers have noticed that this gives them a window. For a third of a second, many times a minute, they can change what's on the screen and you'll never see it happen.</p>
+<p>This article is about that window: the experiment that turned the world, the science of why it works, what Apple's patent describes, and what we should and shouldn't do with it.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-1-you-miss-10-percent.webp" alt="Two bars showing a 16-hour day: thin orange gaps scattered across it, and the same gaps added up to about 96 minutes" loading="lazy" decoding="async"/><figcaption>Blinks and eye jumps add up to roughly 10% of waking time. The 96-minute figure is my arithmetic.</figcaption></figure>
+<h2 id="why-this-matters-to-me">Why this matters to me</h2>
+<p>I'm an AR researcher. Much of our work looks at presence in virtual reality, and at why some people feel sick in it. Both come down to the same thing: the gap between what your senses report and what your brain decides is real.</p>
+<p>Blinks sit right in that gap. They're a part of human perception that headsets can measure precisely, and one that we, the users, have no conscious access to. That combination is powerful, and that's exactly why it's worth understanding.</p>
+<h2 id="the-world-turned-and-nobody-noticed">The world turned, and nobody noticed</h2>
+<p>This is the study I find most fascinating, so let me walk through it.</p>
+<p>The paper is <em>In the blink of an eye</em>, by Eike Langbehn, Frank Steinicke, Markus Lappe, Gregory Welch and Gerd Bruder, from the University of Hamburg, the University of Münster and the University of Central Florida. It was presented at SIGGRAPH 2018 and published in <em>ACM Transactions on Graphics</em>.</p>
+<p>Their starting point was a known problem. Virtual worlds are big and real rooms are small. To let people walk naturally, VR systems use <em>redirected walking</em>: they slowly rotate the virtual world as you move, so you curve through your real room while believing you're walking straight. If the rotation is too fast, people notice, or feel sick. As Langbehn put it in the SIGGRAPH press release: &quot;Why don't we do the redirection during eye blinks?&quot;</p>
+<p>Here's how it worked:</p>
+<ol>
+<li><strong>Walk.</strong> Participants wore a VR headset with a built-in eye tracker. The authors point out that ordinary, off-the-shelf eye trackers and headsets are enough.</li>
+<li><strong>Blink.</strong> The system waited for natural blinks. Nobody was asked to blink on purpose.</li>
+<li><strong>Turn.</strong> At the moment of the blink, the virtual camera moved. The researchers measured how far it could go before people noticed.</li>
+<li><strong>Carry on.</strong> When the eyes reopened, the world had shifted slightly.</li>
+</ol>
+<p>The results:</p>
+<ul>
+<li><strong>Rotations of about 2 to 5 degrees, in any direction, went unnoticed.</strong></li>
+<li><strong>Viewpoint shifts of about 4 to 9 cm also went unnoticed.</strong></li>
+<li>In a follow-up study, people walked along a curved virtual path. They <strong>couldn't reliably tell which of two blinks</strong> had their view changed.</li>
+<li>Because each blink allows a small change, <strong>the changes can add up over many blinks.</strong> If you blink 15 times a minute and the world turns 3 degrees each time, that's 45 degrees in a minute (my arithmetic, as an illustration).</li>
+<li>The authors estimate this could make redirected walking <strong>about 50% more effective.</strong></li>
+</ul>
+<p>Think about what that means. Your brain is so committed to a stable world that it rebuilds one after every blink, even when the world has quietly changed. In VR, that lets us fit long walks into small rooms. It also shows how much of what we &quot;see&quot; is our brain's best guess.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-2-the-world-turned.webp" alt="How the blink study worked: walk, blink, the view turns 2–5 degrees, carry on unaware" loading="lazy" decoding="async"/><figcaption>How the 2018 blink study worked (Langbehn et al., SIGGRAPH 2018). The corridor and the 45° total are illustrations.</figcaption></figure>
+<h2 id="the-blink-you-never-see">The blink you never see</h2>
+<p>Blinking isn't only about keeping your eyes wet.</p>
+<p>In 2013, Tamami Nakano and colleagues scanned people's brains while they watched an episode of <em>Mr. Bean</em>. During blinks, activity briefly rose in the brain's default-mode network, the system active when we're resting or mind-wandering. When the researchers inserted blackouts of the same length into the video, that effect didn't appear. Their suggestion is that a blink may be a tiny mental pause, not just a mechanical wipe.</p>
+<p>In 2018, David Hoppe and colleagues at TU Darmstadt showed that people learn to <em>time</em> their blinks. When participants expected something important to appear, they held off blinking, an unconscious trade-off between the urge to blink and the risk of missing information.</p>
+<p>So your blinks are frequent, short, partly strategic, and invisible to you. From a computer's point of view, they're also very predictable. That's where the patent comes in.</p>
+<h2 id="inside-apple-s-blink-patent">Inside Apple's blink patent</h2>
+<p>US Patent 10,802,585, <em>&quot;Electronic devices with display operation based on eye activity&quot;</em>, was first filed by Apple in July 2018 and granted in October 2020. The inventors are Mehmet N. Agaoglu and Andrew B. Watson. Two continuations followed: US 11,782,503 in 2023 and US 12,197,643 in January 2025.</p>
+<p>The idea is simple. A head-mounted display tracks your eyes. When it detects a blink or a saccade, it uses that moment of suppressed vision to do things that would otherwise be noticeable.</p>
+<p>The patent's description is full of specific numbers:</p>
+<ul>
+<li>An eye tracker can respond in <strong>under 5 milliseconds</strong>.</li>
+<li>A blink can be called when the eyelid has dropped about <strong>10%</strong>.</li>
+<li>The lid takes roughly <strong>75 to 250 ms</strong> to close, and a full blink lasts about <strong>200 to 500 ms</strong>.</li>
+<li>With the lid shut, more than <strong>500 times</strong> less light reaches the eye.</li>
+<li>Vision stays suppressed for about <strong>100 to 200 ms</strong> after the blink ends.</li>
+<li>Blinks happen around <strong>10 to 20 times a minute</strong>.</li>
+</ul>
+<p>Put those together and a blink is enormous by computing standards: 40 to 100 times longer than the tracker needs to notice it.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-3-anatomy-of-a-blink.webp" alt="Chart of eyelid position over 700 milliseconds with five stages from detection to post-blink suppression" loading="lazy" decoding="async"/><figcaption>Anatomy of a blink, using numbers from Apple’s US 10,802,585. The curve shape is illustrative.</figcaption></figure>
+<p>And what could a headset do in that time? The patent lists a range of options:</p>
+<ul>
+<li><strong>Dim:</strong> lower the brightness, or switch off the backlight or part of the display.</li>
+<li><strong>Pause:</strong> stop updating frames, repeat the last one, or show a blank frame.</li>
+<li><strong>Lower:</strong> drop the refresh rate, resolution or colour depth for a moment.</li>
+<li><strong>Shift:</strong> move the whole image by a number of pixels to reduce burn-in. The examples go up to 10–25 pixels.</li>
+<li><strong>Tint:</strong> nudge colour or brightness in small steps, one blink at a time.</li>
+<li><strong>Warp:</strong> shift, shear or re-project the geometry of the picture.</li>
+</ul>
+<p>The stated benefits are practical: lower power use, less burn-in, better performance. For a battery-powered headset, or the glasses that may follow, those matter a lot.</p>
+<p>The usual caution applies. A patent describes a method. It doesn't tell us what any Apple product does today, and Apple hasn't said.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-4-while-your-eyes-are-shut.webp" alt="Six cards for display changes during a blink: dim, pause, lower, shift, tint, warp" loading="lazy" decoding="async"/><figcaption>Six things a headset can do during a blink, as listed in Apple’s patent, and the patent family timeline.</figcaption></figure>
+<h2 id="walk-forever-in-a-small-room">Walk forever in a small room</h2>
+<p>The blink study is part of a bigger effort to let people walk through huge virtual worlds inside small rooms. Others have used blinks and saccades in the same way:</p>
+<ul>
+<li><strong>2016:</strong> Intel filed a patent (US 10,311,641, by Daniel Pohl) to change the virtual camera's orientation only during saccades. Its example uses a 15 × 15 ft physical space.</li>
+<li><strong>2018:</strong> Alongside the blink study above, Qi Sun and colleagues from Stony Brook, NVIDIA and Adobe showed that saccades can significantly increase how much the world can be turned without people noticing, and without causing simulator sickness.</li>
+<li><strong>2020:</strong> Researchers at Concordia University filed a patent (US 11,557,105, granted 2023) that rotates the <em>peripheral</em> part of the view, by up to <strong>13.5 degrees</strong>, during natural blinks and saccades. In their tests, inside a <strong>4 × 4 m</strong> space, one participant walked <strong>58.51 m without needing a reset</strong>. The longest recorded walk was <strong>103.9 m</strong>.</li>
+</ul>
+<p>Your feet walk in circles. Your mind believes it walked down a long path.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-5-walk-forever.webp" alt="A looping path inside a 4 by 4 metre room next to a long path through a virtual space" loading="lazy" decoding="async"/><figcaption>Redirected walking: small turns during blinks and eye jumps keep a long virtual walk inside a small room. Paths are illustrative.</figcaption></figure>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-6-engineering-the-gap.webp" alt="Timeline from 2013 to 2025 of blink research and blink-related patents" loading="lazy" decoding="async"/><figcaption>From blink science to patents: a short history of designing for the gaps in vision.</figcaption></figure>
+<h2 id="the-uncomfortable-question">The uncomfortable question</h2>
+<p>Everything above is useful. Saving battery, hiding glitches and making VR walking more natural are good goals, and in my field, anything that reduces discomfort in VR is welcome.</p>
+<p>But think about what's actually being described: a system that knows when you can't see, and acts in exactly those moments.</p>
+<p>Eye data is already sensitive. In 2011, Google filed a patent (US 8,510,166, granted 2013) for a head-mounted gaze tracker. It described logging the items a wearer looked at, charging advertisers per gaze, and inferring emotional states such as surprise or interest from pupil dilation. The same patent also mentions opt-in controls and removing personal identifiers.</p>
+<p>When Apple launched Vision Pro in 2024, it took a clear position on gaze: &quot;Your eye input is not shared with apps, websites, or Apple.&quot;</p>
+<p>These are two very different approaches to the same kind of data. As eye tracking moves from headsets into everyday glasses, which approach wins will matter to all of us.</p>
+<h2 id="what-i-take-from-this">What I take from this</h2>
+<p>If you design for XR, or for any technology that reads the body, here's where I've landed:</p>
+<ol>
+<li><strong>Design with perception, not against it.</strong> Human vision has gaps. Working with them can make devices cooler, longer-lasting and more comfortable.</li>
+<li><strong>Treat eye data as intimate.</strong> Where people look, and when they blink, reveals attention. Keep it on the device whenever possible.</li>
+<li><strong>Say what you change.</strong> If a system edits the world while people blink, they deserve to know that it does, even if they'd never notice it happening.</li>
+<li><strong>Respect the pause.</strong> Blinks may be small mental breaks, and screens already reduce them. Our designs shouldn't squeeze them out further.</li>
+</ol>
+<figure><img src="https://www.yasassri.me/assets/images/blog/in-a-blink/fig-7-invisible-but-honest.webp" alt="Four design principles and a list of good uses of the gap versus lines not to cross" loading="lazy" decoding="async"/><figcaption>Four principles for technology that acts while you can’t see.</figcaption></figure>
+<h2 id="a-closing-thought">A closing thought</h2>
+<p>We tend to judge technology by what it shows us. The headset era is teaching us to pay attention to what happens when we're not looking, sometimes literally.</p>
+<p>There's real beauty in a machine that understands human perception well enough to fit into its gaps. There's also a responsibility that comes with it. The more invisible a technology becomes, the more it has to earn our trust in the moments we <em>can</em> see.</p>
+<p>You've blinked a few hundred times while reading this. I'd love to know: would you want your headset to tell you what it does in those moments, or would you rather never know?</p>
+<h2 id="sources">Sources</h2>
+<ol>
+<li>Apple, US 10,802,585 B2: <a href="https://patents.google.com/patent/US10802585B2/en" target="_blank" rel="noopener">Electronic devices with display operation based on eye activity</a> (priority July 2018, granted October 2020).</li>
+<li>Apple continuations: <a href="https://patents.justia.com/patent/11782503" target="_blank" rel="noopener">US 11,782,503</a> (2023) and <a href="https://patents.justia.com/patent/12197643" target="_blank" rel="noopener">US 12,197,643</a> (2025).</li>
+<li>SIGGRAPH 2018 press release: <a href="https://s2018.siggraph.org/press/news-releases/improving-vr-experience-blink-eye" target="_blank" rel="noopener">Improving the VR experience with a blink of an eye</a>.</li>
+<li>Langbehn, E., Steinicke, F., Lappe, M., Welch, G. F., &amp; Bruder, G. (2018). <a href="https://dl.acm.org/doi/10.1145/3197517.3201335" target="_blank" rel="noopener">In the blink of an eye: leveraging blink-induced suppression for imperceptible position and orientation redirection in virtual reality</a>. <em>ACM Transactions on Graphics</em> 37(4).</li>
+<li>Sun, Q., et al. (2018). <a href="https://research.nvidia.com/labs/amri/publication/sun2018saccade" target="_blank" rel="noopener">Towards Virtual Reality Infinite Walking: Dynamic Saccadic Redirection</a>. <em>ACM Transactions on Graphics</em> (SIGGRAPH).</li>
+<li>Pohl, D. (Intel). <a href="https://patents.google.com/patent/US10311641B2/en" target="_blank" rel="noopener">Using saccadic eye movements to improve redirected walking</a>, US 10,311,641 B2.</li>
+<li>Joshi, Y., &amp; Poullis, C. (Concordia University). <a href="https://patents.google.com/patent/US11557105B2/en" target="_blank" rel="noopener">Managing real world and virtual motion</a>, US 11,557,105 B2.</li>
+<li>Hoppe, D., Helfmann, S., &amp; Rothkopf, C. A. (2018). Humans quickly learn to blink strategically in response to environmental task demands. <em>PNAS</em>. <a href="https://www.tu-darmstadt.de/universitaet/aktuelles_meldungen/archiv_2/2018/2018quartal1/neuesausdertueinzelansichtbreitespalte_199104.en.jsp" target="_blank" rel="noopener">TU Darmstadt summary</a>.</li>
+<li>Nakano, T., et al. (2013). Blink-related momentary activation of the default mode network while viewing videos. <em>PNAS</em>. <a href="https://resou.osaka-u.ac.jp/en/research/2012/20121225_1" target="_blank" rel="noopener">Osaka University release</a> · <a href="https://www.smithsonianmag.com/science-nature/why-do-we-blink-so-frequently-172334883/" target="_blank" rel="noopener">Smithsonian coverage</a>.</li>
+<li>American Academy of Ophthalmology: <a href="https://aao.org/newsroom/news-releases/detail/protect-your-eyes-from-too-much-screen-time" target="_blank" rel="noopener">Protect your eyes from too much screen time</a>.</li>
+<li>Google, US 8,510,166 B2: <a href="https://patents.google.com/patent/US8510166B2/en" target="_blank" rel="noopener">Gaze tracking system</a>.</li>
+<li>Apple: <a href="https://www.apple.com/legal/privacy/data/en/eyes-hands/" target="_blank" rel="noopener">Eyes, Hands &amp; Privacy</a>.</li>
+<li>Sony, US 2017/0285736 A1: <a href="https://patents.google.com/patent/US20170285736A1/en" target="_blank" rel="noopener">Reducing rendering computation and power consumption by detecting saccades and blinks</a>.</li>
+</ol>
+<p><em>Note: &quot;about an hour and a half a day&quot; is my own arithmetic (10% of a 16-hour waking day). The 10% estimate comes from the SIGGRAPH 2018 and TU Darmstadt sources.</em></p>
+
+        <aside class="lp-author" aria-label="About the author">
+          <p class="lp-label">About the author</p>
+          <p><strong>Dr. Yasas Sri Wickramasinghe</strong> is an augmented reality researcher and senior lecturer in Christchurch, New Zealand. His research covers multiplayer location-based AR games, presence in virtual reality and cybersickness. <a href="../about.html">More about Yasas</a>.</p>
+        </aside>
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </div>
+</div>
+<section class="lp-section soft" aria-labelledby="faq">
+  <div class="container">
+    <div class="lp-section-head"><h2 id="faq">Frequently asked questions</h2></div>
+    <div class="lp-faq">
+      <details><summary>How much of the day are we blind because of blinking?</summary><p>We blink about 15 to 20 times a minute, and each blink interrupts vision for roughly a third of a second. Researchers estimate that blinks and saccades together leave us functionally blind about 10% of the time we're awake.</p></details>
+      <details><summary>Can a VR headset change the scene while you blink without you noticing?</summary><p>Yes. In a 2018 study by Langbehn and colleagues, presented at SIGGRAPH, rotations of about 2 to 5 degrees and viewpoint shifts of about 4 to 9 cm made during natural blinks went unnoticed.</p></details>
+      <details><summary>What is redirected walking in VR?</summary><p>Redirected walking slowly rotates or shifts the virtual world as you move, so you walk along curves in a small real room while feeling that you are walking straight through a much larger virtual space.</p></details>
+      <details><summary>What does Apple's patent US 10,802,585 describe?</summary><p>It describes a head-mounted display that detects blinks and saccades with an eye tracker, then uses those moments of suppressed vision to change the display, for example dimming it, pausing frames, lowering the refresh rate or shifting pixels to reduce burn-in. A patent describes a method, not a shipped product.</p></details>
+      <details><summary>Is eye-tracking data shared with apps on Apple Vision Pro?</summary><p>Apple states that eye input on Vision Pro is not shared with apps, websites or Apple.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

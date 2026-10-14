@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 01 Oct 2026 21:35:13 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 14 Oct 2026 03:01:22 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
@@ -14,6 +14,22 @@
     <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[In a Blink: VR Researchers Turned the World and Nobody Noticed]]></title>
+    <link>https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/in-a-blink-vr-headsets-blinks-redirected-walking.html</guid>
+    <pubDate>Tue, 13 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[AR / VR]]></category>
+    <description><![CDATA[Researchers rotated virtual worlds 2–5° during people's blinks and nobody noticed. How it works, Apple's blink patent, and why eye data needs care.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[The Invisible Keyboard Hiding Under Your iPhone Keyboard]]></title>
+    <link>https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/invisible-keyboard-iphone-touch-accuracy.html</guid>
+    <pubDate>Mon, 12 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[HCI]]></category>
+    <description><![CDATA[Your fingertip covers about three iPhone keys, yet you type the right letter. Inside Apple's hidden hit regions, touch research, and lessons for designers.]]></description>
   </item>
   <item>
     <title><![CDATA[Slides: Designing Shared Worlds Across Distance (NZGDC 2026)]]></title>
@@ -230,22 +246,6 @@
     <pubDate>Sat, 08 Oct 2022 12:00:00 +0000</pubDate>
     <category><![CDATA[Software]]></category>
     <description><![CDATA[Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Creating a Design System Using React Material UI]]></title>
-    <link>https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html</guid>
-    <pubDate>Mon, 21 Jun 2021 12:00:00 +0000</pubDate>
-    <category><![CDATA[Frontend]]></category>
-    <description><![CDATA[Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Free Virtual Queue for Your Business]]></title>
-    <link>https://www.yasassri.me/writing/free-virtual-queue-for-your-business.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/free-virtual-queue-for-your-business.html</guid>
-    <pubDate>Tue, 04 May 2021 12:00:00 +0000</pubDate>
-    <category><![CDATA[Innovation]]></category>
-    <description><![CDATA[Introduces a free virtual queueing tool built to help small businesses manage customer queues without hardware. Explains the problem it solves and how businesses can start using it.]]></description>
   </item>
 </channel>
 </rss>

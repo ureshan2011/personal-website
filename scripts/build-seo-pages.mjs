@@ -269,6 +269,14 @@ function mdToHtml(md) {
     if (ol) { openList("ol"); out.push(`<li>${inline(ol[1])}</li>`); continue; }
 
     closeList();
+    // A standalone image with a title becomes a captioned figure:
+    //   ![alt](https://example.com/img.webp "Caption text")
+    const captioned = line.match(/^!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\s+"([^"]*)"\)$/);
+    if (captioned) {
+      const [, alt, src, cap] = captioned;
+      out.push(`<figure><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async"/><figcaption>${inline(cap)}</figcaption></figure>`);
+      continue;
+    }
     // A standalone image, linked or not, gets its own figure rather than <p>.
     if (/^\[?!\[[^\]]*\]\(https?:\/\/[^\s)]+\)(\]\(https?:\/\/[^\s)]+\))?$/.test(line)) {
       out.push(`<figure>${inline(line)}</figure>`);
@@ -294,7 +302,7 @@ function parseFrontMatter(src) {
     if (!kv) continue;
     const raw = kv[2].trim();
     let val = raw;
-    if (raw.startsWith('"')) { try { val = JSON.parse(raw); } catch { /* keep raw */ } }
+    if (raw.startsWith('"') || raw.startsWith("[") || raw.startsWith("{")) { try { val = JSON.parse(raw); } catch { /* keep raw */ } }
     meta[kv[1]] = val;
   }
   return { meta, body: m[2] };
@@ -992,7 +1000,124 @@ function renderBlogPostPage(post) {
    for this domain rather than someone else's. Each keeps a visible credit line
    linking the original, and lives at depth 1 under writing/ rather than in
    app/blog/, whose pages link into an SPA route these articles don't have. */
+/* Original long-form articles written for this site (front matter
+   `layout: feature`). Same URL scheme and shell as the repatriated pieces, plus:
+   a cover image in the hero (also used as og:image), an "In brief" box, an
+   on-page contents list built from the H2s, captioned figures, an author box,
+   and an optional FAQ rendered visibly and as FAQPage JSON-LD.
+   Optional front-matter keys: date, updated, cover, coverAlt, keywords,
+   takeaways (JSON array), faq (JSON array of {q, a}). */
+function renderFeatureArticlePage(article) {
+  const { slug, title, summary, category, body } = article;
+  const canonical = `${SITE_URL}/writing/${slug}.html`;
+  const published = article.date || today;
+  const updated = article.updated || published;
+  const takeaways = Array.isArray(article.takeaways) ? article.takeaways : [];
+  const faq = Array.isArray(article.faq) ? article.faq : [];
+  const cover = article.cover || "";
+  const ogImage = article.ogImage || cover || undefined;
+  const words = String(body).split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 230));
+
+  // Give every H2 an id and collect the contents list.
+  const toc = [];
+  const used = new Set();
+  const html = mdToHtml(body).replace(/<h2>(.*?)<\/h2>/g, (_m, inner) => {
+    const text = inner.replace(/<[^>]*>/g, "").replace(/&amp;/g, "&").replace(/&#39;|&quot;/g, "");
+    let id = slugify(text); let n = 2;
+    while (used.has(id)) id = `${slugify(text)}-${n++}`;
+    used.add(id);
+    toc.push({ id, text: inner.replace(/<[^>]*>/g, "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'") });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+
+  const jsonLd = [{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": summary,
+    "url": canonical,
+    "inLanguage": "en",
+    "datePublished": published,
+    "dateModified": updated,
+    "articleSection": category || undefined,
+    "keywords": article.keywords || undefined,
+    "wordCount": words,
+    "image": ogImage ? [ogImage] : undefined,
+    "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
+    "publisher": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
+    "isPartOf": { "@type": "WebSite", "@id": SITE_URL + "/#website" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical }
+  }, breadcrumbLd([
+    ["Home", `${SITE_URL}/`],
+    ["Writing", `${SITE_URL}/blogs.html`],
+    [title, canonical]
+  ])];
+  if (faq.length) jsonLd.push(faqLd(faq));
+
+  const media = cover ? `
+    <figure class="lp-cover">
+      <img src="${esc(cover)}" alt="${esc(article.coverAlt || title)}" width="1920" height="1080" fetchpriority="high" decoding="async"/>
+    </figure>` : "";
+
+  const brief = takeaways.length ? `
+        <aside class="lp-brief" aria-label="In brief">
+          <p class="lp-label">In brief</p>
+          <ul>${takeaways.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+        </aside>` : "";
+
+  const authorBox = `
+        <aside class="lp-author" aria-label="About the author">
+          <p class="lp-label">About the author</p>
+          <p><strong>Dr. Yasas Sri Wickramasinghe</strong> is an augmented reality researcher and senior lecturer in Christchurch, New Zealand. His research covers multiplayer location-based AR games, presence in virtual reality and cybersickness. <a href="../about.html">More about Yasas</a>.</p>
+        </aside>`;
+
+  const faqSection = faq.length ? `
+<section class="lp-section soft" aria-labelledby="faq">
+  <div class="container">
+    <div class="lp-section-head"><h2 id="faq">Frequently asked questions</h2></div>
+    <div class="lp-faq">
+      ${faq.map(f => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n      ")}
+    </div>
+  </div>
+</section>` : "";
+
+  const pageBody = `${hero({
+    depth: 1,
+    crumbPairs: [["Home", "index.html"], ["Writing", "blogs.html"], [title, ""]],
+    tags: [`<span class="lp-tag">${esc(category || "Writing")}</span>`],
+    title: esc(title),
+    lead: summary,
+    facts: [`By <b>Dr. Yasas Sri Wickramasinghe</b>`, `Published ${esc(published)}`, `${minutes} min read`],
+    media
+  })}
+
+<div class="lp-body">
+  <div class="container lp-layout${toc.length >= 3 ? "" : " is-solo"}">
+    ${tocAside(toc)}
+    <article class="lp-article">
+      <div class="lp-prose lp-feature">${brief}
+${html}${article.originalUrl ? `
+<p class="lp-credit">Also published on <a href="${esc(article.originalUrl)}" target="_blank" rel="noopener">${esc(article.originalSource || "LinkedIn")}</a>.</p>` : ""}
+${authorBox}
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </div>
+</div>${faqSection}`;
+
+  return shell({
+    depth: 1, title: `${title} | Dr. Yasas Sri Wickramasinghe`, description: summary, canonical,
+    ogImage, jsonLd, active: "writing", body: pageBody,
+    foot: `<script src="../assets/js/lesson-page.js" defer></script>\n`
+  });
+}
+
 function renderWritingArticlePage(article) {
+  if (article.layout === "feature") return renderFeatureArticlePage(article);
   const { slug, title, summary, category, originalUrl, originalSource, originalDate, body } = article;
   const canonical = `${SITE_URL}/writing/${slug}.html`;
 
@@ -1162,7 +1287,7 @@ function syncFeed(decks, writing) {
       title: w.title,
       link: `${SITE_URL}/writing/${w.slug}.html`,
       guid: `${SITE_URL}/writing/${w.slug}.html`,
-      pubDate: w.originalDate ? toRfc822(w.originalDate) : null,
+      pubDate: (w.originalDate || w.date) ? toRfc822(w.originalDate || w.date) : null,
       category: w.category || "Writing",
       description: w.summary || ""
     }))
