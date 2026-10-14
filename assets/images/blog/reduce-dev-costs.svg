@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg7" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#15a3b8"/><stop offset="1" stop-color="#2f6bff"/>
+</linearGradient>
+<radialGradient id="glow7" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign7" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots7" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg7)"/>
+<rect width="640" height="400" fill="url(#dots7)"/>
+<rect width="640" height="400" fill="url(#glow7)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<line x1="170" y1="300" x2="470" y2="300" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/><line x1="170" y1="120" x2="170" y2="300" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/><rect x="196" y="150" width="38" height="150" rx="5" fill="#ffffff" fill-opacity="0.5" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.4"/><rect x="250" y="180" width="38" height="120" rx="5" fill="#ffffff" fill-opacity="0.44" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.4"/><rect x="304" y="214" width="38" height="86" rx="5" fill="#ffffff" fill-opacity="0.38" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.4"/><rect x="358" y="242" width="38" height="58" rx="5" fill="#ffffff" fill-opacity="0.32" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.4"/><rect x="412" y="264" width="38" height="36" rx="5" fill="#ffffff" fill-opacity="0.26" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.4"/><polyline points="215,150 269,170 323,200 377,224 431,250" stroke="#ccf4ff" stroke-opacity="0.95" stroke-width="3.4"/><circle cx="215" cy="150" r="4.2" fill="#ccf4ff" stroke="none"/><circle cx="269" cy="170" r="4.2" fill="#ccf4ff" stroke="none"/><circle cx="323" cy="200" r="4.2" fill="#ccf4ff" stroke="none"/><circle cx="377" cy="224" r="4.2" fill="#ccf4ff" stroke="none"/><circle cx="431" cy="250" r="4.2" fill="#ccf4ff" stroke="none"/><path d="M431 250 l0 18 m0 0 l-9 -9 m9 9 l9 -9" stroke="#ccf4ff" stroke-opacity="0.95" stroke-width="3"/><circle cx="206" cy="146" r="20" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.4"/><text x="206" y="153" font-family="Inter, sans-serif" font-size="20" font-weight="800" fill="#ffffff" fill-opacity="0.9" text-anchor="middle" stroke="none">$</text>
+</g>
+<rect width="640" height="400" fill="url(#vign7)"/>
+</svg>

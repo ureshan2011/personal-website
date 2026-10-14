@@ -1,0 +1,404 @@
+{
+ "slug": "scrum-simulation",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/scrum-simulation",
+ "title": "The Scrum studio: a Sprint you can watch, pause and orbit",
+ "pageTitle": "The Scrum studio: a Sprint you can watch, pause and orbit · MBI804",
+ "extractedAt": "2026-09-28",
+ "words": 2222,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Lesson 3 of 9"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The Scrum studio: a Sprint you can watch, pause and orbit"
+  },
+  {
+   "t": "p",
+   "html": "Lesson 2 gave you Scrum as a diagram and a list of definitions. This one gives you the same framework as a place. Six miniatures order a backlog, refine it, estimate it with Planning Poker, then build a parcel drone through three one-week Sprints — every event, every artefact and every decision happening in front of you, with a caption that says what is happening and a timeline of every milestone. Scrub it, jump about in it, click anyone, and by the end you will have watched the whole loop go round three times."
+  },
+  {
+   "t": "p",
+   "html": "Time <strong>40 minutes</strong> Follows <strong>Lesson 2, Scrum up close</strong> Needs <strong>A browser with WebGL, and sound on for the voice narration</strong>"
+  },
+  {
+   "t": "eyebrow",
+   "html": "By the end of this lesson you can"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Name the three accountabilities on a Scrum Team and say what each one owns — and what it does not",
+    "Walk the five events of a Sprint in order, with who attends and the timebox on each",
+    "Explain the three artefacts and the commitment attached to each one",
+    "Explain backlog refinement and story estimation with Planning Poker, and why neither is a Scrum event",
+    "Trace one backlog item from the Product Backlog to a Done Increment, and say who decides at every step",
+    "Spot the common ways a team breaks Scrum: the standup that became a status report, the manager who set the Sprint scope, the item accepted without being Done"
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 3.1 · The simulation"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three Sprints, on a tabletop."
+  },
+  {
+   "t": "p",
+   "html": "Start it from the project brief. A voice narrates every step and the studio waits for it; the caption says what is happening, the panel lists the steps, and the ring on the floor shows where to look."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The project"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "SkyDrop: a parcel-delivery drone"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What happens here"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "<strong>Who</strong> A Product Owner, a Scrum Master and four Developers, for the courier depot",
+    "<strong>Timebox</strong> Three one-week Sprints",
+    "<strong>Output</strong> Product Goal: a drone that delivers a one-kilogram parcel to the customer’s door, in any weather"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Nobody in the room is anybody’s manager, and there is no project manager — which is the first thing that surprises people about Scrum. Click any miniature or object at any time, including the project poster on the back wall, for who it is and what it owns."
+  },
+  {
+   "t": "p",
+   "html": "A few things to notice as it runs. Nobody in the studio is anybody’s manager, and there is no project manager: the work of one is spread across the three accountabilities. The Product Owner is at the wall during the Daily Scrum, not in the circle, because the meeting is not a report to her. And the drone gains a part on day two, days before the Review — an Increment exists the moment an item is Done, not when a meeting says so."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 3.2 · Who is in the room"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three accountabilities, no manager."
+  },
+  {
+   "t": "p",
+   "html": "The 2020 Scrum Guide calls them accountabilities rather than roles on purpose: they describe what somebody answers for, not a job title or a line on an org chart."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Product Owner"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Priya, in plum"
+  },
+  {
+   "t": "p",
+   "html": "Accountable for maximising the value of the product. Owns and orders the Product Backlog, writes the Product Goal, keeps every item clear enough to build, and decides what is released. One person, not a committee."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Not theirs:</strong> Does not decide how much the Developers take into a Sprint, and cannot waive the Definition of Done."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Scrum Master"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Sam, with the headset"
+  },
+  {
+   "t": "p",
+   "html": "Accountable for the team’s effectiveness and for Scrum being understood. Coaches the team to manage itself, keeps events inside their timeboxes, removes impediments, and helps the organisation adopt Scrum. A servant-leader."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Not theirs:</strong> Does not assign work, does not run the Daily Scrum, does not report progress upward."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Developers"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Aroha, Ben, Chen and Dee"
+  },
+  {
+   "t": "p",
+   "html": "Accountable for a usable Increment every Sprint. Between them they hold every skill the product needs. They plan their own Sprint Backlog, adapt it daily, and own the Definition of Done. Anyone doing the work is a Developer, whatever their title."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Not theirs:</strong> No sub-teams, no hierarchy inside the team, and nobody outside it decides how much they take on."
+  },
+  {
+   "t": "p",
+   "html": "The two people in grey suits are <strong>stakeholders</strong>, and they are not on the Scrum Team. They attend the Sprint Review, see a real Increment, and say what should happen next — to the Product Owner, who orders the backlog. A stakeholder who walks up to a Developer’s desk and asks for “one small thing” is how a Sprint Goal dies quietly."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 3.3 · What is on the walls"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Three artefacts, each with a commitment."
+  },
+  {
+   "t": "p",
+   "html": "An artefact is a thing you can point at. Each one carries a commitment that says what it is for, and the commitment is what keeps it honest."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Artefact",
+     "Commitment",
+     "Owned by",
+     "What it is"
+    ],
+    [
+     "<strong>Product Backlog</strong>",
+     "Product Goal",
+     "The Product Owner",
+     "The single ordered list of everything the product might need. Never finished, refined continuously, the only source of work. In the studio: the wall on the left."
+    ],
+    [
+     "<strong>Sprint Backlog</strong>",
+     "Sprint Goal",
+     "The Developers",
+     "The Sprint Goal, the items pulled to meet it, and the plan for delivering them. Updated every day by the people doing the work. In the studio: the three-column board, with the goal on the plank above it."
+    ],
+    [
+     "<strong>Increment</strong>",
+     "Definition of Done",
+     "The Developers",
+     "A usable step toward the Product Goal. It exists the moment an item is Done, not at the end of the Sprint, and only Done work is in it. In the studio: the drone on the pedestal."
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 3.4 · The meetings"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five events, one of them a container."
+  },
+  {
+   "t": "p",
+   "html": "Timeboxes are the Guide’s maxima for a one-month Sprint. The studio runs one-week Sprints, so Planning, Review and Retrospective scale to about a fifth. The Daily Scrum does not scale — it is per day. Refinement and estimation are not events at all."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Event",
+     "Who",
+     "Timebox",
+     "Output",
+     "In one line"
+    ],
+    [
+     "<strong>The Sprint</strong>",
+     "The whole Scrum Team",
+     "1–4 weeks, same length every time",
+     "A Done Increment",
+     "The container for the other four. A new one starts the moment the last one ends."
+    ],
+    [
+     "<strong>Sprint Planning</strong>",
+     "The whole Scrum Team",
+     "Max 8 hours a month",
+     "Sprint Goal + Sprint Backlog",
+     "Why is this Sprint valuable, what can be Done, how will it be done. Only the Developers decide how much."
+    ],
+    [
+     "<strong>Daily Scrum</strong>",
+     "The Developers",
+     "15 minutes, every working day",
+     "A plan for the next 24 hours",
+     "Inspect progress toward the Sprint Goal and re-plan the day. Not a status report; problems are named here and solved elsewhere."
+    ],
+    [
+     "<strong>Sprint Review</strong>",
+     "Scrum Team + stakeholders",
+     "Max 4 hours a month",
+     "A revised Product Backlog",
+     "Show what is Done to the people who asked for it and decide together what comes next. Not a sign-off, not a demo performance."
+    ],
+    [
+     "<strong>Sprint Retrospective</strong>",
+     "The Scrum Team only",
+     "Max 3 hours a month",
+     "One improvement, into the next Sprint",
+     "The only event about the team rather than the product. What went well, what got in the way, one thing to change."
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Two things every team does that are not events"
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Backlog Refinement (grooming)"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Product Owner + Developers · ongoing, about 10% of capacity"
+  },
+  {
+   "t": "p",
+   "html": "Adding detail, acceptance criteria, order and size to Product Backlog items so the top of the list is ready before Sprint Planning. The Scrum Guide describes it as an ongoing activity, not an event, and most teams hold a short session each Sprint — in the studio, on day three."
+  },
+  {
+   "t": "h",
+   "level": 4,
+   "html": "Story estimation (Planning Poker)"
+  },
+  {
+   "t": "eyebrow",
+   "html": "The Developers · a few minutes per story"
+  },
+  {
+   "t": "p",
+   "html": "Each Developer reveals a card at once — 1, 2, 3, 5, 8, 13 — so nobody anchors on the loudest voice. Differences are discussed, then everyone re-votes. Points are relative size and uncertainty, not hours. It is a popular practice; Scrum does not require any particular estimation method."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Section 3.5 · The whole process"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "One item, from the wall to the drone."
+  },
+  {
+   "t": "p",
+   "html": "This is the studio written down: every step an item goes through, in order, and who decides at each one."
+  },
+  {
+   "t": "ol",
+   "items": [
+    "1 The Product Owner orders the Product Backlog One list, one owner. The top item is always unambiguous. In the studio, the pile on Priya’s desk becomes the wall of ordered cards, each one marked “? pts” because nobody has sized it yet.",
+    "2 Refinement gets the top of the list ready Priya and the Developers stand at the wall. Questions are asked, acceptance criteria written, big items split. Cards that could be finished in one Sprint get a green “ready” dot; the bottom of the list stays rough on purpose.",
+    "3 The Developers estimate with Planning Poker Everyone reveals a card at once. Frame: 3, 3, 3, 3. Rotors: 3, 5, 8, 5 — so the highest and lowest explain, and the re-vote is 5 across the board. Points are relative size, and only the people doing the work estimate.",
+    "4 Sprint Planning pulls the top items into a Sprint Backlog Three topics. Why: the Product Owner proposes and the team writes the Sprint Goal. What: the Developers pull ready items until they are no longer confident of finishing. How: they break the items into tasks. Cards fly from the wall to the Sprint Backlog’s To Do column.",
+    "5 Every day, a fifteen-minute Daily Scrum The Developers stand in a circle and re-plan the day. On day four Ben raises the red block on his desk and Sam, the Scrum Master, leaves the circle to clear it.",
+    "6 The work moves To Do → Doing → Done Each item that meets the Definition of Done bolts a part onto the drone at once. The Sprint Backlog is the Developers’ plan and they change it daily; nobody adds work that risks the Sprint Goal.",
+    "7 The Sprint Review shows a real Increment to real stakeholders The drone lifts off in front of the two people who asked for it. A new card, “Rain sensor”, arrives from what they saw, and the Product Owner orders it above Lights.",
+    "8 Mid-Sprint, a short refinement for the next Sprint On day three the team spends about an hour at the wall getting the next Sprint’s cards ready. In Sprint 2 that is where the new Rain sensor card gets its 3 points. The running Sprint is not touched.",
+    "9 The Retrospective picks one improvement Team only. One change goes on a sticky, and it becomes a green card in the next Sprint Backlog so that it happens rather than is admired.",
+    "10 The next Sprint starts immediately No gap, no cool-down week, no phase called “done”. After three Sprints there are nine items on the drone and two still on the wall — the backlog is never finished."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Check yourself"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Seven things the studio showed you."
+  },
+  {
+   "t": "p",
+   "html": "Every question is about something that happened in the simulation. If one catches you out, jump back to that moment with the chips and watch it again."
+  },
+  {
+   "t": "p",
+   "html": "In the studio, Sam the Scrum Master stands outside the circle at every Daily Scrum. Why?"
+  },
+  {
+   "t": "eyebrow",
+   "html": "What this lesson said"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What the studio said"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "01 <strong>Three accountabilities, and none of them is a manager.</strong> The Product Owner owns value and order. The Scrum Master owns effectiveness and clears the way. The Developers own the Sprint Backlog, the Definition of Done and how much they take on.",
+    "02 <strong>Three artefacts, each with a commitment.</strong> Product Backlog → Product Goal. Sprint Backlog → Sprint Goal. Increment → Definition of Done. The commitment is what stops the artefact drifting.",
+    "03 <strong>Five events, and the timebox nobody scales.</strong> Planning, Review and Retrospective shrink with the Sprint. The Daily Scrum is fifteen minutes because it is per day, and the Sprint itself is the container for all of them.",
+    "04 <strong>An Increment exists the moment an item is Done.</strong> Not at the Review, not when the Product Owner nods. Done is a quality standard the Developers own, and only Done work is on the drone.",
+    "05 <strong>Feedback is the point of the loop.</strong> The Rain sensor card exists because a stakeholder watched a real Increment. A Review without stakeholders is a demo to yourselves and the framework has lost its reason to exist.",
+    "06 <strong>The backlog is never finished.</strong> After three Sprints the drone flies and two cards are still on the wall. Scrum optimises the order of work, not the completeness of a plan."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "Facts follow the 2020 Scrum Guide by Ken Schwaber and Jeff Sutherland, which is free at scrumguides.org and eighteen pages long. Read it once; it is shorter than this page."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What’s next"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where this goes."
+  },
+  {
+   "t": "p",
+   "html": "The studio is the picture. Lesson 2 has the definitions at exam depth, and the certifications name the vocabulary job listings ask for."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Scrum at interview depth"
+  },
+  {
+   "t": "p",
+   "html": "The clickable framework diagram, twelve “whose job is this?” situations, timeboxes that scale with the Sprint, and a board with a live burndown — the same framework you just watched, at the depth the case study is marked on."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Certify it"
+  },
+  {
+   "t": "p",
+   "html": "Atlassian’s own Jira path, a LinkedIn Agile Professional Certificate and a free completion certificate. None costs anything, and all three use exactly the words on the studio’s walls."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Your lecturer"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Find the moment it breaks."
+  },
+  {
+   "t": "p",
+   "html": "Run the studio once at 4× and just watch the shapes. Then run it again at 1× and ask, at every event, what would go wrong if the wrong person were in the room. That question — who is in it, who is not, and why — is the whole of Scrum, and it is the question the case study is really asking."
+  },
+  {
+   "t": "p",
+   "html": "Yasas Sri Wickramasinghe MBI804 lecturer"
+  }
+ ]
+}

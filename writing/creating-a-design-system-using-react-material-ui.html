@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creating a Design System Using React Material UI | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Creating a Design System Using React Material UI | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library."/>
+<meta property="og:url" content="https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/og-card.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Creating a Design System Using React Material UI",
+  "description": "Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library.",
+  "url": "https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html",
+  "inLanguage": "en",
+  "datePublished": "2021-06-22",
+  "dateModified": "2021-06-22",
+  "articleSection": "Frontend",
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://www.yasassri.me/blogs.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Creating a Design System Using React Material UI",
+      "item": "https://www.yasassri.me/writing/creating-a-design-system-using-react-material-ui.html"
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a class="active" href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a class="active" href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero">
+  <div class="container lp-hero-grid is-solo">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blogs.html">Writing</a><span aria-hidden="true">/</span><span aria-current="page">Creating a Design System Using React Material UI</span></nav>
+      <div class="lp-tags"><span class="lp-tag">Frontend</span></div>
+      <h1>Creating a Design System Using React Material UI</h1>
+      <p class="lp-lead">Walks through building a consistent design system on top of React and Material UI. Covers component structure and design tokens as the foundation for a reusable UI library.</p>
+      <div class="lp-facts"><span>Published 2021-06-22</span></div>
+      
+    </div>
+    
+  </div>
+</header>
+
+<div class="lp-body">
+  <div class="container lp-layout is-solo">
+    <article class="lp-article">
+      <div class="lp-prose">
+<h2><strong>Building a custom design system using Material UI library</strong></h2>
+<p>Modern design systems rely heavily on rich UI component libraries. They promote code reusability, enable consistency in design (in and across apps) and speed up overall development.</p>
+<p>This article shares how I used React Material UI with <a href="https://github.com/teambit/bit" target="_blank" rel="noopener">Bit open source</a> platform to create a custom design system focused on consistency with high governance.</p>
+<p>You can preview each independent component by visiting the Bit collection.</p>
+<p><em>Overview of the design system on Bit</em></p>
+<p>Here, each component in the design system is authored, versioned, and shared individually and not as part of a single monolithic library, that creates countless benefits such as;</p>
+<ul>
+<li>Import only the components that are used within your application.</li>
+<li>Allow any developer in your organization to contribute back to each component.</li>
+<li>Better DX (Developer experience) in using components as a first-class citizen.</li>
+</ul>
+<h2>Using React Material UI</h2>
+<p>As we all know <a href="https://material-ui.com/" target="_blank" rel="noopener"><strong>React Material UI</strong></a> provides a range of UI components that are ready to use. However, think of a scenario where you want to add a React button component, and you know it supports different attributes. You can have a button with rounded edges, a button with a label, a button with an icon, or even a button in disabled status.</p>
+<p><em>Different button variants in React Material UI</em></p>
+<h2>Consistency Over Flexibility?</h2>
+<p>Though it’s one of the prime objectives of a UI library to allow customization, if we expose this flexibility to developers, it could adversely affect the consistency of the user interfaces.</p>
+<p>But we have the options to restrict this behavior. One approach is to build an abstraction on top of React Material UI components by exposing only a given set of properties.</p>
+<blockquote>
+<p>This what I refer to as wrapping the components.</p>
+</blockquote>
+<p>Following this approach clearly brings control over each UI component props and actions.</p>
+<h2>High-Level Objectives of the Design System</h2>
+<p>Besides, there are several objectives I wanted to meet with the design system.</p>
+<ul>
+<li><strong>Well-defined structure</strong> — All the components, documentation, and best practices in one place for developers to follow in a well-defined structure.</li>
+<li><strong>Limit the jargon</strong> — Choose a subset of components from React Material UI for the design system.</li>
+<li><strong>Customize the component’s API</strong> — Choose my own API that alters, limits, or extends the MUI components.</li>
+</ul>
+<h2>What are the Building Blocks?</h2>
+<p>For the design system, I’ve developed the following categories to group UI components at different levels.</p>
+<ul>
+<li><strong>UI/Inputs</strong> — Basic UI components act as the foundational elements.</li>
+<li><strong>Layouts</strong> — Abstract layout components like grids, boxes, containers.</li>
+<li><strong>Surfaces</strong> — Components used as containers with a meaning.</li>
+<li><strong>Widgets</strong> — Business components.</li>
+<li><strong>Pages</strong> — Composition of components that reassembles a web page.</li>
+</ul>
+<p>Then you might wonder why I chose to group them in this way.</p>
+<p>For lower-order components such as UI/Inputs, Layouts, and Surfaces, I’ve followed the same structure as in React Material UI library.</p>
+<p>For higher-order components, I’ve introduced Widgets and Pages out of thin air. 🙂</p>
+<h3>Starting with UI/Inputs</h3>
+<p>At first, I got stuck on choosing the basic building blocks for the design system. I’ve decided to select a subset of components from React Material UI <strong>wrap</strong> them to create the Button, Radio, Select and Text field as the foundation. These components you can find under the UI/Inputs, as shown below.</p>
+<p><em>Button component in the design system at bit.dev</em></p>
+<blockquote>
+<p>For instance, I don’t want developers to make spontaneous decisions on how a button should look or behave, breaking the consistency.</p>
+</blockquote>
+<p>Though the button’s functionality is limited, we can gradually add more functionality having complete control since it’s the only button reused elsewhere in the application. Besides, it also reduces the coupling of React Material UI with higher-order components.</p>
+<h3>Higher-Order Components</h3>
+<p>Then, gradually the higher-order components were defined. The below example shows how the product page components look like.</p>
+<p><em>Products page component composition in bit.dev</em></p>
+<p><em>Product page code example in bit.dev</em></p>
+<p>Furthermore, to understand its dependencies, let’s look at the complete dependency graph of the products page.</p>
+<p><em>Dependency graph of product page component</em></p>
+<p>As you can see, the design system clearly reuses its foundational building blocks, which is a good sign that it’s working.</p>
+<h2>Theming Support</h2>
+<p>Typically theming applies to basic UI components. With React Material UI, each component inherits from the default theme. So if we can override that, we can implement custom themes.</p>
+<blockquote>
+<p>That’s precisely the theme provider global overrides supposed to do.</p>
+</blockquote>
+<p>Following are some of the properties we can override by creating a custom theme provider, <a href="https://material-ui.com/customization/theming/#theming" target="_blank" rel="noopener">documented here</a>.</p>
+<p><em>Theme overrides in React Material UI</em></p>
+<p>For example, suppose I override the “primary” property of the palette object inside a custom theme provider. As a result, it directly overrides the color of the button component in the design system.</p>
+<p><em>Overriding primary color palette in React Material UI</em></p>
+<h2>Conclusion</h2>
+<p>I believe design system should become the norm to bridge the gap between designers and developers to establish consistency in frontend development.</p>
+<blockquote>
+<p>However, in the current design system, I’m still doubtful whether to wrap the React Material UI components or not, which has both ups and downs. If you have a different opinion, please do mention it in the comments below.</p>
+</blockquote>
+<p><strong>Some Final Tips,</strong></p>
+<ul>
+<li>React Material UI allows developers to design their own custom design systems. Always use that freedom and try to implement simple, reusable components with React theming support. <a href="https://material-ui.com/getting-started/usage/" target="_blank" rel="noopener">React Material UI documentation</a> is always an excellent resource to follow.</li>
+<li>Build your own terminology for your project structure.</li>
+<li>You can use the theming with global overrides to customize components for consistency and reusability.</li>
+<li>Using <a href="https://bit.dev/" target="_blank" rel="noopener">bit.dev</a> will help to visualize and share your design system across multiple development teams.</li>
+</ul>
+<p>Thank you for reading !! 🙂</p>
+<hr/>
+<p class="lp-credit">Originally published on <a href="https://levelup.gitconnected.com/creating-a-design-system-using-react-material-ui-498e2e9d3480" target="_blank" rel="noopener">Level Up Coding</a>.</p>
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+</body>
+</html>

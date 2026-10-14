@@ -1,0 +1,129 @@
+{
+ "slug": "vibe-to-production",
+ "url": "http://localhost:8765/app/#/lessons/deck/vibe-to-production",
+ "title": "From Vibe to Production — Yasas Sri Wickramasinghe",
+ "pageTitle": "From Vibe to Production — Yasas Sri Wickramasinghe",
+ "extractedAt": "2026-09-28",
+ "words": 625,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "Capstone Bonus Lecture"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of shipping your own site."
+  },
+  {
+   "t": "p",
+   "html": "How to go from an idea to a live website in one sitting, using Google Stitch, Claude Code, and GitHub Pages."
+  },
+  {
+   "t": "p",
+   "html": "🎨 Google Stitch 2.0 ⌘ Claude Code (Web) 🚀 GitHub Pages"
+  },
+  {
+   "t": "p",
+   "html": "Capstone Bonus Lecture"
+  },
+  {
+   "t": "p",
+   "html": "Three tools, one afternoon: describe what you want, one AI designs it, another AI builds it, and GitHub Pages puts it online for free. Here's each stage, in order."
+  },
+  {
+   "t": "p",
+   "html": "STAGE 01 GOOGLE STITCH 2.0"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Design the layout."
+  },
+  {
+   "t": "p",
+   "html": "Describe the site you want in plain language — the audience, the sections, the mood. Stitch turns that into real screens: hero, nav, content blocks. Then you refine in rounds — \"make the hero calmer,\" \"give the projects section more air\" — until it looks right."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "One instruction at a time. Don't describe the whole site in one prompt.",
+    "Export the HTML/CSS once you're happy — that's your starting repo.",
+    "This stage is sketching, not shipping. It doesn't need to be production-ready."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "STAGE 02 CLAUDE CODE ON THE WEB"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Turn it into real code."
+  },
+  {
+   "t": "p",
+   "html": "Bring the Stitch export into Claude Code, running in your browser — no local setup needed. Ask it to add the contact form, wire up the project grid, make the nav responsive, write tests. It reads the repo, makes the changes, runs checks, and shows you the diff before anything ships."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Describe outcomes, not implementations: \"let visitors book a call from the hero\" beats \"add a button.\"",
+    "Ask for a review pass — accessibility, broken links, mobile layout.",
+    "This is where the site stops being a mockup and becomes software."
+   ]
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Ship it."
+  },
+  {
+   "t": "p",
+   "html": "Push the repo to GitHub and turn on Pages in the repository settings. Your site is live at yourname.github.io within minutes. Every future push republishes it. No hosting bill, no server to manage — just a URL you can put on a resume or a business card."
+  },
+  {
+   "t": "ul",
+   "items": [
+    "Point a custom domain at it later with a CNAME file.",
+    "Commit often — your git history is a record of the site improving.",
+    "This is the step most courses skip, and the one that makes the other two matter."
+   ]
+  },
+  {
+   "t": "p",
+   "html": "The Interactive Prompt Foundry"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Pick a style for your site."
+  },
+  {
+   "t": "p",
+   "html": "Choose the one closest to what you want, then copy the prompt into Stitch and Claude Code."
+  },
+  {
+   "t": "p",
+   "html": "academic_portfolio.prompt.md"
+  },
+  {
+   "t": "pre",
+   "text": "# SYSTEM PROMPT — Stitch + Claude Code\n\nROLE\nYou are designing a personal academic portfolio for [YOUR NAME], a\n[FIELD] researcher. Optimize for a reader who has 20 seconds and a lot\nof judgment.\n\nVISUAL DIRECTION\n- Palette: warm paper white (#FAFAF7) background, near-black ink, one\n  restrained accent (deep forest or oxblood) used only for links and\n  a single hero rule.\n- Typography: a serif built for long-form reading, paired with a quiet\n  sans for labels and metadata. Line-height 1.6+, body measure capped\n  at ~68 characters.\n- Layout: single column, generous white space, no cards, no shadows.\n  Let whitespace and thin rules do the separating, not boxes.\n\nSTRUCTURE\n1. Hero — name, title, one-line research thesis. No photo required.\n2. Selected Publications — a list, not cards: title, venue, year,\n   PDF/DOI link.\n3. Research Interests — 3-4 short paragraphs, not a bullet dump.\n4. CV download, plus contact: email, Google Scholar, ORCID.\n5. Optional: Teaching, Talks & Media.\n\nBUILD NOTES FOR CLAUDE CODE\n- Static HTML/CSS, no build step — deploy straight to GitHub Pages.\n- Semantic HTML (article, section, nav) for accessibility and\n  citation crawlers.\n- Add a print stylesheet so the page exports cleanly to PDF for\n  tenure or grant packets.\n- No animation beyond a 150ms link-underline transition.\n\n# Ship something a hiring committee can read in 20 seconds\n# and trust in 20 more."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "That's the pipeline."
+  },
+  {
+   "t": "p",
+   "html": "It doesn't end here. Keep the repo, keep pushing commits, and let an agent take the first pass so you can spend your time on the parts only you can judge."
+  },
+  {
+   "t": "p",
+   "html": "— Yasas Sri Wickramasinghe LinkedIn"
+  }
+ ]
+}

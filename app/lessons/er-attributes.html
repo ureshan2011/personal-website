@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Attributes &amp; Participation: Interactive Lesson | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Composite/derived attributes and participation constraints, guided."/>
+<link rel="icon" href="../../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/app/lessons/er-attributes.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="Attributes &amp; Participation: Interactive Lesson | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Composite/derived attributes and participation constraints, guided."/>
+<meta property="og:url" content="https://www.yasassri.me/app/lessons/er-attributes.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/lessons/er-attributes-1280.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Attributes & Participation",
+  "description": "The details that decide whether a model is right or wrong. Break attributes into their parts, then read participation constraints — when every row must join in, and when it's optional — through two guided activities.",
+  "url": "https://www.yasassri.me/app/lessons/er-attributes.html",
+  "image": "https://www.yasassri.me/assets/images/lessons/er-attributes-1280.webp",
+  "learningResourceType": [
+    "Lesson",
+    "Presentation",
+    "Interactive Resource"
+  ],
+  "teaches": [
+    "Composite attrs",
+    "Partial",
+    "Total",
+    "Activities + answers"
+  ],
+  "keywords": "Composite attrs, Partial, Total, Activities + answers",
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "educationalUse": [
+    "instruction",
+    "self study"
+  ],
+  "timeRequired": "PT5M",
+  "dateModified": "2026-09-28",
+  "about": "Data Modelling",
+  "author": {
+    "@type": "Person",
+    "@id": "https://www.yasassri.me/#yasas",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/app/lessons/er-attributes.html"
+  },
+  "hasPart": [
+    {
+      "@type": "LearningResource",
+      "name": "Composite Attributes & Participation Constraints",
+      "url": "https://www.yasassri.me/app/lessons/er-attributes.html#composite-attributes-participation-constraints"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Teaching",
+      "item": "https://www.yasassri.me/teaching.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lessons",
+      "item": "https://www.yasassri.me/lessons.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Attributes & Participation",
+      "item": "https://www.yasassri.me/app/lessons/er-attributes.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between a composite and a multivalued attribute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A composite attribute is one value split into parts — Name is First plus Last. A multivalued attribute is several separate values of the same kind — a customer with three phone numbers. They use different notation and map to the database differently: composites become multiple columns, multivalued attributes become a separate table."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a derived attribute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An attribute whose value is calculated from other stored data rather than stored itself — age derived from date of birth, or order total derived from line items. It is drawn with a dashed ellipse, and is normally computed on read instead of being stored, so it cannot fall out of sync."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a composite attribute?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An attribute made up of multiple sub-attributes, each holding a distinct piece of information. Example: Address = StreetNumber + StreetName + City + PostCode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a composite attribute drawn in Chen's notation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An outer ellipse (the composite parent, drawn with a thicker teal border) with smaller sub-attribute ellipses connected to it by lines — like branches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Give an example of a composite attribute in a booking system.",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GuestName (FirstName, LastName), CheckInAddress (StreetName, Suburb, City, PostCode), or ContactDetails (PhoneNumber, Email)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why break an attribute into composite sub-attributes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To allow querying or processing individual parts — e.g., sorting by LastName, filtering by City, or extracting PostCode for delivery routing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between composite and multivalued?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Composite: ONE value split into parts (Name = First + Last). Multivalued: MULTIPLE separate values ({PhoneNumber} = 021…, 09…). Different notations and SQL mappings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does a composite attribute map to SQL?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each sub-attribute becomes its own column. The composite parent itself does NOT become a column. E.g., Address → street_name, city, post_code columns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a participation constraint?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A rule specifying whether ALL entities in an entity set (total participation) or just SOME (partial participation) must participate in at least one instance of a relationship."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does total participation mean and how is it drawn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every entity instance MUST participate in at least one relationship instance. Drawn as a DOUBLE LINE (══) between the entity and the relationship diamond."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does partial participation mean and how is it drawn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some entity instances do NOT have to participate in any relationship instance. Drawn as a SINGLE LINE (──) — the default notation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A business rule says \"Every ORDER must belong to a CUSTOMER\". What participation does ORDER have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total participation — drawn as a double line from ORDER to the places/belongs_to relationship diamond. Maps to NOT NULL FK in SQL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "A business rule says \"A CUSTOMER may or may not have placed an ORDER\". What participation does CUSTOMER have?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partial participation — drawn as a single line (default) from CUSTOMER to the relationship diamond. The FK column in ORDER allows NULL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you identify total vs. partial participation from a business rule?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total: key words are \"must\", \"every\", \"all\", \"required\", \"always\". Partial: key words are \"may\", \"can\", \"optional\", \"might\", \"not necessarily\"."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../../research.html">Research</a>
+      <a class="active" href="../../teaching.html">Teaching</a>
+      <a href="../../students.html">Students</a>
+      <a href="../../products.html">Products</a>
+      <a href="../../news.html">News</a>
+      <a href="../../blogs.html">Writing</a>
+      <a href="../../about.html">About</a>
+      <a href="../../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../../index.html"><span class="idx">01</span>Home</a>
+  <a href="../../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../../research.html"><span class="idx">04</span>Research</a>
+  <a class="active" href="../../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../../students.html"><span class="idx">06</span>Students</a>
+  <a href="../../products.html"><span class="idx">07</span>Products</a>
+  <a href="../../news.html"><span class="idx">08</span>News</a>
+  <a href="../../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../../about.html"><span class="idx">10</span>About</a>
+  <a href="../../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../../teaching.html">Teaching</a><span aria-hidden="true">/</span><a href="../../lessons.html">Lessons</a><span aria-hidden="true">/</span><span aria-current="page">Attributes &amp; Participation</span></nav>
+      <div class="lp-tags"><span class="lp-tag lp-tag--course">Data Modelling</span></div>
+      <h1>Attributes &amp; Participation</h1>
+      <p class="lp-lead">The details that decide whether a model is right or wrong. Break attributes into their parts, then read participation constraints — when every row must join in, and when it's optional — through two guided activities.</p>
+      <div class="lp-facts"><span>3 min read</span><span>Free, no login</span></div>
+      <div class="lp-actions"><a class="btn btn-solid lp-go" href="https://www.yasassri.me/app/#/lessons/deck/er-attributes">Open the interactive deck <span class="arrow">→</span></a>
+        <a class="btn" href="#lesson">Read it here <span class="arrow">↓</span></a></div>
+    </div>
+    <a class="lp-window" href="https://www.yasassri.me/app/#/lessons/deck/er-attributes" aria-label="Open the interactive Attributes &amp; Participation deck">
+      <span class="lp-window-bar"><i></i><i></i><i></i><span>Data Modelling</span></span>
+      <img src="../../assets/images/lessons/er-attributes-640.webp" srcset="../../assets/images/lessons/er-attributes-640.webp 640w, ../../assets/images/lessons/er-attributes-1280.webp 1280w" sizes="(max-width: 980px) 92vw, 520px" width="640" height="400" alt="The first slide of Attributes &amp; Participation" fetchpriority="high" decoding="async"/>
+    </a>
+  </div>
+</header>
+
+<div class="lp-body" id="lesson">
+  <div class="container lp-layout is-solo">
+    
+    <article class="lp-article">
+      <p class="lp-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>This is the written version of an interactive, slide-by-slide deck. The live diagrams, worked examples and practice quiz are in <a href="https://www.yasassri.me/app/#/lessons/deck/er-attributes">the interactive deck</a>.</span></p>
+      <div class="lp-prose"><p class="lp-label">In this lesson</p><ul class="lp-bits"><li>Composite attrs</li><li>Partial</li><li>Total</li><li>Activities + answers</li></ul></div>
+      <div class="lp-prose" style="margin-top:36px">
+<h2 id="composite-attributes-participation-constraints">Composite Attributes &amp; Participation Constraints</h2>
+<p>ER Chen's Notation — Lesson 4 of 5</p>
+<h4>Flashcards</h4>
+<p>What is a composite attribute?</p>
+<p>An attribute made up of multiple sub-attributes, each holding a distinct piece of information. Example: Address = StreetNumber + StreetName + City + PostCode.</p>
+<p>How is a composite attribute drawn in Chen's notation?</p>
+<p>An outer ellipse (the composite parent, drawn with a thicker teal border) with smaller sub-attribute ellipses connected to it by lines — like branches.</p>
+<p>Give an example of a composite attribute in a booking system.</p>
+<p>GuestName (FirstName, LastName), CheckInAddress (StreetName, Suburb, City, PostCode), or ContactDetails (PhoneNumber, Email).</p>
+<p>Why break an attribute into composite sub-attributes?</p>
+<p>To allow querying or processing individual parts — e.g., sorting by LastName, filtering by City, or extracting PostCode for delivery routing.</p>
+<p>What is the difference between composite and multivalued?</p>
+<p>Composite: ONE value split into parts (Name = First + Last). Multivalued: MULTIPLE separate values ({PhoneNumber} = 021…, 09…). Different notations and SQL mappings.</p>
+<p>How does a composite attribute map to SQL?</p>
+<p>Each sub-attribute becomes its own column. The composite parent itself does NOT become a column. E.g., Address → street_name, city, post_code columns.</p>
+<p>What is a participation constraint?</p>
+<p>A rule specifying whether ALL entities in an entity set (total participation) or just SOME (partial participation) must participate in at least one instance of a relationship.</p>
+<p>What does total participation mean and how is it drawn?</p>
+<p>Every entity instance MUST participate in at least one relationship instance. Drawn as a DOUBLE LINE (══) between the entity and the relationship diamond.</p>
+<p>What does partial participation mean and how is it drawn?</p>
+<p>Some entity instances do NOT have to participate in any relationship instance. Drawn as a SINGLE LINE (──) — the default notation.</p>
+<p>A business rule says "Every ORDER must belong to a CUSTOMER". What participation does ORDER have?</p>
+<p>Total participation — drawn as a double line from ORDER to the places/belongs_to relationship diamond. Maps to NOT NULL FK in SQL.</p>
+<p>A business rule says "A CUSTOMER may or may not have placed an ORDER". What participation does CUSTOMER have?</p>
+<p>Partial participation — drawn as a single line (default) from CUSTOMER to the relationship diamond. The FK column in ORDER allows NULL.</p>
+<p>How do you identify total vs. partial participation from a business rule?</p>
+<p>Total: key words are "must", "every", "all", "required", "always". Partial: key words are "may", "can", "optional", "might", "not necessarily".</p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<section class="lp-section soft">
+  <div class="container">
+    <div class="lp-section-head"><h2>Common questions</h2></div>
+    <div class="lp-faq">
+      <details><summary>What is the difference between a composite and a multivalued attribute?</summary><p>A composite attribute is one value split into parts — Name is First plus Last. A multivalued attribute is several separate values of the same kind — a customer with three phone numbers. They use different notation and map to the database differently: composites become multiple columns, multivalued attributes become a separate table.</p></details>
+      <details><summary>What is a derived attribute?</summary><p>An attribute whose value is calculated from other stored data rather than stored itself — age derived from date of birth, or order total derived from line items. It is drawn with a dashed ellipse, and is normally computed on read instead of being stored, so it cannot fall out of sync.</p></details>
+      <details><summary>What is a composite attribute?</summary><p>An attribute made up of multiple sub-attributes, each holding a distinct piece of information. Example: Address = StreetNumber + StreetName + City + PostCode.</p></details>
+      <details><summary>How is a composite attribute drawn in Chen's notation?</summary><p>An outer ellipse (the composite parent, drawn with a thicker teal border) with smaller sub-attribute ellipses connected to it by lines — like branches.</p></details>
+      <details><summary>Give an example of a composite attribute in a booking system.</summary><p>GuestName (FirstName, LastName), CheckInAddress (StreetName, Suburb, City, PostCode), or ContactDetails (PhoneNumber, Email).</p></details>
+      <details><summary>Why break an attribute into composite sub-attributes?</summary><p>To allow querying or processing individual parts — e.g., sorting by LastName, filtering by City, or extracting PostCode for delivery routing.</p></details>
+      <details><summary>What is the difference between composite and multivalued?</summary><p>Composite: ONE value split into parts (Name = First + Last). Multivalued: MULTIPLE separate values ({PhoneNumber} = 021…, 09…). Different notations and SQL mappings.</p></details>
+      <details><summary>How does a composite attribute map to SQL?</summary><p>Each sub-attribute becomes its own column. The composite parent itself does NOT become a column. E.g., Address → street_name, city, post_code columns.</p></details>
+      <details><summary>What is a participation constraint?</summary><p>A rule specifying whether ALL entities in an entity set (total participation) or just SOME (partial participation) must participate in at least one instance of a relationship.</p></details>
+      <details><summary>What does total participation mean and how is it drawn?</summary><p>Every entity instance MUST participate in at least one relationship instance. Drawn as a DOUBLE LINE (══) between the entity and the relationship diamond.</p></details>
+      <details><summary>What does partial participation mean and how is it drawn?</summary><p>Some entity instances do NOT have to participate in any relationship instance. Drawn as a SINGLE LINE (──) — the default notation.</p></details>
+      <details><summary>A business rule says &quot;Every ORDER must belong to a CUSTOMER&quot;. What participation does ORDER have?</summary><p>Total participation — drawn as a double line from ORDER to the places/belongs_to relationship diamond. Maps to NOT NULL FK in SQL.</p></details>
+      <details><summary>A business rule says &quot;A CUSTOMER may or may not have placed an ORDER&quot;. What participation does CUSTOMER have?</summary><p>Partial participation — drawn as a single line (default) from CUSTOMER to the relationship diamond. The FK column in ORDER allows NULL.</p></details>
+      <details><summary>How do you identify total vs. partial participation from a business rule?</summary><p>Total: key words are &quot;must&quot;, &quot;every&quot;, &quot;all&quot;, &quot;required&quot;, &quot;always&quot;. Partial: key words are &quot;may&quot;, &quot;can&quot;, &quot;optional&quot;, &quot;might&quot;, &quot;not necessarily&quot;.</p></details>
+    </div>
+  </div>
+</section>
+<section class="lp-cta">
+  <div class="container lp-section lp-cta-inner" style="border:0">
+    <div>
+      <h2>Work through it interactively.</h2>
+      <p>The deck adds live diagrams, step-by-step reveals and practice activities that a written page can't carry.</p>
+    </div>
+    <div class="lp-actions" style="margin-top:0">
+      <a class="btn btn-solid" href="https://www.yasassri.me/app/#/lessons/deck/er-attributes">Open the interactive deck <span class="arrow">→</span></a>
+      <a class="btn" href="../../lessons.html">All lessons <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="lp-section soft">
+  <div class="container">
+    <div class="lp-section-head"><h2>Related lessons</h2></div>
+    <div class="lp-cards">
+      <a class="lp-card" href="er-diagrams.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-diagrams-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">ER Diagrams</span>
+          <span class="lp-card-blurb">Entities, attributes and relationships in Chen's notation.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+      <a class="lp-card" href="er-advanced.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-advanced-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">Advanced ER Concepts</span>
+          <span class="lp-card-blurb">Weak entities, identifying relationships, multivalued &amp; derived attributes.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+      <a class="lp-card" href="er-activities.html">
+        <span class="lp-card-media"><img src="../../assets/images/lessons/er-activities-640.webp" width="640" height="400" alt="" loading="lazy" decoding="async"/></span>
+        <span class="lp-card-body">
+          <span class="lp-card-meta">Data Modelling</span>
+          <span class="lp-card-title">ER Diagrams in Practice</span>
+          <span class="lp-card-blurb">Model five real systems and check your diagram against a worked answer.</span>
+          <span class="lp-card-cta">Read the lesson →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/js/premium.js"></script>
+<script src="../../assets/js/hunt.js" defer></script>
+<script src="../../assets/js/lesson-page.js" defer></script>
+</body>
+</html>

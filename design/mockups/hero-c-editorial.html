@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Hero concept C: Editorial Router</title>
+<link rel="stylesheet" href="mockup-base.css"/>
+<style>
+  body { background: #fbf9f7; }
+  .hero { position: relative; overflow: hidden; min-height: calc(100vh - 78px); }
+  .hero::before { content: ""; position: absolute; width: 900px; height: 900px; right: -260px; top: -240px; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(244,168,186,.35), transparent 62%); }
+  .hero-grid { position: relative; max-width: 1280px; margin: 0 auto; padding: 30px 48px 40px; display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 80px; align-items: center; min-height: calc(100vh - 78px); }
+
+  .byline { display: flex; align-items: center; gap: 12px; font-size: 14.5px; color: var(--ink-soft); }
+  .byline b { color: var(--ink); font-weight: 600; }
+  .byline .sep { width: 28px; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5.6vw, 80px); line-height: 1; letter-spacing: -0.028em; margin: 22px 0 34px; max-width: 700px; }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .router-label { font-size: 12.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; display: block; }
+  .tabs { display: inline-flex; gap: 4px; padding: 5px; background: #fff; border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 10px 30px -22px rgba(19,26,38,.4); }
+  .tab { height: 42px; padding: 0 18px; border-radius: 999px; font: 600 14px/42px var(--sans); color: var(--ink-soft); white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
+  .tab .ic { font-size: 15px; }
+  .tab.on { background: var(--ink); color: #fff; }
+
+  .panel { margin-top: 14px; max-width: 732px; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 24px 26px; box-shadow: 0 24px 60px -34px rgba(19,26,38,.35); display: grid; grid-template-columns: 1fr auto; gap: 20px 28px; align-items: end; }
+  .panel p { font-size: 17px; line-height: 1.55; color: var(--ink-soft); }
+  .panel p strong { color: var(--ink); font-weight: 600; }
+  .panel .acts { display: flex; flex-direction: column; gap: 10px; }
+  .panel .foot { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; padding-top: 16px; border-top: 1px dashed var(--line-strong); font-size: 13.5px; color: var(--ink-soft); }
+  .panel .foot .live { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink); }
+  .panel .foot .live i { width: 8px; height: 8px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 4px rgba(22,163,74,.16); }
+  .panel .foot .venues { margin-left: auto; color: var(--muted); }
+
+  .portrait { position: relative; height: 640px; }
+  .arch { position: absolute; inset: 0; border-radius: 240px 240px 28px 28px; overflow: hidden; box-shadow: 0 50px 90px -50px rgba(120,40,70,.55); }
+  .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+  .seal { position: absolute; left: -58px; bottom: 70px; width: 132px; height: 132px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; box-shadow: 0 18px 40px -16px rgba(47,107,255,.7); }
+  .seal svg { position: absolute; inset: 0; animation: spin 22s linear infinite; }
+  .seal text { font: 700 11.5px var(--sans); letter-spacing: .26em; fill: #fff; text-transform: uppercase; }
+  .seal .core { font-family: var(--serif); font-style: italic; font-size: 30px; line-height: 1; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .tagtop { position: absolute; right: -20px; top: 90px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 10px 14px; box-shadow: 0 16px 40px -22px rgba(19,26,38,.45); font-size: 13px; line-height: 1.35; }
+  .tagtop b { display: block; font-size: 13.5px; }
+  .tagtop span { color: var(--ink-soft); }
+
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; padding: 12px 20px 30px; }
+    .copy { min-width: 0; }
+    .byline { flex-wrap: wrap; }
+    .byline { font-size: 13px; }
+    .byline .sep { display: none; }
+    h1 { font-size: 44px; margin: 14px 0 22px; }
+    .tabs { display: flex; overflow-x: auto; max-width: 100%; scrollbar-width: none; border-radius: 999px; }
+    .tab { height: 38px; line-height: 38px; font-size: 13.5px; padding: 0 14px; }
+    .panel { grid-template-columns: 1fr; padding: 18px; border-radius: 18px; }
+    .panel p { font-size: 15.5px; }
+    .panel .acts { flex-direction: row; }
+    .panel .acts { gap: 8px; }
+    .panel .acts .btn { flex: 1 1 0; min-width: 0; padding: 0 10px; font-size: 13px; }
+    .panel .foot .venues { display: none; }
+    .portrait { height: 420px; }
+    .seal { left: auto; right: 14px; bottom: -30px; width: 108px; height: 108px; }
+    .tagtop { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="mnav">
+  <div class="mnav-inner">
+    <a class="mnav-logo" href="#">Yasas Sri<br/><em>Wickramasinghe</em></a>
+    <div class="mnav-links">
+      <a href="#">Research</a><a href="#">Teaching</a><a href="#">Speaking</a><a href="#">Products</a><a href="#">Writing</a><a href="#">About</a>
+      <a class="btn btn-solid btn-sm" href="#">Work with me →</a>
+    </div>
+    <button class="mnav-menu" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid">
+    <div class="copy">
+      <p class="byline"><span class="sep"></span><span><b>Dr. Yasas Sri Wickramasinghe</b> · AR researcher, lecturer &amp; founder</span></p>
+      <h1>I turn research into things <em>people actually use.</em></h1>
+
+      <span class="router-label">What brings you here?</span>
+      <div class="tabs" role="tablist">
+        <a class="tab" role="tab" href="#"><span class="ic">◎</span>Hiring an expert</a>
+        <a class="tab on" role="tab" aria-selected="true" href="#"><span class="ic">✦</span>Booking a speaker</a>
+        <a class="tab" role="tab" href="#"><span class="ic">✎</span>Learning with me</a>
+        <a class="tab" role="tab" href="#"><span class="ic">❡</span>Reading research</a>
+      </div>
+
+      <div class="panel" role="tabpanel">
+        <p>Keynotes and workshops on <strong>multiplayer AR, spatial computing</strong> and why teams reach for the wrong answer to conflict — each one grounded in peer-reviewed research.</p>
+        <div class="acts">
+          <a class="btn btn-solid" href="#">Talks &amp; speaker kit →</a>
+          <a class="btn" href="#">One-sheet (PDF) ↓</a>
+        </div>
+        <div class="foot">
+          <span class="live"><i></i>Next: NZGDC, Auckland · 1 Oct 2026</span>
+          <span class="venues">Also: IEEE · Falling Walls Lab · ACM VRST</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portrait">
+      <div class="arch"><img src="../../assets/files/speaker-kit/yasas-sri-wickramasinghe-headshot.jpg" alt="Dr. Yasas Sri Wickramasinghe"/></div>
+      <div class="tagtop"><b>HIT Lab NZ</b><span>University of Canterbury</span></div>
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 132 132"><defs><path id="circ" d="M66,66 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
+          <text><textPath href="#circ">Researcher · Lecturer · Builder ·</textPath></text></svg>
+        <span class="core">Hi.</span>
+      </div>
+    </div>
+  </div>
+</header>
+</body>
+</html>

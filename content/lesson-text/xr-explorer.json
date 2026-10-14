@@ -1,0 +1,519 @@
+{
+ "slug": "xr-explorer",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/xr-explorer",
+ "title": "Immersive realities",
+ "pageTitle": "Immersive realities · MBI800",
+ "extractedAt": "2026-09-28",
+ "words": 1099,
+ "videos": [
+  {
+   "id": "O6KWWLnoFfI",
+   "title": "What is Extended Reality? (XR, VR, AR, MR)"
+  },
+  {
+   "id": "q6KYj2U40UI",
+   "title": "Pokémon GO — launch trailer"
+  },
+  {
+   "id": "HBNH8tzsfVM",
+   "title": "What Is Virtual Reality & How Does It Work? | Mashable Explains"
+  },
+  {
+   "id": "eqFqtAJMtYE",
+   "title": "Introducing Microsoft HoloLens 2"
+  }
+ ],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "An interactive lesson · Dr. Yasas Sri Wickramasinghe"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let’s make sense of Extended Reality."
+  },
+  {
+   "t": "p",
+   "html": "In this lesson we’ll walk through AR, VR and Mixed Reality, one step at a time. Along the way you can try two demos right here — a camera AR demo and a VR world you steer by moving your phone. No headset needed."
+  },
+  {
+   "t": "p",
+   "html": "Start here"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "It’s all one spectrum, from real to virtual"
+  },
+  {
+   "t": "p",
+   "html": "“Extended Reality” (XR) is just an umbrella word for any technology that mixes the real world with digital content. Drag the slider to see how the different types line up — this picture is known as Milgram’s reality–virtuality continuum."
+  },
+  {
+   "t": "p",
+   "html": "Augmented Reality"
+  },
+  {
+   "t": "p",
+   "html": "Digital things are drawn on top of the real world. You can still see the room around you the whole time."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Augmented Reality"
+  },
+  {
+   "t": "p",
+   "html": "Digital things are drawn on top of what you can already see. The room around you stays visible — the virtual content just sits over it."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Virtual Reality"
+  },
+  {
+   "t": "p",
+   "html": "Everything you see is made by a computer. You’re fully inside a digital world, with the real room shut out."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Mixed Reality"
+  },
+  {
+   "t": "p",
+   "html": "Digital objects are pinned to real surfaces and react to the space around them. The real and the virtual share the same room."
+  },
+  {
+   "t": "p",
+   "html": "If you’d rather watch than read, this short video covers the same idea in a few minutes."
+  },
+  {
+   "t": "p",
+   "html": "Augmented Reality · try it"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Place 3D objects in your room"
+  },
+  {
+   "t": "p",
+   "html": "This demo uses your phone’s back camera. Tap to drop an object, then move your phone around — it stays put where you placed it, the same way a real AR app works."
+  },
+  {
+   "t": "p",
+   "html": "Live camera AR"
+  },
+  {
+   "t": "p",
+   "html": "Uses your real rear camera. Allow camera and motion access, then tap to drop 3D objects — they stay anchored in place as you move the phone."
+  },
+  {
+   "t": "p",
+   "html": "Works best on a phone. The camera and motion sensors stay on your device — nothing is uploaded or saved."
+  },
+  {
+   "t": "p",
+   "html": "You’ve probably already used AR. Pokémon GO places characters into the camera view of the real world around you."
+  },
+  {
+   "t": "p",
+   "html": "Virtual Reality · try it"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Look around a virtual world"
+  },
+  {
+   "t": "p",
+   "html": "This is a small solar system drawn in 3D. On a laptop, drag with your mouse to look around. On a phone, tap “Move your phone to look around” and turn your body — the phone’s motion sensor moves the view for you. Turn on Cardboard mode for a split-screen headset view."
+  },
+  {
+   "t": "p",
+   "html": "On a phone, tap “Move your phone” to look with the gyroscope"
+  },
+  {
+   "t": "p",
+   "html": "On a laptop, just drag to look around. On a phone, Cardboard mode splits the screen so it works in a cheap cardboard headset."
+  },
+  {
+   "t": "p",
+   "html": "Our demo is just a small taste. This short explainer shows how full VR headsets put you inside a computer-generated world."
+  },
+  {
+   "t": "p",
+   "html": "At a glance"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "AR vs VR vs MR"
+  },
+  {
+   "t": "p",
+   "html": "A quick side-by-side, so it’s easy to keep the three straight."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "Aspect",
+     "AR",
+     "VR",
+     "MR"
+    ],
+    [
+     "Real world visible?",
+     "Yes",
+     "Blocked",
+     "Yes"
+    ],
+    [
+     "Digital objects?",
+     "Overlaid",
+     "Everything",
+     "Anchored"
+    ],
+    [
+     "Interacts with real space?",
+     "Limited",
+     "None",
+     "Fully"
+    ],
+    [
+     "Typical device",
+     "Phone / glasses",
+     "Headset",
+     "Smart glasses"
+    ],
+    [
+     "Examples",
+     "Pokémon GO, IKEA Place",
+     "Meta Quest, PSVR",
+     "HoloLens, Vision Pro"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Mixed Reality is the trickiest of the three to picture. Microsoft’s HoloLens 2 shows holograms sitting in a real room."
+  },
+  {
+   "t": "p",
+   "html": "In the real world"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where people actually use XR"
+  },
+  {
+   "t": "p",
+   "html": "It isn’t just for games. Here are a few fields already using XR in everyday work."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Medicine"
+  },
+  {
+   "t": "p",
+   "html": "Doctors can see scans laid over a patient during surgery, and trainees practise operations in VR where mistakes are safe."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Architecture"
+  },
+  {
+   "t": "p",
+   "html": "You can walk through a building in VR before it is built, which makes problems much easier to spot early."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Education"
+  },
+  {
+   "t": "p",
+   "html": "Students explore things that are hard to bring into a classroom — the inside of a cell, ancient Rome, or the planets."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Shopping"
+  },
+  {
+   "t": "p",
+   "html": "Apps let you see how a sofa would look in your living room, or try on glasses, before you buy anything."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Manufacturing"
+  },
+  {
+   "t": "p",
+   "html": "Workers wearing MR headsets see step-by-step instructions floating right over the machine they are building."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Games"
+  },
+  {
+   "t": "p",
+   "html": "From full VR games to phone games like Pokémon GO, XR has changed the way we play."
+  },
+  {
+   "t": "p",
+   "html": "For Information Systems students"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "How AR and VR show up in IS"
+  },
+  {
+   "t": "p",
+   "html": "XR isn’t only about games. Businesses use it to collect, study and act on information. Here are some current examples that connect back to what you’re studying in Information Systems."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Exploring data in 3D"
+  },
+  {
+   "t": "p",
+   "html": "Instead of staring at flat charts, analysts can step inside their data and walk around it as a 3D landscape. Seeing it in space can make patterns in large datasets easier to spot."
+  },
+  {
+   "t": "p",
+   "html": "The immersive analytics market is expected to grow from about $1.2B in 2025 to $6.2B by 2035."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Digital twins"
+  },
+  {
+   "t": "p",
+   "html": "A digital twin is a live virtual copy of a real factory, product or supply chain, kept in sync through sensors and business systems. Teams can test changes on the copy before touching the real thing."
+  },
+  {
+   "t": "p",
+   "html": "In 2025, digital twins moved from trial projects into everyday business use."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "AR in the warehouse"
+  },
+  {
+   "t": "p",
+   "html": "Warehouse staff wear smart glasses that show where to go and what to pick, right there on the shelf — hands free, and linked to the warehouse system so stock stays accurate."
+  },
+  {
+   "t": "p",
+   "html": "Amazon began rolling out Vuzix AR glasses in May 2025, reporting faster picking and fewer mistakes."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Working together in a shared space"
+  },
+  {
+   "t": "p",
+   "html": "Teams in different cities can meet around the same 3D model to design and review work together, almost as if they were standing in one room."
+  },
+  {
+   "t": "p",
+   "html": "Often called the “industrial metaverse” — engineers in different places working on one model at the same time."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Repairs guided by AR"
+  },
+  {
+   "t": "p",
+   "html": "A technician can look at a machine and see its current readings and the repair steps laid right over it, pulled straight from the company’s records. No flipping through a paper manual."
+  },
+  {
+   "t": "p",
+   "html": "Boeing’s “virtual airplane” lets engineers explore the inside of an aircraft in 3D."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "Dashboards floating around you"
+  },
+  {
+   "t": "p",
+   "html": "With a headset like Apple Vision Pro, the dashboards and KPIs you’d normally squeeze onto one screen can float around you as panels you arrange in the space."
+  },
+  {
+   "t": "p",
+   "html": "Global spending on AR is expected to pass $100B by 2026."
+  },
+  {
+   "t": "p",
+   "html": "The gear"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Headsets and glasses you’ll hear about"
+  },
+  {
+   "t": "p",
+   "html": "Apple Vision Pro"
+  },
+  {
+   "t": "p",
+   "html": "Meta Quest 3"
+  },
+  {
+   "t": "p",
+   "html": "Microsoft HoloLens 2"
+  },
+  {
+   "t": "p",
+   "html": "PlayStation VR2"
+  },
+  {
+   "t": "p",
+   "html": "Vuzix Smart Glasses"
+  },
+  {
+   "t": "p",
+   "html": "Google Cardboard"
+  },
+  {
+   "t": "p",
+   "html": "Want to build your own?"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "The tools developers use"
+  },
+  {
+   "t": "p",
+   "html": "Unity"
+  },
+  {
+   "t": "p",
+   "html": "Engine"
+  },
+  {
+   "t": "p",
+   "html": "Unreal Engine"
+  },
+  {
+   "t": "p",
+   "html": "Godot"
+  },
+  {
+   "t": "p",
+   "html": "three.js"
+  },
+  {
+   "t": "p",
+   "html": "Web 3D"
+  },
+  {
+   "t": "p",
+   "html": "A-Frame"
+  },
+  {
+   "t": "p",
+   "html": "WebGL"
+  },
+  {
+   "t": "p",
+   "html": "WebXR"
+  },
+  {
+   "t": "p",
+   "html": "ARKit"
+  },
+  {
+   "t": "p",
+   "html": "SDK"
+  },
+  {
+   "t": "p",
+   "html": "ARCore"
+  },
+  {
+   "t": "p",
+   "html": "OpenXR"
+  },
+  {
+   "t": "p",
+   "html": "Blender"
+  },
+  {
+   "t": "p",
+   "html": "3D assets"
+  },
+  {
+   "t": "p",
+   "html": "STEP 1"
+  },
+  {
+   "t": "p",
+   "html": "Pick an engine"
+  },
+  {
+   "t": "p",
+   "html": "Unity · Unreal · WebXR"
+  },
+  {
+   "t": "p",
+   "html": "STEP 2"
+  },
+  {
+   "t": "p",
+   "html": "Add an XR SDK"
+  },
+  {
+   "t": "p",
+   "html": "OpenXR · ARKit · ARCore"
+  },
+  {
+   "t": "p",
+   "html": "STEP 3"
+  },
+  {
+   "t": "p",
+   "html": "Build &amp; deploy"
+  },
+  {
+   "t": "p",
+   "html": "Headset or browser"
+  },
+  {
+   "t": "p",
+   "html": "Check yourself"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Five quick questions"
+  },
+  {
+   "t": "p",
+   "html": "See how much of the lesson stuck."
+  },
+  {
+   "t": "p",
+   "html": "You can see the real world through a VR headset."
+  }
+ ]
+}

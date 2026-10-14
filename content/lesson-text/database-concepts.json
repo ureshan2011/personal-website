@@ -1,0 +1,707 @@
+{
+ "slug": "database-concepts",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/database-concepts",
+ "title": "Advanced database concepts",
+ "pageTitle": "Advanced database concepts · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 2416,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database Management"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Let's make sense of Advanced Database Concepts"
+  },
+  {
+   "t": "p",
+   "html": "One database, one table, built up step by step. We create it, shape it, back it up, sort it and count it, then take a plain-English, hands-on look at SQL injection."
+  },
+  {
+   "t": "p",
+   "html": "🗄️ Table design 🔗 Foreign keys &amp; CASCADE 💾 Backup &amp; restore 🛡️ SQL injection"
+  },
+  {
+   "t": "p",
+   "html": "In this lesson we look at what we can do with a database once it exists. We shape a table, keep it safe with backups, and ask it questions by sorting and counting. We finish with one important safety idea called SQL injection."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Note.</strong> For the activities below, we use one database called <code>bookshop</code> and one main table called <code>books</code>. We build it up together, one step at a time, so we are always working with something familiar. Later we add one small partner table so we can see how two tables link. Everything runs in <strong>MySQL Workbench</strong>."
+  },
+  {
+   "t": "p",
+   "html": "Each idea comes with a short explanation, the SQL we run, and a small activity to try before moving on. Take your time, and feel free to run every example yourself."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 1 · Shaping a table"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "From an empty database to a real table"
+  },
+  {
+   "t": "p",
+   "html": "Six small steps, each one building on the last. The same table follows us through the rest of the lesson."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "1 · Create the database"
+  },
+  {
+   "t": "p",
+   "html": "Before we can make any tables, we need somewhere to keep them. CREATE DATABASE tells MySQL to start a fresh, empty space with the name we give it. We run this in MySQL Workbench, then click the refresh icon on the Schemas panel to see our new bookshop appear."
+  },
+  {
+   "t": "pre",
+   "text": "CREATE DATABASE bookshop;"
+  },
+  {
+   "t": "p",
+   "html": "Create a database called bookshop in MySQL Workbench. Then double-click it in the Schemas panel so it becomes your active database (its name turns bold)."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "2 · Create a table"
+  },
+  {
+   "t": "p",
+   "html": "A table is just a grid of rows and columns, a bit like a spreadsheet with rules. Every column needs a name and a data type. We use INT for whole numbers, VARCHAR(100) for short text (100 is the longest it can hold), and DECIMAL for money. For now we make price an INT on purpose, and we fix that in step 4."
+  },
+  {
+   "t": "pre",
+   "text": "USE bookshop;\n\nCREATE TABLE books (\n  id     INT,\n  title  VARCHAR(100),\n  author VARCHAR(100),\n  price  INT\n);"
+  },
+  {
+   "t": "p",
+   "html": "Inside bookshop, create a table called books with four columns: id (INT), title (VARCHAR 100), author (VARCHAR 100) and price (INT)."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "3 · Add a new column"
+  },
+  {
+   "t": "p",
+   "html": "Tables are not set in stone. With ALTER TABLE ADD COLUMN we can add a new field at any time, and none of the data we already have is lost. Let us say the shop now wants to keep track of how many copies of each book are in stock."
+  },
+  {
+   "t": "pre",
+   "text": "ALTER TABLE books ADD COLUMN stock_count INT;"
+  },
+  {
+   "t": "p",
+   "html": "Add a new column called stock_count (INT) to the books table."
+  },
+  {
+   "t": "eyebrow",
+   "html": "📍 Where does the new column go?"
+  },
+  {
+   "t": "p",
+   "html": "By default a new column lands at the very end of the table. If we want it somewhere else, we add <code>AFTER</code> a column name, or <code>FIRST</code> to put it at the front."
+  },
+  {
+   "t": "p",
+   "html": "id · title · author · price · stock_count"
+  },
+  {
+   "t": "p",
+   "html": "With no position given, the new column goes to the very end. This is the default."
+  },
+  {
+   "t": "pre",
+   "text": "ALTER TABLE books ADD COLUMN pages INT AFTER title;"
+  },
+  {
+   "t": "p",
+   "html": "id · title · pages · author · price"
+  },
+  {
+   "t": "p",
+   "html": "AFTER title drops the new column in right after the title column."
+  },
+  {
+   "t": "pre",
+   "text": "ALTER TABLE books ADD COLUMN sku INT FIRST;"
+  },
+  {
+   "t": "p",
+   "html": "sku · id · title · author · price"
+  },
+  {
+   "t": "p",
+   "html": "FIRST moves the new column to the very front of the table."
+  },
+  {
+   "t": "p",
+   "html": "Position is just about the order the columns are listed in. It does not change any of the data inside them."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "4 · Change a column's data type"
+  },
+  {
+   "t": "p",
+   "html": "Right now price is an INT, so it can only hold whole numbers. But a book costs $19.99, not $19. MODIFY COLUMN lets us change the type of a column we already have. DECIMAL(6,2) means up to 6 digits in total, with 2 of them after the decimal point, which is perfect for prices."
+  },
+  {
+   "t": "pre",
+   "text": "ALTER TABLE books MODIFY COLUMN price DECIMAL(6,2);"
+  },
+  {
+   "t": "p",
+   "html": "Change the price column from INT to DECIMAL(6,2) so it can hold cents."
+  },
+  {
+   "t": "eyebrow",
+   "html": "⚠️ Watch out: changing a type can change the data"
+  },
+  {
+   "t": "p",
+   "html": "Changing a column type is not always free. Sometimes the values inside change too. Here is what happens in three common cases. Green means the value is kept, red means it changes."
+  },
+  {
+   "t": "p",
+   "html": "Decimals are rounded to the nearest whole number, so the cents are lost for good. Values that were already whole survive unchanged."
+  },
+  {
+   "t": "p",
+   "html": "The value is kept, but it is now text. Sorting changes too, so \"100\" can come before \"20\"."
+  },
+  {
+   "t": "p",
+   "html": "Clean number text converts back fine. Anything that is not a number turns into 0."
+  },
+  {
+   "t": "p",
+   "html": "The lesson: <strong>always back up before a big type change</strong>, so we can restore if a value is lost. That is exactly what the backup section is for."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "5 · Make a column the primary key"
+  },
+  {
+   "t": "p",
+   "html": "A primary key is the column that gives every row its own identity. No two rows can share the same value, and it can never be left blank. id is the obvious choice here, because every book gets its own number and nothing else has to be unique."
+  },
+  {
+   "t": "pre",
+   "text": "ALTER TABLE books ADD PRIMARY KEY (id);"
+  },
+  {
+   "t": "p",
+   "html": "Make id the primary key of the books table."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "6 · Make a column auto-increment"
+  },
+  {
+   "t": "p",
+   "html": "Typing an id by hand for every new book is slow and easy to get wrong. AUTO_INCREMENT asks MySQL to do the counting for us. When we add a book without giving an id, MySQL fills in the next free number by itself (1, 2, 3 and so on). In MySQL a column has to be a key before it can auto-increment, which is why we did step 5 first."
+  },
+  {
+   "t": "pre",
+   "text": "ALTER TABLE books MODIFY COLUMN id INT AUTO_INCREMENT;"
+  },
+  {
+   "t": "p",
+   "html": "Make id AUTO_INCREMENT, then add a new book without giving it an id. Leave id out of the column list and watch MySQL fill in the number for you."
+  },
+  {
+   "t": "p",
+   "html": "Before we sort and count, our table needs a few real rows to work with. We run this INSERT once, and then we have five books to play with for the rest of the lesson."
+  },
+  {
+   "t": "pre",
+   "text": "INSERT INTO books (title, author, price, stock_count) VALUES\n('Atomic Habits',            'James Clear',     24.99, 12),\n('Sapiens',                  'Yuval N. Harari', 29.50,  7),\n('The Pragmatic Programmer', 'David Thomas',    42.00,  3),\n('Educated',                 'Tara Westover',   18.75, 20),\n('Deep Work',                'Cal Newport',     22.00,  9);"
+  },
+  {
+   "t": "eyebrow",
+   "html": "This is what books now holds"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "title",
+     "author",
+     "price",
+     "stock_count"
+    ],
+    [
+     "1",
+     "Atomic Habits",
+     "James Clear",
+     "$24.99",
+     "12"
+    ],
+    [
+     "2",
+     "Sapiens",
+     "Yuval N. Harari",
+     "$29.50",
+     "7"
+    ],
+    [
+     "3",
+     "The Pragmatic Programmer",
+     "David Thomas",
+     "$42.00",
+     "3"
+    ],
+    [
+     "4",
+     "Educated",
+     "Tara Westover",
+     "$18.75",
+     "20"
+    ],
+    [
+     "5",
+     "Deep Work",
+     "Cal Newport",
+     "$22.00",
+     "9"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 2 · Linking tables"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Foreign keys, and what CASCADE does"
+  },
+  {
+   "t": "p",
+   "html": "Real databases have many tables, and they point at each other. A foreign key is a column that points to a row in another table. CASCADE (and its relatives) decide what happens to that link when the row it points to is deleted or changed."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Note.</strong> We add one small partner table called <code>reviews</code>, where each review points to a book. Every demo below reuses these exact same two tables — only the rule changes, so it is easier to see what each one does."
+  },
+  {
+   "t": "p",
+   "html": "Here each review has a <code>book_id</code> that points to a book in <code>books</code> — in plain English, \"this review belongs to that book.\" The one tricky question is: what should happen to a review if the book it belongs to gets deleted, or gets a new id? We answer that question with a rule, set right when we create the table."
+  },
+  {
+   "t": "pre",
+   "text": "CREATE TABLE reviews (\n  id      INT PRIMARY KEY,\n  book_id INT,\n  comment VARCHAR(200),\n  FOREIGN KEY (book_id) REFERENCES books(id)\n    ON DELETE CASCADE\n    ON UPDATE CASCADE\n);"
+  },
+  {
+   "t": "p",
+   "html": "Delete a book, and all of its reviews are deleted with it, automatically. The delete cascades down to the linked rows."
+  },
+  {
+   "t": "p",
+   "html": "Delete a book, and its reviews are kept — but their book_id resets to NULL, meaning \"we no longer know which book this was.\""
+  },
+  {
+   "t": "pre",
+   "text": "ON DELETE / UPDATE SET DEFAULT"
+  },
+  {
+   "t": "p",
+   "html": "Reset the foreign key to a default value chosen up front, like a placeholder book_id. Not supported by MySQL."
+  },
+  {
+   "t": "p",
+   "html": "Change a book's id, and every review that points to it updates to match, so no review is left pointing at the wrong book."
+  },
+  {
+   "t": "p",
+   "html": "MySQL refuses to delete or renumber a book while reviews still point to it, to avoid leaving broken links."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Note.</strong> Three small scenarios below, each with the same click-and-see setup: pick a rule, then try the action, and watch the two tables react."
+  },
+  {
+   "t": "p",
+   "html": "🗑️ Scenario 1 — what happens when you delete a book?"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "title"
+    ],
+    [
+     "1",
+     "Atomic Habits"
+    ],
+    [
+     "2",
+     "Sapiens"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "reviews (book_id points to books.id)"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "book_id",
+     "comment"
+    ],
+    [
+     "101",
+     "1",
+     "Loved it"
+    ],
+    [
+     "102",
+     "2",
+     "Great read"
+    ],
+    [
+     "103",
+     "2",
+     "Life changing"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "✏️ Scenario 2 — what happens when a book's id changes?"
+  },
+  {
+   "t": "p",
+   "html": "🧩 Scenario 3 — populating a default value instead"
+  },
+  {
+   "t": "p",
+   "html": "Some databases (PostgreSQL, SQL Server) offer a third reaction: <code>ON DELETE SET DEFAULT</code>. Instead of deleting the reviews (CASCADE) or blanking them out (SET NULL), the <code>book_id</code> resets to a default value chosen up front — here, a placeholder book with <code>id = 0</code> called \"(Unknown book)\" that already sits in the table. Delete book #2, and its reviews quietly re-point at that placeholder instead of disappearing or breaking. MySQL's InnoDB does not support this: if you write <code>ON DELETE SET DEFAULT</code>, MySQL refuses to create the table at all. <strong>SET NULL is the closest MySQL gets to this idea.</strong>"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "title"
+    ],
+    [
+     "0",
+     "(Unknown book)"
+    ],
+    [
+     "1",
+     "Atomic Habits"
+    ],
+    [
+     "2",
+     "Sapiens"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 3 · Backup &amp; restore"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Never lose a database again"
+  },
+  {
+   "t": "p",
+   "html": "A backup is a safety net. We learn to make one, and prove it works by restoring from it."
+  },
+  {
+   "t": "p",
+   "html": "A backup is just a saved copy of our whole database. Every table and every row is written out into a single file of plain SQL commands, such as CREATE TABLE and INSERT INTO. If our database is ever deleted or damaged, or we make a change we cannot undo, we open that file and <strong>restore</strong> everything exactly as it was."
+  },
+  {
+   "t": "eyebrow",
+   "html": "💾 Backing up in MySQL Workbench"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Open the Server menu → <strong>Data Export</strong>",
+    "Tick the <code>bookshop</code> schema",
+    "Choose <strong>Export to Self-Contained File</strong> and pick where to save it",
+    "Click <strong>Start Export</strong>"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "This gives us one <code>.sql</code> file, a complete snapshot of the database that we can keep safe."
+  },
+  {
+   "t": "eyebrow",
+   "html": "♻️ Restoring in MySQL Workbench"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Open the Server menu → <strong>Data Import</strong>",
+    "Choose <strong>Import from Self-Contained File</strong> and select the <code>.sql</code> file we saved",
+    "Under Default Target Schema, choose or create <code>bookshop</code>",
+    "Click <strong>Start Import</strong>"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "MySQL runs every command in the file again and rebuilds the database from scratch."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The same thing on the command line"
+  },
+  {
+   "t": "p",
+   "html": "Those buttons in Workbench are really running these two commands for us. It is handy to recognise them if you ever see them written down."
+  },
+  {
+   "t": "pre",
+   "text": "mysqldump -u root -p bookshop > bookshop_backup.sql"
+  },
+  {
+   "t": "pre",
+   "text": "mysql -u root -p bookshop < bookshop_backup.sql"
+  },
+  {
+   "t": "eyebrow",
+   "html": "✏️ Your turn: lose it, then bring it back"
+  },
+  {
+   "t": "ol",
+   "items": [
+    "Export bookshop to a self-contained file.",
+    "Right-click the bookshop schema and choose Drop Schema to delete it. This is safe, because we have a backup.",
+    "Use Data Import to bring it back from the file we saved.",
+    "Run <code>SELECT * FROM books;</code> to check that all of our books returned."
+   ]
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 4 · Sorting results"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "ORDER BY: putting rows in the order we want"
+  },
+  {
+   "t": "p",
+   "html": "We keep the same books table and the same data. ORDER BY only changes the order the rows come back in. We add ASC to go low to high, or DESC to go high to low, after the column name."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Note.</strong> We keep using the same <code>books</code> table we created and filled earlier. Nothing new to set up."
+  },
+  {
+   "t": "eyebrow",
+   "html": "The query we are running"
+  },
+  {
+   "t": "pre",
+   "text": "SELECT * FROM books ORDER BY price ASC;"
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "title",
+     "author",
+     "price",
+     "stock_count"
+    ],
+    [
+     "4",
+     "Educated",
+     "Tara Westover",
+     "$18.75",
+     "20"
+    ],
+    [
+     "5",
+     "Deep Work",
+     "Cal Newport",
+     "$22.00",
+     "9"
+    ],
+    [
+     "1",
+     "Atomic Habits",
+     "James Clear",
+     "$24.99",
+     "12"
+    ],
+    [
+     "2",
+     "Sapiens",
+     "Yuval N. Harari",
+     "$29.50",
+     "7"
+    ],
+    [
+     "3",
+     "The Pragmatic Programmer",
+     "David Thomas",
+     "$42.00",
+     "3"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "p",
+   "html": "Notice that only the order of the rows changes. The books themselves stay exactly the same."
+  },
+  {
+   "t": "p",
+   "html": "Write a query that lists every book from cheapest to most expensive."
+  },
+  {
+   "t": "p",
+   "html": "Write a query that lists every book title in reverse alphabetical order, from Z to A."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 5 · Counting rows"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "COUNT: answering how many"
+  },
+  {
+   "t": "p",
+   "html": "COUNT tells us how many rows match, and nothing more. On its own, COUNT(*) counts every row. Add a WHERE and it counts only the rows we care about."
+  },
+  {
+   "t": "p",
+   "html": "<strong>Note.</strong> Same <code>books</code> table again. Pick a filter below and watch the total change."
+  },
+  {
+   "t": "pre",
+   "text": "SELECT COUNT(*) FROM books;"
+  },
+  {
+   "t": "p",
+   "html": "The rows that match stay bright, and COUNT simply adds them up. Faded rows are left out of the total."
+  },
+  {
+   "t": "p",
+   "html": "Write a query that counts how many books cost more than $20."
+  },
+  {
+   "t": "p",
+   "html": "Stretch goal: count how many books we have for each author. (Hint: GROUP BY gathers matching rows together first, and then COUNT runs on each group.)"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 6 · A safety topic"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "SQL injection, in plain English"
+  },
+  {
+   "t": "p",
+   "html": "We do not need to write any code to understand this. We just need to see it happen once."
+  },
+  {
+   "t": "p",
+   "html": "Many websites build a database command by pasting whatever we type straight into a sentence. A login form might build something like <em>find the user named (whatever was typed)</em>. Most of the time that is fine. But if the site never checks what we typed, we could type something that is not a name at all. It could be a piece of a database command, and the database cannot tell the difference, so it simply runs it. That is<strong>SQL injection</strong>: slipping a command into a box that was only meant to hold a word."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What the database actually receives"
+  },
+  {
+   "t": "pre",
+   "text": "SELECT * FROM users\nWHERE username = '…'\n  AND password = '…';"
+  },
+  {
+   "t": "p",
+   "html": "Everything here runs in your browser only. There is no real database and no real login, and nothing is sent anywhere."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "How real systems stay safe"
+  },
+  {
+   "t": "p",
+   "html": "Never paste text into a command"
+  },
+  {
+   "t": "p",
+   "html": "We send whatever the user typed as a separate value, never as part of the command itself. That is exactly what the safe version above does."
+  },
+  {
+   "t": "p",
+   "html": "A username box has no reason to accept quote marks or the word OR, so we can reject them before they cause trouble."
+  },
+  {
+   "t": "p",
+   "html": "Give each account the least it needs"
+  },
+  {
+   "t": "p",
+   "html": "A login page never needs to delete tables, so we do not give it that power, even if something slips through."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Quick reference"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Every query from this lesson, in one place"
+  },
+  {
+   "t": "p",
+   "html": "Bookmark this. We will want it again during the practical lab."
+  },
+  {
+   "t": "p",
+   "html": "Add a column in a position"
+  },
+  {
+   "t": "p",
+   "html": "Link tables, cascade on delete"
+  },
+  {
+   "t": "p",
+   "html": "Make a column auto-increment"
+  },
+  {
+   "t": "p",
+   "html": "One database, one table, and a handful of small commands. We can now shape it, protect it, sort it and count it. The habit that matters most is the last one: we never trust text typed into a box, and we never paste it straight into a command."
+  },
+  {
+   "t": "p",
+   "html": "MBI802 · Database Management Systems · Master of Business Informatics"
+  }
+ ]
+}

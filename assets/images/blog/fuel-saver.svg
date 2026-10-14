@@ -1,0 +1,23 @@
+<svg width="640" height="400" viewBox="0 0 640 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg18" x1="0" y1="0" x2="640" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#f5a623"/><stop offset="1" stop-color="#ef6f3c"/>
+</linearGradient>
+<radialGradient id="glow18" cx="0.32" cy="0.26" r="0.9">
+<stop stop-color="#ffffff" stop-opacity="0.22"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="vign18" x1="0" y1="0" x2="0" y2="400" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0a0f1f" stop-opacity="0.18"/><stop offset="0.42" stop-color="#0a0f1f" stop-opacity="0"/><stop offset="1" stop-color="#0a0f1f" stop-opacity="0.24"/>
+</linearGradient>
+<pattern id="dots18" width="26" height="26" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity="0.08"/>
+</pattern>
+</defs>
+<rect width="640" height="400" fill="url(#bg18)"/>
+<rect width="640" height="400" fill="url(#dots18)"/>
+<rect width="640" height="400" fill="url(#glow18)"/>
+<g fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<rect x="206" y="150" width="92" height="146" rx="10" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.85" stroke-width="2.8"/><rect x="220" y="166" width="64" height="44" rx="6" fill="#ffffff" fill-opacity="0.10" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.8"/><text x="252" y="196" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#fff0cf" text-anchor="middle" stroke="none">L</text><line x1="220" y1="230" x2="284" y2="230" stroke="#ffffff" stroke-opacity="0.35" stroke-width="3"/><line x1="220" y1="246" x2="270" y2="246" stroke="#ffffff" stroke-opacity="0.25" stroke-width="3"/><path d="M298 176 q40 0 40 32 v60 q0 14 14 14 q14 0 14 -14 v-24" stroke="#ffffff" stroke-opacity="0.75" stroke-width="2.6"/><rect x="350" y="158" width="40" height="20" rx="5" fill="#ffffff" fill-opacity="0.5" stroke="none"/><rect x="384" y="162" width="20" height="12" rx="3" fill="#ffffff" fill-opacity="0.5" stroke="none"/><circle cx="416" cy="244" r="26" fill="#ffffff" fill-opacity="0.14" stroke="#ffffff" stroke-opacity="0.8" stroke-width="2.4"/><text x="416" y="252" font-family="Inter, sans-serif" font-size="24" font-weight="800" fill="#fff0cf" text-anchor="middle" stroke="none">$</text><path d="M416 274 v22 m0 0 l-10 -10 m10 10 l10 -10" stroke="#fff0cf" stroke-opacity="0.95" stroke-width="3"/><path d="M330 122 C320.4 110.0 317.4 96.8 330 88.4 C342.6 96.8 339.6 110.0 330 122Z" fill="#ffffff" fill-opacity="0.92" stroke="none"/><circle cx="330" cy="99.2" r="4.8" fill="#ffffff" fill-opacity="0.0" stroke="#5b6cff" stroke-opacity="0"/><circle cx="330" cy="99.2" r="4.5" fill="#1b2550" fill-opacity="0.22" stroke="none"/>
+</g>
+<rect width="640" height="400" fill="url(#vign18)"/>
+</svg>

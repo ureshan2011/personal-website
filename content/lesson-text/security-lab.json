@@ -1,0 +1,190 @@
+{
+ "slug": "security-lab",
+ "url": "https://ureshan2011.github.io/thisisnotalms/security-lab.html",
+ "title": "SwiftShop security lab",
+ "pageTitle": "SwiftShop — Security Lab",
+ "extractedAt": "2026-09-28",
+ "words": 381,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "p",
+   "html": "TRAINING ENVIRONMENT — <strong>SwiftShop Security Lab</strong> — deliberately insecure — all data is fake — do not enter real credentials"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Today at SwiftShop"
+  },
+  {
+   "t": "p",
+   "html": "Browse our curated selection. Add items to your cart, then head to checkout."
+  },
+  {
+   "t": "p",
+   "html": "Active noise-cancelling, 36h battery, IPX5 waterproof."
+  },
+  {
+   "t": "p",
+   "html": "Hot-swappable Cherry MX switches, per-key RGB."
+  },
+  {
+   "t": "p",
+   "html": "Warm/cool dimmable LED, auto-brightness sensor."
+  },
+  {
+   "t": "p",
+   "html": "4K HDMI, 100W PD, SD card, 3× USB-A."
+  },
+  {
+   "t": "p",
+   "html": "Auto-focus, built-in ring light, noise-cancelling mic."
+  },
+  {
+   "t": "p",
+   "html": "USB 3.2 Gen 2, 1050 MB/s read, shock-resistant."
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Product reviews"
+  },
+  {
+   "t": "p",
+   "html": "See what other shoppers think — and leave your own."
+  },
+  {
+   "t": "p",
+   "html": "Earbuds are great, fast delivery."
+  },
+  {
+   "t": "p",
+   "html": "Keyboard feels premium for the price."
+  },
+  {
+   "t": "p",
+   "html": "USB-C hub works perfectly with my MacBook."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "🎯 Mission Control"
+  },
+  {
+   "t": "p",
+   "html": "SwiftShop was built fast and shipped with security as an afterthought. Twenty classes of weakness are hiding in this app. Find them, exploit them, then explain how a security-first design would stop each one."
+  },
+  {
+   "t": "eyebrow",
+   "html": "⭐ Start here (easy wins)"
+  },
+  {
+   "t": "p",
+   "html": "17. Secrets in page source"
+  },
+  {
+   "t": "p",
+   "html": "Right-click → View Page Source (Ctrl+U), search \"password\"."
+  },
+  {
+   "t": "p",
+   "html": "Account → Forgot password? shows the real password on screen."
+  },
+  {
+   "t": "p",
+   "html": "Click a product's price, change it, then add to cart."
+  },
+  {
+   "t": "p",
+   "html": "Press Ctrl+A to reveal the white-on-white admin link in the footer."
+  },
+  {
+   "t": "p",
+   "html": "Feed the system values it should never accept (negative qty, decimals)."
+  },
+  {
+   "t": "p",
+   "html": "Inject HTML/JS via reviews that runs for every visitor."
+  },
+  {
+   "t": "p",
+   "html": "Craft a URL with a?promo= param that renders unsanitised HTML."
+  },
+  {
+   "t": "p",
+   "html": "4. Broken Authentication"
+  },
+  {
+   "t": "p",
+   "html": "No rate limit, no lockout, plaintext passwords in the source."
+  },
+  {
+   "t": "p",
+   "html": "Edit your session role in storage to reach the admin panel."
+  },
+  {
+   "t": "p",
+   "html": "The profile update takes every field — including role and balance."
+  },
+  {
+   "t": "p",
+   "html": "Hardcoded API keys, credentials, and card numbers in the source."
+  },
+  {
+   "t": "p",
+   "html": "8. Direct Storage Tampering"
+  },
+  {
+   "t": "p",
+   "html": "Edit localStorage directly — change prices, balances, roles."
+  },
+  {
+   "t": "p",
+   "html": "9. Insecure Deserialization"
+  },
+  {
+   "t": "p",
+   "html": "Import a cart from base64 JSON — the app trusts whatever you send."
+  },
+  {
+   "t": "p",
+   "html": "Order IDs are sequential — view any order by changing the number."
+  },
+  {
+   "t": "p",
+   "html": "11. Information Disclosure"
+  },
+  {
+   "t": "p",
+   "html": "Console.log leaks secrets; verbose errors expose internals."
+  },
+  {
+   "t": "p",
+   "html": "12. Resource Misappropriation"
+  },
+  {
+   "t": "p",
+   "html": "Unlimited loyalty bonus, staff coupon in the code."
+  },
+  {
+   "t": "p",
+   "html": "Refer yourself or reuse the same referral code endlessly."
+  },
+  {
+   "t": "p",
+   "html": "Rapid-fire the bonus button — no mutex means multiple credits."
+  },
+  {
+   "t": "p",
+   "html": "Change GLOBAL_DISCOUNT or cart functions from the console."
+  },
+  {
+   "t": "p",
+   "html": "nukeStore() wipes everything — no auth, no confirmation needed."
+  },
+  {
+   "t": "p",
+   "html": "💡 <strong>Tip:</strong> Open DevTools (F12) → Console / Application / Sources. The source code IS the vulnerability surface."
+  }
+ ]
+}

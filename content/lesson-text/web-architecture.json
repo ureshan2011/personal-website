@@ -1,0 +1,394 @@
+{
+ "slug": "web-architecture",
+ "url": "https://ureshan2011.github.io/thisisnotalms/#/web-architecture",
+ "title": "Client, server and databases",
+ "pageTitle": "Client, server and databases · MBI802",
+ "extractedAt": "2026-09-28",
+ "words": 1372,
+ "videos": [],
+ "blocks": [
+  {
+   "t": "eyebrow",
+   "html": "MBI802 · Database &amp; Web Systems"
+  },
+  {
+   "t": "h",
+   "level": 1,
+   "html": "Client, Server &amp; Databases."
+  },
+  {
+   "t": "p",
+   "html": "How a website actually works — and why validating data is the security habit that matters most. A hands-on tour for absolute beginners."
+  },
+  {
+   "t": "p",
+   "html": "💻 Client vs server 🌐 The round trip 🗄️ Databases 🛡️ Data validation 🧪 Attack lab"
+  },
+  {
+   "t": "p",
+   "html": "Every website you've ever used is really <strong>two computers having a conversation</strong>: the one in your hand (the <strong>client</strong>) and one in a data centre far away (the <strong>server</strong>), with a <strong>database</strong> behind it remembering everything."
+  },
+  {
+   "t": "p",
+   "html": "This lesson is built to be <em>played with</em>. You'll sort jobs between the two computers, follow one search all the way to the database and back, then step into a safe \"attack lab\" where you break a careless app with your own hands and find out why <strong>checking what people type</strong> matters so much. No setup, no logins. Start anywhere."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 1 · The two computers"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Client and server — who does what?"
+  },
+  {
+   "t": "p",
+   "html": "Two computers, and each has its own job. Tap each one to see what it does, then try sorting a few jobs between them."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "The CLIENT — your device"
+  },
+  {
+   "t": "p",
+   "html": "The browser on your phone or laptop"
+  },
+  {
+   "t": "ul",
+   "items": [
+    "• Shows the page (HTML, colours, layout)",
+    "• Reacts instantly to clicks &amp; typing",
+    "• Plays animations and validates the form for a friendly feel",
+    "• Sends requests to the server when it needs real data"
+   ]
+  },
+  {
+   "t": "p",
+   "html": "<strong>Key idea —</strong> It can NOT be trusted with secrets. Anyone can open it and change what it does."
+  },
+  {
+   "t": "p",
+   "html": "Tap <strong>Client</strong> or <strong>Server</strong> for each job — then check your answers. A handy rule: <em>anything to do with looks &amp; feel is the client; anything to do with truth, money or storage is the server.</em>"
+  },
+  {
+   "t": "p",
+   "html": "Animate a button when you hover it"
+  },
+  {
+   "t": "p",
+   "html": "Check your password is correct"
+  },
+  {
+   "t": "p",
+   "html": "Store your order forever"
+  },
+  {
+   "t": "p",
+   "html": "Show a red outline on an empty box"
+  },
+  {
+   "t": "p",
+   "html": "Decide if you are allowed to see admin pages"
+  },
+  {
+   "t": "p",
+   "html": "Scroll the page smoothly"
+  },
+  {
+   "t": "p",
+   "html": "Charge your credit card"
+  },
+  {
+   "t": "p",
+   "html": "Hide a menu until you tap it"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 2 · The round trip"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "What happens when you press Search"
+  },
+  {
+   "t": "p",
+   "html": "Type a name, press play, and follow it the whole way — out of your browser, into the server, down to the database and back. Keep an eye on the server's code: the line that runs the SQL lights up as it runs."
+  },
+  {
+   "t": "p",
+   "html": "Runs on your laptop. Holds no data of its own."
+  },
+  {
+   "t": "p",
+   "html": "What you see on the page"
+  },
+  {
+   "t": "p",
+   "html": "Someone else’s computer, running the app’s code."
+  },
+  {
+   "t": "pre",
+   "text": "app.get(\"/staff\", (req, res) => {\n  const name = req.query.name\n \n  const rows = db.query(\n    \"SELECT * FROM users\n     WHERE first_name = ?\",\n    [name]  // filled in safely\n  )\n  res.json(rows)\n})"
+  },
+  {
+   "t": "p",
+   "html": "One table, called <strong>users</strong>. It only answers the server."
+  },
+  {
+   "t": "table",
+   "rows": [
+    [
+     "id",
+     "first_name",
+     "last_name",
+     "city"
+    ],
+    [
+     "1",
+     "Ava",
+     "Perera",
+     "Auckland"
+    ],
+    [
+     "2",
+     "Ben",
+     "Silva",
+     "Wellington"
+    ],
+    [
+     "3",
+     "Chloe",
+     "Fonseka",
+     "Christchurch"
+    ],
+    [
+     "4",
+     "Ava",
+     "Jayasuriya",
+     "Hamilton"
+    ],
+    [
+     "5",
+     "Dilan",
+     "Mendis",
+     "Dunedin"
+    ]
+   ],
+   "head": true
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "You press Search"
+  },
+  {
+   "t": "p",
+   "html": "Nothing has left your laptop yet. The browser just has a name typed into a box."
+  },
+  {
+   "t": "p",
+   "html": "Try a name that is not in the table — Zoe, say. The trip happens exactly the same way and comes back empty. That is worth seeing once: an empty result is an answer, not a failure."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Part 3 · The security lab"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Why data validation matters — try to break it"
+  },
+  {
+   "t": "p",
+   "html": "Most web hacks start with something a person typed into a box. In these three demos you break a careless app yourself, then watch the same attack bounce off one that checks what it is given."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "3a · Client checks can be bypassed"
+  },
+  {
+   "t": "p",
+   "html": "Why a check in the browser is never enough on its own."
+  },
+  {
+   "t": "p",
+   "html": "This form is \"18 or older only\". The <strong>client</strong> checks your age for a nice experience — but a determined user can open the browser tools and <strong>switch that check off</strong>. Watch what happens when only the client validates."
+  },
+  {
+   "t": "p",
+   "html": "(\"Tamper\" simulates a user editing your client-side code in the browser — something you can never stop them doing.)"
+  },
+  {
+   "t": "p",
+   "html": "🚫 Blocked on your screen"
+  },
+  {
+   "t": "p",
+   "html": "Looks fine… until someone tampers with it."
+  },
+  {
+   "t": "p",
+   "html": "🚫 Rejected by the server"
+  },
+  {
+   "t": "p",
+   "html": "Even with the client tampered, the server re-checked the real value and refused. Safe."
+  },
+  {
+   "t": "p",
+   "html": "<strong>The golden rule —</strong> validate on the client for a <em>friendly</em> experience, but <strong>always validate again on the server for safety</strong>. Never trust data coming from the browser."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "3b · SQL injection"
+  },
+  {
+   "t": "p",
+   "html": "What happens when user text is glued straight into a database query — and the one-line fix that stops it cold."
+  },
+  {
+   "t": "eyebrow",
+   "html": "What the database receives"
+  },
+  {
+   "t": "pre",
+   "text": "SELECT * FROM users\nWHERE user = 'admin' --' AND pass = '•••••';"
+  },
+  {
+   "t": "p",
+   "html": "🔓 Logged in as admin — with NO password!"
+  },
+  {
+   "t": "p",
+   "html": "Your text closed the quote and commented out the password check (-- ). The database obeyed it as a command. This is SQL injection, the #1 web vulnerability for years."
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "3c · Cross-site scripting (XSS)"
+  },
+  {
+   "t": "p",
+   "html": "When a page prints user input as HTML instead of text, attackers can run code in other people's browsers."
+  },
+  {
+   "t": "p",
+   "html": "A comment box on a website. If the server stores your text and the page later prints it <em>as HTML</em>, an attacker can sneak in code that runs in <strong>other people's</strong> browsers — stealing their session. That's <strong>Cross-Site Scripting (XSS)</strong>. The fix is to <strong>escape</strong> the text so it's shown as plain characters."
+  },
+  {
+   "t": "p",
+   "html": "How the comment appears on the page:"
+  },
+  {
+   "t": "p",
+   "html": "💥 The browser would try to RUN this as code. In a real naive site, \"stealCookies()\" could now run in every visitor's browser and hijack their account."
+  },
+  {
+   "t": "p",
+   "html": "(We're describing what would happen — nothing is actually executed here.)"
+  },
+  {
+   "t": "h",
+   "level": 3,
+   "html": "3d · The validation checklist"
+  },
+  {
+   "t": "p",
+   "html": "The browser can be edited by anyone. The server is the only place a check truly counts."
+  },
+  {
+   "t": "p",
+   "html": "Allow-list, don't deny-list"
+  },
+  {
+   "t": "p",
+   "html": "Say exactly what good looks like (\"digits only, 1–3 of them\"), instead of trying to ban every bad thing."
+  },
+  {
+   "t": "p",
+   "html": "Use parameterised queries"
+  },
+  {
+   "t": "p",
+   "html": "Never glue user text into SQL. Use placeholders (?) so input is always data, never commands."
+  },
+  {
+   "t": "p",
+   "html": "When showing user text on a page, escape it so &lt; &gt; &amp; become harmless characters."
+  },
+  {
+   "t": "p",
+   "html": "Check type, length &amp; range"
+  },
+  {
+   "t": "p",
+   "html": "An age is a number 0–120; an email has a shape; a name has a sensible length. Reject the rest."
+  },
+  {
+   "t": "p",
+   "html": "When in doubt, reject. A blocked honest user is annoying; an allowed attacker is a breach."
+  },
+  {
+   "t": "eyebrow",
+   "html": "Final challenge"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Prove it. Five quick questions."
+  },
+  {
+   "t": "p",
+   "html": "Five questions covering the whole lesson. Answer them all, then submit and see how you went."
+  },
+  {
+   "t": "p",
+   "html": "1. A smooth hover animation on a button — where does it run?"
+  },
+  {
+   "t": "p",
+   "html": "2. Your website needs to show a list of users. Who actually fetches them from storage?"
+  },
+  {
+   "t": "p",
+   "html": "3. You added an \"age must be 18+\" check in the browser only. Is that safe?"
+  },
+  {
+   "t": "p",
+   "html": "4. Typing admin' -- into a login box logs you in with no password. What flaw is this?"
+  },
+  {
+   "t": "p",
+   "html": "5. A comment box lets people post &lt;script&gt; tags that then run for other visitors. The fix is to…"
+  },
+  {
+   "t": "eyebrow",
+   "html": "Keep going"
+  },
+  {
+   "t": "h",
+   "level": 2,
+   "html": "Where to go next"
+  },
+  {
+   "t": "p",
+   "html": "Things to watch, read and play with if you want to keep going. All free, and all written for beginners."
+  },
+  {
+   "t": "p",
+   "html": "Watch How the Internet Works in 5 min Aaron Titus · YouTube A friendly animated overview of clients, servers and requests. Open ↗ Read How the Web works MDN Web Docs The classic beginner explainer of client, server, DNS and HTTP. Open ↗ Read Client-Server model, explained simply freeCodeCamp Clear words and diagrams for the two-computer model. Open ↗ Play SQL Murder Mystery Knight Lab Learn to write real database queries by solving a crime. Genuinely fun. Open ↗ Play SQLBolt — interactive SQL sqlbolt.com Write queries in your browser, lesson by lesson. No setup. Open ↗ Hack (legally) Web Security Academy PortSwigger Free, world-class labs on SQL injection, XSS &amp; more — in a safe sandbox. Open ↗ Reference Input Validation Cheat Sheet OWASP The professional checklist for validating data the right way. Open ↗ Reference OWASP Top 10 owasp.org The ten most critical web security risks — injection and validation lead the list. Open ↗"
+  },
+  {
+   "t": "p",
+   "html": "A website is a conversation between a client and a server, with a database remembering it all. The client makes it friendly — but the server makes it <em>true and safe</em>. Validate everything, trust nothing from the browser, and you've already avoided most of the web's worst bugs."
+  },
+  {
+   "t": "p",
+   "html": "MBI802 · Database &amp; Web Systems · Master of Business Informatics"
+  }
+ ]
+}
