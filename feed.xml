@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 14 Oct 2026 03:01:22 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 14 Oct 2026 03:38:52 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
@@ -22,6 +22,14 @@
     <pubDate>Tue, 13 Oct 2026 12:00:00 +0000</pubDate>
     <category><![CDATA[AR / VR]]></category>
     <description><![CDATA[Researchers rotated virtual worlds 2–5° during people's blinks and nobody noticed. How it works, Apple's blink patent, and why eye data needs care.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[New Zealand Scholarships 2027: Deadlines Sri Lankans Can't Miss]]></title>
+    <link>https://www.yasassri.me/writing/new-zealand-scholarships-2027-sri-lankan-students.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/new-zealand-scholarships-2027-sri-lankan-students.html</guid>
+    <pubDate>Tue, 13 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Study in NZ]]></category>
+    <description><![CDATA[UC, AUT, Auckland, Victoria and Waikato scholarship rounds for 2027 close between now and 30 November. Dates, values, who qualifies, and how study connects to work and residence.]]></description>
   </item>
   <item>
     <title><![CDATA[The Invisible Keyboard Hiding Under Your iPhone Keyboard]]></title>
@@ -238,14 +246,6 @@
     <pubDate>Sat, 08 Oct 2022 12:00:00 +0000</pubDate>
     <category><![CDATA[AR / Gaming]]></category>
     <description><![CDATA[A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[How Clean Coding Helps You Build Web Applications Quickly]]></title>
-    <link>https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/how-clean-coding-helps-you-build-web-applications-quickly.html</guid>
-    <pubDate>Sat, 08 Oct 2022 12:00:00 +0000</pubDate>
-    <category><![CDATA[Software]]></category>
-    <description><![CDATA[Argues that clean, well-structured code speeds up development rather than slowing it down. Covers habits and conventions that keep a growing web application maintainable.]]></description>
   </item>
 </channel>
 </rss>
