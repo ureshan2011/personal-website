@@ -132,13 +132,16 @@
   "@id": "https://ictcampus.lk/#organization",
   "name": "ICT Campus",
   "url": "https://ictcampus.lk",
-  "description": "Online A/L ICT tuition for Sri Lankan students in Grades 12 and 13, in Sinhala and English medium, covering the full NIE syllabus.",
+  "description": "Online A/L ICT exam preparation for Sri Lankan students in Grades 12 and 13, in Sinhala and English medium, covering the full NIE syllabus: the A/L ICT 2027 Exam Pack, Complete Short Notes, free unit tests and classes.",
   "areaServed": { "@type": "Country", "name": "Sri Lanka" },
   "founder": { "@id": "https://www.yasassri.me/#yasas" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "ICT Campus programmes",
+    "name": "ICT Campus programmes and resources",
     "itemListElement": [
+      { "@type": "Product", "name": "A/L ICT 2027 Exam Pack", "url": "https://ictcampus.lk/al-ict-exam-pack", "description": "Timed, ranked A/L ICT Paper I sittings with walkthroughs, a study plan built from the student's answers, the Complete Short Notes and a one-to-one consultation with Dr. Yasas Sri Wickramasinghe.", "brand": { "@id": "https://ictcampus.lk/#organization" } },
+      { "@type": "Product", "name": "A/L ICT Complete Short Notes", "url": "https://ictcampus.lk/al-ict-complete-notes", "description": "Every examined lesson of the A/L ICT syllabus in short notes, in Sinhala and English, with a mind map for every unit.", "brand": { "@id": "https://ictcampus.lk/#organization" } },
+      { "@type": "LearningResource", "name": "A/L ICT unit tests", "url": "https://ictcampus.lk/al-ict-unit-tests", "description": "Free Paper I-style MCQ tests for each of the 13 examined A/L ICT units, marked instantly with the reason for every answer.", "isAccessibleForFree": true, "educationalLevel": "GCE Advanced Level (Grades 12 and 13)", "provider": { "@id": "https://ictcampus.lk/#organization" } },
       { "@type": "Course", "name": "A/L ICT classes", "url": "https://ictcampus.lk/al-ict-classes", "description": "Live online A/L ICT classes for Grades 12 and 13 in Sinhala and English medium.", "provider": { "@id": "https://ictcampus.lk/#organization" } },
       { "@type": "Course", "name": "Campus Ready", "url": "https://ictcampus.lk/campus-ready", "description": "A 12-week programme, taught in Sinhala, covering the computer, data and research skills university assumes students already have: Word, Excel, Python, statistics, Power BI, referencing and ethical AI use.", "provider": { "@id": "https://ictcampus.lk/#organization" } }
     ]
@@ -207,7 +210,7 @@
     {
       "@type": "Question",
       "name": "What is ICT Campus?",
-      "acceptedAnswer": { "@type": "Answer", "text": "ICT Campus (ictcampus.lk) is an online tuition platform for Sri Lankan A/L ICT students in Grades 12 and 13, founded by Dr. Yasas Sri Wickramasinghe, who also teaches the classes. It runs live classes in Sinhala and English medium with recordings, mock exams, a Code Lab, and free notes and past papers. Its second programme, Campus Ready, is a 12-week course that teaches students waiting for university the computer, data and research skills their degree will assume." }
+      "acceptedAnswer": { "@type": "Answer", "text": "ICT Campus (ictcampus.lk) is an online tuition platform for Sri Lankan A/L ICT students in Grades 12 and 13, founded by Dr. Yasas Sri Wickramasinghe, who also teaches the classes. It teaches in Sinhala and English medium. Its flagship is the A/L ICT 2027 Exam Pack: timed, ranked Paper I sittings, a study plan built from each student's answers, the Complete Short Notes and a one-to-one consultation. It also offers free unit tests for all 13 examined units, free notes and past papers. Its second programme, Campus Ready, is a 12-week course that teaches students waiting for university the computer, data and research skills their degree will assume." }
     },
     {
       "@type": "Question",
@@ -546,91 +549,70 @@
   </div>
 </section>
 
-<!-- FOUNDER — ICT Campus & Campus Ready -->
+<!-- FOUNDER — ICT Campus and Campus Ready, as two brand cards. The logos are
+     redrawn inline from the ictcampus.lk repo (lib/brand-icon.tsx and
+     components/marketing/CampusReadyLogo.tsx). -->
 <section class="section soft venture" id="ventures" aria-labelledby="venture-title">
   <div class="container">
-
-    <div class="section-head reveal">
-      <span class="eyebrow">Founder</span>
-      <h2 id="venture-title">I founded <em>ICT Campus</em> to give Sri Lankan students a world-class classroom.</h2>
-      <p>Online tuition for A/L ICT, taught by me, in Sinhala and English — plus a second programme that carries students past their A/Ls and into university.</p>
+    <div class="venture-head reveal">
+      <span class="eyebrow">Founder · Sri Lanka</span>
+      <h2 id="venture-title">Two things I've built for <em>Sri Lankan students</em>.</h2>
     </div>
 
-    <div class="venture-grid">
+    <div class="vb-grid">
       <!-- ICT Campus -->
-      <article class="vcard reveal">
-        <div class="vcard-top">
-          <span class="vlogo" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m10 8.5 4 2-4 2z"/></svg></span>
-          <div>
-            <span class="kicker">Founder &amp; lead teacher</span>
-            <h3>ICT Campus</h3>
-          </div>
-          <a class="vcard-url" href="https://ictcampus.lk" target="_blank" rel="noopener">ictcampus.lk ↗</a>
+      <article class="vb vb--ict reveal" aria-labelledby="vb-ict-name">
+        <div class="vb-top">
+          <a class="vb-logo" href="https://ictcampus.lk" target="_blank" rel="noopener" id="vb-ict-name" aria-label="ICT Campus, ictcampus.lk">
+            <span class="vb-ict-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10.6V16"/><path d="M6 12.5V17a6 3 0 0 0 12 0v-4.5"/></svg></span>
+            <span class="vb-word" aria-hidden="true">ICT<b>Campus</b></span>
+          </a>
+          <span class="vb-url">ictcampus.lk ↗</span>
         </div>
-        <p class="vcard-lede">Live online classes for Sri Lankan A/L ICT — Grades 12 &amp; 13, the full NIE syllabus, in Sinhala and English medium.</p>
+        <p class="vb-line">A/L ICT exam prep in Sinhala &amp; English.</p>
 
-        <!-- Stylised product preview, drawn in CSS -->
-        <div class="vmock" aria-hidden="true">
-          <div class="vmock-bar"><i></i><i></i><i></i><span>ictcampus.lk</span></div>
-          <div class="vmock-body">
-            <div class="vmock-rail">
-              <span class="on"></span><span></span><span></span><span></span><span></span>
-            </div>
-            <div class="vmock-main">
-              <div class="vmock-live"><span class="dot"></span>Live now · Unit 8 — Databases</div>
-              <div class="vmock-row">
-                <div class="vmock-tile"><b>82%</b><small>Syllabus covered</small><span class="vbar"><span style="width:82%"></span></span></div>
-                <div class="vmock-tile"><b>14</b><small>Mock exams done</small><span class="vbar"><span style="width:58%"></span></span></div>
-              </div>
-              <div class="vmock-lines"><span></span><span></span><span style="width:62%"></span></div>
-            </div>
-          </div>
+        <div class="vb-tiles">
+          <a class="vt vt--lead" href="https://ictcampus.lk/al-ict-exam-pack" target="_blank" rel="noopener">
+            <span class="vt-chip">Flagship</span>
+            <svg class="vt-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6"/><circle cx="32" cy="32" r="26" fill="none" stroke="#f4551e" stroke-width="6" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="38" transform="rotate(-90 32 32)"/><text x="32" y="39" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="20" font-style="italic" fill="#fff">A</text></svg>
+            <b>2027 Exam Pack</b>
+            <small>Ranked papers · plan · 1:1</small>
+          </a>
+          <a class="vt" href="https://ictcampus.lk/al-ict-complete-notes" target="_blank" rel="noopener">
+            <svg class="vt-ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+            <b>Short Notes</b>
+            <small>13 units · 2 mediums</small>
+          </a>
+          <a class="vt" href="https://ictcampus.lk/al-ict-unit-tests" target="_blank" rel="noopener">
+            <svg class="vt-ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg>
+            <b>Unit tests</b>
+            <small><span class="vt-free">Free</span> 130 MCQs</small>
+          </a>
         </div>
-
-        <div class="tags">
-          <span class="tag">Live Zoom classes</span>
-          <span class="tag">Recordings</span>
-          <span class="tag">Timed mock exams</span>
-          <span class="tag">Code Lab</span>
-          <span class="tag">Free notes &amp; past papers</span>
-          <span class="tag gold">7-day free trial</span>
-        </div>
-        <div class="vstats">
-          <div><b>Gr. 12–13</b><span>A/L ICT</span></div>
-          <div><b>2</b><span>Mediums — Sinhala &amp; English</span></div>
-          <div><b>100%</b><span>NIE syllabus</span></div>
-        </div>
-        <a class="btn btn-solid vcta" href="https://ictcampus.lk" target="_blank" rel="noopener">Visit ICT Campus <span class="arrow">→</span></a>
       </article>
 
       <!-- Campus Ready -->
-      <article class="vcard reveal" style="--d:.12s">
-        <div class="vcard-top">
-          <span class="vlogo" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
-          <div>
-            <span class="kicker">New initiative</span>
-            <h3>Campus Ready</h3>
-          </div>
-          <span class="tag gold vpill">First intake Jan 2027</span>
+      <a class="vb vb--cr reveal" style="--d:.1s" href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener" aria-label="Campus Ready: a 12-week course between A/Ls and university">
+        <div class="vb-top">
+          <span class="vb-logo" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><g stroke="currentColor" opacity=".85"><path d="M6 26h20" opacity=".4"/><path d="M10.5 26v-6"/><path d="M16 26v-10"/></g><g stroke="#f4551e"><path d="M21.5 26V14"/><path d="M17.5 10.5 21.5 6.5l4 4"/></g></svg>
+            <span class="vb-word vb-word--cr">Campus Ready</span>
+          </span>
+          <span class="vb-pill">Jan 2027</span>
         </div>
-        <p class="vcard-quote">&ldquo;Your degree assumes you already know this. <em>Nobody taught you.</em>&rdquo;</p>
-        <p class="vcard-lede">A 12-week programme for the long wait between A/L results and the first lecture — the computer and research skills every university student needs, taught in Sinhala.</p>
+        <p class="vb-line">From A/L results to your first lecture.</p>
 
-        <div class="vtimeline" role="list" aria-label="Campus Ready, 12 weeks">
-          <div class="vt-seg" role="listitem" style="--w:4"><span class="vt-wk">Wk 1–4</span><b>Campus basics</b><small>Moodle, Word, Excel, surveys</small></div>
-          <div class="vt-seg" role="listitem" style="--w:5"><span class="vt-wk">Wk 5–9</span><b>Python &amp; statistics</b><small>pandas, charts, t-tests, regression</small></div>
-          <div class="vt-seg" role="listitem" style="--w:3"><span class="vt-wk">Wk 10–12</span><b>Power BI &amp; capstone</b><small>Referencing, ethical AI, portfolio</small></div>
+        <div class="cr-weeks" aria-hidden="true">
+          <span style="--h:22%"></span><span style="--h:28%"></span><span style="--h:34%"></span><span style="--h:40%"></span>
+          <span style="--h:47%"></span><span style="--h:53%"></span><span style="--h:60%"></span><span style="--h:66%"></span><span style="--h:72%"></span>
+          <span class="hi" style="--h:80%"></span><span class="hi" style="--h:90%"></span><span class="hi" style="--h:100%"></span>
         </div>
-
-        <ul class="vlist">
-          <li>A capstone dashboard on real Sri Lankan open data</li>
-          <li>A graded, verifiable certificate</li>
-          <li>Two intakes a year — January and July</li>
-        </ul>
-        <a class="btn vcta" href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener">Explore Campus Ready <span class="arrow">→</span></a>
-      </article>
+        <div class="cr-legend" aria-hidden="true">
+          <span>Excel</span><span>Python</span><span>Power BI</span>
+        </div>
+        <span class="vb-more">12 weeks, in Sinhala <b aria-hidden="true">→</b></span>
+      </a>
     </div>
-
   </div>
 </section>
 
