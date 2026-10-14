@@ -826,33 +826,92 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 640px) { .venue-grid { grid-template-columns: 1fr; } }
 
 /* ==========================================================================
-   Founder — ICT Campus & Campus Ready (index.html#ventures)
-   Built from the site's own tokens: light cards, blue accent, serif display.
+   Founder — ICT Campus and Campus Ready (index.html#ventures)
+   Two brand cards. ICT Campus wears its own warm near-black and orange;
+   Campus Ready is the light twin. Logos drawn inline, no image requests.
    ========================================================================== */
-.venture-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: stretch; }
-.vcard {
-  display: flex; flex-direction: column; gap: 18px;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 32px);
-  transition: border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+.venture.section { padding-block: clamp(56px, 7vw, 88px); }
+.venture-head { margin-bottom: 26px; }
+.venture-head h2 { font-size: clamp(28px, 3.4vw, 40px); }
+.vb-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 18px; }
+.vb {
+  --ict-orange: #f4551e;
+  position: relative; display: flex; flex-direction: column; gap: 14px; overflow: hidden;
+  border-radius: var(--radius); padding: clamp(22px, 2.6vw, 30px);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
 }
-.vcard:hover { transform: translateY(-2px); border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
-.vcard .tags { margin-top: 0; }
-.vcard-top { display: flex; align-items: center; gap: 14px; }
-.vcard-top > div { flex: 1; min-width: 0; }
-.vcard-top .kicker { margin-bottom: 2px; }
-.vlogo {
-  flex: none; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
-  background: var(--accent-soft); color: var(--accent); transition: background .3s var(--ease), color .3s var(--ease);
+.vb-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.vb-logo { display: inline-flex; align-items: center; gap: 10px; }
+.vb-word { font-family: Inter, system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+.vb-line { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.25; }
+
+/* ICT Campus */
+.vb--ict { background: #17120f; color: #f6efe8; }
+.vb--ict::before {
+  content: ""; position: absolute; right: -120px; top: -140px; width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(244, 85, 30, .22), transparent); pointer-events: none;
 }
-.vcard:hover .vlogo { background: var(--accent); color: #fff; }
-.vcard h3 { font-size: 22px; }
-.vcard-url { font-size: 13px; font-weight: 600; color: var(--ink-soft); border: 1px solid var(--line-strong); padding: 6px 12px; border-radius: 999px; white-space: nowrap; transition: color .25s, border-color .25s; }
-.vcard-url:hover { color: var(--accent); border-color: var(--accent); }
-.vpill { white-space: nowrap; }
-.vcard-lede { color: var(--ink-soft); font-size: 15px; }
-.vcard-quote { font-family: var(--serif); font-size: clamp(21px, 2.2vw, 26px); line-height: 1.25; color: var(--ink); }
-.vcard-quote em { font-style: italic; color: var(--accent); }
+.vb-ict-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--ict-orange); }
+.vb--ict .vb-word { color: #fff; }
+.vb--ict .vb-word b { color: var(--ict-orange); font-weight: 800; }
+.vb-url { font-size: 12.5px; font-weight: 600; color: rgba(246, 239, 232, .55); }
+.vb--ict .vb-line { color: rgba(246, 239, 232, .82); }
+
+.vb-tiles { display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 10px; margin-top: 6px; flex: 1; }
+.vt {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  padding: 16px 14px 14px; border-radius: 14px; min-height: 150px;
+  background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .09);
+  transition: transform .3s var(--ease), background-color .3s var(--ease), border-color .3s var(--ease);
+}
+.vt:hover { transform: translateY(-3px); background: rgba(255, 255, 255, .09); border-color: rgba(244, 85, 30, .5); }
+.vt-ico { color: var(--ict-orange); margin-bottom: auto; }
+.vt b { margin-top: 12px; font-size: 15px; font-weight: 700; color: #fff; }
+.vt small { font-size: 12.5px; color: rgba(246, 239, 232, .6); display: inline-flex; align-items: center; gap: 6px; }
+.vt--lead { background: rgba(244, 85, 30, .12); border-color: rgba(244, 85, 30, .45); }
+.vt-chip {
+  position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: #fff; background: var(--ict-orange); padding: 3px 8px; border-radius: 999px;
+}
+.vt-ring { width: 52px; height: 52px; margin-bottom: auto; }
+.vt-ring circle:last-of-type { transition: stroke-dashoffset 1.2s var(--ease) .3s; }
+.reveal:not(.in) .vt-ring circle:last-of-type { stroke-dashoffset: 163; }
+.vt-free { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #6ee7b7; border: 1px solid rgba(110, 231, 183, .4); padding: 1px 6px; border-radius: 999px; }
+
+/* Campus Ready */
+.vb--cr { background: var(--card); border: 1px solid var(--line); color: var(--ink); }
+.vb--cr:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); border-color: var(--line-strong); }
+.vb--cr .vb-logo { color: var(--ink); }
+.vb-pill { font-size: 11.5px; font-weight: 700; color: #b8400f; background: #fff1ea; padding: 5px 11px; border-radius: 999px; white-space: nowrap; }
+.cr-weeks { display: flex; align-items: flex-end; gap: 5px; height: 84px; margin-top: auto; padding-top: 8px; }
+.cr-weeks span {
+  flex: 1; height: var(--h); border-radius: 5px 5px 2px 2px; background: var(--bg-panel);
+  transform-origin: bottom; transition: transform .8s var(--ease);
+}
+.cr-weeks span.hi { background: #f4551e; }
+.reveal:not(.in) .cr-weeks span { transform: scaleY(.15); }
+.cr-weeks span:nth-child(n+5) { transition-delay: .08s; }
+.cr-weeks span:nth-child(n+10) { transition-delay: .16s; }
+.cr-legend { display: grid; grid-template-columns: 4fr 5fr 3fr; gap: 5px; font-size: 11.5px; font-weight: 600; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.vb-more { font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.vb-more b { color: #f4551e; display: inline-block; transition: transform .3s var(--ease); }
+.vb--cr:hover .vb-more b { transform: translateX(4px); }
+
+.vb a:focus-visible, .vb--cr:focus-visible { outline: 2px solid #f4551e; outline-offset: 3px; }
+
+@media (max-width: 940px) {
+  .vb-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .vb-tiles { grid-template-columns: 1fr 1fr; }
+  .vb-tiles { flex: none; }
+  .vt--lead { grid-column: 1 / -1; min-height: 0; flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 14px; }
+  .vt--lead .vt-ring { margin: 0; }
+  .vt--lead b { margin-top: 0; }
+  .vt--lead small { flex-basis: 100%; }
+  .vt { min-height: 128px; }
+  .vb-url { display: none; }
+}
 
 /* CSS-drawn product preview */
 .vmock { border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); background: var(--bg-soft); }
@@ -877,47 +936,15 @@ html.lenis, html.lenis body { height: auto; }
 .vmock-lines { display: flex; flex-direction: column; gap: 7px; }
 .vmock-lines span { height: 7px; border-radius: 999px; background: var(--bg-panel); }
 
-.vstats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); padding-top: 18px; gap: 12px; }
-.vstats b { display: block; font-family: var(--serif); font-weight: 500; font-size: 26px; color: var(--ink); letter-spacing: -.01em; }
-.vstats span { font-size: 12.5px; color: var(--ink-soft); }
-
-/* 12-week timeline */
-.vtimeline { display: flex; gap: 6px; }
-.vt-seg {
-  flex: var(--w) 1 0; min-width: 0; position: relative;
-  background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius-sm);
-  padding: 14px 12px 12px; display: flex; flex-direction: column; gap: 4px;
-}
-.vt-seg::before { content: ""; position: absolute; left: 12px; right: 12px; top: 0; height: 3px; border-radius: 0 0 3px 3px; background: var(--accent-soft); }
-.vt-seg:nth-child(2)::before { background: rgba(47,107,255,.45); }
-.vt-seg:last-child::before { background: var(--accent); }
-.vt-wk { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
-.vt-seg b { font-size: 14px; color: var(--ink); line-height: 1.3; }
-.vt-seg small { font-size: 12px; color: var(--ink-soft); line-height: 1.4; }
-.vlist { display: flex; flex-direction: column; gap: 9px; }
-.vlist li { position: relative; padding-left: 28px; font-size: 14.5px; color: var(--ink); }
-.vlist li::before {
-  content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 50%;
-  background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/11px no-repeat;
-}
-.vcta { margin-top: auto; align-self: flex-start; }
-
-@media (max-width: 940px) {
-  .venture-grid { grid-template-columns: 1fr; }
-}
 @media (max-width: 560px) {
-  .vcard-top { flex-wrap: wrap; }
-  .vcard-top > div { flex: 1 1 calc(100% - 62px); }
-  .vcard-url, .vpill { order: 3; margin-left: 62px; }
-  .vtimeline { flex-direction: column; }
-  .vstats b { font-size: 21px; }
   .vmock-row { grid-template-columns: 1fr; }
   .vmock-row .vmock-tile:nth-child(2) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .vbar span { transform: none; transition: none; }
   .vmock-live .dot { animation: none; }
-  .vcard:hover { transform: none; }
+  .vt, .vb, .cr-weeks span, .vt-ring circle { transition: none !important; }
+  .reveal:not(.in) .cr-weeks span { transform: none; }
 }
 
 /* ==========================================================================
