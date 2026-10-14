@@ -117,6 +117,15 @@ Grades 12 and 13, in Sinhala and English medium, covering the full NIE
 syllabus, with live classes, recordings, timed mock exams, a Code Lab, free
 notes and past papers, and a free 7-day trial.
 
+Its flagship is the A/L ICT 2027 Exam Pack (https://ictcampus.lk/al-ict-exam-pack):
+one payment for timed, ranked Paper I sittings with walkthroughs, a predicted
+Paper II, a study plan built from the student's answers, the 2024 and 2025
+papers worked through, the A/L ICT Complete Short Notes
+(https://ictcampus.lk/al-ict-complete-notes; every examined lesson of units
+1-13 in Sinhala and English, a mind map per unit) and a one-to-one
+consultation. Free unit tests (https://ictcampus.lk/al-ict-unit-tests) give
+ten Paper I-style MCQs for each of the 13 examined units, marked instantly.
+
 Campus Ready (https://ictcampus.lk/campus-ready) is ICT Campus's second
 initiative: a 12-week programme, taught in Sinhala, for students waiting
 between their A/Ls and university. It covers Word, Excel, Python, statistics,
