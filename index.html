@@ -549,34 +549,70 @@
   </div>
 </section>
 
-<!-- FOUNDER — ICT Campus, kept to one compact band: framing on the left,
-     the flagship products as link rows on the right. -->
+<!-- FOUNDER — ICT Campus and Campus Ready, as two brand cards. The logos are
+     redrawn inline from the ictcampus.lk repo (lib/brand-icon.tsx and
+     components/marketing/CampusReadyLogo.tsx). -->
 <section class="section soft venture" id="ventures" aria-labelledby="venture-title">
-  <div class="container venture-band">
-    <div class="venture-copy reveal">
+  <div class="container">
+    <div class="venture-head reveal">
       <span class="eyebrow">Founder · Sri Lanka</span>
-      <h2 id="venture-title">Putting learning research to work in <em>A/L ICT</em>.</h2>
-      <p>I founded, built and teach at <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>, an online classroom for Sri Lankan A/L ICT students in Sinhala and English. It is where my university teaching and learning-design work meet a national exam.</p>
-      <p class="venture-meta">Grades 12–13 &nbsp;·&nbsp; Sinhala &amp; English &nbsp;·&nbsp; Full NIE syllabus</p>
+      <h2 id="venture-title">Two things I've built for <em>Sri Lankan students</em>.</h2>
     </div>
-    <ul class="venture-rows reveal" style="--d:.1s" aria-label="ICT Campus programmes">
-      <li><a href="https://ictcampus.lk/al-ict-exam-pack" target="_blank" rel="noopener">
-        <span class="vr-tag vr-tag--lead">Flagship</span>
-        <span class="vr-body"><b>A/L ICT 2027 Exam Pack</b><small>Timed, ranked papers, a study plan built from your answers, and a one-to-one consultation</small></span>
-        <span class="vr-go" aria-hidden="true">↗</span></a></li>
-      <li><a href="https://ictcampus.lk/al-ict-complete-notes" target="_blank" rel="noopener">
-        <span class="vr-tag">Notes</span>
-        <span class="vr-body"><b>Complete Short Notes</b><small>Every examined lesson, a mind map per unit, Sinhala and English</small></span>
-        <span class="vr-go" aria-hidden="true">↗</span></a></li>
-      <li><a href="https://ictcampus.lk/al-ict-unit-tests" target="_blank" rel="noopener">
-        <span class="vr-tag vr-tag--free">Free</span>
-        <span class="vr-body"><b>Unit tests for all 13 units</b><small>Paper I-style MCQs, marked instantly with the reason for each answer</small></span>
-        <span class="vr-go" aria-hidden="true">↗</span></a></li>
-      <li><a href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener">
-        <span class="vr-tag">After A/L</span>
-        <span class="vr-body"><b>Campus Ready</b><small>12 weeks of Excel, Python, statistics and referencing before university</small></span>
-        <span class="vr-go" aria-hidden="true">↗</span></a></li>
-    </ul>
+
+    <div class="vb-grid">
+      <!-- ICT Campus -->
+      <article class="vb vb--ict reveal" aria-labelledby="vb-ict-name">
+        <div class="vb-top">
+          <a class="vb-logo" href="https://ictcampus.lk" target="_blank" rel="noopener" id="vb-ict-name" aria-label="ICT Campus, ictcampus.lk">
+            <span class="vb-ict-mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10.6V16"/><path d="M6 12.5V17a6 3 0 0 0 12 0v-4.5"/></svg></span>
+            <span class="vb-word" aria-hidden="true">ICT<b>Campus</b></span>
+          </a>
+          <span class="vb-url">ictcampus.lk ↗</span>
+        </div>
+        <p class="vb-line">A/L ICT exam prep in Sinhala &amp; English.</p>
+
+        <div class="vb-tiles">
+          <a class="vt vt--lead" href="https://ictcampus.lk/al-ict-exam-pack" target="_blank" rel="noopener">
+            <span class="vt-chip">Flagship</span>
+            <svg class="vt-ring" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="6"/><circle cx="32" cy="32" r="26" fill="none" stroke="#f4551e" stroke-width="6" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="38" transform="rotate(-90 32 32)"/><text x="32" y="39" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-size="20" font-style="italic" fill="#fff">A</text></svg>
+            <b>2027 Exam Pack</b>
+            <small>Ranked papers · plan · 1:1</small>
+          </a>
+          <a class="vt" href="https://ictcampus.lk/al-ict-complete-notes" target="_blank" rel="noopener">
+            <svg class="vt-ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+            <b>Short Notes</b>
+            <small>13 units · 2 mediums</small>
+          </a>
+          <a class="vt" href="https://ictcampus.lk/al-ict-unit-tests" target="_blank" rel="noopener">
+            <svg class="vt-ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></svg>
+            <b>Unit tests</b>
+            <small><span class="vt-free">Free</span> 130 MCQs</small>
+          </a>
+        </div>
+      </article>
+
+      <!-- Campus Ready -->
+      <a class="vb vb--cr reveal" style="--d:.1s" href="https://ictcampus.lk/campus-ready" target="_blank" rel="noopener" aria-label="Campus Ready: a 12-week course between A/Ls and university">
+        <div class="vb-top">
+          <span class="vb-logo" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 32 32" fill="none" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><g stroke="currentColor" opacity=".85"><path d="M6 26h20" opacity=".4"/><path d="M10.5 26v-6"/><path d="M16 26v-10"/></g><g stroke="#f4551e"><path d="M21.5 26V14"/><path d="M17.5 10.5 21.5 6.5l4 4"/></g></svg>
+            <span class="vb-word vb-word--cr">Campus Ready</span>
+          </span>
+          <span class="vb-pill">Jan 2027</span>
+        </div>
+        <p class="vb-line">From A/L results to your first lecture.</p>
+
+        <div class="cr-weeks" aria-hidden="true">
+          <span style="--h:22%"></span><span style="--h:28%"></span><span style="--h:34%"></span><span style="--h:40%"></span>
+          <span style="--h:47%"></span><span style="--h:53%"></span><span style="--h:60%"></span><span style="--h:66%"></span><span style="--h:72%"></span>
+          <span class="hi" style="--h:80%"></span><span class="hi" style="--h:90%"></span><span class="hi" style="--h:100%"></span>
+        </div>
+        <div class="cr-legend" aria-hidden="true">
+          <span>Excel</span><span>Python</span><span>Power BI</span>
+        </div>
+        <span class="vb-more">12 weeks, in Sinhala <b aria-hidden="true">→</b></span>
+      </a>
+    </div>
   </div>
 </section>
 
