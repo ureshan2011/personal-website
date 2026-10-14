@@ -128,7 +128,7 @@ I can't apply for you. And I can't promise you a scholarship. But I can look at 
 
 **[Tell me about your plans here](https://www.yasassri.me/#study-nz).** It takes about three minutes. It's free. And I read every message myself.
 
-Comparing costs and courses? Try [PathFinder](https://ureshan2011.github.io/Pathfinder/). It's a free tool I made for Sri Lankan students applying to postgrad study in New Zealand.
+Comparing costs and courses? Try [PathFinder](https://ureshan2011.github.io/Pathfinder/). It's a free tool a few friends and I built for Sri Lankan students applying to postgrad study in New Zealand.
 
 These deadlines won't wait. Start today, even if it's just one email.
 
