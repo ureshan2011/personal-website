@@ -32,7 +32,7 @@ Two more worth knowing:
 
 I checked every date and amount on the universities' own websites on 14 October 2026.
 
-> **Correction:** an earlier version of this post had some wrong details. Victoria's Tongarewa Scholarship no longer exists, AUT's undergraduate amount was too high, and Sri Lanka isn't eligible for Manaaki. Thank you to the reader who flagged it. Everything below has been checked again against the official pages.
+> **Update:** thank you to the reader who shared feedback on this post. I've checked every detail again on the universities' official websites, and this version now includes more opportunities, like Victoria's new international scholarships and UC's project-based PhD scholarships.
 
 ![New Zealand scholarship deadlines for 2027, from 15 October to 30 November 2026, plus Victoria's automatic scholarship and AUT's South Asia scholarship](https://www.yasassri.me/assets/images/blog/nz-scholarships-2027/fig-1-deadlines.webp "The dates, as of 14 October 2026. Red means less than a week left.")
 
