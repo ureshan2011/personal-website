@@ -1006,7 +1006,9 @@ function renderBlogPostPage(post) {
    on-page contents list built from the H2s, captioned figures, an author box,
    and an optional FAQ rendered visibly and as FAQPage JSON-LD.
    Optional front-matter keys: date, updated, cover, coverAlt, keywords,
-   takeaways (JSON array), faq (JSON array of {q, a}). */
+   takeaways (JSON array), faq (JSON array of {q, a}), authorBio (plain text
+   replacing the default author description, for pieces where the research
+   bio is beside the point). */
 function renderFeatureArticlePage(article) {
   const { slug, title, summary, category, body } = article;
   const canonical = `${SITE_URL}/writing/${slug}.html`;
@@ -1069,7 +1071,7 @@ function renderFeatureArticlePage(article) {
   const authorBox = `
         <aside class="lp-author" aria-label="About the author">
           <p class="lp-label">About the author</p>
-          <p><strong>Dr. Yasas Sri Wickramasinghe</strong> is an augmented reality researcher and senior lecturer in Christchurch, New Zealand. His research covers multiplayer location-based AR games, presence in virtual reality and cybersickness. <a href="../about.html">More about Yasas</a>.</p>
+          <p><strong>Dr. Yasas Sri Wickramasinghe</strong> ${article.authorBio ? esc(article.authorBio) : "is an augmented reality researcher and senior lecturer in Christchurch, New Zealand. His research covers multiplayer location-based AR games, presence in virtual reality and cybersickness."} <a href="../about.html">More about Yasas</a>.</p>
         </aside>`;
 
   const faqSection = faq.length ? `
