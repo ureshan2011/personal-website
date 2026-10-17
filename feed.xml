@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 14 Oct 2026 13:59:04 +0000</lastBuildDate>
+  <lastBuildDate>Sat, 17 Oct 2026 06:27:44 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
@@ -14,6 +14,14 @@
     <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[If a Machine Can Make You Feel You Did Something You Didn’t, Who Decides the Timing?]]></title>
+    <link>https://www.yasassri.me/writing/machine-moved-first-sense-of-agency-muscle-stimulation.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/machine-moved-first-sense-of-agency-muscle-stimulation.html</guid>
+    <pubDate>Fri, 16 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[HCI]]></category>
+    <description><![CDATA[Muscle stimulation fired 160 ms after a cue made people react 80 ms faster, and it still felt like their own move. What five HCI studies mean for design.]]></description>
   </item>
   <item>
     <title><![CDATA[In a Blink: VR Researchers Turned the World and Nobody Noticed]]></title>
@@ -238,14 +246,6 @@
     <pubDate>Fri, 14 Oct 2022 12:00:00 +0000</pubDate>
     <category><![CDATA[Architecture]]></category>
     <description><![CDATA[A computer-architecture perspective on Apple's M1 Ultra chip, examining how its UltraFusion interconnect fuses two dies into a single unified processor. Considers what that design choice means for chip architecture more broadly.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Game Development with Augmented Reality]]></title>
-    <link>https://www.yasassri.me/writing/game-development-with-augmented-reality.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/game-development-with-augmented-reality.html</guid>
-    <pubDate>Sat, 08 Oct 2022 12:00:00 +0000</pubDate>
-    <category><![CDATA[AR / Gaming]]></category>
-    <description><![CDATA[A look at what makes AR game development different from traditional game design, from spatial anchoring to real-world interaction. Covers the tools and considerations developers face building AR-native gameplay.]]></description>
   </item>
 </channel>
 </rss>
