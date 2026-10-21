@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Sat, 17 Oct 2026 06:27:44 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 21 Oct 2026 22:12:53 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
@@ -14,6 +14,14 @@
     <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right]]></title>
+    <link>https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html</guid>
+    <pubDate>Wed, 21 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[HCI]]></category>
+    <description><![CDATA[Netflix rebuilt its app for Apple’s foldable iPhone Duo. What it changed, Apple’s new iPhone Duo design guidelines in plain English, and what it means for HCI.]]></description>
   </item>
   <item>
     <title><![CDATA[If a Machine Can Make You Feel You Did Something You Didn’t, Who Decides the Timing?]]></title>
@@ -238,14 +246,6 @@
     <pubDate>Tue, 18 Oct 2022 12:00:00 +0000</pubDate>
     <category><![CDATA[Education]]></category>
     <description><![CDATA[Highlights the GitHub Student Developer Pack and the free developer tools and services it unlocks for university students. Aimed at students who may not realise how much value the pack offers.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[Computer Architect's View on Apple M1 Ultra Chip]]></title>
-    <link>https://www.yasassri.me/writing/computer-architect-s-view-on-apple-m1-ultra-chip.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/computer-architect-s-view-on-apple-m1-ultra-chip.html</guid>
-    <pubDate>Fri, 14 Oct 2022 12:00:00 +0000</pubDate>
-    <category><![CDATA[Architecture]]></category>
-    <description><![CDATA[A computer-architecture perspective on Apple's M1 Ultra chip, examining how its UltraFusion interconnect fuses two dies into a single unified processor. Considers what that design choice means for chip architecture more broadly.]]></description>
   </item>
 </channel>
 </rss>
