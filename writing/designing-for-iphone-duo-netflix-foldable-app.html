@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right | Dr. Yasas Sri Wickramasinghe</title>
+<meta name="author" content="Yasas Sri Wickramasinghe"/>
+<meta name="description" content="Netflix rebuilt its app for Apple’s foldable iPhone Duo. What it changed, Apple’s new iPhone Duo design guidelines in plain English, and what it means for HCI."/>
+<link rel="icon" href="../assets/images/icons/favicon.png"/>
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+<meta name="theme-color" content="#2f6bff"/>
+<link rel="canonical" href="https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html"/>
+<link rel="alternate" type="application/rss+xml" href="https://www.yasassri.me/feed.xml"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:title" content="iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right | Dr. Yasas Sri Wickramasinghe"/>
+<meta property="og:description" content="Netflix rebuilt its app for Apple’s foldable iPhone Duo. What it changed, Apple’s new iPhone Duo design guidelines in plain English, and what it means for HCI."/>
+<meta property="og:url" content="https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html"/>
+<meta property="og:image" content="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/cover-og.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@sri_yasas"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right",
+  "description": "Netflix rebuilt its app for Apple’s foldable iPhone Duo. What it changed, Apple’s new iPhone Duo design guidelines in plain English, and what it means for HCI.",
+  "url": "https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html",
+  "inLanguage": "en",
+  "datePublished": "2026-10-22",
+  "dateModified": "2026-10-22",
+  "articleSection": "HCI",
+  "keywords": "iPhone Duo, designing for iPhone Duo, Apple Human Interface Guidelines, foldable iPhone, Netflix iPhone Duo, foldable app design, device poses, displacement, reserved regions, arrangement views, HCI",
+  "wordCount": 2289,
+  "image": [
+    "https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/cover-og.jpg"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Dr. Yasas Sri Wickramasinghe",
+    "url": "https://www.yasassri.me/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://www.yasassri.me/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.yasassri.me/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://www.yasassri.me/blogs.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right",
+      "item": "https://www.yasassri.me/writing/designing-for-iphone-duo-netflix-foldable-app.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is iPhone Duo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "iPhone Duo is Apple’s first foldable iPhone, announced on 9 September 2026 and on sale from 23 October 2026. It has a 5.4-inch outer screen when closed and a 7.6-inch inner screen when open, and Apple says both screens share the same aspect ratio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What did Netflix change for iPhone Duo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things were reported: Clips that keep playing when you open the phone and switch from vertical to horizontal video, playback controls that adapt to whether the phone is flat, folded or propped up, and a larger Billboard on the home screen with more dynamic visual effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do Apple’s iPhone Duo design guidelines say?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In short: build one layout that resizes well instead of a design per pose, keep the same features on both screens, let the system move toolbars and tab bars to the side, keep content clear of reserved regions like the fold and cameras, and avoid big layout changes when people fold the phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are device poses on iPhone Duo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Poses are the ways people hold or place the phone, such as partially folded like a book, flat on a surface, standing on an edge, or propped up like a small laptop. Apple asks apps to handle every pose using size classes rather than a custom layout for each one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do Android foldables already do this?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partly. On foldables like the Galaxy Z Fold and Pixel Fold, the Netflix Android app can already show video on the top half and controls on the bottom half. What is new on iPhone Duo is Apple’s full set of system-wide design rules for the fold."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preload" href="../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin=""/>
+<link href="../assets/css/fonts.css" rel="stylesheet"/>
+<link href="../assets/css/fonts-newsreader.css" rel="stylesheet"/>
+<link href="../assets/css/redesign.css" rel="stylesheet"/>
+<link href="../assets/css/lesson-page.css" rel="stylesheet"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N2BH0F6SNE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N2BH0F6SNE');
+</script>
+</head>
+<body class="lp-page">
+
+<div class="progress-bar"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">Yasas Sri <em>Wickramasinghe</em></a>
+    <div class="nav-links">
+      <a href="../research.html">Research</a>
+      <a href="../teaching.html">Teaching</a>
+      <a href="../students.html">Students</a>
+      <a href="../products.html">Products</a>
+      <a href="../news.html">News</a>
+      <a class="active" href="../blogs.html">Writing</a>
+      <a href="../about.html">About</a>
+      <a href="../app/#/">Platform <span class="nav-badge">New</span></a>
+      <a href="../contact.html">Contact</a>
+      <a class="btn btn-solid" href="../work-with-me.html">Work With Me <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html"><span class="idx">01</span>Home</a>
+  <a href="../work-with-me.html"><span class="idx">02</span>Work With Me</a>
+  <a href="../speaking.html"><span class="idx">03</span>Speaking</a>
+  <a href="../research.html"><span class="idx">04</span>Research</a>
+  <a href="../teaching.html"><span class="idx">05</span>Teaching</a>
+  <a href="../students.html"><span class="idx">06</span>Students</a>
+  <a href="../products.html"><span class="idx">07</span>Products</a>
+  <a href="../news.html"><span class="idx">08</span>News</a>
+  <a class="active" href="../blogs.html"><span class="idx">09</span>Writing</a>
+  <a href="../about.html"><span class="idx">10</span>About</a>
+  <a href="../app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
+  <a href="../contact.html"><span class="idx">12</span>Contact</a>
+  <a href="../assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+</div>
+
+<main>
+
+<header class="lp-hero">
+  <div class="container lp-hero-grid">
+    <div>
+      <nav class="lp-crumbs" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><a href="../blogs.html">Writing</a><span aria-hidden="true">/</span><span aria-current="page">iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right</span></nav>
+      <div class="lp-tags"><span class="lp-tag">HCI</span></div>
+      <h1>iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right</h1>
+      <p class="lp-lead">Netflix rebuilt its app for Apple’s foldable iPhone Duo. What it changed, Apple’s new iPhone Duo design guidelines in plain English, and what it means for HCI.</p>
+      <div class="lp-facts"><span>By <b>Dr. Yasas Sri Wickramasinghe</b></span><span>Published 2026-10-22</span><span>10 min read</span></div>
+      
+    </div>
+    
+    <figure class="lp-cover">
+      <img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/cover.webp" alt="Cover: Built for the bend, with an iPhone Duo-style foldable shown closed, open and propped up like a tiny laptop, playing a sunset film" width="1920" height="1080" fetchpriority="high" decoding="async"/>
+    </figure>
+  </div>
+</header>
+
+<div class="lp-body">
+  <div class="container lp-layout">
+    <aside class="lp-toc" aria-label="On this page">
+      <details open>
+        <summary>On this page</summary>
+        <p class="lp-toc-title">On this page</p>
+        <ol><li><a href="#what-is-iphone-duo">What is iPhone Duo?</a></li><li><a href="#what-did-netflix-change-for-iphone-duo">What did Netflix change for iPhone Duo?</a></li><li><a href="#what-do-apple-s-iphone-duo-design-guidelines-say">What do Apple's iPhone Duo design guidelines say?</a></li><li><a href="#why-does-iphone-duo-matter-for-hci-research">Why does iPhone Duo matter for HCI research?</a></li><li><a href="#what-can-app-makers-learn-from-netflix">What can app makers learn from Netflix?</a></li><li><a href="#final-thought">Final thought</a></li><li><a href="#sources">Sources</a></li></ol>
+      </details>
+    </aside>
+    <article class="lp-article">
+      <div class="lp-prose lp-feature">
+        <aside class="lp-brief" aria-label="In brief">
+          <p class="lp-label">In brief</p>
+          <ul><li>Apple published “Designing for iPhone Duo” in its Human Interface Guidelines on 9 September 2026, the day it announced the phone.</li><li>Netflix’s Clips keep playing when you open the phone, switching from vertical to horizontal video.</li><li>Prop the phone up like a laptop and Netflix puts the picture on the top half and the controls on the bottom half.</li><li>Apple asks for one layout that resizes well, not a separate design for every pose.</li><li>Toolbars and tab bars move to the side of the screen, and apps shouldn’t fight that.</li><li>When the phone folds, move things just enough to keep them off the crease, nothing more.</li></ul>
+        </aside>
+<p>A short Instagram reel of the Netflix app running on the new iPhone Duo sent me down a rabbit hole this week.</p>
+<p>On the surface it looks simple. You watch a clip on the small screen, you open the phone, and the clip keeps going on the big screen. But that tiny moment hides a lot of design decisions. Where do the buttons go? What happens to the picture when the screen bends in the middle? What if the phone is standing on a table?</p>
+<p>Apple has written down its answers. On the same day it announced iPhone Duo, it published a new page in its Human Interface Guidelines called <strong>“Designing for iPhone Duo”</strong>. Netflix was one of the first apps to follow it.</p>
+<p>So I want to walk through both: what Netflix built, and the design rules behind it. I'll keep it simple for anyone who uses a phone, and I'll add a few notes at the end for my fellow HCI researchers.</p>
+<h2 id="what-is-iphone-duo">What is iPhone Duo?</h2>
+<p><strong>iPhone Duo is Apple's first foldable iPhone.</strong> It was announced on 9 September 2026 and goes on sale on 23 October. Closed, it has a 5.4-inch outer screen. Open, it has a 7.6-inch inner screen. Apple says both screens share the same aspect ratio, so content scales without awkward cropping.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/iphone-duo-outer-and-inner-screens.webp" alt="Apple press photo: one hand holds iPhone Duo closed, showing its 5.4-inch outer screen, the other holds it open, showing the 7.6-inch inner screen" loading="lazy" decoding="async"/><figcaption>The outer and inner screens. Image: Apple Newsroom, 9 September 2026.</figcaption></figure>
+<p>Folding phones are not new. Samsung launched the first mainstream foldable in 2019, and foldables still make up a very small share of phones sold. What is new is Apple bringing its whole app ecosystem, and a fairly strict set of design rules, to the shape.</p>
+<h2 id="what-did-netflix-change-for-iphone-duo">What did Netflix change for iPhone Duo?</h2>
+<p><strong>Netflix made three changes: Clips that carry on when you open the phone, playback controls that follow the fold, and a bigger Billboard.</strong> Apple put Netflix on stage as an example of an app built for the fold, and Variety and What's on Netflix reported the details.</p>
+<h3>1. Clips that follow you from the small screen to the big one</h3>
+<p>Netflix already has Clips, a scrolling feed of short videos from its shows and films. On iPhone Duo you can scroll Clips on the outer screen with the phone closed. When you open the phone, the same clip carries on, and the video switches from vertical to horizontal.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/netflix-clips-outer-to-inner-screen.webp" alt="Animation: a foldable phone shows a vertical sunset clip on its outer screen, then opens like a book and the same clip continues in widescreen at the same timestamp" loading="lazy" decoding="async"/><figcaption>Closed, a vertical clip. Open, the same moment in widescreen. My illustration: the phone, the show and the screens are drawn by me, not taken from the app.</figcaption></figure>
+<p>This sounds small, but it's the whole point of a foldable. You start something in your pocket-sized mode and continue it in your big-screen mode without losing your place.</p>
+<h3>2. Playback controls that move with the phone</h3>
+<p>This is the feature I find the most clever. The video player changes its layout depending on how you hold the phone: fully open, folded, or propped up.</p>
+<p>If you stand the phone on a table half open, like a tiny laptop, the picture stays on the upright top half and the controls drop to the bottom half lying on the table.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/netflix-playback-controls-propped-up.webp" alt="Animation: flat, the play button sits on the fold line; when the phone is propped up like a laptop, the video moves to the top half and the playback controls move to the bottom half" loading="lazy" decoding="async"/><figcaption>Flat, the play button sits right on the crease. Propped up, the picture and the controls each get their own half.</figcaption></figure>
+<p>Look at the first state in that animation. With the phone flat, the play button lands right on the fold line. That's fine when the screen is flat. It's not fine when the screen is bent, because you'd be tapping into a valley. Moving the controls to the bottom half solves that, and it also puts them where your finger can rest on a stable surface.</p>
+<p>To be fair to the rest of the industry, Android foldables like the Galaxy Z Fold and Pixel Fold already let Netflix do something similar: video on the top half, controls on the bottom. So this is less of an invention and more of a good idea arriving on a new platform.</p>
+<h3>3. A bigger, livelier Billboard</h3>
+<p>The Billboard is the large banner at the top of the Netflix home screen. On iPhone Duo it uses the larger display for more dynamic visual effects. The reports so far don't describe those effects in detail, so I won't guess.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/netflix-iphone-duo-inner-screen.webp" alt="Apple press image of the Netflix app on the iPhone Duo inner screen in landscape, with status, actions and tab bar stacked down the right edge" loading="lazy" decoding="async"/><figcaption>Netflix on the inner screen. Notice the controls stacked down the right edge. Image: Apple Newsroom.</figcaption></figure>
+<p>A Netflix spokesperson told Variety that members want the “same immersive, big-screen feeling to travel with them”. You can see that idea in all three features. The app isn't trying to be different on each screen. It's trying to feel like one continuous experience.</p>
+<h2 id="what-do-apple-s-iphone-duo-design-guidelines-say">What do Apple's iPhone Duo design guidelines say?</h2>
+<p><strong>In one line: build one layout that resizes well, keep it the same app on both screens, let controls move to the side, and when the phone folds, move things just enough.</strong> The Human Interface Guidelines page is short and quite readable. Here is my summary of the parts that matter most.</p>
+<h3>Rule 1: Don't design six layouts. Design one that resizes well.</h3>
+<p>Apple calls the different ways you can hold the phone <strong>poses</strong>. Folded like a book, flat on a table, standing on its edge, propped like a laptop, and so on.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/iphone-duo-device-poses-hig.webp" alt="Six line drawings from Apple's guidelines showing iPhone Duo poses: closed, tent, flat, book, portrait and laptop" loading="lazy" decoding="async"/><figcaption>The poses Apple shows in its guidelines. Image: Apple Human Interface Guidelines.</figcaption></figure>
+<p>You might expect Apple to ask for a special design for each pose. It does the opposite. It says apps should use the same layout tools they already use for different screen sizes (Apple calls them size classes, margins and safe areas) and let the layout stretch. Avoid fixed widths. Avoid anything tied to one specific screen.</p>
+<p>I like this rule a lot. It's the boring answer, and boring answers usually age well.</p>
+<h3>Rule 2: It's the same app on both screens.</h3>
+<p>Apple asks apps to keep the same features and the same state across both screens. The inner screen can show one extra level of detail if it helps. Apple's example is Mail. Closed, you see either your inbox or one email. Open, you see both side by side.</p>
+<p>What you shouldn't do is hide a feature on one screen, or make people learn a different app when they open the phone.</p>
+<h3>Rule 3: The controls move to the side.</h3>
+<p>This is the most visible change. On the outer screen, which is wider and shorter than a normal iPhone, the system moves toolbars and tab bars from the top and bottom to the right edge. That keeps more height for your content.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/iphone-duo-controls-move-to-the-side.webp" alt="Animation: a typical iPhone photo library with bars at the top and bottom morphs into the wider iPhone Duo outer screen, where status, toolbar and tab bar stack along the right edge" loading="lazy" decoding="async"/><figcaption>A typical iPhone layout turns into the iPhone Duo outer screen: same controls, new home along the side. My illustration based on Apple’s guidelines.</figcaption></figure>
+<p>Apple is clear that apps should, in general, not override this. The side position is meant to become something your hands just know, across every app. The guidelines also cover the details: back and close at the top, frequent actions kept visible longest, symbols instead of text labels where possible, and one shared overflow menu.</p>
+<h3>Rule 4: When it folds, move things just enough.</h3>
+<p>Some parts of the screen are special. Apple calls them <strong>reserved regions</strong>: the outer camera, the inner camera when it's on, and the fold itself when the phone is half open. Content should stay out of these spots.</p>
+<p>The system already handles a lot of this. Alerts, menus and sheets move away from the fold on their own. Split views adjust their columns. Apple's guidelines even suggest using an even number of columns in grids, so the fold falls between items rather than through one.</p>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/iphone-duo-fold-displacement.webp" alt="Animation: an episode list and detail view on a flat inner screen with an alert over the crease; as the phone half folds, the panes become equal and the alert slides into the right half" loading="lazy" decoding="async"/><figcaption>Half open, the panes even out and the alert slides off the crease. My illustration based on Apple’s guidelines.</figcaption></figure>
+<figure><img src="https://www.yasassri.me/assets/images/blog/iphone-duo-netflix/iphone-duo-notes-split-view-fold.webp" alt="Apple's Notes example on the iPhone Duo inner screen: flat, the note list is narrower than the note; half folded, both panes are the same width" loading="lazy" decoding="async"/><figcaption>Apple’s own example in Notes, flat and half folded. Image: Apple Human Interface Guidelines.</figcaption></figure>
+<p>But the key line is about restraint. Apple asks designers to avoid big layout changes when people fold the phone. Move only what you need to keep things visible and easy to tap. If buttons jump around, people lose track of them.</p>
+<p>Netflix's playback design fits this rule. The controls move once, to a place that makes sense, and stay there.</p>
+<h3>Rule 5: Games should fill the screen.</h3>
+<p>A smaller point, but a nice one. Games can lock to portrait or landscape, but they should still fill the screen as the pose changes. Apple prefers changing the aspect ratio over adding black bars. If bars can't be avoided, it suggests filling them with artwork so it still feels full screen.</p>
+<h2 id="why-does-iphone-duo-matter-for-hci-research">Why does iPhone Duo matter for HCI research?</h2>
+<p><strong>Because it turns ideas the research community has studied in the lab into everyday behaviour for millions of people.</strong> Here are the threads I find most interesting.</p>
+<p><strong>Posture as context.</strong> Research prototypes have looked at how the angle between two screens changes what people want to do. One well-known example is Codex, a dual-screen tablet prototype from Hinckley and colleagues at CHI 2009. Apple has now turned “pose” into a first-class design concept. That gives us a chance to study posture-aware interfaces outside the lab.</p>
+<p><strong>Spatial memory and stable controls.</strong> Apple's “move just enough” rule lines up with what we know about spatial memory in interfaces. People become fast when commands stay in the same place, and lose that speed when layouts shift. Cockburn and colleagues' survey on novice-to-expert transitions (ACM Computing Surveys, 2014) is a good starting point. An open question is whether one shared side position across all apps speeds up learning, or whether the switch between side bars (outer screen) and normal bars (inner screen in portrait) causes small but real errors.</p>
+<p><strong>Noticing layout changes.</strong> When content moves during a fold, users have to re-find things. The change blindness literature, for example Rensink, O'Regan and Clark (1997), suggests that changes during a physical action can be easy to miss. It would be interesting to measure how much animated, minimal movement actually helps compared with simply re-flowing the layout.</p>
+<p><strong>Reach and grip.</strong> Moving controls to one edge is a strong bet about how people hold a wider phone. It would be worth testing with left-handed users and people with smaller hands, since the controls stay on the same side even in right-to-left languages.</p>
+<p>If anyone is already running studies on any of this, I'd love to hear about it.</p>
+<h2 id="what-can-app-makers-learn-from-netflix">What can app makers learn from Netflix?</h2>
+<p><strong>Start with a layout that resizes cleanly, then design carefully for the one or two moments where the fold really changes things.</strong> As a checklist:</p>
+<ul>
+<li>Make sure your layout resizes cleanly before you add anything special.</li>
+<li>Keep the same features on both screens.</li>
+<li>Use the system bars and let them move to the side.</li>
+<li>Find the moments where the fold genuinely changes the experience, like Netflix's propped-up playback, and design those with care.</li>
+<li>Keep everything else calm.</li>
+</ul>
+<h2 id="final-thought">Final thought</h2>
+<p>The hinge gets the headlines, but the guidelines are the real story. Apple's message is basically: don't treat the fold as a gimmick, treat it as a change in context, and only respond where it helps people.</p>
+<p>Netflix's version of that is a play button that knows where your finger will be when the phone is on a table. That's a small thing. Good design usually is.</p>
+<p><em>What app would you most like to see redesigned for a folding phone?</em></p>
+<h2 id="sources">Sources</h2>
+<ol>
+<li>Apple. <a href="https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo" target="_blank" rel="noopener">Designing for iPhone Duo</a>. Human Interface Guidelines, 9 September 2026.</li>
+<li>Apple Newsroom. <a href="https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/" target="_blank" rel="noopener">Apple unveils iPhone Duo</a>. 9 September 2026.</li>
+<li>Variety. <a href="https://variety.com/2026/digital/news/netflix-apple-iphone-duo-foldable-features-1236856362/" target="_blank" rel="noopener">Netflix and Apple iPhone Duo features</a>. 9 September 2026.</li>
+<li>Hurst, A. <a href="https://www.whats-on-netflix.com/news/netflix-has-redesigned-its-mobile-app-for-iphone-duo-whats-different/" target="_blank" rel="noopener">Netflix Has Redesigned its Mobile App for iPhone Duo: What's Different?</a>. What's on Netflix, 10 September 2026.</li>
+<li>Unagar, S. <a href="https://www.sagarunagar.com/blog/iphone-duo-human-interface-guidelines" target="_blank" rel="noopener">Designing for iPhone Duo: HIG Guide in 5 Minutes</a>. 12 September 2026.</li>
+<li>Hinckley, K., Dixon, M., Sarin, R., Guimbretière, F., &amp; Balakrishnan, R. (2009). <a href="https://doi.org/10.1145/1518701.1518996" target="_blank" rel="noopener">Codex: A Dual Screen Tablet Computer</a>. CHI.</li>
+<li>Cockburn, A., Gutwin, C., Scarr, J., &amp; Malacria, S. (2014). <a href="https://doi.org/10.1145/2659796" target="_blank" rel="noopener">Supporting Novice to Expert Transitions in User Interfaces</a>. ACM Computing Surveys 47(2).</li>
+<li>Rensink, R. A., O'Regan, J. K., &amp; Clark, J. J. (1997). <a href="https://doi.org/10.1111/j.1467-9280.1997.tb00427.x" target="_blank" rel="noopener">To See or Not to See: The Need for Attention to Perceive Changes in Scenes</a>. Psychological Science 8(5).</li>
+</ol>
+<p><em>Images credited to Apple Newsroom and Apple Human Interface Guidelines belong to Apple Inc. and are used for commentary. The animations are my own illustrations; the show “Northbound” and its artwork are made up.</em></p>
+
+        <aside class="lp-author" aria-label="About the author">
+          <p class="lp-label">About the author</p>
+          <p><strong>Dr. Yasas Sri Wickramasinghe</strong> is an augmented reality researcher and senior lecturer in Christchurch, New Zealand. His research covers multiplayer location-based AR games, presence in virtual reality and cybersickness. <a href="../about.html">More about Yasas</a>.</p>
+        </aside>
+      </div>
+      <div class="lp-actions" style="margin-top:40px">
+        <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+        <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </div>
+</div>
+<section class="lp-section soft" aria-labelledby="faq">
+  <div class="container">
+    <div class="lp-section-head"><h2 id="faq">Frequently asked questions</h2></div>
+    <div class="lp-faq">
+      <details><summary>What is iPhone Duo?</summary><p>iPhone Duo is Apple’s first foldable iPhone, announced on 9 September 2026 and on sale from 23 October 2026. It has a 5.4-inch outer screen when closed and a 7.6-inch inner screen when open, and Apple says both screens share the same aspect ratio.</p></details>
+      <details><summary>What did Netflix change for iPhone Duo?</summary><p>Three things were reported: Clips that keep playing when you open the phone and switch from vertical to horizontal video, playback controls that adapt to whether the phone is flat, folded or propped up, and a larger Billboard on the home screen with more dynamic visual effects.</p></details>
+      <details><summary>What do Apple’s iPhone Duo design guidelines say?</summary><p>In short: build one layout that resizes well instead of a design per pose, keep the same features on both screens, let the system move toolbars and tab bars to the side, keep content clear of reserved regions like the fold and cameras, and avoid big layout changes when people fold the phone.</p></details>
+      <details><summary>What are device poses on iPhone Duo?</summary><p>Poses are the ways people hold or place the phone, such as partially folded like a book, flat on a surface, standing on an edge, or propped up like a small laptop. Apple asks apps to handle every pose using size classes rather than a custom layout for each one.</p></details>
+      <details><summary>Do Android foldables already do this?</summary><p>Partly. On foldables like the Galaxy Z Fold and Pixel Fold, the Netflix Android app can already show video on the top half and controls on the bottom half. What is new on iPhone Duo is Apple’s full set of system-wide design rules for the fold.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-name">Yasas Sri <em>Wickramasinghe</em></div>
+      <div class="footer-copy">&copy; <span class="year">2026</span> Yasas Sri Wickramasinghe. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/yasassri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/yasassri.me" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://twitter.com/sri_yasas" target="_blank" rel="noopener">Twitter/X</a>
+      <a href="https://ictcampus.lk" target="_blank" rel="noopener">ICT Campus</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/premium.js"></script>
+<script src="../assets/js/hunt.js" defer></script>
+<script src="../assets/js/lesson-page.js" defer></script>
+</body>
+</html>
