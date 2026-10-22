@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Wed, 21 Oct 2026 22:12:53 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 22 Oct 2026 03:14:31 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
@@ -22,6 +22,14 @@
     <pubDate>Wed, 21 Oct 2026 12:00:00 +0000</pubDate>
     <category><![CDATA[HCI]]></category>
     <description><![CDATA[Netflix rebuilt its app for Apple’s foldable iPhone Duo. What it changed, Apple’s new iPhone Duo design guidelines in plain English, and what it means for HCI.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[PHP2Shell Explained: Is Your Website Wide Open?]]></title>
+    <link>https://www.yasassri.me/writing/php2shell-php-vulnerability-explained-simply.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/php2shell-php-vulnerability-explained-simply.html</guid>
+    <pubDate>Wed, 21 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Security]]></category>
+    <description><![CDATA[PHP2Shell (CVE-2026-109618 and CVE-2026-109619) in plain English: what the two PHP flaws are, why they matter, which versions are fixed, and what to do today.]]></description>
   </item>
   <item>
     <title><![CDATA[If a Machine Can Make You Feel You Did Something You Didn’t, Who Decides the Timing?]]></title>
@@ -238,14 +246,6 @@
     <pubDate>Tue, 18 Oct 2022 12:00:00 +0000</pubDate>
     <category><![CDATA[Architecture]]></category>
     <description><![CDATA[Explains ASML's role in modern chip manufacturing through extreme ultraviolet (EUV) lithography. Connects the physics of EUV to why it has become essential for producing today's most advanced processors.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[GitHub Student Pack: Hidden Treasure for University Students]]></title>
-    <link>https://www.yasassri.me/writing/github-student-pack-hidden-treasure-for-university-students.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/github-student-pack-hidden-treasure-for-university-students.html</guid>
-    <pubDate>Tue, 18 Oct 2022 12:00:00 +0000</pubDate>
-    <category><![CDATA[Education]]></category>
-    <description><![CDATA[Highlights the GitHub Student Developer Pack and the free developer tools and services it unlocks for university students. Aimed at students who may not realise how much value the pack offers.]]></description>
   </item>
 </channel>
 </rss>
