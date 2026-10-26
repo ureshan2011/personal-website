@@ -5,7 +5,7 @@
   <link>https://www.yasassri.me/</link>
   <description>Augmented reality research, teaching and writing from Dr. Yasas Sri Wickramasinghe.</description>
   <language>en</language>
-  <lastBuildDate>Thu, 22 Oct 2026 03:14:31 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 08:30:28 +0000</lastBuildDate>
   <atom:link href="https://www.yasassri.me/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title><![CDATA[VRST 2026 — The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness]]></title>
@@ -14,6 +14,14 @@
     <pubDate>Mon, 16 Nov 2026 09:00:00 +0900</pubDate>
     <category><![CDATA[Event]]></category>
     <description><![CDATA[I'm presenting my paper "The Role of Display Type and Camera Perspective in Shaping VR Presence and Motion Sickness" at the 32nd ACM Symposium on Virtual Reality Software and Technology (VRST 2026), held at the Research Institute of Electrical Communication, Tohoku University, Sendai, Japan, 16-18 November 2026. My presentation slot is still to be confirmed by the organisers.]]></description>
+  </item>
+  <item>
+    <title><![CDATA[The Madagaskar Effect: I Hid One Line My Students Couldn't See. Their AI Obeyed It.]]></title>
+    <link>https://www.yasassri.me/writing/madagaskar-effect-hidden-prompt-ai-education.html</link>
+    <guid isPermaLink="true">https://www.yasassri.me/writing/madagaskar-effect-hidden-prompt-ai-education.html</guid>
+    <pubDate>Sun, 25 Oct 2026 12:00:00 +0000</pubDate>
+    <category><![CDATA[Education]]></category>
+    <description><![CDATA[A made-up term hidden in white text showed me who read their AI's answer and who didn't. The method, why students skip the read, and a toolkit for educators.]]></description>
   </item>
   <item>
     <title><![CDATA[iPhone Duo Design Guidelines: What Netflix’s Foldable App Gets Right]]></title>
@@ -238,14 +246,6 @@
     <pubDate>Sat, 22 Oct 2022 12:00:00 +0000</pubDate>
     <category><![CDATA[Lifestyle]]></category>
     <description><![CDATA[A lighter, seasonal piece with Black Friday gift ideas. A departure from the technical essays — practical, timely shopping suggestions.]]></description>
-  </item>
-  <item>
-    <title><![CDATA[ASML Chip Manufacturing: EUV Lithography & Computer Architecture]]></title>
-    <link>https://www.yasassri.me/writing/asml-chip-manufacturing-euv-lithography-computer-architecture.html</link>
-    <guid isPermaLink="true">https://www.yasassri.me/writing/asml-chip-manufacturing-euv-lithography-computer-architecture.html</guid>
-    <pubDate>Tue, 18 Oct 2022 12:00:00 +0000</pubDate>
-    <category><![CDATA[Architecture]]></category>
-    <description><![CDATA[Explains ASML's role in modern chip manufacturing through extreme ultraviolet (EUV) lithography. Connects the physics of EUV to why it has become essential for producing today's most advanced processors.]]></description>
   </item>
 </channel>
 </rss>
