@@ -1118,8 +1118,123 @@ ${authorBox}
   });
 }
 
+/* Interactive pieces (front matter `layout: interactive`). The story is a
+   hand-built HTML fragment with its own scoped stylesheet and script, so the
+   Markdown body is not rendered: the fragment carries every word, which keeps
+   the page fully crawlable without JavaScript. The generator still owns the
+   frame, so these pages get the same nav, footer, canonical, BlogPosting
+   JSON-LD, feed item and sitemap entry as every other piece of writing.
+   Front-matter keys, beyond the usual title/slug/summary/category/date:
+     fragment   path to the story markup, relative to the repo root
+     styles     JSON array of stylesheet paths, relative to the site root
+     scripts    JSON array of script paths, relative to the site root
+     video      optional JSON {src, poster, width, height, duration, name,
+                description}: a trailer, emitted as og:video + VideoObject
+     shareText  optional text for the fragment's share links
+   Placeholders the fragment may use: {{crumbs}} {{canonical}}
+   {{canonical_enc}} {{share_text_enc}} {{date_long}} {{minutes}} */
+function renderInteractiveArticlePage(article) {
+  const { slug, title, summary, category } = article;
+  const canonical = `${SITE_URL}/writing/${slug}.html`;
+  const published = article.date || today;
+  const updated = article.updated || published;
+  const fragmentPath = path.resolve(REPO_ROOT, article.fragment || "");
+  if (!article.fragment || !fs.existsSync(fragmentPath)) throw new Error(`${slug}: interactive fragment not found (${article.fragment})`);
+  let fragment = fs.readFileSync(fragmentPath, "utf8");
+  const words = fragment.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, " ")
+    .replace(/<[^>]+>/g, " ").split(/\s+/).filter(w => /[A-Za-z0-9]/.test(w)).length;
+  const minutes = Math.max(1, Math.round(words / 200));
+  const dateLong = new Date(`${published}T00:00:00Z`).toLocaleDateString("en-NZ", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  const shareText = article.shareText || title;
+  const fill = {
+    crumbs: crumbs(1, [["Home", "index.html"], ["Writing", "blogs.html"], [title, ""]]),
+    canonical: esc(canonical),
+    canonical_enc: encodeURIComponent(canonical),
+    share_text_enc: encodeURIComponent(shareText),
+    date_long: esc(dateLong),
+    minutes: String(minutes)
+  };
+  fragment = fragment.replace(/\{\{(\w+)\}\}/g, (m, k) => (k in fill ? fill[k] : m));
+
+  const video = article.video && typeof article.video === "object" ? article.video : null;
+  const ogImage = article.ogImage || article.cover || undefined;
+  const jsonLd = [{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": summary,
+    "url": canonical,
+    "inLanguage": "en",
+    "datePublished": published,
+    "dateModified": updated,
+    "articleSection": category || undefined,
+    "keywords": article.keywords || undefined,
+    "wordCount": words,
+    "image": ogImage ? [ogImage] : undefined,
+    "isAccessibleForFree": true,
+    "learningResourceType": "Interactive explainer",
+    "author": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
+    "publisher": { "@type": "Person", "name": "Dr. Yasas Sri Wickramasinghe", "url": SITE_URL + "/" },
+    "isPartOf": { "@type": "WebSite", "@id": SITE_URL + "/#website" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
+    "video": video ? { "@id": `${canonical}#trailer` } : undefined
+  }, breadcrumbLd([
+    ["Home", `${SITE_URL}/`],
+    ["Writing", `${SITE_URL}/blogs.html`],
+    [title, canonical]
+  ])];
+  if (video) jsonLd.push({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${canonical}#trailer`,
+    "name": video.name || `${title} (trailer)`,
+    "description": video.description || summary,
+    "thumbnailUrl": [video.poster || ogImage],
+    "uploadDate": published,
+    "duration": video.duration || undefined,
+    "contentUrl": video.src,
+    "embedUrl": `${canonical}#trailer`,
+    "inLanguage": "en"
+  });
+  if (Array.isArray(article.faq) && article.faq.length) jsonLd.push(faqLd(article.faq));
+
+  const up = "../";
+  const styles = (Array.isArray(article.styles) ? article.styles : []).map(s => `<link href="${up}${esc(s)}" rel="stylesheet"/>\n`).join("");
+  const scripts = (Array.isArray(article.scripts) ? article.scripts : []).map(s => `<script src="${up}${esc(s)}" defer></script>\n`).join("");
+  const videoMeta = video ? [
+    `<meta property="og:video" content="${esc(video.src)}"/>`,
+    `<meta property="og:video:secure_url" content="${esc(video.src)}"/>`,
+    `<meta property="og:video:type" content="video/mp4"/>`,
+    video.width ? `<meta property="og:video:width" content="${esc(video.width)}"/>` : "",
+    video.height ? `<meta property="og:video:height" content="${esc(video.height)}"/>` : ""
+  ].filter(Boolean).join("\n") + "\n" : "";
+  const articleMeta = `<meta property="article:published_time" content="${esc(published)}"/>\n<meta property="article:author" content="Dr. Yasas Sri Wickramasinghe"/>\n`;
+
+  const pageBody = `${fragment}
+<section class="lp-section" aria-label="More from Yasas">
+  <div class="container">
+    <aside class="lp-author" aria-label="About the author">
+      <p class="lp-label">About the author</p>
+      <p><strong>Dr. Yasas Sri Wickramasinghe</strong> ${article.authorBio ? esc(article.authorBio) : "is an augmented reality researcher and senior lecturer in Christchurch, New Zealand."} <a href="../about.html">More about Yasas</a>.</p>
+    </aside>
+    <div class="lp-actions" style="margin-top:28px">
+      <a class="btn" href="../blogs.html">More writing <span class="arrow">→</span></a>
+      <a class="btn btn-solid" href="../app/#/newsletter">Get new posts by email <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>`;
+
+  return shell({
+    depth: 1, title: `${title} | Dr. Yasas Sri Wickramasinghe`, description: summary, canonical,
+    ogImage, jsonLd, active: "writing", body: pageBody, bodyClass: "lp-page is-interactive",
+    head: videoMeta + articleMeta + styles,
+    foot: scripts
+  });
+}
+
 function renderWritingArticlePage(article) {
   if (article.layout === "feature") return renderFeatureArticlePage(article);
+  if (article.layout === "interactive") return renderInteractiveArticlePage(article);
   const { slug, title, summary, category, originalUrl, originalSource, originalDate, body } = article;
   const canonical = `${SITE_URL}/writing/${slug}.html`;
 
