@@ -36,7 +36,7 @@
   "@type": "ItemList",
   "name": "Writing by Dr. Yasas Sri Wickramasinghe",
   "description": "Articles and essays on augmented reality, spatial computing and software engineering.",
-  "numberOfItems": 30,
+  "numberOfItems": 31,
   "itemListOrder": "https://schema.org/ItemListUnordered",
   "itemListElement": [
     {
@@ -209,6 +209,12 @@
       "position": 30,
       "url": "https://www.yasassri.me/writing/madagaskar-effect-hidden-prompt-ai-education.html",
       "name": "The Madagaskar Effect: I Hid One Line My Students Couldn't See. Their AI Obeyed It."
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
+      "url": "https://www.yasassri.me/writing/the-new-hire-how-companies-build-their-own-ai.html",
+      "name": "The New Hire: How Companies Build Their Own AI"
     }
   ]
 }
@@ -348,6 +354,37 @@
     </div>
   </div>
 </header>
+
+<!-- INTERACTIVE WRITING — pieces built with layout: interactive (see scripts/build-seo-pages.mjs).
+     The trailer autoplays muted while on screen (assets/js/video-teaser.js) and never with reduced motion. -->
+<section class="section" id="interactive" style="padding-bottom:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="idx">New format</span>
+      <h2>Interactive <em>Writing</em></h2>
+      <p>Stories you can click, toggle and break. Each one explains a big idea by letting you poke at it.</p>
+    </div>
+    <div class="feature-row interactive-feature reveal" style="padding-top:0">
+      <div class="feature-media teaser-media">
+        <video data-teaser muted loop playsinline preload="none" width="1280" height="720" poster="assets/images/blog/the-new-hire/trailer-poster.jpg" aria-label="Trailer for The New Hire, 22 seconds">
+          <source src="assets/images/blog/the-new-hire/trailer.mp4" type="video/mp4">
+        </video>
+        <button class="teaser-sound" type="button" data-teaser-sound aria-pressed="false">Sound on</button>
+        <span class="teaser-len" aria-hidden="true">0:22 trailer</span>
+      </div>
+      <div>
+        <span class="eyebrow">Interactive story · AI</span>
+        <p style="font-family:var(--serif);font-size:clamp(28px,3.4vw,38px);font-weight:400;line-height:1.15;margin-top:18px;color:var(--ink);letter-spacing:-0.01em;">The New Hire</p>
+        <p style="font-style:italic;color:var(--muted);margin-top:2px">How companies build their own AI, in eight working weeks</p>
+        <p style="color:var(--text-dim);font-weight:300;margin-top:16px">Your company just hired someone brilliant who has never heard of you. Follow one AI assistant through its first eight weeks as it invents a leave policy, leaks a salary and gets talked into things. Every disaster unlocks a fix you can try yourself, from RAG and agents to guardrails and evals, next to the real company it happened to.</p>
+        <div class="hero-actions" style="margin-top:22px">
+          <a class="btn btn-solid" href="writing/the-new-hire-how-companies-build-their-own-ai.html">Read the interactive story <span class="arrow">→</span></a>
+          <span style="font-size:13px;color:var(--muted)">About 19 minutes · free, no sign-up</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" style="padding-bottom:0">
   <div class="container">
@@ -745,6 +782,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.23/dist/lenis.min.js"></script>
 <script src="assets/js/premium.js"></script>
+<script src="assets/js/video-teaser.js" defer></script>
 <script src="assets/js/hunt.js" defer></script>
 </body>
 </html>
