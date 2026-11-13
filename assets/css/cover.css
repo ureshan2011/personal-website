@@ -237,7 +237,7 @@
 .isl[data-state="read"] .isl-me { width: 36px; height: 36px; }
 .isl-live { position: absolute; right: -1px; bottom: 1px; width: 11px; height: 11px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 2.5px var(--isl-ink); }
 
-.isl-stage { position: relative; flex: 1 1 auto; align-self: stretch; min-width: 0; }
+.isl-stage { position: relative; flex: 1 1 auto; align-self: stretch; min-width: 0; overflow: hidden; border-radius: 22px; }
 .isl-panel {
   position: absolute; left: 0; top: 0; bottom: 0; display: flex; align-items: center; gap: 10px; white-space: nowrap;
   opacity: 0; filter: blur(6px); transform: scale(.94); transform-origin: left center; pointer-events: none;
@@ -286,7 +286,7 @@
 .isl[data-state="menu"] .isl-me { opacity: 0; width: 0; margin-right: -10px; }
 
 /* the scroll-progress ring that hugs the pill (ICT Campus pattern) */
-.isl-ring { position: absolute; pointer-events: none; overflow: visible; opacity: 0; transition: opacity .3s; }
+.isl-ring { position: absolute; max-width: none; max-height: none; pointer-events: none; overflow: visible; opacity: 0; transition: opacity .3s; }
 .isl-ring path { stroke: var(--isl-hot); stroke-width: 2.5; }
 .isl-ring [data-isl-ring-track] { stroke-opacity: .22; }
 .isl[data-scrolled="true"]:not([data-state="menu"]) .isl-ring { opacity: 1; }

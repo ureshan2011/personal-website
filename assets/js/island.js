@@ -111,7 +111,9 @@
   var ring = isl.querySelector("[data-isl-ring]"), track = isl.querySelector("[data-isl-ring-track]"), fill = isl.querySelector("[data-isl-ring-fill]"), ringLen = 0, RP = 4;
   function fitRing() {
     if (!ring) return;
-    var w = parseFloat(isl.style.width) || isl.offsetWidth, h = parseFloat(isl.style.height) || isl.offsetHeight;
+    // use the pill's live size, so the ring follows it frame by frame while it morphs
+    var w = isl.offsetWidth, h = isl.offsetHeight;
+    if (!w || !h) return;
     var rw = w + RP * 2 - 2.5, rh = h + RP * 2 - 2.5, r = rh / 2, o = 1.25;
     var d = "M" + (o + rw / 2) + " " + o + "H" + (o + rw - r) + "A" + r + " " + r + " 0 0 1 " + (o + rw - r) + " " + (o + rh) + "H" + (o + r) + "A" + r + " " + r + " 0 0 1 " + (o + r) + " " + o + "Z";
     ring.setAttribute("width", w + RP * 2); ring.setAttribute("height", h + RP * 2);
@@ -122,6 +124,7 @@
   }
   // refit after each morph settles
   isl.addEventListener("transitionend", function (e) { if (e.target === isl && (e.propertyName === "width" || e.propertyName === "height")) fitRing(); });
+  if (typeof ResizeObserver !== "undefined") new ResizeObserver(function () { fitRing(); }).observe(isl);
 
   var lastY = window.scrollY, raf = null;
   function paint() {
