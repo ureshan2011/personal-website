@@ -1,0 +1,15 @@
+{
+  "name": "cv-room",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Find my CV: the hide-and-seek CV room at /cv/ (three.js). Builds to ../../assets/cv-room/cv-room.js",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "three": "0.170.0"
+  }
+}
