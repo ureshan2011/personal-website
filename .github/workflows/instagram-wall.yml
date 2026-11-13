@@ -1,0 +1,73 @@
+name: Instagram wall sync
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily, off-peak (UTC)
+  workflow_dispatch:
+    inputs:
+      add_post_url:
+        description: "Instagram post URL to add to the wall (optional)"
+        required: false
+        type: string
+      remove_post:
+        description: "Post URL or shortcode to remove from the wall (optional)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-wall
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync Instagram wall
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run sync script
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          # Inputs go through the environment, never into the shell line.
+          ADD_POST_URL: ${{ github.event.inputs.add_post_url }}
+          REMOVE_POST: ${{ github.event.inputs.remove_post }}
+        run: |
+          args=()
+          if [ -n "$ADD_POST_URL" ]; then args+=(--add "$ADD_POST_URL"); fi
+          if [ -n "$REMOVE_POST" ]; then args+=(--remove "$REMOVE_POST"); fi
+          node scripts/sync-instagram-wall.mjs "${args[@]}"
+
+      - name: Commit and push changes
+        id: commit
+        run: |
+          if [ -n "$(git status --porcelain -- content/cv-room assets/cv-room/instagram)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A -- content/cv-room assets/cv-room/instagram
+            git commit -m "Instagram wall: sync posts"
+            git push origin HEAD:main
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No wall changes; nothing to commit."
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Pushes made with GITHUB_TOKEN do not trigger other workflows, so deploy here.
+      - name: Deploy to Azure Static Web Apps
+        if: steps.commit.outputs.committed == 'true'
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ZEALOUS_MEADOW_062B28F10 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          app_artifact_location: "/"

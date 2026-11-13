@@ -904,6 +904,22 @@ choose the pacing. Limitations:
 thumbstick placement, Overlay needs an empty room (3 disoriented), arm fatigue
 (4), a learning curve for swapping, lag and drift, and first-session data only.
 
+## Find my CV — https://www.yasassri.me/cv/
+
+An interactive curriculum vitae built as a 3D room in the browser (WebGL, no
+app or login). The visitor plays the Seeker from the remote multiplayer AR
+hide-and-seek game in his PhD research: the room is dark, a torch beam follows
+the cursor or the phone, and twelve CV items — roles, degrees, publications,
+teaching, grants and awards, tools and certifications — are hidden the way study participants hid virtual
+objects (above head height, in mid-air, camouflaged). Optional mechanics from
+the third study (several clones with one live target, active swapping, a two-
+minute timer) can be switched on or off. Each find is typeset into a CV page;
+'Switch the lights on' reveals everything at once and shows the full CV as
+ordinary text, and the PDF CV can be downloaded at any time. Framed travel
+photographs from his Instagram (@yasassri.me) hang on the walls and link to
+the original posts. The page works without the game: the complete CV is
+present as plain HTML.
+
 ## Contact — https://www.yasassri.me/contact.html
 
 Inquiries & correspondence. Hiring me for your organisation, booking a free

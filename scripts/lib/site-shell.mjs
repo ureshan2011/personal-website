@@ -136,7 +136,7 @@ ${NAV.map(([href, label, key]) => `      <a${cls(key)} href="${up}${href}">${lab
 ${MOBILE.map(([href, label, key], i) => `  <a${cls(key)} href="${up}${href}"><span class="idx">${String(i + 1).padStart(2, '0')}</span>${label}</a>`).join('\n')}
   <a href="${up}app/#/"><span class="idx">11</span>Platform <span class="nav-badge">New</span></a>
   <a href="${up}contact.html"><span class="idx">12</span>Contact</a>
-  <a href="${up}assets/files/cv_yasas.pdf" target="_blank"><span class="idx">13</span>Curriculum Vitae</a>
+  <a href="${up}cv/"><span class="idx">13</span>Curriculum Vitae</a>
 </div>
 
 <main>
